@@ -6650,8 +6650,8 @@ rb_hash_modify_check.exit:                        ; preds = %11
 25:                                               ; preds = %21
   %26 = lshr i32 %23, 20
   %27 = and i32 %26, 15
-  %.not32.i = icmp eq i32 %27, 0
-  br i1 %.not32.i, label %.thread, label %.lr.ph.i
+  %.not30.i = icmp eq i32 %27, 0
+  br i1 %.not30.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25
   %28 = add i64 %0, 24
@@ -6675,8 +6675,8 @@ rb_hash_modify_check.exit:                        ; preds = %11
 ar_cleared_entry.exit.i:                          ; preds = %32
   %36 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %30, i64 0, i64 %indvars.iv.i
   %37 = load i64, ptr %36, align 8
-  %.not26.i = icmp eq i64 %37, 36
-  br i1 %.not26.i, label %31, label %ar_cleared_entry.exit.thread.i
+  %.not24.i = icmp eq i64 %37, 36
+  br i1 %.not24.i, label %31, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.exit.i, %32
   %38 = getelementptr [8 x i8], ptr %29, i64 0, i64 %indvars.iv.i

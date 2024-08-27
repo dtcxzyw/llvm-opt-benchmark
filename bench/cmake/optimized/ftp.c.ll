@@ -2082,8 +2082,8 @@ define dso_local i32 @Curl_GetFTPResponse(ptr noundef %0, ptr nocapture noundef 
   %46 = getelementptr inbounds i8, ptr %0, i64 2642
   %47 = load i64, ptr %46, align 2
   %48 = and i64 %47, 268435456
-  %.not15.i = icmp eq i64 %48, 0
-  br i1 %.not15.i, label %ftp_readresp.exit.thread, label %49
+  %.not14.i = icmp eq i64 %48, 0
+  br i1 %.not14.i, label %ftp_readresp.exit.thread, label %49
 
 49:                                               ; preds = %45
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
@@ -2192,8 +2192,8 @@ define internal i32 @ftp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %20 = getelementptr inbounds i8, ptr %0, i64 2642
   %21 = load i64, ptr %20, align 2
   %22 = and i64 %21, 268435456
-  %.not15.i = icmp eq i64 %22, 0
-  br i1 %.not15.i, label %ftp_readresp.exit.thread, label %23
+  %.not14.i = icmp eq i64 %22, 0
+  br i1 %.not14.i, label %ftp_readresp.exit.thread, label %23
 
 23:                                               ; preds = %19
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10

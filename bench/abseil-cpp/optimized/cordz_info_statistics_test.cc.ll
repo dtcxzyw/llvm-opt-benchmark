@@ -3449,8 +3449,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6
   %2 = load i64, ptr %call5.i.i.i.i.i.i.i10, align 8
   store i64 %2, ptr %call5.i.i.i.i.i.i.i44, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i10) #22
-  %.pre.pre = load i64, ptr %call4.i.i.i9, align 8
   %call5.val8.pre.pre = load i8, ptr %tag.i.i.i, align 4
+  %.pre.pre = load i64, ptr %call4.i.i.i9, align 8
   %add.ptr19.i.i.i.i39 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i44, i64 16
   %3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i44, i64 16
   store ptr %3, ptr %_M_finish.i.i.i, align 8

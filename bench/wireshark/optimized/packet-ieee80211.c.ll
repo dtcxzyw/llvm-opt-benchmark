@@ -27366,7 +27366,7 @@ ieee_80211_add_tagged_parameters.exit:            ; preds = %.lr.ph.split.i, %.t
   %294 = load i32, ptr @hf_ieee80211_tag_measure_report_subelement_length, align 4
   %295 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %294, ptr noundef %0, i32 noundef %291, i32 noundef 1, i32 noundef 0) #22
   %296 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %291) #22
-  %297 = add nuw i32 %.8468, 2
+  %297 = add i32 %.8468, 2
   %298 = trunc i32 %297 to i8
   %299 = add i8 %296, %298
   %300 = zext i8 %299 to i32
@@ -27385,13 +27385,13 @@ ieee_80211_add_tagged_parameters.exit:            ; preds = %.lr.ph.split.i, %.t
 306:                                              ; preds = %305
   %307 = load i32, ptr @hf_ieee80211_tag_measure_report_location_civic_country, align 4
   %308 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %307, ptr noundef %0, i32 noundef %297, i32 noundef 2, i32 noundef 0) #22
-  %309 = add nuw i32 %.8468, 4
+  %309 = add i32 %.8468, 4
   %310 = load i32, ptr @hf_ieee80211_tag_measure_report_location_civic_type, align 4
   %311 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %310, ptr noundef %0, i32 noundef %309, i32 noundef 1, i32 noundef 0) #22
-  %312 = add nuw i32 %.8468, 5
+  %312 = add i32 %.8468, 5
   %313 = load i32, ptr @hf_ieee80211_tag_measure_report_location_civic_length, align 4
   %314 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %293, i32 noundef %313, ptr noundef %0, i32 noundef %312, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #22
-  %315 = add nuw i32 %.8468, 6
+  %315 = add i32 %.8468, 6
   %316 = load i32, ptr @hf_ieee80211_tag_measure_report_location_civic, align 4
   %317 = load i32, ptr %5, align 4
   %318 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %316, ptr noundef %0, i32 noundef %315, i32 noundef %317, i32 noundef 0) #22
@@ -27424,7 +27424,7 @@ ieee_80211_add_tagged_parameters.exit:            ; preds = %.lr.ph.split.i, %.t
 
 331:                                              ; preds = %.loopexit
   %332 = load i32, ptr @hf_ieee80211_tag_measure_report_unknown, align 4
-  %333 = sub nsw i32 %6, %.0451
+  %333 = sub i32 %6, %.0451
   %334 = call ptr @proto_tree_add_item(ptr noundef %.0452, i32 noundef %332, ptr noundef %0, i32 noundef %.0451, i32 noundef %333, i32 noundef 0) #22
   %335 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %334, ptr noundef nonnull @ei_ieee80211_tag_measure_report_unknown) #22
   br label %336
@@ -47228,140 +47228,136 @@ proto_item_set_generated.exit14:                  ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_eapol_parsed(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #2 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %107, label %3
+define internal fastcc void @get_eapol_parsed(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr @proto_eapol, align 4
+  %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 0) #22
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %106, label %7
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 408
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr @proto_eapol, align 4
-  %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 0) #22
-  %.not63 = icmp eq ptr %7, null
-  br i1 %.not63, label %107, label %8
+7:                                                ; preds = %2
+  %8 = load i32, ptr %6, align 8
+  %9 = trunc i32 %8 to i16
+  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  store i16 %9, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = load i8, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 6
+  store i8 %12, ptr %13, align 2
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr @proto_wlan, align 4
+  %16 = tail call ptr @p_get_proto_data(ptr noundef %14, ptr noundef nonnull %0, i32 noundef %15, i32 noundef 17) #22
+  %17 = ptrtoint ptr %16 to i64
+  %18 = trunc i64 %17 to i8
+  %19 = getelementptr inbounds i8, ptr %1, i64 7
+  store i8 %18, ptr %19, align 1
+  %20 = load ptr, ptr %3, align 8
+  %21 = load i32, ptr @proto_wlan, align 4
+  %22 = tail call ptr @p_get_proto_data(ptr noundef %20, ptr noundef nonnull %0, i32 noundef %21, i32 noundef 18) #22
+  %23 = ptrtoint ptr %22 to i64
+  %24 = trunc i64 %23 to i16
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  store i16 %24, ptr %25, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = load i32, ptr @proto_wlan, align 4
+  %28 = tail call ptr @p_get_proto_data(ptr noundef %26, ptr noundef nonnull %0, i32 noundef %27, i32 noundef 19) #22
+  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %28, ptr %29, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr @proto_wlan, align 4
+  %32 = tail call ptr @p_get_proto_data(ptr noundef %30, ptr noundef nonnull %0, i32 noundef %31, i32 noundef 20) #22
+  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %32, ptr %33, align 8
+  %34 = load ptr, ptr %3, align 8
+  %35 = load i32, ptr @proto_wlan, align 4
+  %36 = tail call ptr @p_get_proto_data(ptr noundef %34, ptr noundef nonnull %0, i32 noundef %35, i32 noundef 21) #22
+  %37 = ptrtoint ptr %36 to i64
+  %38 = trunc i64 %37 to i16
+  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  store i16 %38, ptr %39, align 8
+  %40 = load ptr, ptr %3, align 8
+  %41 = load i32, ptr @proto_wlan, align 4
+  %42 = tail call ptr @p_get_proto_data(ptr noundef %40, ptr noundef nonnull %0, i32 noundef %41, i32 noundef 11) #22
+  %43 = getelementptr inbounds i8, ptr %1, i64 40
+  store ptr %42, ptr %43, align 8
+  %44 = load ptr, ptr %3, align 8
+  %45 = load i32, ptr @proto_wlan, align 4
+  %46 = tail call ptr @p_get_proto_data(ptr noundef %44, ptr noundef nonnull %0, i32 noundef %45, i32 noundef 12) #22
+  %47 = ptrtoint ptr %46 to i64
+  %48 = trunc i64 %47 to i8
+  %49 = getelementptr inbounds i8, ptr %1, i64 34
+  store i8 %48, ptr %49, align 2
+  %50 = load ptr, ptr %3, align 8
+  %51 = load i32, ptr @proto_wlan, align 4
+  %52 = tail call ptr @p_get_proto_data(ptr noundef %50, ptr noundef nonnull %0, i32 noundef %51, i32 noundef 13) #22
+  %53 = ptrtoint ptr %52 to i64
+  %54 = trunc i64 %53 to i8
+  %55 = getelementptr inbounds i8, ptr %1, i64 35
+  store i8 %54, ptr %55, align 1
+  %56 = load ptr, ptr %3, align 8
+  %57 = load i32, ptr @proto_wlan, align 4
+  %58 = tail call ptr @p_get_proto_data(ptr noundef %56, ptr noundef nonnull %0, i32 noundef %57, i32 noundef 14) #22
+  %59 = ptrtoint ptr %58 to i64
+  %60 = trunc i64 %59 to i8
+  %61 = getelementptr inbounds i8, ptr %1, i64 36
+  store i8 %60, ptr %61, align 4
+  %62 = load ptr, ptr %3, align 8
+  %63 = load i32, ptr @proto_wlan, align 4
+  %64 = tail call ptr @p_get_proto_data(ptr noundef %62, ptr noundef nonnull %0, i32 noundef %63, i32 noundef 15) #22
+  %65 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %64, ptr %65, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = load i32, ptr @proto_wlan, align 4
+  %68 = tail call ptr @p_get_proto_data(ptr noundef %66, ptr noundef nonnull %0, i32 noundef %67, i32 noundef 16) #22
+  %69 = ptrtoint ptr %68 to i64
+  %70 = trunc i64 %69 to i16
+  %71 = getelementptr inbounds i8, ptr %1, i64 56
+  store i16 %70, ptr %71, align 8
+  %72 = load ptr, ptr %3, align 8
+  %73 = load i32, ptr @proto_wlan, align 4
+  %74 = tail call ptr @p_get_proto_data(ptr noundef %72, ptr noundef nonnull %0, i32 noundef %73, i32 noundef 22) #22
+  %75 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %74, ptr %75, align 8
+  %76 = load ptr, ptr %3, align 8
+  %77 = load i32, ptr @proto_wlan, align 4
+  %78 = tail call ptr @p_get_proto_data(ptr noundef %76, ptr noundef nonnull %0, i32 noundef %77, i32 noundef 23) #22
+  %79 = ptrtoint ptr %78 to i64
+  %80 = trunc i64 %79 to i16
+  %81 = getelementptr inbounds i8, ptr %1, i64 72
+  store i16 %80, ptr %81, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = load i32, ptr @proto_wlan, align 4
+  %84 = tail call ptr @p_get_proto_data(ptr noundef %82, ptr noundef nonnull %0, i32 noundef %83, i32 noundef 24) #22
+  %85 = getelementptr inbounds i8, ptr %1, i64 80
+  store ptr %84, ptr %85, align 8
+  %86 = load ptr, ptr %3, align 8
+  %87 = load i32, ptr @proto_wlan, align 4
+  %88 = tail call ptr @p_get_proto_data(ptr noundef %86, ptr noundef nonnull %0, i32 noundef %87, i32 noundef 25) #22
+  %89 = getelementptr inbounds i8, ptr %1, i64 120
+  store ptr %88, ptr %89, align 8
+  %90 = load ptr, ptr %3, align 8
+  %91 = load i32, ptr @proto_wlan, align 4
+  %92 = tail call ptr @p_get_proto_data(ptr noundef %90, ptr noundef nonnull %0, i32 noundef %91, i32 noundef 26) #22
+  %93 = ptrtoint ptr %92 to i64
+  %94 = trunc i64 %93 to i8
+  %95 = getelementptr inbounds i8, ptr %1, i64 128
+  store i8 %94, ptr %95, align 8
+  %96 = load ptr, ptr %3, align 8
+  %97 = load i32, ptr @proto_wlan, align 4
+  %98 = tail call ptr @p_get_proto_data(ptr noundef %96, ptr noundef nonnull %0, i32 noundef %97, i32 noundef 27) #22
+  %99 = getelementptr inbounds i8, ptr %1, i64 136
+  store ptr %98, ptr %99, align 8
+  %100 = load ptr, ptr %3, align 8
+  %101 = load i32, ptr @proto_wlan, align 4
+  %102 = tail call ptr @p_get_proto_data(ptr noundef %100, ptr noundef nonnull %0, i32 noundef %101, i32 noundef 28) #22
+  %103 = ptrtoint ptr %102 to i64
+  %104 = trunc i64 %103 to i8
+  %105 = getelementptr inbounds i8, ptr %1, i64 144
+  store i8 %104, ptr %105, align 8
+  br label %106
 
-8:                                                ; preds = %3
-  %9 = load i32, ptr %7, align 8
-  %10 = trunc i32 %9 to i16
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
-  store i16 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
-  %13 = load i8, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 6
-  store i8 %13, ptr %14, align 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr @proto_wlan, align 4
-  %17 = tail call ptr @p_get_proto_data(ptr noundef %15, ptr noundef nonnull %0, i32 noundef %16, i32 noundef 17) #22
-  %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %1, i64 7
-  store i8 %19, ptr %20, align 1
-  %21 = load ptr, ptr %4, align 8
-  %22 = load i32, ptr @proto_wlan, align 4
-  %23 = tail call ptr @p_get_proto_data(ptr noundef %21, ptr noundef nonnull %0, i32 noundef %22, i32 noundef 18) #22
-  %24 = ptrtoint ptr %23 to i64
-  %25 = trunc i64 %24 to i16
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store i16 %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = load i32, ptr @proto_wlan, align 4
-  %29 = tail call ptr @p_get_proto_data(ptr noundef %27, ptr noundef nonnull %0, i32 noundef %28, i32 noundef 19) #22
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %29, ptr %30, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = load i32, ptr @proto_wlan, align 4
-  %33 = tail call ptr @p_get_proto_data(ptr noundef %31, ptr noundef nonnull %0, i32 noundef %32, i32 noundef 20) #22
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr %33, ptr %34, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = load i32, ptr @proto_wlan, align 4
-  %37 = tail call ptr @p_get_proto_data(ptr noundef %35, ptr noundef nonnull %0, i32 noundef %36, i32 noundef 21) #22
-  %38 = ptrtoint ptr %37 to i64
-  %39 = trunc i64 %38 to i16
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
-  store i16 %39, ptr %40, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = load i32, ptr @proto_wlan, align 4
-  %43 = tail call ptr @p_get_proto_data(ptr noundef %41, ptr noundef nonnull %0, i32 noundef %42, i32 noundef 11) #22
-  %44 = getelementptr inbounds i8, ptr %1, i64 40
-  store ptr %43, ptr %44, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = load i32, ptr @proto_wlan, align 4
-  %47 = tail call ptr @p_get_proto_data(ptr noundef %45, ptr noundef nonnull %0, i32 noundef %46, i32 noundef 12) #22
-  %48 = ptrtoint ptr %47 to i64
-  %49 = trunc i64 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %1, i64 34
-  store i8 %49, ptr %50, align 2
-  %51 = load ptr, ptr %4, align 8
-  %52 = load i32, ptr @proto_wlan, align 4
-  %53 = tail call ptr @p_get_proto_data(ptr noundef %51, ptr noundef nonnull %0, i32 noundef %52, i32 noundef 13) #22
-  %54 = ptrtoint ptr %53 to i64
-  %55 = trunc i64 %54 to i8
-  %56 = getelementptr inbounds i8, ptr %1, i64 35
-  store i8 %55, ptr %56, align 1
-  %57 = load ptr, ptr %4, align 8
-  %58 = load i32, ptr @proto_wlan, align 4
-  %59 = tail call ptr @p_get_proto_data(ptr noundef %57, ptr noundef nonnull %0, i32 noundef %58, i32 noundef 14) #22
-  %60 = ptrtoint ptr %59 to i64
-  %61 = trunc i64 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %1, i64 36
-  store i8 %61, ptr %62, align 4
-  %63 = load ptr, ptr %4, align 8
-  %64 = load i32, ptr @proto_wlan, align 4
-  %65 = tail call ptr @p_get_proto_data(ptr noundef %63, ptr noundef nonnull %0, i32 noundef %64, i32 noundef 15) #22
-  %66 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr %65, ptr %66, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = load i32, ptr @proto_wlan, align 4
-  %69 = tail call ptr @p_get_proto_data(ptr noundef %67, ptr noundef nonnull %0, i32 noundef %68, i32 noundef 16) #22
-  %70 = ptrtoint ptr %69 to i64
-  %71 = trunc i64 %70 to i16
-  %72 = getelementptr inbounds i8, ptr %1, i64 56
-  store i16 %71, ptr %72, align 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = load i32, ptr @proto_wlan, align 4
-  %75 = tail call ptr @p_get_proto_data(ptr noundef %73, ptr noundef nonnull %0, i32 noundef %74, i32 noundef 22) #22
-  %76 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %75, ptr %76, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = load i32, ptr @proto_wlan, align 4
-  %79 = tail call ptr @p_get_proto_data(ptr noundef %77, ptr noundef nonnull %0, i32 noundef %78, i32 noundef 23) #22
-  %80 = ptrtoint ptr %79 to i64
-  %81 = trunc i64 %80 to i16
-  %82 = getelementptr inbounds i8, ptr %1, i64 72
-  store i16 %81, ptr %82, align 8
-  %83 = load ptr, ptr %4, align 8
-  %84 = load i32, ptr @proto_wlan, align 4
-  %85 = tail call ptr @p_get_proto_data(ptr noundef %83, ptr noundef nonnull %0, i32 noundef %84, i32 noundef 24) #22
-  %86 = getelementptr inbounds i8, ptr %1, i64 80
-  store ptr %85, ptr %86, align 8
-  %87 = load ptr, ptr %4, align 8
-  %88 = load i32, ptr @proto_wlan, align 4
-  %89 = tail call ptr @p_get_proto_data(ptr noundef %87, ptr noundef nonnull %0, i32 noundef %88, i32 noundef 25) #22
-  %90 = getelementptr inbounds i8, ptr %1, i64 120
-  store ptr %89, ptr %90, align 8
-  %91 = load ptr, ptr %4, align 8
-  %92 = load i32, ptr @proto_wlan, align 4
-  %93 = tail call ptr @p_get_proto_data(ptr noundef %91, ptr noundef nonnull %0, i32 noundef %92, i32 noundef 26) #22
-  %94 = ptrtoint ptr %93 to i64
-  %95 = trunc i64 %94 to i8
-  %96 = getelementptr inbounds i8, ptr %1, i64 128
-  store i8 %95, ptr %96, align 8
-  %97 = load ptr, ptr %4, align 8
-  %98 = load i32, ptr @proto_wlan, align 4
-  %99 = tail call ptr @p_get_proto_data(ptr noundef %97, ptr noundef nonnull %0, i32 noundef %98, i32 noundef 27) #22
-  %100 = getelementptr inbounds i8, ptr %1, i64 136
-  store ptr %99, ptr %100, align 8
-  %101 = load ptr, ptr %4, align 8
-  %102 = load i32, ptr @proto_wlan, align 4
-  %103 = tail call ptr @p_get_proto_data(ptr noundef %101, ptr noundef nonnull %0, i32 noundef %102, i32 noundef 28) #22
-  %104 = ptrtoint ptr %103 to i64
-  %105 = trunc i64 %104 to i8
-  %106 = getelementptr inbounds i8, ptr %1, i64 144
-  store i8 %105, ptr %106, align 8
-  br label %107
-
-107:                                              ; preds = %3, %2, %8
+106:                                              ; preds = %2, %7
   ret void
 }
 

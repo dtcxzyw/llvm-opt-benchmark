@@ -15,8 +15,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+  %cmp.not.i = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 25)
@@ -31,8 +31,8 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cmp.i14.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i14.not, label %return, label %if.then.i15
+  %cmp.not.i14 = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i14, label %return, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.then3
   %call2.i18 = tail call ptr @gpr_malloc(i64 noundef 26)
@@ -45,8 +45,8 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end6
-  %cmp.i22.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i22.not, label %return, label %if.then.i23
+  %cmp.not.i22 = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i22, label %return, label %if.then.i23
 
 if.then.i23:                                      ; preds = %if.then8
   %call2.i26 = tail call ptr @gpr_malloc(i64 noundef 28)
@@ -95,8 +95,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+  %cmp.not.i = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 28)
@@ -120,8 +120,8 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 if.then2:                                         ; preds = %if.end
-  %cmp.i12.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i12.not, label %return, label %if.then.i13
+  %cmp.not.i12 = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i12, label %return, label %if.then.i13
 
 if.then.i13:                                      ; preds = %if.then2
   %call2.i16 = tail call ptr @gpr_malloc(i64 noundef 24)

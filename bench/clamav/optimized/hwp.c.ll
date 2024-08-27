@@ -1375,22 +1375,22 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   br i1 %.not26.i.i, label %.fmap_readn.exit.thread_crit_edge.i, label %fmap_readn.exit.i
 
 .fmap_readn.exit.thread_crit_edge.i:              ; preds = %149
-  %.pre149.i = load i64, ptr %8, align 8
+  %.pre148.i = load i64, ptr %8, align 8
   br label %fmap_readn.exit.thread.i
 
 fmap_readn.exit.i:                                ; preds = %149
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %153, i64 %spec.select.i.i, i1 false)
   %.not101.i = icmp ugt i64 %150, 3
-  %.pre150.i = load i64, ptr %8, align 8
+  %.pre149.i = load i64, ptr %8, align 8
   br i1 %.not101.i, label %155, label %fmap_readn.exit.thread.i
 
 fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, %146, %.fmap_readn.exit.thread_crit_edge.i
-  %154 = phi i64 [ %.pre149.i, %.fmap_readn.exit.thread_crit_edge.i ], [ %.pre150.i, %fmap_readn.exit.i ], [ %128, %146 ]
+  %154 = phi i64 [ %.pre148.i, %.fmap_readn.exit.thread_crit_edge.i ], [ %.pre149.i, %fmap_readn.exit.i ], [ %128, %146 ]
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.97, i64 noundef %154) #9
   br label %.critedge2.thread
 
 155:                                              ; preds = %fmap_readn.exit.i
-  %156 = add i64 %.pre150.i, 4
+  %156 = add i64 %.pre149.i, 4
   store i64 %156, ptr %8, align 8
   %157 = load ptr, ptr %31, align 8
   %158 = load i32, ptr %157, align 4
@@ -1408,26 +1408,26 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   br label %.critedge2.thread
 
 163:                                              ; preds = %160
-  %.0..0..0..0..0.134.i = load i32, ptr %5, align 4
-  %164 = call i32 @cli_jsonint(ptr noundef nonnull %161, ptr noundef nonnull @.str.99, i32 noundef %.0..0..0..0..0.134.i) #9
+  %.0..0..0..0..0.133.i = load i32, ptr %5, align 4
+  %164 = call i32 @cli_jsonint(ptr noundef nonnull %161, ptr noundef nonnull @.str.99, i32 noundef %.0..0..0..0..0.133.i) #9
   br label %165
 
 thread-pre-split.i:                               ; preds = %155
-  %.0..0..0..0..0.135.pr.i = load i32, ptr %5, align 4
+  %.0..0..0..0..0.134.pr.i = load i32, ptr %5, align 4
   br label %165
 
 165:                                              ; preds = %thread-pre-split.i, %163
-  %.0.135.i = phi i32 [ %.0..0..0..0..0.135.pr.i, %thread-pre-split.i ], [ %.0..0..0..0..0.134.i, %163 ]
+  %.0.134.i = phi i32 [ %.0..0..0..0..0.134.pr.i, %thread-pre-split.i ], [ %.0..0..0..0..0.133.i, %163 ]
   %.082.i = phi ptr [ null, %thread-pre-split.i ], [ %161, %163 ]
-  %166 = icmp eq i32 %.0.135.i, 5
+  %166 = icmp eq i32 %.0.134.i, 5
   br i1 %166, label %167, label %173
 
 167:                                              ; preds = %165
   %168 = load ptr, ptr %31, align 8
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %169, 2
-  %.not121.i = icmp eq i32 %170, 0
-  br i1 %.not121.i, label %parsehwp3_infoblk_1.exit, label %171
+  %.not120.i = icmp eq i32 %170, 0
+  br i1 %.not120.i, label %parsehwp3_infoblk_1.exit, label %171
 
 171:                                              ; preds = %167
   %172 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101) #9
@@ -1435,40 +1435,40 @@ thread-pre-split.i:                               ; preds = %155
 
 173:                                              ; preds = %165
   %174 = load i64, ptr %147, align 8
-  %or.cond142.not.i = icmp ult i64 %156, %174
-  br i1 %or.cond142.not.i, label %175, label %fmap_readn.exit126.thread.i
+  %or.cond141.not.i = icmp ult i64 %156, %174
+  br i1 %or.cond141.not.i, label %175, label %fmap_readn.exit125.thread.i
 
 175:                                              ; preds = %173
   %176 = sub nuw i64 %174, %156
-  %spec.select.i123.i = call i64 @llvm.umin.i64(i64 %176, i64 4)
+  %spec.select.i122.i = call i64 @llvm.umin.i64(i64 %176, i64 4)
   %177 = load ptr, ptr %151, align 8
-  %178 = call ptr %177(ptr noundef nonnull %127, i64 noundef %156, i64 noundef %spec.select.i123.i, i32 noundef 0) #9
-  %.not26.i124.i = icmp eq ptr %178, null
-  br i1 %.not26.i124.i, label %.fmap_readn.exit126.thread_crit_edge.i, label %fmap_readn.exit126.i
+  %178 = call ptr %177(ptr noundef nonnull %127, i64 noundef %156, i64 noundef %spec.select.i122.i, i32 noundef 0) #9
+  %.not26.i123.i = icmp eq ptr %178, null
+  br i1 %.not26.i123.i, label %.fmap_readn.exit125.thread_crit_edge.i, label %fmap_readn.exit125.i
 
-.fmap_readn.exit126.thread_crit_edge.i:           ; preds = %175
-  %.pre147.i = load i64, ptr %8, align 8
-  br label %fmap_readn.exit126.thread.i
+.fmap_readn.exit125.thread_crit_edge.i:           ; preds = %175
+  %.pre146.i = load i64, ptr %8, align 8
+  br label %fmap_readn.exit125.thread.i
 
-fmap_readn.exit126.i:                             ; preds = %175
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %178, i64 %spec.select.i123.i, i1 false)
+fmap_readn.exit125.i:                             ; preds = %175
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %178, i64 %spec.select.i122.i, i1 false)
   %.not104.i = icmp ugt i64 %176, 3
-  %.pre148.i = load i64, ptr %8, align 8
-  br i1 %.not104.i, label %180, label %fmap_readn.exit126.thread.i
+  %.pre147.i = load i64, ptr %8, align 8
+  br i1 %.not104.i, label %180, label %fmap_readn.exit125.thread.i
 
-fmap_readn.exit126.thread.i:                      ; preds = %fmap_readn.exit126.i, %173, %.fmap_readn.exit126.thread_crit_edge.i
-  %179 = phi i64 [ %.pre147.i, %.fmap_readn.exit126.thread_crit_edge.i ], [ %.pre148.i, %fmap_readn.exit126.i ], [ %156, %173 ]
+fmap_readn.exit125.thread.i:                      ; preds = %fmap_readn.exit125.i, %173, %.fmap_readn.exit125.thread_crit_edge.i
+  %179 = phi i64 [ %.pre146.i, %.fmap_readn.exit125.thread_crit_edge.i ], [ %.pre147.i, %fmap_readn.exit125.i ], [ %156, %173 ]
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.102, i64 noundef %179) #9
   br label %.critedge2.thread
 
-180:                                              ; preds = %fmap_readn.exit126.i
-  %181 = add i64 %.pre148.i, 4
+180:                                              ; preds = %fmap_readn.exit125.i
+  %181 = add i64 %.pre147.i, 4
   store i64 %181, ptr %8, align 8
   %182 = load ptr, ptr %31, align 8
   %183 = load i32, ptr %182, align 4
   %184 = and i32 %183, 2
   %.not105.i = icmp eq i32 %184, 0
-  br i1 %.not105.i, label %thread-pre-split141.i, label %185
+  br i1 %.not105.i, label %thread-pre-split140.i, label %185
 
 185:                                              ; preds = %180
   %186 = call i32 @cli_jsonint64(ptr noundef %.082.i, ptr noundef nonnull @.str.103, i64 noundef %128) #9
@@ -1476,13 +1476,13 @@ fmap_readn.exit126.thread.i:                      ; preds = %fmap_readn.exit126.
   %187 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.104, i32 noundef %.0..0..0..0..0..i) #9
   br label %188
 
-thread-pre-split141.i:                            ; preds = %180
-  %.0..0..0..0..0.127.pr.i = load i32, ptr %6, align 4
+thread-pre-split140.i:                            ; preds = %180
+  %.0..0..0..0..0.126.pr.i = load i32, ptr %6, align 4
   br label %188
 
-188:                                              ; preds = %thread-pre-split141.i, %185
-  %.0.127.i = phi i32 [ %.0..0..0..0..0.127.pr.i, %thread-pre-split141.i ], [ %.0..0..0..0..0..i, %185 ]
-  %189 = zext i32 %.0.127.i to i64
+188:                                              ; preds = %thread-pre-split140.i, %185
+  %.0.126.i = phi i32 [ %.0..0..0..0..0.126.pr.i, %thread-pre-split140.i ], [ %.0..0..0..0..0..i, %185 ]
+  %189 = zext i32 %.0.126.i to i64
   %190 = add i64 %181, %189
   %191 = load i64, ptr %147, align 8
   %192 = icmp ugt i64 %190, %191
@@ -1493,7 +1493,7 @@ thread-pre-split141.i:                            ; preds = %180
   br label %.critedge2.thread
 
 194:                                              ; preds = %188
-  switch i32 %.0.135.i, label %275 [
+  switch i32 %.0.134.i, label %275 [
     i32 0, label %195
     i32 1, label %205
     i32 2, label %217
@@ -1505,7 +1505,7 @@ thread-pre-split141.i:                            ; preds = %180
   ]
 
 195:                                              ; preds = %194
-  %196 = icmp eq i32 %.0.127.i, 0
+  %196 = icmp eq i32 %.0.126.i, 0
   br i1 %196, label %197, label %204
 
 197:                                              ; preds = %195
@@ -1539,12 +1539,12 @@ thread-pre-split141.i:                            ; preds = %180
   br label %211
 
 211:                                              ; preds = %209, %205
-  %.not117.i = icmp eq i32 %.0.127.i, 0
+  %.not117.i = icmp eq i32 %.0.126.i, 0
   br i1 %.not117.i, label %.loopexit.i, label %212
 
 212:                                              ; preds = %211
-  %213 = add i64 %.pre148.i, 36
-  %214 = add i32 %.0.127.i, -32
+  %213 = add i64 %.pre147.i, 36
+  %214 = add i32 %.0.126.i, -32
   %215 = zext i32 %214 to i64
   %216 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %127, i64 noundef %213, i64 noundef %215, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
   br label %.loopexit.i
@@ -1561,7 +1561,7 @@ thread-pre-split141.i:                            ; preds = %180
   br label %223
 
 223:                                              ; preds = %221, %217
-  %.not115.i = icmp eq i32 %.0.127.i, 0
+  %.not115.i = icmp eq i32 %.0.126.i, 0
   br i1 %.not115.i, label %.loopexit.i, label %224
 
 224:                                              ; preds = %223
@@ -1569,13 +1569,13 @@ thread-pre-split141.i:                            ; preds = %180
   br label %.loopexit.i
 
 226:                                              ; preds = %194
-  %227 = urem i32 %.0.127.i, 617
-  %228 = udiv i32 %.0.127.i, 617
+  %227 = urem i32 %.0.126.i, 617
+  %228 = udiv i32 %.0.126.i, 617
   %.not112.i = icmp eq i32 %227, 0
   br i1 %.not112.i, label %230, label %229
 
 229:                                              ; preds = %226
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.110, i64 noundef %128, i32 noundef %.0.127.i) #9
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.110, i64 noundef %128, i32 noundef %.0.126.i) #9
   br label %.critedge2.thread
 
 230:                                              ; preds = %226
@@ -1591,8 +1591,8 @@ thread-pre-split141.i:                            ; preds = %180
   br label %237
 
 237:                                              ; preds = %234, %230
-  %.not144.i = icmp ult i32 %.0.127.i, 617
-  br i1 %.not144.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  %.not143.i = icmp ult i32 %.0.126.i, 617
+  br i1 %.not143.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %237
   %wide.trip.count.i = zext nneg i32 %228 to i64
@@ -1629,17 +1629,17 @@ thread-pre-split141.i:                            ; preds = %180
 
 253:                                              ; preds = %249
   %254 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.113) #9
-  %255 = add i32 %.0.127.i, -324
+  %255 = add i32 %.0.126.i, -324
   %256 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.114, i32 noundef %255) #9
   br label %257
 
 257:                                              ; preds = %253, %249
-  %.not109.i = icmp eq i32 %.0.127.i, 0
+  %.not109.i = icmp eq i32 %.0.126.i, 0
   br i1 %.not109.i, label %.loopexit.i, label %258
 
 258:                                              ; preds = %257
-  %259 = add i64 %.pre148.i, 328
-  %260 = add i32 %.0.127.i, -324
+  %259 = add i64 %.pre147.i, 328
+  %260 = add i32 %.0.126.i, -324
   %261 = zext i32 %260 to i64
   %262 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %127, i64 noundef %259, i64 noundef %261, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
   br label %.loopexit.i
@@ -1667,9 +1667,9 @@ thread-pre-split141.i:                            ; preds = %180
   br label %.loopexit.i
 
 275:                                              ; preds = %194
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.117, i64 noundef %128, i32 noundef %.0.135.i) #9
-  %.not120.i = icmp eq i32 %.0.127.i, 0
-  br i1 %.not120.i, label %.loopexit.i, label %276
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.117, i64 noundef %128, i32 noundef %.0.134.i) #9
+  %.not119.i = icmp eq i32 %.0.126.i, 0
+  br i1 %.not119.i, label %.loopexit.i, label %276
 
 276:                                              ; preds = %275
   %277 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %127, i64 noundef %181, i64 noundef %189, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
@@ -1682,16 +1682,16 @@ thread-pre-split141.i:                            ; preds = %180
   store i64 %279, ptr %8, align 8
   br label %parsehwp3_infoblk_1.exit
 
-.critedge2.thread:                                ; preds = %135, %138, %162, %204, %229, %193, %fmap_readn.exit126.thread.i, %fmap_readn.exit.thread.i
-  %.0.i95.ph = phi i32 [ 20, %135 ], [ 20, %138 ], [ 20, %162 ], [ 26, %204 ], [ 26, %229 ], [ 12, %193 ], [ 12, %fmap_readn.exit126.thread.i ], [ 12, %fmap_readn.exit.thread.i ]
+.critedge2.thread:                                ; preds = %135, %138, %162, %204, %229, %193, %fmap_readn.exit125.thread.i, %fmap_readn.exit.thread.i
+  %.0.i95.ph = phi i32 [ 20, %135 ], [ 20, %138 ], [ 20, %162 ], [ 26, %204 ], [ 26, %229 ], [ 12, %193 ], [ 12, %fmap_readn.exit125.thread.i ], [ 12, %fmap_readn.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %288
 
 parsehwp3_infoblk_1.exit:                         ; preds = %167, %171, %203, %.loopexit.i
-  %280 = phi i64 [ %279, %.loopexit.i ], [ %156, %171 ], [ %156, %167 ], [ %181, %203 ]
-  %.0.i95 = phi i32 [ %.084.i, %.loopexit.i ], [ 0, %171 ], [ 0, %167 ], [ 0, %203 ]
+  %280 = phi i64 [ %279, %.loopexit.i ], [ %181, %203 ], [ %156, %171 ], [ %156, %167 ]
+  %.0.i95 = phi i32 [ %.084.i, %.loopexit.i ], [ 0, %203 ], [ 0, %171 ], [ 0, %167 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

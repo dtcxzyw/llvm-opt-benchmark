@@ -17635,64 +17635,73 @@ tt_loader_set_pp.exit324:                         ; preds = %tt_get_metrics_incr
   %494 = load ptr, ptr %493, align 8
   store i16 -1, ptr %251, align 4
   %495 = getelementptr inbounds i8, ptr %0, i64 360
-  %.012.i = load ptr, ptr %495, align 8
-  %.not1013.i = icmp eq ptr %.012.i, null
-  br i1 %.not1013.i, label %._crit_edge, label %.lr.ph.i
+  %.011.i = load ptr, ptr %495, align 8
+  %.not12.i = icmp eq ptr %.011.i, null
+  %.not1013.i = icmp eq i32 %2, 0
+  %or.cond14.i = or i1 %.not1013.i, %.not12.i
+  br i1 %or.cond14.i, label %ft_list_get_node_at.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %492, %496
-  %.015.i = phi ptr [ %.0.i326, %496 ], [ %.012.i, %492 ]
-  %.0714.i = phi i32 [ %497, %496 ], [ %2, %492 ]
-  %.not11.i = icmp eq i32 %.0714.i, 0
-  br i1 %.not11.i, label %.lr.ph, label %496
+.lr.ph.i:                                         ; preds = %492, %.lr.ph.i
+  %.016.i = phi ptr [ %.0.i325, %.lr.ph.i ], [ %.011.i, %492 ]
+  %.0715.i = phi i32 [ %496, %.lr.ph.i ], [ %2, %492 ]
+  %496 = add i32 %.0715.i, -1
+  %497 = getelementptr inbounds i8, ptr %.016.i, i64 8
+  %.0.i325 = load ptr, ptr %497, align 8
+  %.not.i326 = icmp eq ptr %.0.i325, null
+  %.not10.i = icmp eq i32 %496, 0
+  %or.cond.i = select i1 %.not.i326, i1 true, i1 %.not10.i
+  br i1 %or.cond.i, label %ft_list_get_node_at.exit, label %.lr.ph.i, !llvm.loop !114
 
-496:                                              ; preds = %.lr.ph.i
-  %497 = add i32 %.0714.i, -1
-  %498 = getelementptr inbounds i8, ptr %.015.i, i64 8
-  %.0.i326 = load ptr, ptr %498, align 8
-  %.not10.i = icmp eq ptr %.0.i326, null
-  br i1 %.not10.i, label %._crit_edge, label %.lr.ph.i, !llvm.loop !114
+ft_list_get_node_at.exit:                         ; preds = %.lr.ph.i, %492
+  %.0.lcssa.i = phi ptr [ %.011.i, %492 ], [ %.0.i325, %.lr.ph.i ]
+  %.not280365 = icmp eq ptr %.0.lcssa.i, null
+  br i1 %.not280365, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
-  %.0258366 = phi ptr [ %501, %.lr.ph ], [ %.015.i, %.lr.ph.i ]
-  %499 = getelementptr inbounds i8, ptr %.0258366, i64 16
-  store ptr inttoptr (i64 -1 to ptr), ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %.0258366, i64 8
-  %501 = load ptr, ptr %500, align 8
-  %.not280 = icmp eq ptr %501, null
-  br i1 %.not280, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !115
+.lr.ph:                                           ; preds = %ft_list_get_node_at.exit, %.lr.ph
+  %.0258366 = phi ptr [ %500, %.lr.ph ], [ %.0.lcssa.i, %ft_list_get_node_at.exit ]
+  %498 = getelementptr inbounds i8, ptr %.0258366, i64 16
+  store ptr inttoptr (i64 -1 to ptr), ptr %498, align 8
+  %499 = getelementptr inbounds i8, ptr %.0258366, i64 8
+  %500 = load ptr, ptr %499, align 8
+  %.not280 = icmp eq ptr %500, null
+  br i1 %.not280, label %._crit_edge, label %.lr.ph, !llvm.loop !115
 
-._crit_edge:                                      ; preds = %496, %492
-  %502 = zext i32 %1 to i64
-  %503 = inttoptr i64 %502 to ptr
-  %504 = call ptr @FT_List_Find(ptr noundef nonnull %495, ptr noundef %503) #22
-  %.not281 = icmp eq ptr %504, null
-  br i1 %.not281, label %511, label %508
+._crit_edge:                                      ; preds = %.lr.ph
+  %501 = zext i32 %1 to i64
+  %502 = inttoptr i64 %501 to ptr
+  %503 = call ptr @FT_List_Find(ptr noundef nonnull %495, ptr noundef %502) #22
+  %.not281 = icmp eq ptr %503, null
+  br i1 %.not281, label %508, label %507
 
-._crit_edge.thread:                               ; preds = %.lr.ph
-  %505 = zext i32 %1 to i64
-  %506 = inttoptr i64 %505 to ptr
-  %507 = call ptr @FT_List_Find(ptr noundef nonnull %495, ptr noundef %506) #22
-  %.not281412 = icmp eq ptr %507, null
-  br i1 %.not281412, label %509, label %508
+._crit_edge.thread:                               ; preds = %ft_list_get_node_at.exit
+  %504 = zext i32 %1 to i64
+  %505 = inttoptr i64 %504 to ptr
+  %506 = call ptr @FT_List_Find(ptr noundef nonnull %495, ptr noundef %505) #22
+  %.not281406 = icmp eq ptr %506, null
+  br i1 %.not281406, label %.thread407, label %507
 
-508:                                              ; preds = %._crit_edge.thread, %._crit_edge
+507:                                              ; preds = %._crit_edge.thread, %._crit_edge
   store i32 21, ptr %11, align 4
   br label %730
 
-509:                                              ; preds = %._crit_edge.thread
-  %510 = getelementptr inbounds i8, ptr %.015.i, i64 16
-  store ptr %506, ptr %510, align 8
+508:                                              ; preds = %._crit_edge
+  br i1 %.not280365, label %.thread407, label %509
+
+509:                                              ; preds = %508
+  %510 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
+  store ptr %502, ptr %510, align 8
   br label %516
 
-511:                                              ; preds = %._crit_edge
+.thread407:                                       ; preds = %._crit_edge.thread, %508
+  %511 = phi ptr [ %502, %508 ], [ %505, %._crit_edge.thread ]
   %512 = call ptr @ft_mem_qalloc(ptr noundef %494, i64 noundef 24, ptr noundef nonnull %11) #22
   %513 = load i32, ptr %11, align 4
   %.not283 = icmp eq i32 %513, 0
   br i1 %.not283, label %514, label %730
 
-514:                                              ; preds = %511
+514:                                              ; preds = %.thread407
   %515 = getelementptr inbounds i8, ptr %512, i64 16
-  store ptr %503, ptr %515, align 8
+  store ptr %511, ptr %515, align 8
   call void @FT_List_Add(ptr noundef nonnull %495, ptr noundef %512) #22
   br label %516
 
@@ -18089,7 +18098,7 @@ tt_loader_set_pp.exit324:                         ; preds = %tt_get_metrics_incr
   store i32 %729, ptr %727, align 8
   br label %.thread328
 
-730:                                              ; preds = %508, %481, %511, %516, %490
+730:                                              ; preds = %507, %481, %.thread407, %516, %490
   %731 = getelementptr inbounds i8, ptr %18, i64 848
   %732 = load ptr, ptr %731, align 8
   call void %732(ptr noundef nonnull %0) #22

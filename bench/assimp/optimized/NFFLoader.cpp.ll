@@ -4704,21 +4704,14 @@ if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc
 
 try.cont.i:                                       ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc3682
   %cmp.i.i.i.i3678 = icmp sgt i64 %sub.ptr.sub.i.i1155, 0
-  br i1 %cmp.i.i.i.i3678, label %if.then.i.i.i30.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i3679
+  br i1 %cmp.i.i.i.i3678, label %if.then.i.i.i30.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
 
 if.then.i.i.i30.i:                                ; preds = %try.cont.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i3683, ptr align 4 %tempIdx.sroa.0.34732, i64 %sub.ptr.sub.i.i1155, i1 false)
-  br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i3679
-
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i3679: ; preds = %if.then.i.i.i30.i, %try.cont.i
-  %tobool.not.i31.i = icmp eq ptr %tempIdx.sroa.0.34732, null
-  br i1 %tobool.not.i31.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.then.i32.i
-
-if.then.i32.i:                                    ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i3679
-  call void @_ZdlPv(ptr noundef nonnull %tempIdx.sroa.0.34732) #28
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.then.i32.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i3679
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.then.i.i.i30.i, %try.cont.i
+  call void @_ZdlPv(ptr noundef nonnull %tempIdx.sroa.0.34732) #28
   %add.ptr37.i = getelementptr inbounds i32, ptr %add.ptr.i3677, i64 %sub.i1162
   %add.ptr40.i = getelementptr inbounds i32, ptr %call5.i.i.i.i3683, i64 %add.i.i
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -5904,7 +5897,7 @@ if.end679:                                        ; preds = %for.inc676, %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texFile.i1203) #25
   %inc682 = add nuw i32 %i386.04733, 1
   %exitcond5255.not = icmp eq i32 %inc682, %value.0.lcssa.i1082
-  br i1 %exitcond5255.not, label %if.end690, label %do.body390.preheader, !llvm.loop !73
+  br i1 %exitcond5255.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %do.body390.preheader, !llvm.loop !73
 
 ehcleanup680:                                     ; preds = %lpad440.loopexit, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad440.loopexit.split-lp.loopexit, %lpad534
   %.pn320 = phi { ptr, i32 } [ %183, %lpad534 ], [ %lpad.loopexit3974, %lpad440.loopexit ], [ %lpad.loopexit3977, %lpad440.loopexit.split-lp.loopexit ], [ %lpad.loopexit3983, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp3984, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit3995, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3996, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -5927,15 +5920,8 @@ lpad687:                                          ; preds = %if.then685
   call void @__cxa_free_exception(ptr %exception686) #25
   br label %if.then.i.i.i1579
 
-if.end690:                                        ; preds = %if.end679
-  %tobool.not.i.i.i1559 = icmp eq ptr %tempIdx.sroa.0.5, null
-  br i1 %tobool.not.i.i.i1559, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i1560
-
-if.then.i.i.i1560:                                ; preds = %if.end690
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.end679
   call void @_ZdlPv(ptr noundef nonnull %tempIdx.sroa.0.5) #28
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit
-
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.end690, %if.then.i.i.i1560
   %tobool.not.i.i.i1561 = icmp eq ptr %tempNormals.sroa.0.3.lcssa, null
   br i1 %tobool.not.i.i.i1561, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, label %if.then.i.i.i1562
 

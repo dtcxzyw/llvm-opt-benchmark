@@ -1308,8 +1308,8 @@ define internal fastcc void @processPendingPage(ptr noundef %0, ptr nocapture no
   store i16 -1, ptr %14, align 2
   %15 = getelementptr inbounds i8, ptr %5, i64 4
   store i16 0, ptr %15, align 2
-  %.not36 = icmp ugt i16 %3, %.0.i
-  br i1 %.not36, label %._crit_edge, label %.lr.ph
+  %.not37 = icmp ugt i16 %3, %.0.i
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %16 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1318,9 +1318,9 @@ define internal fastcc void @processPendingPage(ptr noundef %0, ptr nocapture no
   br label %19
 
 19:                                               ; preds = %.lr.ph, %addDatum.exit
-  %.038 = phi i16 [ %3, %.lr.ph ], [ %62, %addDatum.exit ]
-  %.03237 = phi i16 [ 0, %.lr.ph ], [ %.1, %addDatum.exit ]
-  %20 = zext i16 %.038 to i64
+  %.039 = phi i16 [ %3, %.lr.ph ], [ %61, %addDatum.exit ]
+  %.03238 = phi i16 [ 0, %.lr.ph ], [ %.1, %addDatum.exit ]
+  %20 = zext i16 %.039 to i64
   %21 = add nsw i64 %20, -1
   %22 = getelementptr [0 x %struct.ItemIdData], ptr %16, i64 0, i64 %21
   %.val34 = load i32, ptr %22, align 4
@@ -1329,79 +1329,79 @@ define internal fastcc void @processPendingPage(ptr noundef %0, ptr nocapture no
   %25 = getelementptr i8, ptr %2, i64 %24
   %26 = load ptr, ptr %0, align 8
   %27 = call zeroext i16 @gintuple_get_attrnum(ptr noundef %26, ptr noundef %25) #9
-  %28 = load i16, ptr %15, align 2
-  %.not35 = icmp eq i16 %28, 0
-  br i1 %.not35, label %.sink.split, label %29
+  %.val35 = load i16, ptr %15, align 2
+  %.not36 = icmp eq i16 %.val35, 0
+  br i1 %.not36, label %.sink.split, label %28
 
-29:                                               ; preds = %19
-  %30 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %5, ptr noundef %25) #9
-  %31 = icmp eq i16 %27, %.03237
-  %or.cond = select i1 %30, i1 %31, i1 false
-  br i1 %or.cond, label %36, label %32
+28:                                               ; preds = %19
+  %29 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %5, ptr noundef %25) #9
+  %30 = icmp eq i16 %27, %.03238
+  %or.cond = select i1 %29, i1 %30, i1 false
+  br i1 %or.cond, label %35, label %31
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %1, align 8
-  %34 = load ptr, ptr %17, align 8
-  %35 = load i32, ptr %7, align 8
-  call void @ginInsertBAEntries(ptr noundef nonnull %0, ptr noundef nonnull %5, i16 noundef zeroext %.03237, ptr noundef %33, ptr noundef %34, i32 noundef %35) #9
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %1, align 8
+  %33 = load ptr, ptr %17, align 8
+  %34 = load i32, ptr %7, align 8
+  call void @ginInsertBAEntries(ptr noundef nonnull %0, ptr noundef nonnull %5, i16 noundef zeroext %.03238, ptr noundef %32, ptr noundef %33, i32 noundef %34) #9
   store i32 0, ptr %7, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %19, %32
+.sink.split:                                      ; preds = %19, %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %25, i64 6, i1 false)
-  br label %36
+  br label %35
 
-36:                                               ; preds = %.sink.split, %29
-  %.1 = phi i16 [ %.03237, %29 ], [ %27, %.sink.split ]
-  %37 = load ptr, ptr %0, align 8
-  %38 = call i64 @gintuple_get_key(ptr noundef %37, ptr noundef %25, ptr noundef nonnull %6) #9
-  %39 = load i8, ptr %6, align 1
-  %40 = load i32, ptr %7, align 8
-  %41 = load i32, ptr %18, align 4
-  %.not.i = icmp slt i32 %40, %41
-  br i1 %.not.i, label %addDatum.exit, label %42
+35:                                               ; preds = %.sink.split, %28
+  %.1 = phi i16 [ %.03238, %28 ], [ %27, %.sink.split ]
+  %36 = load ptr, ptr %0, align 8
+  %37 = call i64 @gintuple_get_key(ptr noundef %36, ptr noundef %25, ptr noundef nonnull %6) #9
+  %38 = load i8, ptr %6, align 1
+  %39 = load i32, ptr %7, align 8
+  %40 = load i32, ptr %18, align 4
+  %.not.i = icmp slt i32 %39, %40
+  br i1 %.not.i, label %addDatum.exit, label %41
 
-42:                                               ; preds = %36
-  %43 = shl i32 %41, 1
-  store i32 %43, ptr %18, align 4
-  %44 = load ptr, ptr %1, align 8
-  %45 = sext i32 %43 to i64
-  %46 = shl nsw i64 %45, 3
-  %47 = call ptr @repalloc(ptr noundef %44, i64 noundef %46) #9
-  store ptr %47, ptr %1, align 8
-  %48 = load ptr, ptr %17, align 8
-  %49 = load i32, ptr %18, align 4
-  %50 = sext i32 %49 to i64
-  %51 = call ptr @repalloc(ptr noundef %48, i64 noundef %50) #9
-  store ptr %51, ptr %17, align 8
+41:                                               ; preds = %35
+  %42 = shl i32 %40, 1
+  store i32 %42, ptr %18, align 4
+  %43 = load ptr, ptr %1, align 8
+  %44 = sext i32 %42 to i64
+  %45 = shl nsw i64 %44, 3
+  %46 = call ptr @repalloc(ptr noundef %43, i64 noundef %45) #9
+  store ptr %46, ptr %1, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load i32, ptr %18, align 4
+  %49 = sext i32 %48 to i64
+  %50 = call ptr @repalloc(ptr noundef %47, i64 noundef %49) #9
+  store ptr %50, ptr %17, align 8
   %.pre.i = load i32, ptr %7, align 8
   br label %addDatum.exit
 
-addDatum.exit:                                    ; preds = %36, %42
-  %52 = phi i32 [ %.pre.i, %42 ], [ %40, %36 ]
-  %53 = load ptr, ptr %1, align 8
-  %54 = sext i32 %52 to i64
-  %55 = getelementptr i64, ptr %53, i64 %54
-  store i64 %38, ptr %55, align 8
-  %56 = load ptr, ptr %17, align 8
-  %57 = load i32, ptr %7, align 8
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr i8, ptr %56, i64 %58
-  store i8 %39, ptr %59, align 1
-  %60 = load i32, ptr %7, align 8
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %7, align 8
-  %62 = add i16 %.038, 1
-  %.not = icmp ugt i16 %62, %.0.i
+addDatum.exit:                                    ; preds = %35, %41
+  %51 = phi i32 [ %.pre.i, %41 ], [ %39, %35 ]
+  %52 = load ptr, ptr %1, align 8
+  %53 = sext i32 %51 to i64
+  %54 = getelementptr i64, ptr %52, i64 %53
+  store i64 %37, ptr %54, align 8
+  %55 = load ptr, ptr %17, align 8
+  %56 = load i32, ptr %7, align 8
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr i8, ptr %55, i64 %57
+  store i8 %38, ptr %58, align 1
+  %59 = load i32, ptr %7, align 8
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %7, align 8
+  %61 = add i16 %.039, 1
+  %.not = icmp ugt i16 %61, %.0.i
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %addDatum.exit, %4
-  %63 = phi i32 [ 0, %4 ], [ %61, %addDatum.exit ]
+  %62 = phi i32 [ 0, %4 ], [ %60, %addDatum.exit ]
   %.032.lcssa = phi i16 [ 0, %4 ], [ %.1, %addDatum.exit ]
-  %64 = load ptr, ptr %1, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
-  %66 = load ptr, ptr %65, align 8
-  call void @ginInsertBAEntries(ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext %.032.lcssa, ptr noundef %64, ptr noundef %66, i32 noundef %63) #9
+  %63 = load ptr, ptr %1, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = load ptr, ptr %64, align 8
+  call void @ginInsertBAEntries(ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext %.032.lcssa, ptr noundef %63, ptr noundef %65, i32 noundef %62) #9
   ret void
 }
 

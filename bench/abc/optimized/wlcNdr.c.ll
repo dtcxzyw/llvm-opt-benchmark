@@ -7053,7 +7053,7 @@ define void @Ndr_DumpNdr(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %6 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %5) #18
   %7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #19
   %8 = add i64 %7, 1
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #20
   %10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %2) #18
   %11 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   store ptr %9, ptr %11, align 8

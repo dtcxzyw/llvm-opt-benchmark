@@ -25814,7 +25814,7 @@ _ZN5boost10stacktrace6detail18this_thread_frames7collectEPPKvmm.exit46: ; preds 
 
 if.then26:                                        ; preds = %_ZN5boost10stacktrace6detail18this_thread_frames7collectEPPKvmm.exit46
   invoke void @_ZN5boost10stacktrace16basic_stacktraceISaINS0_5frameEEE4fillEPPKvm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %buf.sroa.0.0, i64 noundef %retval.0.i45)
-          to label %cleanup unwind label %lpad28.loopexit.split-lp
+          to label %if.then.i.i.i68 unwind label %lpad28.loopexit.split-lp
 
 lpad9:                                            ; preds = %if.end6
   %11 = landingpad { ptr, i32 }
@@ -25824,30 +25824,26 @@ lpad9:                                            ; preds = %if.end6
 lpad28.loopexit:                                  ; preds = %_ZNKSt6vectorIPKvSaIS1_EE12_M_check_lenEmPKc.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad28
+  br label %if.then.i.i.i
 
 lpad28.loopexit.split-lp:                         ; preds = %if.then26, %if.then.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad28
+  br label %if.then.i.i.i
 
-lpad28:                                           ; preds = %lpad28.loopexit.split-lp, %lpad28.loopexit
+if.then.i.i.i:                                    ; preds = %lpad28.loopexit, %lpad28.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad28.loopexit ], [ %lpad.loopexit.split-lp, %lpad28.loopexit.split-lp ]
-  %tobool.not.i.i.i = icmp eq ptr %buf.sroa.0.0, null
-  br i1 %tobool.not.i.i.i, label %catch, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad28
   call void @_ZdlPv(ptr noundef nonnull %buf.sroa.0.0) #29
   br label %catch
 
-catch:                                            ; preds = %if.then.i.i.i, %lpad28, %lpad9, %lpad
-  %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %11, %lpad9 ], [ %lpad.phi, %lpad28 ], [ %lpad.phi, %if.then.i.i.i ]
+catch:                                            ; preds = %if.then.i.i.i, %lpad9, %lpad
+  %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %11, %lpad9 ], [ %lpad.phi, %if.then.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #28
   call void @__cxa_end_catch()
   br label %try.cont
 
-try.cont:                                         ; preds = %if.then.i.i.i68, %cleanup, %if.then4, %entry, %catch
+try.cont:                                         ; preds = %if.then.i.i.i68, %if.then4, %entry, %catch
   ret void
 
 if.end30:                                         ; preds = %_ZN5boost10stacktrace6detail18this_thread_frames7collectEPPKvmm.exit46
@@ -25915,21 +25911,14 @@ if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc
 
 try.cont.i:                                       ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i18, 0
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i30.i, label %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i30.i, label %_ZNSt12_Vector_baseIPKvSaIS1_EE13_M_deallocateEPS1_m.exit33.i
 
 if.then.i.i.i30.i:                                ; preds = %try.cont.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i84, ptr align 8 %buf.sroa.0.0, i64 %sub.ptr.sub.i18, i1 false)
-  br label %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-
-_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.then.i.i.i30.i, %try.cont.i
-  %tobool.not.i31.i = icmp eq ptr %buf.sroa.0.0, null
-  br i1 %tobool.not.i31.i, label %_ZNSt12_Vector_baseIPKvSaIS1_EE13_M_deallocateEPS1_m.exit33.i, label %if.then.i32.i
-
-if.then.i32.i:                                    ; preds = %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %buf.sroa.0.0) #29
   br label %_ZNSt12_Vector_baseIPKvSaIS1_EE13_M_deallocateEPS1_m.exit33.i
 
-_ZNSt12_Vector_baseIPKvSaIS1_EE13_M_deallocateEPS1_m.exit33.i: ; preds = %if.then.i32.i, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+_ZNSt12_Vector_baseIPKvSaIS1_EE13_M_deallocateEPS1_m.exit33.i: ; preds = %if.then.i.i.i30.i, %try.cont.i
+  call void @_ZdlPv(ptr noundef nonnull %buf.sroa.0.0) #29
   %add.ptr37.i = getelementptr inbounds ptr, ptr %add.ptr.i82, i64 %sub.i
   %add.ptr40.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i84, i64 %15
   %.pre = ptrtoint ptr %call5.i.i.i.i84 to i64
@@ -25949,14 +25938,10 @@ do.cond:                                          ; preds = %if.else.i, %_ZNSt12
   %sub.ptr.lhs.cast.i62 = ptrtoint ptr %buf.sroa.14.1 to i64
   %sub.ptr.sub.i64 = sub i64 %sub.ptr.lhs.cast.i62, %sub.ptr.rhs.cast.i63.pre-phi
   %cmp35 = icmp ult i64 %sub.ptr.sub.i64, 9223372036854775800
-  br i1 %cmp35, label %do.body, label %cleanup, !llvm.loop !146
+  br i1 %cmp35, label %do.body, label %if.then.i.i.i68, !llvm.loop !146
 
-cleanup:                                          ; preds = %do.cond, %if.then26
+if.then.i.i.i68:                                  ; preds = %do.cond, %if.then26
   %buf.sroa.0.1 = phi ptr [ %buf.sroa.0.0, %if.then26 ], [ %buf.sroa.0.2, %do.cond ]
-  %tobool.not.i.i.i67 = icmp eq ptr %buf.sroa.0.1, null
-  br i1 %tobool.not.i.i.i67, label %try.cont, label %if.then.i.i.i68
-
-if.then.i.i.i68:                                  ; preds = %cleanup
   call void @_ZdlPv(ptr noundef nonnull %buf.sroa.0.1) #29
   br label %try.cont
 }

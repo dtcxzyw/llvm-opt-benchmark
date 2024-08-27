@@ -1452,7 +1452,7 @@ nfaExecGough16_Q2i.exit:                          ; preds = %cond.end.i28, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecGough8_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
@@ -1775,7 +1775,7 @@ return:                                           ; preds = %land.lhs.true, %con
 declare signext i8 @nfaExecMcClellan8_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecGough16_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8

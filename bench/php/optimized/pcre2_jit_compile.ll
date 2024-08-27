@@ -34847,19 +34847,19 @@ define internal fastcc void @sljit_emit_icall(ptr nocapture noundef %0, i32 noun
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %6, align 8
-  %.not1740.i = icmp ult i32 %1, 16
-  br i1 %.not1740.i, label %70, label %.lr.ph.i
+  %.not39.i = icmp ult i32 %1, 16
+  br i1 %.not39.i, label %70, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
-  %.042.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %5 ]
-  %.015.in41.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %1, %5 ]
-  %.015.i = lshr i32 %.015.in41.i, 4
-  %7 = lshr i32 %.015.in41.i, 6
+  %.041.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %5 ]
+  %.015.in40.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %1, %5 ]
+  %.015.i = lshr i32 %.015.in40.i, 4
+  %7 = lshr i32 %.015.in40.i, 6
   %8 = and i32 %7, 1
   %9 = xor i32 %8, 1
-  %spec.select.i = add i32 %9, %.042.i
-  %.not17.i = icmp ult i32 %.015.in41.i, 256
-  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
+  %spec.select.i = add i32 %9, %.041.i
+  %.not.i = icmp ult i32 %.015.in40.i, 256
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %10 = icmp eq i32 %spec.select.i, 0
@@ -34923,7 +34923,7 @@ define internal fastcc void @sljit_emit_icall(ptr nocapture noundef %0, i32 noun
   br label %.thread
 
 .thread:                                          ; preds = %32, %11
-  %.not.i23.i35 = phi i1 [ true, %11 ], [ %39, %32 ]
+  %.not.i22.i35 = phi i1 [ true, %11 ], [ %39, %32 ]
   %40 = phi i64 [ 3, %11 ], [ %spec.select, %32 ]
   %41 = add nuw nsw i64 %40, 1
   %42 = getelementptr inbounds i8, ptr %0, i64 88
@@ -34943,12 +34943,12 @@ define internal fastcc void @sljit_emit_icall(ptr nocapture noundef %0, i32 noun
 51:                                               ; preds = %.thread
   %52 = getelementptr inbounds i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8
-  %.val.i.i26.i = load ptr, ptr %53, align 8
+  %.val.i.i25.i = load ptr, ptr %53, align 8
   %54 = getelementptr i8, ptr %53, i64 16
-  %.val18.i.i27.i = load ptr, ptr %54, align 8
-  %55 = tail call ptr %.val.i.i26.i(i64 noundef 4096, ptr noundef %.val18.i.i27.i) #18
-  %.not.i.i28.i = icmp eq ptr %55, null
-  br i1 %.not.i.i28.i, label %call_with_args.exit, label %56
+  %.val18.i.i26.i = load ptr, ptr %54, align 8
+  %55 = tail call ptr %.val.i.i25.i(i64 noundef 4096, ptr noundef %.val18.i.i26.i) #18
+  %.not.i.i27.i = icmp eq ptr %55, null
+  br i1 %.not.i.i27.i, label %call_with_args.exit, label %56
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %42, align 8
@@ -34960,26 +34960,26 @@ define internal fastcc void @sljit_emit_icall(ptr nocapture noundef %0, i32 noun
   br label %60
 
 60:                                               ; preds = %56, %48
-  %.0.i269.ph.i29.i = phi ptr [ %59, %56 ], [ %50, %48 ]
+  %.0.i269.ph.i28.i = phi ptr [ %59, %56 ], [ %50, %48 ]
   %61 = trunc nuw nsw i64 %40 to i8
-  %62 = getelementptr inbounds i8, ptr %.0.i269.ph.i29.i, i64 1
-  store i8 %61, ptr %.0.i269.ph.i29.i, align 1
+  %62 = getelementptr inbounds i8, ptr %.0.i269.ph.i28.i, i64 1
+  store i8 %61, ptr %.0.i269.ph.i28.i, align 1
   %63 = getelementptr inbounds i8, ptr %0, i64 128
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, %40
   store i64 %65, ptr %63, align 8
-  br i1 %.not.i23.i35, label %66, label %68
+  br i1 %.not.i22.i35, label %66, label %68
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %.0.i269.ph.i29.i, i64 2
+  %67 = getelementptr inbounds i8, ptr %.0.i269.ph.i28.i, i64 2
   store i8 72, ptr %62, align 1
   br label %68
 
 68:                                               ; preds = %66, %60
-  %.1198.i30.i = phi ptr [ %67, %66 ], [ %62, %60 ]
-  %69 = getelementptr inbounds i8, ptr %.1198.i30.i, i64 1
+  %.1198.i29.i = phi ptr [ %67, %66 ], [ %62, %60 ]
+  %69 = getelementptr inbounds i8, ptr %.1198.i29.i, i64 1
   store i8 -57, ptr %69, align 1
-  store i8 -119, ptr %.1198.i30.i, align 1
+  store i8 -119, ptr %.1198.i29.i, align 1
   br label %70
 
 call_with_args.exit:                              ; preds = %51, %23

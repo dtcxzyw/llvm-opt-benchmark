@@ -1949,10 +1949,8 @@ entry:
   %par.i = alloca [2 x %struct.ossl_param_st], align 16
   %tmp.i = alloca %struct.ossl_param_st, align 8
   %tmp2.i = alloca %struct.ossl_param_st, align 8
-  %cmp = icmp eq ptr %out, null
   %cmp1 = icmp eq i64 %outlen, 0
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.then5
+  br i1 %cmp1, label %return, label %if.then5
 
 if.then5:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %outlen.addr.i)
@@ -1980,7 +1978,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %cmp6.i, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %call7.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call.i, ptr noundef nonnull %out, ptr noundef null) #9
+  %call7.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call.i, ptr noundef %out, ptr noundef null) #9
   %cmp8.i = icmp eq i32 %call7.i, 1
   %0 = zext i1 %cmp8.i to i32
   br label %land.end.i

@@ -153,15 +153,15 @@ define i32 @Ivy_FraigProve(ptr nocapture noundef %0, ptr nocapture noundef %1) l
 
 59:                                               ; preds = %56
   %60 = load i64, ptr %10, align 8
-  %.neg233 = mul i64 %60, -1000000
+  %.neg231 = mul i64 %60, -1000000
   %61 = getelementptr inbounds i8, ptr %10, i64 8
   %62 = load i64, ptr %61, align 8
-  %.neg232 = sdiv i64 %62, -1000
-  %.neg234 = add i64 %.neg232, %.neg233
+  %.neg230 = sdiv i64 %62, -1000
+  %.neg232 = add i64 %.neg230, %.neg231
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %56, %59
-  %.0.i.neg = phi i64 [ %.neg234, %59 ], [ 1, %56 ]
+  %.0.i.neg = phi i64 [ %.neg232, %59 ], [ 1, %56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %63 = getelementptr inbounds i8, ptr %1, i64 52
   %64 = load i32, ptr %63, align 4
@@ -304,15 +304,15 @@ Abc_Clock.exit.i:                                 ; preds = %116, %108
 
 134:                                              ; preds = %131
   %135 = load i64, ptr %8, align 8
-  %.neg227 = mul i64 %135, -1000000
+  %.neg225 = mul i64 %135, -1000000
   %136 = getelementptr inbounds i8, ptr %8, i64 8
   %137 = load i64, ptr %136, align 8
   %.neg = sdiv i64 %137, -1000
-  %.neg228 = add i64 %.neg, %.neg227
+  %.neg226 = add i64 %.neg, %.neg225
   br label %Abc_Clock.exit128
 
 Abc_Clock.exit128:                                ; preds = %131, %134
-  %.0.i127.neg = phi i64 [ %.neg228, %134 ], [ 1, %131 ]
+  %.0.i127.neg = phi i64 [ %.neg226, %134 ], [ 1, %131 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %138 = getelementptr inbounds i8, ptr %1, i64 20
   %139 = load i32, ptr %138, align 4
@@ -464,28 +464,28 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
   %217 = getelementptr inbounds i8, ptr %1, i64 80
   br label %222
 
-218:                                              ; preds = %410
-  %219 = add nuw nsw i32 %.0243, 1
+218:                                              ; preds = %409
+  %219 = add nuw nsw i32 %.0241, 1
   %220 = load i32, ptr %203, align 8
   %221 = icmp slt i32 %219, %220
   br i1 %221, label %222, label %Ivy_FraigMiterPrint.exit, !llvm.loop !6
 
 222:                                              ; preds = %.lr.ph, %218
-  %.0243 = phi i32 [ 0, %.lr.ph ], [ %219, %218 ]
-  %.1103242 = phi ptr [ %.0102, %.lr.ph ], [ %.3260, %218 ]
-  %.0207241 = phi i64 [ 0, %.lr.ph ], [ %.1208259, %218 ]
-  %.0210240 = phi i64 [ 0, %.lr.ph ], [ %.1211258, %218 ]
+  %.0241 = phi i32 [ 0, %.lr.ph ], [ %219, %218 ]
+  %.1103240 = phi ptr [ %.0102, %.lr.ph ], [ %.3258, %218 ]
+  %.0205239 = phi i64 [ 0, %.lr.ph ], [ %.1206257, %218 ]
+  %.0208238 = phi i64 [ 0, %.lr.ph ], [ %.1209256, %218 ]
   %223 = load i32, ptr %20, align 4
   %.not115 = icmp eq i32 %223, 0
   br i1 %.not115, label %244, label %224
 
 224:                                              ; preds = %222
-  %225 = add nuw nsw i32 %.0243, 1
+  %225 = add nuw nsw i32 %.0241, 1
   %226 = load i32, ptr %206, align 4
   %227 = sitofp i32 %226 to double
   %228 = load float, ptr %207, align 8
   %229 = fpext float %228 to double
-  %230 = uitofp nneg i32 %.0243 to double
+  %230 = uitofp nneg i32 %.0241 to double
   %231 = call double @pow(double noundef %229, double noundef %230) #25
   %232 = fmul double %231, %227
   %233 = fptosi double %232 to i32
@@ -502,13 +502,13 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
   br label %244
 
 244:                                              ; preds = %222, %224
-  %245 = getelementptr inbounds i8, ptr %.1103242, i64 200
+  %245 = getelementptr inbounds i8, ptr %.1103240, i64 200
   %246 = load ptr, ptr %245, align 8
   %.not.i154 = icmp eq ptr %246, null
   br i1 %.not.i154, label %.preheader.i156, label %Ivy_FraigMiterPrint.exit
 
 .preheader.i156:                                  ; preds = %244
-  %247 = getelementptr inbounds i8, ptr %.1103242, i64 8
+  %247 = getelementptr inbounds i8, ptr %.1103240, i64 8
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr i8, ptr %248, i64 4
   %.val.i157 = load i32, ptr %249, align 4
@@ -518,7 +518,7 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
 .lr.ph.i158:                                      ; preds = %.preheader.i156
   %251 = getelementptr i8, ptr %248, i64 8
   %.val30.i159 = load ptr, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %.1103242, i64 32
+  %252 = getelementptr inbounds i8, ptr %.1103240, i64 32
   %253 = load ptr, ptr %252, align 8
   %254 = ptrtoint ptr %253 to i64
   %255 = xor i64 %254, 1
@@ -584,7 +584,7 @@ Ivy_FraigMiterStatus.exit172:                     ; preds = %.critedge.i170
 283:                                              ; preds = %Ivy_FraigMiterStatus.exit172
   %284 = load i32, ptr %1, align 8
   %.not116 = icmp eq i32 %284, 0
-  br i1 %.not116, label %Ivy_FraigMiterPrint.exit205.thread, label %285
+  br i1 %.not116, label %Ivy_FraigMiterPrint.exit203.thread, label %285
 
 285:                                              ; preds = %283
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -594,20 +594,20 @@ Ivy_FraigMiterStatus.exit172:                     ; preds = %.critedge.i170
 
 288:                                              ; preds = %285
   %289 = load i64, ptr %6, align 8
-  %.neg230 = mul i64 %289, -1000000
+  %.neg228 = mul i64 %289, -1000000
   %290 = load i64, ptr %210, align 8
-  %.neg229 = sdiv i64 %290, -1000
-  %.neg231 = add i64 %.neg229, %.neg230
+  %.neg227 = sdiv i64 %290, -1000
+  %.neg229 = add i64 %.neg227, %.neg228
   br label %Abc_Clock.exit174
 
 Abc_Clock.exit174:                                ; preds = %285, %288
-  %.0.i173.neg = phi i64 [ %.neg231, %288 ], [ 1, %285 ]
+  %.0.i173.neg = phi i64 [ %.neg229, %288 ], [ 1, %285 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %291 = load i32, ptr %208, align 4
   %292 = sitofp i32 %291 to double
   %293 = load float, ptr %209, align 8
   %294 = fpext float %293 to double
-  %295 = uitofp nneg i32 %.0243 to double
+  %295 = uitofp nneg i32 %.0241 to double
   %296 = call double @pow(double noundef %294, double noundef %295) #25
   %297 = fmul double %296, %292
   %298 = fptosi double %297 to i32
@@ -619,43 +619,43 @@ Abc_Clock.exit174:                                ; preds = %285, %288
   %303 = call double @pow(double noundef %302, double noundef %295) #25
   %304 = fmul double %303, %300
   %305 = fptosi double %304 to i32
-  %306 = getelementptr i8, ptr %.1103242, i64 128
+  %306 = getelementptr i8, ptr %.1103240, i64 128
   %.1103.val = load i32, ptr %306, align 8
   %307 = sdiv i32 %305, %.1103.val
   %308 = add nsw i32 %307, 1
   store i32 %308, ptr %19, align 8
   %309 = load i64, ptr %211, align 8
   %310 = load i64, ptr %212, align 8
-  %311 = getelementptr i8, ptr %.1103242, i64 140
+  %311 = getelementptr i8, ptr %.1103240, i64 140
   %.val.i175 = load i32, ptr %311, align 4
-  %312 = getelementptr i8, ptr %.1103242, i64 144
-  %.val30.i176 = load i32, ptr %312, align 8
+  %312 = getelementptr i8, ptr %.1103240, i64 144
+  %.val28.i = load i32, ptr %312, align 8
   %313 = sub i32 0, %.val.i175
-  %314 = icmp eq i32 %.val30.i176, %313
+  %314 = icmp eq i32 %.val28.i, %313
   br i1 %314, label %315, label %317
 
 315:                                              ; preds = %Abc_Clock.exit174
-  %316 = call ptr @Ivy_ManDup(ptr noundef nonnull %.1103242) #25
+  %316 = call ptr @Ivy_ManDup(ptr noundef nonnull %.1103240) #25
   br label %Ivy_FraigPerform_int.exit
 
 317:                                              ; preds = %Abc_Clock.exit174
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %318 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #25
   %319 = icmp slt i32 %318, 0
-  br i1 %319, label %Abc_Clock.exit.i177, label %320
+  br i1 %319, label %Abc_Clock.exit.i176, label %320
 
 320:                                              ; preds = %317
   %321 = load i64, ptr %5, align 8
-  %.neg33.i = mul i64 %321, -1000000
+  %.neg31.i = mul i64 %321, -1000000
   %322 = load i64, ptr %213, align 8
   %.neg.i = sdiv i64 %322, -1000
-  %.neg34.i = add i64 %.neg.i, %.neg33.i
-  br label %Abc_Clock.exit.i177
+  %.neg32.i = add i64 %.neg.i, %.neg31.i
+  br label %Abc_Clock.exit.i176
 
-Abc_Clock.exit.i177:                              ; preds = %320, %317
-  %.0.i.neg.i = phi i64 [ %.neg34.i, %320 ], [ 1, %317 ]
+Abc_Clock.exit.i176:                              ; preds = %320, %317
+  %.0.i.neg.i = phi i64 [ %.neg32.i, %320 ], [ 1, %317 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %323 = call fastcc ptr @Ivy_FraigStart(ptr noundef nonnull %.1103242, ptr noundef nonnull %11)
+  %323 = call fastcc ptr @Ivy_FraigStart(ptr noundef nonnull %.1103240, ptr noundef nonnull %11)
   %324 = getelementptr inbounds i8, ptr %323, i64 8
   store i64 %309, ptr %324, align 8
   %325 = getelementptr inbounds i8, ptr %323, i64 16
@@ -667,221 +667,221 @@ Abc_Clock.exit.i177:                              ; preds = %320, %317
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %328 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #25
   %329 = icmp slt i32 %328, 0
-  br i1 %329, label %Abc_Clock.exit32.i, label %330
+  br i1 %329, label %Abc_Clock.exit30.i, label %330
 
-330:                                              ; preds = %Abc_Clock.exit.i177
+330:                                              ; preds = %Abc_Clock.exit.i176
   %331 = load i64, ptr %4, align 8
   %332 = mul nsw i64 %331, 1000000
   %333 = load i64, ptr %214, align 8
   %334 = sdiv i64 %333, 1000
   %335 = add nsw i64 %334, %332
-  br label %Abc_Clock.exit32.i
+  br label %Abc_Clock.exit30.i
 
-Abc_Clock.exit32.i:                               ; preds = %330, %Abc_Clock.exit.i177
-  %.0.i31.i = phi i64 [ %335, %330 ], [ -1, %Abc_Clock.exit.i177 ]
+Abc_Clock.exit30.i:                               ; preds = %330, %Abc_Clock.exit.i176
+  %.0.i29.i = phi i64 [ %335, %330 ], [ -1, %Abc_Clock.exit.i176 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %336 = add i64 %.0.i31.i, %.0.i.neg.i
+  %336 = add i64 %.0.i29.i, %.0.i.neg.i
   %337 = getelementptr inbounds i8, ptr %323, i64 288
   store i64 %336, ptr %337, align 8
   %338 = getelementptr inbounds i8, ptr %323, i64 144
   %339 = load ptr, ptr %338, align 8
-  %.not27.i = icmp eq ptr %339, null
-  br i1 %.not27.i, label %.thread, label %340
+  %.not.i177 = icmp eq ptr %339, null
+  br i1 %.not.i177, label %.thread.i, label %340
 
-340:                                              ; preds = %Abc_Clock.exit32.i
+340:                                              ; preds = %Abc_Clock.exit30.i
   %341 = getelementptr inbounds i8, ptr %339, i64 440
   %342 = load i64, ptr %341, align 8
   %343 = getelementptr inbounds i8, ptr %339, i64 432
   %344 = load i64, ptr %343, align 8
-  br label %.thread
+  br label %.thread.i
 
-.thread:                                          ; preds = %Abc_Clock.exit32.i, %340
-  %345 = phi i64 [ %342, %340 ], [ 0, %Abc_Clock.exit32.i ]
-  %346 = phi i64 [ %344, %340 ], [ 0, %Abc_Clock.exit32.i ]
+.thread.i:                                        ; preds = %Abc_Clock.exit30.i, %340
+  %.2210 = phi i64 [ %342, %340 ], [ 0, %Abc_Clock.exit30.i ]
+  %345 = phi i64 [ %344, %340 ], [ 0, %Abc_Clock.exit30.i ]
   call fastcc void @Ivy_FraigStop(ptr noundef nonnull %323)
   br label %Ivy_FraigPerform_int.exit
 
-Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread
-  %.2212 = phi i64 [ %.0210240, %315 ], [ %345, %.thread ]
-  %.2209 = phi i64 [ %.0207241, %315 ], [ %346, %.thread ]
-  %.0.i180 = phi ptr [ %316, %315 ], [ %327, %.thread ]
-  call void @Ivy_ManStop(ptr noundef nonnull %.1103242) #25
-  %347 = getelementptr inbounds i8, ptr %.0.i180, i64 200
-  %348 = load ptr, ptr %347, align 8
-  %.not.i181 = icmp eq ptr %348, null
-  br i1 %.not.i181, label %.preheader.i183, label %Ivy_FraigMiterStatus.exit199
+Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
+  %.3211 = phi i64 [ %.0208238, %315 ], [ %.2210, %.thread.i ]
+  %.2207 = phi i64 [ %.0205239, %315 ], [ %345, %.thread.i ]
+  %.0.i178 = phi ptr [ %316, %315 ], [ %327, %.thread.i ]
+  call void @Ivy_ManStop(ptr noundef nonnull %.1103240) #25
+  %346 = getelementptr inbounds i8, ptr %.0.i178, i64 200
+  %347 = load ptr, ptr %346, align 8
+  %.not.i179 = icmp eq ptr %347, null
+  br i1 %.not.i179, label %.preheader.i181, label %Ivy_FraigMiterStatus.exit197
 
-.preheader.i183:                                  ; preds = %Ivy_FraigPerform_int.exit
-  %349 = getelementptr inbounds i8, ptr %.0.i180, i64 8
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr i8, ptr %350, i64 4
-  %.val.i184 = load i32, ptr %351, align 4
-  %352 = icmp sgt i32 %.val.i184, 0
-  br i1 %352, label %.lr.ph.i185, label %Ivy_FraigMiterStatus.exit199
+.preheader.i181:                                  ; preds = %Ivy_FraigPerform_int.exit
+  %348 = getelementptr inbounds i8, ptr %.0.i178, i64 8
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr i8, ptr %349, i64 4
+  %.val.i182 = load i32, ptr %350, align 4
+  %351 = icmp sgt i32 %.val.i182, 0
+  br i1 %351, label %.lr.ph.i183, label %Ivy_FraigMiterStatus.exit197
 
-.lr.ph.i185:                                      ; preds = %.preheader.i183
-  %353 = getelementptr i8, ptr %350, i64 8
-  %.val30.i186 = load ptr, ptr %353, align 8
-  %354 = getelementptr inbounds i8, ptr %.0.i180, i64 32
-  %355 = load ptr, ptr %354, align 8
-  %356 = ptrtoint ptr %355 to i64
-  %357 = xor i64 %356, 1
-  %358 = inttoptr i64 %357 to ptr
-  %wide.trip.count.i187 = zext nneg i32 %.val.i184 to i64
-  br label %359
+.lr.ph.i183:                                      ; preds = %.preheader.i181
+  %352 = getelementptr i8, ptr %349, i64 8
+  %.val30.i184 = load ptr, ptr %352, align 8
+  %353 = getelementptr inbounds i8, ptr %.0.i178, i64 32
+  %354 = load ptr, ptr %353, align 8
+  %355 = ptrtoint ptr %354 to i64
+  %356 = xor i64 %355, 1
+  %357 = inttoptr i64 %356 to ptr
+  %wide.trip.count.i185 = zext nneg i32 %.val.i182 to i64
+  br label %358
 
-359:                                              ; preds = %382, %.lr.ph.i185
-  %indvars.iv.i188 = phi i64 [ 0, %.lr.ph.i185 ], [ %indvars.iv.next.i195, %382 ]
-  %.035.i189 = phi i32 [ 0, %.lr.ph.i185 ], [ %.1.i194, %382 ]
-  %.01934.i190 = phi i32 [ 0, %.lr.ph.i185 ], [ %.120.i193, %382 ]
-  %360 = getelementptr inbounds ptr, ptr %.val30.i186, i64 %indvars.iv.i188
-  %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr i8, ptr %361, i64 16
-  %.val31.i191 = load ptr, ptr %362, align 8
-  %363 = icmp eq ptr %.val31.i191, %355
-  br i1 %363, label %364, label %366
+358:                                              ; preds = %381, %.lr.ph.i183
+  %indvars.iv.i186 = phi i64 [ 0, %.lr.ph.i183 ], [ %indvars.iv.next.i193, %381 ]
+  %.035.i187 = phi i32 [ 0, %.lr.ph.i183 ], [ %.1.i192, %381 ]
+  %.01934.i188 = phi i32 [ 0, %.lr.ph.i183 ], [ %.120.i191, %381 ]
+  %359 = getelementptr inbounds ptr, ptr %.val30.i184, i64 %indvars.iv.i186
+  %360 = load ptr, ptr %359, align 8
+  %361 = getelementptr i8, ptr %360, i64 16
+  %.val31.i189 = load ptr, ptr %361, align 8
+  %362 = icmp eq ptr %.val31.i189, %354
+  br i1 %362, label %363, label %365
 
-364:                                              ; preds = %359
-  %365 = add nsw i32 %.01934.i190, 1
-  br label %382
+363:                                              ; preds = %358
+  %364 = add nsw i32 %.01934.i188, 1
+  br label %381
 
-366:                                              ; preds = %359
-  %367 = icmp eq ptr %.val31.i191, %358
-  br i1 %367, label %382, label %368
+365:                                              ; preds = %358
+  %366 = icmp eq ptr %.val31.i189, %357
+  br i1 %366, label %381, label %367
 
-368:                                              ; preds = %366
-  %369 = ptrtoint ptr %.val31.i191 to i64
-  %370 = and i64 %369, -2
-  %371 = inttoptr i64 %370 to ptr
-  %372 = getelementptr inbounds i8, ptr %371, i64 8
-  %373 = load i32, ptr %372, align 8
-  %374 = lshr i32 %373, 7
-  %375 = trunc i64 %369 to i32
-  %376 = xor i32 %374, %375
-  %377 = and i32 %376, 1
-  %.not29.i192 = icmp eq i32 %377, 0
-  br i1 %.not29.i192, label %380, label %378
+367:                                              ; preds = %365
+  %368 = ptrtoint ptr %.val31.i189 to i64
+  %369 = and i64 %368, -2
+  %370 = inttoptr i64 %369 to ptr
+  %371 = getelementptr inbounds i8, ptr %370, i64 8
+  %372 = load i32, ptr %371, align 8
+  %373 = lshr i32 %372, 7
+  %374 = trunc i64 %368 to i32
+  %375 = xor i32 %373, %374
+  %376 = and i32 %375, 1
+  %.not29.i190 = icmp eq i32 %376, 0
+  br i1 %.not29.i190, label %379, label %377
 
-378:                                              ; preds = %368
-  %379 = add nsw i32 %.01934.i190, 1
-  br label %382
+377:                                              ; preds = %367
+  %378 = add nsw i32 %.01934.i188, 1
+  br label %381
 
-380:                                              ; preds = %368
-  %381 = add nsw i32 %.035.i189, 1
-  br label %382
+379:                                              ; preds = %367
+  %380 = add nsw i32 %.035.i187, 1
+  br label %381
 
-382:                                              ; preds = %380, %378, %366, %364
-  %.120.i193 = phi i32 [ %365, %364 ], [ %379, %378 ], [ %.01934.i190, %380 ], [ %.01934.i190, %366 ]
-  %.1.i194 = phi i32 [ %.035.i189, %364 ], [ %.035.i189, %378 ], [ %381, %380 ], [ %.035.i189, %366 ]
-  %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i188, 1
-  %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i195, %wide.trip.count.i187
-  br i1 %exitcond.not.i196, label %.critedge.i197, label %359, !llvm.loop !4
+381:                                              ; preds = %379, %377, %365, %363
+  %.120.i191 = phi i32 [ %364, %363 ], [ %378, %377 ], [ %.01934.i188, %379 ], [ %.01934.i188, %365 ]
+  %.1.i192 = phi i32 [ %.035.i187, %363 ], [ %.035.i187, %377 ], [ %380, %379 ], [ %.035.i187, %365 ]
+  %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i186, 1
+  %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, %wide.trip.count.i185
+  br i1 %exitcond.not.i194, label %.critedge.i195, label %358, !llvm.loop !4
 
-.critedge.i197:                                   ; preds = %382
-  %383 = icmp eq i32 %.120.i193, 0
-  %384 = icmp eq i32 %.1.i194, 0
-  %385 = select i1 %384, i32 1, i32 -1
-  %spec.select.i198 = select i1 %383, i32 %385, i32 0
-  br label %Ivy_FraigMiterStatus.exit199
+.critedge.i195:                                   ; preds = %381
+  %382 = icmp eq i32 %.120.i191, 0
+  %383 = icmp eq i32 %.1.i192, 0
+  %384 = select i1 %383, i32 1, i32 -1
+  %spec.select.i196 = select i1 %382, i32 %384, i32 0
+  br label %Ivy_FraigMiterStatus.exit197
 
-Ivy_FraigMiterStatus.exit199:                     ; preds = %Ivy_FraigPerform_int.exit, %.preheader.i183, %.critedge.i197
-  %.024.i182 = phi i32 [ 0, %Ivy_FraigPerform_int.exit ], [ 1, %.preheader.i183 ], [ %spec.select.i198, %.critedge.i197 ]
-  %386 = load i32, ptr %20, align 4
-  %.not.i200 = icmp eq i32 %386, 0
-  br i1 %.not.i200, label %Ivy_FraigMiterPrint.exit205, label %387
+Ivy_FraigMiterStatus.exit197:                     ; preds = %Ivy_FraigPerform_int.exit, %.preheader.i181, %.critedge.i195
+  %.024.i180 = phi i32 [ 0, %Ivy_FraigPerform_int.exit ], [ 1, %.preheader.i181 ], [ %spec.select.i196, %.critedge.i195 ]
+  %385 = load i32, ptr %20, align 4
+  %.not.i198 = icmp eq i32 %385, 0
+  br i1 %.not.i198, label %Ivy_FraigMiterPrint.exit203, label %386
 
-387:                                              ; preds = %Ivy_FraigMiterStatus.exit199
-  %388 = getelementptr i8, ptr %.0.i180, i64 140
-  %.val.i201 = load i32, ptr %388, align 4
-  %389 = getelementptr i8, ptr %.0.i180, i64 144
-  %.val4.i202 = load i32, ptr %389, align 8
-  %390 = add nsw i32 %.val4.i202, %.val.i201
-  %391 = call i32 @Ivy_ManLevels(ptr noundef %.0.i180) #25
-  %392 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %390, i32 noundef %391)
+386:                                              ; preds = %Ivy_FraigMiterStatus.exit197
+  %387 = getelementptr i8, ptr %.0.i178, i64 140
+  %.val.i199 = load i32, ptr %387, align 4
+  %388 = getelementptr i8, ptr %.0.i178, i64 144
+  %.val4.i200 = load i32, ptr %388, align 8
+  %389 = add nsw i32 %.val4.i200, %.val.i199
+  %390 = call i32 @Ivy_ManLevels(ptr noundef %.0.i178) #25
+  %391 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %389, i32 noundef %390)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %393 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #25
-  %394 = icmp slt i32 %393, 0
-  br i1 %394, label %Abc_Clock.exit.i203, label %395
+  %392 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #25
+  %393 = icmp slt i32 %392, 0
+  br i1 %393, label %Abc_Clock.exit.i201, label %394
 
-395:                                              ; preds = %387
-  %396 = load i64, ptr %3, align 8
-  %397 = mul nsw i64 %396, 1000000
-  %398 = load i64, ptr %215, align 8
-  %399 = sdiv i64 %398, 1000
-  %400 = add nsw i64 %399, %397
-  br label %Abc_Clock.exit.i203
+394:                                              ; preds = %386
+  %395 = load i64, ptr %3, align 8
+  %396 = mul nsw i64 %395, 1000000
+  %397 = load i64, ptr %215, align 8
+  %398 = sdiv i64 %397, 1000
+  %399 = add nsw i64 %398, %396
+  br label %Abc_Clock.exit.i201
 
-Abc_Clock.exit.i203:                              ; preds = %395, %387
-  %.0.i.i204 = phi i64 [ %400, %395 ], [ -1, %387 ]
+Abc_Clock.exit.i201:                              ; preds = %394, %386
+  %.0.i.i202 = phi i64 [ %399, %394 ], [ -1, %386 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %401 = add i64 %.0.i.i204, %.0.i173.neg
-  %402 = sitofp i64 %401 to double
-  %403 = fdiv double %402, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %403)
-  br label %Ivy_FraigMiterPrint.exit205
+  %400 = add i64 %.0.i.i202, %.0.i173.neg
+  %401 = sitofp i64 %400 to double
+  %402 = fdiv double %401, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %402)
+  br label %Ivy_FraigMiterPrint.exit203
 
-Ivy_FraigMiterPrint.exit205:                      ; preds = %Abc_Clock.exit.i203, %Ivy_FraigMiterStatus.exit199
-  %404 = icmp sgt i32 %.024.i182, -1
-  br i1 %404, label %Ivy_FraigMiterStatus.exit172.thread, label %Ivy_FraigMiterPrint.exit205.thread
+Ivy_FraigMiterPrint.exit203:                      ; preds = %Abc_Clock.exit.i201, %Ivy_FraigMiterStatus.exit197
+  %403 = icmp sgt i32 %.024.i180, -1
+  br i1 %403, label %Ivy_FraigMiterStatus.exit172.thread, label %Ivy_FraigMiterPrint.exit203.thread
 
-Ivy_FraigMiterPrint.exit205.thread:               ; preds = %283, %Ivy_FraigMiterPrint.exit205
-  %.3260 = phi ptr [ %.0.i180, %Ivy_FraigMiterPrint.exit205 ], [ %.1103242, %283 ]
-  %.1208259 = phi i64 [ %.2209, %Ivy_FraigMiterPrint.exit205 ], [ %.0207241, %283 ]
-  %.1211258 = phi i64 [ %.2212, %Ivy_FraigMiterPrint.exit205 ], [ %.0210240, %283 ]
-  %405 = load i64, ptr %216, align 8
-  %406 = add nsw i64 %405, %.1211258
-  store i64 %406, ptr %216, align 8
-  %407 = load i64, ptr %217, align 8
-  %408 = add nsw i64 %407, %.1208259
-  store i64 %408, ptr %217, align 8
-  %409 = load i64, ptr %211, align 8
-  %.not117 = icmp eq i64 %409, 0
-  %.not118 = icmp slt i64 %406, %409
+Ivy_FraigMiterPrint.exit203.thread:               ; preds = %283, %Ivy_FraigMiterPrint.exit203
+  %.3258 = phi ptr [ %.0.i178, %Ivy_FraigMiterPrint.exit203 ], [ %.1103240, %283 ]
+  %.1206257 = phi i64 [ %.2207, %Ivy_FraigMiterPrint.exit203 ], [ %.0205239, %283 ]
+  %.1209256 = phi i64 [ %.3211, %Ivy_FraigMiterPrint.exit203 ], [ %.0208238, %283 ]
+  %404 = load i64, ptr %216, align 8
+  %405 = add nsw i64 %404, %.1209256
+  store i64 %405, ptr %216, align 8
+  %406 = load i64, ptr %217, align 8
+  %407 = add nsw i64 %406, %.1206257
+  store i64 %407, ptr %217, align 8
+  %408 = load i64, ptr %211, align 8
+  %.not117 = icmp eq i64 %408, 0
+  %.not118 = icmp slt i64 %405, %408
   %or.cond = select i1 %.not117, i1 true, i1 %.not118
-  br i1 %or.cond, label %410, label %412
+  br i1 %or.cond, label %409, label %411
 
-410:                                              ; preds = %Ivy_FraigMiterPrint.exit205.thread
-  %411 = load i64, ptr %212, align 8
-  %.not119 = icmp eq i64 %411, 0
-  %.not120 = icmp slt i64 %408, %411
-  %or.cond226 = select i1 %.not119, i1 true, i1 %.not120
-  br i1 %or.cond226, label %218, label %412
+409:                                              ; preds = %Ivy_FraigMiterPrint.exit203.thread
+  %410 = load i64, ptr %212, align 8
+  %.not119 = icmp eq i64 %410, 0
+  %.not120 = icmp slt i64 %407, %410
+  %or.cond224 = select i1 %.not119, i1 true, i1 %.not120
+  br i1 %or.cond224, label %218, label %411
 
-412:                                              ; preds = %410, %Ivy_FraigMiterPrint.exit205.thread
+411:                                              ; preds = %409, %Ivy_FraigMiterPrint.exit203.thread
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %Ivy_FraigMiterPrint.exit
 
-Ivy_FraigMiterStatus.exit172.thread:              ; preds = %Ivy_FraigMiterPrint.exit205
-  %413 = icmp eq i32 %.024.i182, 0
-  br i1 %413, label %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge, label %Ivy_FraigMiterPrint.exit
+Ivy_FraigMiterStatus.exit172.thread:              ; preds = %Ivy_FraigMiterPrint.exit203
+  %412 = icmp eq i32 %.024.i180, 0
+  br i1 %412, label %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge, label %Ivy_FraigMiterPrint.exit
 
 Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge: ; preds = %Ivy_FraigMiterStatus.exit172.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i180, i64 200
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i178, i64 200
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Ivy_FraigMiterStatus.exit172.thread.thread
 
 Ivy_FraigMiterStatus.exit172.thread.thread:       ; preds = %.critedge.i170, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge
-  %414 = phi ptr [ %.pre, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge ], [ %246, %.critedge.i170 ]
-  %.2104221 = phi ptr [ %.0.i180, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge ], [ %.1103242, %.critedge.i170 ]
-  %415 = icmp eq ptr %414, null
-  br i1 %415, label %416, label %Ivy_FraigMiterPrint.exit
+  %413 = phi ptr [ %.pre, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge ], [ %246, %.critedge.i170 ]
+  %.2104219 = phi ptr [ %.0.i178, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge ], [ %.1103240, %.critedge.i170 ]
+  %414 = icmp eq ptr %413, null
+  br i1 %414, label %415, label %Ivy_FraigMiterPrint.exit
 
-416:                                              ; preds = %Ivy_FraigMiterStatus.exit172.thread.thread
-  %417 = getelementptr inbounds i8, ptr %.2104221, i64 200
-  %418 = getelementptr i8, ptr %.2104221, i64 124
-  %.2104.val = load i32, ptr %418, align 4
-  %419 = sext i32 %.2104.val to i64
-  %420 = shl nsw i64 %419, 2
-  %421 = call noalias ptr @malloc(i64 noundef %420) #26
-  store ptr %421, ptr %417, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %421, i8 0, i64 %420, i1 false)
+415:                                              ; preds = %Ivy_FraigMiterStatus.exit172.thread.thread
+  %416 = getelementptr inbounds i8, ptr %.2104219, i64 200
+  %417 = getelementptr i8, ptr %.2104219, i64 124
+  %.2104.val = load i32, ptr %417, align 4
+  %418 = sext i32 %.2104.val to i64
+  %419 = shl nsw i64 %418, 2
+  %420 = call noalias ptr @malloc(i64 noundef %419) #26
+  store ptr %420, ptr %416, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %420, i8 0, i64 %419, i1 false)
   br label %Ivy_FraigMiterPrint.exit
 
-Ivy_FraigMiterPrint.exit:                         ; preds = %.preheader.i156, %218, %Ivy_FraigMiterStatus.exit172, %244, %Ivy_FraigMiterStatus.exit172.thread, %Ivy_FraigMiterStatus.exit172.thread.thread, %416, %202, %Ivy_FraigMiterPrint.exit153, %Abc_Clock.exit.i, %Ivy_FraigMiterStatus.exit, %412
-  %.2104217.sink = phi ptr [ %.3260, %412 ], [ %67, %Ivy_FraigMiterStatus.exit ], [ %67, %Abc_Clock.exit.i ], [ %142, %Ivy_FraigMiterPrint.exit153 ], [ %.2104221, %416 ], [ %.2104221, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ %.0.i180, %Ivy_FraigMiterStatus.exit172.thread ], [ %.0102, %202 ], [ %.1103242, %244 ], [ %.1103242, %Ivy_FraigMiterStatus.exit172 ], [ %.3260, %218 ], [ %.1103242, %.preheader.i156 ]
-  %.0105 = phi i32 [ -1, %412 ], [ %.024.i, %Ivy_FraigMiterStatus.exit ], [ %.024.i, %Abc_Clock.exit.i ], [ %.024.i130, %Ivy_FraigMiterPrint.exit153 ], [ 0, %416 ], [ 0, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ 1, %Ivy_FraigMiterStatus.exit172.thread ], [ -1, %202 ], [ 0, %244 ], [ 1, %Ivy_FraigMiterStatus.exit172 ], [ -1, %218 ], [ 1, %.preheader.i156 ]
-  store ptr %.2104217.sink, ptr %0, align 8
+Ivy_FraigMiterPrint.exit:                         ; preds = %.preheader.i156, %218, %Ivy_FraigMiterStatus.exit172, %244, %Ivy_FraigMiterStatus.exit172.thread, %Ivy_FraigMiterStatus.exit172.thread.thread, %415, %202, %Ivy_FraigMiterPrint.exit153, %Abc_Clock.exit.i, %Ivy_FraigMiterStatus.exit, %411
+  %.2104215.sink = phi ptr [ %.3258, %411 ], [ %67, %Ivy_FraigMiterStatus.exit ], [ %67, %Abc_Clock.exit.i ], [ %142, %Ivy_FraigMiterPrint.exit153 ], [ %.2104219, %415 ], [ %.2104219, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ %.0.i178, %Ivy_FraigMiterStatus.exit172.thread ], [ %.0102, %202 ], [ %.1103240, %244 ], [ %.1103240, %Ivy_FraigMiterStatus.exit172 ], [ %.3258, %218 ], [ %.1103240, %.preheader.i156 ]
+  %.0105 = phi i32 [ -1, %411 ], [ %.024.i, %Ivy_FraigMiterStatus.exit ], [ %.024.i, %Abc_Clock.exit.i ], [ %.024.i130, %Ivy_FraigMiterPrint.exit153 ], [ 0, %415 ], [ 0, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ 1, %Ivy_FraigMiterStatus.exit172.thread ], [ -1, %202 ], [ 0, %244 ], [ 1, %Ivy_FraigMiterStatus.exit172 ], [ -1, %218 ], [ 1, %.preheader.i156 ]
+  store ptr %.2104215.sink, ptr %0, align 8
   ret i32 %.0105
 }
 

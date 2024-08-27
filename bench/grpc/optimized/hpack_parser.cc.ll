@@ -1584,7 +1584,7 @@ lpad:                                             ; preds = %do.body.i108, %do.b
   %result.sroa.0.1 = phi ptr [ %result.sroa.0.3, %do.body.i108 ], [ %result.sroa.0.3292, %do.body.i ], [ %result.sroa.0.2270, %if.then21 ], [ %result.sroa.0.0250, %if.then10 ]
   %8 = landingpad { ptr, i32 }
           cleanup
-  %tobool.i.i.i.i13 = trunc i8 %result.sroa.30.1 to i1
+  %tobool.i.i.i.i13 = trunc nuw i8 %result.sroa.30.1 to i1
   %tobool.not.i.i.i.i.i.i.i.i15 = icmp ne ptr %result.sroa.0.1, null
   %or.cond.not = select i1 %tobool.i.i.i.i13, i1 %tobool.not.i.i.i.i.i.i.i.i15, i1 false
   br i1 %or.cond.not, label %if.then.i.i.i.i.i.i.i.i16, label %_ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit17
@@ -1684,7 +1684,7 @@ if.then21:                                        ; preds = %land.lhs.true.i.i54
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %if.then21
-  %tobool.i.i.i.i.i60 = trunc i8 %result.sroa.30.2266 to i1
+  %tobool.i.i.i.i.i60 = trunc nuw i8 %result.sroa.30.2266 to i1
   %_M_engaged2.i.i.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp22, i64 24
   %22 = load i8, ptr %_M_engaged2.i.i.i.i.i61, align 8
   %tobool3.i.i.i.i.i62 = trunc i8 %22 to i1
@@ -1730,7 +1730,7 @@ if.end28:                                         ; preds = %if.then8.i.i.i.i.i6
   %result.sroa.30.3 = phi i8 [ %result.sroa.30.2266, %land.lhs.true.i.i54 ], [ %result.sroa.30.2266, %if.else.thread.i.i.i.i.i63 ], [ 1, %if.then8.i.i.i.i.i64 ], [ %result.sroa.30.2266, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %result.sroa.30.2266, %if.then.i.i.i.i.i73 ]
   %result.sroa.16.2 = phi ptr [ %result.sroa.16.1268, %land.lhs.true.i.i54 ], [ %result.sroa.16.1268, %if.else.thread.i.i.i.i.i63 ], [ %27, %if.then8.i.i.i.i.i64 ], [ %24, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %24, %if.then.i.i.i.i.i73 ]
   %result.sroa.0.3 = phi ptr [ %result.sroa.0.2270, %land.lhs.true.i.i54 ], [ %result.sroa.0.2270, %if.else.thread.i.i.i.i.i63 ], [ %26, %if.then8.i.i.i.i.i64 ], [ %23, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %23, %if.then.i.i.i.i.i73 ]
-  %tobool.i.i = trunc i8 %result.sroa.30.3 to i1
+  %tobool.i.i = trunc nuw i8 %result.sroa.30.3 to i1
   br i1 %tobool.i.i, label %if.end38, label %if.then30
 
 if.then30:                                        ; preds = %if.then.i.i.i.i.i6.i.i.i.i.i72, %if.then.i.i.i.i.i.i70, %entry, %if.end28

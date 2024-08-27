@@ -68470,7 +68470,7 @@ if.else.i.i:                                      ; preds = %for.body.i9.i
 if.end.i17.i:                                     ; preds = %if.else.i.i, %if.then.i12.i
   %conv4.pn.i18.i = phi i64 [ %conv4.i16.i, %if.then.i12.i ], [ 1, %if.else.i.i ]
   %result_data.addr.1.i.i = phi ptr [ %add.ptr3.i.i, %if.then.i12.i ], [ %incdec.ptr.i.i, %if.else.i.i ]
-  %i.1.i19.i = add nsw i64 %conv4.pn.i18.i, %i.018.i.i
+  %i.1.i19.i = add i64 %conv4.pn.i18.i, %i.018.i.i
   %cmp.i20.i = icmp ult i64 %i.1.i19.i, %conv.i
   br i1 %cmp.i20.i, label %for.body.i9.i, label %_ZN6duckdbL11CaseConvertILb0EEEvPKcmPc.exitthread-pre-split.i, !llvm.loop !10
 
@@ -70632,7 +70632,7 @@ if.else.i.i:                                      ; preds = %for.body.i9.i
 if.end.i17.i:                                     ; preds = %if.else.i.i, %if.then.i12.i
   %conv4.pn.i18.i = phi i64 [ %conv4.i16.i, %if.then.i12.i ], [ 1, %if.else.i.i ]
   %result_data.addr.1.i.i = phi ptr [ %add.ptr3.i.i, %if.then.i12.i ], [ %incdec.ptr.i.i, %if.else.i.i ]
-  %i.1.i19.i = add nsw i64 %conv4.pn.i18.i, %i.018.i.i
+  %i.1.i19.i = add i64 %conv4.pn.i18.i, %i.018.i.i
   %cmp.i20.i = icmp ult i64 %i.1.i19.i, %conv.i
   br i1 %cmp.i20.i, label %for.body.i9.i, label %_ZN6duckdbL11CaseConvertILb1EEEvPKcmPc.exitthread-pre-split.i, !llvm.loop !1317
 

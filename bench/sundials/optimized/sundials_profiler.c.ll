@@ -331,7 +331,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr n
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %90, label %4
+  br i1 %.not, label %91, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -342,22 +342,25 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr n
   %9 = load ptr, ptr %8, align 8
   %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3)
   %.not13 = icmp eq i32 %10, 0
-  br i1 %.not13, label %59, label %11
+  br i1 %.not13, label %._crit_edge, label %11
+
+._crit_edge:                                      ; preds = %4
+  %.pre = load ptr, ptr %3, align 8
+  br label %60
 
 11:                                               ; preds = %4
-  %12 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #18
-  %calloc.i = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %12 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #18
+  %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   store ptr %calloc.i, ptr %12, align 8
-  %13 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
-  store ptr %12, ptr %3, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %16 = icmp eq ptr %9, null
   %17 = icmp eq ptr %1, null
   %or.cond.i = or i1 %17, %16
-  br i1 %or.cond.i, label %.thread, label %18
+  br i1 %or.cond.i, label %56, label %18
 
 18:                                               ; preds = %11
   %19 = load i8, ptr %1, align 1
@@ -421,17 +424,17 @@ SUNHashMap_Iterate.exit.loopexit.split.loop.exit.i: ; preds = %.lr.ph.i31.i
 SUNHashMap_Iterate.exit.i:                        ; preds = %39, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit.i, %36
   %.0.i.i = phi i32 [ %27, %36 ], [ %44, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit.i ], [ %27, %39 ]
   %45 = icmp slt i32 %.0.i.i, 0
-  br i1 %45, label %.thread, label %46
+  br i1 %45, label %56, label %46
 
 46:                                               ; preds = %SUNHashMap_Iterate.exit.i
   %47 = icmp eq i32 %.0.i.i, %27
-  br i1 %47, label %.thread, label %48
+  br i1 %47, label %56, label %48
 
 48:                                               ; preds = %46, %fnv1a_hash.exit.i
   %.025.i = phi i32 [ %30, %fnv1a_hash.exit.i ], [ %.0.i.i, %46 ]
-  %49 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %49 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread, label %SUNHashMap_Insert.exit
+  br i1 %50, label %56, label %SUNHashMap_Insert.exit
 
 SUNHashMap_Insert.exit:                           ; preds = %48
   store ptr %1, ptr %49, align 8
@@ -443,177 +446,175 @@ SUNHashMap_Insert.exit:                           ; preds = %48
   %54 = load i32, ptr %9, align 8
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %9, align 8
-  br label %59
+  br label %60
 
-.thread:                                          ; preds = %48, %46, %SUNHashMap_Iterate.exit.i, %11
-  %.0.i.ph26 = phi i32 [ -9981, %11 ], [ -9981, %SUNHashMap_Iterate.exit.i ], [ -9983, %46 ], [ -9981, %48 ]
+56:                                               ; preds = %48, %46, %SUNHashMap_Iterate.exit.i, %11
+  %switch = phi i32 [ -9981, %48 ], [ -9983, %46 ], [ -9981, %SUNHashMap_Iterate.exit.i ], [ -9981, %11 ]
   %.not9.i = icmp eq ptr %calloc.i, null
-  br i1 %.not9.i, label %57, label %56
+  br i1 %.not9.i, label %58, label %57
 
-56:                                               ; preds = %.thread
-  call void @free(ptr noundef nonnull %calloc.i) #19
-  br label %57
+57:                                               ; preds = %56
+  tail call void @free(ptr noundef nonnull %calloc.i) #19
+  br label %58
 
-57:                                               ; preds = %56, %.thread
+58:                                               ; preds = %57, %56
   %.not10.i = icmp eq ptr %13, null
-  br i1 %.not10.i, label %sunTimerStructFree.exit, label %58
+  br i1 %.not10.i, label %sunTimerStructFree.exit, label %59
 
-58:                                               ; preds = %57
-  call void @free(ptr noundef nonnull %13) #19
+59:                                               ; preds = %58
+  tail call void @free(ptr noundef nonnull %13) #19
   br label %sunTimerStructFree.exit
 
-sunTimerStructFree.exit:                          ; preds = %57, %58
-  call void @free(ptr noundef nonnull %12) #19
+sunTimerStructFree.exit:                          ; preds = %58, %59
+  tail call void @free(ptr noundef nonnull %12) #19
   br label %.sink.split
 
-59:                                               ; preds = %SUNHashMap_Insert.exit, %4
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 40
-  %62 = load i64, ptr %61, align 8
-  %63 = add nsw i64 %62, 1
-  store i64 %63, ptr %61, align 8
-  %.val = load ptr, ptr %60, align 8
-  %64 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val) #19
+60:                                               ; preds = %._crit_edge, %SUNHashMap_Insert.exit
+  %61 = phi ptr [ %.pre, %._crit_edge ], [ %12, %SUNHashMap_Insert.exit ]
+  %62 = getelementptr inbounds i8, ptr %61, i64 40
+  %63 = load i64, ptr %62, align 8
+  %64 = add nsw i64 %63, 1
+  store i64 %64, ptr %62, align 8
+  %.val = load ptr, ptr %61, align 8
+  %65 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val) #19
   br label %.sink.split
 
-.sink.split:                                      ; preds = %59, %sunTimerStructFree.exit
-  %.0.ph = phi i32 [ %.0.i.ph26, %sunTimerStructFree.exit ], [ 0, %59 ]
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %67) #19
-  %69 = load ptr, ptr %66, align 8
-  %70 = load i64, ptr %69, align 8
-  %71 = load ptr, ptr %65, align 8
-  %72 = load i64, ptr %71, align 8
-  %73 = sub i64 %70, %72
-  %74 = getelementptr inbounds i8, ptr %69, i64 8
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %71, i64 8
-  %77 = load i64, ptr %76, align 8
-  %78 = sub nsw i64 %75, %77
-  %79 = icmp slt i64 %78, 0
-  %80 = add nsw i64 %75, 1000000000
-  %81 = sub i64 %80, %77
-  %.lobit.i = ashr i64 %78, 63
-  %.015.i = add nsw i64 %73, %.lobit.i
-  %.0.i17 = select i1 %79, i64 %81, i64 %78
-  %82 = sitofp i64 %.015.i to double
-  %83 = sitofp i64 %.0.i17 to double
-  %84 = call double @llvm.fmuladd.f64(double %83, double 1.000000e-09, double %82)
-  %85 = getelementptr inbounds i8, ptr %65, i64 32
-  %86 = load double, ptr %85, align 8
-  %87 = fadd double %86, %84
-  store double %87, ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %65, i64 16
-  store double %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %65, i64 24
-  store double %87, ptr %89, align 8
-  br label %90
+.sink.split:                                      ; preds = %60, %sunTimerStructFree.exit
+  %.0.ph = phi i32 [ %switch, %sunTimerStructFree.exit ], [ 0, %60 ]
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %68) #19
+  %70 = load ptr, ptr %67, align 8
+  %71 = load i64, ptr %70, align 8
+  %72 = load ptr, ptr %66, align 8
+  %73 = load i64, ptr %72, align 8
+  %74 = sub i64 %71, %73
+  %75 = getelementptr inbounds i8, ptr %70, i64 8
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %72, i64 8
+  %78 = load i64, ptr %77, align 8
+  %79 = sub nsw i64 %76, %78
+  %80 = icmp slt i64 %79, 0
+  %81 = add nsw i64 %76, 1000000000
+  %82 = sub i64 %81, %78
+  %.lobit.i = ashr i64 %79, 63
+  %.015.i = add nsw i64 %74, %.lobit.i
+  %.0.i17 = select i1 %80, i64 %82, i64 %79
+  %83 = sitofp i64 %.015.i to double
+  %84 = sitofp i64 %.0.i17 to double
+  %85 = tail call double @llvm.fmuladd.f64(double %84, double 1.000000e-09, double %83)
+  %86 = getelementptr inbounds i8, ptr %66, i64 32
+  %87 = load double, ptr %86, align 8
+  %88 = fadd double %87, %85
+  store double %88, ptr %86, align 8
+  %89 = getelementptr inbounds i8, ptr %66, i64 16
+  store double %88, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %66, i64 24
+  store double %88, ptr %90, align 8
+  br label %91
 
-90:                                               ; preds = %.sink.split, %2
+91:                                               ; preds = %.sink.split, %2
   %.0 = phi i32 [ -9999, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #7 {
+define internal fastcc range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
-  %6 = icmp eq ptr %2, null
-  %or.cond3 = or i1 %or.cond, %6
-  br i1 %or.cond3, label %48, label %7
+  br i1 %or.cond, label %47, label %6
 
-7:                                                ; preds = %3
-  %8 = load i8, ptr %1, align 1
-  %.not5.i = icmp eq i8 %8, 0
+6:                                                ; preds = %3
+  %7 = load i8, ptr %1, align 1
+  %.not5.i = icmp eq i8 %7, 0
   br i1 %.not5.i, label %fnv1a_hash.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %9 = phi i8 [ %14, %.lr.ph.i ], [ %8, %7 ]
-  %.07.i = phi ptr [ %10, %.lr.ph.i ], [ %1, %7 ]
-  %.036.i = phi i64 [ %13, %.lr.ph.i ], [ 1099511628211, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.07.i, i64 1
-  %11 = sext i8 %9 to i64
-  %12 = xor i64 %.036.i, %11
-  %13 = mul i64 %12, -3750763034362895579
-  %14 = load i8, ptr %10, align 1
-  %.not.i = icmp eq i8 %14, 0
+.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
+  %8 = phi i8 [ %13, %.lr.ph.i ], [ %7, %6 ]
+  %.07.i = phi ptr [ %9, %.lr.ph.i ], [ %1, %6 ]
+  %.036.i = phi i64 [ %12, %.lr.ph.i ], [ 1099511628211, %6 ]
+  %9 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %10 = sext i8 %8 to i64
+  %11 = xor i64 %.036.i, %10
+  %12 = mul i64 %11, -3750763034362895579
+  %13 = load i8, ptr %9, align 1
+  %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %fnv1a_hash.exit, label %.lr.ph.i
 
-fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
-  %.03.lcssa.i = phi i64 [ 1099511628211, %7 ], [ %13, %.lr.ph.i ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = urem i64 %.03.lcssa.i, %17
-  %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %sext = shl i64 %18, 32
-  %22 = ashr exact i64 %sext, 29
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %48, label %26
+fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %6
+  %.03.lcssa.i = phi i64 [ 1099511628211, %6 ], [ %12, %.lr.ph.i ]
+  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = sext i32 %15 to i64
+  %17 = urem i64 %.03.lcssa.i, %16
+  %18 = trunc i64 %17 to i32
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %sext = shl i64 %17, 32
+  %21 = ashr exact i64 %sext, 29
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %47, label %25
 
-26:                                               ; preds = %fnv1a_hash.exit
-  %27 = load ptr, ptr %24, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #20
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %45, label %29
+25:                                               ; preds = %fnv1a_hash.exit
+  %26 = load ptr, ptr %23, align 8
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %1) #20
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %44, label %28
 
-29:                                               ; preds = %26
-  %30 = add nsw i32 %19, 1
-  %31 = icmp slt i32 %30, %16
-  br i1 %31, label %.lr.ph.preheader.i, label %SUNHashMap_Iterate.exit
+28:                                               ; preds = %25
+  %29 = add nsw i32 %18, 1
+  %30 = icmp slt i32 %29, %15
+  br i1 %30, label %.lr.ph.preheader.i, label %SUNHashMap_Iterate.exit
 
-.lr.ph.preheader.i:                               ; preds = %29
-  %32 = sext i32 %30 to i64
-  br label %34
+.lr.ph.preheader.i:                               ; preds = %28
+  %31 = sext i32 %29 to i64
+  br label %33
 
-sunHashMapLinearProbeGet.exit.thread:             ; preds = %38, %34
+sunHashMapLinearProbeGet.exit.thread:             ; preds = %37, %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %33 = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %33, label %34, label %SUNHashMap_Iterate.exit
+  %32 = icmp slt i64 %indvars.iv.next.i, %16
+  br i1 %32, label %33, label %SUNHashMap_Iterate.exit
 
-34:                                               ; preds = %.lr.ph.preheader.i, %sunHashMapLinearProbeGet.exit.thread
-  %indvars.iv.i = phi i64 [ %32, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %sunHashMapLinearProbeGet.exit.thread ]
-  %35 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %sunHashMapLinearProbeGet.exit.thread, label %38
+33:                                               ; preds = %.lr.ph.preheader.i, %sunHashMapLinearProbeGet.exit.thread
+  %indvars.iv.i = phi i64 [ %31, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %sunHashMapLinearProbeGet.exit.thread ]
+  %34 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %sunHashMapLinearProbeGet.exit.thread, label %37
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %36, align 8
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %1) #20
-  %.not.i29 = icmp ne i32 %40, 0
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %35, align 8
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %1) #20
+  %.not.i29 = icmp ne i32 %39, 0
   %.not.i28 = icmp eq i64 %indvars.iv.i, -1
   %or.cond33 = or i1 %.not.i28, %.not.i29
   br i1 %or.cond33, label %sunHashMapLinearProbeGet.exit.thread, label %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34
 
-SUNHashMap_Iterate.exit.loopexit.split.loop.exit34: ; preds = %38
-  %41 = trunc nsw i64 %indvars.iv.i to i32
+SUNHashMap_Iterate.exit.loopexit.split.loop.exit34: ; preds = %37
+  %40 = trunc nsw i64 %indvars.iv.i to i32
   br label %SUNHashMap_Iterate.exit
 
-SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearProbeGet.exit.thread, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34, %29
-  %.0.i = phi i32 [ %16, %29 ], [ %41, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34 ], [ %16, %sunHashMapLinearProbeGet.exit.thread ]
-  %42 = icmp slt i32 %.0.i, 0
-  br i1 %42, label %48, label %43
+SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearProbeGet.exit.thread, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34, %28
+  %.0.i = phi i32 [ %15, %28 ], [ %40, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34 ], [ %15, %sunHashMapLinearProbeGet.exit.thread ]
+  %41 = icmp slt i32 %.0.i, 0
+  br i1 %41, label %47, label %42
 
-43:                                               ; preds = %SUNHashMap_Iterate.exit
-  %44 = icmp eq i32 %.0.i, %16
-  br i1 %44, label %48, label %45
+42:                                               ; preds = %SUNHashMap_Iterate.exit
+  %43 = icmp eq i32 %.0.i, %15
+  br i1 %43, label %47, label %44
 
-45:                                               ; preds = %43, %26
-  %46 = getelementptr inbounds i8, ptr %24, i64 8
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %2, align 8
-  br label %48
+44:                                               ; preds = %42, %25
+  %45 = getelementptr inbounds i8, ptr %23, i64 8
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %2, align 8
+  br label %47
 
-48:                                               ; preds = %43, %SUNHashMap_Iterate.exit, %fnv1a_hash.exit, %3, %45
-  %.0 = phi i32 [ 0, %45 ], [ -1, %3 ], [ -2, %fnv1a_hash.exit ], [ -1, %SUNHashMap_Iterate.exit ], [ -2, %43 ]
+47:                                               ; preds = %42, %SUNHashMap_Iterate.exit, %fnv1a_hash.exit, %3, %44
+  %.0 = phi i32 [ 0, %44 ], [ -1, %3 ], [ -2, %fnv1a_hash.exit ], [ -1, %SUNHashMap_Iterate.exit ], [ -2, %42 ]
   ret i32 %.0
 }
 
@@ -638,7 +639,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %14) #19
+  %15 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %14) #19
   %16 = load ptr, ptr %13, align 8
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
@@ -657,7 +658,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %.0.i = select i1 %26, i64 %28, i64 %25
   %29 = sitofp i64 %.015.i to double
   %30 = sitofp i64 %.0.i to double
-  %31 = call double @llvm.fmuladd.f64(double %30, double 1.000000e-09, double %29)
+  %31 = tail call double @llvm.fmuladd.f64(double %30, double 1.000000e-09, double %29)
   %32 = getelementptr inbounds i8, ptr %12, i64 32
   %33 = load double, ptr %32, align 8
   %34 = fadd double %33, %31
@@ -674,7 +675,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %41) #19
+  %42 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %41) #19
   %43 = load ptr, ptr %40, align 8
   %44 = load i64, ptr %43, align 8
   %45 = load ptr, ptr %39, align 8
@@ -693,7 +694,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %.0.i14 = select i1 %53, i64 %55, i64 %52
   %56 = sitofp i64 %.015.i13 to double
   %57 = sitofp i64 %.0.i14 to double
-  %58 = call double @llvm.fmuladd.f64(double %57, double 1.000000e-09, double %56)
+  %58 = tail call double @llvm.fmuladd.f64(double %57, double 1.000000e-09, double %56)
   %59 = getelementptr inbounds i8, ptr %39, i64 32
   %60 = load double, ptr %59, align 8
   %61 = fadd double %60, %58
@@ -705,7 +706,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %64 = load ptr, ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %66) #19
+  %67 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %66) #19
   %68 = load ptr, ptr %65, align 8
   %69 = load i64, ptr %68, align 8
   %70 = load ptr, ptr %64, align 8
@@ -724,7 +725,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %.0.i17 = select i1 %78, i64 %80, i64 %77
   %81 = sitofp i64 %.015.i16 to double
   %82 = sitofp i64 %.0.i17 to double
-  %83 = call double @llvm.fmuladd.f64(double %82, double 1.000000e-09, double %81)
+  %83 = tail call double @llvm.fmuladd.f64(double %82, double 1.000000e-09, double %81)
   %84 = getelementptr inbounds i8, ptr %64, i64 32
   %85 = load double, ptr %84, align 8
   %86 = fadd double %85, %83

@@ -29216,7 +29216,7 @@ cleanup.action:                                   ; preds = %if.then.i.i.i7, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4pbrt21GenerateCameraSubpathERKNS_10IntegratorERKNS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEiNS_6CameraEPNS_6VertexEb(ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef nonnull align 8 dereferenceable(92) %ray, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr nocapture noundef readonly %sampler, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer, i32 noundef %maxDepth, ptr noundef %camera, ptr noundef %path, i1 noundef zeroext %regularize) local_unnamed_addr #9 {
+define dso_local noundef i32 @_ZN4pbrt21GenerateCameraSubpathERKNS_10IntegratorERKNS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEiNS_6CameraEPNS_6VertexEb(ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef nonnull align 8 dereferenceable(92) %ray, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr nocapture noundef readonly %sampler, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer, i32 noundef %maxDepth, ptr noundef %camera, ptr noundef %path, i1 noundef zeroext %regularize) local_unnamed_addr #9 {
 entry:
   %beta = alloca %"class.pbrt::SampledSpectrum", align 8
   %pdfPos = alloca float, align 4
@@ -32907,7 +32907,7 @@ default.unreachable594:                           ; preds = %_ZN4pstd8optionalIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4pbrt20GenerateLightSubpathERKNS_10IntegratorERNS_18SampledWavelengthsENS_7SamplerENS_6CameraERNS_13ScratchBufferEifNS_12LightSamplerEPNS_6VertexEb(ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr nocapture noundef readonly %sampler, ptr nocapture noundef readonly %camera, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer, i32 noundef %maxDepth, float noundef %time, ptr nocapture noundef readonly %lightSampler, ptr noundef %path, i1 noundef zeroext %regularize) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4pbrt20GenerateLightSubpathERKNS_10IntegratorERNS_18SampledWavelengthsENS_7SamplerENS_6CameraERNS_13ScratchBufferEifNS_12LightSamplerEPNS_6VertexEb(ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr nocapture noundef readonly %sampler, ptr nocapture noundef readonly %camera, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer, i32 noundef %maxDepth, float noundef %time, ptr nocapture noundef readonly %lightSampler, ptr noundef %path, i1 noundef zeroext %regularize) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i = alloca %"class.pbrt::SampledSpectrum", align 8

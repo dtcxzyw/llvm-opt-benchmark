@@ -12678,127 +12678,127 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7
 _ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i28, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE14const_iteratorptEv.exit.i
   %.0.i = phi ptr [ %84, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE14const_iteratorptEv.exit.i ], [ null, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i28 ]
   %85 = icmp ult i32 %2, 11
-  br i1 %85, label %switch.lookup, label %87
+  br i1 %85, label %switch.lookup, label %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit
 
 switch.lookup:                                    ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %86 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE, i64 0, i64 %86
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %87
+  br label %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit
 
-87:                                               ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %switch.lookup
+_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit: ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %switch.lookup
   %.sink.i = phi i64 [ %switch.load, %switch.lookup ], [ 136, %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %88 = getelementptr inbounds i8, ptr %.0.i, i64 %.sink.i
-  %89 = load ptr, ptr %88, align 8
-  %.not.i.i21.i = icmp eq ptr %89, null
-  %90 = select i1 %.not.i.i21.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
-  %92 = load i32, ptr %91, align 4
-  %93 = and i32 %92, 2
-  %.not = icmp eq i32 %93, 0
-  br i1 %.not, label %128, label %94
+  %87 = getelementptr inbounds i8, ptr %.0.i, i64 %.sink.i
+  %88 = load ptr, ptr %87, align 8
+  %.not.i.i21.i = icmp eq ptr %88, null
+  %89 = select i1 %.not.i.i21.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %88
+  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %91 = load i32, ptr %90, align 4
+  %92 = and i32 %91, 2
+  %.not = icmp eq i32 %92, 0
+  br i1 %.not, label %127, label %93
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %90, i64 64
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %3)
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %128, label %99
+93:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit
+  %94 = getelementptr inbounds i8, ptr %89, i64 64
+  %95 = load ptr, ptr %94, align 8
+  %96 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %3)
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %127, label %98
 
-99:                                               ; preds = %94
+98:                                               ; preds = %93
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
-  %100 = load ptr, ptr @_ZN4i18n12phonenumbers6Logger5impl_E, align 8, !noalias !230
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = load i32, ptr %101, align 8, !noalias !230
-  %103 = icmp slt i32 %102, 2
-  br i1 %103, label %_ZN4i18n12phonenumbers3LOGEi.exit30.thread, label %104
+  %99 = load ptr, ptr @_ZN4i18n12phonenumbers6Logger5impl_E, align 8, !noalias !230
+  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = load i32, ptr %100, align 8, !noalias !230
+  %102 = icmp slt i32 %101, 2
+  br i1 %102, label %_ZN4i18n12phonenumbers3LOGEi.exit30.thread, label %103
 
-_ZN4i18n12phonenumbers3LOGEi.exit30.thread:       ; preds = %99
+_ZN4i18n12phonenumbers3LOGEi.exit30.thread:       ; preds = %98
   store ptr null, ptr %11, align 8, !alias.scope !230
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  br label %114
+  br label %113
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %100, align 8, !noalias !230
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
-  %107 = load ptr, ptr %106, align 8, !noalias !230
-  tail call void %107(ptr noundef nonnull align 8 dereferenceable(12) %100), !noalias !230
-  store ptr %100, ptr %11, align 8, !alias.scope !230
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %99, align 8, !noalias !230
+  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %106 = load ptr, ptr %105, align 8, !noalias !230
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(12) %99), !noalias !230
+  store ptr %99, ptr %11, align 8, !alias.scope !230
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   invoke void @_ZN4i18n12phonenumbers15ConvertToStringIA31_cE6DoWorkB5cxx11ERA31_Kc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 1 dereferenceable(31) @.str.30)
-          to label %.noexc32 unwind label %126
+          to label %.noexc32 unwind label %125
 
-.noexc32:                                         ; preds = %104
-  %108 = load ptr, ptr %100, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
-  %110 = load ptr, ptr %109, align 8
-  invoke void %110(ptr noundef nonnull align 8 dereferenceable(12) %100, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %111 unwind label %112
+.noexc32:                                         ; preds = %103
+  %107 = load ptr, ptr %99, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 24
+  %109 = load ptr, ptr %108, align 8
+  invoke void %109(ptr noundef nonnull align 8 dereferenceable(12) %99, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %110 unwind label %111
+
+110:                                              ; preds = %.noexc32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
+  br label %113
 
 111:                                              ; preds = %.noexc32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
-  br label %114
-
-112:                                              ; preds = %.noexc32
-  %113 = landingpad { ptr, i32 }
+  %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   br label %.body
 
-114:                                              ; preds = %111, %_ZN4i18n12phonenumbers3LOGEi.exit30.thread
+113:                                              ; preds = %110, %_ZN4i18n12phonenumbers3LOGEi.exit30.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  store i32 %97, ptr %12, align 4
-  %115 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers13LoggerHandlerlsIiEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
-          to label %116 unwind label %126
+  store i32 %96, ptr %12, align 4
+  %114 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers13LoggerHandlerlsIiEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %115 unwind label %125
 
-116:                                              ; preds = %114
+115:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %117 = load ptr, ptr %115, align 8
-  %.not.i35 = icmp eq ptr %117, null
-  br i1 %.not.i35, label %125, label %118
+  %116 = load ptr, ptr %114, align 8
+  %.not.i35 = icmp eq ptr %116, null
+  br i1 %.not.i35, label %124, label %117
 
-118:                                              ; preds = %116
+117:                                              ; preds = %115
   invoke void @_ZN4i18n12phonenumbers15ConvertToStringIA2_cE6DoWorkB5cxx11ERA2_Kc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.29)
-          to label %.noexc36 unwind label %126
+          to label %.noexc36 unwind label %125
 
-.noexc36:                                         ; preds = %118
-  %119 = load ptr, ptr %117, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
-  %121 = load ptr, ptr %120, align 8
-  invoke void %121(ptr noundef nonnull align 8 dereferenceable(12) %117, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %122 unwind label %123
+.noexc36:                                         ; preds = %117
+  %118 = load ptr, ptr %116, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %120 = load ptr, ptr %119, align 8
+  invoke void %120(ptr noundef nonnull align 8 dereferenceable(12) %116, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %121 unwind label %122
+
+121:                                              ; preds = %.noexc36
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  br label %124
 
 122:                                              ; preds = %.noexc36
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-  br label %125
-
-123:                                              ; preds = %.noexc36
-  %124 = landingpad { ptr, i32 }
+  %123 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   br label %.body
 
-125:                                              ; preds = %122, %116
+124:                                              ; preds = %121, %115
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %.sink.split
 
-126:                                              ; preds = %118, %104, %114
-  %127 = landingpad { ptr, i32 }
+125:                                              ; preds = %117, %103, %113
+  %126 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.sink.split:                                      ; preds = %60, %125
-  %.sink = phi ptr [ %11, %125 ], [ %10, %60 ]
+.sink.split:                                      ; preds = %60, %124
+  %.sink = phi ptr [ %11, %124 ], [ %10, %60 ]
   call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #27
-  br label %128
+  br label %127
 
-128:                                              ; preds = %.sink.split, %87, %94
-  %.0 = phi i1 [ true, %94 ], [ false, %87 ], [ false, %.sink.split ]
+127:                                              ; preds = %.sink.split, %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit, %93
+  %.0 = phi i1 [ true, %93 ], [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit ], [ false, %.sink.split ]
   ret i1 %.0
 
-.body:                                            ; preds = %112, %123, %126, %43, %61, %58, %50
-  %.sink47 = phi ptr [ %10, %50 ], [ %10, %58 ], [ %10, %61 ], [ %10, %43 ], [ %11, %126 ], [ %11, %123 ], [ %11, %112 ]
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %59, %58 ], [ %62, %61 ], [ %44, %43 ], [ %127, %126 ], [ %124, %123 ], [ %113, %112 ]
+.body:                                            ; preds = %111, %122, %125, %43, %61, %58, %50
+  %.sink47 = phi ptr [ %10, %50 ], [ %10, %58 ], [ %10, %61 ], [ %10, %43 ], [ %11, %125 ], [ %11, %122 ], [ %11, %111 ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %59, %58 ], [ %62, %61 ], [ %44, %43 ], [ %126, %125 ], [ %123, %122 ], [ %112, %111 ]
   call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink47) #27
   resume { ptr, i32 } %.pn
 }

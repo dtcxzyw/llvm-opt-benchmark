@@ -34235,7 +34235,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit13:               ; preds = %_ZSt8_DestroyIPN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116proc_dlatch_db_t17find_mux_feedbackEN5Yosys5RTLIL6SigBitES3_b(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr %1, i32 %2, ptr %3, i32 %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN12_GLOBAL__N_116proc_dlatch_db_t17find_mux_feedbackEN5Yosys5RTLIL6SigBitES3_b(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr %1, i32 %2, ptr %3, i32 %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.(anonymous namespace)::proc_dlatch_db_t::rule_node_t", align 8
   %8 = alloca i32, align 4
   %9 = alloca %"struct.(anonymous namespace)::proc_dlatch_db_t::rule_node_t", align 8

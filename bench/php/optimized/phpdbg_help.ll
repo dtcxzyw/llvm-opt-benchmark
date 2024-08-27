@@ -173,12 +173,12 @@ define hidden noundef i32 @phpdbg_do_help_aliases(ptr nocapture readnone %0) #0 
   br i1 %.not, label %._crit_edge, label %.lr.ph36
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %.not34, label %get_command.exit, label %.lr.ph43.split.i
+  br i1 %.not34, label %get_command.exit, label %.lr.ph43.i
 
-.lr.ph43.split.i:                                 ; preds = %._crit_edge, %.lr.ph43.split.i
-  %.028 = phi ptr [ %.129, %.lr.ph43.split.i ], [ %33, %._crit_edge ]
-  %.042.i = phi i32 [ %.1.i, %.lr.ph43.split.i ], [ 0, %._crit_edge ]
-  %.02541.i = phi ptr [ %41, %.lr.ph43.split.i ], [ @phpdbg_prompt_commands, %._crit_edge ]
+.lr.ph43.i:                                       ; preds = %._crit_edge, %.lr.ph43.i
+  %.028 = phi ptr [ %.129, %.lr.ph43.i ], [ %33, %._crit_edge ]
+  %.042.i = phi i32 [ %.1.i, %.lr.ph43.i ], [ 0, %._crit_edge ]
+  %.02541.i = phi ptr [ %41, %.lr.ph43.i ], [ @phpdbg_prompt_commands, %._crit_edge ]
   %35 = getelementptr inbounds i8, ptr %.02541.i, i64 32
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 104
@@ -190,9 +190,9 @@ define hidden noundef i32 @phpdbg_do_help_aliases(ptr nocapture readnone %0) #0 
   %41 = getelementptr inbounds i8, ptr %.02541.i, i64 80
   %42 = load ptr, ptr %41, align 8
   %.not34.i = icmp eq ptr %42, null
-  br i1 %.not34.i, label %get_command.exit.loopexit, label %.lr.ph43.split.i
+  br i1 %.not34.i, label %get_command.exit.loopexit, label %.lr.ph43.i
 
-get_command.exit.loopexit:                        ; preds = %.lr.ph43.split.i
+get_command.exit.loopexit:                        ; preds = %.lr.ph43.i
   %.pre = load ptr, ptr %.129, align 8
   br label %get_command.exit
 
@@ -652,21 +652,21 @@ define hidden i32 @phpdbg_do_help(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.preheader107, label %4
+  br i1 %.not, label %.preheader105, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 8
   switch i32 %5, label %130 [
-    i32 0, label %.preheader107
+    i32 0, label %.preheader105
     i32 5, label %15
   ]
 
-.preheader107:                                    ; preds = %4, %1
+.preheader105:                                    ; preds = %4, %1
   br label %6
 
-6:                                                ; preds = %.preheader107, %12
-  %7 = phi ptr [ %14, %12 ], [ @.str.11, %.preheader107 ]
-  %.010.i = phi ptr [ %13, %12 ], [ @phpdbg_help_text, %.preheader107 ]
+6:                                                ; preds = %.preheader105, %12
+  %7 = phi ptr [ %14, %12 ], [ @.str.11, %.preheader105 ]
+  %.010.i = phi ptr [ %13, %12 ], [ @phpdbg_help_text, %.preheader105 ]
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(10) @.str.11) #7
   %.not8.i = icmp eq i32 %8, 0
   br i1 %.not8.i, label %9, label %12
@@ -698,19 +698,19 @@ get_help.exit:                                    ; preds = %12, %9
   br i1 %20, label %.preheader.i, label %.preheader35.i
 
 .preheader35.i:                                   ; preds = %15
-  br i1 %.not3440.i, label %.lr.ph.split.i36.preheader, label %.lr.ph.split.i
+  br i1 %.not3440.i, label %.lr.ph.i35.preheader, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %15
-  %.pre94 = load i8, ptr %17, align 1
-  br i1 %.not3440.i, label %.preheader.i43, label %.lr.ph43.split.i
+  %.pre92 = load i8, ptr %17, align 1
+  br i1 %.not3440.i, label %.preheader.i42, label %.lr.ph43.i
 
-.lr.ph43.split.i:                                 ; preds = %.preheader.i, %.lr.ph43.split.i
-  %.2 = phi ptr [ %.3, %.lr.ph43.split.i ], [ undef, %.preheader.i ]
-  %.042.i = phi i32 [ %.1.i, %.lr.ph43.split.i ], [ 0, %.preheader.i ]
-  %.02541.i = phi ptr [ %28, %.lr.ph43.split.i ], [ @phpdbg_prompt_commands, %.preheader.i ]
+.lr.ph43.i:                                       ; preds = %.preheader.i, %.lr.ph43.i
+  %.2 = phi ptr [ %.3, %.lr.ph43.i ], [ undef, %.preheader.i ]
+  %.042.i = phi i32 [ %.1.i, %.lr.ph43.i ], [ 0, %.preheader.i ]
+  %.02541.i = phi ptr [ %28, %.lr.ph43.i ], [ @phpdbg_prompt_commands, %.preheader.i ]
   %22 = getelementptr inbounds i8, ptr %.02541.i, i64 32
   %23 = load i8, ptr %22, align 8
-  %24 = icmp eq i8 %23, %.pre94
+  %24 = icmp eq i8 %23, %.pre92
   %25 = icmp eq i32 %.042.i, 0
   %26 = select i1 %24, i1 %25, i1 false
   %.3 = select i1 %26, ptr %.02541.i, ptr %.2
@@ -719,28 +719,28 @@ get_help.exit:                                    ; preds = %12, %9
   %28 = getelementptr inbounds i8, ptr %.02541.i, i64 80
   %29 = load ptr, ptr %28, align 8
   %.not34.i = icmp eq ptr %29, null
-  br i1 %.not34.i, label %get_command.exit, label %.lr.ph43.split.i
+  br i1 %.not34.i, label %get_command.exit, label %.lr.ph43.i
 
-.lr.ph.split.i:                                   ; preds = %.preheader35.i, %.lr.ph.split.i
-  %.059 = phi ptr [ %.1, %.lr.ph.split.i ], [ undef, %.preheader35.i ]
-  %30 = phi ptr [ %36, %.lr.ph.split.i ], [ %21, %.preheader35.i ]
-  %.339.i = phi i32 [ %.4.i, %.lr.ph.split.i ], [ 0, %.preheader35.i ]
-  %.12638.i = phi ptr [ %35, %.lr.ph.split.i ], [ @phpdbg_prompt_commands, %.preheader35.i ]
+.lr.ph.i:                                         ; preds = %.preheader35.i, %.lr.ph.i
+  %.057 = phi ptr [ %.1, %.lr.ph.i ], [ undef, %.preheader35.i ]
+  %30 = phi ptr [ %36, %.lr.ph.i ], [ %21, %.preheader35.i ]
+  %.339.i = phi i32 [ %.4.i, %.lr.ph.i ], [ 0, %.preheader35.i ]
+  %.12638.i = phi ptr [ %35, %.lr.ph.i ], [ @phpdbg_prompt_commands, %.preheader35.i ]
   %31 = tail call i32 @strncmp(ptr noundef nonnull %30, ptr noundef readonly %17, i64 noundef %19) #7
   %.not33.i = icmp eq i32 %31, 0
   %32 = icmp eq i32 %.339.i, 0
   %33 = select i1 %.not33.i, i1 %32, i1 false
-  %.1 = select i1 %33, ptr %.12638.i, ptr %.059
+  %.1 = select i1 %33, ptr %.12638.i, ptr %.057
   %34 = zext i1 %.not33.i to i32
   %.4.i = add i32 %.339.i, %34
   %35 = getelementptr inbounds i8, ptr %.12638.i, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i23 = icmp eq ptr %36, null
-  br i1 %.not.i23, label %get_command.exit, label %.lr.ph.split.i
+  br i1 %.not.i23, label %get_command.exit, label %.lr.ph.i
 
-get_command.exit:                                 ; preds = %.lr.ph.split.i, %.lr.ph43.split.i
-  %.4 = phi ptr [ %.3, %.lr.ph43.split.i ], [ %.1, %.lr.ph.split.i ]
-  %.2.i = phi i32 [ %.1.i, %.lr.ph43.split.i ], [ %.4.i, %.lr.ph.split.i ]
+get_command.exit:                                 ; preds = %.lr.ph.i, %.lr.ph43.i
+  %.4 = phi ptr [ %.3, %.lr.ph43.i ], [ %.1, %.lr.ph.i ]
+  %.2.i = phi i32 [ %.1.i, %.lr.ph43.i ], [ %.4.i, %.lr.ph.i ]
   %37 = icmp eq i32 %.2.i, 1
   br i1 %37, label %38, label %58
 
@@ -790,14 +790,14 @@ get_help.exit28:                                  ; preds = %55, %52
 
 60:                                               ; preds = %58
   %61 = icmp ugt i64 %19, 1
-  br i1 %61, label %.preheader79, label %86
+  br i1 %61, label %.preheader77, label %86
 
-.preheader79:                                     ; preds = %60
+.preheader77:                                     ; preds = %60
   br i1 %.not3440.i, label %.preheader.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader79, %75
-  %62 = phi ptr [ %77, %75 ], [ %21, %.preheader79 ]
-  %storemerge87 = phi ptr [ %76, %75 ], [ @phpdbg_prompt_commands, %.preheader79 ]
+.lr.ph:                                           ; preds = %.preheader77, %75
+  %62 = phi ptr [ %77, %75 ], [ %21, %.preheader77 ]
+  %storemerge85 = phi ptr [ %76, %75 ], [ @phpdbg_prompt_commands, %.preheader77 ]
   %63 = load ptr, ptr %16, align 8
   %64 = load i64, ptr %18, align 8
   %65 = call i32 @strncmp(ptr noundef nonnull %62, ptr noundef %63, i64 noundef %64) #7
@@ -806,10 +806,10 @@ get_help.exit28:                                  ; preds = %55, %52
 
 66:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %67 = getelementptr inbounds i8, ptr %storemerge87, i64 32
+  %67 = getelementptr inbounds i8, ptr %storemerge85, i64 32
   %68 = load i8, ptr %67, align 8
   %69 = sext i8 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %storemerge87, i64 16
+  %70 = getelementptr inbounds i8, ptr %storemerge85, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull %62, i32 noundef %69, ptr noundef %71) #6
   %73 = load ptr, ptr %2, align 8
@@ -820,12 +820,12 @@ get_help.exit28:                                  ; preds = %55, %52
   br label %75
 
 75:                                               ; preds = %.lr.ph, %66
-  %76 = getelementptr inbounds i8, ptr %storemerge87, i64 80
+  %76 = getelementptr inbounds i8, ptr %storemerge85, i64 80
   %77 = load ptr, ptr %76, align 8
   %.not21 = icmp eq ptr %77, null
   br i1 %.not21, label %.preheader.preheader, label %.lr.ph
 
-.preheader.preheader:                             ; preds = %75, %.preheader79
+.preheader.preheader:                             ; preds = %75, %.preheader77
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %83
@@ -859,62 +859,62 @@ get_help.exit33:                                  ; preds = %83, %80
   br label %130
 
 .thread:                                          ; preds = %58
-  br i1 %20, label %.thread..preheader.i43_crit_edge, label %.lr.ph.split.i36.preheader
+  br i1 %20, label %.thread..preheader.i42_crit_edge, label %.lr.ph.i35.preheader
 
-.lr.ph.split.i36.preheader:                       ; preds = %.preheader35.i, %.thread
+.lr.ph.i35.preheader:                             ; preds = %.preheader35.i, %.thread
   %.5.ph = phi ptr [ undef, %.preheader35.i ], [ %.4, %.thread ]
-  br label %.lr.ph.split.i36
+  br label %.lr.ph.i35
 
-.thread..preheader.i43_crit_edge:                 ; preds = %.thread
+.thread..preheader.i42_crit_edge:                 ; preds = %.thread
   %.pre = load i8, ptr %17, align 1
-  br label %.preheader.i43
+  br label %.preheader.i42
 
-.preheader.i43:                                   ; preds = %.thread..preheader.i43_crit_edge, %.preheader.i
-  %91 = phi i8 [ %.pre, %.thread..preheader.i43_crit_edge ], [ %.pre94, %.preheader.i ]
-  %.4626668 = phi ptr [ %.4, %.thread..preheader.i43_crit_edge ], [ undef, %.preheader.i ]
-  br label %.lr.ph43.split.i45
+.preheader.i42:                                   ; preds = %.thread..preheader.i42_crit_edge, %.preheader.i
+  %91 = phi i8 [ %.pre, %.thread..preheader.i42_crit_edge ], [ %.pre92, %.preheader.i ]
+  %.4606466 = phi ptr [ %.4, %.thread..preheader.i42_crit_edge ], [ undef, %.preheader.i ]
+  br label %.lr.ph43.i43
 
-.lr.ph43.split.i45:                               ; preds = %.preheader.i43, %.lr.ph43.split.i45
-  %.7 = phi ptr [ %.4626668, %.preheader.i43 ], [ %.8, %.lr.ph43.split.i45 ]
-  %.042.i46 = phi i32 [ 0, %.preheader.i43 ], [ %.1.i48, %.lr.ph43.split.i45 ]
-  %.02541.i47 = phi ptr [ @phpdbg_help_commands, %.preheader.i43 ], [ %98, %.lr.ph43.split.i45 ]
-  %92 = getelementptr inbounds i8, ptr %.02541.i47, i64 32
+.lr.ph43.i43:                                     ; preds = %.lr.ph43.i43, %.preheader.i42
+  %.7 = phi ptr [ %.4606466, %.preheader.i42 ], [ %.8, %.lr.ph43.i43 ]
+  %.042.i44 = phi i32 [ 0, %.preheader.i42 ], [ %.1.i46, %.lr.ph43.i43 ]
+  %.02541.i45 = phi ptr [ @phpdbg_help_commands, %.preheader.i42 ], [ %98, %.lr.ph43.i43 ]
+  %92 = getelementptr inbounds i8, ptr %.02541.i45, i64 32
   %93 = load i8, ptr %92, align 8
   %94 = icmp eq i8 %93, %91
-  %95 = icmp eq i32 %.042.i46, 0
+  %95 = icmp eq i32 %.042.i44, 0
   %96 = select i1 %94, i1 %95, i1 false
-  %.8 = select i1 %96, ptr %.02541.i47, ptr %.7
+  %.8 = select i1 %96, ptr %.02541.i45, ptr %.7
   %97 = zext i1 %94 to i32
-  %.1.i48 = add i32 %.042.i46, %97
-  %98 = getelementptr inbounds i8, ptr %.02541.i47, i64 80
+  %.1.i46 = add i32 %.042.i44, %97
+  %98 = getelementptr inbounds i8, ptr %.02541.i45, i64 80
   %99 = load ptr, ptr %98, align 8
-  %.not34.i49 = icmp eq ptr %99, null
-  br i1 %.not34.i49, label %get_command.exit50, label %.lr.ph43.split.i45
+  %.not34.i47 = icmp eq ptr %99, null
+  br i1 %.not34.i47, label %get_command.exit48, label %.lr.ph43.i43
 
-.lr.ph.split.i36:                                 ; preds = %.lr.ph.split.i36.preheader, %.lr.ph.split.i36
-  %.5 = phi ptr [ %.6, %.lr.ph.split.i36 ], [ %.5.ph, %.lr.ph.split.i36.preheader ]
-  %100 = phi ptr [ %106, %.lr.ph.split.i36 ], [ @.str, %.lr.ph.split.i36.preheader ]
-  %.339.i37 = phi i32 [ %.4.i40, %.lr.ph.split.i36 ], [ 0, %.lr.ph.split.i36.preheader ]
-  %.12638.i38 = phi ptr [ %105, %.lr.ph.split.i36 ], [ @phpdbg_help_commands, %.lr.ph.split.i36.preheader ]
+.lr.ph.i35:                                       ; preds = %.lr.ph.i35.preheader, %.lr.ph.i35
+  %.5 = phi ptr [ %.6, %.lr.ph.i35 ], [ %.5.ph, %.lr.ph.i35.preheader ]
+  %100 = phi ptr [ %106, %.lr.ph.i35 ], [ @.str, %.lr.ph.i35.preheader ]
+  %.339.i36 = phi i32 [ %.4.i39, %.lr.ph.i35 ], [ 0, %.lr.ph.i35.preheader ]
+  %.12638.i37 = phi ptr [ %105, %.lr.ph.i35 ], [ @phpdbg_help_commands, %.lr.ph.i35.preheader ]
   %101 = tail call i32 @strncmp(ptr noundef nonnull %100, ptr noundef readonly %17, i64 noundef %19) #7
-  %.not33.i39 = icmp eq i32 %101, 0
-  %102 = icmp eq i32 %.339.i37, 0
-  %103 = select i1 %.not33.i39, i1 %102, i1 false
-  %.6 = select i1 %103, ptr %.12638.i38, ptr %.5
-  %104 = zext i1 %.not33.i39 to i32
-  %.4.i40 = add i32 %.339.i37, %104
-  %105 = getelementptr inbounds i8, ptr %.12638.i38, i64 80
+  %.not33.i38 = icmp eq i32 %101, 0
+  %102 = icmp eq i32 %.339.i36, 0
+  %103 = select i1 %.not33.i38, i1 %102, i1 false
+  %.6 = select i1 %103, ptr %.12638.i37, ptr %.5
+  %104 = zext i1 %.not33.i38 to i32
+  %.4.i39 = add i32 %.339.i36, %104
+  %105 = getelementptr inbounds i8, ptr %.12638.i37, i64 80
   %106 = load ptr, ptr %105, align 8
-  %.not.i41 = icmp eq ptr %106, null
-  br i1 %.not.i41, label %get_command.exit50, label %.lr.ph.split.i36
+  %.not.i40 = icmp eq ptr %106, null
+  br i1 %.not.i40, label %get_command.exit48, label %.lr.ph.i35
 
-get_command.exit50:                               ; preds = %.lr.ph.split.i36, %.lr.ph43.split.i45
-  %.9 = phi ptr [ %.8, %.lr.ph43.split.i45 ], [ %.6, %.lr.ph.split.i36 ]
-  %.2.i42 = phi i32 [ %.1.i48, %.lr.ph43.split.i45 ], [ %.4.i40, %.lr.ph.split.i36 ]
-  %107 = icmp sgt i32 %.2.i42, 0
+get_command.exit48:                               ; preds = %.lr.ph.i35, %.lr.ph43.i43
+  %.9 = phi ptr [ %.8, %.lr.ph43.i43 ], [ %.6, %.lr.ph.i35 ]
+  %.2.i41 = phi i32 [ %.1.i46, %.lr.ph43.i43 ], [ %.4.i39, %.lr.ph.i35 ]
+  %107 = icmp sgt i32 %.2.i41, 0
   br i1 %107, label %108, label %127
 
-108:                                              ; preds = %get_command.exit50
+108:                                              ; preds = %get_command.exit48
   %109 = getelementptr inbounds i8, ptr %.9, i64 32
   %110 = load i8, ptr %109, align 8
   %111 = icmp eq i8 %110, 97
@@ -932,34 +932,34 @@ get_command.exit50:                               ; preds = %.lr.ph.split.i36, %
 
 118:                                              ; preds = %124, %116
   %119 = phi ptr [ @.str.11, %116 ], [ %126, %124 ]
-  %.010.i51 = phi ptr [ @phpdbg_help_text, %116 ], [ %125, %124 ]
+  %.010.i49 = phi ptr [ @phpdbg_help_text, %116 ], [ %125, %124 ]
   %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull readonly dereferenceable(1) %117) #7
-  %.not8.i52 = icmp eq i32 %120, 0
-  br i1 %.not8.i52, label %121, label %124
+  %.not8.i50 = icmp eq i32 %120, 0
+  br i1 %.not8.i50, label %121, label %124
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %.010.i51, i64 8
+  %122 = getelementptr inbounds i8, ptr %.010.i49, i64 8
   %123 = load ptr, ptr %122, align 8
-  br label %get_help.exit55
+  br label %get_help.exit53
 
 124:                                              ; preds = %118
-  %125 = getelementptr inbounds i8, ptr %.010.i51, i64 16
+  %125 = getelementptr inbounds i8, ptr %.010.i49, i64 16
   %126 = load ptr, ptr %125, align 8
-  %.not.i53 = icmp eq ptr %126, null
-  br i1 %.not.i53, label %get_help.exit55, label %118
+  %.not.i51 = icmp eq ptr %126, null
+  br i1 %.not.i51, label %get_help.exit53, label %118
 
-get_help.exit55:                                  ; preds = %124, %121
-  %.06.i54 = phi ptr [ %123, %121 ], [ @.str.12, %124 ]
-  tail call fastcc void @pretty_print(ptr noundef %.06.i54)
+get_help.exit53:                                  ; preds = %124, %121
+  %.06.i52 = phi ptr [ %123, %121 ], [ @.str.12, %124 ]
+  tail call fastcc void @pretty_print(ptr noundef %.06.i52)
   br label %130
 
-127:                                              ; preds = %get_command.exit50
+127:                                              ; preds = %get_command.exit48
   %128 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %129 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %128, ptr noundef nonnull @.str.16, ptr noundef %17) #6
   br label %130
 
-130:                                              ; preds = %127, %4, %get_help.exit55, %112, %86, %get_help.exit33, %get_help.exit28, %get_help.exit
-  %.0 = phi i32 [ 0, %get_help.exit ], [ 0, %get_help.exit28 ], [ 0, %get_help.exit33 ], [ -1, %86 ], [ %115, %112 ], [ 0, %get_help.exit55 ], [ -1, %4 ], [ -1, %127 ]
+130:                                              ; preds = %127, %4, %get_help.exit53, %112, %86, %get_help.exit33, %get_help.exit28, %get_help.exit
+  %.0 = phi i32 [ 0, %get_help.exit ], [ 0, %get_help.exit28 ], [ 0, %get_help.exit33 ], [ -1, %86 ], [ %115, %112 ], [ 0, %get_help.exit53 ], [ -1, %4 ], [ -1, %127 ]
   ret i32 %.0
 }
 

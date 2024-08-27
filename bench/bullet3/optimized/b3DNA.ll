@@ -1321,14 +1321,14 @@ while.cond.preheader.i:                           ; preds = %lor.end
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1
   %incdec.ptr40.i = getelementptr inbounds i8, ptr %call4.i, i64 1
   %cmp41.i = icmp ult ptr %incdec.ptr40.i, %add.ptr8.i
-  br i1 %cmp41.i, label %while.body.i, label %while.end.i
+  br i1 %cmp41.i, label %while.body.i, label %if.then22.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.then17.i
   %incdec.ptr43.i = phi ptr [ %incdec.ptr.i, %if.then17.i ], [ %incdec.ptr40.i, %while.cond.preheader.i ]
   %num.042.i = phi i32 [ %add.i, %if.then17.i ], [ 0, %while.cond.preheader.i ]
   %5 = load i8, ptr %incdec.ptr43.i, align 1
   %cmp10.i = icmp eq i8 %5, 93
-  br i1 %cmp10.i, label %while.end.i, label %if.end12.i
+  br i1 %cmp10.i, label %if.then22.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %while.body.i
   %6 = add i8 %5, -48
@@ -1341,16 +1341,16 @@ if.then17.i:                                      ; preds = %if.end12.i
   %add.i = add nsw i32 %mul.i, %sub.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr43.i, i64 1
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr8.i
-  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !15
+  br i1 %cmp.i, label %while.body.i, label %if.then22.i, !llvm.loop !15
 
-while.end.i:                                      ; preds = %if.then17.i, %while.body.i, %while.cond.preheader.i
-  %num.0.lcssa.i = phi i32 [ 0, %while.cond.preheader.i ], [ %add.i, %if.then17.i ], [ %num.042.i, %while.body.i ]
-  %incdec.ptr.lcssa.i = phi ptr [ %incdec.ptr40.i, %while.cond.preheader.i ], [ %incdec.ptr.i, %if.then17.i ], [ %incdec.ptr43.i, %while.body.i ]
+if.then22.i:                                      ; preds = %if.then17.i, %while.body.i, %while.cond.preheader.i
+  %num.0.lcssa.i = phi i32 [ 0, %while.cond.preheader.i ], [ %num.042.i, %while.body.i ], [ %add.i, %if.then17.i ]
+  %incdec.ptr.lcssa.i = phi ptr [ %incdec.ptr40.i, %while.cond.preheader.i ], [ %incdec.ptr43.i, %while.body.i ], [ %incdec.ptr.i, %if.then17.i ]
   %call24.i = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr.lcssa.i, i32 noundef 91) #22
   %tobool25.not.i = icmp eq ptr %call24.i, null
   br i1 %tobool25.not.i, label %_ZL13name_is_arrayPcPiS0_.exit, label %while.cond28.preheader.i
 
-while.cond28.preheader.i:                         ; preds = %while.end.i
+while.cond28.preheader.i:                         ; preds = %if.then22.i
   %incdec.ptr2949.i = getelementptr inbounds i8, ptr %call24.i, i64 1
   %cmp3350.i = icmp ult ptr %incdec.ptr2949.i, %add.ptr8.i
   br i1 %cmp3350.i, label %while.body34.i, label %_ZL13name_is_arrayPcPiS0_.exit
@@ -1381,9 +1381,9 @@ _ZL13name_is_arrayPcPiS0_.exit.sink.split:        ; preds = %if.end12.i, %if.end
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
   br label %_ZL13name_is_arrayPcPiS0_.exit
 
-_ZL13name_is_arrayPcPiS0_.exit:                   ; preds = %while.body34.i, %if.then45.i, %_ZL13name_is_arrayPcPiS0_.exit.sink.split, %while.cond28.preheader.i, %lor.end, %while.end.i
-  %info.sroa.6.0 = phi i32 [ 1, %lor.end ], [ %num.0.lcssa.i, %while.end.i ], [ 0, %while.cond28.preheader.i ], [ %info.sroa.6.0.ph, %_ZL13name_is_arrayPcPiS0_.exit.sink.split ], [ %add49.i, %if.then45.i ], [ %num.151.i, %while.body34.i ]
-  %info.sroa.492.0 = phi i32 [ 1, %lor.end ], [ 1, %while.end.i ], [ %num.0.lcssa.i, %while.cond28.preheader.i ], [ 1, %_ZL13name_is_arrayPcPiS0_.exit.sink.split ], [ %num.0.lcssa.i, %if.then45.i ], [ %num.0.lcssa.i, %while.body34.i ]
+_ZL13name_is_arrayPcPiS0_.exit:                   ; preds = %while.body34.i, %if.then45.i, %_ZL13name_is_arrayPcPiS0_.exit.sink.split, %while.cond28.preheader.i, %lor.end, %if.then22.i
+  %info.sroa.6.0 = phi i32 [ 1, %lor.end ], [ %num.0.lcssa.i, %if.then22.i ], [ 0, %while.cond28.preheader.i ], [ %info.sroa.6.0.ph, %_ZL13name_is_arrayPcPiS0_.exit.sink.split ], [ %add49.i, %if.then45.i ], [ %num.151.i, %while.body34.i ]
+  %info.sroa.492.0 = phi i32 [ 1, %lor.end ], [ 1, %if.then22.i ], [ %num.0.lcssa.i, %while.cond28.preheader.i ], [ 1, %_ZL13name_is_arrayPcPiS0_.exit.sink.split ], [ %num.0.lcssa.i, %if.then45.i ], [ %num.0.lcssa.i, %while.body34.i ]
   %9 = load i32, ptr %m_size.i.i, align 4
   %10 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i39 = icmp eq i32 %9, %10

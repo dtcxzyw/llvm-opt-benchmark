@@ -4731,7 +4731,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly %keyidxptr, ptr noundef %cache) unnamed_addr #0 {
+define internal fastcc i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef writeonly %keyidxptr, ptr noundef %cache) unnamed_addr #0 {
 entry:
   %channels = alloca %struct.getKeysResult, align 8
   %id1 = getelementptr inbounds i8, ptr %cmd, i64 208
@@ -4905,13 +4905,9 @@ sdslen.exit:                                      ; preds = %for.body, %sw.bb.i,
   %27 = load i32, ptr %flags66, align 4
   %call67 = tail call fastcc i32 @ACLSelectorCheckKey(ptr noundef nonnull %selector, ptr noundef nonnull %21, i32 noundef %conv63, i32 noundef %27)
   %cmp68.not = icmp eq i32 %call67, 0
-  br i1 %cmp68.not, label %for.cond, label %if.then70
+  br i1 %cmp68.not, label %for.cond, label %if.then72
 
-if.then70:                                        ; preds = %sdslen.exit
-  %tobool71.not = icmp eq ptr %keyidxptr, null
-  br i1 %tobool71.not, label %return, label %if.then72
-
-if.then72:                                        ; preds = %if.then70
+if.then72:                                        ; preds = %sdslen.exit
   %28 = load i32, ptr %arrayidx55, align 4
   store i32 %28, ptr %keyidxptr, align 4
   br label %return
@@ -5007,22 +5003,15 @@ sdslen.exit77:                                    ; preds = %if.end105, %sw.bb.i
   %conv121 = trunc i64 %retval.0.i64 to i32
   %call122 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %37, ptr noundef nonnull %39, i32 noundef %conv121, i32 noundef %36)
   %cmp123.not = icmp eq i32 %call122, 0
-  br i1 %cmp123.not, label %sdslen.exit77.for.inc133_crit_edge, label %if.then125
+  br i1 %cmp123.not, label %sdslen.exit77.for.inc133_crit_edge, label %if.then127
 
 sdslen.exit77.for.inc133_crit_edge:               ; preds = %sdslen.exit77
   %.pre = load i32, ptr %numkeys91, align 8
   br label %for.inc133
 
-if.then125:                                       ; preds = %sdslen.exit77
-  %tobool126.not = icmp eq ptr %keyidxptr, null
-  br i1 %tobool126.not, label %if.end131, label %if.then127
-
-if.then127:                                       ; preds = %if.then125
+if.then127:                                       ; preds = %sdslen.exit77
   %45 = load i32, ptr %arrayidx97, align 4
   store i32 %45, ptr %keyidxptr, align 4
-  br label %if.end131
-
-if.end131:                                        ; preds = %if.then127, %if.then125
   call void @getKeysFreeResult(ptr noundef nonnull %channels) #24
   br label %return
 
@@ -5037,8 +5026,8 @@ for.end135:                                       ; preds = %for.inc133, %if.the
   call void @getKeysFreeResult(ptr noundef nonnull %channels) #24
   br label %return
 
-return:                                           ; preds = %while.body, %while.body.preheader, %if.end79, %land.lhs.true83, %for.end135, %if.then70, %if.then72, %if.then6, %lor.lhs.false, %lor.lhs.false11, %if.end131
-  %retval.0 = phi i32 [ %call122, %if.end131 ], [ 1, %lor.lhs.false11 ], [ 1, %lor.lhs.false ], [ 1, %if.then6 ], [ %call67, %if.then72 ], [ %call67, %if.then70 ], [ 0, %for.end135 ], [ 0, %land.lhs.true83 ], [ 0, %if.end79 ], [ 1, %while.body.preheader ], [ 1, %while.body ]
+return:                                           ; preds = %while.body, %while.body.preheader, %if.end79, %land.lhs.true83, %for.end135, %if.then6, %lor.lhs.false, %lor.lhs.false11, %if.then127, %if.then72
+  %retval.0 = phi i32 [ %call122, %if.then127 ], [ %call67, %if.then72 ], [ 1, %lor.lhs.false11 ], [ 1, %lor.lhs.false ], [ 1, %if.then6 ], [ 0, %for.end135 ], [ 0, %land.lhs.true83 ], [ 0, %if.end79 ], [ 1, %while.body.preheader ], [ 1, %while.body ]
   ret i32 %retval.0
 }
 

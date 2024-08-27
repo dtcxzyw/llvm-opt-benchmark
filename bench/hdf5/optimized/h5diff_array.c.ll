@@ -7280,64 +7280,60 @@ all_zero.exit795:                                 ; preds = %247, %248
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @close_member_types(ptr noundef readonly %0) unnamed_addr #0 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %30, label %2
+define internal fastcc void @close_member_types(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+  %2 = load i32, ptr %0, align 8
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %29, label %4
 
-2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %30, label %5
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %29, label %.lr.ph
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %.not18 = icmp eq ptr %7, null
-  br i1 %.not18, label %30, label %.lr.ph
+.lr.ph:                                           ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %8
 
-.lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %9
+8:                                                ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %9 = load ptr, ptr %7, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8
+  %.not18 = icmp eq ptr %11, null
+  br i1 %.not18, label %16, label %12
 
-9:                                                ; preds = %.lr.ph, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8
-  %.not19 = icmp eq ptr %12, null
-  br i1 %.not19, label %17, label %13
+12:                                               ; preds = %8
+  tail call fastcc void @close_member_types(ptr noundef nonnull %11)
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8
+  tail call void @free(ptr noundef %15) #14
+  br label %16
 
-13:                                               ; preds = %9
-  tail call fastcc void @close_member_types(ptr noundef nonnull %12)
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #14
-  br label %17
-
-17:                                               ; preds = %13, %9
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i64, ptr %18, i64 %indvars.iv
-  %20 = load i64, ptr %19, align 8
-  %21 = tail call i32 @H5Tclose(i64 noundef %20) #14
+16:                                               ; preds = %12, %8
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv
+  %19 = load i64, ptr %18, align 8
+  %20 = tail call i32 @H5Tclose(i64 noundef %19) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i32, ptr %0, align 8
-  %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
-  br i1 %24, label %9, label %._crit_edge
+  %21 = load i32, ptr %0, align 8
+  %22 = zext i32 %21 to i64
+  %23 = icmp ult i64 %indvars.iv.next, %22
+  br i1 %23, label %8, label %._crit_edge
 
-._crit_edge:                                      ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
+._crit_edge:                                      ; preds = %16
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  tail call void @free(ptr noundef %25) #14
+  %26 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %26) #14
-  %27 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %27) #14
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  tail call void @free(ptr noundef %29) #14
-  br label %30
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  tail call void @free(ptr noundef %28) #14
+  br label %29
 
-30:                                               ; preds = %1, %2, %5, %._crit_edge
+29:                                               ; preds = %1, %4, %._crit_edge
   ret void
 }
 

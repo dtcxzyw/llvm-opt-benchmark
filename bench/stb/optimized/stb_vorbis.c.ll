@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -128, 158) i32 @ilog(i32 noundef %n) local_unnamed_addr #7 {
+define i32 @ilog(i32 noundef %n) local_unnamed_addr #7 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %return, label %if.end

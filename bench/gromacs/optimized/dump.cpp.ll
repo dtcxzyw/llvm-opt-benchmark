@@ -746,7 +746,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %60
 _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %86, %96
   %.pre-phi = phi i64 [ %93, %86 ], [ %.pre58, %96 ]
   %106 = phi ptr [ %88, %86 ], [ %.pre, %96 ]
-  %.sink.i = phi i32 [ %95, %86 ], [ %105, %96 ]
+  %storemerge.i = phi i32 [ %95, %86 ], [ %105, %96 ]
   %107 = getelementptr inbounds %struct.t_resinfo, ptr %106, i64 %.pre-phi
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
@@ -811,7 +811,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %86
   %145 = getelementptr inbounds i8, ptr %139, i64 8
   %146 = load float, ptr %145, align 4
   %147 = fmul float %146, 1.000000e+01
-  %148 = call noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %24, i32 noundef 0, i32 noundef %138, ptr noundef %81, i8 noundef signext 32, ptr noundef %109, i8 noundef signext 32, i32 noundef %.sink.i, i8 noundef signext 32, float noundef %141, float noundef %144, float noundef %147, float noundef 1.000000e+00, float noundef %.0, ptr noundef nonnull @.str.4)
+  %148 = call noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %24, i32 noundef 0, i32 noundef %138, ptr noundef %81, i8 noundef signext 32, ptr noundef %109, i8 noundef signext 32, i32 noundef %storemerge.i, i8 noundef signext 32, float noundef %141, float noundef %144, float noundef %147, float noundef 1.000000e+00, float noundef %.0, ptr noundef nonnull @.str.4)
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !17

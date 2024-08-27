@@ -1596,7 +1596,7 @@ return:                                           ; preds = %if.end818, %raxSetD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @raxLowWalk(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %stopnode, ptr noundef writeonly %plink, ptr noundef writeonly %splitpos, ptr noundef %ts) unnamed_addr #1 {
+define internal fastcc i64 @raxLowWalk(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %stopnode, ptr noundef writeonly %plink, ptr nocapture noundef writeonly %splitpos, ptr noundef %ts) unnamed_addr #1 {
 entry:
   %h.054 = load ptr, ptr %rax, align 8
   %bf.load55 = load i32, ptr %h.054, align 4
@@ -1791,17 +1791,13 @@ if.then74:                                        ; preds = %while.end
 
 if.end75:                                         ; preds = %if.then74, %while.end
   %tobool76.not = icmp eq ptr %plink, null
-  br i1 %tobool76.not, label %if.end78, label %if.then77
+  br i1 %tobool76.not, label %land.lhs.true, label %if.then77
 
 if.then77:                                        ; preds = %if.end75
   store ptr %parentlink.0.lcssa, ptr %plink, align 8
-  br label %if.end78
+  br label %land.lhs.true
 
-if.end78:                                         ; preds = %if.then77, %if.end75
-  %tobool79.not = icmp eq ptr %splitpos, null
-  br i1 %tobool79.not, label %if.end86, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end78
+land.lhs.true:                                    ; preds = %if.end75, %if.then77
   %bf.load80 = load i32, ptr %h.0.lcssa, align 4
   %20 = and i32 %bf.load80, 4
   %tobool83.not = icmp eq i32 %20, 0
@@ -1811,7 +1807,7 @@ if.then84:                                        ; preds = %land.lhs.true
   store i32 %j.1, ptr %splitpos, align 4
   br label %if.end86
 
-if.end86:                                         ; preds = %if.then84, %land.lhs.true, %if.end78
+if.end86:                                         ; preds = %if.then84, %land.lhs.true
   ret i64 %i.1
 }
 
@@ -4076,7 +4072,7 @@ land.lhs.true79:                                  ; preds = %if.end75
   br i1 %or.cond88, label %if.else99, label %if.then91
 
 if.then91:                                        ; preds = %land.lhs.true79
-  %call92 = call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef %ele.tr, i64 noundef %len.tr)
+  %call92 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef %ele.tr, i64 noundef %len.tr)
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %return, label %if.end95
 
@@ -4124,7 +4120,7 @@ if.then103:                                       ; preds = %if.else99
   %32 = load i32, ptr %splitpos, align 4
   %conv104 = sext i32 %32 to i64
   %sub = sub i64 %call71, %conv104
-  %call105 = call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef %ele.tr, i64 noundef %sub)
+  %call105 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef %ele.tr, i64 noundef %sub)
   br i1 %cmp77, label %land.lhs.true108, label %if.else211
 
 land.lhs.true108:                                 ; preds = %if.then103
@@ -4136,7 +4132,7 @@ land.lhs.true108:                                 ; preds = %if.then103
 
 if.then114:                                       ; preds = %land.lhs.true108
   %add.ptr = getelementptr inbounds i8, ptr %ele.tr, i64 %call71
-  %call115 = call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef %add.ptr, i64 noundef 1)
+  %call115 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef %add.ptr, i64 noundef 1)
   %tobool116.not = icmp eq i32 %call115, 0
   br i1 %tobool116.not, label %return, label %if.end118
 
@@ -4147,7 +4143,7 @@ if.end118:                                        ; preds = %if.then114
   br i1 %tobool100, label %land.lhs.true122, label %if.end126
 
 land.lhs.true122:                                 ; preds = %if.end118
-  %call123 = call i32 @raxIteratorPrevStep(ptr noundef nonnull %it, i32 noundef 1)
+  %call123 = tail call i32 @raxIteratorPrevStep(ptr noundef nonnull %it, i32 noundef 1)
   %tobool124.not = icmp eq i32 %call123, 0
   br i1 %tobool124.not, label %return, label %if.end126
 
@@ -4155,7 +4151,7 @@ if.end126:                                        ; preds = %land.lhs.true122, %
   br i1 %cmp, label %land.lhs.true128, label %if.end132
 
 land.lhs.true128:                                 ; preds = %if.end126
-  %call129 = call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 1)
+  %call129 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 1)
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %return, label %if.end132
 
@@ -4167,23 +4163,21 @@ if.end132:                                        ; preds = %land.lhs.true128, %
 
 if.then144:                                       ; preds = %land.lhs.true108
   %data146 = getelementptr inbounds i8, ptr %33, i64 4
-  %37 = load i32, ptr %splitpos, align 4
-  %idxprom = sext i32 %37 to i64
-  %arrayidx147 = getelementptr inbounds [0 x i8], ptr %data146, i64 0, i64 %idxprom
-  %38 = load i8, ptr %arrayidx147, align 1
+  %arrayidx147 = getelementptr inbounds [0 x i8], ptr %data146, i64 0, i64 %conv104
+  %37 = load i8, ptr %arrayidx147, align 1
   %arrayidx149 = getelementptr inbounds i8, ptr %ele.tr, i64 %call71
-  %39 = load i8, ptr %arrayidx149, align 1
-  %40 = load i32, ptr %it, align 8
-  %and152 = and i32 %40, -2
+  %38 = load i8, ptr %arrayidx149, align 1
+  %39 = load i32, ptr %it, align 8
+  %and152 = and i32 %39, -2
   store i32 %and152, ptr %it, align 8
   br i1 %cmp, label %if.then154, label %if.end178
 
 if.then154:                                       ; preds = %if.then144
-  %cmp155 = icmp ugt i8 %38, %39
+  %cmp155 = icmp ugt i8 %37, %38
   br i1 %cmp155, label %if.then157, label %if.else162
 
 if.then157:                                       ; preds = %if.then154
-  %call158 = call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 0)
+  %call158 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 0)
   %tobool159.not = icmp eq i32 %call158, 0
   br i1 %tobool159.not, label %return, label %if.end178
 
@@ -4191,12 +4185,12 @@ if.else162:                                       ; preds = %if.then154
   %bf.load166 = load i32, ptr %33, align 4
   %bf.lshr167 = lshr i32 %bf.load166, 3
   %conv168 = zext nneg i32 %bf.lshr167 to i64
-  %call169 = call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef nonnull %data146, i64 noundef %conv168)
+  %call169 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef nonnull %data146, i64 noundef %conv168)
   %tobool170.not = icmp eq i32 %call169, 0
   br i1 %tobool170.not, label %return, label %if.end172
 
 if.end172:                                        ; preds = %if.else162
-  %call173 = call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 1)
+  %call173 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 1)
   %tobool174.not = icmp eq i32 %call173, 0
   br i1 %tobool174.not, label %return, label %if.end178
 
@@ -4204,40 +4198,40 @@ if.end178:                                        ; preds = %if.then157, %if.end
   br i1 %tobool100, label %if.then180, label %if.end208
 
 if.then180:                                       ; preds = %if.end178
-  %cmp181 = icmp ult i8 %38, %39
+  %cmp181 = icmp ult i8 %37, %38
   br i1 %cmp181, label %if.then183, label %if.else191
 
 if.then183:                                       ; preds = %if.then180
-  %call184 = call i32 @raxSeekGreatest(ptr noundef nonnull %it)
+  %call184 = tail call i32 @raxSeekGreatest(ptr noundef nonnull %it)
   %tobool185.not = icmp eq i32 %call184, 0
   br i1 %tobool185.not, label %return, label %if.end187
 
 if.end187:                                        ; preds = %if.then183
-  %41 = load ptr, ptr %node, align 8
-  %bf.load.i106 = load i32, ptr %41, align 4
-  %42 = and i32 %bf.load.i106, 2
-  %tobool.not.i107 = icmp eq i32 %42, 0
+  %40 = load ptr, ptr %node, align 8
+  %bf.load.i106 = load i32, ptr %40, align 4
+  %41 = and i32 %bf.load.i106, 2
+  %tobool.not.i107 = icmp eq i32 %41, 0
   br i1 %tobool.not.i107, label %if.end.i109, label %raxGetData.exit122
 
 if.end.i109:                                      ; preds = %if.end187
   %bf.lshr2.i110 = lshr i32 %bf.load.i106, 3
   %conv.i111 = zext nneg i32 %bf.lshr2.i110 to i64
-  %43 = xor i32 %bf.lshr2.i110, 3
-  %.neg.i112 = add nuw nsw i32 %43, 1
-  %44 = and i32 %.neg.i112, 7
-  %and.i113 = zext nneg i32 %44 to i64
-  %45 = and i32 %bf.load.i106, 4
-  %tobool11.not.i114 = icmp eq i32 %45, 0
+  %42 = xor i32 %bf.lshr2.i110, 3
+  %.neg.i112 = add nuw nsw i32 %42, 1
+  %43 = and i32 %.neg.i112, 7
+  %and.i113 = zext nneg i32 %43 to i64
+  %44 = and i32 %bf.load.i106, 4
+  %tobool11.not.i114 = icmp eq i32 %44, 0
   %mul.i115 = shl nuw nsw i64 %conv.i111, 3
   %spec.select.i116 = select i1 %tobool11.not.i114, i64 %mul.i115, i64 8
   %bf.clear17.i117 = shl i32 %bf.load.i106, 3
-  %46 = and i32 %bf.clear17.i117, 8
-  %land.ext.i118 = zext nneg i32 %46 to i64
-  %47 = getelementptr inbounds i8, ptr %41, i64 %conv.i111
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
-  %49 = getelementptr inbounds i8, ptr %48, i64 %and.i113
-  %50 = getelementptr inbounds i8, ptr %49, i64 %spec.select.i116
-  %add.ptr.i119 = getelementptr inbounds i8, ptr %50, i64 %land.ext.i118
+  %45 = and i32 %bf.clear17.i117, 8
+  %land.ext.i118 = zext nneg i32 %45 to i64
+  %46 = getelementptr inbounds i8, ptr %40, i64 %conv.i111
+  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %48 = getelementptr inbounds i8, ptr %47, i64 %and.i113
+  %49 = getelementptr inbounds i8, ptr %48, i64 %spec.select.i116
+  %add.ptr.i119 = getelementptr inbounds i8, ptr %49, i64 %land.ext.i118
   %add.ptr26.i120 = getelementptr inbounds i8, ptr %add.ptr.i119, i64 -8
   %data.0.copyload.i121 = load ptr, ptr %add.ptr26.i120, align 8
   br label %raxGetData.exit122
@@ -4249,61 +4243,60 @@ raxGetData.exit122:                               ; preds = %if.end187, %if.end.
   br label %if.end208
 
 if.else191:                                       ; preds = %if.then180
-  %51 = load ptr, ptr %node, align 8
-  %data193 = getelementptr inbounds i8, ptr %51, i64 4
-  %bf.load196 = load i32, ptr %51, align 4
+  %50 = load ptr, ptr %node, align 8
+  %data193 = getelementptr inbounds i8, ptr %50, i64 4
+  %bf.load196 = load i32, ptr %50, align 4
   %bf.lshr197 = lshr i32 %bf.load196, 3
   %conv198 = zext nneg i32 %bf.lshr197 to i64
-  %call199 = call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef nonnull %data193, i64 noundef %conv198)
+  %call199 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef nonnull %data193, i64 noundef %conv198)
   %tobool200.not = icmp eq i32 %call199, 0
   br i1 %tobool200.not, label %return, label %if.end202
 
 if.end202:                                        ; preds = %if.else191
-  %call203 = call i32 @raxIteratorPrevStep(ptr noundef nonnull %it, i32 noundef 1)
+  %call203 = tail call i32 @raxIteratorPrevStep(ptr noundef nonnull %it, i32 noundef 1)
   %tobool204.not = icmp eq i32 %call203, 0
   br i1 %tobool204.not, label %return, label %if.end208
 
 if.end208:                                        ; preds = %raxGetData.exit122, %if.end202, %if.end178
-  %52 = load i32, ptr %it, align 8
-  %or210 = or i32 %52, 1
+  %51 = load i32, ptr %it, align 8
+  %or210 = or i32 %51, 1
   store i32 %or210, ptr %it, align 8
   br label %return
 
 if.else211:                                       ; preds = %if.then103
-  %53 = load i32, ptr %it, align 8
-  %and213 = and i32 %53, -2
+  %52 = load i32, ptr %it, align 8
+  %and213 = and i32 %52, -2
   store i32 %and213, ptr %it, align 8
-  %54 = load ptr, ptr %node, align 8
-  %bf.load215 = load i32, ptr %54, align 4
-  %55 = and i32 %bf.load215, 4
-  %tobool218.not = icmp eq i32 %55, 0
+  %53 = load ptr, ptr %node, align 8
+  %bf.load215 = load i32, ptr %53, align 4
+  %54 = and i32 %bf.load215, 4
+  %tobool218.not = icmp eq i32 %54, 0
   br i1 %tobool218.not, label %if.else232, label %land.lhs.true219
 
 land.lhs.true219:                                 ; preds = %if.else211
   %bf.clear222 = and i32 %bf.load215, 1
   %tobool223 = icmp ne i32 %bf.clear222, 0
-  %56 = load i32, ptr %splitpos, align 4
-  %tobool225 = icmp ne i32 %56, 0
-  %or.cond2 = select i1 %tobool223, i1 %tobool225, i1 false
+  %tobool225 = icmp ne i32 %32, 0
+  %or.cond2 = and i1 %tobool225, %tobool223
   %or.cond3 = and i1 %tobool100, %or.cond2
   br i1 %or.cond3, label %if.then228, label %if.else232
 
 if.then228:                                       ; preds = %land.lhs.true219
-  %57 = and i32 %bf.load215, 2
-  %tobool.not.i124 = icmp eq i32 %57, 0
+  %55 = and i32 %bf.load215, 2
+  %tobool.not.i124 = icmp eq i32 %55, 0
   br i1 %tobool.not.i124, label %if.end.i126, label %raxGetData.exit139
 
 if.end.i126:                                      ; preds = %if.then228
   %bf.lshr2.i127 = lshr i32 %bf.load215, 3
   %conv.i128 = zext nneg i32 %bf.lshr2.i127 to i64
-  %58 = xor i32 %bf.lshr2.i127, 3
-  %.neg.i129 = add nuw nsw i32 %58, 1
-  %59 = and i32 %.neg.i129, 7
-  %and.i130 = zext nneg i32 %59 to i64
-  %60 = getelementptr inbounds i8, ptr %54, i64 %conv.i128
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
-  %62 = getelementptr inbounds i8, ptr %61, i64 %and.i130
-  %add.ptr26.i137 = getelementptr inbounds i8, ptr %62, i64 8
+  %56 = xor i32 %bf.lshr2.i127, 3
+  %.neg.i129 = add nuw nsw i32 %56, 1
+  %57 = and i32 %.neg.i129, 7
+  %and.i130 = zext nneg i32 %57 to i64
+  %58 = getelementptr inbounds i8, ptr %53, i64 %conv.i128
+  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = getelementptr inbounds i8, ptr %59, i64 %and.i130
+  %add.ptr26.i137 = getelementptr inbounds i8, ptr %60, i64 8
   %data.0.copyload.i138 = load ptr, ptr %add.ptr26.i137, align 8
   br label %raxGetData.exit139
 
@@ -4317,7 +4310,7 @@ if.else232:                                       ; preds = %land.lhs.true219, %
   br i1 %cmp, label %land.lhs.true234, label %if.end238
 
 land.lhs.true234:                                 ; preds = %if.else232
-  %call235 = call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 0)
+  %call235 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 0)
   %tobool236.not = icmp eq i32 %call235, 0
   br i1 %tobool236.not, label %return, label %if.end238
 
@@ -4325,19 +4318,19 @@ if.end238:                                        ; preds = %land.lhs.true234, %
   br i1 %tobool100, label %land.lhs.true240, label %if.end245
 
 land.lhs.true240:                                 ; preds = %if.end238
-  %call241 = call i32 @raxIteratorPrevStep(ptr noundef nonnull %it, i32 noundef 0)
+  %call241 = tail call i32 @raxIteratorPrevStep(ptr noundef nonnull %it, i32 noundef 0)
   %tobool242.not = icmp eq i32 %call241, 0
   br i1 %tobool242.not, label %return, label %if.end245
 
 if.end245:                                        ; preds = %if.end238, %land.lhs.true240, %raxGetData.exit139
-  %63 = load i32, ptr %it, align 8
-  %or247 = or i32 %63, 1
+  %61 = load i32, ptr %it, align 8
+  %or247 = or i32 %61, 1
   store i32 %or247, ptr %it, align 8
   br label %return
 
 if.else250:                                       ; preds = %if.else99
-  %64 = load i32, ptr %it, align 8
-  %or252 = or i32 %64, 2
+  %62 = load i32, ptr %it, align 8
+  %or252 = or i32 %62, 2
   store i32 %or252, ptr %it, align 8
   br label %return
 

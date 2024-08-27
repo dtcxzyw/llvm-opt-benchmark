@@ -15713,7 +15713,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   br i1 %brmerge7, label %252, label %251
 
 251:                                              ; preds = %246
-  switch i8 %., label %default.unreachable [
+  switch i8 %., label %default.unreachable423 [
     i8 0, label %253
     i8 1, label %261
     i8 2, label %255
@@ -15724,7 +15724,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %.not.i.i = icmp eq i64 %.val127, 12
   br i1 %.not.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h19d3993fccb32abbE.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h19d3993fccb32abbE.exit.thread"
 
-default.unreachable:                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb613f347927e49d4E.exit", %251
+default.unreachable423:                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb613f347927e49d4E.exit", %251
   unreachable
 
 253:                                              ; preds = %251
@@ -17763,7 +17763,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit.i172: ; preds = %807
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66), !noalias !2880
   %856 = load i64, ptr %67, align 8, !range !238, !noalias !2880, !noundef !14
   %857 = icmp eq i64 %856, -9223372036854775808
-  br i1 %857, label %.loopexit457, label %858
+  br i1 %857, label %.loopexit458, label %858
 
 858:                                              ; preds = %855
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.430.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.451.0..sroa_idx.i, i64 16, i1 false), !noalias !2880
@@ -17944,15 +17944,15 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit.i172: ; preds = %807
 921:                                              ; preds = %850, %.noexc120.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36), !noalias !3078
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66), !noalias !2880
-  br label %.loopexit457
+  br label %.loopexit458
 
-.loopexit457:                                     ; preds = %855, %921
+.loopexit458:                                     ; preds = %855, %921
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67), !noalias !2880
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65), !noalias !2880
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68), !noalias !2880
   br label %922
 
-922:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit160.i", %.loopexit457
+922:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit160.i", %.loopexit458
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75), !noalias !2880
   call void @llvm.experimental.noalias.scope.decl(metadata !3148)
   %923 = load i64, ptr %76, align 8, !range !238, !alias.scope !3148, !noalias !2880, !noundef !14
@@ -18619,7 +18619,7 @@ _ZN15rustfmt_nightly6macros35return_macro_parse_failure_fallback17h3f16ab93aa7b8
   br i1 %1144, label %1139, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb613f347927e49d4E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb613f347927e49d4E.exit": ; preds = %1142, %960
-  switch i8 %., label %default.unreachable [
+  switch i8 %., label %default.unreachable423 [
     i8 0, label %1149
     i8 1, label %1150
     i8 2, label %1152
@@ -18917,10 +18917,10 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %133)
   %1239 = icmp eq i8 %5, 0
   %spec.select = select i1 %1239, ptr @anon.21be9a90e725640ba5b7aff756abf24e.317, ptr @anon.21be9a90e725640ba5b7aff756abf24e.158.llvm.3200710723383270248
-  %spec.select456 = zext i1 %1239 to i64
+  %spec.select457 = zext i1 %1239 to i64
   store ptr %spec.select, ptr %133, align 8
   %1240 = getelementptr inbounds i8, ptr %133, i64 8
-  store i64 %spec.select456, ptr %1240, align 8
+  store i64 %spec.select457, ptr %1240, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %131)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130)
   store ptr %135, ptr %130, align 8
@@ -19012,17 +19012,17 @@ switch.lookup:                                    ; preds = %1145
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.146, i64 0, i64 %1263
   %switch.load = load i64, ptr %switch.gep, align 8
   %1264 = zext nneg i8 %. to i64
-  %switch.gep489 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.143, i64 0, i64 %1264
-  %switch.load490 = load ptr, ptr %switch.gep489, align 8
+  %switch.gep490 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.143, i64 0, i64 %1264
+  %switch.load491 = load ptr, ptr %switch.gep490, align 8
   %1265 = zext nneg i8 %. to i64
-  %switch.gep491 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.145, i64 0, i64 %1265
-  %switch.load492 = load ptr, ptr %switch.gep491, align 8
+  %switch.gep492 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.145, i64 0, i64 %1265
+  %switch.load493 = load ptr, ptr %switch.gep492, align 8
   %1266 = zext nneg i8 %163 to i64
-  %switch.gep494 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.145, i64 0, i64 %1266
-  %switch.load495 = load ptr, ptr %switch.gep494, align 8
+  %switch.gep495 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.145, i64 0, i64 %1266
+  %switch.load496 = load ptr, ptr %switch.gep495, align 8
   %1267 = zext nneg i8 %163 to i64
-  %switch.gep496 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.146, i64 0, i64 %1267
-  %switch.load497 = load i64, ptr %switch.gep496, align 8
+  %switch.gep497 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.146, i64 0, i64 %1267
+  %switch.load498 = load i64, ptr %switch.gep497, align 8
   switch i8 %., label %1274 [
     i8 0, label %1268
     i8 2, label %1270
@@ -19076,7 +19076,7 @@ switch.lookup:                                    ; preds = %1145
   %1284 = getelementptr inbounds i8, ptr %19, i64 104
   store i64 %1277, ptr %1284, align 8, !noalias !3305
   %1285 = load ptr, ptr %239, align 8, !noalias !3305, !nonnull !14, !align !15, !noundef !14
-  %1286 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h145c2abaaf4f1a22E"(ptr noalias noundef nonnull readonly align 1 %switch.load495, i64 noundef %switch.load497)
+  %1286 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h145c2abaaf4f1a22E"(ptr noalias noundef nonnull readonly align 1 %switch.load496, i64 noundef %switch.load498)
           to label %1287 unwind label %.loopexit.split-lp.i224, !noalias !3307
 
 1287:                                             ; preds = %.noexc244
@@ -19219,7 +19219,7 @@ switch.lookup:                                    ; preds = %1145
   %1335 = phi i64 [ %1329, %1324 ], [ %.pre.i.i90.i, %.noexc91.i ]
   %1336 = load ptr, ptr %.sroa.477.0..sroa_idx.i, align 8, !alias.scope !3337, !noalias !3335, !nonnull !14, !noundef !14
   %1337 = getelementptr inbounds i8, ptr %1336, i64 %1335
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1337, ptr noundef nonnull readonly align 1 dereferenceable(1) %switch.load492, i64 %switch.load, i1 false), !noalias !3307
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1337, ptr noundef nonnull readonly align 1 dereferenceable(1) %switch.load493, i64 %switch.load, i1 false), !noalias !3307
   %1338 = load i64, ptr %.sroa.578.0..sroa_idx.i, align 8, !alias.scope !3337, !noalias !3335, !noundef !14
   %1339 = add i64 %1338, %switch.load
   store i64 %1339, ptr %.sroa.578.0..sroa_idx.i, align 8, !alias.scope !3337, !noalias !3335
@@ -19407,7 +19407,7 @@ switch.lookup:                                    ; preds = %1145
   %1412 = phi i64 [ %1407, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h36a183da958ee33fE.exit115.i" ], [ %.pre.i.i116.i, %.noexc117.i ]
   %1413 = load ptr, ptr %.sroa.477.0..sroa_idx.i, align 8, !alias.scope !3398, !noalias !3403, !nonnull !14, !noundef !14
   %1414 = getelementptr inbounds i8, ptr %1413, i64 %1412
-  %1415 = load i8, ptr %switch.load490, align 1, !noalias !3305
+  %1415 = load i8, ptr %switch.load491, align 1, !noalias !3305
   store i8 %1415, ptr %1414, align 1, !noalias !3303
   %1416 = load i64, ptr %.sroa.578.0..sroa_idx.i, align 8, !alias.scope !3398, !noalias !3403, !noundef !14
   %1417 = add i64 %1416, 1

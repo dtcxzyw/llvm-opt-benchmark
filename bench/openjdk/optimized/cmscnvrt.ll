@@ -976,309 +976,233 @@ define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef %0, i32 no
   %7 = alloca %struct.cmsMAT3, align 8
   %8 = alloca %struct.cmsMAT3, align 8
   %9 = alloca %struct.cmsMAT3, align 8
-  switch i32 %1, label %125 [
+  switch i32 %1, label %105 [
     i32 1482250784, label %10
-    i32 1281450528, label %64
+    i32 1281450528, label %54
   ]
 
 10:                                               ; preds = %5
-  switch i32 %2, label %127 [
+  switch i32 %2, label %107 [
     i32 1482250784, label %11
-    i32 1281450528, label %35
+    i32 1281450528, label %30
   ]
 
 11:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
-  %12 = icmp eq ptr %3, null
-  %13 = icmp eq ptr %4, null
-  %or.cond.i = and i1 %12, %13
-  br i1 %or.cond.i, label %IsEmptyLayer.exit.thread92, label %14
-
-IsEmptyLayer.exit.thread92:                       ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
-  br label %126
-
-14:                                               ; preds = %11
-  %15 = icmp ne ptr %4, null
-  %or.cond3.i = and i1 %12, %15
-  br i1 %or.cond3.i, label %IsEmptyLayer.exit.thread, label %16
-
-IsEmptyLayer.exit.thread:                         ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
-  br label %30
-
-16:                                               ; preds = %14
   call void @_cmsMAT3identity(ptr noundef nonnull %9) #7
-  br label %17
+  br label %12
 
-17:                                               ; preds = %17, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %17 ]
-  %.01922.i = phi double [ 0.000000e+00, %16 ], [ %24, %17 ]
-  %18 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i
-  %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds double, ptr %9, i64 %indvars.iv.i
-  %21 = load double, ptr %20, align 8
-  %22 = fsub double %19, %21
-  %23 = call double @llvm.fabs.f64(double %22)
-  %24 = fadd double %.01922.i, %23
+12:                                               ; preds = %12, %11
+  %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %12 ]
+  %.01922.i = phi double [ 0.000000e+00, %11 ], [ %19, %12 ]
+  %13 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i
+  %14 = load double, ptr %13, align 8
+  %15 = getelementptr inbounds double, ptr %9, i64 %indvars.iv.i
+  %16 = load double, ptr %15, align 8
+  %17 = fsub double %14, %16
+  %18 = call double @llvm.fabs.f64(double %17)
+  %19 = fadd double %.01922.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %.preheader.i, label %17, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.preheader.i, label %12, !llvm.loop !15
 
-.preheader.i:                                     ; preds = %17, %.preheader.i
-  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.preheader.i ], [ 0, %17 ]
-  %.12024.i = phi double [ %28, %.preheader.i ], [ %24, %17 ]
-  %25 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i
-  %26 = load double, ptr %25, align 8
-  %27 = call double @llvm.fabs.f64(double %26)
-  %28 = fadd double %.12024.i, %27
+.preheader.i:                                     ; preds = %12, %.preheader.i
+  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.preheader.i ], [ 0, %12 ]
+  %.12024.i = phi double [ %23, %.preheader.i ], [ %19, %12 ]
+  %20 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i
+  %21 = load double, ptr %20, align 8
+  %22 = call double @llvm.fabs.f64(double %21)
+  %23 = fadd double %.12024.i, %22
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next29.i, 3
   br i1 %exitcond31.not.i, label %IsEmptyLayer.exit, label %.preheader.i, !llvm.loop !16
 
 IsEmptyLayer.exit:                                ; preds = %.preheader.i
-  %29 = fcmp uge double %28, 2.000000e-03
+  %24 = fcmp uge double %23, 2.000000e-03
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
-  br i1 %29, label %30, label %126
+  br i1 %24, label %25, label %106
 
-30:                                               ; preds = %IsEmptyLayer.exit.thread, %IsEmptyLayer.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @cmsStageAllocMatrix(ptr noundef %32, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
-  %34 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %33) #7
-  %.not49 = icmp eq i32 %34, 0
-  br i1 %.not49, label %127, label %126
+25:                                               ; preds = %IsEmptyLayer.exit
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = load ptr, ptr %26, align 8
+  %28 = call ptr @cmsStageAllocMatrix(ptr noundef %27, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
+  %29 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %28) #7
+  %.not49 = icmp eq i32 %29, 0
+  br i1 %.not49, label %107, label %106
 
-35:                                               ; preds = %10
+30:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
-  %36 = icmp eq ptr %3, null
-  %37 = icmp eq ptr %4, null
-  %or.cond.i51 = and i1 %36, %37
-  br i1 %or.cond.i51, label %IsEmptyLayer.exit63.thread97, label %38
-
-IsEmptyLayer.exit63.thread97:                     ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  br label %59
-
-38:                                               ; preds = %35
-  %39 = icmp ne ptr %4, null
-  %or.cond3.i52 = and i1 %36, %39
-  br i1 %or.cond3.i52, label %IsEmptyLayer.exit63.thread, label %40
-
-IsEmptyLayer.exit63.thread:                       ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  br label %54
-
-40:                                               ; preds = %38
   call void @_cmsMAT3identity(ptr noundef nonnull %8) #7
-  br label %41
+  br label %31
 
-41:                                               ; preds = %41, %40
-  %indvars.iv.i53 = phi i64 [ 0, %40 ], [ %indvars.iv.next.i55, %41 ]
-  %.01922.i54 = phi double [ 0.000000e+00, %40 ], [ %48, %41 ]
-  %42 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i53
-  %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %8, i64 %indvars.iv.i53
-  %45 = load double, ptr %44, align 8
-  %46 = fsub double %43, %45
-  %47 = call double @llvm.fabs.f64(double %46)
-  %48 = fadd double %.01922.i54, %47
-  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i53, 1
-  %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, 9
-  br i1 %exitcond.not.i56, label %.preheader.i57, label %41, !llvm.loop !15
+31:                                               ; preds = %31, %30
+  %indvars.iv.i51 = phi i64 [ 0, %30 ], [ %indvars.iv.next.i53, %31 ]
+  %.01922.i52 = phi double [ 0.000000e+00, %30 ], [ %38, %31 ]
+  %32 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i51
+  %33 = load double, ptr %32, align 8
+  %34 = getelementptr inbounds double, ptr %8, i64 %indvars.iv.i51
+  %35 = load double, ptr %34, align 8
+  %36 = fsub double %33, %35
+  %37 = call double @llvm.fabs.f64(double %36)
+  %38 = fadd double %.01922.i52, %37
+  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 1
+  %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 9
+  br i1 %exitcond.not.i54, label %.preheader.i55, label %31, !llvm.loop !15
 
-.preheader.i57:                                   ; preds = %41, %.preheader.i57
-  %indvars.iv28.i58 = phi i64 [ %indvars.iv.next29.i60, %.preheader.i57 ], [ 0, %41 ]
-  %.12024.i59 = phi double [ %52, %.preheader.i57 ], [ %48, %41 ]
-  %49 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i58
-  %50 = load double, ptr %49, align 8
-  %51 = call double @llvm.fabs.f64(double %50)
-  %52 = fadd double %.12024.i59, %51
-  %indvars.iv.next29.i60 = add nuw nsw i64 %indvars.iv28.i58, 1
-  %exitcond31.not.i61 = icmp eq i64 %indvars.iv.next29.i60, 3
-  br i1 %exitcond31.not.i61, label %IsEmptyLayer.exit63, label %.preheader.i57, !llvm.loop !16
+.preheader.i55:                                   ; preds = %31, %.preheader.i55
+  %indvars.iv28.i56 = phi i64 [ %indvars.iv.next29.i58, %.preheader.i55 ], [ 0, %31 ]
+  %.12024.i57 = phi double [ %42, %.preheader.i55 ], [ %38, %31 ]
+  %39 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i56
+  %40 = load double, ptr %39, align 8
+  %41 = call double @llvm.fabs.f64(double %40)
+  %42 = fadd double %.12024.i57, %41
+  %indvars.iv.next29.i58 = add nuw nsw i64 %indvars.iv28.i56, 1
+  %exitcond31.not.i59 = icmp eq i64 %indvars.iv.next29.i58, 3
+  br i1 %exitcond31.not.i59, label %IsEmptyLayer.exit60, label %.preheader.i55, !llvm.loop !16
 
-IsEmptyLayer.exit63:                              ; preds = %.preheader.i57
-  %53 = fcmp uge double %52, 2.000000e-03
+IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
+  %43 = fcmp uge double %42, 2.000000e-03
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  br i1 %53, label %54, label %59
+  br i1 %43, label %44, label %49
 
-54:                                               ; preds = %IsEmptyLayer.exit63.thread, %IsEmptyLayer.exit63
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
-  %56 = load ptr, ptr %55, align 8
-  %57 = call ptr @cmsStageAllocMatrix(ptr noundef %56, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
-  %58 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %57) #7
-  %.not46 = icmp eq i32 %58, 0
-  br i1 %.not46, label %127, label %59
+44:                                               ; preds = %IsEmptyLayer.exit60
+  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = load ptr, ptr %45, align 8
+  %47 = call ptr @cmsStageAllocMatrix(ptr noundef %46, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
+  %48 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %47) #7
+  %.not46 = icmp eq i32 %48, 0
+  br i1 %.not46, label %107, label %49
 
-59:                                               ; preds = %IsEmptyLayer.exit63.thread97, %54, %IsEmptyLayer.exit63
-  %60 = getelementptr inbounds i8, ptr %0, i64 56
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @_cmsStageAllocXYZ2Lab(ptr noundef %61) #7
-  %63 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %62) #7
-  %.not47 = icmp eq i32 %63, 0
-  br i1 %.not47, label %127, label %126
+49:                                               ; preds = %44, %IsEmptyLayer.exit60
+  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr @_cmsStageAllocXYZ2Lab(ptr noundef %51) #7
+  %53 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %52) #7
+  %.not47 = icmp eq i32 %53, 0
+  br i1 %.not47, label %107, label %106
 
-64:                                               ; preds = %5
-  switch i32 %2, label %127 [
-    i32 1482250784, label %65
-    i32 1281450528, label %93
+54:                                               ; preds = %5
+  switch i32 %2, label %107 [
+    i32 1482250784, label %55
+    i32 1281450528, label %78
   ]
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 56
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call ptr @_cmsStageAllocLab2XYZ(ptr noundef %67) #7
-  %69 = tail call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %68) #7
-  %.not42 = icmp eq i32 %69, 0
-  br i1 %.not42, label %127, label %70
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds i8, ptr %0, i64 56
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call ptr @_cmsStageAllocLab2XYZ(ptr noundef %57) #7
+  %59 = tail call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %58) #7
+  %.not42 = icmp eq i32 %59, 0
+  br i1 %.not42, label %107, label %60
 
-70:                                               ; preds = %65
+60:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
-  %71 = icmp eq ptr %3, null
-  %72 = icmp eq ptr %4, null
-  %or.cond.i64 = and i1 %71, %72
-  br i1 %or.cond.i64, label %IsEmptyLayer.exit76.thread102, label %73
-
-IsEmptyLayer.exit76.thread102:                    ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  br label %126
-
-73:                                               ; preds = %70
-  %74 = icmp ne ptr %4, null
-  %or.cond3.i65 = and i1 %71, %74
-  br i1 %or.cond3.i65, label %IsEmptyLayer.exit76.thread, label %75
-
-IsEmptyLayer.exit76.thread:                       ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  br label %89
-
-75:                                               ; preds = %73
   call void @_cmsMAT3identity(ptr noundef nonnull %7) #7
-  br label %76
+  br label %61
 
-76:                                               ; preds = %76, %75
-  %indvars.iv.i66 = phi i64 [ 0, %75 ], [ %indvars.iv.next.i68, %76 ]
-  %.01922.i67 = phi double [ 0.000000e+00, %75 ], [ %83, %76 ]
-  %77 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i66
-  %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.i66
-  %80 = load double, ptr %79, align 8
-  %81 = fsub double %78, %80
-  %82 = call double @llvm.fabs.f64(double %81)
-  %83 = fadd double %.01922.i67, %82
-  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i66, 1
-  %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 9
-  br i1 %exitcond.not.i69, label %.preheader.i70, label %76, !llvm.loop !15
+61:                                               ; preds = %61, %60
+  %indvars.iv.i61 = phi i64 [ 0, %60 ], [ %indvars.iv.next.i63, %61 ]
+  %.01922.i62 = phi double [ 0.000000e+00, %60 ], [ %68, %61 ]
+  %62 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i61
+  %63 = load double, ptr %62, align 8
+  %64 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.i61
+  %65 = load double, ptr %64, align 8
+  %66 = fsub double %63, %65
+  %67 = call double @llvm.fabs.f64(double %66)
+  %68 = fadd double %.01922.i62, %67
+  %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i61, 1
+  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 9
+  br i1 %exitcond.not.i64, label %.preheader.i65, label %61, !llvm.loop !15
 
-.preheader.i70:                                   ; preds = %76, %.preheader.i70
-  %indvars.iv28.i71 = phi i64 [ %indvars.iv.next29.i73, %.preheader.i70 ], [ 0, %76 ]
-  %.12024.i72 = phi double [ %87, %.preheader.i70 ], [ %83, %76 ]
-  %84 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i71
-  %85 = load double, ptr %84, align 8
-  %86 = call double @llvm.fabs.f64(double %85)
-  %87 = fadd double %.12024.i72, %86
-  %indvars.iv.next29.i73 = add nuw nsw i64 %indvars.iv28.i71, 1
-  %exitcond31.not.i74 = icmp eq i64 %indvars.iv.next29.i73, 3
-  br i1 %exitcond31.not.i74, label %IsEmptyLayer.exit76, label %.preheader.i70, !llvm.loop !16
+.preheader.i65:                                   ; preds = %61, %.preheader.i65
+  %indvars.iv28.i66 = phi i64 [ %indvars.iv.next29.i68, %.preheader.i65 ], [ 0, %61 ]
+  %.12024.i67 = phi double [ %72, %.preheader.i65 ], [ %68, %61 ]
+  %69 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i66
+  %70 = load double, ptr %69, align 8
+  %71 = call double @llvm.fabs.f64(double %70)
+  %72 = fadd double %.12024.i67, %71
+  %indvars.iv.next29.i68 = add nuw nsw i64 %indvars.iv28.i66, 1
+  %exitcond31.not.i69 = icmp eq i64 %indvars.iv.next29.i68, 3
+  br i1 %exitcond31.not.i69, label %IsEmptyLayer.exit70, label %.preheader.i65, !llvm.loop !16
 
-IsEmptyLayer.exit76:                              ; preds = %.preheader.i70
-  %88 = fcmp uge double %87, 2.000000e-03
+IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
+  %73 = fcmp uge double %72, 2.000000e-03
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  br i1 %88, label %89, label %126
+  br i1 %73, label %74, label %106
 
-89:                                               ; preds = %IsEmptyLayer.exit76.thread, %IsEmptyLayer.exit76
-  %90 = load ptr, ptr %66, align 8
-  %91 = call ptr @cmsStageAllocMatrix(ptr noundef %90, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
-  %92 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %91) #7
-  %.not44 = icmp eq i32 %92, 0
-  br i1 %.not44, label %127, label %126
+74:                                               ; preds = %IsEmptyLayer.exit70
+  %75 = load ptr, ptr %56, align 8
+  %76 = call ptr @cmsStageAllocMatrix(ptr noundef %75, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
+  %77 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %76) #7
+  %.not44 = icmp eq i32 %77, 0
+  br i1 %.not44, label %107, label %106
 
-93:                                               ; preds = %64
+78:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  %94 = icmp eq ptr %3, null
-  %95 = icmp eq ptr %4, null
-  %or.cond.i77 = and i1 %94, %95
-  br i1 %or.cond.i77, label %IsEmptyLayer.exit89.thread107, label %96
-
-IsEmptyLayer.exit89.thread107:                    ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  br label %126
-
-96:                                               ; preds = %93
-  %97 = icmp ne ptr %4, null
-  %or.cond3.i78 = and i1 %94, %97
-  br i1 %or.cond3.i78, label %IsEmptyLayer.exit89.thread, label %98
-
-IsEmptyLayer.exit89.thread:                       ; preds = %96
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  br label %112
-
-98:                                               ; preds = %96
   call void @_cmsMAT3identity(ptr noundef nonnull %6) #7
-  br label %99
+  br label %79
 
-99:                                               ; preds = %99, %98
-  %indvars.iv.i79 = phi i64 [ 0, %98 ], [ %indvars.iv.next.i81, %99 ]
-  %.01922.i80 = phi double [ 0.000000e+00, %98 ], [ %106, %99 ]
-  %100 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i79
-  %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.i79
-  %103 = load double, ptr %102, align 8
-  %104 = fsub double %101, %103
-  %105 = call double @llvm.fabs.f64(double %104)
-  %106 = fadd double %.01922.i80, %105
-  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
-  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 9
-  br i1 %exitcond.not.i82, label %.preheader.i83, label %99, !llvm.loop !15
+79:                                               ; preds = %79, %78
+  %indvars.iv.i71 = phi i64 [ 0, %78 ], [ %indvars.iv.next.i73, %79 ]
+  %.01922.i72 = phi double [ 0.000000e+00, %78 ], [ %86, %79 ]
+  %80 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i71
+  %81 = load double, ptr %80, align 8
+  %82 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.i71
+  %83 = load double, ptr %82, align 8
+  %84 = fsub double %81, %83
+  %85 = call double @llvm.fabs.f64(double %84)
+  %86 = fadd double %.01922.i72, %85
+  %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i71, 1
+  %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, 9
+  br i1 %exitcond.not.i74, label %.preheader.i75, label %79, !llvm.loop !15
 
-.preheader.i83:                                   ; preds = %99, %.preheader.i83
-  %indvars.iv28.i84 = phi i64 [ %indvars.iv.next29.i86, %.preheader.i83 ], [ 0, %99 ]
-  %.12024.i85 = phi double [ %110, %.preheader.i83 ], [ %106, %99 ]
-  %107 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i84
-  %108 = load double, ptr %107, align 8
-  %109 = call double @llvm.fabs.f64(double %108)
-  %110 = fadd double %.12024.i85, %109
-  %indvars.iv.next29.i86 = add nuw nsw i64 %indvars.iv28.i84, 1
-  %exitcond31.not.i87 = icmp eq i64 %indvars.iv.next29.i86, 3
-  br i1 %exitcond31.not.i87, label %IsEmptyLayer.exit89, label %.preheader.i83, !llvm.loop !16
+.preheader.i75:                                   ; preds = %79, %.preheader.i75
+  %indvars.iv28.i76 = phi i64 [ %indvars.iv.next29.i78, %.preheader.i75 ], [ 0, %79 ]
+  %.12024.i77 = phi double [ %90, %.preheader.i75 ], [ %86, %79 ]
+  %87 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i76
+  %88 = load double, ptr %87, align 8
+  %89 = call double @llvm.fabs.f64(double %88)
+  %90 = fadd double %.12024.i77, %89
+  %indvars.iv.next29.i78 = add nuw nsw i64 %indvars.iv28.i76, 1
+  %exitcond31.not.i79 = icmp eq i64 %indvars.iv.next29.i78, 3
+  br i1 %exitcond31.not.i79, label %IsEmptyLayer.exit80, label %.preheader.i75, !llvm.loop !16
 
-IsEmptyLayer.exit89:                              ; preds = %.preheader.i83
-  %111 = fcmp uge double %110, 2.000000e-03
+IsEmptyLayer.exit80:                              ; preds = %.preheader.i75
+  %91 = fcmp uge double %90, 2.000000e-03
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  br i1 %111, label %112, label %126
+  br i1 %91, label %92, label %106
 
-112:                                              ; preds = %IsEmptyLayer.exit89.thread, %IsEmptyLayer.exit89
-  %113 = getelementptr inbounds i8, ptr %0, i64 56
-  %114 = load ptr, ptr %113, align 8
-  %115 = call ptr @_cmsStageAllocLab2XYZ(ptr noundef %114) #7
-  %116 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %115) #7
-  %.not39 = icmp eq i32 %116, 0
-  br i1 %.not39, label %127, label %117
+92:                                               ; preds = %IsEmptyLayer.exit80
+  %93 = getelementptr inbounds i8, ptr %0, i64 56
+  %94 = load ptr, ptr %93, align 8
+  %95 = call ptr @_cmsStageAllocLab2XYZ(ptr noundef %94) #7
+  %96 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %95) #7
+  %.not39 = icmp eq i32 %96, 0
+  br i1 %.not39, label %107, label %97
 
-117:                                              ; preds = %112
-  %118 = load ptr, ptr %113, align 8
-  %119 = call ptr @cmsStageAllocMatrix(ptr noundef %118, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
-  %120 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %119) #7
-  %.not40 = icmp eq i32 %120, 0
-  br i1 %.not40, label %127, label %121
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %93, align 8
+  %99 = call ptr @cmsStageAllocMatrix(ptr noundef %98, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
+  %100 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %99) #7
+  %.not40 = icmp eq i32 %100, 0
+  br i1 %.not40, label %107, label %101
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %113, align 8
-  %123 = call ptr @_cmsStageAllocXYZ2Lab(ptr noundef %122) #7
-  %124 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %123) #7
-  %.not41 = icmp eq i32 %124, 0
-  br i1 %.not41, label %127, label %126
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %93, align 8
+  %103 = call ptr @_cmsStageAllocXYZ2Lab(ptr noundef %102) #7
+  %104 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %103) #7
+  %.not41 = icmp eq i32 %104, 0
+  br i1 %.not41, label %107, label %106
 
-125:                                              ; preds = %5
+105:                                              ; preds = %5
   %.not50 = icmp eq i32 %1, %2
-  br i1 %.not50, label %126, label %127
+  br i1 %.not50, label %106, label %107
 
-126:                                              ; preds = %IsEmptyLayer.exit89.thread107, %IsEmptyLayer.exit76.thread102, %IsEmptyLayer.exit.thread92, %125, %89, %IsEmptyLayer.exit76, %121, %IsEmptyLayer.exit89, %30, %IsEmptyLayer.exit, %59
-  br label %127
+106:                                              ; preds = %105, %74, %IsEmptyLayer.exit70, %101, %IsEmptyLayer.exit80, %25, %IsEmptyLayer.exit, %49
+  br label %107
 
-127:                                              ; preds = %125, %64, %112, %117, %121, %89, %65, %10, %59, %54, %30, %126
-  %.0 = phi i32 [ 1, %126 ], [ 0, %30 ], [ 0, %54 ], [ 0, %59 ], [ 0, %10 ], [ 0, %65 ], [ 0, %89 ], [ 0, %121 ], [ 0, %117 ], [ 0, %112 ], [ 0, %64 ], [ 0, %125 ]
+107:                                              ; preds = %105, %54, %92, %97, %101, %74, %55, %10, %49, %44, %25, %106
+  %.0 = phi i32 [ 1, %106 ], [ 0, %25 ], [ 0, %44 ], [ 0, %49 ], [ 0, %10 ], [ 0, %55 ], [ 0, %74 ], [ 0, %101 ], [ 0, %97 ], [ 0, %92 ], [ 0, %54 ], [ 0, %105 ]
   ret i32 %.0
 }
 

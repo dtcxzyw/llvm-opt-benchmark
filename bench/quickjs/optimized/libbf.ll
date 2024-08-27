@@ -8708,21 +8708,21 @@ define internal fastcc i32 @bf_atof_internal(ptr noundef %0, ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %20
   %14 = phi i8 [ %23, %20 ], [ 110, %.lr.ph.i.preheader ]
-  %.018.i = phi ptr [ %22, %20 ], [ @.str.12, %.lr.ph.i.preheader ]
-  %.01017.i = phi ptr [ %21, %20 ], [ %2, %.lr.ph.i.preheader ]
-  %15 = load i8, ptr %.01017.i, align 1
+  %.017.i = phi ptr [ %22, %20 ], [ @.str.12, %.lr.ph.i.preheader ]
+  %.01016.i = phi ptr [ %21, %20 ], [ %2, %.lr.ph.i.preheader ]
+  %15 = load i8, ptr %.01016.i, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -65
   %or.cond.i.i = icmp ult i32 %17, 26
   %18 = or disjoint i32 %16, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %18, i32 %16
   %19 = zext i8 %14 to i32
-  %.not14.i = icmp eq i32 %spec.select.i.i, %19
-  br i1 %.not14.i, label %20, label %strcasestart.exit.thread
+  %.not13.i = icmp eq i32 %spec.select.i.i, %19
+  br i1 %.not13.i, label %20, label %strcasestart.exit.thread
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr i8, ptr %.01017.i, i64 1
-  %22 = getelementptr i8, ptr %.018.i, i64 1
+  %21 = getelementptr i8, ptr %.01016.i, i64 1
+  %22 = getelementptr i8, ptr %.017.i, i64 1
   %23 = load i8, ptr %22, align 1
   %exitcond = icmp eq ptr %22, getelementptr inbounds (i8, ptr @.str.12, i64 3)
   br i1 %exitcond, label %strcasestart.exit, label %.lr.ph.i, !llvm.loop !63
@@ -8888,21 +8888,21 @@ bf_set_nan.exit273:                               ; preds = %68, %70
 
 .lr.ph.i274:                                      ; preds = %.lr.ph.i274.preheader, %82
   %76 = phi i8 [ %85, %82 ], [ 105, %.lr.ph.i274.preheader ]
-  %.018.i275 = phi ptr [ %84, %82 ], [ @.str.13, %.lr.ph.i274.preheader ]
-  %.01017.i276 = phi ptr [ %83, %82 ], [ %.2494, %.lr.ph.i274.preheader ]
-  %77 = load i8, ptr %.01017.i276, align 1
+  %.017.i275 = phi ptr [ %84, %82 ], [ @.str.13, %.lr.ph.i274.preheader ]
+  %.01016.i276 = phi ptr [ %83, %82 ], [ %.2494, %.lr.ph.i274.preheader ]
+  %77 = load i8, ptr %.01016.i276, align 1
   %78 = zext i8 %77 to i32
   %79 = add nsw i32 %78, -65
   %or.cond.i.i277 = icmp ult i32 %79, 26
   %80 = or disjoint i32 %78, 32
   %spec.select.i.i278 = select i1 %or.cond.i.i277, i32 %80, i32 %78
   %81 = zext i8 %76 to i32
-  %.not14.i279 = icmp eq i32 %spec.select.i.i278, %81
-  br i1 %.not14.i279, label %82, label %.thread501
+  %.not13.i279 = icmp eq i32 %spec.select.i.i278, %81
+  br i1 %.not13.i279, label %82, label %.thread501
 
 82:                                               ; preds = %.lr.ph.i274
-  %83 = getelementptr i8, ptr %.01017.i276, i64 1
-  %84 = getelementptr i8, ptr %.018.i275, i64 1
+  %83 = getelementptr i8, ptr %.01016.i276, i64 1
+  %84 = getelementptr i8, ptr %.017.i275, i64 1
   %85 = load i8, ptr %84, align 1
   %exitcond641 = icmp eq ptr %84, getelementptr inbounds (i8, ptr @.str.13, i64 3)
   br i1 %exitcond641, label %strcasestart.exit283, label %.lr.ph.i274, !llvm.loop !63

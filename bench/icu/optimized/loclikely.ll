@@ -630,8 +630,6 @@ if.then14.i.i:                                    ; preds = %if.end12.i.i
   br i1 %or.cond.i.i, label %if.then17.i.i, label %errorthread-pre-split.i.i
 
 if.then17.i.i:                                    ; preds = %if.then14.i.i
-  store i32 0, ptr %langLength.i.i, align 4
-  store i32 4, ptr %scriptLength.i.i, align 4
   %6 = load i32, ptr %lang.i.i, align 4
   store i32 %6, ptr %script.i.i, align 4
   store i8 0, ptr %lang.i.i, align 4
@@ -1562,7 +1560,7 @@ declare i32 @uloc_getCountry_75(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef %localeID, ptr noundef %lang, ptr noundef %langLength, ptr noundef %script, ptr noundef %scriptLength, ptr noundef %region, ptr noundef %regionLength, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef %localeID, ptr noundef %lang, ptr nocapture noundef %langLength, ptr noundef %script, ptr nocapture noundef %scriptLength, ptr noundef %region, ptr nocapture noundef %regionLength, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %position = alloca ptr, align 8
   %ref.tmp = alloca %"class.icu_75::CharString", align 8
@@ -1570,20 +1568,8 @@ entry:
   %ref.tmp43 = alloca %"class.icu_75::CharString", align 8
   store ptr %localeID, ptr %position, align 8
   %0 = load i32, ptr %err, align 4
-  %cmp.i = icmp sgt i32 %0, 0
-  %cmp2 = icmp eq ptr %lang, null
-  %or.cond1 = or i1 %cmp2, %cmp.i
-  %cmp4 = icmp eq ptr %langLength, null
-  %or.cond2 = or i1 %cmp4, %or.cond1
-  %cmp6 = icmp eq ptr %script, null
-  %or.cond3 = or i1 %cmp6, %or.cond2
-  %cmp8 = icmp eq ptr %scriptLength, null
-  %or.cond4 = or i1 %cmp8, %or.cond3
-  %cmp10 = icmp eq ptr %region, null
-  %or.cond5 = or i1 %cmp10, %or.cond4
-  %cmp12 = icmp eq ptr %regionLength, null
-  %or.cond6 = or i1 %cmp12, %or.cond5
-  br i1 %or.cond6, label %error, label %if.end
+  %cmp.i = icmp slt i32 %0, 1
+  br i1 %cmp.i, label %if.end, label %exit
 
 if.end:                                           ; preds = %entry
   call void @_Z22ulocimp_getLanguage_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp, ptr noundef %localeID, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
@@ -1620,7 +1606,7 @@ if.end23:                                         ; preds = %if.end17, %if.then2
   %6 = phi ptr [ %4, %if.end17 ], [ %incdec.ptr, %if.then22 ]
   call void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp24, ptr noundef nonnull %6, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
   %7 = load i32, ptr %scriptLength, align 4
-  %call27 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24, ptr noundef nonnull %script, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call27 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24, ptr noundef %script, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end23
@@ -1656,7 +1642,7 @@ if.end42:                                         ; preds = %if.then33, %if.then
   %11 = phi ptr [ %.pre, %if.then33 ], [ %incdec.ptr40, %if.then39 ], [ %.pre, %if.end31 ]
   call void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp43, ptr noundef %11, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
   %12 = load i32, ptr %regionLength, align 4
-  %call46 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp43, ptr noundef nonnull %region, i32 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call46 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp43, ptr noundef %region, i32 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %if.end42
@@ -1688,21 +1674,13 @@ if.then57:                                        ; preds = %land.lhs.true
   store ptr %incdec.ptr58, ptr %position, align 8
   br label %exit
 
-exit:                                             ; preds = %invoke.cont, %invoke.cont26, %invoke.cont45, %land.lhs.true, %land.lhs.true, %error, %if.then63, %if.end50, %if.then57
+exit:                                             ; preds = %entry, %invoke.cont, %invoke.cont26, %invoke.cont45, %land.lhs.true, %land.lhs.true, %if.end50, %if.then57
   %17 = load ptr, ptr %position, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %localeID to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv60 = trunc i64 %sub.ptr.sub to i32
   ret i32 %conv60
-
-error:                                            ; preds = %entry
-  %cmp.i40 = icmp slt i32 %0, 1
-  br i1 %cmp.i40, label %if.then63, label %exit
-
-if.then63:                                        ; preds = %error
-  store i32 1, ptr %err, align 4
-  br label %exit
 
 eh.resume:                                        ; preds = %lpad44, %lpad25, %lpad
   %ref.tmp43.sink = phi ptr [ %ref.tmp43, %lpad44 ], [ %ref.tmp24, %lpad25 ], [ %ref.tmp, %lpad ]

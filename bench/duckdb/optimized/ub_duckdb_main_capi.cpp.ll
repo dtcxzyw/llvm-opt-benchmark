@@ -12938,7 +12938,7 @@ cleanup30:                                        ; preds = %for.end, %_ZNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_param_type(ptr noundef %prepared_statement, i64 noundef %param_idx) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 30) i32 @duckdb_param_type(ptr noundef %prepared_statement, i64 noundef %param_idx) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %param_type = alloca %"struct.duckdb::LogicalType", align 8
   %identifier = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25909,7 +25909,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_column_type(ptr noundef readonly %result, i64 noundef %col) local_unnamed_addr #0 {
+define noundef range(i32 0, 30) i32 @duckdb_column_type(ptr noundef readonly %result, i64 noundef %col) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %result, null
   br i1 %tobool.not, label %return, label %duckdb_column_count.exit

@@ -1348,7 +1348,7 @@ if.end96:                                         ; preds = %if.end87
 
 if.then113:                                       ; preds = %if.end96
   %57 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %57, ptr noundef nonnull @.str.4) #13
+  tail call void @PyErr_SetString(ptr noundef %57, ptr noundef nonnull @.str.4) #13
   br label %return
 
 return:                                           ; preds = %if.end96, %if.then113, %if.then95, %if.then86, %if.then
@@ -1359,10 +1359,10 @@ return:                                           ; preds = %if.end96, %if.then1
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @get_localsplus_counts(i64 %names.16.val, ptr nocapture noundef readonly %kinds, ptr noundef writeonly %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
+define internal fastcc void @get_localsplus_counts(i64 %names.16.val, ptr nocapture noundef readonly %kinds, ptr nocapture noundef writeonly %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
 entry:
   %cmp2 = icmp sgt i64 %names.16.val, 0
-  br i1 %cmp2, label %for.body.lr.ph, label %for.end
+  br i1 %cmp2, label %for.body.lr.ph, label %if.then25
 
 for.body.lr.ph:                                   ; preds = %entry
   %ob_sval.i.i = getelementptr inbounds i8, ptr %kinds, i64 32
@@ -1410,28 +1410,21 @@ for.inc:                                          ; preds = %if.else14, %if.then
   %inc = add i32 %i.05, 1
   %conv = sext i32 %inc to i64
   %cmp = icmp sgt i64 %names.16.val, %conv
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %if.then25, !llvm.loop !7
 
-for.end:                                          ; preds = %for.inc, %entry
+if.then25:                                        ; preds = %for.inc, %entry
   %nfreevars.0.lcssa = phi i32 [ 0, %entry ], [ %nfreevars.1, %for.inc ]
   %ncellvars.0.lcssa = phi i32 [ 0, %entry ], [ %ncellvars.1, %for.inc ]
   %nlocals.0.lcssa = phi i32 [ 0, %entry ], [ %nlocals.1, %for.inc ]
-  %cmp23.not = icmp eq ptr %pnlocals, null
-  br i1 %cmp23.not, label %if.end26, label %if.then25
-
-if.then25:                                        ; preds = %for.end
   store i32 %nlocals.0.lcssa, ptr %pnlocals, align 4
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.then25, %for.end
   %cmp27.not = icmp eq ptr %pncellvars, null
   br i1 %cmp27.not, label %if.end30, label %if.then29
 
-if.then29:                                        ; preds = %if.end26
+if.then29:                                        ; preds = %if.then25
   store i32 %ncellvars.0.lcssa, ptr %pncellvars, align 4
   br label %if.end30
 
-if.end30:                                         ; preds = %if.then29, %if.end26
+if.end30:                                         ; preds = %if.then29, %if.then25
   %cmp31.not = icmp eq ptr %pnfreevars, null
   br i1 %cmp31.not, label %if.end34, label %if.then33
 

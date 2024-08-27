@@ -7025,7 +7025,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_krb_pac_midl_blob, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 16, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.858) #16
   %6 = load i32, ptr @hf_krb_midl_version, align 4
@@ -7037,20 +7037,13 @@ define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr 
   %12 = lshr i8 %10, 4
   %13 = zext nneg i8 %12 to i32
   %14 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %11, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef %13) #16
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %dissect_krb5_PAC_DREP.exit, label %15
-
-15:                                               ; preds = %3
   store i8 %10, ptr %2, align 1
-  br label %dissect_krb5_PAC_DREP.exit
-
-dissect_krb5_PAC_DREP.exit:                       ; preds = %3, %15
-  %16 = load i32, ptr @hf_krb_midl_hdr_len, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %16, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #16
-  %18 = load i32, ptr @hf_krb_midl_fill_bytes, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %18, ptr noundef %1, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #16
-  %20 = load i32, ptr @hf_krb_midl_blob_len, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %20, ptr noundef %1, i32 noundef 8, i32 noundef 8, i32 noundef -2147483648) #16
+  %15 = load i32, ptr @hf_krb_midl_hdr_len, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %15, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #16
+  %17 = load i32, ptr @hf_krb_midl_fill_bytes, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %17, ptr noundef %1, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #16
+  %19 = load i32, ptr @hf_krb_midl_blob_len, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %19, ptr noundef %1, i32 noundef 8, i32 noundef 8, i32 noundef -2147483648) #16
   ret void
 }
 

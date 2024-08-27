@@ -191,7 +191,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.180 = private unnamed_addr constant [32 x i8] c"setsockopt SO_REUSEPORT failed\0A\00", align 1
 @.str.181 = private unnamed_addr constant [16 x i8] c"tcp bind failed\00", align 1
 @.str.182 = private unnamed_addr constant [18 x i8] c"tcp listen failed\00", align 1
-@.str.183 = private unnamed_addr constant [45 x i8] c"invalid argument to build_addr, addr is NULL\00", align 1
 @.str.184 = private unnamed_addr constant [18 x i8] c"no entry for host\00", align 1
 @.str.185 = private unnamed_addr constant [15 x i8] c"socket failed\0A\00", align 1
 @.str.186 = private unnamed_addr constant [31 x i8] c"setsockopt TCP_NODELAY failed\0A\00", align 1
@@ -3954,21 +3953,13 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i32 @wolfIO_Send(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_addr(ptr noundef writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
+define internal fastcc void @build_addr(ptr nocapture noundef writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
 entry:
-  %cmp = icmp eq ptr %addr, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.183) #24
-  unreachable
-
-if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %cmp1.not = icmp eq ptr %peer, null
   br i1 %cmp1.not, label %if.then16, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end
+land.lhs.true:                                    ; preds = %entry
   %call = tail call ptr @__ctype_b_loc() #29
   %0 = load ptr, ptr %call, align 8
   %1 = load i8, ptr %peer, align 1
@@ -3988,7 +3979,7 @@ if.else:                                          ; preds = %if.then4
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.184) #24
   unreachable
 
-if.then16:                                        ; preds = %if.end
+if.then16:                                        ; preds = %entry
   store i16 2, ptr %addr, align 4
   %call13 = tail call zeroext i16 @htons(i16 noundef zeroext %port) #29
   %sin_port = getelementptr inbounds i8, ptr %addr, i64 2

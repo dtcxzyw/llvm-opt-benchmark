@@ -878,7 +878,7 @@ err:                                              ; preds = %while.body, %lor.lh
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr nocapture noundef readonly %module_mac, i64 noundef %module_mac_len, ptr noundef readonly %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr nocapture noundef readonly %module_mac, i64 noundef %module_mac_len, ptr nocapture noundef readonly %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %call = tail call ptr @app_load_config_internal(ptr noundef %infile, i32 noundef 0) #5
@@ -921,8 +921,8 @@ if.end12:                                         ; preds = %if.end7
   %cmp14 = icmp ne ptr %call13, null
   %6 = load i64, ptr %len, align 8
   %cmp16.not = icmp eq i64 %6, %module_mac_len
-  %or.cond25 = select i1 %cmp14, i1 %cmp16.not, i1 false
-  br i1 %or.cond25, label %lor.lhs.false17, label %if.then20
+  %or.cond = select i1 %cmp14, i1 %cmp16.not, i1 false
+  br i1 %or.cond, label %lor.lhs.false17, label %if.then20
 
 lor.lhs.false17:                                  ; preds = %if.end12
   %bcmp = call i32 @bcmp(ptr %module_mac, ptr nonnull %call13, i64 %module_mac_len)
@@ -935,10 +935,8 @@ if.then20:                                        ; preds = %lor.lhs.false17, %i
   br label %end
 
 if.end22:                                         ; preds = %lor.lhs.false17
-  %cmp23 = icmp ne ptr %install_mac, null
-  %cmp24 = icmp ne i64 %install_mac_len, 0
-  %or.cond = and i1 %cmp23, %cmp24
-  br i1 %or.cond, label %if.then25, label %end
+  %cmp24.not = icmp eq i64 %install_mac_len, 0
+  br i1 %cmp24.not, label %end, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
   %call26 = call ptr @NCONF_get_string(ptr noundef nonnull %call, ptr noundef %section, ptr noundef nonnull @.str.80) #5
@@ -970,11 +968,11 @@ if.end38:                                         ; preds = %if.end33
   %cmp40 = icmp ne ptr %call39, null
   %10 = load i64, ptr %len, align 8
   %cmp42.not = icmp eq i64 %10, %install_mac_len
-  %or.cond26 = select i1 %cmp40, i1 %cmp42.not, i1 false
-  br i1 %or.cond26, label %lor.lhs.false43, label %if.then46
+  %or.cond25 = select i1 %cmp40, i1 %cmp42.not, i1 false
+  br i1 %or.cond25, label %lor.lhs.false43, label %if.then46
 
 lor.lhs.false43:                                  ; preds = %if.end38
-  %bcmp24 = call i32 @bcmp(ptr nonnull %install_mac, ptr nonnull %call39, i64 %install_mac_len)
+  %bcmp24 = call i32 @bcmp(ptr %install_mac, ptr nonnull %call39, i64 %install_mac_len)
   %cmp45.not = icmp eq i32 %bcmp24, 0
   br i1 %cmp45.not, label %end, label %if.then46
 

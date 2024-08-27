@@ -404,7 +404,7 @@ ClearRectangle.exit:                              ; preds = %.lr.ph.us.i, %.lr.p
 ; Function Attrs: nounwind uwtable
 define void @WebPAnimEncoderDelete(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %23, label %2
+  br i1 %.not, label %24, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 312
@@ -416,7 +416,7 @@ define void @WebPAnimEncoderDelete(ptr noundef %0) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1088
   %7 = load ptr, ptr %6, align 8
   %.not13 = icmp eq ptr %7, null
-  br i1 %.not13, label %20, label %.preheader
+  br i1 %.not13, label %21, label %.preheader
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1096
@@ -425,47 +425,47 @@ define void @WebPAnimEncoderDelete(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not15, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.preheader, %FrameRelease.exit
-  %10 = phi i64 [ %16, %FrameRelease.exit ], [ %9, %.preheader ]
-  %.014 = phi i64 [ %17, %FrameRelease.exit ], [ 0, %.preheader ]
+  %10 = phi i64 [ %17, %FrameRelease.exit ], [ %9, %.preheader ]
+  %.014 = phi i64 [ %18, %FrameRelease.exit ], [ 0, %.preheader ]
   %11 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %FrameRelease.exit, label %WebPDataClear.exit.i
+  br i1 %.not.i, label %FrameRelease.exit, label %12
 
-WebPDataClear.exit.i:                             ; preds = %.lr.ph.split
-  %12 = getelementptr inbounds %struct.EncodedFrame, ptr %11, i64 %.014
-  %13 = load ptr, ptr %12, align 8
-  tail call void @WebPFree(ptr noundef %13) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %12, i64 48
-  %15 = load ptr, ptr %14, align 8
-  tail call void @WebPFree(ptr noundef %15) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
+12:                                               ; preds = %.lr.ph.split
+  %13 = getelementptr inbounds %struct.EncodedFrame, ptr %11, i64 %.014
+  %14 = load ptr, ptr %13, align 8
+  tail call void @WebPFree(ptr noundef %14) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds i8, ptr %13, i64 48
+  %16 = load ptr, ptr %15, align 8
+  tail call void @WebPFree(ptr noundef %16) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
   %.pre = load i64, ptr %8, align 8
   br label %FrameRelease.exit
 
-FrameRelease.exit:                                ; preds = %.lr.ph.split, %WebPDataClear.exit.i
-  %16 = phi i64 [ %10, %.lr.ph.split ], [ %.pre, %WebPDataClear.exit.i ]
-  %17 = add nuw i64 %.014, 1
-  %18 = icmp ult i64 %17, %16
-  br i1 %18, label %.lr.ph.split, label %._crit_edge.loopexit16, !llvm.loop !6
+FrameRelease.exit:                                ; preds = %.lr.ph.split, %12
+  %17 = phi i64 [ %10, %.lr.ph.split ], [ %.pre, %12 ]
+  %18 = add nuw i64 %.014, 1
+  %19 = icmp ult i64 %18, %17
+  br i1 %19, label %.lr.ph.split, label %._crit_edge.loopexit16, !llvm.loop !6
 
 ._crit_edge.loopexit16:                           ; preds = %FrameRelease.exit
   %.pre17 = load ptr, ptr %6, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit16, %.preheader
-  %19 = phi ptr [ %.pre17, %._crit_edge.loopexit16 ], [ %7, %.preheader ]
-  tail call void @WebPSafeFree(ptr noundef %19) #14
-  br label %20
+  %20 = phi ptr [ %.pre17, %._crit_edge.loopexit16 ], [ %7, %.preheader ]
+  tail call void @WebPSafeFree(ptr noundef %20) #14
+  br label %21
 
-20:                                               ; preds = %._crit_edge, %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 1184
-  %22 = load ptr, ptr %21, align 8
-  tail call void @WebPMuxDelete(ptr noundef %22) #14
+21:                                               ; preds = %._crit_edge, %2
+  %22 = getelementptr inbounds i8, ptr %0, i64 1184
+  %23 = load ptr, ptr %22, align 8
+  tail call void @WebPMuxDelete(ptr noundef %23) #14
   tail call void @WebPSafeFree(ptr noundef nonnull %0) #14
-  br label %23
+  br label %24
 
-23:                                               ; preds = %20, %1
+24:                                               ; preds = %21, %1
   ret void
 }
 
@@ -799,7 +799,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   %7 = alloca %struct.FrameRectangle, align 4
   %8 = alloca %struct.WebPConfig, align 4
   %9 = icmp eq ptr %0, null
-  br i1 %9, label %194, label %10
+  br i1 %9, label %195, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 1192
@@ -827,12 +827,12 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 22:                                               ; preds = %20, %19
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str) #14
-  br label %194
+  br label %195
 
 24:                                               ; preds = %14
   %25 = tail call fastcc i32 @IncreasePreviousDuration(ptr noundef nonnull %0, i32 noundef %17)
   %.not50 = icmp eq i32 %25, 0
-  br i1 %.not50, label %194, label %26
+  br i1 %.not50, label %195, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 1112
@@ -845,7 +845,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 32:                                               ; preds = %26
   %33 = tail call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
   %.not51 = icmp eq i32 %33, 0
-  br i1 %.not51, label %194, label %36
+  br i1 %.not51, label %195, label %36
 
 34:                                               ; preds = %10
   %35 = getelementptr inbounds i8, ptr %0, i64 1144
@@ -861,7 +861,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   store i32 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 1148
   store i32 %2, ptr %40, align 4
-  br label %194
+  br label %195
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %1, i64 8
@@ -882,7 +882,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   %51 = getelementptr inbounds i8, ptr %1, i64 136
   store i32 4, ptr %51, align 8
   %52 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1) #14
-  br label %194
+  br label %195
 
 53:                                               ; preds = %45
   %54 = load i32, ptr %1, align 8
@@ -907,7 +907,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 63:                                               ; preds = %61
   %64 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.3) #14
-  br label %194
+  br label %195
 
 65:                                               ; preds = %61, %53
   %.not58 = icmp eq ptr %3, null
@@ -920,7 +920,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 68:                                               ; preds = %66
   %69 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4) #14
-  br label %194
+  br label %195
 
 70:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %8, ptr noundef nonnull align 4 dereferenceable(116) %3, i64 116, i1 false)
@@ -933,7 +933,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 73:                                               ; preds = %71
   %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5) #14
-  br label %194
+  br label %195
 
 75:                                               ; preds = %71
   store i32 1, ptr %8, align 4
@@ -1150,69 +1150,69 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
   %174 = phi i1 [ false, %167 ], [ true, %97 ], [ true, %111 ], [ true, %120 ], [ true, %123 ], [ false, %.thread114.i ]
   %.076110.i = phi i32 [ 0, %167 ], [ %98, %97 ], [ %110, %111 ], [ %110, %120 ], [ %125, %123 ], [ 0, %.thread114.i ]
   %.not.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i, label %FrameRelease.exit.i, label %WebPDataClear.exit.i.i
+  br i1 %.not.i.i, label %FrameRelease.exit.i, label %175
 
-WebPDataClear.exit.i.i:                           ; preds = %.thread.i
-  %175 = load ptr, ptr %94, align 8
-  call void @WebPFree(ptr noundef %175) #14
+175:                                              ; preds = %.thread.i
+  %176 = load ptr, ptr %94, align 8
+  call void @WebPFree(ptr noundef %176) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
-  %176 = getelementptr inbounds i8, ptr %94, i64 48
-  %177 = load ptr, ptr %176, align 8
-  call void @WebPFree(ptr noundef %177) #14
+  %177 = getelementptr inbounds i8, ptr %94, i64 48
+  %178 = load ptr, ptr %177, align 8
+  call void @WebPFree(ptr noundef %178) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %94, i8 0, i64 104, i1 false)
   br label %FrameRelease.exit.i
 
-FrameRelease.exit.i:                              ; preds = %WebPDataClear.exit.i.i, %.thread.i
-  %178 = load i64, ptr %89, align 8
-  %179 = add i64 %178, -1
-  store i64 %179, ptr %89, align 8
-  %180 = load i32, ptr %12, align 4
-  %.not99.i = icmp eq i32 %180, 0
-  br i1 %.not99.i, label %181, label %185
+FrameRelease.exit.i:                              ; preds = %175, %.thread.i
+  %179 = load i64, ptr %89, align 8
+  %180 = add i64 %179, -1
+  store i64 %180, ptr %89, align 8
+  %181 = load i32, ptr %12, align 4
+  %.not99.i = icmp eq i32 %181, 0
+  br i1 %.not99.i, label %182, label %186
 
-181:                                              ; preds = %FrameRelease.exit.i
-  %182 = getelementptr inbounds i8, ptr %0, i64 1140
-  %183 = load i32, ptr %182, align 4
-  %184 = add nsw i32 %183, -1
-  store i32 %184, ptr %182, align 4
-  br label %185
+182:                                              ; preds = %FrameRelease.exit.i
+  %183 = getelementptr inbounds i8, ptr %0, i64 1140
+  %184 = load i32, ptr %183, align 4
+  %185 = add nsw i32 %184, -1
+  store i32 %185, ptr %183, align 4
+  br label %186
 
-185:                                              ; preds = %181, %FrameRelease.exit.i
+186:                                              ; preds = %182, %FrameRelease.exit.i
   br i1 %174, label %CacheFrame.exit, label %CacheFrame.exit.thread
 
-CacheFrame.exit:                                  ; preds = %185
-  %186 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.076110.i) #14
-  %187 = load ptr, ptr %77, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 136
-  store i32 %.076110.i, ptr %188, align 8
+CacheFrame.exit:                                  ; preds = %186
+  %187 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.076110.i) #14
+  %188 = load ptr, ptr %77, align 8
+  %189 = getelementptr inbounds i8, ptr %188, i64 136
+  store i32 %.076110.i, ptr %189, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store ptr null, ptr %77, align 8
   store i32 1, ptr %78, align 8
-  br label %194
+  br label %195
 
-CacheFrame.exit.thread:                           ; preds = %185, %167
-  %.076110.i.sink = phi i32 [ 0, %167 ], [ %.076110.i, %185 ]
-  %189 = load ptr, ptr %77, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 136
-  store i32 %.076110.i.sink, ptr %190, align 8
+CacheFrame.exit.thread:                           ; preds = %186, %167
+  %.076110.i.sink = phi i32 [ 0, %167 ], [ %.076110.i, %186 ]
+  %190 = load ptr, ptr %77, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 136
+  store i32 %.076110.i.sink, ptr %191, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %191 = call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
-  %.not66 = icmp eq i32 %191, 0
+  %192 = call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
+  %.not66 = icmp eq i32 %192, 0
   store ptr null, ptr %77, align 8
   store i32 1, ptr %78, align 8
-  br i1 %.not66, label %194, label %192
+  br i1 %.not66, label %195, label %193
 
-192:                                              ; preds = %CacheFrame.exit.thread
-  %193 = getelementptr inbounds i8, ptr %0, i64 1148
-  store i32 %2, ptr %193, align 4
-  br label %194
+193:                                              ; preds = %CacheFrame.exit.thread
+  %194 = getelementptr inbounds i8, ptr %0, i64 1148
+  store i32 %2, ptr %194, align 4
+  br label %195
 
-194:                                              ; preds = %CacheFrame.exit, %CacheFrame.exit.thread, %192, %32, %24, %4, %73, %68, %63, %50, %38, %22
-  %.0 = phi i32 [ 1, %38 ], [ 0, %50 ], [ 0, %68 ], [ 0, %73 ], [ 0, %63 ], [ 0, %22 ], [ 0, %4 ], [ 0, %24 ], [ 0, %32 ], [ 1, %192 ], [ 0, %CacheFrame.exit.thread ], [ 0, %CacheFrame.exit ]
+195:                                              ; preds = %CacheFrame.exit, %CacheFrame.exit.thread, %193, %32, %24, %4, %73, %68, %63, %50, %38, %22
+  %.0 = phi i32 [ 1, %38 ], [ 0, %50 ], [ 0, %68 ], [ 0, %73 ], [ 0, %63 ], [ 0, %22 ], [ 0, %4 ], [ 0, %24 ], [ 0, %32 ], [ 1, %193 ], [ 0, %CacheFrame.exit.thread ], [ 0, %CacheFrame.exit ]
   ret i32 %.0
 }
 
@@ -1234,7 +1234,7 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr nocaptu
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %14, %1
   %16 = icmp sgt i32 %15, 16777215
-  br i1 %16, label %17, label %55
+  br i1 %16, label %17, label %56
 
 17:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %3, ptr noundef nonnull align 16 dereferenceable(28) @__const.IncreasePreviousDuration.lossless_1x1_bytes, i64 28, i1 false)
@@ -1274,58 +1274,58 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr nocaptu
   %33 = getelementptr inbounds i8, ptr %12, i64 24
   store i32 %1, ptr %33, align 8
   %34 = icmp eq ptr %12, null
-  br i1 %34, label %WebPDataCopy.exit, label %WebPDataInit.exit.i
+  br i1 %34, label %WebPDataCopy.exit, label %35
 
-WebPDataInit.exit.i:                              ; preds = %26
+35:                                               ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %35 = load ptr, ptr %., align 8
-  %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %46, label %36
+  %36 = load ptr, ptr %., align 8
+  %.not.i = icmp eq ptr %36, null
+  br i1 %.not.i, label %47, label %37
 
-36:                                               ; preds = %WebPDataInit.exit.i
-  %37 = getelementptr inbounds i8, ptr %., i64 8
-  %38 = load i64, ptr %37, align 8
-  %.not18.i = icmp eq i64 %38, 0
-  br i1 %.not18.i, label %46, label %39
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %., i64 8
+  %39 = load i64, ptr %38, align 8
+  %.not18.i = icmp eq i64 %39, 0
+  br i1 %.not18.i, label %47, label %40
 
-39:                                               ; preds = %36
-  %40 = call ptr @WebPMalloc(i64 noundef %38) #14
-  store ptr %40, ptr %12, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %WebPDataCopy.exit, label %42
+40:                                               ; preds = %37
+  %41 = call ptr @WebPMalloc(i64 noundef %39) #14
+  store ptr %41, ptr %12, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %WebPDataCopy.exit, label %43
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %., align 8
-  %44 = load i64, ptr %37, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %43, i64 %44, i1 false)
-  %45 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %44, ptr %45, align 8
-  br label %46
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %., align 8
+  %45 = load i64, ptr %38, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %44, i64 %45, i1 false)
+  %46 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %45, ptr %46, align 8
+  br label %47
 
-46:                                               ; preds = %42, %36, %WebPDataInit.exit.i
-  %47 = load i64, ptr %7, align 8
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 1140
-  %50 = load i32, ptr %49, align 4
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 1120
-  store i64 %47, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 1152
-  store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, ptr noundef nonnull align 4 dereferenceable(16) @__const.IncreasePreviousDuration.rect, i64 16, i1 false)
+47:                                               ; preds = %43, %37, %35
+  %48 = load i64, ptr %7, align 8
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %7, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 1140
+  %51 = load i32, ptr %50, align 4
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %50, align 4
+  %53 = getelementptr inbounds i8, ptr %0, i64 1120
+  store i64 %48, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 1152
+  store i32 0, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull align 4 dereferenceable(16) @__const.IncreasePreviousDuration.rect, i64 16, i1 false)
   br label %WebPDataCopy.exit
 
-55:                                               ; preds = %2
+56:                                               ; preds = %2
   store i32 %15, ptr %13, align 8
-  %56 = getelementptr i8, ptr %12, i64 -32
-  store i32 %15, ptr %56, align 8
+  %57 = getelementptr i8, ptr %12, i64 -32
+  store i32 %15, ptr %57, align 8
   br label %WebPDataCopy.exit
 
-WebPDataCopy.exit:                                ; preds = %39, %26, %46, %55
-  %.0 = phi i32 [ 1, %55 ], [ 1, %46 ], [ 0, %26 ], [ 0, %39 ]
+WebPDataCopy.exit:                                ; preds = %40, %26, %47, %56
+  %.0 = phi i32 [ 1, %56 ], [ 1, %47 ], [ 0, %26 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -1334,8 +1334,8 @@ define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr nocapture noundef %0
   %2 = alloca %struct.EncodedFrame, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1120
   %4 = load i64, ptr %3, align 8
-  %.not46 = icmp eq i64 %4, 0
-  br i1 %.not46, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not45 = icmp eq i64 %4, 0
+  br i1 %.not45, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 1112
@@ -1353,8 +1353,8 @@ define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr nocapture noundef %0
   %.val42.pre = load i64, ptr %6, align 8
   br label %12
 
-12:                                               ; preds = %.lr.ph, %50
-  %.val42 = phi i64 [ %.val42.pre, %.lr.ph ], [ %42, %50 ]
+12:                                               ; preds = %.lr.ph, %51
+  %.val42 = phi i64 [ %.val42.pre, %.lr.ph ], [ %43, %51 ]
   %.val = load ptr, ptr %5, align 8
   %13 = getelementptr %struct.EncodedFrame, ptr %.val, i64 %.val42
   %14 = getelementptr inbounds i8, ptr %13, i64 96
@@ -1370,7 +1370,7 @@ define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr nocapture noundef %0
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %0, i64 1192
   %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13, i32 noundef %18) #14
-  br label %68
+  br label %70
 
 22:                                               ; preds = %12
   %23 = load i32, ptr %8, align 8
@@ -1395,84 +1395,84 @@ define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr nocapture noundef %0
   %37 = add i64 %36, 1
   store i64 %37, ptr %9, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %FrameRelease.exit, label %WebPDataClear.exit.i
+  br i1 %.not.i, label %FrameRelease.exit, label %38
 
-WebPDataClear.exit.i:                             ; preds = %35
-  %38 = load ptr, ptr %13, align 8
-  tail call void @WebPFree(ptr noundef %38) #14
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %13, align 8
+  tail call void @WebPFree(ptr noundef %39) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %13, i64 48
-  %40 = load ptr, ptr %39, align 8
-  tail call void @WebPFree(ptr noundef %40) #14
+  %40 = getelementptr inbounds i8, ptr %13, i64 48
+  %41 = load ptr, ptr %40, align 8
+  tail call void @WebPFree(ptr noundef %41) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
   br label %FrameRelease.exit
 
-FrameRelease.exit:                                ; preds = %35, %WebPDataClear.exit.i
-  %41 = load i64, ptr %6, align 8
-  %42 = add i64 %41, 1
-  store i64 %42, ptr %6, align 8
-  %43 = load i64, ptr %3, align 8
-  %44 = add i64 %43, -1
-  store i64 %44, ptr %3, align 8
-  %45 = load i64, ptr %10, align 8
-  %46 = add i64 %45, -1
-  store i64 %46, ptr %10, align 8
-  %47 = load i32, ptr %11, align 8
-  %.not41 = icmp eq i32 %47, -1
-  br i1 %.not41, label %50, label %48
+FrameRelease.exit:                                ; preds = %35, %38
+  %42 = load i64, ptr %6, align 8
+  %43 = add i64 %42, 1
+  store i64 %43, ptr %6, align 8
+  %44 = load i64, ptr %3, align 8
+  %45 = add i64 %44, -1
+  store i64 %45, ptr %3, align 8
+  %46 = load i64, ptr %10, align 8
+  %47 = add i64 %46, -1
+  store i64 %47, ptr %10, align 8
+  %48 = load i32, ptr %11, align 8
+  %.not41 = icmp eq i32 %48, -1
+  br i1 %.not41, label %51, label %49
 
-48:                                               ; preds = %FrameRelease.exit
-  %49 = add nsw i32 %47, -1
-  store i32 %49, ptr %11, align 8
-  br label %50
+49:                                               ; preds = %FrameRelease.exit
+  %50 = add nsw i32 %48, -1
+  store i32 %50, ptr %11, align 8
+  br label %51
 
-50:                                               ; preds = %48, %FrameRelease.exit
-  %.not = icmp eq i64 %44, 0
+51:                                               ; preds = %49, %FrameRelease.exit
+  %.not = icmp eq i64 %45, 0
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %50, %.._crit_edge_crit_edge
-  %51 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %46, %50 ]
-  %52 = icmp eq i64 %51, 1
-  br i1 %52, label %53, label %68
+._crit_edge:                                      ; preds = %51, %.._crit_edge_crit_edge
+  %52 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %47, %51 ]
+  %53 = icmp eq i64 %52, 1
+  br i1 %53, label %54, label %70
 
-53:                                               ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %0, i64 1104
-  %55 = load i64, ptr %54, align 8
-  %.not37 = icmp eq i64 %55, 0
-  br i1 %.not37, label %68, label %56
+54:                                               ; preds = %._crit_edge
+  %55 = getelementptr inbounds i8, ptr %0, i64 1104
+  %56 = load i64, ptr %55, align 8
+  %.not37 = icmp eq i64 %56, 0
+  br i1 %.not37, label %70, label %57
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 1088
-  %58 = load ptr, ptr %57, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %58, i64 104, i1 false)
-  %sext = shl i64 %55, 32
-  %59 = ashr exact i64 %sext, 32
-  %60 = getelementptr inbounds %struct.EncodedFrame, ptr %58, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %58, ptr noundef nonnull align 8 dereferenceable(104) %60, i64 104, i1 false)
-  %61 = load ptr, ptr %57, align 8
-  %62 = getelementptr inbounds %struct.EncodedFrame, ptr %61, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
-  %63 = load ptr, ptr %57, align 8
-  %.not.i43 = icmp eq ptr %63, null
-  br i1 %.not.i43, label %FrameRelease.exit45, label %WebPDataClear.exit.i44
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %0, i64 1088
+  %59 = load ptr, ptr %58, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %59, i64 104, i1 false)
+  %sext = shl i64 %56, 32
+  %60 = ashr exact i64 %sext, 32
+  %61 = getelementptr inbounds %struct.EncodedFrame, ptr %59, i64 %60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %59, ptr noundef nonnull align 8 dereferenceable(104) %61, i64 104, i1 false)
+  %62 = load ptr, ptr %58, align 8
+  %63 = getelementptr inbounds %struct.EncodedFrame, ptr %62, i64 %60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
+  %64 = load ptr, ptr %58, align 8
+  %.not.i43 = icmp eq ptr %64, null
+  br i1 %.not.i43, label %FrameRelease.exit44, label %65
 
-WebPDataClear.exit.i44:                           ; preds = %56
-  %64 = getelementptr inbounds %struct.EncodedFrame, ptr %63, i64 %59
-  %65 = load ptr, ptr %64, align 8
-  tail call void @WebPFree(ptr noundef %65) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  %66 = getelementptr inbounds i8, ptr %64, i64 48
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds %struct.EncodedFrame, ptr %64, i64 %60
   %67 = load ptr, ptr %66, align 8
   tail call void @WebPFree(ptr noundef %67) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %64, i8 0, i64 104, i1 false)
-  br label %FrameRelease.exit45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
+  %68 = getelementptr inbounds i8, ptr %66, i64 48
+  %69 = load ptr, ptr %68, align 8
+  tail call void @WebPFree(ptr noundef %69) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %66, i8 0, i64 104, i1 false)
+  br label %FrameRelease.exit44
 
-FrameRelease.exit45:                              ; preds = %56, %WebPDataClear.exit.i44
-  store i64 0, ptr %54, align 8
-  br label %68
+FrameRelease.exit44:                              ; preds = %57, %65
+  store i64 0, ptr %55, align 8
+  br label %70
 
-68:                                               ; preds = %._crit_edge, %53, %FrameRelease.exit45, %19
-  %.0 = phi i32 [ 0, %19 ], [ 1, %FrameRelease.exit45 ], [ 1, %53 ], [ 1, %._crit_edge ]
+70:                                               ; preds = %._crit_edge, %54, %FrameRelease.exit44, %19
+  %.0 = phi i32 [ 0, %19 ], [ 1, %FrameRelease.exit44 ], [ 1, %54 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1607,7 +1607,7 @@ define internal fastcc i32 @OptimizeSingleFrame(ptr noundef %0, ptr noundef %1) 
   %11 = alloca %struct.WebPData, align 8
   %12 = tail call ptr @WebPMuxCreateInternal(ptr noundef %1, i32 noundef 0, i32 noundef 265) #14
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %110, label %14
+  br i1 %13, label %111, label %14
 
 14:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1619,12 +1619,12 @@ define internal fastcc i32 @OptimizeSingleFrame(ptr noundef %0, ptr noundef %1) 
   %18 = load i32, ptr %17, align 4
   %19 = icmp ne i32 %18, 3
   %or.cond = select i1 %16, i1 true, i1 %19
-  br i1 %or.cond, label %106, label %20
+  br i1 %or.cond, label %107, label %20
 
 20:                                               ; preds = %14
   %21 = call i32 @WebPMuxGetCanvasSize(ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
   %.not = icmp eq i32 %21, 1
-  br i1 %.not, label %22, label %106
+  br i1 %.not, label %22, label %107
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -1762,15 +1762,15 @@ DecodeFrameOntoCanvas.exit.i:                     ; preds = %48
   %91 = load i64, ptr %90, align 8
   %92 = load i64, ptr %81, align 8
   %93 = icmp ult i64 %91, %92
-  br i1 %93, label %94, label %FrameToFullCanvas.exit.thread35
+  br i1 %93, label %94, label %FrameToFullCanvas.exit.thread28
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %6, align 8
   store ptr %95, ptr %10, align 8
   store i64 %91, ptr %83, align 8
-  br label %FrameToFullCanvas.exit.thread35
+  br label %FrameToFullCanvas.exit.thread28
 
-FrameToFullCanvas.exit.thread35:                  ; preds = %94, %89
+FrameToFullCanvas.exit.thread28:                  ; preds = %94, %89
   %.sink.i.ph = phi ptr [ %6, %89 ], [ %5, %94 ]
   call void @WebPMemoryWriterClear(ptr noundef nonnull %.sink.i.ph) #14
   br label %FrameToFullCanvas.exit.thread
@@ -1780,19 +1780,19 @@ FrameToFullCanvas.exit:                           ; preds = %DecodeFrameOntoCanv
   call void @WebPMemoryWriterClear(ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %106
+  br label %107
 
-FrameToFullCanvas.exit.thread:                    ; preds = %79, %FrameToFullCanvas.exit.thread35
+FrameToFullCanvas.exit.thread:                    ; preds = %79, %FrameToFullCanvas.exit.thread28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %96 = call i32 @WebPMuxSetImage(ptr noundef nonnull %12, ptr noundef nonnull %10, i32 noundef 1) #14
   %.not24 = icmp eq i32 %96, 1
-  br i1 %.not24, label %97, label %106
+  br i1 %.not24, label %97, label %107
 
 97:                                               ; preds = %FrameToFullCanvas.exit.thread
   %98 = call i32 @WebPMuxAssemble(ptr noundef nonnull %12, ptr noundef nonnull %11) #14
   %.not25 = icmp eq i32 %98, 1
-  br i1 %.not25, label %99, label %106
+  br i1 %.not25, label %99, label %107
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds i8, ptr %11, i64 8
@@ -1800,30 +1800,30 @@ FrameToFullCanvas.exit.thread:                    ; preds = %79, %FrameToFullCan
   %102 = getelementptr inbounds i8, ptr %1, i64 8
   %103 = load i64, ptr %102, align 8
   %104 = icmp ult i64 %101, %103
-  br i1 %104, label %WebPDataClear.exit, label %106
+  br i1 %104, label %105, label %107
 
-WebPDataClear.exit:                               ; preds = %99
-  %105 = load ptr, ptr %1, align 8
-  call void @WebPFree(ptr noundef %105) #14
+105:                                              ; preds = %99
+  %106 = load ptr, ptr %1, align 8
+  call void @WebPFree(ptr noundef %106) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  br label %106
+  br label %107
 
-106:                                              ; preds = %FrameToFullCanvas.exit, %99, %WebPDataClear.exit, %97, %FrameToFullCanvas.exit.thread, %20, %14
-  %.018 = phi i32 [ %15, %14 ], [ %21, %20 ], [ %96, %FrameToFullCanvas.exit.thread ], [ %98, %97 ], [ 1, %WebPDataClear.exit ], [ 1, %99 ], [ -2, %FrameToFullCanvas.exit ]
-  %107 = load ptr, ptr %9, align 8
-  call void @WebPFree(ptr noundef %107) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %108 = load ptr, ptr %10, align 8
+107:                                              ; preds = %FrameToFullCanvas.exit, %99, %105, %97, %FrameToFullCanvas.exit.thread, %20, %14
+  %.018 = phi i32 [ %15, %14 ], [ %21, %20 ], [ %96, %FrameToFullCanvas.exit.thread ], [ %98, %97 ], [ 1, %105 ], [ 1, %99 ], [ -2, %FrameToFullCanvas.exit ]
+  %108 = load ptr, ptr %9, align 8
   call void @WebPFree(ptr noundef %108) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  %109 = load ptr, ptr %10, align 8
+  call void @WebPFree(ptr noundef %109) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @WebPMuxDelete(ptr noundef nonnull %12) #14
-  %109 = load ptr, ptr %11, align 8
-  call void @WebPFree(ptr noundef %109) #14
-  br label %110
+  %110 = load ptr, ptr %11, align 8
+  call void @WebPFree(ptr noundef %110) #14
+  br label %111
 
-110:                                              ; preds = %2, %106
-  %.0 = phi i32 [ %.018, %106 ], [ -2, %2 ]
+111:                                              ; preds = %2, %107
+  %.0 = phi i32 [ %.018, %107 ], [ -2, %2 ]
   ret i32 %.0
 }
 

@@ -3287,497 +3287,497 @@ range_values.exit.thread81:                       ; preds = %3
   br label %rb_float_new_inline.exit
 
 10:                                               ; preds = %3
-  %.pr.i = load i64, ptr %4, align 8
-  store i64 %.pr.i, ptr %6, align 8
-  %11 = icmp eq i64 %.pr.i, 4
-  br i1 %11, label %.thread, label %12
+  %11 = load i64, ptr %4, align 8
+  store i64 %11, ptr %6, align 8
+  %12 = icmp eq i64 %11, 4
+  br i1 %12, label %.thread, label %13
 
-12:                                               ; preds = %10
-  %.pr12.i = load i64, ptr %5, align 8
-  %13 = icmp eq i64 %.pr12.i, 4
-  br i1 %13, label %.thread, label %range_values.exit
+13:                                               ; preds = %10
+  %14 = load i64, ptr %5, align 8
+  %15 = icmp eq i64 %14, 4
+  br i1 %15, label %.thread, label %range_values.exit
 
-.thread:                                          ; preds = %12, %10
+.thread:                                          ; preds = %13, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %15
+  br label %17
 
-range_values.exit:                                ; preds = %12
-  %14 = call i64 @rb_check_funcall_default(i64 noundef %.pr12.i, i64 noundef 45, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 0) #22
+range_values.exit:                                ; preds = %13
+  %16 = call i64 @rb_check_funcall_default(i64 noundef %14, i64 noundef 45, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 0) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  switch i64 %14, label %16 [
+  switch i64 %16, label %18 [
     i64 0, label %rb_float_new_inline.exit
-    i64 4, label %15
+    i64 4, label %17
   ]
 
-15:                                               ; preds = %range_values.exit, %.thread
+17:                                               ; preds = %range_values.exit, %.thread
   call fastcc void @domain_error() #26
   unreachable
 
-16:                                               ; preds = %range_values.exit
-  %17 = and i64 %14, 3
-  %18 = icmp eq i64 %17, 2
-  br i1 %18, label %RB_FLOAT_TYPE_P.exit.thread, label %19
+18:                                               ; preds = %range_values.exit
+  %19 = and i64 %16, 3
+  %20 = icmp eq i64 %19, 2
+  br i1 %20, label %RB_FLOAT_TYPE_P.exit.thread, label %21
 
-19:                                               ; preds = %16
-  %20 = and i64 %14, 7
-  %.not106 = icmp eq i64 %20, 0
+21:                                               ; preds = %18
+  %22 = and i64 %16, 7
+  %.not106 = icmp eq i64 %22, 0
   br i1 %.not106, label %RB_FLOAT_TYPE_P.exit, label %RB_FLOAT_TYPE_P.exit.thread87
 
-RB_FLOAT_TYPE_P.exit:                             ; preds = %19
-  %21 = inttoptr i64 %14 to ptr
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, 31
-  %24 = icmp eq i64 %23, 4
-  br i1 %24, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread87
-
-RB_FLOAT_TYPE_P.exit.thread87:                    ; preds = %19, %RB_FLOAT_TYPE_P.exit
-  %25 = call i64 @rb_check_to_int(i64 noundef %14) #22
+RB_FLOAT_TYPE_P.exit:                             ; preds = %21
+  %23 = inttoptr i64 %16 to ptr
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 31
   %26 = icmp eq i64 %25, 4
-  br i1 %26, label %RB_FLOAT_TYPE_P.exit.thread, label %27
+  br i1 %26, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread87
 
-27:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread87
+RB_FLOAT_TYPE_P.exit.thread87:                    ; preds = %21, %RB_FLOAT_TYPE_P.exit
+  %27 = call i64 @rb_check_to_int(i64 noundef %16) #22
+  %28 = icmp eq i64 %27, 4
+  br i1 %28, label %RB_FLOAT_TYPE_P.exit.thread, label %29
+
+29:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread87
   store i64 4, ptr %7, align 8
-  %28 = and i64 %25, 1
-  %.not107113 = icmp eq i64 %28, 0
+  %30 = and i64 %27, 1
+  %.not107113 = icmp eq i64 %30, 0
   br i1 %.not107113, label %.lr.ph.preheader, label %.._crit_edge_crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %27
+.._crit_edge_crit_edge:                           ; preds = %29
   %.pre = load i32, ptr %8, align 4
-  %29 = sext i32 %.pre to i64
+  %31 = sext i32 %.pre to i64
   br label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %27
-  %30 = inttoptr i64 %25 to ptr
-  %31 = load i64, ptr %30, align 8
-  %32 = and i64 %31, 8223
-  %or.cond103 = icmp eq i64 %32, 8202
-  br i1 %or.cond103, label %45, label %.loopexit
+.lr.ph.preheader:                                 ; preds = %29
+  %32 = inttoptr i64 %27 to ptr
+  %33 = load i64, ptr %32, align 8
+  %34 = and i64 %33, 8223
+  %or.cond103 = icmp eq i64 %34, 8202
+  br i1 %or.cond103, label %47, label %.loopexit
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %33 = phi i64 [ %29, %.._crit_edge_crit_edge ], [ 0, %._crit_edge.loopexit ]
-  %.040.lcssa = phi i64 [ %25, %.._crit_edge_crit_edge ], [ %54, %._crit_edge.loopexit ]
-  %34 = ashr i64 %.040.lcssa, 1
-  %35 = sub nsw i64 %34, %33
-  %36 = icmp sgt i64 %35, -1
-  br i1 %36, label %37, label %.loopexit
+  %35 = phi i64 [ %31, %.._crit_edge_crit_edge ], [ 0, %._crit_edge.loopexit ]
+  %.040.lcssa = phi i64 [ %27, %.._crit_edge_crit_edge ], [ %56, %._crit_edge.loopexit ]
+  %36 = ashr i64 %.040.lcssa, 1
+  %37 = sub nsw i64 %36, %35
+  %38 = icmp sgt i64 %37, -1
+  br i1 %38, label %39, label %.loopexit
 
-37:                                               ; preds = %._crit_edge
-  %38 = call fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1, i64 noundef %35)
-  %39 = icmp ult i64 %38, 4611686018427387904
-  br i1 %39, label %40, label %43
+39:                                               ; preds = %._crit_edge
+  %40 = call fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1, i64 noundef %37)
+  %41 = icmp ult i64 %40, 4611686018427387904
+  br i1 %41, label %42, label %45
 
-40:                                               ; preds = %37
-  %41 = shl nuw nsw i64 %38, 1
-  %42 = or disjoint i64 %41, 1
+42:                                               ; preds = %39
+  %43 = shl nuw nsw i64 %40, 1
+  %44 = or disjoint i64 %43, 1
   br label %.loopexit.sink.split
 
-43:                                               ; preds = %37
-  %44 = call i64 @rb_uint2big(i64 noundef %38) #22
+45:                                               ; preds = %39
+  %46 = call i64 @rb_uint2big(i64 noundef %40) #22
   br label %.loopexit.sink.split
 
-45:                                               ; preds = %.lr.ph.preheader
-  %46 = call i32 @rb_bigzero_p(i64 noundef %25) #22
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %47, label %.loopexit
-
-47:                                               ; preds = %45
-  %48 = load i32, ptr %8, align 4
-  %.not46 = icmp eq i32 %48, 0
-  br i1 %.not46, label %51, label %49
+47:                                               ; preds = %.lr.ph.preheader
+  %48 = call i32 @rb_bigzero_p(i64 noundef %27) #22
+  %.not = icmp eq i32 %48, 0
+  br i1 %.not, label %49, label %.loopexit
 
 49:                                               ; preds = %47
-  %50 = call i64 @rb_big_minus(i64 noundef %25, i64 noundef 3) #22
-  br label %53
+  %50 = load i32, ptr %8, align 4
+  %.not46 = icmp eq i32 %50, 0
+  br i1 %.not46, label %53, label %51
 
-51:                                               ; preds = %47
-  %52 = call i64 @rb_big_norm(i64 noundef %25) #22
-  br label %53
+51:                                               ; preds = %49
+  %52 = call i64 @rb_big_minus(i64 noundef %27, i64 noundef 3) #22
+  br label %55
 
-53:                                               ; preds = %51, %49
-  %54 = phi i64 [ %50, %49 ], [ %52, %51 ]
-  %55 = and i64 %54, 1
-  %.not108 = icmp eq i64 %55, 0
-  br i1 %.not108, label %56, label %._crit_edge.loopexit
+53:                                               ; preds = %49
+  %54 = call i64 @rb_big_norm(i64 noundef %27) #22
+  br label %55
 
-._crit_edge.loopexit:                             ; preds = %53
+55:                                               ; preds = %53, %51
+  %56 = phi i64 [ %52, %51 ], [ %54, %53 ]
+  %57 = and i64 %56, 1
+  %.not108 = icmp eq i64 %57, 0
+  br i1 %.not108, label %58, label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %55
   store i32 0, ptr %8, align 4
   br label %._crit_edge
 
-56:                                               ; preds = %53
-  %57 = call fastcc i64 @random_ulong_limited_big(i64 noundef %0, ptr noundef %1, i64 noundef %54)
+58:                                               ; preds = %55
+  %59 = call fastcc i64 @random_ulong_limited_big(i64 noundef %0, ptr noundef %1, i64 noundef %56)
   br label %.loopexit.sink.split
 
-RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %16, %RB_FLOAT_TYPE_P.exit.thread87, %RB_FLOAT_TYPE_P.exit
-  %58 = call i64 @rb_check_to_float(i64 noundef %14) #22
-  store i64 %58, ptr %7, align 8
-  %59 = icmp eq i64 %58, 4
-  br i1 %59, label %.loopexit, label %60
+RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %18, %RB_FLOAT_TYPE_P.exit.thread87, %RB_FLOAT_TYPE_P.exit
+  %60 = call i64 @rb_check_to_float(i64 noundef %16) #22
+  store i64 %60, ptr %7, align 8
+  %61 = icmp eq i64 %60, 4
+  br i1 %61, label %.loopexit, label %62
 
-60:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
-  %61 = and i64 %58, 3
-  %62 = icmp eq i64 %61, 2
-  br i1 %62, label %63, label %70
+62:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
+  %63 = and i64 %60, 3
+  %64 = icmp eq i64 %63, 2
+  br i1 %64, label %65, label %72
 
-63:                                               ; preds = %60
-  %.not.i.i = icmp eq i64 %58, -9223372036854775806
-  br i1 %.not.i.i, label %.thread93, label %64
+65:                                               ; preds = %62
+  %.not.i.i = icmp eq i64 %60, -9223372036854775806
+  br i1 %.not.i.i, label %.thread93, label %66
 
-64:                                               ; preds = %63
-  %.neg.i.i = ashr i64 %58, 63
-  %65 = add nsw i64 %.neg.i.i, 2
-  %66 = and i64 %58, -4
-  %67 = or i64 %65, %66
-  %68 = call noundef i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 61)
-  %69 = bitcast i64 %68 to double
+66:                                               ; preds = %65
+  %.neg.i.i = ashr i64 %60, 63
+  %67 = add nsw i64 %.neg.i.i, 2
+  %68 = and i64 %60, -4
+  %69 = or i64 %67, %68
+  %70 = call noundef i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 61)
+  %71 = bitcast i64 %70 to double
   br label %rb_float_value_inline.exit
 
-70:                                               ; preds = %60
-  %71 = inttoptr i64 %58 to ptr
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load double, ptr %72, align 8
+72:                                               ; preds = %62
+  %73 = inttoptr i64 %60 to ptr
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = load double, ptr %74, align 8
   br label %rb_float_value_inline.exit
 
-rb_float_value_inline.exit:                       ; preds = %64, %70
-  %.0.i49 = phi double [ %73, %70 ], [ %69, %64 ]
-  %74 = call double @llvm.fabs.f64(double %.0.i49) #28
-  %75 = fcmp oeq double %74, 0x7FF0000000000000
-  br i1 %75, label %76, label %116
+rb_float_value_inline.exit:                       ; preds = %66, %72
+  %.0.i49 = phi double [ %75, %72 ], [ %71, %66 ]
+  %76 = call double @llvm.fabs.f64(double %.0.i49) #28
+  %77 = fcmp oeq double %76, 0x7FF0000000000000
+  br i1 %77, label %78, label %118
 
-.thread93:                                        ; preds = %63
+.thread93:                                        ; preds = %65
   store i64 4, ptr %7, align 8
-  br label %158
+  br label %160
 
-76:                                               ; preds = %rb_float_value_inline.exit
-  %77 = load i64, ptr %6, align 8
-  %78 = call i64 @rb_to_float(i64 noundef %77) #22
-  %79 = and i64 %78, 3
-  %80 = icmp eq i64 %79, 2
-  br i1 %80, label %81, label %88
+78:                                               ; preds = %rb_float_value_inline.exit
+  %79 = load i64, ptr %6, align 8
+  %80 = call i64 @rb_to_float(i64 noundef %79) #22
+  %81 = and i64 %80, 3
+  %82 = icmp eq i64 %81, 2
+  br i1 %82, label %83, label %90
 
-81:                                               ; preds = %76
-  %.not.i.i.i = icmp eq i64 %78, -9223372036854775806
-  br i1 %.not.i.i.i, label %rb_float_value_inline.exit.i, label %82
+83:                                               ; preds = %78
+  %.not.i.i.i = icmp eq i64 %80, -9223372036854775806
+  br i1 %.not.i.i.i, label %rb_float_value_inline.exit.i, label %84
 
-82:                                               ; preds = %81
-  %.neg.i.i.i = ashr i64 %78, 63
-  %83 = add nsw i64 %.neg.i.i.i, 2
-  %84 = and i64 %78, -4
-  %85 = or i64 %83, %84
-  %86 = call noundef i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
-  %87 = bitcast i64 %86 to double
+84:                                               ; preds = %83
+  %.neg.i.i.i = ashr i64 %80, 63
+  %85 = add nsw i64 %.neg.i.i.i, 2
+  %86 = and i64 %80, -4
+  %87 = or i64 %85, %86
+  %88 = call noundef i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 61)
+  %89 = bitcast i64 %88 to double
   br label %rb_float_value_inline.exit.i
 
-88:                                               ; preds = %76
-  %89 = inttoptr i64 %78 to ptr
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
-  %91 = load double, ptr %90, align 8
+90:                                               ; preds = %78
+  %91 = inttoptr i64 %80 to ptr
+  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %93 = load double, ptr %92, align 8
   br label %rb_float_value_inline.exit.i
 
-rb_float_value_inline.exit.i:                     ; preds = %88, %82, %81
-  %.0.i.i = phi double [ %91, %88 ], [ %87, %82 ], [ 0.000000e+00, %81 ]
-  %92 = call double @llvm.fabs.f64(double %.0.i.i)
-  %93 = fcmp ueq double %92, 0x7FF0000000000000
-  br i1 %93, label %94, label %float_value.exit
+rb_float_value_inline.exit.i:                     ; preds = %90, %84, %83
+  %.0.i.i = phi double [ %93, %90 ], [ %89, %84 ], [ 0.000000e+00, %83 ]
+  %94 = call double @llvm.fabs.f64(double %.0.i.i)
+  %95 = fcmp ueq double %94, 0x7FF0000000000000
+  br i1 %95, label %96, label %float_value.exit
 
-94:                                               ; preds = %rb_float_value_inline.exit.i
+96:                                               ; preds = %rb_float_value_inline.exit.i
   call fastcc void @domain_error() #26
   unreachable
 
 float_value.exit:                                 ; preds = %rb_float_value_inline.exit.i
-  %95 = fmul double %.0.i.i, 5.000000e-01
-  %96 = call i64 @rb_to_float(i64 noundef %.pr12.i) #22
-  %97 = and i64 %96, 3
-  %98 = icmp eq i64 %97, 2
-  br i1 %98, label %99, label %106
+  %97 = fmul double %.0.i.i, 5.000000e-01
+  %98 = call i64 @rb_to_float(i64 noundef %14) #22
+  %99 = and i64 %98, 3
+  %100 = icmp eq i64 %99, 2
+  br i1 %100, label %101, label %108
 
-99:                                               ; preds = %float_value.exit
-  %.not.i.i.i52 = icmp eq i64 %96, -9223372036854775806
-  br i1 %.not.i.i.i52, label %rb_float_value_inline.exit.i50, label %100
+101:                                              ; preds = %float_value.exit
+  %.not.i.i.i52 = icmp eq i64 %98, -9223372036854775806
+  br i1 %.not.i.i.i52, label %rb_float_value_inline.exit.i50, label %102
 
-100:                                              ; preds = %99
-  %.neg.i.i.i53 = ashr i64 %96, 63
-  %101 = add nsw i64 %.neg.i.i.i53, 2
-  %102 = and i64 %96, -4
-  %103 = or i64 %101, %102
-  %104 = call noundef i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 61)
-  %105 = bitcast i64 %104 to double
+102:                                              ; preds = %101
+  %.neg.i.i.i53 = ashr i64 %98, 63
+  %103 = add nsw i64 %.neg.i.i.i53, 2
+  %104 = and i64 %98, -4
+  %105 = or i64 %103, %104
+  %106 = call noundef i64 @llvm.fshl.i64(i64 %105, i64 %105, i64 61)
+  %107 = bitcast i64 %106 to double
   br label %rb_float_value_inline.exit.i50
 
-106:                                              ; preds = %float_value.exit
-  %107 = inttoptr i64 %96 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
-  %109 = load double, ptr %108, align 8
+108:                                              ; preds = %float_value.exit
+  %109 = inttoptr i64 %98 to ptr
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %111 = load double, ptr %110, align 8
   br label %rb_float_value_inline.exit.i50
 
-rb_float_value_inline.exit.i50:                   ; preds = %106, %100, %99
-  %.0.i.i51 = phi double [ %109, %106 ], [ %105, %100 ], [ 0.000000e+00, %99 ]
-  %110 = call double @llvm.fabs.f64(double %.0.i.i51)
-  %111 = fcmp ueq double %110, 0x7FF0000000000000
-  br i1 %111, label %112, label %float_value.exit54
+rb_float_value_inline.exit.i50:                   ; preds = %108, %102, %101
+  %.0.i.i51 = phi double [ %111, %108 ], [ %107, %102 ], [ 0.000000e+00, %101 ]
+  %112 = call double @llvm.fabs.f64(double %.0.i.i51)
+  %113 = fcmp ueq double %112, 0x7FF0000000000000
+  br i1 %113, label %114, label %float_value.exit54
 
-112:                                              ; preds = %rb_float_value_inline.exit.i50
+114:                                              ; preds = %rb_float_value_inline.exit.i50
   call fastcc void @domain_error() #26
   unreachable
 
 float_value.exit54:                               ; preds = %rb_float_value_inline.exit.i50
-  %113 = fmul double %.0.i.i51, 5.000000e-01
-  %114 = fadd double %95, %113
-  %115 = fsub double %113, %95
-  br label %119
+  %115 = fmul double %.0.i.i51, 5.000000e-01
+  %116 = fadd double %97, %115
+  %117 = fsub double %115, %97
+  br label %121
 
-116:                                              ; preds = %rb_float_value_inline.exit
-  %117 = fcmp uno double %.0.i49, 0.000000e+00
-  br i1 %117, label %118, label %119
+118:                                              ; preds = %rb_float_value_inline.exit
+  %119 = fcmp uno double %.0.i49, 0.000000e+00
+  br i1 %119, label %120, label %121
 
-118:                                              ; preds = %116
+120:                                              ; preds = %118
   call fastcc void @domain_error() #26
   unreachable
 
-119:                                              ; preds = %116, %float_value.exit54
-  %.043 = phi double [ %114, %float_value.exit54 ], [ 5.000000e-01, %116 ]
-  %.042 = phi double [ %115, %float_value.exit54 ], [ %.0.i49, %116 ]
+121:                                              ; preds = %118, %float_value.exit54
+  %.043 = phi double [ %116, %float_value.exit54 ], [ 5.000000e-01, %118 ]
+  %.042 = phi double [ %117, %float_value.exit54 ], [ %.0.i49, %118 ]
   store i64 4, ptr %7, align 8
-  %120 = fcmp ogt double %.042, 0.000000e+00
-  br i1 %120, label %121, label %158
+  %122 = fcmp ogt double %.042, 0.000000e+00
+  br i1 %122, label %123, label %160
 
-121:                                              ; preds = %119
-  %122 = load i32, ptr %8, align 4
-  %123 = call fastcc double @random_real(i64 noundef %0, ptr noundef %1, i32 noundef %122)
-  br i1 %75, label %124, label %142
+123:                                              ; preds = %121
+  %124 = load i32, ptr %8, align 4
+  %125 = call fastcc double @random_real(i64 noundef %0, ptr noundef %1, i32 noundef %124)
+  br i1 %77, label %126, label %144
 
-124:                                              ; preds = %121
-  %125 = fadd double %123, -5.000000e-01
-  %126 = fmul double %.042, %125
-  %127 = call double @llvm.fmuladd.f64(double %126, double 2.000000e+00, double %.043)
-  %128 = bitcast double %127 to i64
-  %cond.i = icmp eq i64 %128, 3458764513820540928
-  br i1 %cond.i, label %140, label %129
+126:                                              ; preds = %123
+  %127 = fadd double %125, -5.000000e-01
+  %128 = fmul double %.042, %127
+  %129 = call double @llvm.fmuladd.f64(double %128, double 2.000000e+00, double %.043)
+  %130 = bitcast double %129 to i64
+  %cond.i = icmp eq i64 %130, 3458764513820540928
+  br i1 %cond.i, label %142, label %131
 
-129:                                              ; preds = %124
-  %130 = lshr i64 %128, 60
-  %131 = trunc nuw nsw i64 %130 to i32
-  %132 = and i32 %131, 7
-  %133 = add nsw i32 %132, -3
-  %.not7.i = icmp ult i32 %133, 2
-  br i1 %.not7.i, label %134, label %138
+131:                                              ; preds = %126
+  %132 = lshr i64 %130, 60
+  %133 = trunc nuw nsw i64 %132 to i32
+  %134 = and i32 %133, 7
+  %135 = add nsw i32 %134, -3
+  %.not7.i = icmp ult i32 %135, 2
+  br i1 %.not7.i, label %136, label %140
 
-134:                                              ; preds = %129
-  %135 = call noundef i64 @llvm.fshl.i64(i64 %128, i64 %128, i64 3)
-  %136 = and i64 %135, -4
-  %137 = or disjoint i64 %136, 2
+136:                                              ; preds = %131
+  %137 = call noundef i64 @llvm.fshl.i64(i64 %130, i64 %130, i64 3)
+  %138 = and i64 %137, -4
+  %139 = or disjoint i64 %138, 2
   br label %rb_float_new_inline.exit
 
-138:                                              ; preds = %129
-  %139 = icmp eq i64 %128, 0
-  br i1 %139, label %rb_float_new_inline.exit, label %140
+140:                                              ; preds = %131
+  %141 = icmp eq i64 %130, 0
+  br i1 %141, label %rb_float_new_inline.exit, label %142
 
-140:                                              ; preds = %138, %124
-  %141 = call i64 @rb_float_new_in_heap(double noundef %127) #22
+142:                                              ; preds = %140, %126
+  %143 = call i64 @rb_float_new_in_heap(double noundef %129) #22
   br label %rb_float_new_inline.exit
 
-142:                                              ; preds = %121
-  %143 = fmul double %.042, %123
-  %144 = bitcast double %143 to i64
-  %cond.i56 = icmp eq i64 %144, 3458764513820540928
-  br i1 %cond.i56, label %156, label %145
+144:                                              ; preds = %123
+  %145 = fmul double %.042, %125
+  %146 = bitcast double %145 to i64
+  %cond.i56 = icmp eq i64 %146, 3458764513820540928
+  br i1 %cond.i56, label %158, label %147
 
-145:                                              ; preds = %142
-  %146 = lshr i64 %144, 60
-  %147 = trunc nuw nsw i64 %146 to i32
-  %148 = and i32 %147, 7
-  %149 = add nsw i32 %148, -3
-  %.not7.i57 = icmp ult i32 %149, 2
-  br i1 %.not7.i57, label %150, label %154
+147:                                              ; preds = %144
+  %148 = lshr i64 %146, 60
+  %149 = trunc nuw nsw i64 %148 to i32
+  %150 = and i32 %149, 7
+  %151 = add nsw i32 %150, -3
+  %.not7.i57 = icmp ult i32 %151, 2
+  br i1 %.not7.i57, label %152, label %156
 
-150:                                              ; preds = %145
-  %151 = call noundef i64 @llvm.fshl.i64(i64 %144, i64 %144, i64 3)
-  %152 = and i64 %151, -4
-  %153 = or disjoint i64 %152, 2
+152:                                              ; preds = %147
+  %153 = call noundef i64 @llvm.fshl.i64(i64 %146, i64 %146, i64 3)
+  %154 = and i64 %153, -4
+  %155 = or disjoint i64 %154, 2
   br label %.loopexit.sink.split
 
-154:                                              ; preds = %145
-  %155 = icmp eq i64 %144, 0
-  br i1 %155, label %.loopexit.sink.split, label %156
+156:                                              ; preds = %147
+  %157 = icmp eq i64 %146, 0
+  br i1 %157, label %.loopexit.sink.split, label %158
 
-156:                                              ; preds = %154, %142
-  %157 = call i64 @rb_float_new_in_heap(double noundef %143) #22
+158:                                              ; preds = %156, %144
+  %159 = call i64 @rb_float_new_in_heap(double noundef %145) #22
   br label %.loopexit.sink.split
 
-158:                                              ; preds = %.thread93, %119
-  %.04296 = phi double [ 0.000000e+00, %.thread93 ], [ %.042, %119 ]
-  %159 = fcmp une double %.04296, 0.000000e+00
-  %160 = load i32, ptr %8, align 4
-  %161 = icmp ne i32 %160, 0
-  %or.cond = select i1 %159, i1 true, i1 %161
+160:                                              ; preds = %.thread93, %121
+  %.04296 = phi double [ 0.000000e+00, %.thread93 ], [ %.042, %121 ]
+  %161 = fcmp une double %.04296, 0.000000e+00
+  %162 = load i32, ptr %8, align 4
+  %163 = icmp ne i32 %162, 0
+  %or.cond = select i1 %161, i1 true, i1 %163
   br i1 %or.cond, label %.loopexit, label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %158, %156, %154, %150, %43, %40, %56
-  %.sink = phi i64 [ %57, %56 ], [ %42, %40 ], [ %44, %43 ], [ %157, %156 ], [ %153, %150 ], [ -9223372036854775806, %154 ], [ -9223372036854775806, %158 ]
+.loopexit.sink.split:                             ; preds = %160, %158, %156, %152, %45, %42, %58
+  %.sink = phi i64 [ %59, %58 ], [ %44, %42 ], [ %46, %45 ], [ %159, %158 ], [ %155, %152 ], [ -9223372036854775806, %156 ], [ -9223372036854775806, %160 ]
   store i64 %.sink, ptr %7, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.sink.split, %45, %.lr.ph.preheader, %RB_FLOAT_TYPE_P.exit.thread, %158, %._crit_edge
-  %162 = phi i64 [ 4, %RB_FLOAT_TYPE_P.exit.thread ], [ 4, %158 ], [ 4, %._crit_edge ], [ 4, %.lr.ph.preheader ], [ 4, %45 ], [ %.sink, %.loopexit.sink.split ]
-  %163 = load i64, ptr %6, align 8
-  %164 = and i64 %163, 1
-  %.not109 = icmp eq i64 %164, 0
-  %165 = and i64 %162, 1
-  %.not110 = icmp eq i64 %165, 0
+.loopexit:                                        ; preds = %.loopexit.sink.split, %47, %.lr.ph.preheader, %RB_FLOAT_TYPE_P.exit.thread, %160, %._crit_edge
+  %164 = phi i64 [ 4, %RB_FLOAT_TYPE_P.exit.thread ], [ 4, %160 ], [ 4, %._crit_edge ], [ 4, %.lr.ph.preheader ], [ 4, %47 ], [ %.sink, %.loopexit.sink.split ]
+  %165 = load i64, ptr %6, align 8
+  %166 = and i64 %165, 1
+  %.not109 = icmp eq i64 %166, 0
+  %167 = and i64 %164, 1
+  %.not110 = icmp eq i64 %167, 0
   %or.cond117 = select i1 %.not109, i1 true, i1 %.not110
-  br i1 %or.cond117, label %176, label %166
+  br i1 %or.cond117, label %178, label %168
 
-166:                                              ; preds = %.loopexit
-  %167 = ashr i64 %163, 1
-  %168 = ashr i64 %162, 1
-  %169 = add nsw i64 %168, %167
-  %170 = add i64 %169, 4611686018427387904
-  %or.cond.i = icmp sgt i64 %170, -1
-  br i1 %or.cond.i, label %171, label %174
+168:                                              ; preds = %.loopexit
+  %169 = ashr i64 %165, 1
+  %170 = ashr i64 %164, 1
+  %171 = add nsw i64 %170, %169
+  %172 = add i64 %171, 4611686018427387904
+  %or.cond.i = icmp sgt i64 %172, -1
+  br i1 %or.cond.i, label %173, label %176
 
-171:                                              ; preds = %166
-  %172 = shl nsw i64 %169, 1
-  %173 = or disjoint i64 %172, 1
+173:                                              ; preds = %168
+  %174 = shl nsw i64 %171, 1
+  %175 = or disjoint i64 %174, 1
   br label %rb_float_new_inline.exit
 
-174:                                              ; preds = %166
-  %175 = call i64 @rb_int2big(i64 noundef %169) #22
+176:                                              ; preds = %168
+  %177 = call i64 @rb_int2big(i64 noundef %171) #22
   br label %rb_float_new_inline.exit
 
-176:                                              ; preds = %.loopexit
-  %177 = and i64 %162, 7
-  %178 = icmp ne i64 %177, 0
-  %179 = icmp eq i64 %162, 0
-  %180 = or i1 %179, %178
-  br i1 %180, label %181, label %rb_type.exit
+178:                                              ; preds = %.loopexit
+  %179 = and i64 %164, 7
+  %180 = icmp ne i64 %179, 0
+  %181 = icmp eq i64 %164, 0
+  %182 = or i1 %181, %180
+  br i1 %182, label %183, label %rb_type.exit
 
-181:                                              ; preds = %176
-  %182 = call i64 @llvm.fshl.i64(i64 %162, i64 %162, i64 62)
-  switch i64 %182, label %183 [
+183:                                              ; preds = %178
+  %184 = call i64 @llvm.fshl.i64(i64 %164, i64 %164, i64 62)
+  switch i64 %184, label %185 [
     i64 0, label %rb_type.exit.thread
     i64 1, label %rb_float_new_inline.exit
     i64 5, label %rb_type.exit.thread
     i64 9, label %rb_type.exit.thread
   ]
 
-183:                                              ; preds = %181
-  %184 = and i64 %162, 1
-  %.not.i63 = icmp ne i64 %184, 0
-  %185 = and i64 %162, 254
-  %186 = icmp eq i64 %185, 12
-  %or.cond105 = or i1 %.not.i63, %186
+185:                                              ; preds = %183
+  %186 = and i64 %164, 1
+  %.not.i63 = icmp ne i64 %186, 0
+  %187 = and i64 %164, 254
+  %188 = icmp eq i64 %187, 12
+  %or.cond105 = or i1 %.not.i63, %188
   br i1 %or.cond105, label %rb_type.exit.thread, label %rb_type.exit.thread100
 
-rb_type.exit:                                     ; preds = %176
-  %187 = inttoptr i64 %162 to ptr
-  %188 = load i64, ptr %187, align 8
-  %189 = trunc i64 %188 to i32
-  %190 = and i32 %189, 31
-  switch i32 %190, label %rb_type.exit.thread [
+rb_type.exit:                                     ; preds = %178
+  %189 = inttoptr i64 %164 to ptr
+  %190 = load i64, ptr %189, align 8
+  %191 = trunc i64 %190 to i32
+  %192 = and i32 %191, 31
+  switch i32 %192, label %rb_type.exit.thread [
     i32 17, label %rb_float_new_inline.exit
-    i32 10, label %191
+    i32 10, label %193
     i32 4, label %rb_type.exit.thread100
   ]
 
-191:                                              ; preds = %rb_type.exit
-  %192 = call i64 @rb_big_plus(i64 noundef %162, i64 noundef %163) #22
+193:                                              ; preds = %rb_type.exit
+  %194 = call i64 @rb_big_plus(i64 noundef %164, i64 noundef %165) #22
   br label %rb_float_new_inline.exit
 
-rb_type.exit.thread100:                           ; preds = %183, %rb_type.exit
-  %193 = call i64 @rb_check_to_float(i64 noundef %163) #22
-  %194 = icmp eq i64 %193, 4
-  br i1 %194, label %rb_type.exit.thread100.rb_type.exit.thread_crit_edge, label %195
+rb_type.exit.thread100:                           ; preds = %185, %rb_type.exit
+  %195 = call i64 @rb_check_to_float(i64 noundef %165) #22
+  %196 = icmp eq i64 %195, 4
+  br i1 %196, label %rb_type.exit.thread100.rb_type.exit.thread_crit_edge, label %197
 
 rb_type.exit.thread100.rb_type.exit.thread_crit_edge: ; preds = %rb_type.exit.thread100
   %.pre116 = load i64, ptr %6, align 8
   br label %rb_type.exit.thread
 
-195:                                              ; preds = %rb_type.exit.thread100
-  %196 = and i64 %162, 3
-  %197 = icmp eq i64 %196, 2
-  br i1 %197, label %198, label %205
+197:                                              ; preds = %rb_type.exit.thread100
+  %198 = and i64 %164, 3
+  %199 = icmp eq i64 %198, 2
+  br i1 %199, label %200, label %207
 
-198:                                              ; preds = %195
-  %.not.i.i65 = icmp eq i64 %162, -9223372036854775806
-  br i1 %.not.i.i65, label %rb_float_value_inline.exit67, label %199
+200:                                              ; preds = %197
+  %.not.i.i65 = icmp eq i64 %164, -9223372036854775806
+  br i1 %.not.i.i65, label %rb_float_value_inline.exit67, label %201
 
-199:                                              ; preds = %198
-  %.neg.i.i66 = ashr i64 %162, 63
-  %200 = add nsw i64 %.neg.i.i66, 2
-  %201 = and i64 %162, -4
-  %202 = or i64 %200, %201
-  %203 = call noundef i64 @llvm.fshl.i64(i64 %202, i64 %202, i64 61)
-  %204 = bitcast i64 %203 to double
+201:                                              ; preds = %200
+  %.neg.i.i66 = ashr i64 %164, 63
+  %202 = add nsw i64 %.neg.i.i66, 2
+  %203 = and i64 %164, -4
+  %204 = or i64 %202, %203
+  %205 = call noundef i64 @llvm.fshl.i64(i64 %204, i64 %204, i64 61)
+  %206 = bitcast i64 %205 to double
   br label %rb_float_value_inline.exit67
 
-205:                                              ; preds = %195
-  %206 = inttoptr i64 %162 to ptr
-  %207 = getelementptr inbounds i8, ptr %206, i64 16
-  %208 = load double, ptr %207, align 8
+207:                                              ; preds = %197
+  %208 = inttoptr i64 %164 to ptr
+  %209 = getelementptr inbounds i8, ptr %208, i64 16
+  %210 = load double, ptr %209, align 8
   br label %rb_float_value_inline.exit67
 
-rb_float_value_inline.exit67:                     ; preds = %198, %199, %205
-  %.0.i64 = phi double [ %208, %205 ], [ %204, %199 ], [ 0.000000e+00, %198 ]
-  %209 = and i64 %193, 3
-  %210 = icmp eq i64 %209, 2
-  br i1 %210, label %211, label %218
+rb_float_value_inline.exit67:                     ; preds = %200, %201, %207
+  %.0.i64 = phi double [ %210, %207 ], [ %206, %201 ], [ 0.000000e+00, %200 ]
+  %211 = and i64 %195, 3
+  %212 = icmp eq i64 %211, 2
+  br i1 %212, label %213, label %220
 
-211:                                              ; preds = %rb_float_value_inline.exit67
-  %.not.i.i69 = icmp eq i64 %193, -9223372036854775806
-  br i1 %.not.i.i69, label %rb_float_value_inline.exit71, label %212
+213:                                              ; preds = %rb_float_value_inline.exit67
+  %.not.i.i69 = icmp eq i64 %195, -9223372036854775806
+  br i1 %.not.i.i69, label %rb_float_value_inline.exit71, label %214
 
-212:                                              ; preds = %211
-  %.neg.i.i70 = ashr i64 %193, 63
-  %213 = add nsw i64 %.neg.i.i70, 2
-  %214 = and i64 %193, -4
-  %215 = or i64 %213, %214
-  %216 = call noundef i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 61)
-  %217 = bitcast i64 %216 to double
+214:                                              ; preds = %213
+  %.neg.i.i70 = ashr i64 %195, 63
+  %215 = add nsw i64 %.neg.i.i70, 2
+  %216 = and i64 %195, -4
+  %217 = or i64 %215, %216
+  %218 = call noundef i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 61)
+  %219 = bitcast i64 %218 to double
   br label %rb_float_value_inline.exit71
 
-218:                                              ; preds = %rb_float_value_inline.exit67
-  %219 = inttoptr i64 %193 to ptr
-  %220 = getelementptr inbounds i8, ptr %219, i64 16
-  %221 = load double, ptr %220, align 8
+220:                                              ; preds = %rb_float_value_inline.exit67
+  %221 = inttoptr i64 %195 to ptr
+  %222 = getelementptr inbounds i8, ptr %221, i64 16
+  %223 = load double, ptr %222, align 8
   br label %rb_float_value_inline.exit71
 
-rb_float_value_inline.exit71:                     ; preds = %211, %212, %218
-  %.0.i68 = phi double [ %221, %218 ], [ %217, %212 ], [ 0.000000e+00, %211 ]
-  %222 = fadd double %.0.i64, %.0.i68
-  %223 = bitcast double %222 to i64
-  %cond.i72 = icmp eq i64 %223, 3458764513820540928
-  br i1 %cond.i72, label %235, label %224
+rb_float_value_inline.exit71:                     ; preds = %213, %214, %220
+  %.0.i68 = phi double [ %223, %220 ], [ %219, %214 ], [ 0.000000e+00, %213 ]
+  %224 = fadd double %.0.i64, %.0.i68
+  %225 = bitcast double %224 to i64
+  %cond.i72 = icmp eq i64 %225, 3458764513820540928
+  br i1 %cond.i72, label %237, label %226
 
-224:                                              ; preds = %rb_float_value_inline.exit71
-  %225 = lshr i64 %223, 60
-  %226 = trunc nuw nsw i64 %225 to i32
-  %227 = and i32 %226, 7
-  %228 = add nsw i32 %227, -3
-  %.not7.i73 = icmp ult i32 %228, 2
-  br i1 %.not7.i73, label %229, label %233
+226:                                              ; preds = %rb_float_value_inline.exit71
+  %227 = lshr i64 %225, 60
+  %228 = trunc nuw nsw i64 %227 to i32
+  %229 = and i32 %228, 7
+  %230 = add nsw i32 %229, -3
+  %.not7.i73 = icmp ult i32 %230, 2
+  br i1 %.not7.i73, label %231, label %235
 
-229:                                              ; preds = %224
-  %230 = call noundef i64 @llvm.fshl.i64(i64 %223, i64 %223, i64 3)
-  %231 = and i64 %230, -4
-  %232 = or disjoint i64 %231, 2
+231:                                              ; preds = %226
+  %232 = call noundef i64 @llvm.fshl.i64(i64 %225, i64 %225, i64 3)
+  %233 = and i64 %232, -4
+  %234 = or disjoint i64 %233, 2
   br label %rb_float_new_inline.exit
 
-233:                                              ; preds = %224
-  %234 = icmp eq i64 %223, 0
-  br i1 %234, label %rb_float_new_inline.exit, label %235
+235:                                              ; preds = %226
+  %236 = icmp eq i64 %225, 0
+  br i1 %236, label %rb_float_new_inline.exit, label %237
 
-235:                                              ; preds = %233, %rb_float_value_inline.exit71
-  %236 = call i64 @rb_float_new_in_heap(double noundef %222) #22
+237:                                              ; preds = %235, %rb_float_value_inline.exit71
+  %238 = call i64 @rb_float_new_in_heap(double noundef %224) #22
   br label %rb_float_new_inline.exit
 
-rb_type.exit.thread:                              ; preds = %rb_type.exit.thread100.rb_type.exit.thread_crit_edge, %181, %181, %183, %181, %rb_type.exit
-  %237 = phi i64 [ %.pre116, %rb_type.exit.thread100.rb_type.exit.thread_crit_edge ], [ %163, %181 ], [ %163, %181 ], [ %163, %183 ], [ %163, %181 ], [ %163, %rb_type.exit ]
-  %238 = call i64 @rb_funcallv(i64 noundef %237, i64 noundef 43, i32 noundef 1, ptr noundef nonnull %7) #22
+rb_type.exit.thread:                              ; preds = %rb_type.exit.thread100.rb_type.exit.thread_crit_edge, %183, %183, %185, %183, %rb_type.exit
+  %239 = phi i64 [ %.pre116, %rb_type.exit.thread100.rb_type.exit.thread_crit_edge ], [ %165, %183 ], [ %165, %183 ], [ %165, %185 ], [ %165, %183 ], [ %165, %rb_type.exit ]
+  %240 = call i64 @rb_funcallv(i64 noundef %239, i64 noundef 43, i32 noundef 1, ptr noundef nonnull %7) #22
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %range_values.exit, %181, %235, %233, %229, %174, %171, %140, %138, %134, %range_values.exit.thread81, %rb_type.exit, %rb_type.exit.thread, %191
-  %.0 = phi i64 [ %238, %rb_type.exit.thread ], [ %192, %191 ], [ %14, %range_values.exit ], [ %162, %rb_type.exit ], [ 0, %range_values.exit.thread81 ], [ %141, %140 ], [ %137, %134 ], [ -9223372036854775806, %138 ], [ %173, %171 ], [ %175, %174 ], [ %236, %235 ], [ %232, %229 ], [ -9223372036854775806, %233 ], [ %162, %181 ]
+rb_float_new_inline.exit:                         ; preds = %range_values.exit, %183, %237, %235, %231, %176, %173, %142, %140, %136, %range_values.exit.thread81, %rb_type.exit, %rb_type.exit.thread, %193
+  %.0 = phi i64 [ %240, %rb_type.exit.thread ], [ %194, %193 ], [ %16, %range_values.exit ], [ %164, %rb_type.exit ], [ 0, %range_values.exit.thread81 ], [ %143, %142 ], [ %139, %136 ], [ -9223372036854775806, %140 ], [ %175, %173 ], [ %177, %176 ], [ %238, %237 ], [ %234, %231 ], [ -9223372036854775806, %235 ], [ %164, %183 ]
   ret i64 %.0
 }
 

@@ -3480,54 +3480,52 @@ define internal fastcc void @PrintMapInfo(ptr nocapture noundef readonly %0) unn
 declare i32 @WebPPictureDistortion(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @PrintMetadataInfo(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
-  %3 = icmp eq ptr %0, null
-  %4 = icmp eq i32 %1, 0
-  %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %31, label %5
+define internal fastcc void @PrintMetadataInfo(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+  %3 = icmp eq i32 %1, 0
+  br i1 %3, label %30, label %4
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.244, i64 10, i64 1, ptr %6) #13
-  %8 = and i32 %1, 2
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %15, label %9
+4:                                                ; preds = %2
+  %5 = load ptr, ptr @stderr, align 8
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.244, i64 10, i64 1, ptr %5) #13
+  %7 = and i32 %1, 2
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %14, label %8
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8
-  %13 = trunc i64 %12 to i32
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.245, i32 noundef %13) #15
-  br label %15
+8:                                                ; preds = %4
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load i64, ptr %10, align 8
+  %12 = trunc i64 %11 to i32
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.245, i32 noundef %12) #15
+  br label %14
 
-15:                                               ; preds = %9, %5
-  %16 = and i32 %1, 1
-  %.not9 = icmp eq i32 %16, 0
-  br i1 %.not9, label %23, label %17
+14:                                               ; preds = %8, %4
+  %15 = and i32 %1, 1
+  %.not9 = icmp eq i32 %15, 0
+  br i1 %.not9, label %22, label %16
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = trunc i64 %20 to i32
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.246, i32 noundef %21) #15
-  br label %23
+16:                                               ; preds = %14
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = trunc i64 %19 to i32
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.246, i32 noundef %20) #15
+  br label %22
 
-23:                                               ; preds = %17, %15
-  %24 = and i32 %1, 4
-  %.not10 = icmp eq i32 %24, 0
-  br i1 %.not10, label %31, label %25
+22:                                               ; preds = %16, %14
+  %23 = and i32 %1, 4
+  %.not10 = icmp eq i32 %23, 0
+  br i1 %.not10, label %30, label %24
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr @stderr, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  %28 = load i64, ptr %27, align 8
-  %29 = trunc i64 %28 to i32
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.247, i32 noundef %29) #15
-  br label %31
+24:                                               ; preds = %22
+  %25 = load ptr, ptr @stderr, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load i64, ptr %26, align 8
+  %28 = trunc i64 %27 to i32
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.247, i32 noundef %28) #15
+  br label %30
 
-31:                                               ; preds = %2, %25, %23
+30:                                               ; preds = %2, %24, %22
   ret void
 }
 

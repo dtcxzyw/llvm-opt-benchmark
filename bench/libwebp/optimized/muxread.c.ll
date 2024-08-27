@@ -721,7 +721,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetFeatures(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -769,71 +769,64 @@ IsWPI.exit:                                       ; preds = %7, %7, %7, %15, %3,
 declare i32 @ChunkGetIndexFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %WebPDataInit.exit, label %4
-
-4:                                                ; preds = %3
+define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  br label %WebPDataInit.exit
-
-WebPDataInit.exit:                                ; preds = %3, %4
-  switch i32 %1, label %31 [
-    i32 0, label %5
-    i32 1, label %10
-    i32 2, label %15
-    i32 7, label %20
-    i32 8, label %25
+  switch i32 %1, label %30 [
+    i32 0, label %4
+    i32 1, label %9
+    i32 2, label %14
+    i32 7, label %19
+    i32 8, label %24
   ]
 
-5:                                                ; preds = %WebPDataInit.exit
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr @kChunks, align 16
-  %9 = tail call ptr @ChunkSearchList(ptr noundef %7, i32 noundef 1, i32 noundef %8) #6
-  %.not40 = icmp eq ptr %9, null
-  br i1 %.not40, label %31, label %.sink.split
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr @kChunks, align 16
+  %8 = tail call ptr @ChunkSearchList(ptr noundef %6, i32 noundef 1, i32 noundef %7) #6
+  %.not40 = icmp eq ptr %8, null
+  br i1 %.not40, label %30, label %.sink.split
 
-10:                                               ; preds = %WebPDataInit.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 12), align 4
-  %14 = tail call ptr @ChunkSearchList(ptr noundef %12, i32 noundef 1, i32 noundef %13) #6
-  %.not39 = icmp eq ptr %14, null
-  br i1 %.not39, label %31, label %.sink.split
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 12), align 4
+  %13 = tail call ptr @ChunkSearchList(ptr noundef %11, i32 noundef 1, i32 noundef %12) #6
+  %.not39 = icmp eq ptr %13, null
+  br i1 %.not39, label %30, label %.sink.split
 
-15:                                               ; preds = %WebPDataInit.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 24), align 8
-  %19 = tail call ptr @ChunkSearchList(ptr noundef %17, i32 noundef 1, i32 noundef %18) #6
-  %.not38 = icmp eq ptr %19, null
-  br i1 %.not38, label %31, label %.sink.split
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 24), align 8
+  %18 = tail call ptr @ChunkSearchList(ptr noundef %16, i32 noundef 1, i32 noundef %17) #6
+  %.not38 = icmp eq ptr %18, null
+  br i1 %.not38, label %30, label %.sink.split
 
-20:                                               ; preds = %WebPDataInit.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 84), align 4
-  %24 = tail call ptr @ChunkSearchList(ptr noundef %22, i32 noundef 1, i32 noundef %23) #6
-  %.not37 = icmp eq ptr %24, null
-  br i1 %.not37, label %31, label %.sink.split
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 84), align 4
+  %23 = tail call ptr @ChunkSearchList(ptr noundef %21, i32 noundef 1, i32 noundef %22) #6
+  %.not37 = icmp eq ptr %23, null
+  br i1 %.not37, label %30, label %.sink.split
 
-25:                                               ; preds = %WebPDataInit.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 96), align 16
-  %29 = tail call ptr @ChunkSearchList(ptr noundef %27, i32 noundef 1, i32 noundef %28) #6
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %31, label %.sink.split
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 96), align 16
+  %28 = tail call ptr @ChunkSearchList(ptr noundef %26, i32 noundef 1, i32 noundef %27) #6
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %30, label %.sink.split
 
-.sink.split:                                      ; preds = %25, %20, %15, %10, %5
-  %.sink41 = phi ptr [ %9, %5 ], [ %14, %10 ], [ %19, %15 ], [ %24, %20 ], [ %29, %25 ]
-  %30 = getelementptr inbounds i8, ptr %.sink41, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
-  br label %31
+.sink.split:                                      ; preds = %24, %19, %14, %9, %4
+  %.sink41 = phi ptr [ %8, %4 ], [ %13, %9 ], [ %18, %14 ], [ %23, %19 ], [ %28, %24 ]
+  %29 = getelementptr inbounds i8, ptr %.sink41, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
+  br label %30
 
-31:                                               ; preds = %.sink.split, %WebPDataInit.exit, %25, %20, %15, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %15 ], [ 0, %20 ], [ 0, %25 ], [ 0, %WebPDataInit.exit ], [ 1, %.sink.split ]
+30:                                               ; preds = %.sink.split, %3, %24, %19, %14, %9, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %19 ], [ 0, %24 ], [ 0, %3 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

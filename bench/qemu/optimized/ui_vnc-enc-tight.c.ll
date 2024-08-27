@@ -2924,7 +2924,7 @@ if.end14.us.i:                                    ; preds = %for.body6.us.i63
 for.end30.us.i:                                   ; preds = %for.body19.us.i, %if.end14.us.i
   %ptr.5.lcssa.us.i68 = phi ptr [ %incdec.ptr.us.i66, %if.end14.us.i ], [ %incdec.ptr21.us.i, %for.body19.us.i ]
   %value.0.lcssa.us.i69 = phi i32 [ %shr.us.i67, %if.end14.us.i ], [ %spec.select.us.i89, %for.body19.us.i ]
-  %conv31.us.i = trunc nuw i32 %value.0.lcssa.us.i69 to i8
+  %conv31.us.i = trunc i32 %value.0.lcssa.us.i69 to i8
   br label %for.inc33.us.i
 
 for.inc33.us.i:                                   ; preds = %for.inc.us.i91, %for.end30.us.i

@@ -2869,45 +2869,45 @@ if.end4.i:                                        ; preds = %while.body.i.i, %wh
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @_globals, i64 24), align 8
   %sub.i.i = add i64 %6, -1
   store i64 %sub.i.i, ptr getelementptr inbounds (i8, ptr @_globals, i64 24), align 8
-  %chan.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 8
-  %.pre.i.i = load ptr, ptr %chan.i.phi.trans.insert.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %.pre.i.i, null
+  %chan.i.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 8
+  %7 = load ptr, ptr %chan.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %return.critedge, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end4.i
-  %7 = load ptr, ptr %.pre.i.i, align 8
-  %call.i.i.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %7, i32 noundef 1) #6
-  %closing.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 32
-  %8 = load ptr, ptr %closing.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %8 = load ptr, ptr %7, align 8
+  %call.i.i.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %8, i32 noundef 1) #6
+  %closing.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = load ptr, ptr %closing.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_channel_clear_closing.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @PyMem_RawFree(ptr noundef nonnull %8) #6
+  tail call void @PyMem_RawFree(ptr noundef nonnull %9) #6
   store ptr null, ptr %closing.i.i.i.i, align 8
   br label %_channel_clear_closing.exit.i.i.i
 
 _channel_clear_closing.exit.i.i.i:                ; preds = %if.then.i.i.i.i, %if.then.i.i.i
-  %9 = load ptr, ptr %.pre.i.i, align 8
-  tail call void @PyThread_release_lock(ptr noundef %9) #6
-  tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa.i) #6
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
+  %10 = load ptr, ptr %7, align 8
   tail call void @PyThread_release_lock(ptr noundef %10) #6
+  tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa.i) #6
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
+  tail call void @PyThread_release_lock(ptr noundef %11) #6
   br i1 %cmp.not.i.i.i, label %return, label %if.then2
 
 _channels_remove.exit.thread:                     ; preds = %if.end.i.i, %entry
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
-  tail call void @PyThread_release_lock(ptr noundef %11) #6
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
+  tail call void @PyThread_release_lock(ptr noundef %12) #6
   br label %return
 
 if.then2:                                         ; preds = %_channel_clear_closing.exit.i.i.i
-  tail call fastcc void @_channel_free(ptr noundef nonnull %.pre.i.i)
+  tail call fastcc void @_channel_free(ptr noundef nonnull %7)
   br label %return
 
 return.critedge:                                  ; preds = %if.end4.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa.i) #6
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
-  tail call void @PyThread_release_lock(ptr noundef %12) #6
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
+  tail call void @PyThread_release_lock(ptr noundef %13) #6
   br label %return
 
 return:                                           ; preds = %return.critedge, %_channels_remove.exit.thread, %_channel_clear_closing.exit.i.i.i, %if.then2
@@ -3172,7 +3172,7 @@ declare ptr @PyInterpreterState_Next(ptr noundef) local_unnamed_addr #1
 declare i32 @PyThread_ParseTimeoutArg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @channel_send_wait(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @channel_send_wait(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
 entry:
   %waiting = alloca %struct.wait_info, align 8
   %call.i = tail call ptr @PyThread_allocate_lock() #6
@@ -4652,9 +4652,9 @@ if.then4.i:                                       ; preds = %if.end.i7
   %14 = load i64, ptr %numopen.i.i, align 8
   %sub.i.i = add i64 %14, -1
   store i64 %sub.i.i, ptr %numopen.i.i, align 8
-  %chan.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 8
-  %.pre.i.i = load ptr, ptr %chan.i.phi.trans.insert.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %.pre.i.i, null
+  %chan.i.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 8
+  %15 = load ptr, ptr %chan.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_channels_remove_ref.exit.thread.i, label %if.then.i.i.i
 
 _channels_remove_ref.exit.thread.i:               ; preds = %if.then4.i
@@ -4662,28 +4662,28 @@ _channels_remove_ref.exit.thread.i:               ; preds = %if.then4.i
   br label %_channels_release_cid_object.exit
 
 if.then.i.i.i:                                    ; preds = %if.then4.i
-  %15 = load ptr, ptr %.pre.i.i, align 8
-  %call.i.i.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %15, i32 noundef 1) #6
-  %closing.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 32
-  %16 = load ptr, ptr %closing.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %16, null
+  %16 = load ptr, ptr %15, align 8
+  %call.i.i.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %16, i32 noundef 1) #6
+  %closing.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = load ptr, ptr %closing.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i, label %if.then6.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @PyMem_RawFree(ptr noundef nonnull %16) #6
+  tail call void @PyMem_RawFree(ptr noundef nonnull %17) #6
   store ptr null, ptr %closing.i.i.i.i, align 8
   br label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i.i.i.i, %if.then.i.i.i
-  %17 = load ptr, ptr %.pre.i.i, align 8
-  tail call void @PyThread_release_lock(ptr noundef %17) #6
+  %18 = load ptr, ptr %15, align 8
+  tail call void @PyThread_release_lock(ptr noundef %18) #6
   tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa.i) #6
-  tail call fastcc void @_channel_free(ptr noundef nonnull %.pre.i.i)
+  tail call fastcc void @_channel_free(ptr noundef nonnull %15)
   br label %_channels_release_cid_object.exit
 
 _channels_release_cid_object.exit:                ; preds = %if.end.i.i, %Py_DECREF.exit, %if.end.i7, %_channels_remove_ref.exit.thread.i, %if.then6.i
-  %18 = load ptr, ptr %1, align 8
-  tail call void @PyThread_release_lock(ptr noundef %18) #6
+  %19 = load ptr, ptr %1, align 8
+  tail call void @PyThread_release_lock(ptr noundef %19) #6
   ret void
 }
 

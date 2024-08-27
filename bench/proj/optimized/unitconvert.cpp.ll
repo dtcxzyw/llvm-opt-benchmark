@@ -131,8 +131,8 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
   %.sroa.014.0..sroa.014.0..cast = inttoptr i64 %24 to ptr
   %26 = tail call noundef ptr @_Z20pj_list_linear_unitsv()
   %27 = load ptr, ptr %26, align 8
-  %.not47.i = icmp eq ptr %27, null
-  br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not41.i = icmp eq ptr %27, null
+  br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
 28:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -155,25 +155,25 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
 ._crit_edge.i:                                    ; preds = %28, %25
   %36 = tail call noundef ptr @_Z21pj_list_angular_unitsv()
   %37 = load ptr, ptr %36, align 8
-  %.not3849.i = icmp eq ptr %37, null
-  br i1 %.not3849.i, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread, label %.lr.ph52.i
+  %.not3843.i = icmp eq ptr %37, null
+  br i1 %.not3843.i, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread, label %.lr.ph46.i
 
-38:                                               ; preds = %.lr.ph52.i
-  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
-  %39 = getelementptr inbounds %struct.PJ_UNITS, ptr %36, i64 %indvars.iv.next59.i
+38:                                               ; preds = %.lr.ph46.i
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %39 = getelementptr inbounds %struct.PJ_UNITS, ptr %36, i64 %indvars.iv.next53.i
   %40 = load ptr, ptr %39, align 8
   %.not38.i = icmp eq ptr %40, null
-  br i1 %.not38.i, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread, label %.lr.ph52.i, !llvm.loop !6
+  br i1 %.not38.i, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread, label %.lr.ph46.i, !llvm.loop !6
 
-.lr.ph52.i:                                       ; preds = %._crit_edge.i, %38
-  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %38 ], [ 0, %._crit_edge.i ]
+.lr.ph46.i:                                       ; preds = %._crit_edge.i, %38
+  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %38 ], [ 0, %._crit_edge.i ]
   %41 = phi ptr [ %40, %38 ], [ %37, %._crit_edge.i ]
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %.sroa.014.0..sroa.014.0..cast) #12
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %38
 
-44:                                               ; preds = %.lr.ph52.i
-  %45 = getelementptr inbounds %struct.PJ_UNITS, ptr %36, i64 %indvars.iv58.i
+44:                                               ; preds = %.lr.ph46.i
+  %45 = getelementptr inbounds %struct.PJ_UNITS, ptr %36, i64 %indvars.iv52.i
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit:    ; preds = %34, %44
@@ -246,8 +246,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %38, %._crit_edg
   %.sroa.012.0..sroa.012.0..cast = inttoptr i64 %69 to ptr
   %71 = tail call noundef ptr @_Z20pj_list_linear_unitsv()
   %72 = load ptr, ptr %71, align 8
-  %.not47.i164 = icmp eq ptr %72, null
-  br i1 %.not47.i164, label %._crit_edge.i169, label %.lr.ph.i165
+  %.not41.i164 = icmp eq ptr %72, null
+  br i1 %.not41.i164, label %._crit_edge.i169, label %.lr.ph.i165
 
 73:                                               ; preds = %.lr.ph.i165
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i166, 1
@@ -270,25 +270,25 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %38, %._crit_edg
 ._crit_edge.i169:                                 ; preds = %73, %70
   %81 = tail call noundef ptr @_Z21pj_list_angular_unitsv()
   %82 = load ptr, ptr %81, align 8
-  %.not3849.i170 = icmp eq ptr %82, null
-  br i1 %.not3849.i170, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread, label %.lr.ph52.i171
+  %.not3843.i170 = icmp eq ptr %82, null
+  br i1 %.not3843.i170, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread, label %.lr.ph46.i171
 
-83:                                               ; preds = %.lr.ph52.i171
-  %indvars.iv.next59.i173 = add nuw nsw i64 %indvars.iv58.i172, 1
-  %84 = getelementptr inbounds %struct.PJ_UNITS, ptr %81, i64 %indvars.iv.next59.i173
+83:                                               ; preds = %.lr.ph46.i171
+  %indvars.iv.next53.i173 = add nuw nsw i64 %indvars.iv52.i172, 1
+  %84 = getelementptr inbounds %struct.PJ_UNITS, ptr %81, i64 %indvars.iv.next53.i173
   %85 = load ptr, ptr %84, align 8
   %.not38.i174 = icmp eq ptr %85, null
-  br i1 %.not38.i174, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread, label %.lr.ph52.i171, !llvm.loop !6
+  br i1 %.not38.i174, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread, label %.lr.ph46.i171, !llvm.loop !6
 
-.lr.ph52.i171:                                    ; preds = %._crit_edge.i169, %83
-  %indvars.iv58.i172 = phi i64 [ %indvars.iv.next59.i173, %83 ], [ 0, %._crit_edge.i169 ]
+.lr.ph46.i171:                                    ; preds = %._crit_edge.i169, %83
+  %indvars.iv52.i172 = phi i64 [ %indvars.iv.next53.i173, %83 ], [ 0, %._crit_edge.i169 ]
   %86 = phi ptr [ %85, %83 ], [ %82, %._crit_edge.i169 ]
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull readonly dereferenceable(1) %.sroa.012.0..sroa.012.0..cast) #12
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %83
 
-89:                                               ; preds = %.lr.ph52.i171
-  %90 = getelementptr inbounds %struct.PJ_UNITS, ptr %81, i64 %indvars.iv58.i172
+89:                                               ; preds = %.lr.ph46.i171
+  %90 = getelementptr inbounds %struct.PJ_UNITS, ptr %81, i64 %indvars.iv52.i172
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit177
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit177: ; preds = %79, %89
@@ -374,8 +374,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread: ; preds = %83, %._crit_
   %.sroa.010.0..sroa.010.0..cast = inttoptr i64 %119 to ptr
   %121 = tail call noundef ptr @_Z20pj_list_linear_unitsv()
   %122 = load ptr, ptr %121, align 8
-  %.not47.i178 = icmp eq ptr %122, null
-  br i1 %.not47.i178, label %._crit_edge.i183, label %.lr.ph.i179
+  %.not41.i178 = icmp eq ptr %122, null
+  br i1 %.not41.i178, label %._crit_edge.i183, label %.lr.ph.i179
 
 123:                                              ; preds = %.lr.ph.i179
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i180, 1
@@ -398,25 +398,25 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread: ; preds = %83, %._crit_
 ._crit_edge.i183:                                 ; preds = %123, %120
   %131 = tail call noundef ptr @_Z21pj_list_angular_unitsv()
   %132 = load ptr, ptr %131, align 8
-  %.not3849.i184 = icmp eq ptr %132, null
-  br i1 %.not3849.i184, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread, label %.lr.ph52.i185
+  %.not3843.i184 = icmp eq ptr %132, null
+  br i1 %.not3843.i184, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread, label %.lr.ph46.i185
 
-133:                                              ; preds = %.lr.ph52.i185
-  %indvars.iv.next59.i187 = add nuw nsw i64 %indvars.iv58.i186, 1
-  %134 = getelementptr inbounds %struct.PJ_UNITS, ptr %131, i64 %indvars.iv.next59.i187
+133:                                              ; preds = %.lr.ph46.i185
+  %indvars.iv.next53.i187 = add nuw nsw i64 %indvars.iv52.i186, 1
+  %134 = getelementptr inbounds %struct.PJ_UNITS, ptr %131, i64 %indvars.iv.next53.i187
   %135 = load ptr, ptr %134, align 8
   %.not38.i188 = icmp eq ptr %135, null
-  br i1 %.not38.i188, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread, label %.lr.ph52.i185, !llvm.loop !6
+  br i1 %.not38.i188, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread, label %.lr.ph46.i185, !llvm.loop !6
 
-.lr.ph52.i185:                                    ; preds = %._crit_edge.i183, %133
-  %indvars.iv58.i186 = phi i64 [ %indvars.iv.next59.i187, %133 ], [ 0, %._crit_edge.i183 ]
+.lr.ph46.i185:                                    ; preds = %._crit_edge.i183, %133
+  %indvars.iv52.i186 = phi i64 [ %indvars.iv.next53.i187, %133 ], [ 0, %._crit_edge.i183 ]
   %136 = phi ptr [ %135, %133 ], [ %132, %._crit_edge.i183 ]
   %137 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull readonly dereferenceable(1) %.sroa.010.0..sroa.010.0..cast) #12
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %139, label %133
 
-139:                                              ; preds = %.lr.ph52.i185
-  %140 = getelementptr inbounds %struct.PJ_UNITS, ptr %131, i64 %indvars.iv58.i186
+139:                                              ; preds = %.lr.ph46.i185
+  %140 = getelementptr inbounds %struct.PJ_UNITS, ptr %131, i64 %indvars.iv52.i186
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit191
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit191: ; preds = %129, %139
@@ -468,8 +468,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread: ; preds = %133, %._crit
   %.sroa.08.0..sroa.08.0..cast = inttoptr i64 %156 to ptr
   %158 = tail call noundef ptr @_Z20pj_list_linear_unitsv()
   %159 = load ptr, ptr %158, align 8
-  %.not47.i192 = icmp eq ptr %159, null
-  br i1 %.not47.i192, label %._crit_edge.i197, label %.lr.ph.i193
+  %.not41.i192 = icmp eq ptr %159, null
+  br i1 %.not41.i192, label %._crit_edge.i197, label %.lr.ph.i193
 
 160:                                              ; preds = %.lr.ph.i193
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i194, 1
@@ -492,25 +492,25 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread: ; preds = %133, %._crit
 ._crit_edge.i197:                                 ; preds = %160, %157
   %168 = tail call noundef ptr @_Z21pj_list_angular_unitsv()
   %169 = load ptr, ptr %168, align 8
-  %.not3849.i198 = icmp eq ptr %169, null
-  br i1 %.not3849.i198, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit205.thread, label %.lr.ph52.i199
+  %.not3843.i198 = icmp eq ptr %169, null
+  br i1 %.not3843.i198, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit205.thread, label %.lr.ph46.i199
 
-170:                                              ; preds = %.lr.ph52.i199
-  %indvars.iv.next59.i201 = add nuw nsw i64 %indvars.iv58.i200, 1
-  %171 = getelementptr inbounds %struct.PJ_UNITS, ptr %168, i64 %indvars.iv.next59.i201
+170:                                              ; preds = %.lr.ph46.i199
+  %indvars.iv.next53.i201 = add nuw nsw i64 %indvars.iv52.i200, 1
+  %171 = getelementptr inbounds %struct.PJ_UNITS, ptr %168, i64 %indvars.iv.next53.i201
   %172 = load ptr, ptr %171, align 8
   %.not38.i202 = icmp eq ptr %172, null
-  br i1 %.not38.i202, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit205.thread, label %.lr.ph52.i199, !llvm.loop !6
+  br i1 %.not38.i202, label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit205.thread, label %.lr.ph46.i199, !llvm.loop !6
 
-.lr.ph52.i199:                                    ; preds = %._crit_edge.i197, %170
-  %indvars.iv58.i200 = phi i64 [ %indvars.iv.next59.i201, %170 ], [ 0, %._crit_edge.i197 ]
+.lr.ph46.i199:                                    ; preds = %._crit_edge.i197, %170
+  %indvars.iv52.i200 = phi i64 [ %indvars.iv.next53.i201, %170 ], [ 0, %._crit_edge.i197 ]
   %173 = phi ptr [ %172, %170 ], [ %169, %._crit_edge.i197 ]
   %174 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) %.sroa.08.0..sroa.08.0..cast) #12
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %170
 
-176:                                              ; preds = %.lr.ph52.i199
-  %177 = getelementptr inbounds %struct.PJ_UNITS, ptr %168, i64 %indvars.iv58.i200
+176:                                              ; preds = %.lr.ph46.i199
+  %177 = getelementptr inbounds %struct.PJ_UNITS, ptr %168, i64 %indvars.iv52.i200
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit205
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit205: ; preds = %166, %176

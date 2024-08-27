@@ -451,232 +451,226 @@ define internal fastcc void @onas_scan_thread_scanfile(ptr nocapture noundef rea
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.fanotify_response, align 4
   %9 = icmp eq ptr %1, null
-  %10 = icmp eq ptr %3, null
-  %or.cond3 = or i1 %9, %10
-  %11 = icmp eq ptr %4, null
-  %or.cond5 = or i1 %or.cond3, %11
-  %12 = icmp eq ptr %5, null
-  %or.cond7 = or i1 %or.cond5, %12
-  br i1 %or.cond7, label %13, label %15
+  br i1 %9, label %10, label %12
 
-13:                                               ; preds = %6
-  %14 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.10) #9
+10:                                               ; preds = %6
+  %11 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.10) #9
   br label %.thread72
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 65
-  %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 8
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %19, label %.thread
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds i8, ptr %0, i64 65
+  %14 = load i8, ptr %13, align 1
+  %15 = and i8 %14, 8
+  %.not = icmp eq i8 %15, 0
+  br i1 %.not, label %16, label %.thread
 
-19:                                               ; preds = %15
-  %20 = and i8 %17, 16
-  %.not52 = icmp eq i8 %20, 0
+16:                                               ; preds = %12
+  %17 = and i8 %14, 16
+  %.not52 = icmp eq i8 %17, 0
   br i1 %.not52, label %.thread72, label %onas_scan_safe.exit.i
 
-.thread:                                          ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
-  %22 = load ptr, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load i32, ptr %23, align 8
-  store i32 %24, ptr %8, align 4
-  %25 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 1, ptr %25, align 4
-  %26 = and i8 %17, 16
-  %.not5258 = icmp eq i8 %26, 0
-  br i1 %.not5258, label %93, label %onas_scan_safe.exit.i
+.thread:                                          ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = load ptr, ptr %18, align 1
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = load i32, ptr %20, align 8
+  store i32 %21, ptr %8, align 4
+  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 1, ptr %22, align 4
+  %23 = and i8 %14, 16
+  %.not5258 = icmp eq i8 %23, 0
+  br i1 %.not5258, label %90, label %onas_scan_safe.exit.i
 
-onas_scan_safe.exit.i:                            ; preds = %.thread, %19
-  %.0.i.i = phi i32 [ -1, %19 ], [ %24, %.thread ]
+onas_scan_safe.exit.i:                            ; preds = %.thread, %16
+  %.0.i.i = phi i32 [ -1, %16 ], [ %21, %.thread ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %2, i64 144, i1 false)
-  %27 = and i8 %17, 32
-  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_scan_lock) #9
-  %29 = load ptr, ptr %0, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  %31 = load i64, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 45
-  %33 = load i32, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 49
-  %35 = load i64, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 57
-  %37 = load i64, ptr %36, align 1
-  %38 = tail call i32 @onas_client_scan(ptr noundef %29, i64 noundef %31, i32 noundef %33, i64 noundef %35, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %37, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
-  %40 = load i32, ptr %4, align 4
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %onas_scan.exit.thread, label %41
+  %24 = and i8 %14, 32
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_scan_lock) #9
+  %26 = load ptr, ptr %0, align 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load i64, ptr %27, align 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 45
+  %30 = load i32, ptr %29, align 1
+  %31 = getelementptr inbounds i8, ptr %0, i64 49
+  %32 = load i64, ptr %31, align 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 57
+  %34 = load i64, ptr %33, align 1
+  %35 = tail call i32 @onas_client_scan(ptr noundef %26, i64 noundef %28, i32 noundef %30, i64 noundef %32, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %34, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
+  %37 = load i32, ptr %4, align 4
+  %.not.i = icmp eq i32 %37, 0
+  br i1 %.not.i, label %onas_scan.exit.thread, label %38
 
-41:                                               ; preds = %onas_scan_safe.exit.i
-  %42 = load i32, ptr %5, align 4
-  switch i32 %42, label %47 [
-    i32 16, label %43
-    i32 11, label %43
-    i32 27, label %45
+38:                                               ; preds = %onas_scan_safe.exit.i
+  %39 = load i32, ptr %5, align 4
+  switch i32 %39, label %44 [
+    i32 16, label %40
+    i32 11, label %40
+    i32 27, label %42
   ]
 
-43:                                               ; preds = %41, %41
-  %44 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull %1) #9
-  br label %49
+40:                                               ; preds = %38, %38
+  %41 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull %1) #9
+  br label %46
 
-45:                                               ; preds = %41
-  %46 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #9
-  br label %49
+42:                                               ; preds = %38
+  %43 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #9
+  br label %46
 
-47:                                               ; preds = %41
-  %48 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #9
-  br label %49
+44:                                               ; preds = %38
+  %45 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #9
+  br label %46
 
-49:                                               ; preds = %47, %45, %43
-  %.not24.i = icmp eq i8 %27, 0
-  br i1 %.not24.i, label %onas_scan.exit, label %50
+46:                                               ; preds = %44, %42, %40
+  %.not24.i = icmp eq i8 %24, 0
+  br i1 %.not24.i, label %onas_scan.exit, label %47
 
-50:                                               ; preds = %49
-  %51 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.19) #9
-  %52 = load i32, ptr %4, align 4
-  %.not2530.i = icmp eq i32 %52, 0
+47:                                               ; preds = %46
+  %48 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.19) #9
+  %49 = load i32, ptr %4, align 4
+  %.not2530.i = icmp eq i32 %49, 0
   br i1 %.not2530.i, label %onas_scan.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %0, i64 28
-  %54 = getelementptr inbounds i8, ptr %0, i64 36
-  br label %55
+.lr.ph.i:                                         ; preds = %47
+  %50 = getelementptr inbounds i8, ptr %0, i64 28
+  %51 = getelementptr inbounds i8, ptr %0, i64 36
+  br label %52
 
-55:                                               ; preds = %71, %.lr.ph.i
-  %.02331.i = phi i32 [ 0, %.lr.ph.i ], [ %72, %71 ]
-  %56 = load i8, ptr %16, align 1
-  %57 = and i8 %56, 8
-  %.not.i27.i = icmp eq i8 %57, 0
-  br i1 %.not.i27.i, label %onas_scan_safe.exit29.i, label %58
+52:                                               ; preds = %68, %.lr.ph.i
+  %.02331.i = phi i32 [ 0, %.lr.ph.i ], [ %69, %68 ]
+  %53 = load i8, ptr %13, align 1
+  %54 = and i8 %53, 8
+  %.not.i27.i = icmp eq i8 %54, 0
+  br i1 %.not.i27.i, label %onas_scan_safe.exit29.i, label %55
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %53, align 1
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load i32, ptr %60, align 8
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %50, align 1
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = load i32, ptr %57, align 8
   br label %onas_scan_safe.exit29.i
 
-onas_scan_safe.exit29.i:                          ; preds = %58, %55
-  %.0.i28.i = phi i32 [ %61, %58 ], [ -1, %55 ]
-  %62 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_scan_lock) #9
-  %63 = load ptr, ptr %0, align 1
-  %64 = load i64, ptr %30, align 1
-  %65 = load i32, ptr %32, align 1
-  %66 = load i64, ptr %34, align 1
-  %67 = load i64, ptr %36, align 1
-  %68 = tail call i32 @onas_client_scan(ptr noundef %63, i64 noundef %64, i32 noundef %65, i64 noundef %66, ptr noundef %1, i32 noundef %.0.i28.i, i64 noundef %67, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
-  %69 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
-  %70 = load i32, ptr %4, align 4
-  %.not26.i = icmp eq i32 %70, 0
-  br i1 %.not26.i, label %onas_scan.exit.thread, label %71
+onas_scan_safe.exit29.i:                          ; preds = %55, %52
+  %.0.i28.i = phi i32 [ %58, %55 ], [ -1, %52 ]
+  %59 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_scan_lock) #9
+  %60 = load ptr, ptr %0, align 1
+  %61 = load i64, ptr %27, align 1
+  %62 = load i32, ptr %29, align 1
+  %63 = load i64, ptr %31, align 1
+  %64 = load i64, ptr %33, align 1
+  %65 = tail call i32 @onas_client_scan(ptr noundef %60, i64 noundef %61, i32 noundef %62, i64 noundef %63, ptr noundef nonnull %1, i32 noundef %.0.i28.i, i64 noundef %64, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
+  %67 = load i32, ptr %4, align 4
+  %.not26.i = icmp eq i32 %67, 0
+  br i1 %.not26.i, label %onas_scan.exit.thread, label %68
 
-71:                                               ; preds = %onas_scan_safe.exit29.i
-  %72 = add nuw nsw i32 %.02331.i, 1
-  %73 = load i8, ptr %54, align 1
-  %74 = zext i8 %73 to i32
-  %75 = icmp eq i32 %72, %74
-  br i1 %75, label %76, label %55
+68:                                               ; preds = %onas_scan_safe.exit29.i
+  %69 = add nuw nsw i32 %.02331.i, 1
+  %70 = load i8, ptr %51, align 1
+  %71 = zext i8 %70 to i32
+  %72 = icmp eq i32 %69, %71
+  br i1 %72, label %73, label %52
 
-76:                                               ; preds = %71
+73:                                               ; preds = %68
   store i32 0, ptr %4, align 4
   br label %onas_scan.exit.thread
 
-onas_scan.exit.thread:                            ; preds = %onas_scan_safe.exit29.i, %onas_scan_safe.exit.i, %50, %76
+onas_scan.exit.thread:                            ; preds = %onas_scan_safe.exit29.i, %onas_scan_safe.exit.i, %47, %73
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
-  br label %81
+  br label %78
 
-onas_scan.exit:                                   ; preds = %49
+onas_scan.exit:                                   ; preds = %46
   %.pr = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   %.not53 = icmp eq i32 %.pr, 0
-  br i1 %.not53, label %81, label %77
+  br i1 %.not53, label %78, label %74
 
-77:                                               ; preds = %onas_scan.exit
-  %78 = load i32, ptr %5, align 4
-  %.not54 = icmp eq i32 %78, 0
-  br i1 %.not54, label %81, label %79
+74:                                               ; preds = %onas_scan.exit
+  %75 = load i32, ptr %5, align 4
+  %.not54 = icmp eq i32 %75, 0
+  br i1 %.not54, label %78, label %76
 
-79:                                               ; preds = %77
-  %80 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %78) #9
-  br label %81
+76:                                               ; preds = %74
+  %77 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %75) #9
+  br label %78
 
-81:                                               ; preds = %onas_scan.exit.thread, %79, %77, %onas_scan.exit
-  br i1 %.not, label %.thread72, label %82
+78:                                               ; preds = %onas_scan.exit.thread, %76, %74, %onas_scan.exit
+  br i1 %.not, label %.thread72, label %79
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %4, align 4
-  %.not55 = icmp eq i32 %83, 0
-  br i1 %.not55, label %89, label %84
+79:                                               ; preds = %78
+  %80 = load i32, ptr %4, align 4
+  %.not55 = icmp eq i32 %80, 0
+  br i1 %.not55, label %86, label %81
 
-84:                                               ; preds = %82
-  %85 = load i32, ptr %5, align 4
-  %86 = icmp ne i32 %85, 0
-  %87 = and i8 %17, 64
-  %88 = icmp ne i8 %87, 0
-  %or.cond10 = and i1 %88, %86
-  br i1 %or.cond10, label %91, label %89
+81:                                               ; preds = %79
+  %82 = load i32, ptr %5, align 4
+  %83 = icmp ne i32 %82, 0
+  %84 = and i8 %14, 64
+  %85 = icmp ne i8 %84, 0
+  %or.cond10 = and i1 %85, %83
+  br i1 %or.cond10, label %88, label %86
 
-89:                                               ; preds = %84, %82
-  %90 = load i32, ptr %3, align 4
-  %.not56 = icmp eq i32 %90, 0
-  br i1 %.not56, label %93, label %91
+86:                                               ; preds = %81, %79
+  %87 = load i32, ptr %3, align 4
+  %.not56 = icmp eq i32 %87, 0
+  br i1 %.not56, label %90, label %88
 
-91:                                               ; preds = %84, %89
-  %92 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 2, ptr %92, align 4
-  br label %93
+88:                                               ; preds = %81, %86
+  %89 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 2, ptr %89, align 4
+  br label %90
 
-93:                                               ; preds = %.thread, %91, %89
-  %94 = getelementptr inbounds i8, ptr %0, i64 28
-  %95 = load ptr, ptr %94, align 1
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  %97 = load i64, ptr %96, align 8
-  %98 = and i64 %97, 196608
-  %.not57 = icmp eq i64 %98, 0
-  br i1 %.not57, label %112, label %99
+90:                                               ; preds = %.thread, %88, %86
+  %91 = getelementptr inbounds i8, ptr %0, i64 28
+  %92 = load ptr, ptr %91, align 1
+  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = load i64, ptr %93, align 8
+  %95 = and i64 %94, 196608
+  %.not57 = icmp eq i64 %95, 0
+  br i1 %.not57, label %109, label %96
 
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds i8, ptr %0, i64 24
-  %101 = load i32, ptr %100, align 1
-  %102 = call i64 @write(i32 noundef %101, ptr noundef nonnull %8, i64 noundef 8) #9
-  %103 = and i64 %102, 4294967295
-  %104 = icmp eq i64 %103, 4294967295
-  br i1 %104, label %105, label %112
+96:                                               ; preds = %90
+  %97 = getelementptr inbounds i8, ptr %0, i64 24
+  %98 = load i32, ptr %97, align 1
+  %99 = call i64 @write(i32 noundef %98, ptr noundef nonnull %8, i64 noundef 8) #9
+  %100 = and i64 %99, 4294967295
+  %101 = icmp eq i64 %100, 4294967295
+  br i1 %101, label %102, label %109
 
-105:                                              ; preds = %99
-  %106 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.12) #9
-  %107 = tail call ptr @__errno_location() #10
-  %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, 2
-  br i1 %109, label %110, label %112
+102:                                              ; preds = %96
+  %103 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.12) #9
+  %104 = tail call ptr @__errno_location() #10
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 2
+  br i1 %106, label %107, label %109
 
-110:                                              ; preds = %105
-  %111 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.13) #9
-  br label %112
+107:                                              ; preds = %102
+  %108 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.13) #9
+  br label %109
 
-112:                                              ; preds = %105, %93, %110, %99
-  %113 = load ptr, ptr %94, align 1
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
-  %115 = load i32, ptr %114, align 8
-  %116 = tail call i32 @close(i32 noundef %115) #9
-  %117 = icmp eq i32 %116, -1
-  br i1 %117, label %118, label %.thread72
+109:                                              ; preds = %102, %90, %107, %96
+  %110 = load ptr, ptr %91, align 1
+  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %112 = load i32, ptr %111, align 8
+  %113 = tail call i32 @close(i32 noundef %112) #9
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %115, label %.thread72
 
-118:                                              ; preds = %112
-  %119 = load ptr, ptr %94, align 1
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
-  %121 = load i32, ptr %120, align 8
-  %122 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, i32 noundef %121) #9
-  %123 = tail call ptr @__errno_location() #10
-  %124 = load i32, ptr %123, align 4
-  %125 = icmp eq i32 %124, 9
-  br i1 %125, label %126, label %.thread72
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %91, align 1
+  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %118 = load i32, ptr %117, align 8
+  %119 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, i32 noundef %118) #9
+  %120 = tail call ptr @__errno_location() #10
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp eq i32 %121, 9
+  br i1 %122, label %123, label %.thread72
 
-126:                                              ; preds = %118
-  %127 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.15) #9
+123:                                              ; preds = %115
+  %124 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.15) #9
   br label %.thread72
 
-.thread72:                                        ; preds = %81, %19, %126, %112, %118, %13
+.thread72:                                        ; preds = %78, %16, %123, %109, %115, %10
   ret void
 }
 

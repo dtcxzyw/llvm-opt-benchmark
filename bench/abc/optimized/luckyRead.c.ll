@@ -68,44 +68,44 @@ define noalias noundef ptr @setTtStore(ptr noundef %0) local_unnamed_addr #2 {
   br label %18
 
 18:                                               ; preds = %21, %16
-  %.03856.i = phi i32 [ 0, %16 ], [ %22, %21 ]
-  %19 = shl nuw i32 1, %.03856.i
+  %.03854.i = phi i32 [ 0, %16 ], [ %22, %21 ]
+  %19 = shl nuw i32 1, %.03854.i
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = add nuw nsw i32 %.03856.i, 1
+  %22 = add nuw nsw i32 %.03854.i, 1
   %exitcond.not.i = icmp eq i32 %22, 32
   br i1 %exitcond.not.i, label %.thread.i, label %18, !llvm.loop !6
 
 23:                                               ; preds = %18
-  %24 = add nsw i32 %.03856.i, -17
+  %24 = add nsw i32 %.03854.i, -17
   %or.cond.i = icmp ult i32 %24, -15
   br i1 %or.cond.i, label %.thread.i, label %25
 
 .thread.i:                                        ; preds = %21, %23
-  %puts51.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  %puts49.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %Abc_TruthGetParams.exit
 
 25:                                               ; preds = %23
-  %.not5057.i = icmp eq i8 %9, 0
-  br i1 %.not5057.i, label %Abc_TruthGetParams.exit, label %.lr.ph.i
+  %.not4855.i = icmp eq i8 %9, 0
+  br i1 %.not4855.i, label %Abc_TruthGetParams.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
-  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph.i ], [ 0, %25 ]
+  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph.i ], [ 0, %25 ]
   %26 = phi i8 [ %31, %.lr.ph.i ], [ %9, %25 ]
-  %.059.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %25 ]
+  %.057.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %25 ]
   %27 = icmp eq i8 %26, 10
   %28 = zext i1 %27 to i32
-  %29 = add nuw nsw i32 %.059.i, %28
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %30 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next65.i
+  %29 = add nuw nsw i32 %.057.i, %28
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %30 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next63.i
   %31 = load i8, ptr %30, align 1
-  %.not50.i = icmp eq i8 %31, 0
-  br i1 %.not50.i, label %Abc_TruthGetParams.exit, label %.lr.ph.i, !llvm.loop !7
+  %.not48.i = icmp eq i8 %31, 0
+  br i1 %.not48.i, label %Abc_TruthGetParams.exit, label %.lr.ph.i, !llvm.loop !7
 
 Abc_TruthGetParams.exit:                          ; preds = %.lr.ph.i, %25, %1, %.thread.i
-  %32 = phi i32 [ 0, %1 ], [ 0, %.thread.i ], [ %.03856.i, %25 ], [ %.03856.i, %.lr.ph.i ]
+  %32 = phi i32 [ 0, %1 ], [ 0, %.thread.i ], [ %.03854.i, %25 ], [ %.03854.i, %.lr.ph.i ]
   %.0 = phi i32 [ 0, %1 ], [ 0, %.thread.i ], [ 0, %25 ], [ %29, %.lr.ph.i ]
   %33 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store i32 %32, ptr %33, align 8

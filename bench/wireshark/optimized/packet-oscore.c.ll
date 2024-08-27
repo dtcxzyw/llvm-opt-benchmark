@@ -1386,8 +1386,8 @@ oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
 
 99:                                               ; preds = %94
   %100 = load i8, ptr %72, align 8
-  %.not43.i.i = icmp eq i8 %100, 0
-  br i1 %.not43.i.i, label %103, label %101
+  %.not42.i.i = icmp eq i8 %100, 0
+  br i1 %.not42.i.i, label %103, label %101
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds i8, ptr %43, i64 80
@@ -1422,8 +1422,8 @@ oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
   %116 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = add nsw i32 %..i.i.i, -6
-  %.not44.i.i = icmp ugt i32 %117, %118
-  br i1 %.not44.i.i, label %119, label %120
+  %.not43.i.i = icmp ugt i32 %117, %118
+  br i1 %.not43.i.i, label %119, label %120
 
 119:                                              ; preds = %110
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 548, ptr noundef nonnull @.str.174) #11
@@ -1615,8 +1615,8 @@ cborencoder_put_bytes.exit110.i:                  ; preds = %189, %186
   %204 = getelementptr inbounds i8, ptr %11, i64 11
   %205 = or disjoint i8 %197, 64
   store i8 %205, ptr %204, align 1
-  %.not123.i = icmp eq i8 %197, 0
-  br i1 %.not123.i, label %cborencoder_put_bytes.exit122.i, label %206
+  %.not124.i = icmp eq i8 %197, 0
+  br i1 %.not124.i, label %cborencoder_put_bytes.exit122.i, label %206
 
 206:                                              ; preds = %200
   %207 = getelementptr inbounds i8, ptr %11, i64 12
@@ -1654,8 +1654,8 @@ oscore_decrypt_and_verify.exit.thread76:          ; preds = %cborencoder_put_byt
 216:                                              ; preds = %214
   %217 = load i32, ptr @hf_oscore_tag, align 4
   %218 = call ptr @proto_tree_add_bytes(ptr noundef %22, i32 noundef %217, ptr noundef %0, i32 noundef %.087.i, i32 noundef 8, ptr noundef nonnull %8) #9
-  %.not.i.i = icmp eq ptr %218, null
-  br i1 %.not.i.i, label %oscore_decrypt_and_verify.exit.thread, label %219
+  %.not.i123.i = icmp eq ptr %218, null
+  br i1 %.not.i123.i, label %oscore_decrypt_and_verify.exit.thread, label %219
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds i8, ptr %218, i64 32

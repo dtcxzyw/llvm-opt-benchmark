@@ -527,7 +527,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.467 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 @.str.468 = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
 @.str.470 = private unnamed_addr constant [46 x i8] c"warning: pthread_setaffinity_np() failed: %s\0A\00", align 1
-@.str.471 = private unnamed_addr constant [7 x i8] c"params\00", align 1
 @.str.472 = private unnamed_addr constant [44 x i8] c"ggml_nelements(dst) == ggml_nelements(src0)\00", align 1
 @.str.473 = private unnamed_addr constant [52 x i8] c"ggml_is_contiguous(dst) && ggml_is_contiguous(src0)\00", align 1
 @.str.474 = private unnamed_addr constant [24 x i8] c"src0->type == dst->type\00", align 1
@@ -18036,7 +18035,7 @@ while.body.if.end_crit_edge:                      ; preds = %while.body
 
 land.lhs.true:                                    ; preds = %while.body
   %15 = load ptr, ptr %abort_callback_data, align 8
-  %call = call zeroext i1 %14(ptr noundef %15) #45
+  %call = tail call zeroext i1 %14(ptr noundef %15) #45
   %.pre71 = load ptr, ptr %shared, align 8
   br i1 %call, label %if.then, label %if.end
 
@@ -18077,7 +18076,7 @@ if.then13:                                        ; preds = %if.then10
   br i1 %tobool16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.then13
-  %call18 = call fastcc i32 @ggml_get_n_tasks(ptr noundef nonnull %22, i32 noundef %3)
+  %call18 = tail call fastcc i32 @ggml_get_n_tasks(ptr noundef nonnull %22, i32 noundef %3)
   store i32 %call18, ptr %nth, align 8
   call fastcc void @ggml_compute_forward(ptr noundef nonnull %params, ptr noundef nonnull %22)
   br label %if.end20
@@ -18117,7 +18116,7 @@ while.body25:                                     ; preds = %while.body25.prehea
   %33 = load ptr, ptr %nodes, align 8
   %arrayidx29 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
   %34 = load ptr, ptr %arrayidx29, align 8
-  %call30 = call fastcc i32 @ggml_get_n_tasks(ptr noundef %34, i32 noundef %3)
+  %call30 = tail call fastcc i32 @ggml_get_n_tasks(ptr noundef %34, i32 noundef %3)
   %35 = load ptr, ptr %shared, align 8
   %perf_node_start_cycles = getelementptr inbounds i8, ptr %35, i64 16
   store i64 0, ptr %perf_node_start_cycles, align 8
@@ -18181,7 +18180,7 @@ if.end50:                                         ; preds = %if.then48, %if.then
 
 land.lhs.true55:                                  ; preds = %if.end50
   %48 = load ptr, ptr %abort_callback_data, align 8
-  %call58 = call zeroext i1 %47(ptr noundef %48) #45
+  %call58 = tail call zeroext i1 %47(ptr noundef %48) #45
   br i1 %call58, label %while.end.loopexit, label %if.end60
 
 if.end60:                                         ; preds = %land.lhs.true55, %if.end50
@@ -18224,7 +18223,7 @@ if.end81:                                         ; preds = %if.end77
   %idxprom84 = sext i32 %node_n.2 to i64
   %arrayidx85 = getelementptr inbounds ptr, ptr %56, i64 %idxprom84
   %57 = load ptr, ptr %arrayidx85, align 8
-  %call87 = call fastcc i32 @ggml_get_n_tasks(ptr noundef %57, i32 noundef %3)
+  %call87 = tail call fastcc i32 @ggml_get_n_tasks(ptr noundef %57, i32 noundef %3)
   store i32 1, ptr %params88, align 8
   %58 = load i32, ptr %ith, align 8
   store i32 %58, ptr %ith90, align 4
@@ -31267,28 +31266,15 @@ return:                                           ; preds = %while.body.i.i, %gg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward(ptr noundef readonly %params, ptr noundef %tensor) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward(ptr nocapture noundef readonly %params, ptr noundef %tensor) unnamed_addr #0 {
 entry:
-  %tobool.not = icmp eq ptr %params, null
-  br i1 %tobool.not, label %if.then, label %do.end
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stdout, align 8
-  %call = tail call i32 @fflush(ptr noundef %0)
-  %1 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14246, ptr noundef nonnull @.str.471) #46
-  tail call void @ggml_print_backtrace()
-  tail call void @abort() #47
-  unreachable
-
-do.end:                                           ; preds = %entry
   %op = getelementptr inbounds i8, ptr %tensor, i64 80
-  %2 = load i32, ptr %op, align 8
-  %cmp = icmp eq i32 %2, 0
+  %0 = load i32, ptr %op, align 8
+  %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %sw.epilog, label %if.end3
 
-if.end3:                                          ; preds = %do.end
-  switch i32 %2, label %sw.epilog [
+if.end3:                                          ; preds = %entry
+  switch i32 %0, label %sw.epilog [
     i32 1, label %sw.bb
     i32 2, label %sw.bb5
     i32 3, label %sw.bb10
@@ -31361,463 +31347,463 @@ if.end3:                                          ; preds = %do.end
 
 sw.bb:                                            ; preds = %if.end3
   %src = getelementptr inbounds i8, ptr %tensor, i64 160
-  %3 = load ptr, ptr %src, align 8
-  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull %params, ptr noundef %3, ptr noundef nonnull %tensor)
+  %1 = load ptr, ptr %src, align 8
+  tail call fastcc void @ggml_compute_forward_dup(ptr noundef %params, ptr noundef %1, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %if.end3
   %src6 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %4 = load ptr, ptr %src6, align 8
+  %2 = load ptr, ptr %src6, align 8
   %arrayidx9 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %5 = load ptr, ptr %arrayidx9, align 8
-  tail call fastcc void @ggml_compute_forward_add(ptr noundef nonnull %params, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %tensor)
+  %3 = load ptr, ptr %arrayidx9, align 8
+  tail call fastcc void @ggml_compute_forward_add(ptr noundef %params, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %if.end3
   %src11 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %6 = load ptr, ptr %src11, align 8
+  %4 = load ptr, ptr %src11, align 8
   %arrayidx14 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %7 = load ptr, ptr %arrayidx14, align 8
-  tail call fastcc void @ggml_compute_forward_add1(ptr noundef nonnull %params, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %tensor)
+  %5 = load ptr, ptr %arrayidx14, align 8
+  tail call fastcc void @ggml_compute_forward_add1(ptr noundef %params, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %if.end3
   %src16 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %8 = load ptr, ptr %src16, align 8
+  %6 = load ptr, ptr %src16, align 8
   %arrayidx19 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %9 = load ptr, ptr %arrayidx19, align 8
-  tail call fastcc void @ggml_compute_forward_acc(ptr noundef nonnull %params, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %tensor)
+  %7 = load ptr, ptr %arrayidx19, align 8
+  tail call fastcc void @ggml_compute_forward_acc(ptr noundef %params, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end3
   %src21 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %10 = load ptr, ptr %src21, align 8
+  %8 = load ptr, ptr %src21, align 8
   %arrayidx24 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %11 = load ptr, ptr %arrayidx24, align 8
-  tail call fastcc void @ggml_compute_forward_sub(ptr noundef nonnull %params, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %tensor)
+  %9 = load ptr, ptr %arrayidx24, align 8
+  tail call fastcc void @ggml_compute_forward_sub(ptr noundef %params, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end3
   %src26 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %12 = load ptr, ptr %src26, align 8
+  %10 = load ptr, ptr %src26, align 8
   %arrayidx29 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %13 = load ptr, ptr %arrayidx29, align 8
-  tail call fastcc void @ggml_compute_forward_mul(ptr noundef nonnull %params, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %tensor)
+  %11 = load ptr, ptr %arrayidx29, align 8
+  tail call fastcc void @ggml_compute_forward_mul(ptr noundef %params, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %if.end3
   %src31 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %14 = load ptr, ptr %src31, align 8
+  %12 = load ptr, ptr %src31, align 8
   %arrayidx34 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %15 = load ptr, ptr %arrayidx34, align 8
-  tail call fastcc void @ggml_compute_forward_div(ptr noundef nonnull %params, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %tensor)
+  %13 = load ptr, ptr %arrayidx34, align 8
+  tail call fastcc void @ggml_compute_forward_div(ptr noundef %params, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end3
   %src36 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %16 = load ptr, ptr %src36, align 8
-  tail call fastcc void @ggml_compute_forward_sqr(ptr noundef nonnull %params, ptr noundef %16, ptr noundef nonnull %tensor)
+  %14 = load ptr, ptr %src36, align 8
+  tail call fastcc void @ggml_compute_forward_sqr(ptr noundef %params, ptr noundef %14, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end3
   %src39 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %17 = load ptr, ptr %src39, align 8
-  tail call fastcc void @ggml_compute_forward_sqrt(ptr noundef nonnull %params, ptr noundef %17, ptr noundef nonnull %tensor)
+  %15 = load ptr, ptr %src39, align 8
+  tail call fastcc void @ggml_compute_forward_sqrt(ptr noundef %params, ptr noundef %15, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %if.end3
   %src42 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %18 = load ptr, ptr %src42, align 8
-  tail call fastcc void @ggml_compute_forward_log(ptr noundef nonnull %params, ptr noundef %18, ptr noundef nonnull %tensor)
+  %16 = load ptr, ptr %src42, align 8
+  tail call fastcc void @ggml_compute_forward_log(ptr noundef %params, ptr noundef %16, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb44:                                          ; preds = %if.end3
   %src45 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %19 = load ptr, ptr %src45, align 8
-  tail call fastcc void @ggml_compute_forward_sum(ptr noundef nonnull %params, ptr noundef %19, ptr noundef nonnull %tensor)
+  %17 = load ptr, ptr %src45, align 8
+  tail call fastcc void @ggml_compute_forward_sum(ptr noundef %params, ptr noundef %17, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %if.end3
   %src48 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %20 = load ptr, ptr %src48, align 8
-  tail call fastcc void @ggml_compute_forward_sum_rows(ptr noundef nonnull %params, ptr noundef %20, ptr noundef nonnull %tensor)
+  %18 = load ptr, ptr %src48, align 8
+  tail call fastcc void @ggml_compute_forward_sum_rows(ptr noundef %params, ptr noundef %18, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end3
   %src51 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %21 = load ptr, ptr %src51, align 8
-  tail call fastcc void @ggml_compute_forward_mean(ptr noundef nonnull %params, ptr noundef %21, ptr noundef nonnull %tensor)
+  %19 = load ptr, ptr %src51, align 8
+  tail call fastcc void @ggml_compute_forward_mean(ptr noundef %params, ptr noundef %19, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end3
   %src54 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %22 = load ptr, ptr %src54, align 8
-  tail call fastcc void @ggml_compute_forward_argmax(ptr noundef nonnull %params, ptr noundef %22, ptr noundef nonnull %tensor)
+  %20 = load ptr, ptr %src54, align 8
+  tail call fastcc void @ggml_compute_forward_argmax(ptr noundef %params, ptr noundef %20, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %if.end3
   %src57 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %23 = load ptr, ptr %src57, align 8
-  tail call fastcc void @ggml_compute_forward_repeat(ptr noundef nonnull %params, ptr noundef %23, ptr noundef nonnull %tensor)
+  %21 = load ptr, ptr %src57, align 8
+  tail call fastcc void @ggml_compute_forward_repeat(ptr noundef %params, ptr noundef %21, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %if.end3
   %src60 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %24 = load ptr, ptr %src60, align 8
-  tail call fastcc void @ggml_compute_forward_repeat_back(ptr noundef nonnull %params, ptr noundef %24, ptr noundef nonnull %tensor)
+  %22 = load ptr, ptr %src60, align 8
+  tail call fastcc void @ggml_compute_forward_repeat_back(ptr noundef %params, ptr noundef %22, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %if.end3
   %src63 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %25 = load ptr, ptr %src63, align 8
+  %23 = load ptr, ptr %src63, align 8
   %arrayidx66 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %26 = load ptr, ptr %arrayidx66, align 8
-  tail call fastcc void @ggml_compute_forward_concat(ptr noundef nonnull %params, ptr noundef %25, ptr noundef %26, ptr noundef nonnull %tensor)
+  %24 = load ptr, ptr %arrayidx66, align 8
+  tail call fastcc void @ggml_compute_forward_concat(ptr noundef %params, ptr noundef %23, ptr noundef %24, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb67:                                          ; preds = %if.end3
   %src68 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %27 = load ptr, ptr %src68, align 8
+  %25 = load ptr, ptr %src68, align 8
   %arrayidx71 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %28 = load ptr, ptr %arrayidx71, align 8
-  tail call fastcc void @ggml_compute_forward_silu_back(ptr noundef nonnull %params, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %tensor)
+  %26 = load ptr, ptr %arrayidx71, align 8
+  tail call fastcc void @ggml_compute_forward_silu_back(ptr noundef %params, ptr noundef %25, ptr noundef %26, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb72:                                          ; preds = %if.end3
   %src73 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %29 = load ptr, ptr %src73, align 8
-  tail call fastcc void @ggml_compute_forward_norm(ptr noundef nonnull %params, ptr noundef %29, ptr noundef nonnull %tensor)
+  %27 = load ptr, ptr %src73, align 8
+  tail call fastcc void @ggml_compute_forward_norm(ptr noundef %params, ptr noundef %27, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb75:                                          ; preds = %if.end3
   %src76 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %30 = load ptr, ptr %src76, align 8
-  tail call fastcc void @ggml_compute_forward_rms_norm(ptr noundef nonnull %params, ptr noundef %30, ptr noundef nonnull %tensor)
+  %28 = load ptr, ptr %src76, align 8
+  tail call fastcc void @ggml_compute_forward_rms_norm(ptr noundef %params, ptr noundef %28, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %if.end3
   %src79 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %31 = load ptr, ptr %src79, align 8
+  %29 = load ptr, ptr %src79, align 8
   %arrayidx82 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %32 = load ptr, ptr %arrayidx82, align 8
-  tail call fastcc void @ggml_compute_forward_rms_norm_back(ptr noundef nonnull %params, ptr noundef %31, ptr noundef %32, ptr noundef nonnull %tensor)
+  %30 = load ptr, ptr %arrayidx82, align 8
+  tail call fastcc void @ggml_compute_forward_rms_norm_back(ptr noundef %params, ptr noundef %29, ptr noundef %30, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb83:                                          ; preds = %if.end3
   %src84 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %33 = load ptr, ptr %src84, align 8
-  tail call fastcc void @ggml_compute_forward_group_norm(ptr noundef nonnull %params, ptr noundef %33, ptr noundef nonnull %tensor)
+  %31 = load ptr, ptr %src84, align 8
+  tail call fastcc void @ggml_compute_forward_group_norm(ptr noundef %params, ptr noundef %31, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb86:                                          ; preds = %if.end3
   %src87 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %34 = load ptr, ptr %src87, align 8
+  %32 = load ptr, ptr %src87, align 8
   %arrayidx90 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %35 = load ptr, ptr %arrayidx90, align 8
-  tail call fastcc void @ggml_compute_forward_mul_mat(ptr noundef nonnull %params, ptr noundef %34, ptr noundef %35, ptr noundef nonnull %tensor)
+  %33 = load ptr, ptr %arrayidx90, align 8
+  tail call fastcc void @ggml_compute_forward_mul_mat(ptr noundef %params, ptr noundef %32, ptr noundef %33, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb91:                                          ; preds = %if.end3
   %src92 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %36 = load ptr, ptr %src92, align 8
+  %34 = load ptr, ptr %src92, align 8
   %arrayidx95 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %37 = load ptr, ptr %arrayidx95, align 8
-  tail call fastcc void @ggml_compute_forward_mul_mat_id(ptr noundef nonnull %params, ptr noundef %36, ptr noundef %37, ptr noundef nonnull %tensor)
+  %35 = load ptr, ptr %arrayidx95, align 8
+  tail call fastcc void @ggml_compute_forward_mul_mat_id(ptr noundef %params, ptr noundef %34, ptr noundef %35, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb96:                                          ; preds = %if.end3
   %src97 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %38 = load ptr, ptr %src97, align 8
+  %36 = load ptr, ptr %src97, align 8
   %arrayidx100 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %39 = load ptr, ptr %arrayidx100, align 8
-  tail call fastcc void @ggml_compute_forward_out_prod(ptr noundef nonnull %params, ptr noundef %38, ptr noundef %39, ptr noundef nonnull %tensor)
+  %37 = load ptr, ptr %arrayidx100, align 8
+  tail call fastcc void @ggml_compute_forward_out_prod(ptr noundef %params, ptr noundef %36, ptr noundef %37, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %if.end3
   %src102 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %40 = load ptr, ptr %src102, align 8
+  %38 = load ptr, ptr %src102, align 8
   %arrayidx105 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %41 = load ptr, ptr %arrayidx105, align 8
-  tail call fastcc void @ggml_compute_forward_scale(ptr noundef nonnull %params, ptr noundef %40, ptr noundef %41, ptr noundef nonnull %tensor)
+  %39 = load ptr, ptr %arrayidx105, align 8
+  tail call fastcc void @ggml_compute_forward_scale(ptr noundef %params, ptr noundef %38, ptr noundef %39, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb106:                                         ; preds = %if.end3
   %src107 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %42 = load ptr, ptr %src107, align 8
+  %40 = load ptr, ptr %src107, align 8
   %arrayidx110 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %43 = load ptr, ptr %arrayidx110, align 8
-  tail call fastcc void @ggml_compute_forward_set(ptr noundef nonnull %params, ptr noundef %42, ptr noundef %43, ptr noundef nonnull %tensor)
+  %41 = load ptr, ptr %arrayidx110, align 8
+  tail call fastcc void @ggml_compute_forward_set(ptr noundef %params, ptr noundef %40, ptr noundef %41, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb111:                                         ; preds = %if.end3
   %src112 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %44 = load ptr, ptr %src112, align 8
-  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull readonly %params, ptr noundef readonly %44, ptr noundef nonnull readonly %tensor)
+  %42 = load ptr, ptr %src112, align 8
+  tail call fastcc void @ggml_compute_forward_dup(ptr noundef readonly %params, ptr noundef readonly %42, ptr noundef nonnull readonly %tensor)
   br label %sw.epilog
 
 sw.bb114:                                         ; preds = %if.end3
   %src115 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %45 = load ptr, ptr %src115, align 8
-  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull readonly %params, ptr noundef readonly %45, ptr noundef nonnull readonly %tensor)
+  %43 = load ptr, ptr %src115, align 8
+  tail call fastcc void @ggml_compute_forward_dup(ptr noundef readonly %params, ptr noundef readonly %43, ptr noundef nonnull readonly %tensor)
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %if.end3
   %src130 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %46 = load ptr, ptr %src130, align 8
+  %44 = load ptr, ptr %src130, align 8
   %arrayidx133 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %47 = load ptr, ptr %arrayidx133, align 8
-  tail call fastcc void @ggml_compute_forward_get_rows(ptr noundef nonnull %params, ptr noundef %46, ptr noundef %47, ptr noundef nonnull %tensor)
+  %45 = load ptr, ptr %arrayidx133, align 8
+  tail call fastcc void @ggml_compute_forward_get_rows(ptr noundef %params, ptr noundef %44, ptr noundef %45, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb134:                                         ; preds = %if.end3
   %src135 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %48 = load ptr, ptr %src135, align 8
+  %46 = load ptr, ptr %src135, align 8
   %arrayidx138 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %49 = load ptr, ptr %arrayidx138, align 8
-  tail call fastcc void @ggml_compute_forward_get_rows_back(ptr noundef nonnull %params, ptr noundef %48, ptr noundef %49, ptr noundef nonnull %tensor)
+  %47 = load ptr, ptr %arrayidx138, align 8
+  tail call fastcc void @ggml_compute_forward_get_rows_back(ptr noundef %params, ptr noundef %46, ptr noundef %47, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb139:                                         ; preds = %if.end3
   %src140 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %50 = load ptr, ptr %src140, align 8
-  tail call fastcc void @ggml_compute_forward_diag(ptr noundef nonnull %params, ptr noundef %50, ptr noundef nonnull %tensor)
+  %48 = load ptr, ptr %src140, align 8
+  tail call fastcc void @ggml_compute_forward_diag(ptr noundef %params, ptr noundef %48, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb142:                                         ; preds = %if.end3
   %src143 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %51 = load ptr, ptr %src143, align 8
-  tail call fastcc void @ggml_compute_forward_diag_mask_inf(ptr noundef nonnull %params, ptr noundef %51, ptr noundef nonnull %tensor)
+  %49 = load ptr, ptr %src143, align 8
+  tail call fastcc void @ggml_compute_forward_diag_mask_inf(ptr noundef %params, ptr noundef %49, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb145:                                         ; preds = %if.end3
   %src146 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %52 = load ptr, ptr %src146, align 8
-  tail call fastcc void @ggml_compute_forward_diag_mask_zero(ptr noundef nonnull %params, ptr noundef %52, ptr noundef nonnull %tensor)
+  %50 = load ptr, ptr %src146, align 8
+  tail call fastcc void @ggml_compute_forward_diag_mask_zero(ptr noundef %params, ptr noundef %50, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb148:                                         ; preds = %if.end3
   %src149 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %53 = load ptr, ptr %src149, align 8
+  %51 = load ptr, ptr %src149, align 8
   %arrayidx152 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %54 = load ptr, ptr %arrayidx152, align 8
-  tail call fastcc void @ggml_compute_forward_soft_max(ptr noundef nonnull %params, ptr noundef %53, ptr noundef %54, ptr noundef nonnull %tensor)
+  %52 = load ptr, ptr %arrayidx152, align 8
+  tail call fastcc void @ggml_compute_forward_soft_max(ptr noundef %params, ptr noundef %51, ptr noundef %52, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb153:                                         ; preds = %if.end3
   %src154 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %55 = load ptr, ptr %src154, align 8
+  %53 = load ptr, ptr %src154, align 8
   %arrayidx157 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %56 = load ptr, ptr %arrayidx157, align 8
-  tail call fastcc void @ggml_compute_forward_soft_max_back(ptr noundef nonnull %params, ptr noundef %55, ptr noundef %56, ptr noundef nonnull %tensor)
+  %54 = load ptr, ptr %arrayidx157, align 8
+  tail call fastcc void @ggml_compute_forward_soft_max_back(ptr noundef %params, ptr noundef %53, ptr noundef %54, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb158:                                         ; preds = %if.end3
   %src159 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %57 = load ptr, ptr %src159, align 8
+  %55 = load ptr, ptr %src159, align 8
   %arrayidx162 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %58 = load ptr, ptr %arrayidx162, align 8
-  tail call fastcc void @ggml_compute_forward_rope(ptr noundef nonnull %params, ptr noundef %57, ptr noundef %58, ptr noundef nonnull %tensor)
+  %56 = load ptr, ptr %arrayidx162, align 8
+  tail call fastcc void @ggml_compute_forward_rope(ptr noundef %params, ptr noundef %55, ptr noundef %56, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb163:                                         ; preds = %if.end3
   %src164 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %59 = load ptr, ptr %src164, align 8
+  %57 = load ptr, ptr %src164, align 8
   %arrayidx167 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %60 = load ptr, ptr %arrayidx167, align 8
-  tail call fastcc void @ggml_compute_forward_rope_back(ptr noundef nonnull %params, ptr noundef %59, ptr noundef %60, ptr noundef nonnull %tensor)
+  %58 = load ptr, ptr %arrayidx167, align 8
+  tail call fastcc void @ggml_compute_forward_rope_back(ptr noundef %params, ptr noundef %57, ptr noundef %58, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb168:                                         ; preds = %if.end3
   %src169 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %61 = load ptr, ptr %src169, align 8
-  tail call fastcc void @ggml_compute_forward_alibi(ptr noundef nonnull %params, ptr noundef %61, ptr noundef nonnull %tensor)
+  %59 = load ptr, ptr %src169, align 8
+  tail call fastcc void @ggml_compute_forward_alibi(ptr noundef %params, ptr noundef %59, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb171:                                         ; preds = %if.end3
   %src172 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %62 = load ptr, ptr %src172, align 8
-  tail call fastcc void @ggml_compute_forward_clamp(ptr noundef nonnull %params, ptr noundef %62, ptr noundef nonnull %tensor)
+  %60 = load ptr, ptr %src172, align 8
+  tail call fastcc void @ggml_compute_forward_clamp(ptr noundef %params, ptr noundef %60, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb174:                                         ; preds = %if.end3
   %src175 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %63 = load ptr, ptr %src175, align 8
+  %61 = load ptr, ptr %src175, align 8
   %arrayidx178 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %64 = load ptr, ptr %arrayidx178, align 8
-  tail call fastcc void @ggml_compute_forward_conv_transpose_1d(ptr noundef nonnull %params, ptr noundef %63, ptr noundef %64, ptr noundef nonnull %tensor)
+  %62 = load ptr, ptr %arrayidx178, align 8
+  tail call fastcc void @ggml_compute_forward_conv_transpose_1d(ptr noundef %params, ptr noundef %61, ptr noundef %62, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb179:                                         ; preds = %if.end3
   %src180 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %65 = load ptr, ptr %src180, align 8
+  %63 = load ptr, ptr %src180, align 8
   %arrayidx183 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %66 = load ptr, ptr %arrayidx183, align 8
-  tail call fastcc void @ggml_compute_forward_im2col(ptr noundef nonnull %params, ptr noundef %65, ptr noundef %66, ptr noundef nonnull %tensor)
+  %64 = load ptr, ptr %arrayidx183, align 8
+  tail call fastcc void @ggml_compute_forward_im2col(ptr noundef %params, ptr noundef %63, ptr noundef %64, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb184:                                         ; preds = %if.end3
   %src185 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %67 = load ptr, ptr %src185, align 8
+  %65 = load ptr, ptr %src185, align 8
   %arrayidx188 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %68 = load ptr, ptr %arrayidx188, align 8
-  tail call fastcc void @ggml_compute_forward_conv_transpose_2d(ptr noundef nonnull %params, ptr noundef %67, ptr noundef %68, ptr noundef nonnull %tensor)
+  %66 = load ptr, ptr %arrayidx188, align 8
+  tail call fastcc void @ggml_compute_forward_conv_transpose_2d(ptr noundef %params, ptr noundef %65, ptr noundef %66, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb189:                                         ; preds = %if.end3
   %src190 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %69 = load ptr, ptr %src190, align 8
-  tail call fastcc void @ggml_compute_forward_pool_1d(ptr noundef nonnull %params, ptr noundef %69, ptr noundef nonnull %tensor)
+  %67 = load ptr, ptr %src190, align 8
+  tail call fastcc void @ggml_compute_forward_pool_1d(ptr noundef %params, ptr noundef %67, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb192:                                         ; preds = %if.end3
   %src193 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %70 = load ptr, ptr %src193, align 8
+  %68 = load ptr, ptr %src193, align 8
   %params.val = load i32, ptr %params, align 8
-  tail call fastcc void @ggml_compute_forward_pool_2d(i32 %params.val, ptr noundef %70, ptr noundef nonnull %tensor)
+  tail call fastcc void @ggml_compute_forward_pool_2d(i32 %params.val, ptr noundef %68, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb195:                                         ; preds = %if.end3
   %src196 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %71 = load ptr, ptr %src196, align 8
-  tail call fastcc void @ggml_compute_forward_upscale(ptr noundef nonnull %params, ptr noundef %71, ptr noundef nonnull %tensor)
+  %69 = load ptr, ptr %src196, align 8
+  tail call fastcc void @ggml_compute_forward_upscale(ptr noundef %params, ptr noundef %69, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb198:                                         ; preds = %if.end3
   %src199 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %72 = load ptr, ptr %src199, align 8
-  tail call fastcc void @ggml_compute_forward_pad(ptr noundef nonnull %params, ptr noundef %72, ptr noundef nonnull %tensor)
+  %70 = load ptr, ptr %src199, align 8
+  tail call fastcc void @ggml_compute_forward_pad(ptr noundef %params, ptr noundef %70, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb201:                                         ; preds = %if.end3
   %src202 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %73 = load ptr, ptr %src202, align 8
-  tail call fastcc void @ggml_compute_forward_argsort(ptr noundef nonnull %params, ptr noundef %73, ptr noundef nonnull %tensor)
+  %71 = load ptr, ptr %src202, align 8
+  tail call fastcc void @ggml_compute_forward_argsort(ptr noundef %params, ptr noundef %71, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb204:                                         ; preds = %if.end3
   %src205 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %74 = load ptr, ptr %src205, align 8
-  tail call fastcc void @ggml_compute_forward_leaky_relu(ptr noundef nonnull %params, ptr noundef %74, ptr noundef nonnull %tensor)
+  %72 = load ptr, ptr %src205, align 8
+  tail call fastcc void @ggml_compute_forward_leaky_relu(ptr noundef %params, ptr noundef %72, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb207:                                         ; preds = %if.end3
   %op_params.i = getelementptr inbounds i8, ptr %tensor, i64 84
-  %75 = load i32, ptr %op_params.i, align 4
-  %or.cond = icmp ult i32 %75, 2
+  %73 = load i32, ptr %op_params.i, align 4
+  %or.cond = icmp ult i32 %73, 2
   br i1 %or.cond, label %do.end216, label %if.then212
 
 if.then212:                                       ; preds = %sw.bb207
-  %76 = load ptr, ptr @stdout, align 8
-  %call213 = tail call i32 @fflush(ptr noundef %76)
-  %77 = load ptr, ptr @stderr, align 8
-  %call214 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14477, ptr noundef nonnull @.str.462) #46
+  %74 = load ptr, ptr @stdout, align 8
+  %call213 = tail call i32 @fflush(ptr noundef %74)
+  %75 = load ptr, ptr @stderr, align 8
+  %call214 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14477, ptr noundef nonnull @.str.462) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 do.end216:                                        ; preds = %sw.bb207
-  %cmp217 = icmp ne i32 %75, 0
+  %cmp217 = icmp ne i32 %73, 0
   %src218 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %78 = load ptr, ptr %src218, align 8
+  %76 = load ptr, ptr %src218, align 8
   %arrayidx221 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %79 = load ptr, ptr %arrayidx221, align 8
+  %77 = load ptr, ptr %arrayidx221, align 8
   %arrayidx223 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %80 = load ptr, ptr %arrayidx223, align 8
-  tail call fastcc void @ggml_compute_forward_flash_attn(ptr noundef nonnull %params, ptr noundef %78, ptr noundef %79, ptr noundef %80, i1 noundef zeroext %cmp217, ptr noundef nonnull %tensor)
+  %78 = load ptr, ptr %arrayidx223, align 8
+  tail call fastcc void @ggml_compute_forward_flash_attn(ptr noundef %params, ptr noundef %76, ptr noundef %77, ptr noundef %78, i1 noundef zeroext %cmp217, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb225:                                         ; preds = %if.end3
   %src226 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %81 = load ptr, ptr %src226, align 8
+  %79 = load ptr, ptr %src226, align 8
   %arrayidx229 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %82 = load ptr, ptr %arrayidx229, align 8
+  %80 = load ptr, ptr %arrayidx229, align 8
   %arrayidx231 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %83 = load ptr, ptr %arrayidx231, align 8
+  %81 = load ptr, ptr %arrayidx231, align 8
   %arrayidx233 = getelementptr inbounds i8, ptr %tensor, i64 184
-  %84 = load ptr, ptr %arrayidx233, align 8
+  %82 = load ptr, ptr %arrayidx233, align 8
   %arrayidx235 = getelementptr inbounds i8, ptr %tensor, i64 192
-  %85 = load ptr, ptr %arrayidx235, align 8
-  tail call fastcc void @ggml_compute_forward_flash_ff(ptr noundef nonnull %params, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef nonnull %tensor)
+  %83 = load ptr, ptr %arrayidx235, align 8
+  tail call fastcc void @ggml_compute_forward_flash_ff(ptr noundef %params, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb236:                                         ; preds = %if.end3
   %op_params.i271 = getelementptr inbounds i8, ptr %tensor, i64 84
-  %86 = load i32, ptr %op_params.i271, align 4
-  %or.cond1 = icmp ult i32 %86, 2
+  %84 = load i32, ptr %op_params.i271, align 4
+  %or.cond1 = icmp ult i32 %84, 2
   br i1 %or.cond1, label %do.end247, label %if.then243
 
 if.then243:                                       ; preds = %sw.bb236
-  %87 = load ptr, ptr @stdout, align 8
-  %call244 = tail call i32 @fflush(ptr noundef %87)
-  %88 = load ptr, ptr @stderr, align 8
-  %call245 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14488, ptr noundef nonnull @.str.462) #46
+  %85 = load ptr, ptr @stdout, align 8
+  %call244 = tail call i32 @fflush(ptr noundef %85)
+  %86 = load ptr, ptr @stderr, align 8
+  %call245 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14488, ptr noundef nonnull @.str.462) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 do.end247:                                        ; preds = %sw.bb236
-  %cmp249 = icmp ne i32 %86, 0
+  %cmp249 = icmp ne i32 %84, 0
   %src251 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %89 = load ptr, ptr %src251, align 8
+  %87 = load ptr, ptr %src251, align 8
   %arrayidx254 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %90 = load ptr, ptr %arrayidx254, align 8
+  %88 = load ptr, ptr %arrayidx254, align 8
   %arrayidx256 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %91 = load ptr, ptr %arrayidx256, align 8
+  %89 = load ptr, ptr %arrayidx256, align 8
   %arrayidx258 = getelementptr inbounds i8, ptr %tensor, i64 184
-  %92 = load ptr, ptr %arrayidx258, align 8
-  tail call fastcc void @ggml_compute_forward_flash_attn_back(ptr noundef nonnull %params, ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92, i1 noundef zeroext %cmp249, ptr noundef nonnull %tensor)
+  %90 = load ptr, ptr %arrayidx258, align 8
+  tail call fastcc void @ggml_compute_forward_flash_attn_back(ptr noundef %params, ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, i1 noundef zeroext %cmp249, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb260:                                         ; preds = %if.end3
   %src261 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %93 = load ptr, ptr %src261, align 8
-  tail call fastcc void @ggml_compute_forward_win_part(ptr noundef nonnull %params, ptr noundef %93, ptr noundef nonnull %tensor)
+  %91 = load ptr, ptr %src261, align 8
+  tail call fastcc void @ggml_compute_forward_win_part(ptr noundef %params, ptr noundef %91, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb263:                                         ; preds = %if.end3
   %src264 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %94 = load ptr, ptr %src264, align 8
-  tail call fastcc void @ggml_compute_forward_win_unpart(ptr noundef nonnull %params, ptr noundef %94, ptr noundef nonnull %tensor)
+  %92 = load ptr, ptr %src264, align 8
+  tail call fastcc void @ggml_compute_forward_win_unpart(ptr noundef %params, ptr noundef %92, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb266:                                         ; preds = %if.end3
   %src267 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %95 = load ptr, ptr %src267, align 8
-  tail call fastcc void @ggml_compute_forward_unary(ptr noundef nonnull %params, ptr noundef %95, ptr noundef nonnull %tensor)
+  %93 = load ptr, ptr %src267, align 8
+  tail call fastcc void @ggml_compute_forward_unary(ptr noundef %params, ptr noundef %93, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb269:                                         ; preds = %if.end3
   %src270 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %96 = load ptr, ptr %src270, align 8
-  tail call fastcc void @ggml_compute_forward_get_rel_pos(ptr noundef nonnull %params, ptr noundef %96, ptr noundef nonnull %tensor)
+  %94 = load ptr, ptr %src270, align 8
+  tail call fastcc void @ggml_compute_forward_get_rel_pos(ptr noundef %params, ptr noundef %94, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb272:                                         ; preds = %if.end3
   %src273 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %97 = load ptr, ptr %src273, align 8
+  %95 = load ptr, ptr %src273, align 8
   %arrayidx276 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %98 = load ptr, ptr %arrayidx276, align 8
+  %96 = load ptr, ptr %arrayidx276, align 8
   %arrayidx278 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %99 = load ptr, ptr %arrayidx278, align 8
-  tail call fastcc void @ggml_compute_forward_add_rel_pos(ptr noundef nonnull %params, ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef nonnull %tensor)
+  %97 = load ptr, ptr %arrayidx278, align 8
+  tail call fastcc void @ggml_compute_forward_add_rel_pos(ptr noundef %params, ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb279:                                         ; preds = %if.end3
   %op_params = getelementptr inbounds i8, ptr %tensor, i64 84
   %fun.0.copyload = load ptr, ptr %op_params, align 4
   %src280 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %100 = load ptr, ptr %src280, align 8
-  tail call fastcc void @ggml_compute_forward_map_unary(ptr noundef nonnull %params, ptr noundef %100, ptr noundef nonnull %tensor, ptr noundef %fun.0.copyload)
+  %98 = load ptr, ptr %src280, align 8
+  tail call fastcc void @ggml_compute_forward_map_unary(ptr noundef %params, ptr noundef %98, ptr noundef nonnull %tensor, ptr noundef %fun.0.copyload)
   br label %sw.epilog
 
 sw.bb282:                                         ; preds = %if.end3
   %op_params284 = getelementptr inbounds i8, ptr %tensor, i64 84
   %fun283.0.copyload = load ptr, ptr %op_params284, align 4
   %src286 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %101 = load ptr, ptr %src286, align 8
+  %99 = load ptr, ptr %src286, align 8
   %arrayidx289 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %102 = load ptr, ptr %arrayidx289, align 8
-  tail call fastcc void @ggml_compute_forward_map_binary(ptr noundef nonnull %params, ptr noundef %101, ptr noundef %102, ptr noundef nonnull %tensor, ptr noundef %fun283.0.copyload)
+  %100 = load ptr, ptr %arrayidx289, align 8
+  tail call fastcc void @ggml_compute_forward_map_binary(ptr noundef %params, ptr noundef %99, ptr noundef %100, ptr noundef nonnull %tensor, ptr noundef %fun283.0.copyload)
   br label %sw.epilog
 
 sw.bb290:                                         ; preds = %if.end3
@@ -31829,10 +31815,10 @@ sw.bb290:                                         ; preds = %if.end3
 
 if.end.i:                                         ; preds = %sw.bb290
   %src294 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %103 = load ptr, ptr %src294, align 8
+  %101 = load ptr, ptr %src294, align 8
   %op_params292 = getelementptr inbounds i8, ptr %tensor, i64 84
   %fun291.0.copyload = load ptr, ptr %op_params292, align 4
-  tail call void %fun291.0.copyload(ptr noundef nonnull %tensor, ptr noundef %103) #45
+  tail call void %fun291.0.copyload(ptr noundef nonnull %tensor, ptr noundef %101) #45
   br label %sw.epilog
 
 sw.bb296:                                         ; preds = %if.end3
@@ -31844,12 +31830,12 @@ sw.bb296:                                         ; preds = %if.end3
 
 if.end.i272:                                      ; preds = %sw.bb296
   %arrayidx303 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %104 = load ptr, ptr %arrayidx303, align 8
+  %102 = load ptr, ptr %arrayidx303, align 8
   %src300 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %105 = load ptr, ptr %src300, align 8
+  %103 = load ptr, ptr %src300, align 8
   %op_params298 = getelementptr inbounds i8, ptr %tensor, i64 84
   %fun297.0.copyload = load ptr, ptr %op_params298, align 4
-  tail call void %fun297.0.copyload(ptr noundef nonnull %tensor, ptr noundef %105, ptr noundef %104) #45
+  tail call void %fun297.0.copyload(ptr noundef nonnull %tensor, ptr noundef %103, ptr noundef %102) #45
   br label %sw.epilog
 
 sw.bb304:                                         ; preds = %if.end3
@@ -31861,113 +31847,113 @@ sw.bb304:                                         ; preds = %if.end3
 
 if.end.i273:                                      ; preds = %sw.bb304
   %arrayidx313 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %106 = load ptr, ptr %arrayidx313, align 8
+  %104 = load ptr, ptr %arrayidx313, align 8
   %arrayidx311 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %107 = load ptr, ptr %arrayidx311, align 8
+  %105 = load ptr, ptr %arrayidx311, align 8
   %src308 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %108 = load ptr, ptr %src308, align 8
+  %106 = load ptr, ptr %src308, align 8
   %op_params306 = getelementptr inbounds i8, ptr %tensor, i64 84
   %fun305.0.copyload = load ptr, ptr %op_params306, align 4
-  tail call void %fun305.0.copyload(ptr noundef nonnull %tensor, ptr noundef %108, ptr noundef %107, ptr noundef %106) #45
+  tail call void %fun305.0.copyload(ptr noundef nonnull %tensor, ptr noundef %106, ptr noundef %105, ptr noundef %104) #45
   br label %sw.epilog
 
 sw.bb314:                                         ; preds = %if.end3
-  %109 = load i32, ptr %params, align 8
-  switch i32 %109, label %if.end.i274 [
+  %107 = load i32, ptr %params, align 8
+  switch i32 %107, label %if.end.i274 [
     i32 0, label %sw.epilog
     i32 2, label %sw.epilog
   ]
 
 if.end.i274:                                      ; preds = %sw.bb314
   %src315 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %110 = load ptr, ptr %src315, align 8
+  %108 = load ptr, ptr %src315, align 8
   %op_params.i275 = getelementptr inbounds i8, ptr %tensor, i64 84
-  %111 = load ptr, ptr %op_params.i275, align 8
+  %109 = load ptr, ptr %op_params.i275, align 8
   %ith.i = getelementptr inbounds i8, ptr %params, i64 4
-  %112 = load i32, ptr %ith.i, align 4
+  %110 = load i32, ptr %ith.i, align 4
   %nth.i = getelementptr inbounds i8, ptr %params, i64 8
-  %113 = load i32, ptr %nth.i, align 8
+  %111 = load i32, ptr %nth.i, align 8
   %userdata.i = getelementptr inbounds i8, ptr %tensor, i64 100
-  %114 = load ptr, ptr %userdata.i, align 8
-  tail call void %111(ptr noundef nonnull %tensor, ptr noundef %110, i32 noundef %112, i32 noundef %113, ptr noundef %114) #45
+  %112 = load ptr, ptr %userdata.i, align 8
+  tail call void %109(ptr noundef nonnull %tensor, ptr noundef %108, i32 noundef %110, i32 noundef %111, ptr noundef %112) #45
   br label %sw.epilog
 
 sw.bb317:                                         ; preds = %if.end3
-  %115 = load i32, ptr %params, align 8
-  switch i32 %115, label %if.end.i276 [
+  %113 = load i32, ptr %params, align 8
+  switch i32 %113, label %if.end.i276 [
     i32 0, label %sw.epilog
     i32 2, label %sw.epilog
   ]
 
 if.end.i276:                                      ; preds = %sw.bb317
   %arrayidx321 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %116 = load ptr, ptr %arrayidx321, align 8
+  %114 = load ptr, ptr %arrayidx321, align 8
   %src318 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %117 = load ptr, ptr %src318, align 8
+  %115 = load ptr, ptr %src318, align 8
   %op_params.i277 = getelementptr inbounds i8, ptr %tensor, i64 84
-  %118 = load ptr, ptr %op_params.i277, align 8
+  %116 = load ptr, ptr %op_params.i277, align 8
   %ith.i278 = getelementptr inbounds i8, ptr %params, i64 4
-  %119 = load i32, ptr %ith.i278, align 4
+  %117 = load i32, ptr %ith.i278, align 4
   %nth.i279 = getelementptr inbounds i8, ptr %params, i64 8
-  %120 = load i32, ptr %nth.i279, align 8
+  %118 = load i32, ptr %nth.i279, align 8
   %userdata.i280 = getelementptr inbounds i8, ptr %tensor, i64 100
-  %121 = load ptr, ptr %userdata.i280, align 8
-  tail call void %118(ptr noundef nonnull %tensor, ptr noundef %117, ptr noundef %116, i32 noundef %119, i32 noundef %120, ptr noundef %121) #45
+  %119 = load ptr, ptr %userdata.i280, align 8
+  tail call void %116(ptr noundef nonnull %tensor, ptr noundef %115, ptr noundef %114, i32 noundef %117, i32 noundef %118, ptr noundef %119) #45
   br label %sw.epilog
 
 sw.bb322:                                         ; preds = %if.end3
-  %122 = load i32, ptr %params, align 8
-  switch i32 %122, label %if.end.i281 [
+  %120 = load i32, ptr %params, align 8
+  switch i32 %120, label %if.end.i281 [
     i32 0, label %sw.epilog
     i32 2, label %sw.epilog
   ]
 
 if.end.i281:                                      ; preds = %sw.bb322
   %arrayidx328 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %123 = load ptr, ptr %arrayidx328, align 8
+  %121 = load ptr, ptr %arrayidx328, align 8
   %arrayidx326 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %124 = load ptr, ptr %arrayidx326, align 8
+  %122 = load ptr, ptr %arrayidx326, align 8
   %src323 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %125 = load ptr, ptr %src323, align 8
+  %123 = load ptr, ptr %src323, align 8
   %op_params.i282 = getelementptr inbounds i8, ptr %tensor, i64 84
-  %126 = load ptr, ptr %op_params.i282, align 8
+  %124 = load ptr, ptr %op_params.i282, align 8
   %ith.i283 = getelementptr inbounds i8, ptr %params, i64 4
-  %127 = load i32, ptr %ith.i283, align 4
+  %125 = load i32, ptr %ith.i283, align 4
   %nth.i284 = getelementptr inbounds i8, ptr %params, i64 8
-  %128 = load i32, ptr %nth.i284, align 8
+  %126 = load i32, ptr %nth.i284, align 8
   %userdata.i285 = getelementptr inbounds i8, ptr %tensor, i64 100
-  %129 = load ptr, ptr %userdata.i285, align 8
-  tail call void %126(ptr noundef nonnull %tensor, ptr noundef %125, ptr noundef %124, ptr noundef %123, i32 noundef %127, i32 noundef %128, ptr noundef %129) #45
+  %127 = load ptr, ptr %userdata.i285, align 8
+  tail call void %124(ptr noundef nonnull %tensor, ptr noundef %123, ptr noundef %122, ptr noundef %121, i32 noundef %125, i32 noundef %126, ptr noundef %127) #45
   br label %sw.epilog
 
 sw.bb329:                                         ; preds = %if.end3
   %src330 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %130 = load ptr, ptr %src330, align 8
+  %128 = load ptr, ptr %src330, align 8
   %arrayidx333 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %131 = load ptr, ptr %arrayidx333, align 8
-  tail call fastcc void @ggml_compute_forward_cross_entropy_loss(ptr noundef nonnull %params, ptr noundef %130, ptr noundef %131, ptr noundef nonnull %tensor)
+  %129 = load ptr, ptr %arrayidx333, align 8
+  tail call fastcc void @ggml_compute_forward_cross_entropy_loss(ptr noundef %params, ptr noundef %128, ptr noundef %129, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb334:                                         ; preds = %if.end3
   %src335 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %132 = load ptr, ptr %src335, align 8
+  %130 = load ptr, ptr %src335, align 8
   %arrayidx338 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %133 = load ptr, ptr %arrayidx338, align 8
+  %131 = load ptr, ptr %arrayidx338, align 8
   %arrayidx340 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %134 = load ptr, ptr %arrayidx340, align 8
-  tail call fastcc void @ggml_compute_forward_cross_entropy_loss_back(ptr noundef nonnull %params, ptr noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef nonnull %tensor)
+  %132 = load ptr, ptr %arrayidx340, align 8
+  tail call fastcc void @ggml_compute_forward_cross_entropy_loss_back(ptr noundef %params, ptr noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 do.body343:                                       ; preds = %if.end3
-  %135 = load ptr, ptr @stdout, align 8
-  %call344 = tail call i32 @fflush(ptr noundef %135)
-  %136 = load ptr, ptr @stderr, align 8
-  %call345 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14578, ptr noundef nonnull @.str.26) #46
+  %133 = load ptr, ptr @stdout, align 8
+  %call344 = tail call i32 @fflush(ptr noundef %133)
+  %134 = load ptr, ptr @stderr, align 8
+  %call345 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14578, ptr noundef nonnull @.str.26) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
-sw.epilog:                                        ; preds = %if.end.i281, %sw.bb322, %sw.bb322, %if.end.i276, %sw.bb317, %sw.bb317, %if.end.i274, %sw.bb314, %sw.bb314, %if.end.i273, %sw.bb304, %sw.bb304, %if.end.i272, %sw.bb296, %sw.bb296, %if.end.i, %sw.bb290, %sw.bb290, %do.end, %sw.bb334, %sw.bb329, %sw.bb282, %sw.bb279, %sw.bb272, %sw.bb269, %sw.bb266, %sw.bb263, %sw.bb260, %do.end247, %sw.bb225, %do.end216, %sw.bb204, %sw.bb201, %sw.bb198, %sw.bb195, %sw.bb192, %sw.bb189, %sw.bb184, %sw.bb179, %sw.bb174, %sw.bb171, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb145, %sw.bb142, %sw.bb139, %sw.bb134, %sw.bb129, %sw.bb114, %sw.bb111, %sw.bb106, %sw.bb101, %sw.bb96, %sw.bb91, %sw.bb86, %sw.bb83, %sw.bb78, %sw.bb75, %sw.bb72, %sw.bb67, %sw.bb62, %sw.bb59, %sw.bb56, %sw.bb53, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb38, %sw.bb35, %sw.bb30, %sw.bb25, %sw.bb20, %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb, %if.end3
+sw.epilog:                                        ; preds = %if.end.i281, %sw.bb322, %sw.bb322, %if.end.i276, %sw.bb317, %sw.bb317, %if.end.i274, %sw.bb314, %sw.bb314, %if.end.i273, %sw.bb304, %sw.bb304, %if.end.i272, %sw.bb296, %sw.bb296, %if.end.i, %sw.bb290, %sw.bb290, %entry, %sw.bb334, %sw.bb329, %sw.bb282, %sw.bb279, %sw.bb272, %sw.bb269, %sw.bb266, %sw.bb263, %sw.bb260, %do.end247, %sw.bb225, %do.end216, %sw.bb204, %sw.bb201, %sw.bb198, %sw.bb195, %sw.bb192, %sw.bb189, %sw.bb184, %sw.bb179, %sw.bb174, %sw.bb171, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb145, %sw.bb142, %sw.bb139, %sw.bb134, %sw.bb129, %sw.bb114, %sw.bb111, %sw.bb106, %sw.bb101, %sw.bb96, %sw.bb91, %sw.bb86, %sw.bb83, %sw.bb78, %sw.bb75, %sw.bb72, %sw.bb67, %sw.bb62, %sw.bb59, %sw.bb56, %sw.bb53, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb38, %sw.bb35, %sw.bb30, %sw.bb25, %sw.bb20, %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb, %if.end3
   ret void
 }
 

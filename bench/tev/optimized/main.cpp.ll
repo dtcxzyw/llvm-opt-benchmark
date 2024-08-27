@@ -8979,7 +8979,7 @@ define linkonce_odr dso_local void @_ZN4args14ArgumentParserD2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -3, 2) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.fmt::v9::format_arg_store.937", align 16
   %4 = alloca %"class.std::__1::vector.98", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8

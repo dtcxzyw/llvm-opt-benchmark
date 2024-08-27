@@ -3760,7 +3760,7 @@ if.else:                                          ; preds = %entry
   ]
 
 if.then7:                                         ; preds = %if.else
-  call fastcc void @set_frozen_error(i32 noundef %call1, ptr noundef %name)
+  tail call fastcc void @set_frozen_error(i32 noundef %call1, ptr noundef %name)
   br label %return
 
 if.end9:                                          ; preds = %if.else
@@ -3775,13 +3775,13 @@ if.end13:                                         ; preds = %if.end9
   br i1 %tobool, label %if.then14, label %if.end28
 
 if.then14:                                        ; preds = %if.end13
-  %call15 = call fastcc ptr @import_add_module(ptr noundef %1, ptr noundef %name)
+  %call15 = tail call fastcc ptr @import_add_module(ptr noundef %1, ptr noundef %name)
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %Py_XDECREF.exit, label %if.end18
 
 if.end18:                                         ; preds = %if.then14
-  %call19 = call ptr @PyModule_GetDict(ptr noundef nonnull %call15) #19
-  %call20 = call ptr @PyList_New(i64 noundef 0) #19
+  %call19 = tail call ptr @PyModule_GetDict(ptr noundef nonnull %call15) #19
+  %call20 = tail call ptr @PyList_New(i64 noundef 0) #19
   %cmp21 = icmp eq ptr %call20, null
   br i1 %cmp21, label %if.then22, label %if.end23
 
@@ -3798,11 +3798,11 @@ if.end.i109:                                      ; preds = %if.then22
   br i1 %cmp.i111, label %if.then1.i112, label %err_return
 
 if.then1.i112:                                    ; preds = %if.end.i109
-  call void @_Py_Dealloc(ptr noundef nonnull %call15) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call15) #19
   br label %err_return
 
 if.end23:                                         ; preds = %if.end18
-  %call24 = call i32 @PyDict_SetItemString(ptr noundef %call19, ptr noundef nonnull @.str.14, ptr noundef nonnull %call20) #19
+  %call24 = tail call i32 @PyDict_SetItemString(ptr noundef %call19, ptr noundef nonnull @.str.14, ptr noundef nonnull %call20) #19
   %6 = load i64, ptr %call20, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i119.not = icmp eq i64 %7, 0
@@ -3815,7 +3815,7 @@ if.end.i100:                                      ; preds = %if.end23
   br i1 %cmp.i102, label %if.then1.i103, label %Py_DECREF.exit105
 
 if.then1.i103:                                    ; preds = %if.end.i100
-  call void @_Py_Dealloc(ptr noundef nonnull %call20) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call20) #19
   br label %Py_DECREF.exit105
 
 Py_DECREF.exit105:                                ; preds = %if.end23, %if.then1.i103, %if.end.i100
@@ -3831,7 +3831,7 @@ if.end.i91:                                       ; preds = %Py_DECREF.exit105
   br i1 %cmp.i93, label %if.then1.i94, label %Py_DECREF.exit96
 
 if.then1.i94:                                     ; preds = %if.end.i91
-  call void @_Py_Dealloc(ptr noundef nonnull %call15) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call15) #19
   br label %Py_DECREF.exit96
 
 Py_DECREF.exit96:                                 ; preds = %Py_DECREF.exit105, %if.then1.i94, %if.end.i91
@@ -3839,12 +3839,12 @@ Py_DECREF.exit96:                                 ; preds = %Py_DECREF.exit105, 
   br i1 %cmp25.not, label %if.end28, label %err_return
 
 if.end28:                                         ; preds = %Py_DECREF.exit96, %if.end13
-  %call29 = call fastcc ptr @module_dict_for_exec(ptr noundef %1, ptr noundef %name)
+  %call29 = tail call fastcc ptr @module_dict_for_exec(ptr noundef %1, ptr noundef %name)
   %cmp30 = icmp eq ptr %call29, null
   br i1 %cmp30, label %Py_XDECREF.exit, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
-  %call33 = call fastcc ptr @exec_code_in_module(ptr noundef %1, ptr noundef %name, ptr noundef nonnull %call29, ptr noundef nonnull %call10)
+  %call33 = tail call fastcc ptr @exec_code_in_module(ptr noundef %1, ptr noundef %name, ptr noundef nonnull %call29, ptr noundef nonnull %call10)
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %if.then.i, label %if.end36
 
@@ -3861,7 +3861,7 @@ if.end.i82:                                       ; preds = %if.end36
   br i1 %cmp.i84, label %if.then1.i85, label %Py_DECREF.exit87
 
 if.then1.i85:                                     ; preds = %if.end.i82
-  call void @_Py_Dealloc(ptr noundef nonnull %call33) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call33) #19
   br label %Py_DECREF.exit87
 
 Py_DECREF.exit87:                                 ; preds = %if.end36, %if.then1.i85, %if.end.i82
@@ -3871,7 +3871,7 @@ Py_DECREF.exit87:                                 ; preds = %if.end36, %if.then1
   br i1 %tobool38.not, label %if.else45, label %if.then39
 
 if.then39:                                        ; preds = %Py_DECREF.exit87
-  %call41 = call ptr @PyUnicode_FromString(ptr noundef nonnull %12) #19
+  %call41 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %12) #19
   %cmp42 = icmp eq ptr %call41, null
   br i1 %cmp42, label %if.then.i, label %if.end47
 
@@ -3887,7 +3887,7 @@ if.end.i.i:                                       ; preds = %if.else45
 
 if.end47:                                         ; preds = %if.end.i.i, %if.else45, %if.then39
   %origname.0 = phi ptr [ %call41, %if.then39 ], [ @_Py_NoneStruct, %if.else45 ], [ @_Py_NoneStruct, %if.end.i.i ]
-  %call48 = call i32 @PyDict_SetItemString(ptr noundef nonnull %call29, ptr noundef nonnull @.str.15, ptr noundef nonnull %origname.0) #19
+  %call48 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call29, ptr noundef nonnull @.str.15, ptr noundef nonnull %origname.0) #19
   %14 = load i64, ptr %origname.0, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i131.not = icmp eq i64 %15, 0
@@ -3900,7 +3900,7 @@ if.end.i73:                                       ; preds = %if.end47
   br i1 %cmp.i75, label %if.then1.i76, label %Py_DECREF.exit78
 
 if.then1.i76:                                     ; preds = %if.end.i73
-  call void @_Py_Dealloc(ptr noundef nonnull %origname.0) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %origname.0) #19
   br label %Py_DECREF.exit78
 
 Py_DECREF.exit78:                                 ; preds = %if.end47, %if.then1.i76, %if.end.i73
@@ -3920,7 +3920,7 @@ if.end.i64:                                       ; preds = %if.end51
   br i1 %cmp.i66, label %if.then1.i67, label %Py_DECREF.exit69
 
 if.then1.i67:                                     ; preds = %if.end.i64
-  call void @_Py_Dealloc(ptr noundef nonnull %call29) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call29) #19
   br label %Py_DECREF.exit69
 
 Py_DECREF.exit69:                                 ; preds = %if.end51, %if.then1.i67, %if.end.i64
@@ -3936,7 +3936,7 @@ if.end.i55:                                       ; preds = %Py_DECREF.exit69
   br i1 %cmp.i57, label %if.then1.i58, label %return
 
 if.then1.i58:                                     ; preds = %if.end.i55
-  call void @_Py_Dealloc(ptr noundef nonnull %call10) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call10) #19
   br label %return
 
 err_return:                                       ; preds = %Py_DECREF.exit96, %if.end.i109, %if.then1.i112, %if.then22
@@ -3957,7 +3957,7 @@ if.end.i.i47:                                     ; preds = %if.then.i
   br i1 %cmp.i.i48, label %if.then1.i.i, label %Py_XDECREF.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i47
-  call void @_Py_Dealloc(ptr noundef nonnull %d.051) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %d.051) #19
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end28, %if.then14, %err_return, %if.then.i, %if.end.i.i47, %if.then1.i.i
@@ -3973,7 +3973,7 @@ if.end.i:                                         ; preds = %Py_XDECREF.exit
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call10) #19
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call10) #19
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %Py_XDECREF.exit, %if.end.i55, %if.then1.i58, %Py_DECREF.exit69, %if.end9, %if.else, %entry, %if.then7
@@ -3982,22 +3982,15 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @find_frozen(ptr noundef %nameobj, ptr noundef writeonly %info) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @find_frozen(ptr noundef %nameobj, ptr nocapture noundef writeonly %info) unnamed_addr #0 {
 entry:
-  %cmp.not = icmp eq ptr %info, null
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %info, i8 0, i64 40, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
   %cmp1 = icmp eq ptr %nameobj, null
   %cmp2 = icmp eq ptr %nameobj, @_Py_NoneStruct
   %or.cond = or i1 %cmp1, %cmp2
   br i1 %or.cond, label %return, label %if.end4
 
-if.end4:                                          ; preds = %if.end
+if.end4:                                          ; preds = %entry
   %call = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %nameobj) #19
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -4017,7 +4010,7 @@ if.end.i:                                         ; preds = %if.end7, %for.inc.i
   %p.033.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %if.end7 ]
   %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %2) #21
   %cmp3.i = icmp eq i32 %call.i, 0
-  br i1 %cmp3.i, label %if.end11, label %for.inc.i
+  br i1 %cmp3.i, label %if.then13, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i
   %incdec.ptr.i = getelementptr i8, ptr %p.033.i, i64 24
@@ -4040,7 +4033,7 @@ if.end12.i:                                       ; preds = %for.cond8.preheader
   %p.135.i = phi ptr [ %incdec.ptr19.i, %for.inc18.i ], [ %4, %for.cond8.preheader.i ]
   %call14.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %6) #21
   %cmp15.i = icmp eq i32 %call14.i, 0
-  br i1 %cmp15.i, label %if.end11, label %for.inc18.i
+  br i1 %cmp15.i, label %if.then13, label %for.inc18.i
 
 for.inc18.i:                                      ; preds = %if.end12.i
   %incdec.ptr19.i = getelementptr i8, ptr %p.135.i, i64 24
@@ -4079,7 +4072,7 @@ if.end28.i:                                       ; preds = %if.then23.i, %for.i
   %p.237.i = phi ptr [ %incdec.ptr35.i, %for.inc34.i ], [ %13, %if.then23.i ]
   %call30.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %15) #21
   %cmp31.i = icmp eq i32 %call30.i, 0
-  br i1 %cmp31.i, label %if.end11, label %for.inc34.i
+  br i1 %cmp31.i, label %if.then13, label %for.inc34.i
 
 for.inc34.i:                                      ; preds = %if.end28.i
   %incdec.ptr35.i = getelementptr i8, ptr %p.237.i, i64 24
@@ -4098,7 +4091,7 @@ if.end41.i:                                       ; preds = %for.end36.i, %for.i
   %p.339.i = phi ptr [ %incdec.ptr48.i, %for.inc47.i ], [ %17, %for.end36.i ]
   %call43.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %19) #21
   %cmp44.i = icmp eq i32 %call43.i, 0
-  br i1 %cmp44.i, label %if.end11, label %for.inc47.i
+  br i1 %cmp44.i, label %if.then13, label %for.inc47.i
 
 for.inc47.i:                                      ; preds = %if.end41.i
   %incdec.ptr48.i = getelementptr i8, ptr %p.339.i, i64 24
@@ -4106,11 +4099,8 @@ for.inc47.i:                                      ; preds = %if.end41.i
   %cmp39.i = icmp eq ptr %20, null
   br i1 %cmp39.i, label %return, label %if.end41.i
 
-if.end11:                                         ; preds = %if.end.i, %if.end12.i, %if.end28.i, %if.end41.i
+if.then13:                                        ; preds = %if.end.i, %if.end12.i, %if.end28.i, %if.end41.i
   %retval.0.i = phi ptr [ %p.339.i, %if.end41.i ], [ %p.237.i, %if.end28.i ], [ %p.135.i, %if.end12.i ], [ %p.033.i, %if.end.i ]
-  br i1 %cmp.not, label %if.end29, label %if.then13
-
-if.then13:                                        ; preds = %if.end11
   store ptr %nameobj, ptr %info, align 8
   %code = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %21 = load ptr, ptr %code, align 8
@@ -4169,28 +4159,23 @@ resolve_module_alias.exit:                        ; preds = %for.inc.i29, %if.en
   %cmp6.i = phi i8 [ 1, %if.then7.i ], [ 0, %if.end25 ], [ 0, %for.inc.i29 ]
   %is_alias = getelementptr inbounds i8, ptr %info, i64 25
   store i8 %cmp6.i, ptr %is_alias, align 1
-  br label %if.end29
-
-if.end29:                                         ; preds = %resolve_module_alias.exit, %if.end11
-  %code30 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  %30 = load ptr, ptr %code30, align 8
+  %30 = load ptr, ptr %code, align 8
   %cmp31 = icmp eq ptr %30, null
   br i1 %cmp31, label %return, label %if.end34
 
-if.end34:                                         ; preds = %if.end29
+if.end34:                                         ; preds = %resolve_module_alias.exit
   %31 = load i8, ptr %30, align 1
   %cmp37 = icmp eq i8 %31, 0
   br i1 %cmp37, label %return, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %if.end34
-  %size40 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %32 = load i32, ptr %size40, align 8
+  %32 = load i32, ptr %size, align 8
   %cmp41 = icmp eq i32 %32, 0
   %spec.select = select i1 %cmp41, i32 5, i32 0
   br label %return
 
-return:                                           ; preds = %for.inc47.i, %for.end36.i, %if.else.i.i, %use_frozen.exit.i, %lor.lhs.false39, %if.end34, %if.end29, %if.end, %if.then6
-  %retval.0 = phi i32 [ 1, %if.then6 ], [ 1, %if.end ], [ 4, %if.end29 ], [ 5, %if.end34 ], [ %spec.select, %lor.lhs.false39 ], [ 2, %use_frozen.exit.i ], [ 2, %if.else.i.i ], [ 2, %for.end36.i ], [ 2, %for.inc47.i ]
+return:                                           ; preds = %for.inc47.i, %for.end36.i, %if.else.i.i, %use_frozen.exit.i, %lor.lhs.false39, %if.end34, %resolve_module_alias.exit, %entry, %if.then6
+  %retval.0 = phi i32 [ 1, %if.then6 ], [ 1, %entry ], [ 4, %resolve_module_alias.exit ], [ 5, %if.end34 ], [ %spec.select, %lor.lhs.false39 ], [ 2, %use_frozen.exit.i ], [ 2, %if.else.i.i ], [ 2, %for.end36.i ], [ 2, %for.inc47.i ]
   ret i32 %retval.0
 }
 
@@ -7680,9 +7665,9 @@ skip_optional:                                    ; preds = %if.end7, %if.end11
 if.then.i:                                        ; preds = %skip_optional
   %call1.i = call i32 @PyObject_GetBuffer(ptr noundef %dataobj.0, ptr noundef nonnull %buf.i, i32 noundef 256) #19
   %cmp.not.i = icmp eq i32 %call1.i, 0
-  br i1 %cmp.not.i, label %if.end12.thread.i, label %_imp_get_frozen_object_impl.exit
+  br i1 %cmp.not.i, label %if.end.i, label %_imp_get_frozen_object_impl.exit
 
-if.end12.thread.i:                                ; preds = %if.then.i
+if.end.i:                                         ; preds = %if.then.i
   %6 = load ptr, ptr %buf.i, align 8
   %data.i = getelementptr inbounds i8, ptr %info.i, i64 8
   store ptr %6, ptr %data.i, align 8
@@ -7690,7 +7675,7 @@ if.end12.thread.i:                                ; preds = %if.then.i
   %7 = load i64, ptr %len.i, align 8
   %size.i = getelementptr inbounds i8, ptr %info.i, i64 16
   store i64 %7, ptr %size.i, align 8
-  br label %if.then14.i
+  br label %if.end12.i
 
 if.else.i:                                        ; preds = %skip_optional
   %cmp4.not.i = icmp eq ptr %dataobj.0, @_Py_NoneStruct
@@ -7703,28 +7688,28 @@ if.then5.i:                                       ; preds = %if.else.i
 if.else6.i:                                       ; preds = %if.else.i
   %call7.i = call fastcc i32 @find_frozen(ptr noundef nonnull %1, ptr noundef nonnull %info.i)
   %cmp8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %cmp8.not.i, label %if.end12.i, label %if.then9.i
+  br i1 %cmp8.not.i, label %if.else6.if.end12_crit_edge.i, label %if.then9.i
+
+if.else6.if.end12_crit_edge.i:                    ; preds = %if.else6.i
+  %.pre.i = load ptr, ptr %info.i, align 8
+  %size17.phi.trans.insert.i = getelementptr inbounds i8, ptr %info.i, i64 16
+  %.pre1.i = load i64, ptr %size17.phi.trans.insert.i, align 8
+  br label %if.end12.i
 
 if.then9.i:                                       ; preds = %if.else6.i
-  call fastcc void @set_frozen_error(i32 noundef %call7.i, ptr noundef nonnull %1)
+  tail call fastcc void @set_frozen_error(i32 noundef %call7.i, ptr noundef nonnull %1)
   br label %_imp_get_frozen_object_impl.exit
 
-if.end12.i:                                       ; preds = %if.else6.i
-  %.pre.i = load ptr, ptr %info.i, align 8
-  %8 = icmp eq ptr %.pre.i, null
-  br i1 %8, label %if.then14.i, label %if.end16.i
-
-if.then14.i:                                      ; preds = %if.end12.i, %if.end12.thread.i
-  store ptr %1, ptr %info.i, align 8
-  br label %if.end16.i
-
-if.end16.i:                                       ; preds = %if.then14.i, %if.end12.i
-  %size17.i = getelementptr inbounds i8, ptr %info.i, i64 16
-  %9 = load i64, ptr %size17.i, align 8
-  %cmp18.i = icmp eq i64 %9, 0
+if.end12.i:                                       ; preds = %if.else6.if.end12_crit_edge.i, %if.end.i
+  %8 = phi i64 [ %.pre1.i, %if.else6.if.end12_crit_edge.i ], [ %7, %if.end.i ]
+  %9 = phi ptr [ %.pre.i, %if.else6.if.end12_crit_edge.i ], [ null, %if.end.i ]
+  %cmp13.i = icmp eq ptr %9, null
+  %spec.store.select.i = select i1 %cmp13.i, ptr %1, ptr %9
+  store ptr %spec.store.select.i, ptr %info.i, align 8
+  %cmp18.i = icmp eq i64 %8, 0
   br i1 %cmp18.i, label %if.then19.i, label %if.end20.i
 
-if.then19.i:                                      ; preds = %if.end16.i
+if.then19.i:                                      ; preds = %if.end12.i
   %call.i.i = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.54, ptr noundef nonnull %1) #19
   %cmp5.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.then.i.i.i
@@ -7751,7 +7736,7 @@ if.then6.i.i:                                     ; preds = %if.then19.i
   %call76.i.i = call ptr @PyErr_SetImportError(ptr noundef null, ptr noundef nonnull %1, ptr noundef null) #19
   br label %_imp_get_frozen_object_impl.exit
 
-if.end20.i:                                       ; preds = %if.end16.i
+if.end20.i:                                       ; preds = %if.end12.i
   %call22.i = call fastcc ptr @unmarshal_frozen_code(ptr noundef nonnull %info.i)
   %cmp23.not.i = icmp eq ptr %dataobj.0, @_Py_NoneStruct
   br i1 %cmp23.not.i, label %_imp_get_frozen_object_impl.exit, label %if.then24.i
@@ -7795,7 +7780,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call fastcc void @set_frozen_error(i32 noundef %call.i, ptr noundef nonnull %arg)
+  tail call fastcc void @set_frozen_error(i32 noundef %call.i, ptr noundef nonnull %arg)
   br label %_imp_is_frozen_package_impl.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -7803,7 +7788,7 @@ if.end.i:                                         ; preds = %if.end
   %4 = load i8, ptr %is_package.i, align 8
   %5 = and i8 %4, 1
   %conv.i3 = zext nneg i8 %5 to i64
-  %call2.i = call ptr @PyBool_FromLong(i64 noundef %conv.i3) #19
+  %call2.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i3) #19
   br label %_imp_is_frozen_package_impl.exit
 
 _imp_is_frozen_package_impl.exit:                 ; preds = %if.then.i, %if.end.i

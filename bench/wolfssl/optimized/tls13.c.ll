@@ -2555,8 +2555,8 @@ if.end25:                                         ; preds = %if.end
 if.then27:                                        ; preds = %if.end25
   %cmp32.not = icmp ne i8 %args.sroa.0.sroa.0.0.extract.trunc, 3
   %cmp43 = icmp ugt i16 %1, 1023
-  %or.cond183 = or i1 %cmp43, %cmp32.not
-  br i1 %or.cond183, label %if.then45, label %if.else
+  %or.cond182 = or i1 %cmp43, %cmp32.not
+  br i1 %or.cond182, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %if.then27
   %minor55 = getelementptr inbounds i8, ptr %ssl, i64 695
@@ -2613,7 +2613,7 @@ if.end17.i:                                       ; preds = %if.end9.i
 
 if.end28.i:                                       ; preds = %if.end17.i
   %cmp31.i = icmp ult i32 %add24.i, %helloSz
-  br i1 %cmp31.i, label %if.then33.i, label %if.end92.thread174
+  br i1 %cmp31.i, label %if.then33.i, label %if.end92.thread173
 
 if.then33.i:                                      ; preds = %if.end28.i
   %add34.i = add nuw nsw i32 %add24.i, 2
@@ -2645,7 +2645,7 @@ if.end46.i:                                       ; preds = %if.end38.i
 if.end51.i:                                       ; preds = %if.end46.i
   %.pre.i = load i32, ptr %foundVersion.i, align 4
   %7 = icmp eq i32 %.pre.i, 0
-  br i1 %7, label %if.end92.thread174, label %if.end92
+  br i1 %7, label %if.end92.thread173, label %if.end92
 
 DoTls13SupportedVersions.exit.thread:             ; preds = %if.then79, %if.end.i, %if.end9.i, %if.end17.i, %if.then33.i, %if.end38.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
@@ -2656,7 +2656,7 @@ DoTls13SupportedVersions.exit:                    ; preds = %if.end46.i
   %cmp88 = icmp slt i32 %call.i, 0
   br i1 %cmp88, label %FreeDch13Args.exit, label %if.end163
 
-if.end92.thread174:                               ; preds = %if.end28.i, %if.end51.i
+if.end92.thread173:                               ; preds = %if.end28.i, %if.end51.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
   br label %if.then94
 
@@ -2668,8 +2668,8 @@ if.end92:                                         ; preds = %if.end51.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
   br i1 %tobool54.not.i.not, label %if.then94, label %if.end163
 
-if.then94:                                        ; preds = %if.then69, %if.then45, %if.end92.thread174, %if.end92
-  %args.sroa.0.sroa.4.0154168 = phi i8 [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92.thread174 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.then69 ], [ 3, %if.then45 ]
+if.then94:                                        ; preds = %if.then69, %if.then45, %if.end92.thread173, %if.end92
+  %args.sroa.0.sroa.4.0153167 = phi i8 [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92.thread173 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.then69 ], [ 3, %if.then45 ]
   %bf.load96 = load i64, ptr %dtls, align 8
   %9 = and i64 %bf.load96, 1024
   %tobool100.not = icmp eq i64 %9, 0
@@ -2683,17 +2683,17 @@ if.end104:                                        ; preds = %if.then94
   br i1 %tobool111.not, label %land.lhs.true112, label %land.lhs.true130
 
 land.lhs.true112:                                 ; preds = %if.end104
-  %cmp119 = icmp ult i8 %args.sroa.0.sroa.4.0154168, %11
+  %cmp119 = icmp ult i8 %args.sroa.0.sroa.4.0153167, %11
   br i1 %cmp119, label %FreeDch13Args.exit, label %if.end143
 
 land.lhs.true130:                                 ; preds = %if.end104
-  %cmp138 = icmp ugt i8 %args.sroa.0.sroa.4.0154168, %11
+  %cmp138 = icmp ugt i8 %args.sroa.0.sroa.4.0153167, %11
   br i1 %cmp138, label %FreeDch13Args.exit, label %if.end143
 
 if.end143:                                        ; preds = %land.lhs.true112, %land.lhs.true130
   %minor145 = getelementptr inbounds i8, ptr %ssl, i64 695
   %12 = load i8, ptr %minor145, align 1
-  store i8 %args.sroa.0.sroa.4.0154168, ptr %minor145, align 1
+  store i8 %args.sroa.0.sroa.4.0153167, ptr %minor145, align 1
   %call155 = call i32 @HashInput(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr, i32 noundef %helloSz) #11
   store i8 %12, ptr %minor145, align 1
   %cmp158 = icmp eq i32 %call155, 0
@@ -2899,8 +2899,8 @@ if.then4.i:                                       ; preds = %if.end210, %if.end2
   br label %FreeDch13Args.exit
 
 FreeDch13Args.exit:                               ; preds = %DoTls13SupportedVersions.exit, %if.then160, %if.end143, %entry, %if.end, %if.then94, %land.lhs.true130, %land.lhs.true112, %if.end163, %if.end178, %if.end198, %DoTls13SupportedVersions.exit.thread, %if.then4.i
-  %ret.7182 = phi i32 [ %ret.7.ph, %if.then4.i ], [ %call161, %if.then160 ], [ %call155, %if.end143 ], [ %call.i, %DoTls13SupportedVersions.exit ], [ -328, %entry ], [ -326, %if.end ], [ -326, %if.then94 ], [ -326, %land.lhs.true130 ], [ -326, %land.lhs.true112 ], [ -425, %if.end163 ], [ -328, %if.end178 ], [ -125, %if.end198 ], [ -328, %DoTls13SupportedVersions.exit.thread ]
-  ret i32 %ret.7182
+  %ret.7181 = phi i32 [ %ret.7.ph, %if.then4.i ], [ %call161, %if.then160 ], [ %call155, %if.end143 ], [ %call.i, %DoTls13SupportedVersions.exit ], [ -328, %entry ], [ -326, %if.end ], [ -326, %if.then94 ], [ -326, %land.lhs.true130 ], [ -326, %land.lhs.true112 ], [ -425, %if.end163 ], [ -328, %if.end178 ], [ -125, %if.end198 ], [ -328, %DoTls13SupportedVersions.exit.thread ]
+  ret i32 %ret.7181
 }
 
 declare i32 @HashInput(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

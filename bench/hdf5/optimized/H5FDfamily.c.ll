@@ -2009,7 +2009,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_unlock(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5FD__family_delete(ptr noundef %0, i64 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_delete(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca %struct.H5FD_family_fapl_t, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.anon.1, align 8

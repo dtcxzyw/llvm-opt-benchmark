@@ -603,9 +603,9 @@ if.then.i.i:                                      ; preds = %entry
 if.end.i.i:                                       ; preds = %entry
   %2 = cmpxchg volatile ptr @_ZN4base9SingletonINS_12_GLOBAL__N_112EmptyStringsENS_22DefaultSingletonTraitsIS2_EES2_E9instance_E, i64 0, i64 1 acquire acquire, align 8
   %cmp3.i.i = extractvalue { i64, i1 } %2, 1
-  br i1 %cmp3.i.i, label %if.then7.i.i, label %if.end9.i.i
+  br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end9.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i) #21
   %s16.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
@@ -620,8 +620,8 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   %4 = inttoptr i64 %call10.i.i to ptr
   br label %_ZN4base12_GLOBAL__N_112EmptyStrings11GetInstanceEv.exit
 
-_ZN4base12_GLOBAL__N_112EmptyStrings11GetInstanceEv.exit: ; preds = %if.then.i.i, %if.then7.i.i, %if.end9.i.i
-  %retval.0.i.i = phi ptr [ %1, %if.then.i.i ], [ %4, %if.end9.i.i ], [ %call.i.i.i, %if.then7.i.i ]
+_ZN4base12_GLOBAL__N_112EmptyStrings11GetInstanceEv.exit: ; preds = %if.then.i.i, %if.then4.i.i, %if.end9.i.i
+  %retval.0.i.i = phi ptr [ %1, %if.then.i.i ], [ %call.i.i.i, %if.then4.i.i ], [ %4, %if.end9.i.i ]
   ret ptr %retval.0.i.i
 }
 
@@ -639,9 +639,9 @@ if.then.i.i:                                      ; preds = %entry
 if.end.i.i:                                       ; preds = %entry
   %2 = cmpxchg volatile ptr @_ZN4base9SingletonINS_12_GLOBAL__N_112EmptyStringsENS_22DefaultSingletonTraitsIS2_EES2_E9instance_E, i64 0, i64 1 acquire acquire, align 8
   %cmp3.i.i = extractvalue { i64, i1 } %2, 1
-  br i1 %cmp3.i.i, label %if.then7.i.i, label %if.end9.i.i
+  br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end9.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i) #21
   %s16.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
@@ -656,8 +656,8 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   %4 = inttoptr i64 %call10.i.i to ptr
   br label %_ZN4base12_GLOBAL__N_112EmptyStrings11GetInstanceEv.exit
 
-_ZN4base12_GLOBAL__N_112EmptyStrings11GetInstanceEv.exit: ; preds = %if.then.i.i, %if.then7.i.i, %if.end9.i.i
-  %retval.0.i.i = phi ptr [ %1, %if.then.i.i ], [ %4, %if.end9.i.i ], [ %call.i.i.i, %if.then7.i.i ]
+_ZN4base12_GLOBAL__N_112EmptyStrings11GetInstanceEv.exit: ; preds = %if.then.i.i, %if.then4.i.i, %if.end9.i.i
+  %retval.0.i.i = phi ptr [ %1, %if.then.i.i ], [ %call.i.i.i, %if.then4.i.i ], [ %4, %if.end9.i.i ]
   %s16 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   ret ptr %s16
 }

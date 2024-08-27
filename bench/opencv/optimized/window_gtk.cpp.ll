@@ -4239,126 +4239,122 @@ define internal fastcc void @_ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv(ptr 
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.cv::Mat", align 8
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %14, label %7
+  %7 = load i32, ptr %1, align 8
+  %8 = icmp eq i32 %7, 144
+  br i1 %8, label %9, label %13
 
-7:                                                ; preds = %2
-  %8 = load i32, ptr %1, align 8
-  %9 = icmp eq i32 %8, 144
-  br i1 %9, label %10, label %14
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, 0
+  br label %13
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, 0
-  br label %14
+13:                                               ; preds = %9, %2
+  %.025 = phi i1 [ %12, %9 ], [ true, %2 ]
+  %14 = call ptr @cvGetMat(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0)
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %.thread, label %17
 
-14:                                               ; preds = %10, %7, %2
-  %.025 = phi i1 [ %13, %10 ], [ true, %7 ], [ true, %2 ]
-  %15 = call ptr @cvGetMat(ptr noundef %1, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %.not29 = icmp eq ptr %17, null
-  br i1 %.not29, label %.thread, label %18
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %16, i64 32
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %19, %21
+  br i1 %22, label %23, label %29
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 32
-  %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 32
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %20, %22
-  br i1 %23, label %24, label %30
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %14, i64 36
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %16, i64 36
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %25, %27
+  br i1 %28, label %.thread36, label %29
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %15, i64 36
-  %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %17, i64 36
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %.thread37, label %30
+29:                                               ; preds = %17, %23
+  call void @cvReleaseMat(ptr noundef nonnull %15)
+  %.pr.pre = load ptr, ptr %15, align 8
+  %30 = icmp eq ptr %.pr.pre, null
+  br i1 %30, label %.thread, label %.thread36
 
-30:                                               ; preds = %18, %24
-  call void @cvReleaseMat(ptr noundef nonnull %16)
-  %.pr.pre = load ptr, ptr %16, align 8
-  %31 = icmp eq ptr %.pr.pre, null
-  br i1 %31, label %.thread, label %.thread37
+.thread:                                          ; preds = %13, %29
+  %31 = getelementptr inbounds i8, ptr %14, i64 32
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %14, i64 36
+  %34 = load i32, ptr %33, align 4
+  %35 = call ptr @cvCreateMat(i32 noundef %32, i32 noundef %34, i32 noundef 16)
+  store ptr %35, ptr %15, align 8
+  %36 = tail call i64 @gtk_widget_get_type() #26
+  %37 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %36)
+  call void @gtk_widget_queue_resize(ptr noundef %37)
+  br label %.thread36
 
-.thread:                                          ; preds = %14, %30
-  %32 = getelementptr inbounds i8, ptr %15, i64 32
-  %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 36
-  %35 = load i32, ptr %34, align 4
-  %36 = call ptr @cvCreateMat(i32 noundef %33, i32 noundef %35, i32 noundef 16)
-  store ptr %36, ptr %16, align 8
-  %37 = tail call i64 @gtk_widget_get_type() #26
-  %38 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %37)
-  call void @gtk_widget_queue_resize(ptr noundef %38)
-  br label %.thread37
+.thread36:                                        ; preds = %23, %29, %.thread
+  br i1 %.025, label %46, label %38
 
-.thread37:                                        ; preds = %24, %30, %.thread
-  br i1 %.025, label %47, label %39
-
-39:                                               ; preds = %.thread37
+38:                                               ; preds = %.thread36
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %40 unwind label %42
+          to label %39 unwind label %41
+
+39:                                               ; preds = %38
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv, ptr noundef nonnull @.str.1, i32 noundef 154) #28
+          to label %40 unwind label %43
 
 40:                                               ; preds = %39
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv, ptr noundef nonnull @.str.1, i32 noundef 154) #28
-          to label %41 unwind label %44
-
-41:                                               ; preds = %40
   unreachable
 
-42:                                               ; preds = %39
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %38
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %45
 
-44:                                               ; preds = %40
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %39
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  br label %46
+  br label %45
 
-46:                                               ; preds = %44, %42
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
+45:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
-  br label %59
+  br label %58
 
-47:                                               ; preds = %.thread37
-  call void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %6, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
-  %48 = load ptr, ptr %16, align 8
-  invoke void @_Z13convertToShowRKN2cv3MatEPK5CvMatb(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef %48, i1 noundef zeroext true)
-          to label %49 unwind label %54
+46:                                               ; preds = %.thread36
+  call void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %6, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
+  %47 = load ptr, ptr %15, align 8
+  invoke void @_Z13convertToShowRKN2cv3MatEPK5CvMatb(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef %47, i1 noundef zeroext true)
+          to label %48 unwind label %53
 
-49:                                               ; preds = %47
+48:                                               ; preds = %46
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #27
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %.not34 = icmp eq ptr %51, null
-  br i1 %.not34, label %56, label %52
+  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = load ptr, ptr %49, align 8
+  %.not33 = icmp eq ptr %50, null
+  br i1 %.not33, label %55, label %51
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %16, align 8
-  call void @cvResize(ptr noundef %53, ptr noundef nonnull %51, i32 noundef 3)
-  br label %56
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %15, align 8
+  call void @cvResize(ptr noundef %52, ptr noundef nonnull %50, i32 noundef 3)
+  br label %55
 
-54:                                               ; preds = %47
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %46
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #27
-  br label %59
+  br label %58
 
-56:                                               ; preds = %52, %49
-  %57 = tail call i64 @gtk_widget_get_type() #26
-  %58 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %57)
-  call void @gtk_widget_queue_draw(ptr noundef %58)
+55:                                               ; preds = %51, %48
+  %56 = tail call i64 @gtk_widget_get_type() #26
+  %57 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %56)
+  call void @gtk_widget_queue_draw(ptr noundef %57)
   ret void
 
-59:                                               ; preds = %54, %46
-  %.pn32 = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %46 ]
-  resume { ptr, i32 } %.pn32
+58:                                               ; preds = %53, %45
+  %.pn31 = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %45 ]
+  resume { ptr, i32 } %.pn31
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -4749,21 +4749,14 @@ for.body.i.i.i.i.i328:                            ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i: ; preds = %for.body.i.i.i.i.i328, %call5.i.i.i.i.noexc341
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i342, %call5.i.i.i.i.noexc341 ], [ %incdec.ptr1.i.i.i.i.i332, %for.body.i.i.i.i.i328 ]
-  %tobool.not.i.i336 = icmp eq ptr %call5.i.i.i.i342413418, null
-  br i1 %tobool.not.i.i336, label %.noexc209, label %if.then.i59.i
-
-if.then.i59.i:                                    ; preds = %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i342413418) #21
-  br label %.noexc209
-
-.noexc209:                                        ; preds = %if.then.i59.i, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i
   %add.ptr28.i = getelementptr inbounds %"struct.std::pair.687", ptr %call5.i.i.i.i342, i64 %cond.i.i
   br label %invoke.cont64
 
-invoke.cont64:                                    ; preds = %.noexc209, %if.then.i207
-  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %.noexc209 ], [ %62, %if.then.i207 ]
-  %call5.i.i.i.i342412 = phi ptr [ %call5.i.i.i.i342, %.noexc209 ], [ %call5.i.i.i.i342413418, %if.then.i207 ]
-  %add.ptr28.i407 = phi ptr [ %add.ptr28.i, %.noexc209 ], [ %add.ptr28.i408419, %if.then.i207 ]
+invoke.cont64:                                    ; preds = %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i, %if.then.i207
+  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i ], [ %62, %if.then.i207 ]
+  %call5.i.i.i.i342412 = phi ptr [ %call5.i.i.i.i342, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i ], [ %call5.i.i.i.i342413418, %if.then.i207 ]
+  %add.ptr28.i407 = phi ptr [ %add.ptr28.i, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i ], [ %add.ptr28.i408419, %if.then.i207 ]
   %ulits.sroa.12.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0420, i64 4
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
@@ -4981,22 +4974,15 @@ for.body.i.i.i.i.i364:                            ; preds = %call5.i.i.i.i.noexc
 _ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380: ; preds = %for.body.i.i.i.i.i364, %call5.i.i.i.i.noexc389
   %__cur.0.lcssa.i.i.i.i.i371 = phi ptr [ %call5.i.i.i.i390, %call5.i.i.i.i.noexc389 ], [ %incdec.ptr1.i.i.i.i.i368, %for.body.i.i.i.i.i364 ]
   %incdec.ptr.i372 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i371, i64 16
-  %tobool.not.i.i382 = icmp eq ptr %call5.i.i.i.i390428433, null
-  br i1 %tobool.not.i.i382, label %.noexc308, label %if.then.i59.i383
-
-if.then.i59.i383:                                 ; preds = %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i390428433) #21
-  br label %.noexc308
-
-.noexc308:                                        ; preds = %if.then.i59.i383, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380
   store ptr %incdec.ptr.i372, ptr %_M_finish.i.i221, align 8
   %add.ptr28.i386 = getelementptr inbounds %"struct.std::pair.687", ptr %call5.i.i.i.i390, i64 %cond.i.i355
   br label %invoke.cont118
 
-invoke.cont118:                                   ; preds = %.noexc308, %if.then.i303
-  %90 = phi ptr [ %incdec.ptr.i372, %.noexc308 ], [ %incdec.ptr.i305, %if.then.i303 ]
-  %call5.i.i.i.i390427 = phi ptr [ %call5.i.i.i.i390, %.noexc308 ], [ %call5.i.i.i.i390428433, %if.then.i303 ]
-  %add.ptr28.i386422 = phi ptr [ %add.ptr28.i386, %.noexc308 ], [ %add.ptr28.i386423434, %if.then.i303 ]
+invoke.cont118:                                   ; preds = %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380, %if.then.i303
+  %90 = phi ptr [ %incdec.ptr.i372, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380 ], [ %incdec.ptr.i305, %if.then.i303 ]
+  %call5.i.i.i.i390427 = phi ptr [ %call5.i.i.i.i390, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380 ], [ %call5.i.i.i.i390428433, %if.then.i303 ]
+  %add.ptr28.i386422 = phi ptr [ %add.ptr28.i386, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380 ], [ %add.ptr28.i386423434, %if.then.i303 ]
   %incdec.ptr.i.i.i.i310 = getelementptr inbounds i8, ptr %__begin198.sroa.0.0435, i64 4
   %cmp.i.i.i.i247.not = icmp eq ptr %incdec.ptr.i.i.i.i310, %add.ptr.i.i.i246
   br i1 %cmp.i.i.i.i247.not, label %for.cond.cleanup107, label %invoke.cont111

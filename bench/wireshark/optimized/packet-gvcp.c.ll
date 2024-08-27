@@ -1686,8 +1686,8 @@ define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1,
   %or.cond.i.i = icmp uge i32 %20, %10
   %21 = add i32 %19, 12
   %.not19.i.i = icmp ugt i32 %10, %21
-  %or.cond21.i.i = or i1 %or.cond.i.i, %.not19.i.i
-  br i1 %or.cond21.i.i, label %16, label %22
+  %or.cond20.i.i = or i1 %or.cond.i.i, %.not19.i.i
+  br i1 %or.cond20.i.i, label %16, label %22
 
 22:                                               ; preds = %17
   %23 = sub i32 %10, %19
@@ -1838,8 +1838,8 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %57, %.lr.ph.split.u
   %or.cond.i = icmp uge i32 %81, %76
   %82 = add i32 %80, 12
   %.not19.i = icmp ugt i32 %76, %82
-  %or.cond21.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.i, label %77, label %is_extended_bootstrap_address.exit
+  %or.cond20.i = or i1 %or.cond.i, %.not19.i
+  br i1 %or.cond20.i, label %77, label %is_extended_bootstrap_address.exit
 
 is_extended_bootstrap_address.exit:               ; preds = %78
   %83 = sub i32 %76, %80
@@ -1911,8 +1911,8 @@ define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1
   %or.cond.i.i = icmp uge i32 %23, %12
   %24 = add i32 %22, 12
   %.not19.i.i = icmp ugt i32 %12, %24
-  %or.cond21.i.i = or i1 %or.cond.i.i, %.not19.i.i
-  br i1 %or.cond21.i.i, label %19, label %25
+  %or.cond20.i.i = or i1 %or.cond.i.i, %.not19.i.i
+  br i1 %or.cond20.i.i, label %19, label %25
 
 25:                                               ; preds = %20
   %26 = sub i32 %12, %22
@@ -2005,8 +2005,8 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
   %or.cond.i = icmp uge i32 %56, %45
   %57 = add i32 %55, 12
   %.not19.i = icmp ugt i32 %45, %57
-  %or.cond21.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.i, label %53, label %is_extended_bootstrap_address.exit
+  %or.cond20.i = or i1 %or.cond.i, %.not19.i
+  br i1 %or.cond20.i, label %53, label %is_extended_bootstrap_address.exit
 
 is_extended_bootstrap_address.exit:               ; preds = %.preheader
   %58 = load i32, ptr @hf_gvcp_writeregcmd_extended_bootstrap_register, align 4
@@ -2088,8 +2088,8 @@ define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1,
   %or.cond.i = icmp uge i32 %21, %5
   %22 = add i32 %20, 12
   %.not19.i = icmp ugt i32 %5, %22
-  %or.cond21.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.i, label %17, label %is_extended_bootstrap_address.exit
+  %or.cond20.i = or i1 %or.cond.i, %.not19.i
+  br i1 %or.cond20.i, label %17, label %is_extended_bootstrap_address.exit
 
 is_extended_bootstrap_address.exit:               ; preds = %18
   %23 = sub i32 %5, %20
@@ -2148,8 +2148,8 @@ define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1
   %or.cond.i.i = icmp uge i32 %18, %8
   %19 = add i32 %17, 12
   %.not19.i.i = icmp ugt i32 %8, %19
-  %or.cond21.i.i = or i1 %or.cond.i.i, %.not19.i.i
-  br i1 %or.cond21.i.i, label %14, label %20
+  %or.cond20.i.i = or i1 %or.cond.i.i, %.not19.i.i
+  br i1 %or.cond20.i.i, label %14, label %20
 
 20:                                               ; preds = %15
   %21 = sub i32 %8, %17
@@ -2294,8 +2294,8 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %47, %44, 
   %or.cond.i = icmp uge i32 %79, %53
   %80 = add i32 %78, 12
   %.not19.i = icmp ugt i32 %53, %80
-  %or.cond21.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.i, label %75, label %is_extended_bootstrap_address.exit
+  %or.cond20.i = or i1 %or.cond.i, %.not19.i
+  br i1 %or.cond20.i, label %75, label %is_extended_bootstrap_address.exit
 
 is_extended_bootstrap_address.exit:               ; preds = %76
   %81 = sub i32 %53, %78
@@ -2655,8 +2655,8 @@ define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1,
   %or.cond.i.i = icmp uge i32 %29, %19
   %30 = add i32 %28, 12
   %.not19.i.i = icmp ugt i32 %19, %30
-  %or.cond21.i.i = or i1 %or.cond.i.i, %.not19.i.i
-  br i1 %or.cond21.i.i, label %25, label %31
+  %or.cond20.i.i = or i1 %or.cond.i.i, %.not19.i.i
+  br i1 %or.cond20.i.i, label %25, label %31
 
 31:                                               ; preds = %26
   %32 = sub i32 %19, %28
@@ -2761,8 +2761,8 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %dissect_extended_bo
   %or.cond.i.i96 = icmp uge i32 %65, %59
   %66 = add i32 %64, 12
   %.not19.i.i97 = icmp ugt i32 %59, %66
-  %or.cond21.i.i98 = or i1 %or.cond.i.i96, %.not19.i.i97
-  br i1 %or.cond21.i.i98, label %62, label %67
+  %or.cond20.i.i98 = or i1 %or.cond.i.i96, %.not19.i.i97
+  br i1 %or.cond20.i.i98, label %62, label %67
 
 67:                                               ; preds = %.preheader135
   %68 = sub i32 %59, %64
@@ -2814,8 +2814,8 @@ get_register_name_from_address.exit103:           ; preds = %56, %67, %.thread.i
   %or.cond.i = icmp uge i32 %84, %59
   %85 = add i32 %83, 12
   %.not19.i = icmp ugt i32 %59, %85
-  %or.cond21.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.i, label %81, label %is_extended_bootstrap_address.exit
+  %or.cond20.i = or i1 %or.cond.i, %.not19.i
+  br i1 %or.cond20.i, label %81, label %is_extended_bootstrap_address.exit
 
 is_extended_bootstrap_address.exit:               ; preds = %.preheader
   %86 = load i32, ptr @hf_gvcp_readregcmd_extended_bootstrap_register, align 4
@@ -2946,8 +2946,8 @@ define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1,
   %or.cond.i.i = icmp uge i32 %18, %8
   %19 = add i32 %17, 12
   %.not19.i.i = icmp ugt i32 %8, %19
-  %or.cond21.i.i = or i1 %or.cond.i.i, %.not19.i.i
-  br i1 %or.cond21.i.i, label %14, label %20
+  %or.cond20.i.i = or i1 %or.cond.i.i, %.not19.i.i
+  br i1 %or.cond20.i.i, label %14, label %20
 
 20:                                               ; preds = %15
   %21 = sub i32 %8, %17
@@ -3036,8 +3036,8 @@ get_register_name_from_address.exit:              ; preds = %7, %20, %.thread.i
   %or.cond.i = icmp uge i32 %54, %8
   %55 = add i32 %53, 12
   %.not19.i = icmp ugt i32 %8, %55
-  %or.cond21.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.i, label %50, label %is_extended_bootstrap_address.exit
+  %or.cond20.i = or i1 %or.cond.i, %.not19.i
+  br i1 %or.cond20.i, label %50, label %is_extended_bootstrap_address.exit
 
 is_extended_bootstrap_address.exit:               ; preds = %51
   %56 = sub i32 %8, %53
@@ -3105,8 +3105,8 @@ define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1
   %or.cond.i.i = icmp uge i32 %25, %15
   %26 = add i32 %24, 12
   %.not19.i.i = icmp ugt i32 %15, %26
-  %or.cond21.i.i = or i1 %or.cond.i.i, %.not19.i.i
-  br i1 %or.cond21.i.i, label %21, label %27
+  %or.cond20.i.i = or i1 %or.cond.i.i, %.not19.i.i
+  br i1 %or.cond20.i.i, label %21, label %27
 
 27:                                               ; preds = %22
   %28 = sub i32 %15, %24

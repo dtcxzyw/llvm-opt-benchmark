@@ -12513,14 +12513,14 @@ Vec_WrdReadHex.exit.thread:                       ; preds = %8
 .outer.i:                                         ; preds = %.outer.i.outer, %49
   %.033.ph.i = phi i32 [ %.134.i, %49 ], [ %.033.ph.i.ph, %.outer.i.outer ]
   %.032.ph.i = phi i64 [ %.1.i, %49 ], [ %.032.ph.i.ph, %.outer.i.outer ]
-  br label %.outer51.i
+  br label %.outer50.i
 
-.outer51.i:                                       ; preds = %.outer51.i.backedge, %.outer.i
-  %.033.ph52.i = phi i32 [ %.033.ph.i, %.outer.i ], [ %.033.ph52.i.be, %.outer51.i.backedge ]
-  %.032.ph53.i = phi i64 [ %.032.ph.i, %.outer.i ], [ %.032.ph53.i.be, %.outer51.i.backedge ]
+.outer50.i:                                       ; preds = %.outer50.i.backedge, %.outer.i
+  %.033.ph51.i = phi i32 [ %.033.ph.i, %.outer.i ], [ %.033.ph51.i.be, %.outer50.i.backedge ]
+  %.032.ph52.i = phi i64 [ %.032.ph.i, %.outer.i ], [ %.032.ph52.i.be, %.outer50.i.backedge ]
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %.outer51.i
+.backedge.i:                                      ; preds = %.backedge.i.backedge, %.outer50.i
   %18 = tail call i32 @fgetc(ptr noundef nonnull %9)
   switch i32 %18, label %52 [
     i32 -1, label %100
@@ -12534,7 +12534,7 @@ Vec_WrdReadHex.exit.thread:                       ; preds = %8
   br label %.backedge.i
 
 19:                                               ; preds = %.backedge.i
-  %20 = icmp sgt i32 %.033.ph52.i, 0
+  %20 = icmp sgt i32 %.033.ph51.i, 0
   br i1 %20, label %21, label %49
 
 21:                                               ; preds = %19
@@ -12598,18 +12598,18 @@ Vec_WrdPush.exit.i:                               ; preds = %43, %Vec_WrdGrow.ex
   store i32 %46, ptr %14, align 4
   %47 = sext i32 %22 to i64
   %48 = getelementptr inbounds i64, ptr %45, i64 %47
-  store i64 %.032.ph53.i, ptr %48, align 8
+  store i64 %.032.ph52.i, ptr %48, align 8
   br label %49
 
 49:                                               ; preds = %Vec_WrdPush.exit.i, %19
-  %.134.i = phi i32 [ 0, %Vec_WrdPush.exit.i ], [ %.033.ph52.i, %19 ]
-  %.1.i = phi i64 [ 0, %Vec_WrdPush.exit.i ], [ %.032.ph53.i, %19 ]
+  %.134.i = phi i32 [ 0, %Vec_WrdPush.exit.i ], [ %.033.ph51.i, %19 ]
+  %.1.i = phi i64 [ 0, %Vec_WrdPush.exit.i ], [ %.032.ph52.i, %19 ]
   br i1 %17, label %50, label %.outer.i, !llvm.loop !120
 
 50:                                               ; preds = %49
-  %.val43.i = load i32, ptr %14, align 4
-  %51 = icmp sgt i32 %.val43.i, 0
-  %spec.select.i = select i1 %51, i32 %.val43.i, i32 -1
+  %.val42.i = load i32, ptr %14, align 4
+  %51 = icmp sgt i32 %.val42.i, 0
+  %spec.select.i = select i1 %51, i32 %.val42.i, i32 -1
   br label %.outer.i.outer, !llvm.loop !120
 
 52:                                               ; preds = %.backedge.i
@@ -12643,23 +12643,23 @@ Vec_WrdPush.exit.i:                               ; preds = %43, %Vec_WrdGrow.ex
 Vec_WrdReadHexOne.exit.i:                         ; preds = %62, %60, %56
   %.0.i.i = phi i32 [ %57, %56 ], [ %61, %60 ], [ %spec.select.i.i, %62 ]
   %65 = zext nneg i32 %.0.i.i to i64
-  %66 = shl nsw i32 %.033.ph52.i, 2
+  %66 = shl nsw i32 %.033.ph51.i, 2
   %67 = zext nneg i32 %66 to i64
   %68 = shl i64 %65, %67
-  %69 = or i64 %68, %.032.ph53.i
-  %70 = add nsw i32 %.033.ph52.i, 1
-  %71 = icmp slt i32 %.033.ph52.i, 15
-  br i1 %71, label %.outer51.i.backedge, label %72
+  %69 = or i64 %68, %.032.ph52.i
+  %70 = add nsw i32 %.033.ph51.i, 1
+  %71 = icmp slt i32 %.033.ph51.i, 15
+  br i1 %71, label %.outer50.i.backedge, label %72
 
 72:                                               ; preds = %Vec_WrdReadHexOne.exit.i
   %73 = load i32, ptr %14, align 4
   %74 = load i32, ptr %13, align 8
   %75 = icmp eq i32 %73, %74
-  br i1 %75, label %76, label %.Vec_WrdGrow.exit10_crit_edge.i44.i
+  br i1 %75, label %76, label %.Vec_WrdGrow.exit10_crit_edge.i43.i
 
-.Vec_WrdGrow.exit10_crit_edge.i44.i:              ; preds = %72
-  %.pre.i46.i = load ptr, ptr %16, align 8
-  br label %Vec_WrdPush.exit50.i
+.Vec_WrdGrow.exit10_crit_edge.i43.i:              ; preds = %72
+  %.pre.i45.i = load ptr, ptr %16, align 8
+  br label %Vec_WrdPush.exit49.i
 
 76:                                               ; preds = %72
   %77 = icmp slt i32 %73, 16
@@ -12667,30 +12667,30 @@ Vec_WrdReadHexOne.exit.i:                         ; preds = %62, %60, %56
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr %16, align 8
-  %.not9.i.i48.i = icmp eq ptr %79, null
-  br i1 %.not9.i.i48.i, label %82, label %80
+  %.not9.i.i47.i = icmp eq ptr %79, null
+  br i1 %.not9.i.i47.i, label %82, label %80
 
 80:                                               ; preds = %78
   %81 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %79, i64 noundef 128) #27
-  br label %Vec_WrdGrow.exit.i49.i
+  br label %Vec_WrdGrow.exit.i48.i
 
 82:                                               ; preds = %78
   %83 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #28
-  br label %Vec_WrdGrow.exit.i49.i
+  br label %Vec_WrdGrow.exit.i48.i
 
-Vec_WrdGrow.exit.i49.i:                           ; preds = %82, %80
+Vec_WrdGrow.exit.i48.i:                           ; preds = %82, %80
   %84 = phi ptr [ %81, %80 ], [ %83, %82 ]
   store ptr %84, ptr %16, align 8
   store i32 16, ptr %13, align 8
-  br label %Vec_WrdPush.exit50.i
+  br label %Vec_WrdPush.exit49.i
 
 85:                                               ; preds = %76
   %86 = shl nuw nsw i32 %73, 1
   %87 = load ptr, ptr %16, align 8
-  %.not9.i9.i47.i = icmp eq ptr %87, null
+  %.not9.i9.i46.i = icmp eq ptr %87, null
   %88 = zext nneg i32 %86 to i64
   %89 = shl nuw nsw i64 %88, 3
-  br i1 %.not9.i9.i47.i, label %92, label %90
+  br i1 %.not9.i9.i46.i, label %92, label %90
 
 90:                                               ; preds = %85
   %91 = tail call ptr @realloc(ptr noundef nonnull %87, i64 noundef %89) #27
@@ -12704,21 +12704,21 @@ Vec_WrdGrow.exit.i49.i:                           ; preds = %82, %80
   %95 = phi ptr [ %91, %90 ], [ %93, %92 ]
   store ptr %95, ptr %16, align 8
   store i32 %86, ptr %13, align 8
-  br label %Vec_WrdPush.exit50.i
+  br label %Vec_WrdPush.exit49.i
 
-Vec_WrdPush.exit50.i:                             ; preds = %94, %Vec_WrdGrow.exit.i49.i, %.Vec_WrdGrow.exit10_crit_edge.i44.i
-  %96 = phi ptr [ %.pre.i46.i, %.Vec_WrdGrow.exit10_crit_edge.i44.i ], [ %95, %94 ], [ %84, %Vec_WrdGrow.exit.i49.i ]
+Vec_WrdPush.exit49.i:                             ; preds = %94, %Vec_WrdGrow.exit.i48.i, %.Vec_WrdGrow.exit10_crit_edge.i43.i
+  %96 = phi ptr [ %.pre.i45.i, %.Vec_WrdGrow.exit10_crit_edge.i43.i ], [ %95, %94 ], [ %84, %Vec_WrdGrow.exit.i48.i ]
   %97 = add nsw i32 %73, 1
   store i32 %97, ptr %14, align 4
   %98 = sext i32 %73 to i64
   %99 = getelementptr inbounds i64, ptr %96, i64 %98
   store i64 %69, ptr %99, align 8
-  br label %.outer51.i.backedge
+  br label %.outer50.i.backedge
 
-.outer51.i.backedge:                              ; preds = %Vec_WrdPush.exit50.i, %Vec_WrdReadHexOne.exit.i
-  %.033.ph52.i.be = phi i32 [ 0, %Vec_WrdPush.exit50.i ], [ %70, %Vec_WrdReadHexOne.exit.i ]
-  %.032.ph53.i.be = phi i64 [ 0, %Vec_WrdPush.exit50.i ], [ %69, %Vec_WrdReadHexOne.exit.i ]
-  br label %.outer51.i, !llvm.loop !120
+.outer50.i.backedge:                              ; preds = %Vec_WrdPush.exit49.i, %Vec_WrdReadHexOne.exit.i
+  %.033.ph51.i.be = phi i32 [ 0, %Vec_WrdPush.exit49.i ], [ %70, %Vec_WrdReadHexOne.exit.i ]
+  %.032.ph52.i.be = phi i64 [ 0, %Vec_WrdPush.exit49.i ], [ %69, %Vec_WrdReadHexOne.exit.i ]
+  br label %.outer50.i, !llvm.loop !120
 
 100:                                              ; preds = %.backedge.i
   %101 = tail call i32 @fclose(ptr noundef nonnull %9)

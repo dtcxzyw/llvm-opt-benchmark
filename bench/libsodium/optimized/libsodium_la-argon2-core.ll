@@ -358,7 +358,7 @@ if.end10:                                         ; preds = %if.end11.i
   %10 = load i32, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %BlakeHash.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
-  %call.i12 = call i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %BlakeHash.i, ptr noundef null, i64 noundef 0, i64 noundef 64) #9
+  %call.i11 = call i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %BlakeHash.i, ptr noundef null, i64 noundef 0, i64 noundef 64) #9
   %lanes.i = getelementptr inbounds i8, ptr %context, i64 84
   %11 = load i32, ptr %lanes.i, align 4
   store i32 %11, ptr %value.i, align 4
@@ -390,8 +390,8 @@ if.end10:                                         ; preds = %if.end11.i
 
 if.then23.i:                                      ; preds = %if.end10
   %17 = load i32, ptr %pwdlen.i, align 8
-  %conv.i13 = zext i32 %17 to i64
-  %call26.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %16, i64 noundef %conv.i13) #9
+  %conv.i12 = zext i32 %17 to i64
+  %call26.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %16, i64 noundef %conv.i12) #9
   %flags.i = getelementptr inbounds i8, ptr %context, i64 92
   %18 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %18, 1
@@ -473,10 +473,10 @@ argon2_initial_hash.exit:                         ; preds = %if.end64.i, %if.the
   %add.ptr = getelementptr inbounds i8, ptr %blockhash, i64 64
   call void @sodium_memzero(ptr noundef nonnull %add.ptr, i64 noundef 8) #9
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %blockhash_bytes.i)
-  %lanes.i14 = getelementptr inbounds i8, ptr %instance, i64 36
-  %33 = load i32, ptr %lanes.i14, align 4
-  %cmp22.not.i15 = icmp eq i32 %33, 0
-  br i1 %cmp22.not.i15, label %argon2_fill_first_blocks.exit, label %for.body.lr.ph.i
+  %lanes.i13 = getelementptr inbounds i8, ptr %instance, i64 36
+  %33 = load i32, ptr %lanes.i13, align 4
+  %cmp22.not.i14 = icmp eq i32 %33, 0
+  br i1 %cmp22.not.i14, label %argon2_fill_first_blocks.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %argon2_initial_hash.exit
   %add.ptr2.i = getelementptr inbounds i8, ptr %blockhash, i64 68
@@ -487,13 +487,13 @@ for.body.i:                                       ; preds = %load_block.exit21.i
   %l.023.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %load_block.exit21.i ]
   store i32 0, ptr %add.ptr, align 16
   store i32 %l.023.i, ptr %add.ptr2.i, align 4
-  %call.i16 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72) #9
+  %call.i15 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72) #9
   %34 = load ptr, ptr %instance, align 8
   %memory.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %memory.i, align 8
   %36 = load i32, ptr %lane_length.i, align 8
-  %mul.i17 = mul i32 %36, %l.023.i
-  %idxprom.i = zext i32 %mul.i17 to i64
+  %mul.i16 = mul i32 %36, %l.023.i
+  %idxprom.i = zext i32 %mul.i16 to i64
   %arrayidx.i = getelementptr %struct.block_, ptr %35, i64 %idxprom.i
   br label %for.body.i.i
 
@@ -510,7 +510,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 load_block.exit.i:                                ; preds = %for.body.i.i
   store i32 1, ptr %add.ptr, align 16
-  %call6.i18 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72) #9
+  %call6.i17 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72) #9
   %37 = load ptr, ptr %instance, align 8
   %memory8.i = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load ptr, ptr %memory8.i, align 8
@@ -534,7 +534,7 @@ for.body.i13.i:                                   ; preds = %for.body.i13.i, %lo
 
 load_block.exit21.i:                              ; preds = %for.body.i13.i
   %inc.i = add nuw i32 %l.023.i, 1
-  %40 = load i32, ptr %lanes.i14, align 4
+  %40 = load i32, ptr %lanes.i13, align 4
   %cmp.i = icmp ult i32 %inc.i, %40
   br i1 %cmp.i, label %for.body.i, label %argon2_fill_first_blocks.exit, !llvm.loop !12
 

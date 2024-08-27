@@ -1294,7 +1294,7 @@ for.body.i.i.i.i.i.i501.preheader:                ; preds = %_ZNSt12_Vector_base
   %58 = sub i64 %cond.i31.i.i.i4981512, %textureCoordBuffer.sroa.0.012811513
   %diff.check1514 = icmp ult i64 %58, 32
   %or.cond1675 = or i1 %min.iters.check1517, %diff.check1514
-  br i1 %or.cond1675, label %for.body.i.i.i.i.i.i501.preheader352, label %vector.ph1518
+  br i1 %or.cond1675, label %for.body.i.i.i.i.i.i501.preheader353, label %vector.ph1518
 
 vector.ph1518:                                    ; preds = %for.body.i.i.i.i.i.i501.preheader
   %n.vec1520 = and i64 %57, 4611686018427387900
@@ -1322,16 +1322,16 @@ vector.body1525:                                  ; preds = %vector.body1525, %v
 middle.block1516:                                 ; preds = %vector.body1525
   %ind.end1522 = getelementptr i8, ptr %textureCoordBuffer.sroa.0.01281, i64 %59
   %cmp.n1524 = icmp eq i64 %57, %n.vec1520
-  br i1 %cmp.n1524, label %if.then.i41.i.i.i510, label %for.body.i.i.i.i.i.i501.preheader352
+  br i1 %cmp.n1524, label %if.then.i41.i.i.i510, label %for.body.i.i.i.i.i.i501.preheader353
 
-for.body.i.i.i.i.i.i501.preheader352:             ; preds = %middle.block1516, %for.body.i.i.i.i.i.i501.preheader
+for.body.i.i.i.i.i.i501.preheader353:             ; preds = %middle.block1516, %for.body.i.i.i.i.i.i501.preheader
   %__cur.08.i.i.i.i.i.i502.ph = phi ptr [ %ind.end, %middle.block1516 ], [ %cond.i31.i.i.i498, %for.body.i.i.i.i.i.i501.preheader ]
   %__first.addr.07.i.i.i.i.i.i503.ph = phi ptr [ %ind.end1522, %middle.block1516 ], [ %textureCoordBuffer.sroa.0.01281, %for.body.i.i.i.i.i.i501.preheader ]
   br label %for.body.i.i.i.i.i.i501
 
-for.body.i.i.i.i.i.i501:                          ; preds = %for.body.i.i.i.i.i.i501.preheader352, %for.body.i.i.i.i.i.i501
-  %__cur.08.i.i.i.i.i.i502 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i505, %for.body.i.i.i.i.i.i501 ], [ %__cur.08.i.i.i.i.i.i502.ph, %for.body.i.i.i.i.i.i501.preheader352 ]
-  %__first.addr.07.i.i.i.i.i.i503 = phi ptr [ %incdec.ptr.i.i.i.i.i.i504, %for.body.i.i.i.i.i.i501 ], [ %__first.addr.07.i.i.i.i.i.i503.ph, %for.body.i.i.i.i.i.i501.preheader352 ]
+for.body.i.i.i.i.i.i501:                          ; preds = %for.body.i.i.i.i.i.i501.preheader353, %for.body.i.i.i.i.i.i501
+  %__cur.08.i.i.i.i.i.i502 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i505, %for.body.i.i.i.i.i.i501 ], [ %__cur.08.i.i.i.i.i.i502.ph, %for.body.i.i.i.i.i.i501.preheader353 ]
+  %__first.addr.07.i.i.i.i.i.i503 = phi ptr [ %incdec.ptr.i.i.i.i.i.i504, %for.body.i.i.i.i.i.i501 ], [ %__first.addr.07.i.i.i.i.i.i503.ph, %for.body.i.i.i.i.i.i501.preheader353 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %63 = load i64, ptr %__first.addr.07.i.i.i.i.i.i503, align 4, !tbaa.struct !116, !alias.scope !120, !noalias !117
@@ -1347,18 +1347,18 @@ _ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.
   br i1 %tobool.not.i.i.i.i509, label %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i41.i.i.i510
 
 if.then.i41.i.i.i510:                             ; preds = %middle.block1516, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i507101 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i507, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i ], [ %ind.end, %middle.block1516 ]
+  %__cur.0.lcssa.i.i.i.i.i.i507102 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i507, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i ], [ %ind.end, %middle.block1516 ]
   call void @_ZdlPv(ptr noundef nonnull %textureCoordBuffer.sroa.0.01281) #26
   br label %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i510, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i507102 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i507101, %if.then.i41.i.i.i510 ], [ %__cur.0.lcssa.i.i.i.i.i.i507, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i507103 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i507102, %if.then.i41.i.i.i510 ], [ %__cur.0.lcssa.i.i.i.i.i.i507, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i ]
   %add.ptr19.i.i.i511 = getelementptr inbounds %"class.irr::core::vector2d", ptr %cond.i31.i.i.i498, i64 %cond.i.i.i.i493
   br label %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit
 
 _ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i481
   %textureCoordBuffer.sroa.0.1 = phi ptr [ %cond.i31.i.i.i498, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %textureCoordBuffer.sroa.0.01281, %if.then.i.i481 ]
-  %__cur.0.lcssa.i.i.i.i.i.i507.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i507102, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %textureCoordBuffer.sroa.10.01282, %if.then.i.i481 ]
+  %__cur.0.lcssa.i.i.i.i.i.i507.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i507103, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %textureCoordBuffer.sroa.10.01282, %if.then.i.i481 ]
   %textureCoordBuffer.sroa.17.1 = phi ptr [ %add.ptr19.i.i.i511, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %textureCoordBuffer.sroa.17.01284, %if.then.i.i481 ]
   %textureCoordBuffer.sroa.10.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i507.pn, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vec42) #27
@@ -2139,38 +2139,29 @@ sw.bb73:                                          ; preds = %while.body
   store <2 x float> zeroinitializer, ptr %TCoords.i, align 4, !tbaa !84
   %157 = and i8 %mtlChanged.01297, 1
   %tobool74.not = icmp eq i8 %157, 0
-  br i1 %tobool74.not, label %if.end80, label %if.then75
+  br i1 %tobool74.not, label %if.then82, label %if.then75
 
 if.then75:                                        ; preds = %sw.bb73
   %call76 = call noundef ptr @_ZN3irr5scene18COBJMeshFileLoader7findMtlERKNS_4core6stringIcEES6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %mtlName, ptr noundef nonnull align 8 dereferenceable(32) %grpName)
   %tobool77.not = icmp eq ptr %call76, null
-  br i1 %tobool77.not, label %if.end80, label %if.then82
+  %spec.select47 = select i1 %tobool77.not, ptr %currMtl.01285, ptr %call76
+  br label %if.then82
 
-if.end80:                                         ; preds = %if.then75, %sw.bb73
-  %mtlChanged.1 = phi i8 [ %mtlChanged.01297, %sw.bb73 ], [ 0, %if.then75 ]
-  %tobool81.not = icmp eq ptr %currMtl.01285, null
-  br i1 %tobool81.not, label %while.cond.preheader.i, label %if.then82
-
-if.then82:                                        ; preds = %if.end80, %if.then75
-  %mtlChanged.11167 = phi i8 [ %mtlChanged.1, %if.end80 ], [ 0, %if.then75 ]
-  %currMtl.11165 = phi ptr [ %currMtl.01285, %if.end80 ], [ %call76, %if.then75 ]
+if.then82:                                        ; preds = %if.then75, %sw.bb73
+  %mtlChanged.11167 = phi i8 [ %mtlChanged.01297, %sw.bb73 ], [ 0, %if.then75 ]
+  %currMtl.11165 = phi ptr [ %currMtl.01285, %sw.bb73 ], [ %spec.select47, %if.then75 ]
   %Meshbuffer = getelementptr inbounds i8, ptr %currMtl.11165, i64 48
   %158 = load ptr, ptr %Meshbuffer, align 8, !tbaa !89
   %DiffuseColor = getelementptr inbounds i8, ptr %158, i64 168
   %159 = load i32, ptr %DiffuseColor, align 8, !tbaa !90
   store i32 %159, ptr %Color.i, align 4, !tbaa !90
-  br label %while.cond.preheader.i
-
-while.cond.preheader.i:                           ; preds = %if.then82, %if.end80
-  %mtlChanged.11168 = phi i8 [ %mtlChanged.11167, %if.then82 ], [ %mtlChanged.1, %if.end80 ]
-  %currMtl.11166 = phi ptr [ %currMtl.11165, %if.then82 ], [ null, %if.end80 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wordBuffer) #27
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %inBuf30.i = ptrtoint ptr %bufPtr.01298 to i64
   %cmp20.i = icmp ult ptr %bufPtr.01298, %add.ptr
   br i1 %cmp20.i, label %while.body.preheader.i, label %if.end.i.i677
 
-while.body.preheader.i:                           ; preds = %while.cond.preheader.i
+while.body.preheader.i:                           ; preds = %if.then82
   %160 = sub i64 %bufEnd29.i, %inBuf30.i
   %scevgep.i = getelementptr i8, ptr %bufPtr.01298, i64 %160
   br label %while.body.i686
@@ -2197,9 +2188,9 @@ if.end.i.loopexit.i:                              ; preds = %if.end6.i, %while.b
   %162 = zext i1 %cmp.lcssa.ph.i to i64
   br label %if.end.i.i677
 
-if.end.i.i677:                                    ; preds = %if.end.i.loopexit.i, %while.cond.preheader.i
-  %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %.pre.i, %if.end.i.loopexit.i ], [ %inBuf30.i, %while.cond.preheader.i ]
-  %cmp.lcssa.i = phi i64 [ %162, %if.end.i.loopexit.i ], [ 0, %while.cond.preheader.i ]
+if.end.i.i677:                                    ; preds = %if.end.i.loopexit.i, %if.then82
+  %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %.pre.i, %if.end.i.loopexit.i ], [ %inBuf30.i, %if.then82 ]
+  %cmp.lcssa.i = phi i64 [ %162, %if.end.i.loopexit.i ], [ 0, %if.then82 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.pre-phi.i, %inBuf30.i
   %add.i678 = add nsw i64 %sub.ptr.sub.i, %cmp.lcssa.i
   store ptr %25, ptr %wordBuffer, align 8, !tbaa !23, !alias.scope !139
@@ -2341,10 +2332,9 @@ while.body92.lr.ph:                               ; preds = %_ZN3irr5scene18COBJ
   %sub.ptr.sub.i.i731 = sub i64 %sub.ptr.lhs.cast.i.i729, %sub.ptr.rhs.cast.i.i730
   %sub.ptr.div.i.i732 = sdiv exact i64 %sub.ptr.sub.i.i731, 12
   %conv.i733 = trunc i64 %sub.ptr.div.i.i732 to i32
-  %RecalculateNormals = getelementptr inbounds i8, ptr %currMtl.11166, i64 125
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %currMtl.11166, i64 16
-  %add.ptr.i.i.i761 = getelementptr inbounds i8, ptr %currMtl.11166, i64 8
-  %Meshbuffer153 = getelementptr inbounds i8, ptr %currMtl.11166, i64 48
+  %RecalculateNormals = getelementptr inbounds i8, ptr %currMtl.11165, i64 125
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %currMtl.11165, i64 16
+  %add.ptr.i.i.i761 = getelementptr inbounds i8, ptr %currMtl.11165, i64 8
   br label %while.body92
 
 while.body92:                                     ; preds = %cleanup, %while.body92.lr.ph
@@ -2361,7 +2351,7 @@ while.body92:                                     ; preds = %cleanup, %while.bod
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end11.i, %while.body92
-  %181 = phi i8 [ %.pre233, %if.end11.i ], [ %180, %while.body92 ]
+  %181 = phi i8 [ %.pre234, %if.end11.i ], [ %180, %while.body92 ]
   %storemerge.i = phi i32 [ %inc.i, %if.end11.i ], [ 0, %while.body92 ]
   switch i8 %181, label %lor.lhs.false.i [
     i8 0, label %while.end.i
@@ -2383,7 +2373,7 @@ if.end11.i:                                       ; preds = %lor.lhs.false.i
   %inc.i = add i32 %storemerge.i, 1
   %idxprom.i.phi.trans.insert = zext i32 %inc.i to i64
   %arrayidx.i708.phi.trans.insert = getelementptr inbounds i8, ptr %linePtr.01272, i64 %idxprom.i.phi.trans.insert
-  %.pre233 = load i8, ptr %arrayidx.i708.phi.trans.insert, align 1, !tbaa !28
+  %.pre234 = load i8, ptr %arrayidx.i708.phi.trans.insert, align 1, !tbaa !28
   br label %while.cond.i, !llvm.loop !97
 
 while.end.i:                                      ; preds = %lor.lhs.false.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
@@ -2691,99 +2681,99 @@ _ZNSt8_Rb_treeIN3irr5video9S3DVertexESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2
 _ZNSt3mapIN3irr5video9S3DVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeIN3irr5video9S3DVertexESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i
   %_M_storage.i.i.i14.i.i = getelementptr inbounds i8, ptr %234, i64 32
   %236 = load float, ptr %_M_storage.i.i.i14.i.i, align 4, !tbaa !150
-  %cmp.i.i47 = fcmp olt float %217, %236
-  br i1 %cmp.i.i47, label %if.else152, label %lor.lhs.false.i.i48
+  %cmp.i.i48 = fcmp olt float %217, %236
+  br i1 %cmp.i.i48, label %if.else152, label %lor.lhs.false.i.i49
 
-lor.lhs.false.i.i48:                              ; preds = %_ZNSt3mapIN3irr5video9S3DVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit
-  %cmp5.i.i49 = fcmp oeq float %217, %236
-  br i1 %cmp5.i.i49, label %land.lhs.true.i.i50, label %if.then150
+lor.lhs.false.i.i49:                              ; preds = %_ZNSt3mapIN3irr5video9S3DVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit
+  %cmp5.i.i50 = fcmp oeq float %217, %236
+  br i1 %cmp5.i.i50, label %land.lhs.true.i.i51, label %if.then150
 
-land.lhs.true.i.i50:                              ; preds = %lor.lhs.false.i.i48
-  %Y6.i.i52 = getelementptr inbounds i8, ptr %234, i64 36
-  %237 = load float, ptr %Y6.i.i52, align 4, !tbaa !151
-  %cmp7.i.i53 = fcmp olt float %218, %237
-  br i1 %cmp7.i.i53, label %if.else152, label %land.lhs.true11.i.i54
+land.lhs.true.i.i51:                              ; preds = %lor.lhs.false.i.i49
+  %Y6.i.i53 = getelementptr inbounds i8, ptr %234, i64 36
+  %237 = load float, ptr %Y6.i.i53, align 4, !tbaa !151
+  %cmp7.i.i54 = fcmp olt float %218, %237
+  br i1 %cmp7.i.i54, label %if.else152, label %land.lhs.true11.i.i55
 
-land.lhs.true11.i.i54:                            ; preds = %land.lhs.true.i.i50
-  %cmp14.i.i55 = fcmp oeq float %218, %237
-  br i1 %cmp14.i.i55, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i56, label %if.then150
+land.lhs.true11.i.i55:                            ; preds = %land.lhs.true.i.i51
+  %cmp14.i.i56 = fcmp oeq float %218, %237
+  br i1 %cmp14.i.i56, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i57, label %if.then150
 
-_ZNK3irr4core8vector3dIfEltERKS2_.exit.i56:       ; preds = %land.lhs.true11.i.i54
-  %Z15.i.i58 = getelementptr inbounds i8, ptr %234, i64 40
-  %238 = load float, ptr %Z15.i.i58, align 4, !tbaa !105
-  %cmp16.i.i59 = fcmp olt float %219, %238
-  br i1 %cmp16.i.i59, label %if.else152, label %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i60
+_ZNK3irr4core8vector3dIfEltERKS2_.exit.i57:       ; preds = %land.lhs.true11.i.i55
+  %Z15.i.i59 = getelementptr inbounds i8, ptr %234, i64 40
+  %238 = load float, ptr %Z15.i.i59, align 4, !tbaa !105
+  %cmp16.i.i60 = fcmp olt float %219, %238
+  br i1 %cmp16.i.i60, label %if.else152, label %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i61
 
-_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i60:       ; preds = %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i56
-  %cmp6.i.i61 = fcmp oeq float %219, %238
-  br i1 %cmp6.i.i61, label %land.lhs.true.i62, label %if.then150
+_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i61:       ; preds = %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i57
+  %cmp6.i.i62 = fcmp oeq float %219, %238
+  br i1 %cmp6.i.i62, label %land.lhs.true.i63, label %if.then150
 
-land.lhs.true.i62:                                ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i60
+land.lhs.true.i63:                                ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i61
   %Normal6.i = getelementptr inbounds i8, ptr %234, i64 44
   %239 = load float, ptr %Normal6.i, align 4, !tbaa !150
-  %cmp.i46.i64 = fcmp olt float %220, %239
-  br i1 %cmp.i46.i64, label %if.else152, label %lor.lhs.false.i47.i65
+  %cmp.i46.i65 = fcmp olt float %220, %239
+  br i1 %cmp.i46.i65, label %if.else152, label %lor.lhs.false.i47.i66
 
-lor.lhs.false.i47.i65:                            ; preds = %land.lhs.true.i62
-  %cmp5.i48.i66 = fcmp oeq float %220, %239
-  br i1 %cmp5.i48.i66, label %land.lhs.true.i49.i67, label %if.then150
+lor.lhs.false.i47.i66:                            ; preds = %land.lhs.true.i63
+  %cmp5.i48.i67 = fcmp oeq float %220, %239
+  br i1 %cmp5.i48.i67, label %land.lhs.true.i49.i68, label %if.then150
 
-land.lhs.true.i49.i67:                            ; preds = %lor.lhs.false.i47.i65
+land.lhs.true.i49.i68:                            ; preds = %lor.lhs.false.i47.i66
   %Y6.i51.i = getelementptr inbounds i8, ptr %234, i64 48
   %240 = load float, ptr %Y6.i51.i, align 4, !tbaa !151
-  %cmp7.i52.i69 = fcmp olt float %221, %240
-  br i1 %cmp7.i52.i69, label %if.else152, label %land.lhs.true11.i53.i70
+  %cmp7.i52.i70 = fcmp olt float %221, %240
+  br i1 %cmp7.i52.i70, label %if.else152, label %land.lhs.true11.i53.i71
 
-land.lhs.true11.i53.i70:                          ; preds = %land.lhs.true.i49.i67
-  %cmp14.i54.i71 = fcmp oeq float %221, %240
-  br i1 %cmp14.i54.i71, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i95, label %if.then150
+land.lhs.true11.i53.i71:                          ; preds = %land.lhs.true.i49.i68
+  %cmp14.i54.i72 = fcmp oeq float %221, %240
+  br i1 %cmp14.i54.i72, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i96, label %if.then150
 
-_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i95:     ; preds = %land.lhs.true11.i53.i70
+_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i96:     ; preds = %land.lhs.true11.i53.i71
   %Z15.i57.i = getelementptr inbounds i8, ptr %234, i64 52
   %241 = load float, ptr %Z15.i57.i, align 4, !tbaa !105
-  %cmp16.i58.i97 = fcmp olt float %222, %241
-  br i1 %cmp16.i58.i97, label %if.else152, label %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i89
+  %cmp16.i58.i98 = fcmp olt float %222, %241
+  br i1 %cmp16.i58.i98, label %if.else152, label %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i90
 
-_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i89:     ; preds = %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i95
-  %cmp6.i78.i91 = fcmp oeq float %222, %241
-  br i1 %cmp6.i78.i91, label %land.lhs.true16.i92, label %if.then150
+_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i90:     ; preds = %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i96
+  %cmp6.i78.i92 = fcmp oeq float %222, %241
+  br i1 %cmp6.i78.i92, label %land.lhs.true16.i93, label %if.then150
 
-land.lhs.true16.i92:                              ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i89
+land.lhs.true16.i93:                              ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i90
   %Color17.i = getelementptr inbounds i8, ptr %234, i64 56
   %242 = load i32, ptr %Color17.i, align 4, !tbaa !80
-  %cmp.i80.i94 = icmp ult i32 %223, %242
-  br i1 %cmp.i80.i94, label %if.else152, label %land.lhs.true26.i79
+  %cmp.i80.i95 = icmp ult i32 %223, %242
+  br i1 %cmp.i80.i95, label %if.else152, label %land.lhs.true26.i80
 
-land.lhs.true26.i79:                              ; preds = %land.lhs.true16.i92
+land.lhs.true26.i80:                              ; preds = %land.lhs.true16.i93
   %Color28.i = getelementptr inbounds i8, ptr %234, i64 56
   %243 = load i32, ptr %Color28.i, align 4, !tbaa !80
-  %cmp.i101.i81 = icmp eq i32 %243, %223
-  br i1 %cmp.i101.i81, label %land.rhs.i82, label %if.then150
+  %cmp.i101.i82 = icmp eq i32 %243, %223
+  br i1 %cmp.i101.i82, label %land.rhs.i83, label %if.then150
 
-land.rhs.i82:                                     ; preds = %land.lhs.true26.i79
+land.rhs.i83:                                     ; preds = %land.lhs.true26.i80
   %TCoords30.i = getelementptr inbounds i8, ptr %234, i64 60
   %244 = load float, ptr %TCoords30.i, align 4, !tbaa !152
-  %cmp.i102.i84 = fcmp ogt float %244, %212
-  br i1 %cmp.i102.i84, label %if.else152, label %lor.rhs.i.i85
+  %cmp.i102.i85 = fcmp ogt float %244, %212
+  br i1 %cmp.i102.i85, label %if.else152, label %lor.rhs.i.i86
 
-lor.rhs.i.i85:                                    ; preds = %land.rhs.i82
-  %cmp5.i103.i86 = fcmp oeq float %244, %212
-  br i1 %cmp5.i103.i86, label %_ZNK3irr5video9S3DVertexltERKS1_.exit98, label %if.then150
+lor.rhs.i.i86:                                    ; preds = %land.rhs.i83
+  %cmp5.i103.i87 = fcmp oeq float %244, %212
+  br i1 %cmp5.i103.i87, label %_ZNK3irr5video9S3DVertexltERKS1_.exit99, label %if.then150
 
-_ZNK3irr5video9S3DVertexltERKS1_.exit98:          ; preds = %lor.rhs.i.i85
+_ZNK3irr5video9S3DVertexltERKS1_.exit99:          ; preds = %lor.rhs.i.i86
   %Y6.i106.i = getelementptr inbounds i8, ptr %234, i64 64
   %245 = load float, ptr %Y6.i106.i, align 4, !tbaa !154
-  %cmp7.i107.i88 = fcmp ogt float %245, %215
-  br i1 %cmp7.i107.i88, label %if.else152, label %if.then150
+  %cmp7.i107.i89 = fcmp ogt float %245, %215
+  br i1 %cmp7.i107.i89, label %if.else152, label %if.then150
 
-if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i89, %land.lhs.true11.i53.i70, %lor.lhs.false.i47.i65, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i60, %land.lhs.true11.i.i54, %lor.lhs.false.i.i48, %lor.rhs.i.i85, %land.lhs.true26.i79, %_ZNK3irr5video9S3DVertexltERKS1_.exit98
+if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i90, %land.lhs.true11.i53.i71, %lor.lhs.false.i47.i66, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i61, %land.lhs.true11.i.i55, %lor.lhs.false.i.i49, %lor.rhs.i.i86, %land.lhs.true26.i80, %_ZNK3irr5video9S3DVertexltERKS1_.exit99
   %second = getelementptr inbounds i8, ptr %234, i64 68
   %246 = load i32, ptr %second, align 4, !tbaa !156
   store i32 %246, ptr %vertLocation, align 4, !tbaa !90
   br label %if.end159
 
-if.else152:                                       ; preds = %land.lhs.true.i62, %land.lhs.true.i49.i67, %_ZNSt3mapIN3irr5video9S3DVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit, %land.lhs.true.i.i50, %land.rhs.i82, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i56, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i95, %land.lhs.true16.i92, %_ZNK3irr5video9S3DVertexltERKS1_.exit98, %_ZNSt8_Rb_treeIN3irr5video9S3DVertexESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, %if.end144
-  %247 = load ptr, ptr %Meshbuffer153, align 8, !tbaa !89
+if.else152:                                       ; preds = %land.lhs.true.i63, %land.lhs.true.i49.i68, %_ZNSt3mapIN3irr5video9S3DVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit, %land.lhs.true.i.i51, %land.rhs.i83, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i57, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i96, %land.lhs.true16.i93, %_ZNK3irr5video9S3DVertexltERKS1_.exit99, %_ZNSt8_Rb_treeIN3irr5video9S3DVertexESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, %if.end144
+  %247 = load ptr, ptr %Meshbuffer, align 8, !tbaa !89
   %Vertices = getelementptr inbounds i8, ptr %247, i64 216
   %_M_finish.i.i766 = getelementptr inbounds i8, ptr %247, i64 224
   %248 = load ptr, ptr %_M_finish.i.i766, align 8, !tbaa !91
@@ -2862,7 +2852,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
 _ZN3irr4core5arrayINS_5video9S3DVertexEE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i769
   %is_sorted.i771 = getelementptr inbounds i8, ptr %247, i64 240
   store i8 0, ptr %is_sorted.i771, align 8, !tbaa !86
-  %253 = load ptr, ptr %Meshbuffer153, align 8, !tbaa !89
+  %253 = load ptr, ptr %Meshbuffer, align 8, !tbaa !89
   %Vertices155 = getelementptr inbounds i8, ptr %253, i64 216
   %_M_finish.i.i801 = getelementptr inbounds i8, ptr %253, i64 224
   %254 = load ptr, ptr %_M_finish.i.i801, align 8, !tbaa !161
@@ -2874,7 +2864,7 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEE9push_backERKS3_.exit: ; preds = %_ZNSt6
   %conv.i806 = trunc i64 %sub.ptr.div.i.i805 to i32
   %sub = add i32 %conv.i806, -1
   store i32 %sub, ptr %vertLocation, align 4, !tbaa !90
-  %call158 = call { ptr, i8 } @_ZNSt3mapIN3irr5video9S3DVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEE7emplaceIJRS2_RiEEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %currMtl.11166, ptr noundef nonnull align 4 dereferenceable(36) %v, ptr noundef nonnull align 4 dereferenceable(4) %vertLocation)
+  %call158 = call { ptr, i8 } @_ZNSt3mapIN3irr5video9S3DVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEE7emplaceIJRS2_RiEEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %currMtl.11165, ptr noundef nonnull align 4 dereferenceable(36) %v, ptr noundef nonnull align 4 dereferenceable(4) %vertLocation)
   br label %if.end159
 
 if.end159:                                        ; preds = %_ZN3irr4core5arrayINS_5video9S3DVertexEE9push_backERKS3_.exit, %if.then150
@@ -3020,7 +3010,6 @@ if.then164:                                       ; preds = %while.end
 for.body.lr.ph:                                   ; preds = %while.end
   %265 = load i32, ptr %faceCorners.sroa.0.3.lcssa, align 4, !tbaa !90
   %sub172 = add nuw nsw i64 %sub.ptr.div.i.i861, 4294967295
-  %Meshbuffer183 = getelementptr inbounds i8, ptr %currMtl.11166, i64 48
   %conv193 = trunc i32 %265 to i16
   %wide.trip.count = and i64 %sub172, 4294967295
   br label %for.body
@@ -3041,7 +3030,7 @@ for.body:                                         ; preds = %if.end195, %for.bod
   br i1 %or.cond376, label %if.else194, label %if.then182
 
 if.then182:                                       ; preds = %for.body
-  %269 = load ptr, ptr %Meshbuffer183, align 8, !tbaa !89
+  %269 = load ptr, ptr %Meshbuffer, align 8, !tbaa !89
   %Indices = getelementptr inbounds i8, ptr %269, i64 248
   %conv185 = trunc i32 %266 to i16
   %_M_finish.i.i.i873 = getelementptr inbounds i8, ptr %269, i64 256
@@ -3110,7 +3099,7 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i873, align 8, !tbaa !172
   %add.ptr19.i.i.i.i = getelementptr inbounds i16, ptr %cond.i31.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i874, align 8, !tbaa !169
-  %.pre = load ptr, ptr %Meshbuffer183, align 8, !tbaa !89
+  %.pre = load ptr, ptr %Meshbuffer, align 8, !tbaa !89
   %_M_finish.i.i.i879.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 256
   %.pre1366 = load ptr, ptr %_M_finish.i.i.i879.phi.trans.insert, align 8, !tbaa !91
   %_M_end_of_storage.i.i.i880.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 264
@@ -3189,7 +3178,7 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
   store ptr %incdec.ptr.i.i.i.i906, ptr %_M_finish.i.i.i879, align 8, !tbaa !172
   %add.ptr19.i.i.i.i910 = getelementptr inbounds i16, ptr %cond.i31.i.i.i.i901, i64 %cond.i.i.i.i.i895
   store ptr %add.ptr19.i.i.i.i910, ptr %_M_end_of_storage.i.i.i880, align 8, !tbaa !169
-  %.pre1368 = load ptr, ptr %Meshbuffer183, align 8, !tbaa !89
+  %.pre1368 = load ptr, ptr %Meshbuffer, align 8, !tbaa !89
   %_M_finish.i.i.i914.phi.trans.insert = getelementptr inbounds i8, ptr %.pre1368, i64 256
   %.pre1369 = load ptr, ptr %_M_finish.i.i.i914.phi.trans.insert, align 8, !tbaa !91
   %_M_end_of_storage.i.i.i915.phi.trans.insert = getelementptr inbounds i8, ptr %.pre1368, i64 264
@@ -3313,7 +3302,7 @@ sw.epilog207:                                     ; preds = %_ZN3irr4core6string
   %textureCoordBuffer.sroa.0.2 = phi ptr [ %textureCoordBuffer.sroa.0.01281, %while.body ], [ %textureCoordBuffer.sroa.0.01281, %_ZN3irr4core6stringIcED2Ev.exit ], [ %textureCoordBuffer.sroa.0.01281, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %textureCoordBuffer.sroa.0.01281, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %textureCoordBuffer.sroa.0.01281, %if.end57 ], [ %textureCoordBuffer.sroa.0.01281, %sw.bb33 ], [ %textureCoordBuffer.sroa.0.1, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %textureCoordBuffer.sroa.0.01281, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %textureCoordBuffer.sroa.0.01281, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %textureCoordBuffer.sroa.0.01281, %sw.bb ], [ %textureCoordBuffer.sroa.0.01281, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %textureCoordBuffer.sroa.10.2 = phi ptr [ %textureCoordBuffer.sroa.10.01282, %while.body ], [ %textureCoordBuffer.sroa.10.01282, %_ZN3irr4core6stringIcED2Ev.exit ], [ %textureCoordBuffer.sroa.10.01282, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %textureCoordBuffer.sroa.10.01282, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %textureCoordBuffer.sroa.10.01282, %if.end57 ], [ %textureCoordBuffer.sroa.10.01282, %sw.bb33 ], [ %textureCoordBuffer.sroa.10.1, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %textureCoordBuffer.sroa.10.01282, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %textureCoordBuffer.sroa.10.01282, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %textureCoordBuffer.sroa.10.01282, %sw.bb ], [ %textureCoordBuffer.sroa.10.01282, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %textureCoordBuffer.sroa.17.2 = phi ptr [ %textureCoordBuffer.sroa.17.01284, %while.body ], [ %textureCoordBuffer.sroa.17.01284, %_ZN3irr4core6stringIcED2Ev.exit ], [ %textureCoordBuffer.sroa.17.01284, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %textureCoordBuffer.sroa.17.01284, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %textureCoordBuffer.sroa.17.01284, %if.end57 ], [ %textureCoordBuffer.sroa.17.01284, %sw.bb33 ], [ %textureCoordBuffer.sroa.17.1, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %textureCoordBuffer.sroa.17.01284, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %textureCoordBuffer.sroa.17.01284, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %textureCoordBuffer.sroa.17.01284, %sw.bb ], [ %textureCoordBuffer.sroa.17.01284, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
-  %currMtl.2 = phi ptr [ %currMtl.01285, %while.body ], [ %currMtl.11166, %_ZN3irr4core6stringIcED2Ev.exit ], [ %currMtl.01285, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %currMtl.01285, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %currMtl.01285, %if.end57 ], [ %currMtl.01285, %sw.bb33 ], [ %currMtl.01285, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %currMtl.01285, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %currMtl.01285, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %currMtl.01285, %sw.bb ], [ %currMtl.01285, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
+  %currMtl.2 = phi ptr [ %currMtl.01285, %while.body ], [ %currMtl.11165, %_ZN3irr4core6stringIcED2Ev.exit ], [ %currMtl.01285, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %currMtl.01285, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %currMtl.01285, %if.end57 ], [ %currMtl.01285, %sw.bb33 ], [ %currMtl.01285, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %currMtl.01285, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %currMtl.01285, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %currMtl.01285, %sw.bb ], [ %currMtl.01285, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %faceCorners.sroa.0.7 = phi ptr [ %faceCorners.sroa.0.21286, %while.body ], [ %faceCorners.sroa.0.31211, %_ZN3irr4core6stringIcED2Ev.exit ], [ %faceCorners.sroa.0.21286, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %faceCorners.sroa.0.21286, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %faceCorners.sroa.0.21286, %if.end57 ], [ %faceCorners.sroa.0.21286, %sw.bb33 ], [ %faceCorners.sroa.0.21286, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %faceCorners.sroa.0.21286, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %faceCorners.sroa.0.21286, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %faceCorners.sroa.0.21286, %sw.bb ], [ %faceCorners.sroa.0.21286, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %normalsBuffer.sroa.10.2 = phi ptr [ %normalsBuffer.sroa.10.01288, %while.body ], [ %normalsBuffer.sroa.10.01288, %_ZN3irr4core6stringIcED2Ev.exit ], [ %normalsBuffer.sroa.10.01288, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %normalsBuffer.sroa.10.01288, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %normalsBuffer.sroa.10.01288, %if.end57 ], [ %normalsBuffer.sroa.10.01288, %sw.bb33 ], [ %normalsBuffer.sroa.10.01288, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %normalsBuffer.sroa.10.1, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %normalsBuffer.sroa.10.01288, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %normalsBuffer.sroa.10.01288, %sw.bb ], [ %normalsBuffer.sroa.10.01288, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %faceCorners.sroa.30.7 = phi ptr [ %faceCorners.sroa.30.21290, %while.body ], [ %faceCorners.sroa.30.31203, %_ZN3irr4core6stringIcED2Ev.exit ], [ %faceCorners.sroa.30.21290, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %faceCorners.sroa.30.21290, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %faceCorners.sroa.30.21290, %if.end57 ], [ %faceCorners.sroa.30.21290, %sw.bb33 ], [ %faceCorners.sroa.30.21290, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %faceCorners.sroa.30.21290, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %faceCorners.sroa.30.21290, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %faceCorners.sroa.30.21290, %sw.bb ], [ %faceCorners.sroa.30.21290, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
@@ -3322,7 +3311,7 @@ sw.epilog207:                                     ; preds = %_ZN3irr4core6string
   %vertexBuffer.sroa.10.2 = phi ptr [ %vertexBuffer.sroa.10.01293, %while.body ], [ %vertexBuffer.sroa.10.01293, %_ZN3irr4core6stringIcED2Ev.exit ], [ %vertexBuffer.sroa.10.01293, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %vertexBuffer.sroa.10.01293, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %vertexBuffer.sroa.10.01293, %if.end57 ], [ %vertexBuffer.sroa.10.01293, %sw.bb33 ], [ %vertexBuffer.sroa.10.01293, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %vertexBuffer.sroa.10.01293, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %vertexBuffer.sroa.10.1, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %vertexBuffer.sroa.10.01293, %sw.bb ], [ %vertexBuffer.sroa.10.01293, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %vertexBuffer.sroa.0.2 = phi ptr [ %vertexBuffer.sroa.0.01295, %while.body ], [ %vertexBuffer.sroa.0.01295, %_ZN3irr4core6stringIcED2Ev.exit ], [ %vertexBuffer.sroa.0.01295, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %vertexBuffer.sroa.0.01295, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %vertexBuffer.sroa.0.01295, %if.end57 ], [ %vertexBuffer.sroa.0.01295, %sw.bb33 ], [ %vertexBuffer.sroa.0.01295, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %vertexBuffer.sroa.0.01295, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %vertexBuffer.sroa.0.1, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %vertexBuffer.sroa.0.01295, %sw.bb ], [ %vertexBuffer.sroa.0.01295, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %degeneratedFaces.4 = phi i32 [ %degeneratedFaces.01296, %while.body ], [ %degeneratedFaces.3, %_ZN3irr4core6stringIcED2Ev.exit ], [ %degeneratedFaces.01296, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %degeneratedFaces.01296, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %degeneratedFaces.01296, %if.end57 ], [ %degeneratedFaces.01296, %sw.bb33 ], [ %degeneratedFaces.01296, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %degeneratedFaces.01296, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %degeneratedFaces.01296, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %degeneratedFaces.01296, %sw.bb ], [ %degeneratedFaces.01296, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
-  %mtlChanged.2 = phi i8 [ %mtlChanged.01297, %while.body ], [ %mtlChanged.11168, %_ZN3irr4core6stringIcED2Ev.exit ], [ 1, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %mtlChanged.01297, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ 1, %if.end57 ], [ %mtlChanged.01297, %sw.bb33 ], [ %mtlChanged.01297, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %mtlChanged.01297, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %mtlChanged.01297, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %mtlChanged.01297, %sw.bb ], [ %mtlChanged.01297, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
+  %mtlChanged.2 = phi i8 [ %mtlChanged.01297, %while.body ], [ %mtlChanged.11167, %_ZN3irr4core6stringIcED2Ev.exit ], [ 1, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %mtlChanged.01297, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ 1, %if.end57 ], [ %mtlChanged.01297, %sw.bb33 ], [ %mtlChanged.01297, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %mtlChanged.01297, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %mtlChanged.01297, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %mtlChanged.01297, %sw.bb ], [ %mtlChanged.01297, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %bufPtr.1 = phi ptr [ %bufPtr.01298, %while.body ], [ %bufPtr.01298, %_ZN3irr4core6stringIcED2Ev.exit ], [ %buf.addr.2.i.i.i6351390, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit676 ], [ %buf.addr.2.i.i.i5881386, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit617 ], [ %buf.addr.2.i.i.i5291382, %if.end57 ], [ %bufPtr.01298, %sw.bb33 ], [ %call43, %_ZN3irr4core5arrayINS0_8vector2dIfEEE9push_backERKS3_.exit ], [ %call40, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit476 ], [ %call37, %_ZN3irr4core5arrayINS0_8vector3dIfEEE9push_backERKS3_.exit ], [ %bufPtr.01298, %sw.bb ], [ %buf.addr.2.i.i.i1378, %_ZN3irr5scene18COBJMeshFileLoader17goAndCopyNextWordEPcPKcjS4_.exit ]
   %cmp.not19.i = icmp eq ptr %bufPtr.1, %add.ptr
   br i1 %cmp.not19.i, label %while.end210, label %while.body.preheader.i952

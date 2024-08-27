@@ -775,8 +775,8 @@ define hidden ptr @get_addr_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 16:                                               ; preds = %5
   %17 = add i32 %2, 2
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #3
-  %.not13.i = icmp eq ptr %4, null
-  br i1 %.not13.i, label %get_lcaf_data.exit, label %19
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %get_lcaf_data.exit, label %19
 
 19:                                               ; preds = %16
   %20 = add i32 %2, 4

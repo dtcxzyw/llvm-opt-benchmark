@@ -910,12 +910,12 @@ if.else.i.i21.i.i.i.i:                            ; preds = %if.end4.i.i.i.i
 cond.end16.i.i.i.i:                               ; preds = %if.else.i.i21.i.i.i.i, %if.then.i.i24.i.i.i.i
   %cond39.in.i.i.i.i = phi i64 [ %and1.i.i.i.i.i.i, %if.then.i.i24.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.else.i.i21.i.i.i.i ]
   %cond17.in.i.i.i.i = phi i64 [ %and1.i.i26.i.i.i.i, %if.then.i.i24.i.i.i.i ], [ %mul.i.i22.i.i.i.i, %if.else.i.i21.i.i.i.i ]
-  %cond39.i.i.i.i = inttoptr i64 %cond39.in.i.i.i.i to ptr
   %sub.ptr.sub.i.i.i.i = sub i64 %cond17.in.i.i.i.i, %cond39.in.i.i.i.i
   %cmp18.i.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i, 1
   br i1 %cmp18.i.i.i.i, label %_mi_os_decommit.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end16.i.i.i.i
+  %cond39.i.i.i.i = inttoptr i64 %cond39.in.i.i.i.i to ptr
   store i8 1, ptr %needs_recommit.i, align 1
   %call1.i.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i, ptr noundef nonnull %needs_recommit.i) #7
   %cmp2.not.i.i = icmp eq i32 %call1.i.i, 0
@@ -971,12 +971,12 @@ if.else.i.i21.i.i.i:                              ; preds = %if.end4.i.i.i
 cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i, %if.then.i.i24.i.i.i
   %cond39.in.i.i.i = phi i64 [ %and1.i.i.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i.i.i.i, %if.else.i.i21.i.i.i ]
   %cond17.in.i.i.i = phi i64 [ %and1.i.i26.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i22.i.i.i, %if.else.i.i21.i.i.i ]
-  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   %sub.ptr.sub.i.i.i = sub i64 %cond17.in.i.i.i, %cond39.in.i.i.i
   %cmp18.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 1
   br i1 %cmp18.i.i.i, label %mi_os_decommit_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
+  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   store i8 1, ptr %needs_recommit, align 1
   %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
@@ -1037,12 +1037,12 @@ if.else.i.i31.i:                                  ; preds = %if.end4.i
 cond.end16.i:                                     ; preds = %if.else.i.i31.i, %if.then.i.i34.i
   %cond39.in.i = phi i64 [ %and1.i.i19.i, %if.then.i.i34.i ], [ %mul.i.i15.i, %if.else.i.i31.i ]
   %cond17.in.i = phi i64 [ %and1.i.i36.i, %if.then.i.i34.i ], [ %mul.i.i32.i, %if.else.i.i31.i ]
-  %cond39.i = inttoptr i64 %cond39.in.i to ptr
   %sub.ptr.sub.i = sub i64 %cond17.in.i, %cond39.in.i
   %cmp18.i = icmp slt i64 %sub.ptr.sub.i, 1
   br i1 %cmp18.i, label %return, label %if.end3
 
 if.end3:                                          ; preds = %cond.end16.i
+  %cond39.i = inttoptr i64 %cond39.in.i to ptr
   store i8 0, ptr %os_is_zero, align 1
   %call4 = call i32 @_mi_prim_commit(ptr noundef %cond39.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %os_is_zero) #7
   %cmp5.not = icmp eq i32 %call4, 0
@@ -1110,12 +1110,12 @@ if.else.i.i21.i.i:                                ; preds = %if.end4.i.i
 cond.end16.i.i:                                   ; preds = %if.else.i.i21.i.i, %if.then.i.i24.i.i
   %cond39.in.i.i = phi i64 [ %and1.i.i.i.i, %if.then.i.i24.i.i ], [ %mul.i.i.i.i, %if.else.i.i21.i.i ]
   %cond17.in.i.i = phi i64 [ %and1.i.i26.i.i, %if.then.i.i24.i.i ], [ %mul.i.i22.i.i, %if.else.i.i21.i.i ]
-  %cond39.i.i = inttoptr i64 %cond39.in.i.i to ptr
   %sub.ptr.sub.i.i = sub i64 %cond17.in.i.i, %cond39.in.i.i
   %cmp18.i.i = icmp slt i64 %sub.ptr.sub.i.i, 1
   br i1 %cmp18.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end16.i.i
+  %cond39.i.i = inttoptr i64 %cond39.in.i.i to ptr
   %reset = getelementptr inbounds i8, ptr %stats, i64 128
   tail call void @_mi_stat_increase(ptr noundef nonnull %reset, i64 noundef %sub.ptr.sub.i.i) #7
   %reset_calls = getelementptr inbounds i8, ptr %stats, i64 528
@@ -1190,12 +1190,12 @@ if.else.i.i21.i.i.i:                              ; preds = %if.end4.i.i.i
 cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i, %if.then.i.i24.i.i.i
   %cond39.in.i.i.i = phi i64 [ %and1.i.i.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i.i.i.i, %if.else.i.i21.i.i.i ]
   %cond17.in.i.i.i = phi i64 [ %and1.i.i26.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i22.i.i.i, %if.else.i.i21.i.i.i ]
-  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   %sub.ptr.sub.i.i.i = sub i64 %cond17.in.i.i.i, %cond39.in.i.i.i
   %cmp18.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 1
   br i1 %cmp18.i.i.i, label %mi_os_decommit_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
+  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   store i8 1, ptr %needs_recommit, align 1
   %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
@@ -1246,26 +1246,26 @@ if.else.i.i21.i.i.i15:                            ; preds = %if.end4.i.i.i10
 cond.end16.i.i.i18:                               ; preds = %if.else.i.i21.i.i.i15, %if.then.i.i24.i.i.i29
   %cond39.in.i.i.i19 = phi i64 [ %and1.i.i.i.i.i31, %if.then.i.i24.i.i.i29 ], [ %mul.i.i.i.i.i16, %if.else.i.i21.i.i.i15 ]
   %cond17.in.i.i.i20 = phi i64 [ %and1.i.i26.i.i.i32, %if.then.i.i24.i.i.i29 ], [ %mul.i.i22.i.i.i17, %if.else.i.i21.i.i.i15 ]
-  %cond39.i.i.i21 = inttoptr i64 %cond39.in.i.i.i19 to ptr
-  %sub.ptr.sub.i.i.i22 = sub i64 %cond17.in.i.i.i20, %cond39.in.i.i.i19
-  %cmp18.i.i.i23 = icmp slt i64 %sub.ptr.sub.i.i.i22, 1
-  br i1 %cmp18.i.i.i23, label %return, label %if.end.i24
+  %sub.ptr.sub.i.i.i21 = sub i64 %cond17.in.i.i.i20, %cond39.in.i.i.i19
+  %cmp18.i.i.i22 = icmp slt i64 %sub.ptr.sub.i.i.i21, 1
+  br i1 %cmp18.i.i.i22, label %return, label %if.end.i23
 
-if.end.i24:                                       ; preds = %cond.end16.i.i.i18
+if.end.i23:                                       ; preds = %cond.end16.i.i.i18
+  %cond39.i.i.i24 = inttoptr i64 %cond39.in.i.i.i19 to ptr
   %reset.i = getelementptr inbounds i8, ptr %stats, i64 128
-  tail call void @_mi_stat_increase(ptr noundef nonnull %reset.i, i64 noundef %sub.ptr.sub.i.i.i22) #7
+  tail call void @_mi_stat_increase(ptr noundef nonnull %reset.i, i64 noundef %sub.ptr.sub.i.i.i21) #7
   %reset_calls.i = getelementptr inbounds i8, ptr %stats, i64 528
   tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls.i, i64 noundef 1) #7
-  %call1.i25 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i.i21, i64 noundef %sub.ptr.sub.i.i.i22) #7
+  %call1.i25 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i.i24, i64 noundef %sub.ptr.sub.i.i.i21) #7
   %cmp2.not.i26 = icmp eq i32 %call1.i25, 0
   br i1 %cmp2.not.i26, label %return, label %if.then3.i27
 
-if.then3.i27:                                     ; preds = %if.end.i24
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.1, i32 noundef %call1.i25, i32 noundef %call1.i25, ptr noundef %cond39.i.i.i21, i64 noundef %sub.ptr.sub.i.i.i22) #7
+if.then3.i27:                                     ; preds = %if.end.i23
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.1, i32 noundef %call1.i25, i32 noundef %call1.i25, ptr noundef %cond39.i.i.i24, i64 noundef %sub.ptr.sub.i.i.i21) #7
   br label %return
 
-return:                                           ; preds = %if.then3.i27, %if.end.i24, %cond.end16.i.i.i18, %if.then6, %if.else, %entry, %mi_os_decommit_ex.exit
-  %retval.0 = phi i1 [ %tobool, %mi_os_decommit_ex.exit ], [ false, %entry ], [ false, %if.else ], [ false, %if.then6 ], [ false, %cond.end16.i.i.i18 ], [ false, %if.end.i24 ], [ false, %if.then3.i27 ]
+return:                                           ; preds = %if.then3.i27, %if.end.i23, %cond.end16.i.i.i18, %if.then6, %if.else, %entry, %mi_os_decommit_ex.exit
+  %retval.0 = phi i1 [ %tobool, %mi_os_decommit_ex.exit ], [ false, %entry ], [ false, %if.else ], [ false, %if.then6 ], [ false, %cond.end16.i.i.i18 ], [ false, %if.end.i23 ], [ false, %if.then3.i27 ]
   ret i1 %retval.0
 }
 
@@ -1315,12 +1315,12 @@ if.else.i.i21.i.i.i:                              ; preds = %if.end4.i.i.i
 cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i, %if.then.i.i24.i.i.i
   %cond39.in.i.i.i = phi i64 [ %and1.i.i.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i.i.i.i, %if.else.i.i21.i.i.i ]
   %cond17.in.i.i.i = phi i64 [ %and1.i.i26.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i22.i.i.i, %if.else.i.i21.i.i.i ]
-  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   %sub.ptr.sub.i.i.i = sub i64 %cond17.in.i.i.i, %cond39.in.i.i.i
   %cmp18.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 1
   br i1 %cmp18.i.i.i, label %mi_os_protectx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
+  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   %call1.i = tail call i32 @_mi_prim_protect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i1 noundef zeroext true) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not.i, label %mi_os_protectx.exit, label %if.then3.i
@@ -1369,12 +1369,12 @@ if.else.i.i21.i.i.i:                              ; preds = %if.end4.i.i.i
 cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i, %if.then.i.i24.i.i.i
   %cond39.in.i.i.i = phi i64 [ %and1.i.i.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i.i.i.i, %if.else.i.i21.i.i.i ]
   %cond17.in.i.i.i = phi i64 [ %and1.i.i26.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i22.i.i.i, %if.else.i.i21.i.i.i ]
-  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   %sub.ptr.sub.i.i.i = sub i64 %cond17.in.i.i.i, %cond39.in.i.i.i
   %cmp18.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 1
   br i1 %cmp18.i.i.i, label %mi_os_protectx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
+  %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   %call1.i = tail call i32 @_mi_prim_protect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i1 noundef zeroext false) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not.i, label %mi_os_protectx.exit, label %if.then3.i

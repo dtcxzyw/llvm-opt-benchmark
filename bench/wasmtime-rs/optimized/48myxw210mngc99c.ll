@@ -20555,25 +20555,25 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %24 = getelementptr inbounds i8, ptr %1, i64 142
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.sroa.gep, i8 0, i64 16, i1 false)
   %25 = load i16, ptr %24, align 2, !noundef !4
-  %.not152 = icmp eq i16 %25, 0
-  br i1 %.not152, label %._crit_edge150, label %.lr.ph149
+  %.not154 = icmp eq i16 %25, 0
+  br i1 %.not154, label %._crit_edge152, label %.lr.ph151
 
-.lr.ph149:                                        ; preds = %21
+.lr.ph151:                                        ; preds = %21
   %26 = getelementptr inbounds i8, ptr %1, i64 96
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = getelementptr inbounds i8, ptr %9, i64 8
   %29 = getelementptr inbounds i8, ptr %9, i64 96
   br label %30
 
-._crit_edge150:                                   ; preds = %36, %21
+._crit_edge152:                                   ; preds = %36, %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %50
 
-30:                                               ; preds = %.lr.ph149, %36
-  %31 = phi i64 [ 0, %.lr.ph149 ], [ %46, %36 ]
-  %.sroa.6.0147 = phi i64 [ 0, %.lr.ph149 ], [ %40, %36 ]
-  %32 = icmp ult i64 %.sroa.6.0147, 11
+30:                                               ; preds = %.lr.ph151, %36
+  %31 = phi i64 [ 0, %.lr.ph151 ], [ %46, %36 ]
+  %.sroa.6.0149 = phi i64 [ 0, %.lr.ph151 ], [ %40, %36 ]
+  %32 = icmp ult i64 %.sroa.6.0149, 11
   tail call void @llvm.assume(i1 %32)
   %33 = load i16, ptr %22, align 2, !noalias !3015, !noundef !4
   %34 = icmp ult i16 %33, 11
@@ -20587,30 +20587,30 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   unreachable
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i32, ptr %26, i64 %.sroa.6.0147
-  %.val128 = load i32, ptr %37, align 4, !noundef !4
-  %38 = getelementptr inbounds { [2 x i32] }, ptr %27, i64 %.sroa.6.0147
+  %37 = getelementptr inbounds i32, ptr %26, i64 %.sroa.6.0149
+  %.val130 = load i32, ptr %37, align 4, !noundef !4
+  %38 = getelementptr inbounds { [2 x i32] }, ptr %27, i64 %.sroa.6.0149
   %39 = getelementptr i8, ptr %38, i64 4
-  %.val126 = load i32, ptr %39, align 4, !noundef !4
-  %.val125 = load i32, ptr %38, align 4, !noundef !4
-  %40 = add nuw nsw i64 %.sroa.6.0147, 1
+  %.val128 = load i32, ptr %39, align 4, !noundef !4
+  %.val127 = load i32, ptr %38, align 4, !noundef !4
+  %40 = add nuw nsw i64 %.sroa.6.0149, 1
   %41 = zext nneg i16 %33 to i64
   %42 = add nuw nsw i16 %33, 1
   store i16 %42, ptr %22, align 2, !noalias !3015
   %43 = getelementptr inbounds { [2 x i32] }, ptr %28, i64 %41
-  store i32 %.val125, ptr %43, align 8, !noalias !3015
+  store i32 %.val127, ptr %43, align 8, !noalias !3015
   %44 = getelementptr inbounds i8, ptr %43, i64 4
-  store i32 %.val126, ptr %44, align 4, !noalias !3015
+  store i32 %.val128, ptr %44, align 4, !noalias !3015
   %45 = getelementptr inbounds i32, ptr %29, i64 %41
-  store i32 %.val128, ptr %45, align 4, !noalias !3015
+  store i32 %.val130, ptr %45, align 4, !noalias !3015
   %46 = add i64 %31, 1
   store i64 %46, ptr %23, align 8
   %47 = load i16, ptr %24, align 2, !noundef !4
   %48 = zext i16 %47 to i64
   %49 = icmp ult i64 %40, %48
-  br i1 %49, label %30, label %._crit_edge150
+  br i1 %49, label %30, label %._crit_edge152
 
-50:                                               ; preds = %._crit_edge, %._crit_edge150
+50:                                               ; preds = %._crit_edge, %._crit_edge152
   ret void
 
 51:                                               ; preds = %.body, %18
@@ -20678,8 +20678,8 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %70 = getelementptr inbounds i8, ptr %1, i64 142
   %71 = load i16, ptr %70, align 2, !noundef !4
-  %.not151 = icmp eq i16 %71, 0
-  br i1 %.not151, label %._crit_edge, label %.lr.ph
+  %.not153 = icmp eq i16 %71, 0
+  br i1 %.not153, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65
   %72 = getelementptr inbounds i8, ptr %1, i64 8
@@ -20702,16 +20702,16 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br label %.body
 
 79:                                               ; preds = %.lr.ph, %104
-  %.sroa.7.0146 = phi i64 [ 0, %.lr.ph ], [ %83, %104 ]
-  %80 = icmp ult i64 %.sroa.7.0146, 11
+  %.sroa.7.0148 = phi i64 [ 0, %.lr.ph ], [ %83, %104 ]
+  %80 = icmp ult i64 %.sroa.7.0148, 11
   tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds { [2 x i32] }, ptr %72, i64 %.sroa.7.0146
-  %82 = getelementptr inbounds i32, ptr %73, i64 %.sroa.7.0146
-  %83 = add nuw nsw i64 %.sroa.7.0146, 1
-  %.val123 = load i32, ptr %81, align 4, !noundef !4
+  %81 = getelementptr inbounds { [2 x i32] }, ptr %72, i64 %.sroa.7.0148
+  %82 = getelementptr inbounds i32, ptr %73, i64 %.sroa.7.0148
+  %83 = add nuw nsw i64 %.sroa.7.0148, 1
+  %.val125 = load i32, ptr %81, align 4, !noundef !4
   %84 = getelementptr i8, ptr %81, i64 4
-  %.val124 = load i32, ptr %84, align 4, !noundef !4
-  %.val127 = load i32, ptr %82, align 4, !noundef !4
+  %.val126 = load i32, ptr %84, align 4, !noundef !4
+  %.val129 = load i32, ptr %82, align 4, !noundef !4
   %85 = getelementptr inbounds ptr, ptr %13, i64 %83
   %86 = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
   invoke void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone13clone_subtree17h9af4cff5f017e0c8E.llvm.2651468057167481930"(ptr noalias nocapture noundef nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 dereferenceable(24) %5, ptr noundef nonnull %86, i64 noundef %15)
@@ -20739,20 +20739,20 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 
 90:                                               ; preds = %87
   %91 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h19957d3efbe6e0b1E.llvm.5781664634918412060"()
-          to label %.noexc131 unwind label %.loopexit
+          to label %.noexc133 unwind label %.loopexit
 
-.noexc131:                                        ; preds = %90
+.noexc133:                                        ; preds = %90
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %94
 
-93:                                               ; preds = %.noexc131
+93:                                               ; preds = %.noexc133
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 144) #36
-          to label %.noexc132 unwind label %.loopexit.split-lp
+          to label %.noexc134 unwind label %.loopexit.split-lp
 
-.noexc132:                                        ; preds = %93
+.noexc134:                                        ; preds = %93
   unreachable
 
-94:                                               ; preds = %.noexc131
+94:                                               ; preds = %.noexc133
   store ptr null, ptr %91, align 8
   %95 = getelementptr inbounds i8, ptr %91, i64 142
   store i16 0, ptr %95, align 2
@@ -20784,11 +20784,11 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %106 = add nuw nsw i16 %102, 1
   store i16 %106, ptr %66, align 2
   %107 = getelementptr inbounds { [2 x i32] }, ptr %74, i64 %105
-  store i32 %.val123, ptr %107, align 8
+  store i32 %.val125, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 4
-  store i32 %.val124, ptr %108, align 4
+  store i32 %.val126, ptr %108, align 4
   %109 = getelementptr inbounds i32, ptr %75, i64 %105
-  store i32 %.val127, ptr %109, align 4
+  store i32 %.val129, ptr %109, align 4
   %110 = add nuw nsw i64 %105, 1
   %111 = getelementptr inbounds ptr, ptr %67, i64 %110
   store ptr %.sroa.087.0, ptr %111, align 8

@@ -900,7 +900,7 @@ return:                                           ; preds = %return.loopexit, %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef %csc, i32 noundef %srcStart, i32 noundef %srcLimit, ptr noundef %edits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef %csc, i32 noundef %srcStart, i32 noundef %srcLimit, ptr noundef %edits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %cmp = icmp eq i32 %caseLocale, 1
@@ -2509,7 +2509,7 @@ if.end30.i:                                       ; preds = %if.then29.i, %if.en
   br i1 %cmp.i.i.i, label %ustrcase_internalFold_75.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end30.i
-  %cmp.i.i1 = icmp ugt i32 %call.i, %destCapacity
+  %cmp.i.i1 = icmp sgt i32 %call.i, %destCapacity
   br i1 %cmp.i.i1, label %if.then1.i.i, label %if.else.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i

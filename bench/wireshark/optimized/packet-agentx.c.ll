@@ -1100,8 +1100,8 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   br i1 %.not65, label %convert_oid_to_str.exit.thread, label %26
 
 26:                                               ; preds = %._crit_edge
-  %.not33.i = icmp eq i8 %10, 0
-  br i1 %.not33.i, label %.lr.ph.preheader.i, label %27
+  %.not31.i = icmp eq i8 %10, 0
+  br i1 %.not31.i, label %.lr.ph.preheader.i, label %27
 
 27:                                               ; preds = %26
   %28 = sext i8 %10 to i32
@@ -1116,15 +1116,15 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.136.i = phi i32 [ %.0.i57, %.lr.ph.preheader.i ], [ %39, %.lr.ph.i ]
-  %32 = sext i32 %.136.i to i64
+  %.133.i = phi i32 [ %.0.i57, %.lr.ph.preheader.i ], [ %39, %.lr.ph.i ]
+  %32 = sext i32 %.133.i to i64
   %33 = getelementptr i8, ptr %7, i64 %32
-  %34 = sub i32 2048, %.136.i
+  %34 = sub i32 2048, %.133.i
   %35 = sext i32 %34 to i64
   %36 = getelementptr i32, ptr %6, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.179, i32 noundef %37) #6
-  %39 = add i32 %38, %.136.i
+  %39 = add i32 %38, %.133.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = icmp ult i64 %indvars.iv.next.i, %31
   %41 = icmp slt i32 %39, 2048

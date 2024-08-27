@@ -378,20 +378,20 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   store i32 %93, ptr %11, align 4
-  %.not71.i = icmp eq i32 %93, 0
-  br i1 %.not71.i, label %94, label %176
+  %.not70.i = icmp eq i32 %93, 0
+  br i1 %.not70.i, label %94, label %176
 
 94:                                               ; preds = %bdf_readstream_.exit.i
   %95 = getelementptr inbounds i8, ptr %23, i64 56
   %96 = load ptr, ptr %95, align 8
-  %.not72.i = icmp eq ptr %96, null
-  br i1 %.not72.i, label %161, label %97
+  %.not71.i = icmp eq ptr %96, null
+  br i1 %.not71.i, label %161, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds i8, ptr %96, i64 48
   %99 = load i32, ptr %98, align 8
-  %.not73.i = icmp eq i32 %99, 8
-  br i1 %.not73.i, label %104, label %100
+  %.not72.i = icmp eq i32 %99, 8
+  br i1 %.not72.i, label %104, label %100
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds i8, ptr %96, i64 8
@@ -405,18 +405,18 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   %105 = phi ptr [ %.pre.i, %100 ], [ %96, %97 ]
   %106 = load ptr, ptr %26, align 8
   %107 = load i32, ptr %106, align 4
-  %.not74.i = icmp eq i32 %107, 0
-  br i1 %.not74.i, label %161, label %108
+  %.not73.i = icmp eq i32 %107, 0
+  br i1 %.not73.i, label %161, label %108
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %105, i64 112
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %105, i64 88
   %112 = load i64, ptr %111, align 8
-  %.not75.i = icmp eq i64 %112, 0
-  %.not76.i = icmp eq i64 %110, 0
-  %or.cond85.i = select i1 %.not75.i, i1 %.not76.i, i1 false
-  br i1 %or.cond85.i, label %161, label %113
+  %.not74.i = icmp eq i64 %112, 0
+  %.not75.i = icmp eq i64 %110, 0
+  %or.cond84.i = select i1 %.not74.i, i1 %.not75.i, i1 false
+  br i1 %or.cond84.i, label %161, label %113
 
 113:                                              ; preds = %108
   %114 = getelementptr inbounds i8, ptr %23, i64 28
@@ -428,51 +428,51 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   %120 = getelementptr inbounds i8, ptr %105, i64 8
   %121 = load i16, ptr %120, align 8
   %122 = zext i16 %121 to i32
-  %.not77.i = icmp eq i32 %119, %122
-  br i1 %.not77.i, label %125, label %123
+  %.not76.i = icmp eq i32 %119, %122
+  br i1 %.not76.i, label %125, label %123
 
 123:                                              ; preds = %113
   %124 = trunc i32 %119 to i16
   store i16 %124, ptr %120, align 8
-  %.pre159.i = load ptr, ptr %95, align 8
-  %.pre160.i = load i16, ptr %27, align 8
+  %.pre158.i = load ptr, ptr %95, align 8
+  %.pre159.i = load i16, ptr %27, align 8
   br label %125
 
 125:                                              ; preds = %123, %113
-  %126 = phi i16 [ %.pre160.i, %123 ], [ %117, %113 ]
-  %127 = phi ptr [ %.pre159.i, %123 ], [ %105, %113 ]
+  %126 = phi i16 [ %.pre159.i, %123 ], [ %117, %113 ]
+  %127 = phi ptr [ %.pre158.i, %123 ], [ %105, %113 ]
   %128 = getelementptr inbounds i8, ptr %127, i64 12
   %129 = load i16, ptr %128, align 4
-  %.not78.i = icmp eq i16 %129, %126
-  br i1 %.not78.i, label %131, label %130
+  %.not77.i = icmp eq i16 %129, %126
+  br i1 %.not77.i, label %131, label %130
 
 130:                                              ; preds = %125
   store i16 %126, ptr %128, align 4
-  %.pre161.i = load ptr, ptr %95, align 8
+  %.pre160.i = load ptr, ptr %95, align 8
   br label %131
 
 131:                                              ; preds = %130, %125
-  %132 = phi ptr [ %.pre161.i, %130 ], [ %127, %125 ]
+  %132 = phi ptr [ %.pre160.i, %130 ], [ %127, %125 ]
   %133 = getelementptr inbounds i8, ptr %132, i64 16
   %134 = load i16, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %23, i64 30
   %136 = load i16, ptr %135, align 2
-  %.not79.i = icmp eq i16 %134, %136
-  br i1 %.not79.i, label %138, label %137
+  %.not78.i = icmp eq i16 %134, %136
+  br i1 %.not78.i, label %138, label %137
 
 137:                                              ; preds = %131
   store i16 %136, ptr %133, align 8
-  %.pre162.i = load ptr, ptr %95, align 8
+  %.pre161.i = load ptr, ptr %95, align 8
   br label %138
 
 138:                                              ; preds = %137, %131
-  %139 = phi ptr [ %.pre162.i, %137 ], [ %132, %131 ]
+  %139 = phi ptr [ %.pre161.i, %137 ], [ %132, %131 ]
   %140 = getelementptr inbounds i8, ptr %139, i64 18
   %141 = load i16, ptr %140, align 2
   %142 = getelementptr inbounds i8, ptr %23, i64 32
   %143 = load i16, ptr %142, align 8
-  %.not80.i = icmp eq i16 %141, %143
-  br i1 %.not80.i, label %149, label %144
+  %.not79.i = icmp eq i16 %141, %143
+  br i1 %.not79.i, label %149, label %144
 
 144:                                              ; preds = %138
   store i16 %143, ptr %140, align 2
@@ -481,13 +481,13 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   %147 = load ptr, ptr %95, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 14
   store i16 %146, ptr %148, align 2
-  %.pre163.i = load i16, ptr %142, align 8
-  %.pre164.i = load ptr, ptr %95, align 8
+  %.pre162.i = load i16, ptr %142, align 8
+  %.pre163.i = load ptr, ptr %95, align 8
   br label %149
 
 149:                                              ; preds = %144, %138
-  %150 = phi ptr [ %.pre164.i, %144 ], [ %139, %138 ]
-  %151 = phi i16 [ %.pre163.i, %144 ], [ %141, %138 ]
+  %150 = phi ptr [ %.pre163.i, %144 ], [ %139, %138 ]
+  %151 = phi i16 [ %.pre162.i, %144 ], [ %141, %138 ]
   %152 = load i16, ptr %135, align 2
   %153 = sext i16 %152 to i32
   %154 = sext i16 %151 to i32
@@ -495,8 +495,8 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   %156 = getelementptr inbounds i8, ptr %150, i64 10
   %157 = load i16, ptr %156, align 2
   %158 = zext i16 %157 to i32
-  %.not81.i = icmp eq i32 %155, %158
-  br i1 %.not81.i, label %161, label %159
+  %.not80.i = icmp eq i32 %155, %158
+  br i1 %.not80.i, label %161, label %159
 
 159:                                              ; preds = %149
   %160 = trunc i32 %155 to i16
@@ -506,35 +506,35 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
 161:                                              ; preds = %159, %149, %108, %104, %94
   %162 = load i64, ptr %23, align 8
   %163 = and i64 %162, 1
-  %.not82.i = icmp eq i64 %163, 0
-  br i1 %.not82.i, label %165, label %.sink.split.i
+  %.not81.i = icmp eq i64 %163, 0
+  br i1 %.not81.i, label %165, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %161
   %164 = and i64 %162, 32
-  %.not83.i = icmp eq i64 %164, 0
-  %.206.i = select i1 %.not83.i, i32 185, i32 186
-  store i32 %.206.i, ptr %11, align 4
+  %.not82.i = icmp eq i64 %164, 0
+  %.205.i = select i1 %.not82.i, i32 185, i32 186
+  store i32 %.205.i, ptr %11, align 4
   br label %176
 
 165:                                              ; preds = %161
   %166 = load ptr, ptr %95, align 8
-  %.not88.i = icmp eq ptr %166, null
-  br i1 %.not88.i, label %167, label %.thread.i
+  %.not87.i = icmp eq ptr %166, null
+  br i1 %.not87.i, label %167, label %.thread.i
 
 167:                                              ; preds = %165
   store i32 3, ptr %11, align 4
   br label %.thread.i
 
 168:                                              ; preds = %19
-  %.not84.i = icmp eq ptr %23, null
-  br i1 %.not84.i, label %bdf_load_font.exit, label %.thread.i
+  %.not83.i = icmp eq ptr %23, null
+  br i1 %.not83.i, label %bdf_load_font.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %165, %167, %176, %168
   %.0 = phi ptr [ null, %176 ], [ null, %168 ], [ null, %167 ], [ %166, %165 ]
   %169 = getelementptr inbounds i8, ptr %23, i64 96
   %170 = load ptr, ptr %169, align 8
-  %.not.i86.i = icmp eq ptr %170, null
-  br i1 %.not.i86.i, label %bdf_list_done_.exit.i, label %171
+  %.not.i85.i = icmp eq ptr %170, null
+  br i1 %.not.i85.i, label %bdf_list_done_.exit.i, label %171
 
 171:                                              ; preds = %.thread.i
   %172 = getelementptr inbounds i8, ptr %23, i64 72
@@ -549,7 +549,7 @@ bdf_list_done_.exit.i:                            ; preds = %171, %.thread.i
   call void @ft_mem_free(ptr noundef %17, ptr noundef %175) #18
   store ptr null, ptr %174, align 8
   call void @ft_mem_free(ptr noundef %17, ptr noundef nonnull %23) #18
-  %.pre165.i = load i32, ptr %11, align 4
+  %.pre164.i = load i32, ptr %11, align 4
   br label %bdf_load_font.exit
 
 176:                                              ; preds = %.sink.split.i, %bdf_readstream_.exit.i
@@ -563,7 +563,7 @@ bdf_list_done_.exit.i:                            ; preds = %171, %.thread.i
 
 bdf_load_font.exit:                               ; preds = %168, %bdf_list_done_.exit.i
   %.1257 = phi ptr [ %.0, %bdf_list_done_.exit.i ], [ null, %168 ]
-  %180 = phi i32 [ %.pre165.i, %bdf_list_done_.exit.i ], [ %24, %168 ]
+  %180 = phi i32 [ %.pre164.i, %bdf_list_done_.exit.i ], [ %24, %168 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   store i32 %180, ptr %12, align 4
   %181 = and i32 %180, 255

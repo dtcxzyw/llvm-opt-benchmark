@@ -1849,11 +1849,11 @@ if.then72.i.i:                                    ; preds = %if.then67.i.i
 _ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i: ; preds = %if.end64.i.i
   %cmp159.i = icmp eq i8 %67, 0
   %or.cond175 = select i1 %cmp108.not.not.i, i1 %cmp159.i, i1 false
-  br i1 %or.cond175, label %if.then163.i, label %if.end228.i
+  br i1 %or.cond175, label %if.then163.i, label %if.end224.i
 
 land.lhs.true.i:                                  ; preds = %if.then72.i.i, %if.then67.i.i
   %cmp159.i.old = icmp eq i8 %67, 0
-  br i1 %cmp159.i.old, label %if.then163.i, label %if.end228.i
+  br i1 %cmp159.i.old, label %if.then163.i, label %if.end224.i
 
 if.then163.i:                                     ; preds = %_ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i, %land.lhs.true.i
   %call166.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %checkLibFile.i, i64 noundef 2048, ptr noundef nonnull @.str.64, ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512)) #19
@@ -1897,23 +1897,23 @@ if.then195.i:                                     ; preds = %if.else192.i
 if.else200.i:                                     ; preds = %land.lhs.true175.i, %if.then170.i
   %cmp205.not.i = icmp eq ptr %o.sroa.68.0, null
   %or.cond176 = select i1 %tobool42.not.i63, i1 true, i1 %cmp205.not.i
-  br i1 %or.cond176, label %if.end228.i, label %if.end228.i.sink.split
+  br i1 %or.cond176, label %if.end224.i, label %if.end224.i.sink.split
 
 if.else212.i:                                     ; preds = %if.then163.i
   %cmp217.not.i = icmp eq ptr %o.sroa.68.0, null
   %or.cond177 = select i1 %tobool42.not.i63, i1 true, i1 %cmp217.not.i
-  br i1 %or.cond177, label %if.end228.i, label %if.end228.i.sink.split
+  br i1 %or.cond177, label %if.end224.i, label %if.end224.i.sink.split
 
-if.end228.i.sink.split:                           ; preds = %if.else212.i, %if.else200.i
+if.end224.i.sink.split:                           ; preds = %if.else212.i, %if.else200.i
   %.str.68.sink = phi ptr [ @.str.67, %if.else200.i ], [ @.str.68, %if.else212.i ]
   %192 = load ptr, ptr @stdout, align 8
   %call221.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull %.str.68.sink, ptr noundef nonnull %checkLibFile.i, ptr noundef nonnull %o.sroa.68.0)
-  br label %if.end228.i
+  br label %if.end224.i
 
-if.end228.i:                                      ; preds = %if.end228.i.sink.split, %if.else212.i, %if.else200.i, %land.lhs.true.i, %_ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i
+if.end224.i:                                      ; preds = %if.end224.i.sink.split, %if.else212.i, %if.else200.i, %land.lhs.true.i, %_ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i
   br i1 %tobool177.not, label %land.lhs.true230.i, label %if.else282.i
 
-land.lhs.true230.i:                               ; preds = %if.end228.i
+land.lhs.true230.i:                               ; preds = %if.end224.i
   %193 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %194 = load ptr, ptr %193, align 8
   %195 = load i8, ptr %194, align 1
@@ -2061,7 +2061,7 @@ if.else279.i:                                     ; preds = %land.lhs.true247.i,
   %call280.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.72, ptr noundef nonnull %194) #22
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
-if.else282.i:                                     ; preds = %if.end228.i, %land.lhs.true230.i
+if.else282.i:                                     ; preds = %if.end224.i, %land.lhs.true230.i
   br i1 %tobool42.not.i63, label %if.end288.i, label %if.then285.i
 
 if.then285.i:                                     ; preds = %if.else282.i

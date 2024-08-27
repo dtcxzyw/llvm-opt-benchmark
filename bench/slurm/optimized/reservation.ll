@@ -2081,8 +2081,8 @@ _create_resv_lists.exit:                          ; preds = %16, %18
 
 526:                                              ; preds = %525, %._crit_edge
   %527 = load ptr, ptr %10, align 8
-  %.not11.i = icmp eq ptr %527, null
-  br i1 %.not11.i, label %529, label %528
+  %.not.i360 = icmp eq ptr %527, null
+  br i1 %.not.i360, label %529, label %528
 
 528:                                              ; preds = %526
   call void @slurm_bit_free(ptr noundef nonnull %10) #21
@@ -2092,8 +2092,8 @@ _create_resv_lists.exit:                          ; preds = %16, %18
   store ptr null, ptr %10, align 8
   %530 = getelementptr inbounds i8, ptr %10, i64 8
   %531 = load ptr, ptr %530, align 8
-  %.not12.i = icmp eq ptr %531, null
-  br i1 %.not12.i, label %533, label %532
+  %.not11.i = icmp eq ptr %531, null
+  br i1 %.not11.i, label %533, label %532
 
 532:                                              ; preds = %529
   call void @list_destroy(ptr noundef nonnull %531) #21
@@ -2103,8 +2103,8 @@ _create_resv_lists.exit:                          ; preds = %16, %18
   store ptr null, ptr %530, align 8
   %534 = getelementptr inbounds i8, ptr %10, i64 16
   %535 = load ptr, ptr %534, align 8
-  %.not13.i = icmp eq ptr %535, null
-  br i1 %.not13.i, label %_free_resv_select_members.exit, label %536
+  %.not12.i = icmp eq ptr %535, null
+  br i1 %.not12.i, label %_free_resv_select_members.exit, label %536
 
 536:                                              ; preds = %533
   call void @slurm_bit_free(ptr noundef nonnull %534) #21
@@ -3145,8 +3145,8 @@ define internal fastcc i32 @_select_nodes(ptr noundef %0, ptr nocapture noundef 
 
 84:                                               ; preds = %._crit_edge
   %85 = load ptr, ptr %56, align 16
-  %.not11.i = icmp eq ptr %85, null
-  br i1 %.not11.i, label %87, label %86
+  %.not.i = icmp eq ptr %85, null
+  br i1 %.not.i, label %87, label %86
 
 86:                                               ; preds = %84
   call void @slurm_bit_free(ptr noundef nonnull %56) #21
@@ -3156,8 +3156,8 @@ define internal fastcc i32 @_select_nodes(ptr noundef %0, ptr nocapture noundef 
   store ptr null, ptr %56, align 16
   %88 = getelementptr inbounds i8, ptr %5, i64 56
   %89 = load ptr, ptr %88, align 8
-  %.not12.i = icmp eq ptr %89, null
-  br i1 %.not12.i, label %91, label %90
+  %.not11.i = icmp eq ptr %89, null
+  br i1 %.not11.i, label %91, label %90
 
 90:                                               ; preds = %87
   call void @list_destroy(ptr noundef nonnull %89) #21
@@ -3166,8 +3166,8 @@ define internal fastcc i32 @_select_nodes(ptr noundef %0, ptr nocapture noundef 
 91:                                               ; preds = %90, %87
   store ptr null, ptr %88, align 8
   %92 = load ptr, ptr %57, align 16
-  %.not13.i = icmp eq ptr %92, null
-  br i1 %.not13.i, label %_free_resv_select_members.exit, label %93
+  %.not12.i = icmp eq ptr %92, null
+  br i1 %.not12.i, label %_free_resv_select_members.exit, label %93
 
 93:                                               ; preds = %91
   call void @slurm_bit_free(ptr noundef nonnull %57) #21
@@ -3176,8 +3176,8 @@ define internal fastcc i32 @_select_nodes(ptr noundef %0, ptr nocapture noundef 
 _free_resv_select_members.exit:                   ; preds = %91, %93
   store ptr null, ptr %57, align 16
   %94 = load ptr, ptr %52, align 8
-  %.not11.i119 = icmp eq ptr %94, null
-  br i1 %.not11.i119, label %96, label %95
+  %.not.i119 = icmp eq ptr %94, null
+  br i1 %.not.i119, label %96, label %95
 
 95:                                               ; preds = %_free_resv_select_members.exit
   call void @slurm_bit_free(ptr noundef nonnull %52) #21
@@ -3187,8 +3187,8 @@ _free_resv_select_members.exit:                   ; preds = %91, %93
   store ptr null, ptr %52, align 8
   %97 = getelementptr inbounds i8, ptr %5, i64 80
   %98 = load ptr, ptr %97, align 16
-  %.not12.i120 = icmp eq ptr %98, null
-  br i1 %.not12.i120, label %100, label %99
+  %.not11.i120 = icmp eq ptr %98, null
+  br i1 %.not11.i120, label %100, label %99
 
 99:                                               ; preds = %96
   call void @list_destroy(ptr noundef nonnull %98) #21
@@ -3197,8 +3197,8 @@ _free_resv_select_members.exit:                   ; preds = %91, %93
 100:                                              ; preds = %99, %96
   store ptr null, ptr %97, align 16
   %101 = load ptr, ptr %53, align 8
-  %.not13.i121 = icmp eq ptr %101, null
-  br i1 %.not13.i121, label %_free_resv_select_members.exit122, label %102
+  %.not12.i121 = icmp eq ptr %101, null
+  br i1 %.not12.i121, label %_free_resv_select_members.exit122, label %102
 
 102:                                              ; preds = %100
   call void @slurm_bit_free(ptr noundef nonnull %53) #21
@@ -3207,8 +3207,8 @@ _free_resv_select_members.exit:                   ; preds = %91, %93
 _free_resv_select_members.exit122:                ; preds = %100, %102
   store ptr null, ptr %53, align 8
   %103 = load ptr, ptr %50, align 16
-  %.not11.i123 = icmp eq ptr %103, null
-  br i1 %.not11.i123, label %105, label %104
+  %.not.i123 = icmp eq ptr %103, null
+  br i1 %.not.i123, label %105, label %104
 
 104:                                              ; preds = %_free_resv_select_members.exit122
   call void @slurm_bit_free(ptr noundef nonnull %50) #21
@@ -3218,8 +3218,8 @@ _free_resv_select_members.exit122:                ; preds = %100, %102
   store ptr null, ptr %50, align 16
   %106 = getelementptr inbounds i8, ptr %5, i64 104
   %107 = load ptr, ptr %106, align 8
-  %.not12.i124 = icmp eq ptr %107, null
-  br i1 %.not12.i124, label %109, label %108
+  %.not11.i124 = icmp eq ptr %107, null
+  br i1 %.not11.i124, label %109, label %108
 
 108:                                              ; preds = %105
   call void @list_destroy(ptr noundef nonnull %107) #21
@@ -3228,8 +3228,8 @@ _free_resv_select_members.exit122:                ; preds = %100, %102
 109:                                              ; preds = %108, %105
   store ptr null, ptr %106, align 8
   %110 = load ptr, ptr %49, align 16
-  %.not13.i125 = icmp eq ptr %110, null
-  br i1 %.not13.i125, label %_free_resv_select_members.exit126, label %111
+  %.not12.i125 = icmp eq ptr %110, null
+  br i1 %.not12.i125, label %_free_resv_select_members.exit126, label %111
 
 111:                                              ; preds = %109
   call void @slurm_bit_free(ptr noundef nonnull %49) #21
@@ -3249,8 +3249,8 @@ _free_resv_select_members.exit126:                ; preds = %109, %111
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %52, align 8
-  %.not11.i127 = icmp eq ptr %116, null
-  br i1 %.not11.i127, label %118, label %117
+  %.not.i127 = icmp eq ptr %116, null
+  br i1 %.not.i127, label %118, label %117
 
 117:                                              ; preds = %115
   call void @slurm_bit_free(ptr noundef nonnull %52) #21
@@ -3260,8 +3260,8 @@ _free_resv_select_members.exit126:                ; preds = %109, %111
   store ptr null, ptr %52, align 8
   %119 = getelementptr inbounds i8, ptr %5, i64 80
   %120 = load ptr, ptr %119, align 16
-  %.not12.i128 = icmp eq ptr %120, null
-  br i1 %.not12.i128, label %122, label %121
+  %.not11.i128 = icmp eq ptr %120, null
+  br i1 %.not11.i128, label %122, label %121
 
 121:                                              ; preds = %118
   call void @list_destroy(ptr noundef nonnull %120) #21
@@ -3270,8 +3270,8 @@ _free_resv_select_members.exit126:                ; preds = %109, %111
 122:                                              ; preds = %121, %118
   store ptr null, ptr %119, align 16
   %123 = load ptr, ptr %53, align 8
-  %.not13.i129 = icmp eq ptr %123, null
-  br i1 %.not13.i129, label %_free_resv_select_members.exit130, label %124
+  %.not12.i129 = icmp eq ptr %123, null
+  br i1 %.not12.i129, label %_free_resv_select_members.exit130, label %124
 
 124:                                              ; preds = %122
   call void @slurm_bit_free(ptr noundef nonnull %53) #21
@@ -3280,8 +3280,8 @@ _free_resv_select_members.exit126:                ; preds = %109, %111
 _free_resv_select_members.exit130:                ; preds = %122, %124
   store ptr null, ptr %53, align 8
   %125 = load ptr, ptr %50, align 16
-  %.not11.i131 = icmp eq ptr %125, null
-  br i1 %.not11.i131, label %127, label %126
+  %.not.i131 = icmp eq ptr %125, null
+  br i1 %.not.i131, label %127, label %126
 
 126:                                              ; preds = %_free_resv_select_members.exit130
   call void @slurm_bit_free(ptr noundef nonnull %50) #21
@@ -3291,8 +3291,8 @@ _free_resv_select_members.exit130:                ; preds = %122, %124
   store ptr null, ptr %50, align 16
   %128 = getelementptr inbounds i8, ptr %5, i64 104
   %129 = load ptr, ptr %128, align 8
-  %.not12.i132 = icmp eq ptr %129, null
-  br i1 %.not12.i132, label %131, label %130
+  %.not11.i132 = icmp eq ptr %129, null
+  br i1 %.not11.i132, label %131, label %130
 
 130:                                              ; preds = %127
   call void @list_destroy(ptr noundef nonnull %129) #21
@@ -3301,8 +3301,8 @@ _free_resv_select_members.exit130:                ; preds = %122, %124
 131:                                              ; preds = %130, %127
   store ptr null, ptr %128, align 8
   %132 = load ptr, ptr %49, align 16
-  %.not13.i133 = icmp eq ptr %132, null
-  br i1 %.not13.i133, label %_free_resv_select_members.exit134, label %133
+  %.not12.i133 = icmp eq ptr %132, null
+  br i1 %.not12.i133, label %_free_resv_select_members.exit134, label %133
 
 133:                                              ; preds = %131
   call void @slurm_bit_free(ptr noundef nonnull %49) #21
@@ -3431,8 +3431,8 @@ _free_resv_select_members.exit134:                ; preds = %131, %133
   %.170.be.i = phi i32 [ %189, %194 ], [ %.372.i, %205 ], [ %189, %184 ]
   %.1.be.i = phi ptr [ %186, %194 ], [ %.3.i, %205 ], [ %186, %184 ]
   %197 = call ptr @list_next(ptr noundef %182) #21
-  %.not.i = icmp eq ptr %197, null
-  br i1 %.not.i, label %._crit_edge.i, label %184, !llvm.loop !18
+  %.not.i135 = icmp eq ptr %197, null
+  br i1 %.not.i135, label %._crit_edge.i, label %184, !llvm.loop !18
 
 198:                                              ; preds = %194, %191
   %.372.i = phi i32 [ %189, %194 ], [ %.17088.i, %191 ]
@@ -3589,8 +3589,8 @@ _pick_nodes_by_feature_node_cnt.exit:             ; preds = %208, %209, %212, %2
   %.0155 = phi i64 [ 0, %.thread148 ], [ %257, %_free_resv_select_members.exit139 ]
   %246 = getelementptr inbounds [6 x %struct.resv_select_t], ptr %5, i64 0, i64 %.0155
   %247 = load ptr, ptr %246, align 8
-  %.not11.i136 = icmp eq ptr %247, null
-  br i1 %.not11.i136, label %249, label %248
+  %.not.i136 = icmp eq ptr %247, null
+  br i1 %.not.i136, label %249, label %248
 
 248:                                              ; preds = %245
   call void @slurm_bit_free(ptr noundef nonnull %246) #21
@@ -3600,8 +3600,8 @@ _pick_nodes_by_feature_node_cnt.exit:             ; preds = %208, %209, %212, %2
   store ptr null, ptr %246, align 8
   %250 = getelementptr inbounds i8, ptr %246, i64 8
   %251 = load ptr, ptr %250, align 8
-  %.not12.i137 = icmp eq ptr %251, null
-  br i1 %.not12.i137, label %253, label %252
+  %.not11.i137 = icmp eq ptr %251, null
+  br i1 %.not11.i137, label %253, label %252
 
 252:                                              ; preds = %249
   call void @list_destroy(ptr noundef nonnull %251) #21
@@ -3611,8 +3611,8 @@ _pick_nodes_by_feature_node_cnt.exit:             ; preds = %208, %209, %212, %2
   store ptr null, ptr %250, align 8
   %254 = getelementptr inbounds i8, ptr %246, i64 16
   %255 = load ptr, ptr %254, align 8
-  %.not13.i138 = icmp eq ptr %255, null
-  br i1 %.not13.i138, label %_free_resv_select_members.exit139, label %256
+  %.not12.i138 = icmp eq ptr %255, null
+  br i1 %.not12.i138, label %_free_resv_select_members.exit139, label %256
 
 256:                                              ; preds = %253
   call void @slurm_bit_free(ptr noundef nonnull %254) #21
@@ -11265,9 +11265,9 @@ _get_resv_list.exit.thread:                       ; preds = %16
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %19, %69
-  %.03660.i = phi ptr [ %70, %69 ], [ %22, %19 ]
+  %.03659.i = phi ptr [ %70, %69 ], [ %22, %19 ]
   %29 = load ptr, ptr @resv_list, align 8
-  %30 = call ptr @list_find_first(ptr noundef %29, ptr noundef nonnull @_find_resv_name, ptr noundef nonnull %.03660.i) #21
+  %30 = call ptr @list_find_first(ptr noundef %29, ptr noundef nonnull @_find_resv_name, ptr noundef nonnull %.03659.i) #21
   %.not48.i = icmp eq ptr %30, null
   br i1 %.not48.i, label %64, label %31
 
@@ -11308,8 +11308,8 @@ _get_resv_list.exit.thread:                       ; preds = %16
 
 _validate_job_resv_internal.exit.i:               ; preds = %31
   %50 = load ptr, ptr %23, align 8
-  %.not54.i = icmp eq ptr %50, null
-  br i1 %.not54.i, label %52, label %51
+  %.not53.i = icmp eq ptr %50, null
+  br i1 %.not53.i, label %52, label %51
 
 51:                                               ; preds = %_validate_job_resv_internal.exit.i
   call void @list_destroy(ptr noundef nonnull %50) #21
@@ -11318,7 +11318,7 @@ _validate_job_resv_internal.exit.i:               ; preds = %31
 52:                                               ; preds = %51, %_validate_job_resv_internal.exit.i
   store ptr null, ptr %23, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #21
-  %53 = call ptr @xstrdup(ptr noundef nonnull %.03660.i) #21
+  %53 = call ptr @xstrdup(ptr noundef nonnull %.03659.i) #21
   br label %.loopexit.sink.split.i
 
 54:                                               ; preds = %47, %44, %41, %38, %34
@@ -11326,8 +11326,8 @@ _validate_job_resv_internal.exit.i:               ; preds = %31
   store i64 0, ptr %55, align 8
   call fastcc void @_validate_node_choice(ptr noundef nonnull %30)
   %56 = load ptr, ptr %23, align 8
-  %.not52.i = icmp eq ptr %56, null
-  br i1 %.not52.i, label %57, label %59
+  %.not51.i = icmp eq ptr %56, null
+  br i1 %.not51.i, label %57, label %59
 
 57:                                               ; preds = %54
   %58 = call ptr @list_create(ptr noundef null) #21
@@ -11337,8 +11337,8 @@ _validate_job_resv_internal.exit.i:               ; preds = %31
 59:                                               ; preds = %57, %54
   %60 = phi ptr [ %58, %57 ], [ %56, %54 ]
   %61 = call ptr @list_find_first(ptr noundef %60, ptr noundef nonnull @_find_resv_ptr, ptr noundef nonnull %30) #21
-  %.not53.i = icmp eq ptr %61, null
-  br i1 %.not53.i, label %62, label %69
+  %.not52.i = icmp eq ptr %61, null
+  br i1 %.not52.i, label %62, label %69
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %23, align 8
@@ -11357,7 +11357,7 @@ _validate_job_resv_internal.exit.i:               ; preds = %31
 67:                                               ; preds = %66, %64
   store ptr null, ptr %23, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #21
-  %68 = call ptr @xstrdup(ptr noundef nonnull %.03660.i) #21
+  %68 = call ptr @xstrdup(ptr noundef nonnull %.03659.i) #21
   br label %.loopexit.sink.split.i
 
 69:                                               ; preds = %62, %59
@@ -12277,8 +12277,8 @@ define internal fastcc void @_resv_node_replace(ptr noundef %0) unnamed_addr #0 
 177:                                              ; preds = %172, %175, %169
   %.1 = phi i8 [ %.05881, %169 ], [ 0, %175 ], [ 0, %172 ]
   %178 = load ptr, ptr %5, align 8
-  %.not11.i = icmp eq ptr %178, null
-  br i1 %.not11.i, label %180, label %179
+  %.not.i = icmp eq ptr %178, null
+  br i1 %.not.i, label %180, label %179
 
 179:                                              ; preds = %177
   call void @slurm_bit_free(ptr noundef nonnull %5) #21
@@ -12287,8 +12287,8 @@ define internal fastcc void @_resv_node_replace(ptr noundef %0) unnamed_addr #0 
 180:                                              ; preds = %179, %177
   store ptr null, ptr %5, align 8
   %181 = load ptr, ptr %47, align 8
-  %.not12.i = icmp eq ptr %181, null
-  br i1 %.not12.i, label %183, label %182
+  %.not11.i = icmp eq ptr %181, null
+  br i1 %.not11.i, label %183, label %182
 
 182:                                              ; preds = %180
   call void @list_destroy(ptr noundef nonnull %181) #21
@@ -12297,8 +12297,8 @@ define internal fastcc void @_resv_node_replace(ptr noundef %0) unnamed_addr #0 
 183:                                              ; preds = %182, %180
   store ptr null, ptr %47, align 8
   %184 = load ptr, ptr %44, align 8
-  %.not13.i = icmp eq ptr %184, null
-  br i1 %.not13.i, label %_free_resv_select_members.exit, label %185
+  %.not12.i = icmp eq ptr %184, null
+  br i1 %.not12.i, label %_free_resv_select_members.exit, label %185
 
 185:                                              ; preds = %183
   call void @slurm_bit_free(ptr noundef nonnull %44) #21
@@ -15098,8 +15098,8 @@ define internal fastcc void @_validate_node_choice(ptr noundef %0) unnamed_addr 
   %119 = load ptr, ptr %57, align 8
   call void @job_mgr_list_delete_job(ptr noundef %119) #21
   %120 = load ptr, ptr %3, align 8
-  %.not11.i = icmp eq ptr %120, null
-  br i1 %.not11.i, label %122, label %121
+  %.not.i = icmp eq ptr %120, null
+  br i1 %.not.i, label %122, label %121
 
 121:                                              ; preds = %118
   call void @slurm_bit_free(ptr noundef nonnull %3) #21
@@ -15109,8 +15109,8 @@ define internal fastcc void @_validate_node_choice(ptr noundef %0) unnamed_addr 
   store ptr null, ptr %3, align 8
   %123 = getelementptr inbounds i8, ptr %3, i64 8
   %124 = load ptr, ptr %123, align 8
-  %.not12.i = icmp eq ptr %124, null
-  br i1 %.not12.i, label %126, label %125
+  %.not11.i = icmp eq ptr %124, null
+  br i1 %.not11.i, label %126, label %125
 
 125:                                              ; preds = %122
   call void @list_destroy(ptr noundef nonnull %124) #21
@@ -15120,8 +15120,8 @@ define internal fastcc void @_validate_node_choice(ptr noundef %0) unnamed_addr 
   store ptr null, ptr %123, align 8
   %127 = getelementptr inbounds i8, ptr %3, i64 16
   %128 = load ptr, ptr %127, align 8
-  %.not13.i = icmp eq ptr %128, null
-  br i1 %.not13.i, label %_free_resv_select_members.exit, label %129
+  %.not12.i = icmp eq ptr %128, null
+  br i1 %.not12.i, label %_free_resv_select_members.exit, label %129
 
 129:                                              ; preds = %126
   call void @slurm_bit_free(ptr noundef nonnull %127) #21
@@ -18356,8 +18356,8 @@ _check_job_compatibility.exit.i:                  ; preds = %341, %._crit_edge.i
 449:                                              ; preds = %448, %447
   store ptr null, ptr %12, align 8
   %450 = load ptr, ptr %112, align 8
-  %.not12.i.i = icmp eq ptr %450, null
-  br i1 %.not12.i.i, label %452, label %451
+  %.not11.i.i = icmp eq ptr %450, null
+  br i1 %.not11.i.i, label %452, label %451
 
 451:                                              ; preds = %449
   call void @list_destroy(ptr noundef nonnull %450) #21
@@ -18366,8 +18366,8 @@ _check_job_compatibility.exit.i:                  ; preds = %341, %._crit_edge.i
 452:                                              ; preds = %451, %449
   store ptr null, ptr %112, align 8
   %453 = load ptr, ptr %107, align 8
-  %.not13.i.i = icmp eq ptr %453, null
-  br i1 %.not13.i.i, label %_pick_node_cnt.exit, label %454
+  %.not12.i.i = icmp eq ptr %453, null
+  br i1 %.not12.i.i, label %_pick_node_cnt.exit, label %454
 
 454:                                              ; preds = %452
   call void @slurm_bit_free(ptr noundef nonnull %107) #21
@@ -18970,8 +18970,8 @@ define internal fastcc void @_pick_nodes(ptr noundef %0, ptr noundef %1, ptr nou
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %2, align 8
-  %.not11.i = icmp eq ptr %42, null
-  br i1 %.not11.i, label %44, label %43
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %44, label %43
 
 43:                                               ; preds = %41
   call void @slurm_bit_free(ptr noundef nonnull %2) #21
@@ -18981,8 +18981,8 @@ define internal fastcc void @_pick_nodes(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr null, ptr %2, align 8
   %45 = getelementptr inbounds i8, ptr %2, i64 8
   %46 = load ptr, ptr %45, align 8
-  %.not12.i = icmp eq ptr %46, null
-  br i1 %.not12.i, label %48, label %47
+  %.not11.i = icmp eq ptr %46, null
+  br i1 %.not11.i, label %48, label %47
 
 47:                                               ; preds = %44
   call void @list_destroy(ptr noundef nonnull %46) #21
@@ -18991,8 +18991,8 @@ define internal fastcc void @_pick_nodes(ptr noundef %0, ptr noundef %1, ptr nou
 48:                                               ; preds = %47, %44
   store ptr null, ptr %45, align 8
   %49 = load ptr, ptr %6, align 8
-  %.not13.i = icmp eq ptr %49, null
-  br i1 %.not13.i, label %_free_resv_select_members.exit, label %50
+  %.not12.i = icmp eq ptr %49, null
+  br i1 %.not12.i, label %_free_resv_select_members.exit, label %50
 
 50:                                               ; preds = %48
   call void @slurm_bit_free(ptr noundef nonnull %6) #21

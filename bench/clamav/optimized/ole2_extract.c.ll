@@ -630,7 +630,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   store i32 %87, ptr %88, align 4
   call fastcc void @print_ole2_header(ptr noundef nonnull %7)
   %89 = and i64 %86, 4294967295
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i64 noundef %89) #21
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i64 noundef %89) #21
   %90 = getelementptr inbounds i8, ptr %7, i64 552
   store i8 0, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %7, i64 553
@@ -1014,132 +1014,130 @@ define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocaptu
 declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_ole2_header(ptr noundef readonly %0) unnamed_addr #2 {
-  %2 = icmp ne ptr %0, null
-  %3 = load i8, ptr @cli_debug_flag, align 1
-  %4 = icmp ne i8 %3, 0
-  %or.cond = select i1 %2, i1 %4, i1 false
-  br i1 %or.cond, label %5, label %105
+define internal fastcc void @print_ole2_header(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+  %2 = load i8, ptr @cli_debug_flag, align 1
+  %.not = icmp eq i8 %2, 0
+  br i1 %.not, label %103, label %3
 
-5:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.52) #21
-  %6 = load i8, ptr %0, align 8
-  %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
-  %12 = load i8, ptr %11, align 2
-  %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 3
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
-  %18 = load i8, ptr %17, align 4
-  %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 5
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 6
-  %24 = load i8, ptr %23, align 2
-  %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %0, i64 7
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53, i32 noundef %7, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28) #21
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load i8, ptr %29, align 8
-  %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %0, i64 9
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %0, i64 10
-  %36 = load i8, ptr %35, align 2
-  %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %0, i64 11
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
-  %42 = load i8, ptr %41, align 4
-  %43 = zext i8 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %0, i64 13
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 14
-  %48 = load i8, ptr %47, align 2
-  %49 = zext i8 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %0, i64 15
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  %54 = load i8, ptr %53, align 8
-  %55 = zext i8 %54 to i32
-  %56 = getelementptr inbounds i8, ptr %0, i64 17
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %0, i64 18
-  %60 = load i8, ptr %59, align 2
-  %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %0, i64 19
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %0, i64 20
-  %66 = load i8, ptr %65, align 4
-  %67 = zext i8 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %0, i64 21
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %0, i64 22
-  %72 = load i8, ptr %71, align 2
-  %73 = zext i8 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %0, i64 23
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.54, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %64, i32 noundef %67, i32 noundef %70, i32 noundef %73, i32 noundef %76) #21
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
-  %78 = load i16, ptr %77, align 8
-  %79 = zext i16 %78 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55, i32 noundef %79) #21
-  %80 = getelementptr inbounds i8, ptr %0, i64 26
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56, i32 noundef %82) #21
-  %83 = getelementptr inbounds i8, ptr %0, i64 28
-  %84 = load i16, ptr %83, align 4
-  %85 = sext i16 %84 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %85) #21
-  %86 = getelementptr inbounds i8, ptr %0, i64 30
-  %87 = load i16, ptr %86, align 2
-  %88 = zext i16 %87 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.58, i32 noundef %88) #21
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
-  %90 = load i32, ptr %89, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59, i32 noundef %90) #21
-  %91 = getelementptr inbounds i8, ptr %0, i64 44
-  %92 = load i32, ptr %91, align 4
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60, i32 noundef %92) #21
-  %93 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = load i8, ptr %0, align 8
+  %5 = zext i8 %4 to i32
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = load i8, ptr %9, align 2
+  %11 = zext i8 %10 to i32
+  %12 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = load i8, ptr %15, align 4
+  %17 = zext i8 %16 to i32
+  %18 = getelementptr inbounds i8, ptr %0, i64 5
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = getelementptr inbounds i8, ptr %0, i64 6
+  %22 = load i8, ptr %21, align 2
+  %23 = zext i8 %22 to i32
+  %24 = getelementptr inbounds i8, ptr %0, i64 7
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53, i32 noundef %5, i32 noundef %8, i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20, i32 noundef %23, i32 noundef %26) #21
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load i8, ptr %27, align 8
+  %29 = zext i8 %28 to i32
+  %30 = getelementptr inbounds i8, ptr %0, i64 9
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = getelementptr inbounds i8, ptr %0, i64 10
+  %34 = load i8, ptr %33, align 2
+  %35 = zext i8 %34 to i32
+  %36 = getelementptr inbounds i8, ptr %0, i64 11
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = getelementptr inbounds i8, ptr %0, i64 12
+  %40 = load i8, ptr %39, align 4
+  %41 = zext i8 %40 to i32
+  %42 = getelementptr inbounds i8, ptr %0, i64 13
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = getelementptr inbounds i8, ptr %0, i64 14
+  %46 = load i8, ptr %45, align 2
+  %47 = zext i8 %46 to i32
+  %48 = getelementptr inbounds i8, ptr %0, i64 15
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = load i8, ptr %51, align 8
+  %53 = zext i8 %52 to i32
+  %54 = getelementptr inbounds i8, ptr %0, i64 17
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = getelementptr inbounds i8, ptr %0, i64 18
+  %58 = load i8, ptr %57, align 2
+  %59 = zext i8 %58 to i32
+  %60 = getelementptr inbounds i8, ptr %0, i64 19
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i32
+  %63 = getelementptr inbounds i8, ptr %0, i64 20
+  %64 = load i8, ptr %63, align 4
+  %65 = zext i8 %64 to i32
+  %66 = getelementptr inbounds i8, ptr %0, i64 21
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = getelementptr inbounds i8, ptr %0, i64 22
+  %70 = load i8, ptr %69, align 2
+  %71 = zext i8 %70 to i32
+  %72 = getelementptr inbounds i8, ptr %0, i64 23
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.54, i32 noundef %29, i32 noundef %32, i32 noundef %35, i32 noundef %38, i32 noundef %41, i32 noundef %44, i32 noundef %47, i32 noundef %50, i32 noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %65, i32 noundef %68, i32 noundef %71, i32 noundef %74) #21
+  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %76 = load i16, ptr %75, align 8
+  %77 = zext i16 %76 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55, i32 noundef %77) #21
+  %78 = getelementptr inbounds i8, ptr %0, i64 26
+  %79 = load i16, ptr %78, align 2
+  %80 = zext i16 %79 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56, i32 noundef %80) #21
+  %81 = getelementptr inbounds i8, ptr %0, i64 28
+  %82 = load i16, ptr %81, align 4
+  %83 = sext i16 %82 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %83) #21
+  %84 = getelementptr inbounds i8, ptr %0, i64 30
+  %85 = load i16, ptr %84, align 2
+  %86 = zext i16 %85 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.58, i32 noundef %86) #21
+  %87 = getelementptr inbounds i8, ptr %0, i64 32
+  %88 = load i32, ptr %87, align 8
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59, i32 noundef %88) #21
+  %89 = getelementptr inbounds i8, ptr %0, i64 44
+  %90 = load i32, ptr %89, align 4
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60, i32 noundef %90) #21
+  %91 = getelementptr inbounds i8, ptr %0, i64 48
+  %92 = load i32, ptr %91, align 8
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.61, i32 noundef %92) #21
+  %93 = getelementptr inbounds i8, ptr %0, i64 56
   %94 = load i32, ptr %93, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.61, i32 noundef %94) #21
-  %95 = getelementptr inbounds i8, ptr %0, i64 56
-  %96 = load i32, ptr %95, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, i32 noundef %96) #21
-  %97 = getelementptr inbounds i8, ptr %0, i64 60
-  %98 = load i32, ptr %97, align 4
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.63, i32 noundef %98) #21
-  %99 = getelementptr inbounds i8, ptr %0, i64 64
-  %100 = load i32, ptr %99, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.64, i32 noundef %100) #21
-  %101 = getelementptr inbounds i8, ptr %0, i64 68
-  %102 = load i32, ptr %101, align 4
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.65, i32 noundef %102) #21
-  %103 = getelementptr inbounds i8, ptr %0, i64 72
-  %104 = load i32, ptr %103, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.66, i32 noundef %104) #21
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, i32 noundef %94) #21
+  %95 = getelementptr inbounds i8, ptr %0, i64 60
+  %96 = load i32, ptr %95, align 4
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.63, i32 noundef %96) #21
+  %97 = getelementptr inbounds i8, ptr %0, i64 64
+  %98 = load i32, ptr %97, align 8
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.64, i32 noundef %98) #21
+  %99 = getelementptr inbounds i8, ptr %0, i64 68
+  %100 = load i32, ptr %99, align 4
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.65, i32 noundef %100) #21
+  %101 = getelementptr inbounds i8, ptr %0, i64 72
+  %102 = load i32, ptr %101, align 8
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.66, i32 noundef %102) #21
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.52) #21
-  br label %105
+  br label %103
 
-105:                                              ; preds = %1, %5
+103:                                              ; preds = %1, %3
   ret void
 }
 

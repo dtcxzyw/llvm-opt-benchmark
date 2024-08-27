@@ -4549,7 +4549,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK8simdjson7haswell14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 15) i32 @_ZNK8simdjson7haswell14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage1::buf_block_reader.102", align 8
   %minifier.i = alloca %"class.simdjson::haswell::(anonymous namespace)::stage1::json_minifier", align 8
@@ -6633,7 +6633,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK8simdjson7icelake14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 15) i32 @_ZNK8simdjson7icelake14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.i = alloca [128 x i8], align 16
   %out_block.i = alloca [128 x i8], align 16
@@ -8827,7 +8827,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK8simdjson8westmere14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 15) i32 @_ZNK8simdjson8westmere14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.i = alloca [64 x i8], align 16
   %out_block.i = alloca [64 x i8], align 16

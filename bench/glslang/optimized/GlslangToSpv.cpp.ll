@@ -45864,8 +45864,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit413:       ; preds = %_ZNSt6vectorIjSaIjE
   store i32 %880, ptr %884, align 4
   store i32 %880, ptr %883, align 4
   %885 = getelementptr inbounds i8, ptr %883, i64 8
-  %.pre779.pre = load ptr, ptr %872, align 8
   %.pre780.pre = load ptr, ptr %873, align 8
+  %.pre779.pre = load ptr, ptr %872, align 8
   store ptr %883, ptr %40, align 8
   store ptr %885, ptr %881, align 8
   %886 = getelementptr inbounds i8, ptr %883, i64 8

@@ -2611,8 +2611,8 @@ _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %entry
   store ptr %1, ptr %__begin1, align 8
   %2 = getelementptr inbounds i8, ptr %__begin1, i64 8
   store ptr %0, ptr %2, align 8
-  %cmp.not.i30.not = icmp eq ptr %1, null
-  br i1 %cmp.not.i30.not, label %for.end, label %for.body
+  %cmp.not.i29.not = icmp eq ptr %1, null
+  br i1 %cmp.not.i29.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNK4pugi8xml_node8childrenEv.exit, %for.inc
   %3 = phi ptr [ %10, %for.inc ], [ %1, %_ZNK4pugi8xml_node8childrenEv.exit ]

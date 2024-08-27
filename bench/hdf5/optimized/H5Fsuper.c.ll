@@ -1957,7 +1957,7 @@ declare i32 @H5AC_unpin_entry(ptr noundef) local_unnamed_addr #1
 declare i32 @H5AC_expunge_entry(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
@@ -2065,7 +2065,7 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %71 = load i32, ptr %70, align 4
   %spec.select = call i32 @llvm.smax.i32(i32 %71, i32 2)
   store i32 %spec.select, ptr %70, align 4
-  %.pre240 = load ptr, ptr %20, align 8
+  %.pre237 = load ptr, ptr %20, align 8
   br label %._crit_edge
 
 72:                                               ; preds = %65
@@ -2083,12 +2083,12 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %79 = load i32, ptr %78, align 4
   %.not201 = icmp eq i32 %79, 32
   %.pre = load i32, ptr %4, align 4
-  %spec.select248 = select i1 %.not201, i32 %.pre, i32 1
+  %spec.select245 = select i1 %.not201, i32 %.pre, i32 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %77, %75, %72, %69
-  %80 = phi ptr [ %.pre240, %69 ], [ %47, %72 ], [ %47, %75 ], [ %47, %77 ]
-  %81 = phi i32 [ 3, %69 ], [ 2, %72 ], [ 2, %75 ], [ %spec.select248, %77 ]
+  %80 = phi ptr [ %.pre237, %69 ], [ %47, %72 ], [ %47, %75 ], [ %47, %77 ]
+  %81 = phi i32 [ 3, %69 ], [ 2, %72 ], [ 2, %75 ], [ %spec.select245, %77 ]
   %82 = getelementptr inbounds i8, ptr %80, i64 1428
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
@@ -2130,10 +2130,10 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
 107:                                              ; preds = %98
   %108 = call i32 @H5P_set(ptr noundef nonnull %101, ptr noundef nonnull @.str.17, ptr noundef nonnull %4) #6
   %109 = icmp slt i32 %108, 0
-  br i1 %109, label %110, label %._crit_edge241
+  br i1 %109, label %110, label %._crit_edge238
 
-._crit_edge241:                                   ; preds = %107
-  %.pre242 = load ptr, ptr %20, align 8
+._crit_edge238:                                   ; preds = %107
+  %.pre239 = load ptr, ptr %20, align 8
   br label %114
 
 110:                                              ; preds = %107
@@ -2142,8 +2142,8 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %113 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1188, i64 noundef %111, i64 noundef %112, ptr noundef nonnull @.str.18) #6
   br label %372
 
-114:                                              ; preds = %._crit_edge241, %97
-  %115 = phi ptr [ %.pre242, %._crit_edge241 ], [ %80, %97 ]
+114:                                              ; preds = %._crit_edge238, %97
+  %115 = phi ptr [ %.pre239, %._crit_edge238 ], [ %80, %97 ]
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %115, i64 1520
   %118 = load i32, ptr %117, align 8
@@ -2295,11 +2295,11 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %207 = load ptr, ptr %184, align 8
   %208 = call i64 @H5FD_sb_size(ptr noundef %207) #6
   %.not209 = icmp eq i64 %208, 0
-  %.pre243 = load i32, ptr %4, align 4
+  %.pre240 = load i32, ptr %4, align 4
   br i1 %.not209, label %212, label %209
 
 209:                                              ; preds = %.thread230
-  %210 = icmp ult i32 %.pre243, 2
+  %210 = icmp ult i32 %.pre240, 2
   %211 = add i64 %208, 16
   %spec.select224 = select i1 %210, i64 %211, i64 %208
   store i64 %206, ptr %19, align 8
@@ -2319,7 +2319,7 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %372
 
 219:                                              ; preds = %212
-  %220 = icmp ult i32 %.pre243, 2
+  %220 = icmp ult i32 %.pre240, 2
   %221 = select i1 %220, i64 %.0176, i64 0
   %spec.select225 = add i64 %221, %206
   %222 = load ptr, ptr %20, align 8
@@ -2413,24 +2413,24 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %.not217 = icmp eq i32 %268, 16
   %269 = getelementptr inbounds i8, ptr %11, i64 264
   %270 = load i32, ptr %269, align 4
-  br i1 %.not217, label %271, label %._crit_edge244
+  br i1 %.not217, label %271, label %._crit_edge241
 
-._crit_edge244:                                   ; preds = %267
-  %.pre246 = load i32, ptr %31, align 8
+._crit_edge241:                                   ; preds = %267
+  %.pre243 = load i32, ptr %31, align 8
   br label %273
 
 271:                                              ; preds = %267
   %.not218 = icmp eq i32 %270, 32
-  %.pre247 = load i32, ptr %31, align 8
+  %.pre244 = load i32, ptr %31, align 8
   br i1 %.not218, label %272, label %273
 
 272:                                              ; preds = %271
-  %.not219 = icmp eq i32 %.pre247, 4
+  %.not219 = icmp eq i32 %.pre244, 4
   br i1 %.not219, label %284, label %273
 
-273:                                              ; preds = %._crit_edge244, %272, %271
-  %274 = phi i32 [ %.pre246, %._crit_edge244 ], [ %.pre247, %272 ], [ %.pre247, %271 ]
-  %275 = phi i32 [ %270, %._crit_edge244 ], [ 32, %272 ], [ %270, %271 ]
+273:                                              ; preds = %._crit_edge241, %272, %271
+  %274 = phi i32 [ %.pre243, %._crit_edge241 ], [ %.pre244, %272 ], [ %.pre244, %271 ]
+  %275 = phi i32 [ %270, %._crit_edge241 ], [ 32, %272 ], [ %270, %271 ]
   %276 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %275, ptr %276, align 4
   store i32 %268, ptr %7, align 4
@@ -2643,28 +2643,28 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %395 = load i64, ptr %394, align 8
   %396 = call i32 @H5AC_expunge_entry(ptr noundef %0, ptr noundef nonnull @H5AC_DRVRINFO, i64 noundef %395, i32 noundef 0) #6
   %397 = icmp slt i32 %396, 0
-  br i1 %397, label %398, label %.thread235
+  br i1 %397, label %398, label %.thread234
 
 398:                                              ; preds = %393
   %399 = load i64, ptr @H5E_FILE_g, align 8
   %400 = load i64, ptr @H5E_CANTEXPUNGE_g, align 8
   %401 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1463, i64 noundef %399, i64 noundef %400, ptr noundef nonnull @.str.64) #6
-  br label %.thread235
+  br label %.thread234
 
 402:                                              ; preds = %385
   %403 = call ptr @H5MM_xfree(ptr noundef nonnull %.0180) #6
   br label %404
 
 404:                                              ; preds = %402, %384
-  br i1 %12, label %438, label %.thread235
+  br i1 %12, label %438, label %.thread234
 
-.thread235:                                       ; preds = %393, %398, %404
+.thread234:                                       ; preds = %393, %398, %404
   %405 = trunc nuw i8 %.0172 to i1
   %406 = icmp ne i64 %.0178, -1
   %or.cond = and i1 %406, %405
   br i1 %or.cond, label %407, label %414
 
-407:                                              ; preds = %.thread235
+407:                                              ; preds = %.thread234
   %408 = call i32 @H5MF_try_close(ptr noundef %0) #6
   %409 = icmp slt i32 %408, 0
   br i1 %409, label %410, label %414
@@ -2675,7 +2675,7 @@ define noundef i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr #0 {
   %413 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1482, i64 noundef %411, i64 noundef %412, ptr noundef nonnull @.str.86) #6
   br label %414
 
-414:                                              ; preds = %407, %410, %.thread235
+414:                                              ; preds = %407, %410, %.thread234
   br i1 %.0170, label %415, label %429
 
 415:                                              ; preds = %414

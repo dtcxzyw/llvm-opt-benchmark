@@ -913,11 +913,11 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   tail call void @cli_event_fastdata(ptr noundef %23, i32 noundef 9, ptr noundef %1, i32 noundef %2) #28
   %24 = getelementptr inbounds i8, ptr %7, i64 88
   %25 = getelementptr inbounds i8, ptr %7, i64 104
-  %.not63 = icmp eq ptr %1, null
+  %.not.i52 = icmp eq ptr %1, null
   %26 = getelementptr inbounds i8, ptr %1, i64 1
   %27 = add nsw i32 %2, -1
   %28 = zext nneg i32 %27 to i64
-  br i1 %.not63, label %.split.us, label %.split
+  br i1 %.not.i52, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %16, %fmap_readn.exit.us
   %.043.in.us = phi i64 [ %51, %fmap_readn.exit.us ], [ %18, %16 ]
@@ -972,8 +972,8 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br i1 %52, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %cli_memmem.exit.us
-  %.043.in.us70 = phi i64 [ %78, %cli_memmem.exit.us ], [ %18, %.split ]
-  %53 = and i64 %.043.in.us70, 4294967295
+  %.043.in.us68 = phi i64 [ %78, %cli_memmem.exit.us ], [ %18, %.split ]
+  %53 = and i64 %.043.in.us68, 4294967295
   %54 = add nuw nsw i64 %53, 4096
   %55 = icmp ugt i64 %54, %19
   br i1 %55, label %56, label %60
@@ -987,12 +987,12 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br label %60
 
 60:                                               ; preds = %58, %.split.split.us
-  %.0.us71 = phi i64 [ %59, %58 ], [ 4096, %.split.split.us ]
+  %.0.us69 = phi i64 [ %59, %58 ], [ 4096, %.split.split.us ]
   %61 = load i64, ptr %24, align 8
   %62 = icmp ne i64 %53, %61
-  %63 = icmp ne i64 %.0.us71, 0
-  %or.cond.i.us72 = and i1 %63, %62
-  br i1 %or.cond.i.us72, label %64, label %fmap_readn.exit.us75
+  %63 = icmp ne i64 %.0.us69, 0
+  %or.cond.i.us70 = and i1 %63, %62
+  br i1 %or.cond.i.us70, label %64, label %fmap_readn.exit.us73
 
 64:                                               ; preds = %60
   %65 = icmp ugt i64 %53, %61
@@ -1000,32 +1000,32 @@ fmap_readn.exit.us:                               ; preds = %46, %36
 
 66:                                               ; preds = %64
   %67 = sub nuw i64 %61, %53
-  %spec.select.i.us73 = call i64 @llvm.umin.i64(i64 %.0.us71, i64 %67)
+  %spec.select.i.us71 = call i64 @llvm.umin.i64(i64 %.0.us69, i64 %67)
   %68 = load ptr, ptr %25, align 8
-  %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us73, i32 noundef 0) #28
-  %.not.i.us74 = icmp eq ptr %69, null
-  br i1 %.not.i.us74, label %fmap_readn.exit.thread, label %70
+  %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us71, i32 noundef 0) #28
+  %.not.i.us72 = icmp eq ptr %69, null
+  br i1 %.not.i.us72, label %fmap_readn.exit.thread, label %70
 
 70:                                               ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us73, i1 false)
-  %71 = icmp ult i64 %spec.select.i.us73, 2147483648
-  %72 = select i1 %71, i64 %spec.select.i.us73, i64 -1
-  br label %fmap_readn.exit.us75
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us71, i1 false)
+  %71 = icmp ult i64 %spec.select.i.us71, 2147483648
+  %72 = select i1 %71, i64 %spec.select.i.us71, i64 -1
+  br label %fmap_readn.exit.us73
 
-fmap_readn.exit.us75:                             ; preds = %70, %60
-  %.0.i.us76 = phi i64 [ %72, %70 ], [ 0, %60 ]
-  %73 = icmp ult i64 %.0.i.us76, %9
-  %74 = icmp eq i64 %.0.i.us76, -1
-  %or.cond8.us77 = or i1 %73, %74
-  br i1 %or.cond8.us77, label %fmap_readn.exit.thread, label %cli_memmem.exit.us
+fmap_readn.exit.us73:                             ; preds = %70, %60
+  %.0.i.us74 = phi i64 [ %72, %70 ], [ 0, %60 ]
+  %73 = icmp ult i64 %.0.i.us74, %9
+  %74 = icmp eq i64 %.0.i.us74, -1
+  %or.cond8.us75 = or i1 %73, %74
+  br i1 %or.cond8.us75, label %fmap_readn.exit.thread, label %cli_memmem.exit.us
 
-cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us75
+cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us73
   %75 = load i8, ptr %1, align 1
   %76 = zext i8 %75 to i32
-  %77 = call ptr @memchr(ptr noundef nonnull %5, i32 noundef %76, i64 noundef %.0.i.us76) #29
+  %77 = call ptr @memchr(ptr noundef nonnull %5, i32 noundef %76, i64 noundef %.0.i.us74) #29
   %.not.us = icmp eq ptr %77, null
-  %78 = add i64 %.0.i.us76, %53
-  br i1 %.not.us, label %.split.split.us, label %cli_memmem.exit.thread59
+  %78 = add i64 %.0.i.us74, %53
+  br i1 %.not.us, label %.split.split.us, label %cli_memmem.exit.thread58
 
 .split.split:                                     ; preds = %.split, %cli_memmem.exit.thread
   %.043.in = phi i64 [ %119, %cli_memmem.exit.thread ], [ %18, %.split ]
@@ -1079,40 +1079,40 @@ fmap_readn.exit:                                  ; preds = %86, %96
   %101 = trunc i64 %.0.i to i32
   %102 = load i8, ptr %1, align 1
   %103 = zext i8 %102 to i32
-  %.not34.i = icmp ugt i32 %2, %101
-  br i1 %.not34.i, label %cli_memmem.exit.thread, label %.lr.ph.i
+  %.not3135.i = icmp ugt i32 %2, %101
+  br i1 %.not3135.i, label %cli_memmem.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %109
-  %.02536.i = phi ptr [ %108, %109 ], [ %5, %.preheader.i ]
-  %.02635.i = phi i32 [ %113, %109 ], [ %101, %.preheader.i ]
-  %reass.sub = sub i32 %.02635.i, %2
+  %.02537.i = phi ptr [ %108, %109 ], [ %5, %.preheader.i ]
+  %.02636.i = phi i32 [ %113, %109 ], [ %101, %.preheader.i ]
+  %reass.sub = sub i32 %.02636.i, %2
   %104 = add i32 %reass.sub, 1
   %105 = zext i32 %104 to i64
-  %106 = call ptr @memchr(ptr noundef nonnull %.02536.i, i32 noundef %103, i64 noundef %105) #29
-  %.not31.i = icmp eq ptr %106, null
-  br i1 %.not31.i, label %cli_memmem.exit.thread, label %107
+  %106 = call ptr @memchr(ptr noundef nonnull %.02537.i, i32 noundef %103, i64 noundef %105) #29
+  %.not32.i = icmp eq ptr %106, null
+  br i1 %.not32.i, label %cli_memmem.exit.thread, label %107
 
 107:                                              ; preds = %.lr.ph.i
   %108 = getelementptr inbounds i8, ptr %106, i64 1
   %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull readonly %26, i64 %28)
-  %.not32.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not32.i, label %cli_memmem.exit.thread59, label %109
+  %.not33.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not33.i, label %cli_memmem.exit.thread58, label %109
 
 109:                                              ; preds = %107
-  %110 = ptrtoint ptr %.02536.i to i64
+  %110 = ptrtoint ptr %.02537.i to i64
   %111 = ptrtoint ptr %108 to i64
   %.neg.i = sub i64 %110, %111
   %112 = trunc i64 %.neg.i to i32
-  %113 = add i32 %.02635.i, %112
-  %.not.i54 = icmp ult i32 %113, %2
-  br i1 %.not.i54, label %cli_memmem.exit.thread, label %.lr.ph.i
+  %113 = add i32 %.02636.i, %112
+  %.not31.i = icmp ult i32 %113, %2
+  br i1 %.not31.i, label %cli_memmem.exit.thread, label %.lr.ph.i
 
-cli_memmem.exit.thread59:                         ; preds = %107, %cli_memmem.exit.us
-  %.043.in69 = phi i64 [ %.043.in.us70, %cli_memmem.exit.us ], [ %.043.in, %107 ]
-  %.0.i5362 = phi ptr [ %77, %cli_memmem.exit.us ], [ %106, %107 ]
-  %114 = ptrtoint ptr %.0.i5362 to i64
+cli_memmem.exit.thread58:                         ; preds = %107, %cli_memmem.exit.us
+  %.043.in67 = phi i64 [ %.043.in.us68, %cli_memmem.exit.us ], [ %.043.in, %107 ]
+  %.0.i5361 = phi ptr [ %77, %cli_memmem.exit.us ], [ %106, %107 ]
+  %114 = ptrtoint ptr %.0.i5361 to i64
   %115 = ptrtoint ptr %5 to i64
-  %116 = sub i64 %.043.in69, %115
+  %116 = sub i64 %.043.in67, %115
   %117 = add i64 %116, %114
   %118 = trunc i64 %117 to i32
   br label %fmap_readn.exit.thread
@@ -1121,8 +1121,8 @@ cli_memmem.exit.thread:                           ; preds = %109, %.lr.ph.i, %.p
   %119 = add i64 %.0.i, %79
   br label %.split.split
 
-fmap_readn.exit.thread:                           ; preds = %92, %90, %fmap_readn.exit, %82, %56, %64, %66, %fmap_readn.exit.us75, %fmap_readn.exit.us, %42, %40, %32, %cli_memmem.exit.thread59, %13
-  %.042 = phi i32 [ -1, %13 ], [ %118, %cli_memmem.exit.thread59 ], [ -1, %32 ], [ -1, %40 ], [ -1, %42 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us75 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %82 ], [ -1, %fmap_readn.exit ], [ -1, %90 ], [ -1, %92 ]
+fmap_readn.exit.thread:                           ; preds = %92, %90, %fmap_readn.exit, %82, %56, %64, %66, %fmap_readn.exit.us73, %fmap_readn.exit.us, %42, %40, %32, %cli_memmem.exit.thread58, %13
+  %.042 = phi i32 [ -1, %13 ], [ %118, %cli_memmem.exit.thread58 ], [ -1, %32 ], [ -1, %40 ], [ -1, %42 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us73 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %82 ], [ -1, %fmap_readn.exit ], [ -1, %90 ], [ -1, %92 ]
   ret i32 %.042
 }
 

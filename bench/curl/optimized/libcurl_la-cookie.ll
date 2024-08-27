@@ -2084,7 +2084,7 @@ return:                                           ; preds = %if.then3, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cookiehash(ptr noundef %domain) unnamed_addr #0 {
+define internal fastcc range(i64 0, 63) i64 @cookiehash(ptr noundef %domain) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %domain, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

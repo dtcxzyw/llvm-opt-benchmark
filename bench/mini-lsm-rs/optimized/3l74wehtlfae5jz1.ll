@@ -9752,8 +9752,8 @@ define { i64, ptr } @_ZN8mini_lsm5table7SsTable17read_block_cached17hf3509e2f070
   store ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h5e8bbb9dc4715ea4E", ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2372
   store ptr @anon.7c19c97e3fdb202712c0ff18ddcac760.101, ptr %4, align 8, !noalias !2383
-  %.sroa.5.0..sroa_idx.i.i14 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %.sroa.5.0..sroa_idx.i.i14, align 8, !noalias !2383
+  %.sroa.5.0..sroa_idx.i.i13 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %.sroa.5.0..sroa_idx.i.i13, align 8, !noalias !2383
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %5, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !2383
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 24
@@ -9817,21 +9817,21 @@ define { i64, ptr } @_ZN8mini_lsm5table7SsTable17read_block_cached17hf3509e2f070
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit": ; preds = %14, %"_ZN8mini_lsm5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17h26e0c4d22e197f4dE.llvm.18239827628611957360.exit.i"
   %.sroa.3.0.i = phi ptr [ %36, %"_ZN8mini_lsm5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17h26e0c4d22e197f4dE.llvm.18239827628611957360.exit.i" ], [ %25, %14 ]
   %switch = icmp ne i64 %24, 0
-  %. = zext i1 %switch to i64
-  br label %46
+  %spec.select = zext i1 %switch to i64
+  br label %47
 
 44:                                               ; preds = %2
   %45 = tail call { i64, ptr } @_ZN8mini_lsm5table7SsTable10read_block17h71147bee6d663ad0E(ptr noundef nonnull align 8 %0, i64 noundef %1)
   %.fca.0.extract = extractvalue { i64, ptr } %45, 0
-  %.fca.1.extract = extractvalue { i64, ptr } %45, 1
-  br label %46
+  %46 = extractvalue { i64, ptr } %45, 1
+  br label %47
 
-46:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit", %44
-  %.sroa.4.0 = phi ptr [ %.fca.1.extract, %44 ], [ %.sroa.3.0.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit" ]
-  %.sroa.0.0 = phi i64 [ %.fca.0.extract, %44 ], [ %., %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit" ]
-  %47 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %48 = insertvalue { i64, ptr } %47, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %48
+47:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit", %44
+  %.pn = phi ptr [ %46, %44 ], [ %.sroa.3.0.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit" ]
+  %.sroa.0.0 = phi i64 [ %.fca.0.extract, %44 ], [ %spec.select, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit" ]
+  %48 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %49 = insertvalue { i64, ptr } %48, ptr %.pn, 1
+  ret { i64, ptr } %49
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

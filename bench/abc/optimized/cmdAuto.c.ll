@@ -364,7 +364,7 @@ define noundef ptr @Cmd_DeriveConvertIntoString(i32 noundef %0, ptr nocapture no
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %8 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #24
   %9 = add i64 %8, 1
-  %10 = call noalias ptr @malloc(i64 noundef %9) #23
+  %10 = call noalias noundef ptr @malloc(i64 noundef %9) #23
   %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %3) #21
   ret ptr %10
 }

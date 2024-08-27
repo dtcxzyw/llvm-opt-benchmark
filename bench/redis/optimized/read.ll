@@ -911,9 +911,9 @@ if.end78.i.i.i:                                   ; preds = %if.end68.i.i.i, %if
 
 if.then79.i.i.i:                                  ; preds = %if.end78.i.i.i
   %cmp80.i.i.i = icmp ugt i64 %v.0.lcssa.i.i.i, -9223372036854775808
-  br i1 %cmp80.i.i.i, label %if.then6.i.i, label %if.end83.i.i.i
+  br i1 %cmp80.i.i.i, label %if.then6.i.i, label %if.then86.i.i.i
 
-if.end83.i.i.i:                                   ; preds = %if.then79.i.i.i
+if.then86.i.i.i:                                  ; preds = %if.then79.i.i.i
   %sub87.i.i.i = sub i64 0, %v.0.lcssa.i.i.i
   br label %if.end.i.i
 
@@ -953,8 +953,8 @@ __redisReaderSetError.exit.i.i:                   ; preds = %if.then.i83.i.i, %l
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %processLineItem.exit.i
 
-if.end.i.i:                                       ; preds = %if.else89.i.i.i, %if.end83.i.i.i, %if.else.i.i.i, %if.else89.thread.i.i.i, %land.lhs.true.i.i.i
-  %sub87.sink.i.i.i = phi i64 [ %sub87.i.i.i, %if.end83.i.i.i ], [ 0, %if.else.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ %sub63.i.i.i, %if.else89.thread.i.i.i ], [ %v.0.lcssa.i.i.i, %if.else89.i.i.i ]
+if.end.i.i:                                       ; preds = %if.else89.i.i.i, %if.then86.i.i.i, %if.else.i.i.i, %if.else89.thread.i.i.i, %land.lhs.true.i.i.i
+  %storemerge.sink.i.i.i = phi i64 [ 0, %land.lhs.true.i.i.i ], [ 0, %if.else.i.i.i ], [ %sub87.i.i.i, %if.then86.i.i.i ], [ %v.0.lcssa.i.i.i, %if.else89.i.i.i ], [ %sub63.i.i.i, %if.else89.thread.i.i.i ]
   %49 = load ptr, ptr %fn45.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %49, null
   br i1 %tobool.not.i.i, label %if.end230.i.i, label %land.lhs.true.i.i
@@ -966,7 +966,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   br i1 %tobool8.not.i.i, label %if.end230.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %land.lhs.true.i.i
-  %call12.i.i = call ptr %50(ptr noundef nonnull %33, i64 noundef %sub87.sink.i.i.i) #12
+  %call12.i.i = call ptr %50(ptr noundef nonnull %33, i64 noundef %storemerge.sink.i.i.i) #12
   br label %if.end226.i.i
 
 if.then18.i.i:                                    ; preds = %if.then.i25.i
@@ -1641,9 +1641,9 @@ if.then20.i.i:                                    ; preds = %land.lhs.true.i100.
   br label %if.then61.i.i
 
 if.else25.i.i:                                    ; preds = %if.end15.i.i, %if.else89.i.i64.i, %if.else.i.i127.i, %if.else89.thread.i.i129.i, %land.lhs.true.i.i124.i
-  %sub87.sink.i99102.i.i = phi i64 [ 0, %if.end15.i.i ], [ %v.0.lcssa.i.i63.i, %if.else89.i.i64.i ], [ %sub63.i.i131.i, %if.else89.thread.i.i129.i ], [ 0, %land.lhs.true.i.i124.i ], [ 0, %if.else.i.i127.i ]
+  %storemerge.sink.i99102.i.i = phi i64 [ 0, %if.end15.i.i ], [ %sub63.i.i131.i, %if.else89.thread.i.i129.i ], [ %v.0.lcssa.i.i63.i, %if.else89.i.i64.i ], [ 0, %if.else.i.i127.i ], [ 0, %land.lhs.true.i.i124.i ]
   %add26.i.i = add i64 %sub.ptr.sub.i.i, 4
-  %add27.i.i = add i64 %add26.i.i, %sub87.sink.i99102.i.i
+  %add27.i.i = add i64 %add26.i.i, %storemerge.sink.i99102.i.i
   %add29.i.i = add i64 %add27.i.i, %107
   %cmp31.not.i.i = icmp ugt i64 %add29.i.i, %108
   br i1 %cmp31.not.i.i, label %while.end, label %if.then32.i.i
@@ -1651,7 +1651,7 @@ if.else25.i.i:                                    ; preds = %if.end15.i.i, %if.e
 if.then32.i.i:                                    ; preds = %if.else25.i.i
   %126 = load i32, ptr %105, align 8
   %cmp33.i.i = icmp eq i32 %126, 14
-  %cmp35.i.i = icmp ult i64 %sub87.sink.i99102.i.i, 4
+  %cmp35.i.i = icmp ult i64 %storemerge.sink.i99102.i.i, 4
   %or.cond.i66.i = and i1 %cmp35.i.i, %cmp33.i.i
   br i1 %or.cond.i66.i, label %if.then42.i.i, label %lor.lhs.false.i.i
 
@@ -1709,7 +1709,7 @@ land.lhs.true46.i.i:                              ; preds = %if.end43.i.i
 
 if.then49.i.i:                                    ; preds = %land.lhs.true46.i.i
   %add.ptr52.i.i = getelementptr inbounds i8, ptr %call13.i.i.i, i64 2
-  %call53.i.i = call ptr %133(ptr noundef nonnull %105, ptr noundef nonnull %add.ptr52.i.i, i64 noundef %sub87.sink.i99102.i.i) #12
+  %call53.i.i = call ptr %133(ptr noundef nonnull %105, ptr noundef nonnull %add.ptr52.i.i, i64 noundef %storemerge.sink.i99102.i.i) #12
   br label %if.then61.i.i
 
 if.else54.i.i:                                    ; preds = %land.lhs.true46.i.i, %if.end43.i.i
@@ -2077,12 +2077,12 @@ if.end12.i.i:                                     ; preds = %if.then79.i.i216.i
   br i1 %cmp16.i219.i, label %if.then23.i.i, label %lor.lhs.false.i191.i
 
 lor.lhs.false.i191.i:                             ; preds = %if.end12.i.i, %if.else89.i.i189.i, %if.else.i.i242.i, %if.else89.thread.i.i244.i, %land.lhs.true.i.i239.i
-  %sub87.sink.i98.i.i = phi i64 [ %sub87.i.i218.i, %if.end12.i.i ], [ %v.0.lcssa.i.i188.i, %if.else89.i.i189.i ], [ %sub63.i.i246.i, %if.else89.thread.i.i244.i ], [ 0, %land.lhs.true.i.i239.i ], [ 0, %if.else.i.i242.i ]
+  %storemerge.sink.i98.i.i = phi i64 [ %sub87.i.i218.i, %if.end12.i.i ], [ %sub63.i.i246.i, %if.else89.thread.i.i244.i ], [ %v.0.lcssa.i.i188.i, %if.else89.i.i189.i ], [ 0, %if.else.i.i242.i ], [ 0, %land.lhs.true.i.i239.i ]
   %cmp1499.in.i.i = load i32, ptr %ridx, align 4
   %cmp1499.i.i = icmp eq i32 %cmp1499.in.i.i, 0
   %177 = load i64, ptr %maxelements.i.i, align 8
   %cmp18.i.i = icmp sgt i64 %177, 0
-  %cmp21.i.i = icmp sgt i64 %sub87.sink.i98.i.i, %177
+  %cmp21.i.i = icmp sgt i64 %storemerge.sink.i98.i.i, %177
   %or.cond.i192.i = and i1 %cmp18.i.i, %cmp21.i.i
   br i1 %or.cond.i192.i, label %if.then23.i.i, label %if.end24.i.i
 
@@ -2120,7 +2120,7 @@ __redisReaderSetError.exit83.i213.i:              ; preds = %if.then.i75.i211.i,
   br label %return
 
 if.end24.i.i:                                     ; preds = %lor.lhs.false.i191.i
-  %cmp25.i.i = icmp eq i64 %sub87.sink.i98.i.i, -1
+  %cmp25.i.i = icmp eq i64 %storemerge.sink.i98.i.i, -1
   br i1 %cmp25.i.i, label %if.then27.i.i, label %if.else40.i.i
 
 if.then27.i.i:                                    ; preds = %if.end24.i.i
@@ -2152,7 +2152,7 @@ if.else40.i.i:                                    ; preds = %if.end24.i.i
   %184 = load i32, ptr %149, align 8
   %cmp41.i193.i = icmp eq i32 %184, 9
   %mul.i.i = zext i1 %cmp41.i193.i to i64
-  %spec.select.i.i = shl nuw nsw i64 %sub87.sink.i98.i.i, %mul.i.i
+  %spec.select.i.i = shl nuw nsw i64 %storemerge.sink.i98.i.i, %mul.i.i
   %185 = load ptr, ptr %fn45.i.i, align 8
   %tobool46.not.i.i = icmp eq ptr %185, null
   br i1 %tobool46.not.i.i, label %if.else54.i198.i, label %land.lhs.true47.i194.i
@@ -2182,7 +2182,7 @@ if.then60.i.i:                                    ; preds = %if.end57.i.i
   br label %while.end
 
 if.end61.i.i:                                     ; preds = %if.end57.i.i
-  %cmp62.not.i.i = icmp eq i64 %sub87.sink.i98.i.i, 0
+  %cmp62.not.i.i = icmp eq i64 %storemerge.sink.i98.i.i, 0
   br i1 %cmp62.not.i.i, label %if.else96.i.i, label %if.then64.i196.i
 
 if.then64.i196.i:                                 ; preds = %if.end61.i.i

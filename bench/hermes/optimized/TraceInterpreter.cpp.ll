@@ -5856,7 +5856,7 @@ call5.i.i.i.i.i.noexc174.i:                       ; preds = %_ZNKSt6vectorIZN8fa
   store ptr %retval.0.i.i130.i, ptr %add.ptr.i.i158.i, align 8, !noalias !67
   %ref.tmp52.sroa.3.0.add.ptr.i.i158.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i158.i, i64 8
   store i64 0, ptr %ref.tmp52.sroa.3.0.add.ptr.i.i158.sroa_idx.i, align 8, !noalias !67
-  br i1 %cmp.i.i.i.i151.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i165.i, label %for.body.i.i.i.i.i159.i
+  br i1 %cmp.i.i.i.i151.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i170.i, label %for.body.i.i.i.i.i159.i
 
 for.body.i.i.i.i.i159.i:                          ; preds = %call5.i.i.i.i.i.noexc174.i, %for.body.i.i.i.i.i159.i
   %__cur.03.i.i.i.i.i160.i = phi ptr [ %incdec.ptr1.i.i.i.i.i163.i, %for.body.i.i.i.i.i159.i ], [ %call5.i.i.i.i.i175.i, %call5.i.i.i.i.i.noexc174.i ]
@@ -5865,18 +5865,11 @@ for.body.i.i.i.i.i159.i:                          ; preds = %call5.i.i.i.i.i.noe
   %incdec.ptr.i.i.i.i.i162.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i161.i, i64 16
   %incdec.ptr1.i.i.i.i.i163.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i160.i, i64 16
   %cmp.not.i.i.i.i.i164.i = icmp eq ptr %incdec.ptr.i.i.i.i.i162.i, %stack.sroa.11.0765.i
-  br i1 %cmp.not.i.i.i.i.i164.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i165.i, label %for.body.i.i.i.i.i159.i, !llvm.loop !77
+  br i1 %cmp.not.i.i.i.i.i164.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i170.i, label %for.body.i.i.i.i.i159.i, !llvm.loop !77
 
-_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i165.i: ; preds = %for.body.i.i.i.i.i159.i, %call5.i.i.i.i.i.noexc174.i
+_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i170.i: ; preds = %for.body.i.i.i.i.i159.i, %call5.i.i.i.i.i.noexc174.i
   %__cur.0.lcssa.i.i.i.i.i166.i = phi ptr [ %call5.i.i.i.i.i175.i, %call5.i.i.i.i.i.noexc174.i ], [ %incdec.ptr1.i.i.i.i.i163.i, %for.body.i.i.i.i.i159.i ]
-  %tobool.not.i.i.i168.i = icmp eq ptr %stack.sroa.0.1766.i, null
-  br i1 %tobool.not.i.i.i168.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i170.i, label %if.then.i22.i.i169.i
-
-if.then.i22.i.i169.i:                             ; preds = %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i165.i
   call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.1766.i) #33, !noalias !67
-  br label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i170.i
-
-_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i170.i: ; preds = %if.then.i22.i.i169.i, %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i165.i
   %add.ptr19.i.i171.i = getelementptr inbounds %struct.StackValue, ptr %call5.i.i.i.i.i175.i, i64 %cond.i.i.i155.i
   br label %invoke.cont55.i
 
@@ -6180,7 +6173,7 @@ call5.i.i.i.i.i.noexc326.i:                       ; preds = %_ZNKSt6vectorIZN8fa
   store ptr %retval.0.i.i283.i, ptr %add.ptr.i.i310.i, align 8, !noalias !67
   %ref.tmp86.sroa.3.0.add.ptr.i.i310.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i310.i, i64 8
   store i64 0, ptr %ref.tmp86.sroa.3.0.add.ptr.i.i310.sroa_idx.i, align 8, !noalias !67
-  br i1 %cmp.i.i.i.i303.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i317.i, label %for.body.i.i.i.i.i311.i
+  br i1 %cmp.i.i.i.i303.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i322.i, label %for.body.i.i.i.i.i311.i
 
 for.body.i.i.i.i.i311.i:                          ; preds = %call5.i.i.i.i.i.noexc326.i, %for.body.i.i.i.i.i311.i
   %__cur.03.i.i.i.i.i312.i = phi ptr [ %incdec.ptr1.i.i.i.i.i315.i, %for.body.i.i.i.i.i311.i ], [ %call5.i.i.i.i.i327.i, %call5.i.i.i.i.i.noexc326.i ]
@@ -6189,18 +6182,11 @@ for.body.i.i.i.i.i311.i:                          ; preds = %call5.i.i.i.i.i.noe
   %incdec.ptr.i.i.i.i.i314.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i313.i, i64 16
   %incdec.ptr1.i.i.i.i.i315.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i312.i, i64 16
   %cmp.not.i.i.i.i.i316.i = icmp eq ptr %incdec.ptr.i.i.i.i.i314.i, %stack.sroa.11.0765.i
-  br i1 %cmp.not.i.i.i.i.i316.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i317.i, label %for.body.i.i.i.i.i311.i, !llvm.loop !77
+  br i1 %cmp.not.i.i.i.i.i316.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i322.i, label %for.body.i.i.i.i.i311.i, !llvm.loop !77
 
-_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i317.i: ; preds = %for.body.i.i.i.i.i311.i, %call5.i.i.i.i.i.noexc326.i
+_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i322.i: ; preds = %for.body.i.i.i.i.i311.i, %call5.i.i.i.i.i.noexc326.i
   %__cur.0.lcssa.i.i.i.i.i318.i = phi ptr [ %call5.i.i.i.i.i327.i, %call5.i.i.i.i.i.noexc326.i ], [ %incdec.ptr1.i.i.i.i.i315.i, %for.body.i.i.i.i.i311.i ]
-  %tobool.not.i.i.i320.i = icmp eq ptr %stack.sroa.0.1766.i, null
-  br i1 %tobool.not.i.i.i320.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i322.i, label %if.then.i22.i.i321.i
-
-if.then.i22.i.i321.i:                             ; preds = %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i317.i
   call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.1766.i) #33, !noalias !67
-  br label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i322.i
-
-_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i322.i: ; preds = %if.then.i22.i.i321.i, %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i317.i
   %add.ptr19.i.i323.i = getelementptr inbounds %struct.StackValue, ptr %call5.i.i.i.i.i327.i, i64 %cond.i.i.i307.i
   br label %invoke.cont89.i
 
@@ -6505,7 +6491,7 @@ call5.i.i.i.i.i.noexc479.i:                       ; preds = %_ZNKSt6vectorIZN8fa
   store ptr %retval.0.i.i435.i, ptr %add.ptr.i.i463.i, align 8, !noalias !67
   %ref.tmp115.sroa.3.0.add.ptr.i.i463.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i463.i, i64 8
   store i64 %140, ptr %ref.tmp115.sroa.3.0.add.ptr.i.i463.sroa_idx.i, align 8, !noalias !67
-  br i1 %cmp.i.i.i.i456.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i470.i, label %for.body.i.i.i.i.i464.i
+  br i1 %cmp.i.i.i.i456.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i475.i, label %for.body.i.i.i.i.i464.i
 
 for.body.i.i.i.i.i464.i:                          ; preds = %call5.i.i.i.i.i.noexc479.i, %for.body.i.i.i.i.i464.i
   %__cur.03.i.i.i.i.i465.i = phi ptr [ %incdec.ptr1.i.i.i.i.i468.i, %for.body.i.i.i.i.i464.i ], [ %call5.i.i.i.i.i480.i, %call5.i.i.i.i.i.noexc479.i ]
@@ -6514,18 +6500,11 @@ for.body.i.i.i.i.i464.i:                          ; preds = %call5.i.i.i.i.i.noe
   %incdec.ptr.i.i.i.i.i467.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i466.i, i64 16
   %incdec.ptr1.i.i.i.i.i468.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i465.i, i64 16
   %cmp.not.i.i.i.i.i469.i = icmp eq ptr %incdec.ptr.i.i.i.i.i467.i, %stack.sroa.11.0765.i
-  br i1 %cmp.not.i.i.i.i.i469.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i470.i, label %for.body.i.i.i.i.i464.i, !llvm.loop !77
+  br i1 %cmp.not.i.i.i.i.i469.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i475.i, label %for.body.i.i.i.i.i464.i, !llvm.loop !77
 
-_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i470.i: ; preds = %for.body.i.i.i.i.i464.i, %call5.i.i.i.i.i.noexc479.i
+_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i475.i: ; preds = %for.body.i.i.i.i.i464.i, %call5.i.i.i.i.i.noexc479.i
   %__cur.0.lcssa.i.i.i.i.i471.i = phi ptr [ %call5.i.i.i.i.i480.i, %call5.i.i.i.i.i.noexc479.i ], [ %incdec.ptr1.i.i.i.i.i468.i, %for.body.i.i.i.i.i464.i ]
-  %tobool.not.i.i.i473.i = icmp eq ptr %stack.sroa.0.1766.i, null
-  br i1 %tobool.not.i.i.i473.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i475.i, label %if.then.i22.i.i474.i
-
-if.then.i22.i.i474.i:                             ; preds = %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i470.i
   call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.1766.i) #33, !noalias !67
-  br label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i475.i
-
-_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i475.i: ; preds = %if.then.i22.i.i474.i, %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit21.i.i470.i
   %add.ptr19.i.i476.i = getelementptr inbounds %struct.StackValue, ptr %call5.i.i.i.i.i480.i, i64 %cond.i.i.i460.i
   br label %invoke.cont119.i
 
@@ -7057,7 +7036,7 @@ for.end.i:                                        ; preds = %for.inc.i, %_ZNSt6v
   store ptr null, ptr %_M_single_bucket.i.i9.i.i.i, align 8, !alias.scope !91
   store ptr %second.i.i.i, ptr %__alloc_node_gen.i.i1.i.i.i, align 8, !noalias !91
   invoke void @_ZNSt10_HashtableImSt4pairIKmN8facebook6hermes7tracing16TraceInterpreter14HostObjectInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSK_NS9_10_AllocNodeISaINS9_10_Hash_nodeIS7_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %hostObjIDToNameToRecords.i, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i1.i.i.i)
-          to label %invoke.cont207.i unwind label %lpad.i.i662.i
+          to label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EED2Ev.exit.i unwind label %lpad.i.i662.i
 
 lpad.i.i662.i:                                    ; preds = %.noexc663.i
   %216 = landingpad { ptr, i32 }
@@ -7065,16 +7044,9 @@ lpad.i.i662.i:                                    ; preds = %.noexc663.i
   call void @_ZNSt13unordered_mapImSt6vectorIN8facebook6hermes7tracing16TraceInterpreter4CallESaIS5_EESt4hashImESt8equal_toImESaISt4pairIKmS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %funcCallsAndObjectCalls) #31
   br label %ehcleanup208.i
 
-invoke.cont207.i:                                 ; preds = %.noexc663.i
+_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EED2Ev.exit.i: ; preds = %.noexc663.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i1.i.i.i), !noalias !91
-  %tobool.not.i.i.i667.i = icmp eq ptr %stack.sroa.0.1.lcssa.i, null
-  br i1 %tobool.not.i.i.i667.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EED2Ev.exit.i, label %if.then.i.i.i668.i
-
-if.then.i.i.i668.i:                               ; preds = %invoke.cont207.i
   call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.1.lcssa.i) #33
-  br label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EED2Ev.exit.i
-
-_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EED2Ev.exit.i: ; preds = %if.then.i.i.i668.i, %invoke.cont207.i
   %217 = load ptr, ptr %_M_before_begin.i.i47.i, align 8, !noalias !67
   %tobool.not3.i.i.i.i.i = icmp eq ptr %217, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN8facebook6hermes7tracing16TraceInterpreter14HostObjectInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i

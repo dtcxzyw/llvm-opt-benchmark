@@ -1655,13 +1655,17 @@ if.end344:                                        ; preds = %if.end328
   %cmp346 = icmp eq i64 %50, 0
   %51 = call i64 @llvm.smin.i64(i64 %48, i64 %50)
   %cond352 = select i1 %cmp346, i64 %48, i64 %51
-  switch i32 %spec.store.select, label %if.then359 [
+  switch i32 %spec.store.select, label %default.unreachable [
     i32 0, label %if.end368
     i32 1, label %if.end361
+    i32 2, label %if.then359
   ]
 
 if.then359:                                       ; preds = %if.end344
   br label %if.end361
+
+default.unreachable:                              ; preds = %if.end344
+  unreachable
 
 if.end361:                                        ; preds = %if.end344, %if.then359
   %sort_gp_callback.0 = phi ptr [ @sort_gp_desc, %if.then359 ], [ @sort_gp_asc, %if.end344 ]

@@ -2642,13 +2642,9 @@ return:                                           ; preds = %cleanup245, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal void @_ZL4ncatPcjz(ptr noundef writeonly %buffer, i32 %buflen, ...) unnamed_addr #15 {
+define internal void @_ZL4ncatPcjz(ptr nocapture noundef writeonly %buffer, i32 %buflen, ...) unnamed_addr #15 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  %cmp = icmp eq ptr %buffer, null
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
   %args.promoted = load i32, ptr %args, align 16
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
@@ -2657,29 +2653,29 @@ if.end:                                           ; preds = %entry
   %overflow_arg_area_p.promoted = load ptr, ptr %overflow_arg_area_p, align 8
   br label %while.cond
 
-while.cond:                                       ; preds = %while.end, %if.end
-  %overflow_arg_area18 = phi ptr [ %overflow_arg_area_p.promoted, %if.end ], [ %overflow_arg_area17, %while.end ]
-  %gp_offset16 = phi i32 [ %args.promoted, %if.end ], [ %gp_offset15, %while.end ]
-  %p.0.idx = phi i64 [ 0, %if.end ], [ %p.1.idx.lcssa, %while.end ]
-  %fits_in_gp = icmp ult i32 %gp_offset16, 41
+while.cond:                                       ; preds = %while.end, %entry
+  %overflow_arg_area17 = phi ptr [ %overflow_arg_area_p.promoted, %entry ], [ %overflow_arg_area16, %while.end ]
+  %gp_offset15 = phi i32 [ %args.promoted, %entry ], [ %gp_offset14, %while.end ]
+  %p.0.idx = phi i64 [ 0, %entry ], [ %p.1.idx.lcssa, %while.end ]
+  %fits_in_gp = icmp ult i32 %gp_offset15, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %while.cond
-  %1 = zext nneg i32 %gp_offset16 to i64
+  %1 = zext nneg i32 %gp_offset15 to i64
   %2 = getelementptr i8, ptr %reg_save_area, i64 %1
-  %3 = add nuw nsw i32 %gp_offset16, 8
+  %3 = add nuw nsw i32 %gp_offset15, 8
   store i32 %3, ptr %args, align 16
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %while.cond
-  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area18, i64 8
+  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area17, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %overflow_arg_area17 = phi ptr [ %overflow_arg_area18, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
-  %gp_offset15 = phi i32 [ %3, %vaarg.in_reg ], [ %gp_offset16, %vaarg.in_mem ]
-  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area18, %vaarg.in_mem ]
+  %overflow_arg_area16 = phi ptr [ %overflow_arg_area17, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
+  %gp_offset14 = phi i32 [ %3, %vaarg.in_reg ], [ %gp_offset15, %vaarg.in_mem ]
+  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area17, %vaarg.in_mem ]
   %4 = load ptr, ptr %vaarg.addr, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %while.end10, label %while.cond5.preheader
@@ -2708,12 +2704,9 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   br label %while.cond, !llvm.loop !8
 
 while.end10:                                      ; preds = %vaarg.end
-  %p.0.ptr.le = getelementptr inbounds i8, ptr %buffer, i64 %p.0.idx
-  store i8 0, ptr %p.0.ptr.le, align 1
+  %p.0.ptr = getelementptr inbounds i8, ptr %buffer, i64 %p.0.idx
+  store i8 0, ptr %p.0.ptr, align 1
   call void @llvm.va_end.p0(ptr nonnull %args)
-  br label %return
-
-return:                                           ; preds = %entry, %while.end10
   ret void
 }
 

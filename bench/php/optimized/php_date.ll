@@ -16194,8 +16194,8 @@ date_period_initialize.exit.thread:               ; preds = %25, %27
   %42 = getelementptr inbounds i8, ptr %38, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, 64
-  %.not59 = icmp eq i32 %44, 0
-  br i1 %.not59, label %45, label %79
+  %.not57 = icmp eq i32 %44, 0
+  br i1 %.not57, label %45, label %79
 
 45:                                               ; preds = %37
   %46 = load i32, ptr %38, align 4
@@ -16208,8 +16208,8 @@ date_period_initialize.exit.thread:               ; preds = %25, %27
 
 50:                                               ; preds = %45
   %51 = and i32 %43, 128
-  %.not60 = icmp eq i32 %51, 0
-  br i1 %.not60, label %53, label %52
+  %.not58 = icmp eq i32 %51, 0
+  br i1 %.not58, label %53, label %52
 
 52:                                               ; preds = %50
   call void @free(ptr noundef nonnull %38) #25
@@ -16232,8 +16232,8 @@ date_period_initialize.exit.thread:               ; preds = %25, %27
   %62 = getelementptr inbounds i8, ptr %58, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 64
-  %.not57 = icmp eq i32 %64, 0
-  br i1 %.not57, label %65, label %79
+  %.not55 = icmp eq i32 %64, 0
+  br i1 %.not55, label %65, label %79
 
 65:                                               ; preds = %57
   %66 = load i32, ptr %58, align 4
@@ -16246,8 +16246,8 @@ date_period_initialize.exit.thread:               ; preds = %25, %27
 
 70:                                               ; preds = %65
   %71 = and i32 %63, 128
-  %.not58 = icmp eq i32 %71, 0
-  br i1 %.not58, label %73, label %72
+  %.not56 = icmp eq i32 %71, 0
+  br i1 %.not56, label %73, label %72
 
 72:                                               ; preds = %70
   call void @free(ptr noundef nonnull %58) #25

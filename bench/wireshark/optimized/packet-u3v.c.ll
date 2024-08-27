@@ -1102,12 +1102,11 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 135:                                              ; preds = %.thread232
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 0, ptr %7, align 4
   %136 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
   %137 = getelementptr inbounds i8, ptr %.1, i64 32
   store i64 %136, ptr %137, align 8
   %138 = call fastcc ptr @get_register_name_from_address(i64 noundef %136, ptr noundef nonnull %7, ptr noundef %.0203)
-  %139 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 22) #5
+  %139 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 22) #5
   %140 = zext i16 %139 to i32
   %141 = getelementptr inbounds i8, ptr %.1, i64 40
   store i32 %140, ptr %141, align 8
@@ -1116,25 +1115,25 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %144, label %143
 
 143:                                              ; preds = %135
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.624, i64 noundef %136, i32 noundef %140, ptr noundef %138) #5
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.624, i64 noundef %136, i32 noundef %140, ptr noundef %138) #5
   br label %146
 
 144:                                              ; preds = %135
   %145 = trunc nuw i64 %136 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.625, i32 noundef %145, i32 noundef %140) #5
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.625, i32 noundef %145, i32 noundef %140) #5
   br label %146
 
 146:                                              ; preds = %144, %143
   %147 = load i32, ptr @hf_u3v_scd_readmem_cmd, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %147, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %147, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
   %149 = load i32, ptr @ett_u3v_payload_cmd, align 4
-  %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #5
+  %150 = tail call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #5
   %151 = icmp ult i64 %136, 65536
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %146
   %153 = trunc nuw nsw i64 %136 to i32
-  %154 = call ptr @try_val_to_str(i32 noundef %153, ptr noundef nonnull @bootstrap_register_names_abrm) #5
+  %154 = tail call ptr @try_val_to_str(i32 noundef %153, ptr noundef nonnull @bootstrap_register_names_abrm) #5
   br label %155
 
 155:                                              ; preds = %152, %146
@@ -1148,7 +1147,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 159:                                              ; preds = %155
   %160 = sub nuw i64 %136, %157
   %161 = trunc i64 %160 to i32
-  %162 = call ptr @try_val_to_str(i32 noundef %161, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
+  %162 = tail call ptr @try_val_to_str(i32 noundef %161, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
   br label %163
 
 163:                                              ; preds = %159, %155
@@ -1162,7 +1161,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 167:                                              ; preds = %163
   %168 = sub nuw i64 %136, %165
   %169 = trunc i64 %168 to i32
-  %170 = call ptr @try_val_to_str(i32 noundef %169, ptr noundef nonnull @bootstrap_register_names_sirm) #5
+  %170 = tail call ptr @try_val_to_str(i32 noundef %169, ptr noundef nonnull @bootstrap_register_names_sirm) #5
   br label %171
 
 171:                                              ; preds = %167, %163
@@ -1176,7 +1175,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 175:                                              ; preds = %171
   %176 = sub nuw i64 %136, %173
   %177 = trunc i64 %176 to i32
-  %178 = call ptr @try_val_to_str(i32 noundef %177, ptr noundef nonnull @bootstrap_register_names_eirm) #5
+  %178 = tail call ptr @try_val_to_str(i32 noundef %177, ptr noundef nonnull @bootstrap_register_names_eirm) #5
   br label %is_known_bootstrap_register.exit.i
 
 is_known_bootstrap_register.exit.i:               ; preds = %175, %171
@@ -1186,26 +1185,25 @@ is_known_bootstrap_register.exit.i:               ; preds = %175, %171
 
 179:                                              ; preds = %is_known_bootstrap_register.exit.i
   %180 = load i32, ptr @hf_u3v_address, align 4
-  %181 = call ptr @proto_tree_add_uint64(ptr noundef %150, i32 noundef %180, ptr noundef %0, i32 noundef 12, i32 noundef 8, i64 noundef %136) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %181, ptr noundef nonnull @.str.626, ptr noundef %138) #5
+  %181 = tail call ptr @proto_tree_add_uint64(ptr noundef %150, i32 noundef %180, ptr noundef %0, i32 noundef 12, i32 noundef 8, i64 noundef %136) #5
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %181, ptr noundef nonnull @.str.626, ptr noundef %138) #5
   br label %dissect_u3v_read_mem_cmd.exit
 
 182:                                              ; preds = %is_known_bootstrap_register.exit.i
   %183 = load i32, ptr @hf_u3v_custom_memory_addr, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %183, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef -2147483648) #5
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %183, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef -2147483648) #5
   br label %dissect_u3v_read_mem_cmd.exit
 
 dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   %185 = load i32, ptr @hf_u3v_reserved, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %185, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0) #5
+  %186 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %185, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0) #5
   %187 = load i32, ptr @hf_u3v_count, align 4
-  %188 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %187, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef -2147483648) #5
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %187, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef -2147483648) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %dissect_u3v_event_cmd.exit
 
 189:                                              ; preds = %.thread232
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  store i32 0, ptr %6, align 4
   %190 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
   %191 = add nsw i32 %94, -8
   %192 = call fastcc ptr @get_register_name_from_address(i64 noundef %190, ptr noundef nonnull %6, ptr noundef %.0203)
@@ -1214,17 +1212,17 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   %194 = getelementptr inbounds i8, ptr %.1, i64 40
   store i32 %191, ptr %194, align 8
   %195 = load ptr, ptr %44, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %195, i32 noundef 25, ptr noundef nonnull @.str.675, ptr noundef %192, i32 noundef %191) #5
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %195, i32 noundef 25, ptr noundef nonnull @.str.675, ptr noundef %192, i32 noundef %191) #5
   %196 = load i32, ptr @hf_u3v_scd_writemem_cmd, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %196, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %196, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
   %198 = load i32, ptr @ett_u3v_payload_cmd, align 4
-  %199 = call ptr @proto_item_add_subtree(ptr noundef %197, i32 noundef %198) #5
+  %199 = tail call ptr @proto_item_add_subtree(ptr noundef %197, i32 noundef %198) #5
   %200 = icmp ult i64 %190, 65536
   br i1 %200, label %201, label %204
 
 201:                                              ; preds = %189
   %202 = trunc nuw nsw i64 %190 to i32
-  %203 = call ptr @try_val_to_str(i32 noundef %202, ptr noundef nonnull @bootstrap_register_names_abrm) #5
+  %203 = tail call ptr @try_val_to_str(i32 noundef %202, ptr noundef nonnull @bootstrap_register_names_abrm) #5
   br label %204
 
 204:                                              ; preds = %201, %189
@@ -1238,7 +1236,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
 208:                                              ; preds = %204
   %209 = sub nuw i64 %190, %206
   %210 = trunc i64 %209 to i32
-  %211 = call ptr @try_val_to_str(i32 noundef %210, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
+  %211 = tail call ptr @try_val_to_str(i32 noundef %210, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
   br label %212
 
 212:                                              ; preds = %208, %204
@@ -1252,7 +1250,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
 216:                                              ; preds = %212
   %217 = sub nuw i64 %190, %214
   %218 = trunc i64 %217 to i32
-  %219 = call ptr @try_val_to_str(i32 noundef %218, ptr noundef nonnull @bootstrap_register_names_sirm) #5
+  %219 = tail call ptr @try_val_to_str(i32 noundef %218, ptr noundef nonnull @bootstrap_register_names_sirm) #5
   br label %220
 
 220:                                              ; preds = %216, %212
@@ -1266,7 +1264,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
 224:                                              ; preds = %220
   %225 = sub nuw i64 %190, %222
   %226 = trunc i64 %225 to i32
-  %227 = call ptr @try_val_to_str(i32 noundef %226, ptr noundef nonnull @bootstrap_register_names_eirm) #5
+  %227 = tail call ptr @try_val_to_str(i32 noundef %226, ptr noundef nonnull @bootstrap_register_names_eirm) #5
   br label %is_known_bootstrap_register.exit.i227
 
 is_known_bootstrap_register.exit.i227:            ; preds = %224, %220
@@ -1276,16 +1274,16 @@ is_known_bootstrap_register.exit.i227:            ; preds = %224, %220
 
 228:                                              ; preds = %is_known_bootstrap_register.exit.i227
   %229 = load i32, ptr @hf_u3v_address, align 4
-  %230 = call ptr @proto_tree_add_uint64(ptr noundef %199, i32 noundef %229, ptr noundef %0, i32 noundef 12, i32 noundef 8, i64 noundef %190) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef nonnull @.str.626, ptr noundef %192) #5
-  call fastcc void @dissect_u3v_register(i64 noundef %190, ptr noundef %199, ptr noundef %0, i32 noundef 20, i32 noundef %191, ptr noundef nonnull %.0203)
+  %230 = tail call ptr @proto_tree_add_uint64(ptr noundef %199, i32 noundef %229, ptr noundef %0, i32 noundef 12, i32 noundef 8, i64 noundef %190) #5
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef nonnull @.str.626, ptr noundef %192) #5
+  tail call fastcc void @dissect_u3v_register(i64 noundef %190, ptr noundef %199, ptr noundef %0, i32 noundef 20, i32 noundef %191, ptr noundef nonnull %.0203)
   br label %dissect_u3v_write_mem_cmd.exit
 
 231:                                              ; preds = %is_known_bootstrap_register.exit.i227
   %232 = load i32, ptr @hf_u3v_custom_memory_addr, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %232, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef -2147483648) #5
+  %233 = tail call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %232, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef -2147483648) #5
   %234 = load i32, ptr @hf_u3v_custom_memory_data, align 4
-  %235 = call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %234, ptr noundef %0, i32 noundef 20, i32 noundef %191, i32 noundef 0) #5
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %234, ptr noundef %0, i32 noundef 20, i32 noundef %191, i32 noundef 0) #5
   br label %dissect_u3v_write_mem_cmd.exit
 
 dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
@@ -1335,26 +1333,25 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   %259 = getelementptr i8, ptr %.1, i64 32
   %.1.val220 = load i64, ptr %259, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 0, ptr %5, align 4
   %.not.i229 = icmp eq i32 %.1.val219, 0
   br i1 %.not.i229, label %263, label %260
 
 260:                                              ; preds = %258
   %261 = call fastcc ptr @get_register_name_from_address(i64 noundef %.1.val220, ptr noundef nonnull %5, ptr noundef %.0203)
   %262 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %262, i32 noundef 25, ptr noundef %261) #5
+  tail call void @col_append_str(ptr noundef %262, i32 noundef 25, ptr noundef %261) #5
   br label %263
 
 263:                                              ; preds = %260, %258
   %264 = load i32, ptr @hf_u3v_scd_writemem_ack, align 4
-  %265 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %264, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %265 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %264, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
   %266 = load i32, ptr @ett_u3v_payload_cmd, align 4
-  %267 = call ptr @proto_item_add_subtree(ptr noundef %265, i32 noundef %266) #5
+  %267 = tail call ptr @proto_item_add_subtree(ptr noundef %265, i32 noundef %266) #5
   br i1 %.not.i229, label %proto_item_set_generated.exit.i, label %268
 
 268:                                              ; preds = %263
   %269 = load i32, ptr @hf_u3v_address, align 4
-  %270 = call ptr @proto_tree_add_uint64(ptr noundef %267, i32 noundef %269, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %.1.val220) #5
+  %270 = tail call ptr @proto_tree_add_uint64(ptr noundef %267, i32 noundef %269, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %.1.val220) #5
   %.not.i.i = icmp eq ptr %270, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %271
 
@@ -1377,9 +1374,9 @@ proto_item_set_generated.exit.i:                  ; preds = %274, %271, %268, %2
 
 279:                                              ; preds = %proto_item_set_generated.exit.i
   %280 = load i32, ptr @hf_u3v_reserved, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %280, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #5
+  %281 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %280, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #5
   %282 = load i32, ptr @hf_u3v_count, align 4
-  %283 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %282, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #5
+  %283 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %282, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #5
   br label %dissect_u3v_write_mem_ack.exit
 
 dissect_u3v_write_mem_ack.exit:                   ; preds = %proto_item_set_generated.exit.i, %279
@@ -1743,7 +1740,6 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
   %6 = alloca i32, align 4
-  store i32 0, ptr %6, align 4
   %.not = icmp eq i32 %.0.val, 0
   %7 = icmp ult i64 %.32.val, 65536
   br i1 %7, label %8, label %12
@@ -1800,19 +1796,19 @@ dissect_u3v_register_bases.exit:                  ; preds = %12, %16, %.sink.spl
   %23 = call fastcc ptr @get_register_name_from_address(i64 noundef %.32.val, ptr noundef nonnull %6, ptr noundef nonnull %4)
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
-  call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef %23) #5
+  tail call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef %23) #5
   br label %26
 
 26:                                               ; preds = %22, %dissect_u3v_register_bases.exit
   %27 = load i32, ptr @hf_u3v_scd_ack_readmem_ack, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0) #5
   %29 = load i32, ptr @ett_u3v_payload_cmd, align 4
-  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
+  %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br i1 %.not, label %71, label %31
 
 31:                                               ; preds = %26
   %32 = load i32, ptr @hf_u3v_address, align 4
-  %33 = call ptr @proto_tree_add_uint64(ptr noundef %30, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, i64 noundef %.32.val) #5
+  %33 = tail call ptr @proto_tree_add_uint64(ptr noundef %30, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, i64 noundef %.32.val) #5
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %34
 
@@ -1834,7 +1830,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
 
 41:                                               ; preds = %proto_item_set_generated.exit
   %42 = trunc nuw nsw i64 %.32.val to i32
-  %43 = call ptr @try_val_to_str(i32 noundef %42, ptr noundef nonnull @bootstrap_register_names_abrm) #5
+  %43 = tail call ptr @try_val_to_str(i32 noundef %42, ptr noundef nonnull @bootstrap_register_names_abrm) #5
   br label %44
 
 44:                                               ; preds = %41, %proto_item_set_generated.exit
@@ -1847,7 +1843,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
 47:                                               ; preds = %44
   %48 = sub nuw i64 %.32.val, %45
   %49 = trunc i64 %48 to i32
-  %50 = call ptr @try_val_to_str(i32 noundef %49, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
+  %50 = tail call ptr @try_val_to_str(i32 noundef %49, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
   br label %51
 
 51:                                               ; preds = %47, %44
@@ -1861,7 +1857,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
 55:                                               ; preds = %51
   %56 = sub nuw i64 %.32.val, %53
   %57 = trunc i64 %56 to i32
-  %58 = call ptr @try_val_to_str(i32 noundef %57, ptr noundef nonnull @bootstrap_register_names_sirm) #5
+  %58 = tail call ptr @try_val_to_str(i32 noundef %57, ptr noundef nonnull @bootstrap_register_names_sirm) #5
   br label %59
 
 59:                                               ; preds = %55, %51
@@ -1875,7 +1871,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
 63:                                               ; preds = %59
   %64 = sub nuw i64 %.32.val, %61
   %65 = trunc i64 %64 to i32
-  %66 = call ptr @try_val_to_str(i32 noundef %65, ptr noundef nonnull @bootstrap_register_names_eirm) #5
+  %66 = tail call ptr @try_val_to_str(i32 noundef %65, ptr noundef nonnull @bootstrap_register_names_eirm) #5
   br label %is_known_bootstrap_register.exit
 
 is_known_bootstrap_register.exit:                 ; preds = %59, %63
@@ -1884,12 +1880,12 @@ is_known_bootstrap_register.exit:                 ; preds = %59, %63
   br i1 %.not1, label %68, label %67
 
 67:                                               ; preds = %is_known_bootstrap_register.exit
-  call fastcc void @dissect_u3v_register(i64 noundef %.32.val, ptr noundef %30, ptr noundef %1, i32 noundef 12, i32 noundef %3, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_u3v_register(i64 noundef %.32.val, ptr noundef %30, ptr noundef %1, i32 noundef 12, i32 noundef %3, ptr noundef nonnull %4)
   br label %71
 
 68:                                               ; preds = %is_known_bootstrap_register.exit
   %69 = load i32, ptr @hf_u3v_custom_memory_data, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %69, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0) #5
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %69, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0) #5
   br label %71
 
 71:                                               ; preds = %67, %68, %26
@@ -1901,85 +1897,75 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2) unnamed_addr #0 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %5, label %4
-
-4:                                                ; preds = %3
+define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   store i32 0, ptr %1, align 4
-  br label %5
+  %4 = icmp ult i64 %0, 65536
+  br i1 %4, label %5, label %8
 
-5:                                                ; preds = %4, %3
-  %6 = icmp ult i64 %0, 65536
-  br i1 %6, label %7, label %10
+5:                                                ; preds = %3
+  %6 = trunc nuw nsw i64 %0 to i32
+  %7 = tail call ptr @try_val_to_str(i32 noundef %6, ptr noundef nonnull @bootstrap_register_names_abrm) #5
+  br label %8
 
-7:                                                ; preds = %5
-  %8 = trunc nuw nsw i64 %0 to i32
-  %9 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @bootstrap_register_names_abrm) #5
-  br label %10
+8:                                                ; preds = %5, %3
+  %.0 = phi ptr [ %7, %5 ], [ null, %3 ]
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %33, label %9
 
-10:                                               ; preds = %7, %5
-  %.0 = phi ptr [ %9, %7 ], [ null, %5 ]
-  %.not42 = icmp eq ptr %2, null
-  br i1 %.not42, label %35, label %11
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = add i64 %11, -1
+  %or.cond.not = icmp ult i64 %12, %0
+  br i1 %or.cond.not, label %13, label %17
 
-11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = add i64 %13, -1
-  %or.cond.not = icmp ult i64 %14, %0
-  br i1 %or.cond.not, label %15, label %19
+13:                                               ; preds = %9
+  %14 = sub nuw i64 %0, %11
+  %15 = trunc i64 %14 to i32
+  %16 = tail call ptr @try_val_to_str(i32 noundef %15, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
+  br label %17
 
-15:                                               ; preds = %11
-  %16 = sub nuw i64 %0, %13
-  %17 = trunc i64 %16 to i32
-  %18 = tail call ptr @try_val_to_str(i32 noundef %17, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
-  br label %19
+17:                                               ; preds = %13, %9
+  %.1.ph = phi ptr [ %.0, %9 ], [ %16, %13 ]
+  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = load i64, ptr %18, align 8
+  %20 = add i64 %19, -1
+  %or.cond49.not = icmp ult i64 %20, %0
+  br i1 %or.cond49.not, label %21, label %25
 
-19:                                               ; preds = %15, %11
-  %.1.ph = phi ptr [ %.0, %11 ], [ %18, %15 ]
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, -1
-  %or.cond50.not = icmp ult i64 %22, %0
-  br i1 %or.cond50.not, label %23, label %27
+21:                                               ; preds = %17
+  %22 = sub nuw i64 %0, %19
+  %23 = trunc i64 %22 to i32
+  %24 = tail call ptr @try_val_to_str(i32 noundef %23, ptr noundef nonnull @bootstrap_register_names_sirm) #5
+  br label %25
 
-23:                                               ; preds = %19
-  %24 = sub nuw i64 %0, %21
-  %25 = trunc i64 %24 to i32
-  %26 = tail call ptr @try_val_to_str(i32 noundef %25, ptr noundef nonnull @bootstrap_register_names_sirm) #5
-  br label %27
+25:                                               ; preds = %21, %17
+  %.2.ph = phi ptr [ %.1.ph, %17 ], [ %24, %21 ]
+  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, -1
+  %or.cond50.not = icmp ult i64 %28, %0
+  br i1 %or.cond50.not, label %29, label %33
 
-27:                                               ; preds = %23, %19
-  %.2.ph = phi ptr [ %.1.ph, %19 ], [ %26, %23 ]
-  %28 = getelementptr inbounds i8, ptr %2, i64 24
-  %29 = load i64, ptr %28, align 8
-  %30 = add i64 %29, -1
-  %or.cond51.not = icmp ult i64 %30, %0
-  br i1 %or.cond51.not, label %31, label %35
+29:                                               ; preds = %25
+  %30 = sub nuw i64 %0, %27
+  %31 = trunc i64 %30 to i32
+  %32 = tail call ptr @try_val_to_str(i32 noundef %31, ptr noundef nonnull @bootstrap_register_names_eirm) #5
+  br label %33
 
-31:                                               ; preds = %27
-  %32 = sub nuw i64 %0, %29
-  %33 = trunc i64 %32 to i32
-  %34 = tail call ptr @try_val_to_str(i32 noundef %33, ptr noundef nonnull @bootstrap_register_names_eirm) #5
-  br label %35
+33:                                               ; preds = %8, %29, %25
+  %.3 = phi ptr [ %32, %29 ], [ %.2.ph, %25 ], [ %.0, %8 ]
+  %.not48 = icmp eq ptr %.3, null
+  br i1 %.not48, label %34, label %37
 
-35:                                               ; preds = %10, %31, %27
-  %.3 = phi ptr [ %34, %31 ], [ %.2.ph, %27 ], [ %.0, %10 ]
-  %.not49 = icmp eq ptr %.3, null
-  br i1 %.not49, label %36, label %40
-
-36:                                               ; preds = %35
-  %37 = tail call ptr @wmem_packet_scope() #5
-  %38 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %37, ptr noundef nonnull @.str.627, i64 noundef %0) #5
-  br i1 %.not, label %40, label %39
-
-39:                                               ; preds = %36
+34:                                               ; preds = %33
+  %35 = tail call ptr @wmem_packet_scope() #5
+  %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %35, ptr noundef nonnull @.str.627, i64 noundef %0) #5
   store i32 1, ptr %1, align 4
-  br label %40
+  br label %37
 
-40:                                               ; preds = %36, %39, %35
-  %.4 = phi ptr [ %.3, %35 ], [ %38, %39 ], [ %38, %36 ]
+37:                                               ; preds = %34, %33
+  %.4 = phi ptr [ %.3, %33 ], [ %36, %34 ]
   ret ptr %.4
 }
 

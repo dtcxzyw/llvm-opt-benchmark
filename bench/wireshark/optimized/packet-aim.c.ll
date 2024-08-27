@@ -4195,8 +4195,8 @@ aim_find_plugin.exit.i.i:                         ; preds = %50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %54 = load i32, ptr @hf_aim_messaging_plugin, align 4
   %55 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %54, ptr noundef %30, i32 noundef 4, i32 noundef 16, i32 noundef 0) #9
-  %.not17.i.i = icmp eq ptr %51, null
-  br i1 %.not17.i.i, label %dissect_aim_plugin.exit.i, label %56
+  %.not.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i, label %dissect_aim_plugin.exit.i, label %56
 
 56:                                               ; preds = %aim_find_plugin.exit.i.i
   %57 = load ptr, ptr %51, align 8

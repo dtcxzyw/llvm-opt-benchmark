@@ -1240,19 +1240,19 @@ define internal fastcc noalias noundef ptr @Vec_WrdUniqifyHash(ptr nocapture nou
   %18 = shl nsw i64 %17, 2
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #25
   %20 = icmp sgt i32 %3, 0
-  br i1 %20, label %.lr.ph60.i.i, label %._crit_edge.i.i
+  br i1 %20, label %.lr.ph58.i.i, label %._crit_edge.i.i
 
-.lr.ph60.i.i:                                     ; preds = %1
+.lr.ph58.i.i:                                     ; preds = %1
   %21 = getelementptr i8, ptr %0, i64 8
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
-  %.val49.i.i = load ptr, ptr %21, align 8
+  %.val47.i.i = load ptr, ptr %21, align 8
   br label %22
 
-22:                                               ; preds = %Vec_IntUniqueLookup.exit.i.i, %.lr.ph60.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph60.i.i ], [ %indvars.iv.next.i.i, %Vec_IntUniqueLookup.exit.i.i ]
-  %.059.i.i = phi i32 [ 0, %.lr.ph60.i.i ], [ %.1.i.i, %Vec_IntUniqueLookup.exit.i.i ]
+22:                                               ; preds = %Vec_IntUniqueLookup.exit.i.i, %.lr.ph58.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph58.i.i ], [ %indvars.iv.next.i.i, %Vec_IntUniqueLookup.exit.i.i ]
+  %.057.i.i = phi i32 [ 0, %.lr.ph58.i.i ], [ %.1.i.i, %Vec_IntUniqueLookup.exit.i.i ]
   %.idx.i.i = shl nsw i64 %indvars.iv.i.i, 3
-  %23 = getelementptr inbounds i8, ptr %.val49.i.i, i64 %.idx.i.i
+  %23 = getelementptr inbounds i8, ptr %.val47.i.i, i64 %.idx.i.i
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -1294,15 +1294,15 @@ Vec_IntUniqueHashKey.exit.i.i:                    ; preds = %24
 .lr.ph.i.preheader.i.i:                           ; preds = %Vec_IntUniqueHashKey.exit.i.i
   %50 = shl nsw i32 %49, 1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %.val49.i.i, i64 %51
-  %bcmp.i56.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %23, ptr noundef nonnull readonly dereferenceable(8) %52, i64 8)
-  %.not14.i57.i.i = icmp eq i32 %bcmp.i56.i.i, 0
-  br i1 %.not14.i57.i.i, label %Vec_IntUniqueLookup.exit.i.i, label %.lr.ph.i.i
+  %52 = getelementptr inbounds i32, ptr %.val47.i.i, i64 %51
+  %bcmp.i54.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %23, ptr noundef nonnull readonly dereferenceable(8) %52, i64 8)
+  %.not14.i55.i.i = icmp eq i32 %bcmp.i54.i.i, 0
+  br i1 %.not14.i55.i.i, label %Vec_IntUniqueLookup.exit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
   %53 = shl nsw i32 %59, 1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %.val49.i.i, i64 %54
+  %55 = getelementptr inbounds i32, ptr %.val47.i.i, i64 %54
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %23, ptr noundef nonnull readonly dereferenceable(8) %55, i64 8)
   %.not14.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not14.i.i.i, label %Vec_IntUniqueLookup.exit.i.i, label %.lr.ph.i.i, !llvm.loop !20
@@ -1320,15 +1320,15 @@ Vec_IntUniqueLookup.exit.thread.i.i.loopexit:     ; preds = %.lr.ph.i.i
   br label %Vec_IntUniqueLookup.exit.thread.i.i
 
 Vec_IntUniqueLookup.exit.thread.i.i:              ; preds = %Vec_IntUniqueLookup.exit.thread.i.i.loopexit, %Vec_IntUniqueHashKey.exit.i.i
-  %.013.lcssa.i52.i.i = phi ptr [ %48, %Vec_IntUniqueHashKey.exit.i.i ], [ %60, %Vec_IntUniqueLookup.exit.thread.i.i.loopexit ]
+  %.013.lcssa.i50.i.i = phi ptr [ %48, %Vec_IntUniqueHashKey.exit.i.i ], [ %60, %Vec_IntUniqueLookup.exit.thread.i.i.loopexit ]
   %61 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  store i32 %61, ptr %.013.lcssa.i52.i.i, align 4
-  %62 = add nsw i32 %.059.i.i, 1
+  store i32 %61, ptr %.013.lcssa.i50.i.i, align 4
+  %62 = add nsw i32 %.057.i.i, 1
   br label %Vec_IntUniqueLookup.exit.i.i
 
 Vec_IntUniqueLookup.exit.i.i:                     ; preds = %.lr.ph.i.i.i, %Vec_IntUniqueLookup.exit.thread.i.i, %.lr.ph.i.preheader.i.i
   %63 = phi i32 [ %61, %Vec_IntUniqueLookup.exit.thread.i.i ], [ %49, %.lr.ph.i.preheader.i.i ], [ %59, %.lr.ph.i.i.i ]
-  %.1.i.i = phi i32 [ %62, %Vec_IntUniqueLookup.exit.thread.i.i ], [ %.059.i.i, %.lr.ph.i.preheader.i.i ], [ %.059.i.i, %.lr.ph.i.i.i ]
+  %.1.i.i = phi i32 [ %62, %Vec_IntUniqueLookup.exit.thread.i.i ], [ %.057.i.i, %.lr.ph.i.preheader.i.i ], [ %.057.i.i, %.lr.ph.i.i.i ]
   %64 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.i.i
   store i32 %63, ptr %64, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

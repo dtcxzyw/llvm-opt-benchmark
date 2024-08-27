@@ -1628,8 +1628,8 @@ if.end15.i:                                       ; preds = %for.body.i.i.i
 for.cond.preheader.i:                             ; preds = %if.end15.i
   %conf.i = getelementptr inbounds i8, ptr %g, i64 528
   %103 = load i32, ptr %conf.i, align 16
-  %cmp1886.not.i = icmp eq i32 %103, 0
-  br i1 %cmp1886.not.i, label %do.body71.i, label %for.body.lr.ph.i
+  %cmp1885.not.i = icmp eq i32 %103, 0
+  br i1 %cmp1885.not.i, label %do.body71.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %scanout21.i = getelementptr inbounds i8, ptr %g, i64 864
@@ -1637,15 +1637,15 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 for.body.i.outer:                                 ; preds = %for.inc.i.thread, %for.body.lr.ph.i
   %104 = phi i32 [ %121, %for.inc.i.thread ], [ %103, %for.body.lr.ph.i ]
-  %i.089.i.ph = phi i32 [ %inc.i519, %for.inc.i.thread ], [ 0, %for.body.lr.ph.i ]
-  %update_submitted.088.i.ph = phi i1 [ true, %for.inc.i.thread ], [ false, %for.body.lr.ph.i ]
+  %i.088.i.ph = phi i32 [ %inc.i519, %for.inc.i.thread ], [ 0, %for.body.lr.ph.i ]
+  %update_submitted.087.i.ph = phi i1 [ true, %for.inc.i.thread ], [ false, %for.body.lr.ph.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.outer, %for.inc.i
   %105 = phi i32 [ %117, %for.inc.i ], [ %104, %for.body.i.outer ]
-  %i.089.i = phi i32 [ %inc.i, %for.inc.i ], [ %i.089.i.ph, %for.body.i.outer ]
-  %within_bounds.087.i = phi i1 [ %within_bounds.1.i, %for.inc.i ], [ %update_submitted.088.i.ph, %for.body.i.outer ]
-  %idxprom.i = sext i32 %i.089.i to i64
+  %i.088.i = phi i32 [ %inc.i, %for.inc.i ], [ %i.088.i.ph, %for.body.i.outer ]
+  %within_bounds.086.i = phi i1 [ %within_bounds.1.i, %for.inc.i ], [ %update_submitted.087.i.ph, %for.body.i.outer ]
+  %idxprom.i = sext i32 %i.088.i to i64
   %arrayidx.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout21.i, i64 0, i64 %idxprom.i
   %resource_id22.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
   %106 = load i32, ptr %resource_id22.i, align 4
@@ -1696,8 +1696,8 @@ if.then58.i.for.inc.i_crit_edge:                  ; preds = %if.then58.i
 
 for.inc.i:                                        ; preds = %if.then58.i.for.inc.i_crit_edge, %land.lhs.true49.i, %land.lhs.true41.i, %land.lhs.true32.i, %land.lhs.true.i, %for.body.i
   %117 = phi i32 [ %.pre, %if.then58.i.for.inc.i_crit_edge ], [ %105, %land.lhs.true49.i ], [ %105, %land.lhs.true41.i ], [ %105, %land.lhs.true32.i ], [ %105, %land.lhs.true.i ], [ %105, %for.body.i ]
-  %within_bounds.1.i = phi i1 [ true, %if.then58.i.for.inc.i_crit_edge ], [ %within_bounds.087.i, %land.lhs.true49.i ], [ %within_bounds.087.i, %land.lhs.true41.i ], [ %within_bounds.087.i, %land.lhs.true32.i ], [ %within_bounds.087.i, %land.lhs.true.i ], [ %within_bounds.087.i, %for.body.i ]
-  %inc.i = add nuw i32 %i.089.i, 1
+  %within_bounds.1.i = phi i1 [ true, %if.then58.i.for.inc.i_crit_edge ], [ %within_bounds.086.i, %land.lhs.true49.i ], [ %within_bounds.086.i, %land.lhs.true41.i ], [ %within_bounds.086.i, %land.lhs.true32.i ], [ %within_bounds.086.i, %land.lhs.true.i ], [ %within_bounds.086.i, %for.body.i ]
+  %inc.i = add nuw i32 %i.088.i, 1
   %cmp18.i = icmp ult i32 %inc.i, %117
   br i1 %cmp18.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
@@ -1708,13 +1708,13 @@ for.inc.i.thread:                                 ; preds = %if.then58.i
   %119 = load i32, ptr %width29.i.le, align 8
   %120 = load i32, ptr %height45.i.le, align 4
   call void @dpy_gl_update(ptr noundef %118, i32 noundef 0, i32 noundef 0, i32 noundef %119, i32 noundef %120) #12
-  %inc.i519 = add nuw i32 %i.089.i, 1
+  %inc.i519 = add nuw i32 %i.088.i, 1
   %121 = load i32, ptr %conf.i, align 16
   %cmp18.i520 = icmp ult i32 %inc.i519, %121
   br i1 %cmp18.i520, label %for.body.i.outer, label %virtio_gpu_resource_flush.exit, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
-  br i1 %update_submitted.088.i.ph, label %virtio_gpu_resource_flush.exit, label %if.end68.i147
+  br i1 %update_submitted.087.i.ph, label %virtio_gpu_resource_flush.exit, label %if.end68.i147
 
 if.end68.i147:                                    ; preds = %for.end.i
   br i1 %within_bounds.1.i, label %if.end93.i, label %do.body71.i
@@ -1801,8 +1801,8 @@ do.end159.i:                                      ; preds = %if.then146.i, %do.b
 if.end161.i:                                      ; preds = %lor.lhs.false113.if.end161_crit_edge.i, %if.end93.i
   %140 = phi i32 [ %.pre.i151, %lor.lhs.false113.if.end161_crit_edge.i ], [ %117, %if.end93.i ]
   %conf176.i = getelementptr inbounds i8, ptr %g, i64 528
-  %cmp17891.not.i = icmp eq i32 %140, 0
-  br i1 %cmp17891.not.i, label %virtio_gpu_resource_flush.exit, label %for.body180.lr.ph.i
+  %cmp17890.not.i = icmp eq i32 %140, 0
+  br i1 %cmp17890.not.i, label %virtio_gpu_resource_flush.exit, label %for.body180.lr.ph.i
 
 for.body180.lr.ph.i:                              ; preds = %if.end161.i
   %141 = load i32, ptr %height.i141, align 4
@@ -1820,15 +1820,15 @@ for.body180.lr.ph.i:                              ; preds = %if.end161.i
 
 for.body180.i:                                    ; preds = %for.inc217.i, %for.body180.lr.ph.i
   %144 = phi i32 [ %140, %for.body180.lr.ph.i ], [ %151, %for.inc217.i ]
-  %i.192.i = phi i32 [ 0, %for.body180.lr.ph.i ], [ %inc218.i, %for.inc217.i ]
+  %i.191.i = phi i32 [ 0, %for.body180.lr.ph.i ], [ %inc218.i, %for.inc217.i ]
   %145 = load i32, ptr %scanout_bitmask.i, align 4
-  %shl.i = shl nuw i32 1, %i.192.i
+  %shl.i = shl nuw i32 1, %i.191.i
   %and.i149 = and i32 %145, %shl.i
   %tobool181.not.i = icmp eq i32 %and.i149, 0
   br i1 %tobool181.not.i, label %for.inc217.i, label %if.end183.i
 
 if.end183.i:                                      ; preds = %for.body180.i
-  %idxprom186.i = sext i32 %i.192.i to i64
+  %idxprom186.i = sext i32 %i.191.i to i64
   %arrayidx187.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout185.i, i64 0, i64 %idxprom186.i
   %x188.i = getelementptr inbounds i8, ptr %arrayidx187.i, i64 24
   %146 = load i32, ptr %x188.i, align 8
@@ -1836,8 +1836,8 @@ if.end183.i:                                      ; preds = %for.body180.i
   %147 = load i32, ptr %y190.i, align 4
   %width192.i = getelementptr inbounds i8, ptr %arrayidx187.i, i64 16
   %148 = load i32, ptr %width192.i, align 8
-  %sext82.i = shl i32 %146, 16
-  %conv4.i.i = ashr exact i32 %sext82.i, 16
+  %sext81.i = shl i32 %146, 16
+  %conv4.i.i = ashr exact i32 %sext81.i, 16
   %cond.i.i = call i32 @llvm.smax.i32(i32 %conv.i.i, i32 %conv4.i.i)
   %conv24.i.i = and i32 %148, 65535
   %add25.i.i = add nsw i32 %conv24.i.i, %conv4.i.i
@@ -1860,22 +1860,22 @@ lor.lhs.false.i.i:                                ; preds = %if.end183.i
 if.then197.i:                                     ; preds = %lor.lhs.false.i.i
   %sub.i.i = sub nsw i32 %cond32.i.i, %cond.i.i
   %sub68.i.i = sub nsw i32 %cond49.i.i, %cond.i.i
-  %add.i64.i = sub i32 %cond.i.i, %146
+  %add.i63.i = sub i32 %cond.i.i, %146
   %add5.i.i = sub i32 %cond.i.i, %147
   %150 = load ptr, ptr %arrayidx187.i, align 8
-  %sext83.i = shl i32 %add.i64.i, 16
-  %conv209.i = ashr exact i32 %sext83.i, 16
-  %sext84.i = shl i32 %add5.i.i, 16
-  %conv211.i = ashr exact i32 %sext84.i, 16
+  %sext82.i = shl i32 %add.i63.i, 16
+  %conv209.i = ashr exact i32 %sext82.i, 16
+  %sext83.i = shl i32 %add5.i.i, 16
+  %conv211.i = ashr exact i32 %sext83.i, 16
   %conv213.i = and i32 %sub.i.i, 65535
   %conv215.i = and i32 %sub68.i.i, 65535
   call void @dpy_gfx_update(ptr noundef %150, i32 noundef %conv209.i, i32 noundef %conv211.i, i32 noundef %conv213.i, i32 noundef %conv215.i) #12
-  %.pre96.i = load i32, ptr %conf176.i, align 16
+  %.pre95.i = load i32, ptr %conf176.i, align 16
   br label %for.inc217.i
 
 for.inc217.i:                                     ; preds = %if.then197.i, %lor.lhs.false.i.i, %if.end183.i, %for.body180.i
-  %151 = phi i32 [ %144, %if.end183.i ], [ %144, %lor.lhs.false.i.i ], [ %.pre96.i, %if.then197.i ], [ %144, %for.body180.i ]
-  %inc218.i = add nuw i32 %i.192.i, 1
+  %151 = phi i32 [ %144, %if.end183.i ], [ %144, %lor.lhs.false.i.i ], [ %.pre95.i, %if.then197.i ], [ %144, %for.body180.i ]
+  %inc218.i = add nuw i32 %i.191.i, 1
   %cmp178.i = icmp ult i32 %inc218.i, %151
   br i1 %cmp178.i, label %for.body180.i, label %virtio_gpu_resource_flush.exit, !llvm.loop !11
 

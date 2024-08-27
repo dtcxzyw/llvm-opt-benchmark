@@ -378,10 +378,10 @@ define internal noalias noundef ptr @_set_db_inx_thread(ptr nocapture readnone %
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   br label %23
 
-23:                                               ; preds = %121, %13
+23:                                               ; preds = %122, %13
   %24 = load i64, ptr @plugin_shutdown, align 8
   %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %25, label %125
+  br i1 %.not, label %25, label %126
 
 25:                                               ; preds = %23
   %26 = call i32 @pthread_mutex_lock(ptr noundef nonnull @db_inx_lock) #14
@@ -400,8 +400,8 @@ define internal noalias noundef ptr @_set_db_inx_thread(ptr nocapture readnone %
   %30 = load ptr, ptr @job_list, align 8
   %31 = call ptr @slurm_list_iterator_create(ptr noundef %30) #14
   %32 = call ptr @slurm_list_next(ptr noundef %31) #14
-  %.not46.not61 = icmp eq ptr %32, null
-  br i1 %.not46.not61, label %.loopexit, label %.lr.ph
+  %.not46.not60 = icmp eq ptr %32, null
+  br i1 %.not46.not60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %.backedge
   %33 = phi ptr [ %43, %.backedge ], [ %32, %29 ]
@@ -423,7 +423,7 @@ define internal noalias noundef ptr @_set_db_inx_thread(ptr nocapture readnone %
   %.not49 = icmp eq i64 %42, 0
   br i1 %.not49, label %44, label %.backedge
 
-.backedge:                                        ; preds = %_partial_destroy_dbd_job_start.exit, %69, %37, %40, %70
+.backedge:                                        ; preds = %_partial_destroy_dbd_job_start.exit, %70, %37, %40, %71
   %43 = call ptr @slurm_list_next(ptr noundef %31) #14
   %.not46.not = icmp eq ptr %43, null
   br i1 %.not46.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -436,209 +436,209 @@ define internal noalias noundef ptr @_set_db_inx_thread(ptr nocapture readnone %
   %46 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 280, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 405, ptr noundef nonnull @__func__._set_db_inx_thread) #14
   %47 = call fastcc i32 @_setup_job_start_msg(ptr noundef %46, ptr noundef nonnull %33)
   %.not50 = icmp eq i32 %47, 0
-  br i1 %.not50, label %70, label %48
+  br i1 %.not50, label %71, label %48
 
 48:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %46, ptr %2, align 8
   %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_partial_destroy_dbd_job_start.exit, label %_partial_free_dbd_job_start.exit
+  br i1 %.not.i, label %_partial_destroy_dbd_job_start.exit, label %49
 
-_partial_free_dbd_job_start.exit:                 ; preds = %48
+49:                                               ; preds = %48
   call void @slurm_xfree(ptr noundef nonnull %46) #14
-  %49 = getelementptr inbounds i8, ptr %46, i64 24
-  call void @slurm_xfree(ptr noundef nonnull %49) #14
-  %50 = getelementptr inbounds i8, ptr %46, i64 40
+  %50 = getelementptr inbounds i8, ptr %46, i64 24
   call void @slurm_xfree(ptr noundef nonnull %50) #14
-  %51 = getelementptr inbounds i8, ptr %46, i64 48
+  %51 = getelementptr inbounds i8, ptr %46, i64 40
   call void @slurm_xfree(ptr noundef nonnull %51) #14
-  %52 = getelementptr inbounds i8, ptr %46, i64 80
+  %52 = getelementptr inbounds i8, ptr %46, i64 48
   call void @slurm_xfree(ptr noundef nonnull %52) #14
-  %53 = getelementptr inbounds i8, ptr %46, i64 112
+  %53 = getelementptr inbounds i8, ptr %46, i64 80
   call void @slurm_xfree(ptr noundef nonnull %53) #14
-  %54 = getelementptr inbounds i8, ptr %46, i64 120
+  %54 = getelementptr inbounds i8, ptr %46, i64 112
   call void @slurm_xfree(ptr noundef nonnull %54) #14
-  %55 = getelementptr inbounds i8, ptr %46, i64 128
+  %55 = getelementptr inbounds i8, ptr %46, i64 120
   call void @slurm_xfree(ptr noundef nonnull %55) #14
-  %56 = getelementptr inbounds i8, ptr %46, i64 136
+  %56 = getelementptr inbounds i8, ptr %46, i64 128
   call void @slurm_xfree(ptr noundef nonnull %56) #14
-  %57 = getelementptr inbounds i8, ptr %46, i64 152
+  %57 = getelementptr inbounds i8, ptr %46, i64 136
   call void @slurm_xfree(ptr noundef nonnull %57) #14
-  %58 = getelementptr inbounds i8, ptr %46, i64 144
+  %58 = getelementptr inbounds i8, ptr %46, i64 152
   call void @slurm_xfree(ptr noundef nonnull %58) #14
-  %59 = getelementptr inbounds i8, ptr %46, i64 264
+  %59 = getelementptr inbounds i8, ptr %46, i64 144
   call void @slurm_xfree(ptr noundef nonnull %59) #14
-  %60 = getelementptr inbounds i8, ptr %46, i64 240
+  %60 = getelementptr inbounds i8, ptr %46, i64 264
   call void @slurm_xfree(ptr noundef nonnull %60) #14
-  %61 = getelementptr inbounds i8, ptr %46, i64 192
+  %61 = getelementptr inbounds i8, ptr %46, i64 240
   call void @slurm_xfree(ptr noundef nonnull %61) #14
-  %62 = getelementptr inbounds i8, ptr %46, i64 216
+  %62 = getelementptr inbounds i8, ptr %46, i64 192
   call void @slurm_xfree(ptr noundef nonnull %62) #14
-  %63 = getelementptr inbounds i8, ptr %46, i64 248
+  %63 = getelementptr inbounds i8, ptr %46, i64 216
   call void @slurm_xfree(ptr noundef nonnull %63) #14
-  %64 = getelementptr inbounds i8, ptr %46, i64 256
+  %64 = getelementptr inbounds i8, ptr %46, i64 248
   call void @slurm_xfree(ptr noundef nonnull %64) #14
-  %65 = getelementptr inbounds i8, ptr %46, i64 272
+  %65 = getelementptr inbounds i8, ptr %46, i64 256
   call void @slurm_xfree(ptr noundef nonnull %65) #14
+  %66 = getelementptr inbounds i8, ptr %46, i64 272
+  call void @slurm_xfree(ptr noundef nonnull %66) #14
   call void @slurm_xfree(ptr noundef nonnull %2) #14
   br label %_partial_destroy_dbd_job_start.exit
 
-_partial_destroy_dbd_job_start.exit:              ; preds = %48, %_partial_free_dbd_job_start.exit
+_partial_destroy_dbd_job_start.exit:              ; preds = %48, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %66 = getelementptr inbounds i8, ptr %33, i64 192
-  %67 = load i64, ptr %66, align 8
-  %68 = icmp eq i64 %67, -2
-  br i1 %68, label %69, label %.backedge
+  %67 = getelementptr inbounds i8, ptr %33, i64 192
+  %68 = load i64, ptr %67, align 8
+  %69 = icmp eq i64 %68, -2
+  br i1 %69, label %70, label %.backedge
 
-69:                                               ; preds = %_partial_destroy_dbd_job_start.exit
-  store i64 0, ptr %66, align 8
+70:                                               ; preds = %_partial_destroy_dbd_job_start.exit
+  store i64 0, ptr %67, align 8
   br label %.backedge
 
-70:                                               ; preds = %45
+71:                                               ; preds = %45
   call void @slurm_list_append(ptr noundef %8, ptr noundef %46) #14
-  %71 = call i32 @slurm_list_count(ptr noundef %8) #14
-  %72 = icmp sgt i32 %71, 1000
-  br i1 %72, label %73, label %.backedge
+  %72 = call i32 @slurm_list_count(ptr noundef %8) #14
+  %73 = icmp sgt i32 %72, 1000
+  br i1 %73, label %74, label %.backedge
 
-73:                                               ; preds = %70
-  %74 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %75 = and i64 %74, 2251799813685248
-  %.not51 = icmp eq i64 %75, 0
-  br i1 %.not51, label %.loopexit, label %76
+74:                                               ; preds = %71
+  %75 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %76 = and i64 %75, 2251799813685248
+  %.not51 = icmp eq i64 %76, 0
+  br i1 %.not51, label %.loopexit, label %77
 
-76:                                               ; preds = %73
-  %77 = call i32 @slurm_get_log_level() #14
-  %78 = icmp sgt i32 %77, 3
-  br i1 %78, label %79, label %.loopexit
+77:                                               ; preds = %74
+  %78 = call i32 @slurm_get_log_level() #14
+  %79 = icmp sgt i32 %78, 3
+  br i1 %79, label %80, label %.loopexit
 
-79:                                               ; preds = %76
+80:                                               ; preds = %77
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.104, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_db_inx_thread) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge, %29, %79, %76, %73
-  %.not46.not58 = phi i1 [ false, %79 ], [ false, %76 ], [ false, %73 ], [ true, %29 ], [ true, %.backedge ]
+.loopexit:                                        ; preds = %.backedge, %29, %80, %77, %74
+  %.not46.not57 = phi i1 [ false, %80 ], [ false, %77 ], [ false, %74 ], [ true, %29 ], [ true, %.backedge ]
   call void @slurm_list_iterator_destroy(ptr noundef %31) #14
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._set_db_inx_thread.job_read_lock) #14
-  %80 = call i32 @slurm_list_count(ptr noundef %8) #14
-  %.not5263 = icmp eq i32 %80, 0
-  br i1 %.not5263, label %._crit_edge, label %.lr.ph64
+  %81 = call i32 @slurm_list_count(ptr noundef %8) #14
+  %.not5262 = icmp eq i32 %81, 0
+  br i1 %.not5262, label %._crit_edge, label %.lr.ph63
 
-.lr.ph64:                                         ; preds = %.loopexit, %109
+.lr.ph63:                                         ; preds = %.loopexit, %110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i64 0, ptr %22, align 8
   store ptr %8, ptr %7, align 8
   store i16 1472, ptr %16, align 8
   store ptr %7, ptr %17, align 8
-  %81 = call i32 @dbd_conn_send_recv(i16 noundef zeroext 10496, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
-  %.not54 = icmp eq i32 %81, 0
-  br i1 %.not54, label %84, label %82
+  %82 = call i32 @dbd_conn_send_recv(i16 noundef zeroext 10496, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
+  %.not54 = icmp eq i32 %82, 0
+  br i1 %.not54, label %85, label %83
 
-82:                                               ; preds = %.lr.ph64
-  %83 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.105) #14
+83:                                               ; preds = %.lr.ph63
+  %84 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.105) #14
   br label %.critedge
 
-84:                                               ; preds = %.lr.ph64
-  %85 = load i16, ptr %18, align 8
-  switch i16 %85, label %96 [
-    i16 1433, label %86
-    i16 1473, label %99
+85:                                               ; preds = %.lr.ph63
+  %86 = load i16, ptr %18, align 8
+  switch i16 %86, label %97 [
+    i16 1433, label %87
+    i16 1473, label %100
   ]
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr %19, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 12
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp eq i32 %89, 0
-  %91 = load ptr, ptr %87, align 8
-  br i1 %90, label %92, label %93
+87:                                               ; preds = %85
+  %88 = load ptr, ptr %19, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 12
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp eq i32 %90, 0
+  %92 = load ptr, ptr %88, align 8
+  br i1 %91, label %93, label %94
 
-92:                                               ; preds = %86
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.18, ptr noundef %91) #14
-  br label %95
+93:                                               ; preds = %87
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.18, ptr noundef %92) #14
+  br label %96
 
-93:                                               ; preds = %86
-  %94 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.18, ptr noundef %91) #14
-  br label %95
+94:                                               ; preds = %87
+  %95 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.18, ptr noundef %92) #14
+  br label %96
 
-95:                                               ; preds = %93, %92
-  call void @slurm_persist_free_rc_msg(ptr noundef nonnull %87) #14
+96:                                               ; preds = %94, %93
+  call void @slurm_persist_free_rc_msg(ptr noundef nonnull %88) #14
   br label %.critedge
 
-96:                                               ; preds = %84
-  %97 = zext i16 %85 to i32
-  %98 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.106, i32 noundef %97) #14
+97:                                               ; preds = %85
+  %98 = zext i16 %86 to i32
+  %99 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.106, i32 noundef %98) #14
   br label %.critedge
 
-99:                                               ; preds = %84
-  %100 = load ptr, ptr %19, align 8
+100:                                              ; preds = %85
+  %101 = load ptr, ptr %19, align 8
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._set_db_inx_thread.job_write_lock) #14
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i32 @slurm_list_for_each(ptr noundef %101, ptr noundef nonnull @_set_db_inx_for_each, ptr noundef null) #14
+  %102 = load ptr, ptr %101, align 8
+  %103 = call i32 @slurm_list_for_each(ptr noundef %102, ptr noundef nonnull @_set_db_inx_for_each, ptr noundef null) #14
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._set_db_inx_thread.job_write_lock) #14
-  %103 = load ptr, ptr %100, align 8
-  %104 = call i32 @slurm_list_count(ptr noundef %103) #14
-  %105 = call i32 @slurm_list_flush_max(ptr noundef %8, i32 noundef %104) #14
-  call void @slurm_slurmdbd_free_list_msg(ptr noundef nonnull %100) #14
-  br label %109
+  %104 = load ptr, ptr %101, align 8
+  %105 = call i32 @slurm_list_count(ptr noundef %104) #14
+  %106 = call i32 @slurm_list_flush_max(ptr noundef %8, i32 noundef %105) #14
+  call void @slurm_slurmdbd_free_list_msg(ptr noundef nonnull %101) #14
+  br label %110
 
-.critedge:                                        ; preds = %96, %95, %82
-  %106 = call i32 @slurm_list_flush(ptr noundef %8) #14
+.critedge:                                        ; preds = %97, %96, %83
+  %107 = call i32 @slurm_list_flush(ptr noundef %8) #14
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._set_db_inx_thread.job_read_lock) #14
-  %107 = load ptr, ptr @job_list, align 8
-  %108 = call i32 @slurm_list_for_each(ptr noundef %107, ptr noundef nonnull @_reset_db_inx_for_each, ptr noundef null) #14
+  %108 = load ptr, ptr @job_list, align 8
+  %109 = call i32 @slurm_list_for_each(ptr noundef %108, ptr noundef nonnull @_reset_db_inx_for_each, ptr noundef null) #14
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._set_db_inx_thread.job_read_lock) #14
-  br label %109
+  br label %110
 
-109:                                              ; preds = %99, %.critedge
-  %110 = call i32 @slurm_list_count(ptr noundef %8) #14
-  %.not52 = icmp eq i32 %110, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph64, !llvm.loop !8
+110:                                              ; preds = %100, %.critedge
+  %111 = call i32 @slurm_list_count(ptr noundef %8) #14
+  %.not52 = icmp eq i32 %111, 0
+  br i1 %.not52, label %._crit_edge, label %.lr.ph63, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %109, %.loopexit
+._crit_edge:                                      ; preds = %110, %.loopexit
   store i1 false, ptr @running_db_inx, align 1
-  br i1 %.not46.not58, label %111, label %121
+  br i1 %.not46.not57, label %112, label %122
 
-111:                                              ; preds = %._crit_edge
-  %112 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
-  %113 = load i64, ptr %3, align 8
-  %114 = add nsw i64 %113, 5
-  store i64 %114, ptr %4, align 8
-  %115 = load i64, ptr %20, align 8
-  %116 = mul nsw i64 %115, 1000
-  store i64 %116, ptr %21, align 8
-  %117 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @db_inx_cond, ptr noundef nonnull @db_inx_lock, ptr noundef nonnull %4) #14
-  switch i32 %117, label %118 [
-    i32 110, label %121
-    i32 0, label %121
+112:                                              ; preds = %._crit_edge
+  %113 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
+  %114 = load i64, ptr %3, align 8
+  %115 = add nsw i64 %114, 5
+  store i64 %115, ptr %4, align 8
+  %116 = load i64, ptr %20, align 8
+  %117 = mul nsw i64 %116, 1000
+  store i64 %117, ptr %21, align 8
+  %118 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @db_inx_cond, ptr noundef nonnull @db_inx_lock, ptr noundef nonnull %4) #14
+  switch i32 %118, label %119 [
+    i32 110, label %122
+    i32 0, label %122
   ]
 
-118:                                              ; preds = %111
-  %119 = tail call ptr @__errno_location() #15
-  store i32 %117, ptr %119, align 4
-  %120 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.9, i32 noundef 509, ptr noundef nonnull @__func__._set_db_inx_thread) #14
-  br label %121
+119:                                              ; preds = %112
+  %120 = tail call ptr @__errno_location() #15
+  store i32 %118, ptr %120, align 4
+  %121 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.9, i32 noundef 509, ptr noundef nonnull @__func__._set_db_inx_thread) #14
+  br label %122
 
-121:                                              ; preds = %111, %111, %._crit_edge, %118
-  %122 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @db_inx_lock) #14
-  %.not53 = icmp eq i32 %122, 0
-  br i1 %.not53, label %23, label %123, !llvm.loop !9
+122:                                              ; preds = %112, %112, %._crit_edge, %119
+  %123 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @db_inx_lock) #14
+  %.not53 = icmp eq i32 %123, 0
+  br i1 %.not53, label %23, label %124, !llvm.loop !9
 
-123:                                              ; preds = %121
-  %124 = tail call ptr @__errno_location() #15
-  store i32 %122, ptr %124, align 4
+124:                                              ; preds = %122
+  %125 = tail call ptr @__errno_location() #15
+  store i32 %123, ptr %125, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.9, i32 noundef 512, ptr noundef nonnull @__func__._set_db_inx_thread) #13
   unreachable
 
-125:                                              ; preds = %23
+126:                                              ; preds = %23
   %.not44 = icmp eq ptr %8, null
-  br i1 %.not44, label %127, label %126
+  br i1 %.not44, label %128, label %127
 
-126:                                              ; preds = %125
+127:                                              ; preds = %126
   call void @slurm_list_destroy(ptr noundef nonnull %8) #14
-  br label %127
+  br label %128
 
-127:                                              ; preds = %126, %125
+128:                                              ; preds = %127, %126
   ret ptr null
 }
 
@@ -5262,48 +5262,41 @@ define internal fastcc range(i32 -1, 1) i32 @_setup_job_start_msg(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_partial_free_dbd_job_start(ptr noundef %0) unnamed_addr #0 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %20, label %2
-
-2:                                                ; preds = %1
-  tail call void @slurm_xfree(ptr noundef nonnull %0) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @slurm_xfree(ptr noundef %0) #14
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #14
+  %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %5) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @slurm_xfree(ptr noundef nonnull %6) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @slurm_xfree(ptr noundef nonnull %7) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @slurm_xfree(ptr noundef nonnull %8) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @slurm_xfree(ptr noundef nonnull %9) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @slurm_xfree(ptr noundef nonnull %10) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @slurm_xfree(ptr noundef nonnull %11) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @slurm_xfree(ptr noundef nonnull %12) #14
-  %13 = getelementptr inbounds i8, ptr %0, i64 264
+  %13 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @slurm_xfree(ptr noundef nonnull %13) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %14 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @slurm_xfree(ptr noundef nonnull %14) #14
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @slurm_xfree(ptr noundef nonnull %15) #14
-  %16 = getelementptr inbounds i8, ptr %0, i64 216
+  %16 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @slurm_xfree(ptr noundef nonnull %16) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 248
+  %17 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @slurm_xfree(ptr noundef nonnull %17) #14
-  %18 = getelementptr inbounds i8, ptr %0, i64 256
+  %18 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @slurm_xfree(ptr noundef nonnull %18) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 272
-  tail call void @slurm_xfree(ptr noundef nonnull %19) #14
-  br label %20
-
-20:                                               ; preds = %2, %1
   ret void
 }
 

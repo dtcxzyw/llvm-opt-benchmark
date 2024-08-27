@@ -2927,17 +2927,17 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit.i.i:         ; preds = %172
   br i1 %exitcond.not.i.i.i.i, label %209, label %185, !llvm.loop !37
 
 209:                                              ; preds = %208
-  switch i32 %.1.i.i.i.i, label %.preheader.lr.ph.i.i.i.i.i [
+  switch i32 %.1.i.i.i.i, label %.preheader.preheader.i.i.i.i.i [
     i32 0, label %_ZL40arabic_fallback_synthesize_lookup_singlePK18hb_ot_shape_plan_tP9hb_font_tj.exit.i.i.i
     i32 1, label %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEES1_EvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i
   ]
 
-.preheader.lr.ph.i.i.i.i.i:                       ; preds = %209
-  %wide.trip.count13.i.i.i.i.i = zext i32 %.1.i.i.i.i to i64
+.preheader.preheader.i.i.i.i.i:                   ; preds = %209
+  %wide.trip.count.i.i.i.i.i = zext i32 %.1.i.i.i.i to i64
   br label %.preheader.i.i.i.i.i
 
-.preheader.i.i.i.i.i:                             ; preds = %238, %.preheader.lr.ph.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %238 ], [ 1, %.preheader.lr.ph.i.i.i.i.i ]
+.preheader.i.i.i.i.i:                             ; preds = %238, %.preheader.preheader.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i = phi i64 [ 1, %.preheader.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %238 ]
   %210 = getelementptr inbounds %"struct.OT::HBGlyphID16", ptr %48, i64 %indvars.iv.i.i.i.i.i
   %211 = getelementptr inbounds i8, ptr %210, i64 1
   %212 = load i8, ptr %210, align 2
@@ -2949,24 +2949,24 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit.i.i:         ; preds = %172
   br label %218
 
 218:                                              ; preds = %219, %.preheader.i.i.i.i.i
-  %indvars.iv3.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %220, %219 ]
-  %.not.i.i.i.i.i = icmp eq i64 %indvars.iv3.i.i.i.i.i, 0
+  %indvars.iv2.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %220, %219 ]
+  %.not.i.i.i.i.i = icmp eq i64 %indvars.iv2.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %219
 
 219:                                              ; preds = %218
-  %220 = add nsw i64 %indvars.iv3.i.i.i.i.i, -1
+  %220 = add nsw i64 %indvars.iv2.i.i.i.i.i, -1
   %221 = getelementptr inbounds %"struct.OT::HBGlyphID16", ptr %48, i64 %220
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %221, align 2
   %rev.i.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i.i.i.i.i.i)
   %222 = icmp ult i16 %217, %rev.i.i.i.i.i.i.i
-  br i1 %222, label %218, label %.critedge.split.loop.exit16.i.i.i.i.i, !llvm.loop !38
+  br i1 %222, label %218, label %.critedge.split.loop.exit6.i.i.i.i.i, !llvm.loop !38
 
-.critedge.split.loop.exit16.i.i.i.i.i:            ; preds = %219
-  %223 = trunc nuw i64 %indvars.iv3.i.i.i.i.i to i32
+.critedge.split.loop.exit6.i.i.i.i.i:             ; preds = %219
+  %223 = trunc nuw i64 %indvars.iv2.i.i.i.i.i to i32
   br label %.critedge.i.i.i.i.i
 
-.critedge.i.i.i.i.i:                              ; preds = %218, %.critedge.split.loop.exit16.i.i.i.i.i
-  %.036.lcssa.i.i.i.i.i = phi i32 [ %223, %.critedge.split.loop.exit16.i.i.i.i.i ], [ 0, %218 ]
+.critedge.i.i.i.i.i:                              ; preds = %218, %.critedge.split.loop.exit6.i.i.i.i.i
+  %.036.lcssa.i.i.i.i.i = phi i32 [ %223, %.critedge.split.loop.exit6.i.i.i.i.i ], [ 0, %218 ]
   %224 = zext i32 %.036.lcssa.i.i.i.i.i to i64
   %225 = icmp eq i64 %indvars.iv.i.i.i.i.i, %224
   br i1 %225, label %238, label %226
@@ -2993,7 +2993,7 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit.i.i:         ; preds = %172
 
 238:                                              ; preds = %226, %.critedge.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count13.i.i.i.i.i
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEES1_EvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i, label %.preheader.i.i.i.i.i, !llvm.loop !39
 
 _ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEES1_EvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i: ; preds = %238, %209
@@ -3564,14 +3564,14 @@ _ZL42arabic_fallback_synthesize_lookup_ligatureIA1_16ligature_3_set_tEPN2OT6Layo
 
 409:                                              ; preds = %408
   %410 = icmp ugt i32 %.1.i43.i.i.i, 1
-  br i1 %410, label %.preheader.lr.ph.i.i100.i.i.i, label %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEEjEvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i
+  br i1 %410, label %.preheader.preheader.i.i100.i.i.i, label %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEEjEvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i
 
-.preheader.lr.ph.i.i100.i.i.i:                    ; preds = %409
-  %wide.trip.count13.i.i101.i.i.i = zext i32 %.1.i43.i.i.i to i64
+.preheader.preheader.i.i100.i.i.i:                ; preds = %409
+  %wide.trip.count.i.i101.i.i.i = zext i32 %.1.i43.i.i.i to i64
   br label %.preheader.i.i102.i.i.i
 
-.preheader.i.i102.i.i.i:                          ; preds = %441, %.preheader.lr.ph.i.i100.i.i.i
-  %indvars.iv.i.i103.i.i.i = phi i64 [ %indvars.iv.next.i.i111.i.i.i, %441 ], [ 1, %.preheader.lr.ph.i.i100.i.i.i ]
+.preheader.i.i102.i.i.i:                          ; preds = %441, %.preheader.preheader.i.i100.i.i.i
+  %indvars.iv.i.i103.i.i.i = phi i64 [ 1, %.preheader.preheader.i.i100.i.i.i ], [ %indvars.iv.next.i.i111.i.i.i, %441 ]
   %411 = getelementptr inbounds %"struct.OT::HBGlyphID16", ptr %19, i64 %indvars.iv.i.i103.i.i.i
   %412 = getelementptr inbounds i8, ptr %411, i64 1
   %413 = load i8, ptr %411, align 2
@@ -3583,24 +3583,24 @@ _ZL42arabic_fallback_synthesize_lookup_ligatureIA1_16ligature_3_set_tEPN2OT6Layo
   br label %419
 
 419:                                              ; preds = %420, %.preheader.i.i102.i.i.i
-  %indvars.iv3.i.i104.i.i.i = phi i64 [ %indvars.iv.i.i103.i.i.i, %.preheader.i.i102.i.i.i ], [ %421, %420 ]
-  %.not.i.i105.i.i.i = icmp eq i64 %indvars.iv3.i.i104.i.i.i, 0
+  %indvars.iv2.i.i104.i.i.i = phi i64 [ %indvars.iv.i.i103.i.i.i, %.preheader.i.i102.i.i.i ], [ %421, %420 ]
+  %.not.i.i105.i.i.i = icmp eq i64 %indvars.iv2.i.i104.i.i.i, 0
   br i1 %.not.i.i105.i.i.i, label %.critedge.i.i109.i.i.i, label %420
 
 420:                                              ; preds = %419
-  %421 = add nsw i64 %indvars.iv3.i.i104.i.i.i, -1
+  %421 = add nsw i64 %indvars.iv2.i.i104.i.i.i, -1
   %422 = getelementptr inbounds %"struct.OT::HBGlyphID16", ptr %19, i64 %421
   %.sroa.0.0.copyload.i.i.i106.i.i.i = load i16, ptr %422, align 2
   %rev.i.i.i.i107.i.i.i = call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i.i.i106.i.i.i)
   %423 = icmp ult i16 %418, %rev.i.i.i.i107.i.i.i
-  br i1 %423, label %419, label %.critedge.split.loop.exit16.i.i108.i.i.i, !llvm.loop !59
+  br i1 %423, label %419, label %.critedge.split.loop.exit6.i.i108.i.i.i, !llvm.loop !59
 
-.critedge.split.loop.exit16.i.i108.i.i.i:         ; preds = %420
-  %424 = trunc nuw i64 %indvars.iv3.i.i104.i.i.i to i32
+.critedge.split.loop.exit6.i.i108.i.i.i:          ; preds = %420
+  %424 = trunc nuw i64 %indvars.iv2.i.i104.i.i.i to i32
   br label %.critedge.i.i109.i.i.i
 
-.critedge.i.i109.i.i.i:                           ; preds = %419, %.critedge.split.loop.exit16.i.i108.i.i.i
-  %.035.lcssa.i.i.i.i.i = phi i32 [ %424, %.critedge.split.loop.exit16.i.i108.i.i.i ], [ 0, %419 ]
+.critedge.i.i109.i.i.i:                           ; preds = %419, %.critedge.split.loop.exit6.i.i108.i.i.i
+  %.035.lcssa.i.i.i.i.i = phi i32 [ %424, %.critedge.split.loop.exit6.i.i108.i.i.i ], [ 0, %419 ]
   %425 = zext i32 %.035.lcssa.i.i.i.i.i to i64
   %426 = icmp eq i64 %indvars.iv.i.i103.i.i.i, %425
   br i1 %426, label %441, label %427
@@ -3628,7 +3628,7 @@ _ZL42arabic_fallback_synthesize_lookup_ligatureIA1_16ligature_3_set_tEPN2OT6Layo
 
 441:                                              ; preds = %427, %.critedge.i.i109.i.i.i
   %indvars.iv.next.i.i111.i.i.i = add nuw nsw i64 %indvars.iv.i.i103.i.i.i, 1
-  %exitcond.not.i.i112.i.i.i = icmp eq i64 %indvars.iv.next.i.i111.i.i.i, %wide.trip.count13.i.i101.i.i.i
+  %exitcond.not.i.i112.i.i.i = icmp eq i64 %indvars.iv.next.i.i111.i.i.i, %wide.trip.count.i.i101.i.i.i
   br i1 %exitcond.not.i.i112.i.i.i, label %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEEjEvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i, label %.preheader.i.i102.i.i.i, !llvm.loop !60
 
 _ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEEjEvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i: ; preds = %441, %409

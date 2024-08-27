@@ -7648,16 +7648,13 @@ declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %1, null
   %spec.select = select i1 %.not, ptr %8, ptr %2
-  %spec.select76 = select i1 %.not, ptr %9, ptr %1
-  %.not69 = icmp eq ptr %3, null
-  %.061 = select i1 %.not69, ptr %8, ptr %4
-  %.060 = select i1 %.not69, ptr %9, ptr %3
+  %spec.select73 = select i1 %.not, ptr %9, ptr %1
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 40
@@ -7674,25 +7671,25 @@ define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef 
   %.pre = phi ptr [ %.pre.pre, %15 ], [ %11, %7 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 96
   %18 = load i32, ptr %17, align 8
-  %.05894 = add i32 %18, -1
-  %19 = icmp sgt i32 %.05894, -1
+  %.05891 = add i32 %18, -1
+  %19 = icmp sgt i32 %.05891, -1
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %20 = zext nneg i32 %.05894 to i64
+  %20 = zext nneg i32 %.05891 to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.058.in95 = phi i32 [ %18, %.lr.ph ], [ %27, %25 ]
+  %.058.in92 = phi i32 [ %18, %.lr.ph ], [ %27, %25 ]
   %22 = getelementptr %struct.rb_econv_elem_t, ptr %.pre, i64 %indvars.iv, i32 5
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %24 [
-    i32 0, label %.loopexit80
-    i32 6, label %.loopexit80
-    i32 1, label %.loopexit80
-    i32 5, label %.loopexit80
-    i32 4, label %.loopexit80
+    i32 0, label %.loopexit77
+    i32 6, label %.loopexit77
+    i32 1, label %.loopexit77
+    i32 5, label %.loopexit77
+    i32 4, label %.loopexit77
     i32 2, label %25
     i32 3, label %25
   ]
@@ -7708,25 +7705,25 @@ define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef 
   br i1 %26, label %21, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %25, %16
-  %28 = sext i32 %.05894 to i64
+  %28 = sext i32 %.05891 to i64
   %29 = getelementptr %struct.rb_econv_elem_t, ptr %.pre, i64 %28, i32 5
   %30 = load i32, ptr %29, align 8
   %31 = icmp ne i32 %30, 2
   %32 = and i32 %5, 262144
-  %.not70 = icmp eq i32 %32, 0
-  %or.cond = or i1 %.not70, %31
-  br i1 %or.cond, label %.loopexit80, label %33
+  %.not69 = icmp eq i32 %32, 0
+  %or.cond = or i1 %.not69, %31
+  br i1 %or.cond, label %.loopexit77, label %33
 
 33:                                               ; preds = %._crit_edge
   %34 = and i32 %5, -393217
   %35 = or disjoint i32 %34, 131072
-  %36 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %.060, ptr noundef %.061, i32 noundef %35, ptr noundef %6)
+  %36 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %4, i32 noundef %35, ptr noundef %6)
   %37 = icmp eq i32 %36, 3
   %. = select i1 %37, i32 5, i32 %36
-  br label %113
+  br label %111
 
-.loopexit80:                                      ; preds = %21, %21, %21, %21, %21, %._crit_edge
-  %.056 = phi i32 [ 0, %._crit_edge ], [ %.058.in95, %21 ], [ %.058.in95, %21 ], [ %.058.in95, %21 ], [ %.058.in95, %21 ], [ %.058.in95, %21 ]
+.loopexit77:                                      ; preds = %21, %21, %21, %21, %21, %._crit_edge
+  %.056 = phi i32 [ 0, %._crit_edge ], [ %.058.in92, %21 ], [ %.058.in92, %21 ], [ %.058.in92, %21 ], [ %.058.in92, %21 ], [ %.058.in92, %21 ]
   %38 = getelementptr inbounds i8, ptr %0, i64 100
   br label %.preheader.i
 
@@ -7735,15 +7732,15 @@ define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not.i, label %.critedge, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %.loopexit.i, %97
-  %.be = phi i32 [ %94, %.loopexit.i ], [ %.pre116.pre, %97 ]
+  %.be = phi i32 [ %94, %.loopexit.i ], [ %.pre113.pre, %97 ]
   %.05995.i.be = phi i32 [ %.2.i, %.loopexit.i ], [ %5, %97 ]
   %.06094.i.be = phi i32 [ %.262.i, %.loopexit.i ], [ %98, %97 ]
   br label %.preheader.i, !llvm.loop !134
 
-.preheader.i:                                     ; preds = %.preheader.i.backedge, %.loopexit80
-  %39 = phi i32 [ %18, %.loopexit80 ], [ %.be, %.preheader.i.backedge ]
-  %.05995.i = phi i32 [ %5, %.loopexit80 ], [ %.05995.i.be, %.preheader.i.backedge ]
-  %.06094.i = phi i32 [ %.056, %.loopexit80 ], [ %.06094.i.be, %.preheader.i.backedge ]
+.preheader.i:                                     ; preds = %.preheader.i.backedge, %.loopexit77
+  %39 = phi i32 [ %18, %.loopexit77 ], [ %.be, %.preheader.i.backedge ]
+  %.05995.i = phi i32 [ %5, %.loopexit77 ], [ %.05995.i.be, %.preheader.i.backedge ]
+  %.06094.i = phi i32 [ %.056, %.loopexit77 ], [ %.06094.i.be, %.preheader.i.backedge ]
   %40 = icmp slt i32 %.06094.i, %39
   br i1 %40, label %.lr.ph.preheader.i, label %.critedge
 
@@ -7776,7 +7773,7 @@ define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef 
 .lr.ph._crit_edge.i:                              ; preds = %46, %.lr.ph.i
   %.pre-phi.i = phi i32 [ %47, %46 ], [ 0, %.lr.ph.i ]
   %.072.i = phi ptr [ %53, %46 ], [ %spec.select, %.lr.ph.i ]
-  %.071.i = phi ptr [ %51, %46 ], [ %spec.select76, %.lr.ph.i ]
+  %.071.i = phi ptr [ %51, %46 ], [ %spec.select73, %.lr.ph.i ]
   %54 = add nsw i32 %42, -1
   %55 = icmp eq i32 %.pre-phi.i, %54
   br i1 %55, label %74, label %56
@@ -7812,8 +7809,8 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %56
   br label %74
 
 74:                                               ; preds = %70, %.lr.ph._crit_edge.i
-  %.070.i = phi ptr [ %71, %70 ], [ %.060, %.lr.ph._crit_edge.i ]
-  %.069.i = phi ptr [ %73, %70 ], [ %.061, %.lr.ph._crit_edge.i ]
+  %.070.i = phi ptr [ %71, %70 ], [ %3, %.lr.ph._crit_edge.i ]
+  %.069.i = phi ptr [ %73, %70 ], [ %4, %.lr.ph._crit_edge.i ]
   %75 = load i32, ptr %38, align 4
   %.not76.i = icmp eq i32 %75, %.pre-phi.i
   %76 = or i32 %.191.i, 131072
@@ -7872,31 +7869,31 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %56
   br i1 %96, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !135
 
 trans_sweep.exit:                                 ; preds = %89, %89, %89, %89
-  %.not71 = icmp eq i32 %.pre-phi.i, -1
-  %.pre116.pre = load i32, ptr %17, align 8
-  br i1 %.not71, label %.critedge, label %97
+  %.not70 = icmp eq i32 %.pre-phi.i, -1
+  %.pre113.pre = load i32, ptr %17, align 8
+  br i1 %.not70, label %.critedge, label %97
 
 97:                                               ; preds = %trans_sweep.exit
   %98 = add nuw i32 %.pre-phi.i, 1
-  %99 = add i32 %.pre116.pre, -1
-  %.not72 = icmp eq i32 %.pre-phi.i, %99
-  br i1 %.not72, label %.critedge, label %.preheader.i.backedge
+  %99 = add i32 %.pre113.pre, -1
+  %.not71 = icmp eq i32 %.pre-phi.i, %99
+  br i1 %.not71, label %.critedge, label %.preheader.i.backedge
 
 .critedge:                                        ; preds = %trans_sweep.exit, %97, %.loopexit.i, %.preheader.i
-  %100 = phi i32 [ %39, %.preheader.i ], [ %94, %.loopexit.i ], [ %.pre116.pre, %97 ], [ %.pre116.pre, %trans_sweep.exit ]
+  %100 = phi i32 [ %39, %.preheader.i ], [ %94, %.loopexit.i ], [ %.pre113.pre, %97 ], [ %.pre113.pre, %trans_sweep.exit ]
   %101 = zext i32 %100 to i64
   br label %102
 
 102:                                              ; preds = %104, %.critedge
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %104 ], [ %101, %.critedge ]
-  %indvars.iv.next113 = add nsw i64 %indvars.iv112, -1
-  %indvars = trunc i64 %indvars.iv.next113 to i32
+  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %104 ], [ %101, %.critedge ]
+  %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
+  %indvars = trunc i64 %indvars.iv.next110 to i32
   %103 = icmp sgt i32 %indvars, -1
-  br i1 %103, label %104, label %111
+  br i1 %103, label %104, label %110
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %10, align 8
-  %106 = and i64 %indvars.iv.next113, 2147483647
+  %106 = and i64 %indvars.iv.next110, 2147483647
   %107 = getelementptr %struct.rb_econv_elem_t, ptr %105, i64 %106, i32 5
   %108 = load i32, ptr %107, align 8
   switch i32 %108, label %.loopexit [
@@ -7912,23 +7909,15 @@ trans_sweep.exit:                                 ; preds = %89, %89, %89, %89
   br label %.loopexit
 
 .loopexit:                                        ; preds = %104, %109
-  %.not75 = icmp eq ptr %6, null
-  br i1 %.not75, label %113, label %110
-
-110:                                              ; preds = %.loopexit
   store i32 %indvars, ptr %6, align 4
-  br label %113
+  br label %111
 
-111:                                              ; preds = %102
-  %.not73 = icmp eq ptr %6, null
-  br i1 %.not73, label %113, label %112
-
-112:                                              ; preds = %111
+110:                                              ; preds = %102
   store i32 -1, ptr %6, align 4
-  br label %113
+  br label %111
 
-113:                                              ; preds = %111, %112, %.loopexit, %110, %33
-  %.0 = phi i32 [ %., %33 ], [ %108, %110 ], [ %108, %.loopexit ], [ 3, %112 ], [ 3, %111 ]
+111:                                              ; preds = %33, %110, %.loopexit
+  %.0 = phi i32 [ %108, %.loopexit ], [ 3, %110 ], [ %., %33 ]
   ret i32 %.0
 }
 

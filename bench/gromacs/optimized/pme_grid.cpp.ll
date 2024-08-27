@@ -79,8 +79,6 @@ $_ZNSt6vectorIiSaIiEE17_M_default_appendEm = comdat any
 @"__PRETTY_FUNCTION__._ZZ13pmegrids_initP10pmegrids_tiiiiibiiiN3gmx8ArrayRefISt6vectorIfNS1_9AllocatorIfNS1_23AlignedAllocationPolicyEEEEEEENK3$_0clEv" = private unnamed_addr constant [158 x i8] c"auto pmegrids_init(pmegrids_t *, int, int, int, int, int, gmx_bool, int, int, int, gmx::ArrayRef<AlignedVector<real>>)::(anonymous class)::operator()() const\00", align 1
 @.str.10 = private unnamed_addr constant [7 x i8] c"incons\00", align 1
 @.str.11 = private unnamed_addr constant [43 x i8] c"pmegrid_init call with an unaligned z size\00", align 1
-@.str.12 = private unnamed_addr constant [23 x i8] c"gridStorage != nullptr\00", align 1
-@.str.13 = private unnamed_addr constant [16 x i8] c"We need storage\00", align 1
 @"__PRETTY_FUNCTION__._ZZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEEENK3$_0clEv" = private unnamed_addr constant [153 x i8] c"auto pmegrid_init(pmegrid_t *, int, int, int, int, int, int, int, int, int, gmx_bool, int, AlignedVector<real> *)::(anonymous class)::operator()() const\00", align 1
 @.str.14 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.15 = private unnamed_addr constant [31 x i8] c"memoryView.ssize() >= gridsize\00", align 1
@@ -1763,174 +1761,167 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %153, %155, %157, %1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEE(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i32 noundef %11, ptr noundef %12) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %14 = alloca %"class.std::__cxx11::basic_string", align 8
-  %15 = alloca %"class.std::allocator.87", align 1
-  %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %17, label %_Z18set_grid_alignmentPii.exit
-
-17:                                               ; preds = %13
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEEENK3$_0clEv", ptr noundef nonnull @.str.6, i32 noundef 575) #23
-  unreachable
-
-_Z18set_grid_alignmentPii.exit:                   ; preds = %13
+_Z18set_grid_alignmentPii.exit:
+  %13 = alloca %"class.std::__cxx11::basic_string", align 8
+  %14 = alloca %"class.std::allocator.87", align 1
+  %15 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store i32 %1, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %2, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %4, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %5, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 %6, ptr %22, align 8
-  %23 = xor i32 %4, -1
-  %24 = add i32 %7, %23
-  %25 = add i32 %24, %11
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %25, ptr %26, align 4
-  %27 = xor i32 %5, -1
-  %28 = add i32 %8, %27
-  %29 = add i32 %28, %11
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %29, ptr %30, align 4
-  %31 = xor i32 %6, -1
-  %32 = add i32 %9, %31
-  %33 = add i32 %32, %11
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %25, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %29, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %33, ptr %37, align 4
-  %38 = icmp ne i32 %11, 5
-  %39 = add nsw i32 %33, 3
-  %40 = and i32 %39, -4
-  %.0 = select i1 %38, i32 %33, i32 %40
-  br i1 %10, label %41, label %42
+  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %2, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %3, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %4, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %5, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %6, ptr %20, align 8
+  %21 = xor i32 %4, -1
+  %22 = add i32 %11, %21
+  %23 = add i32 %22, %7
+  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %23, ptr %24, align 4
+  %25 = xor i32 %5, -1
+  %26 = add i32 %11, %25
+  %27 = add i32 %26, %8
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %27, ptr %28, align 4
+  %29 = xor i32 %6, -1
+  %30 = add i32 %11, %29
+  %31 = add i32 %30, %9
+  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %31, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %23, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %27, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %31, ptr %35, align 4
+  %36 = icmp ne i32 %11, 5
+  %37 = add nsw i32 %31, 3
+  %38 = and i32 %37, -4
+  %.0 = select i1 %36, i32 %31, i32 %38
+  br i1 %10, label %39, label %40
 
-41:                                               ; preds = %_Z18set_grid_alignmentPii.exit
-  store i32 %.0, ptr %37, align 8
-  br label %55
+39:                                               ; preds = %_Z18set_grid_alignmentPii.exit
+  store i32 %.0, ptr %35, align 8
+  br label %53
 
-42:                                               ; preds = %_Z18set_grid_alignmentPii.exit
-  %.not51 = icmp eq i32 %.0, %33
-  br i1 %.not51, label %55, label %43
+40:                                               ; preds = %_Z18set_grid_alignmentPii.exit
+  %.not = icmp eq i32 %.0, %31
+  br i1 %.not, label %53, label %41
+
+41:                                               ; preds = %40
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %14)
+          to label %42 unwind label %45
+
+42:                                               ; preds = %41
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 1 dereferenceable(124) @.str.6, i8 noundef zeroext 2)
+          to label %43 unwind label %47
 
 43:                                               ; preds = %42
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %44 unwind label %47
+  invoke void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef 598) #23
+          to label %44 unwind label %49
 
 44:                                               ; preds = %43
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(124) @.str.6, i8 noundef zeroext 2)
-          to label %45 unwind label %49
-
-45:                                               ; preds = %44
-  invoke void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 598) #23
-          to label %46 unwind label %51
-
-46:                                               ; preds = %45
   unreachable
 
-47:                                               ; preds = %43
+45:                                               ; preds = %41
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  br label %52
+
+47:                                               ; preds = %42
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %51
 
-49:                                               ; preds = %44
+49:                                               ; preds = %43
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #7
+  br label %51
 
-51:                                               ; preds = %45
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #7
-  br label %53
+51:                                               ; preds = %49, %47
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #7
+  br label %52
 
-53:                                               ; preds = %51, %49
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #7
-  br label %54
-
-54:                                               ; preds = %53, %47
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %53 ], [ %48, %47 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
+52:                                               ; preds = %51, %45
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %51 ], [ %46, %45 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #7
   resume { ptr, i32 } %.pn.pn
 
-55:                                               ; preds = %42, %41
-  %56 = phi i32 [ %33, %42 ], [ %.0, %41 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 %11, ptr %57, align 4
-  %58 = mul nsw i32 %29, %25
-  %59 = mul nsw i32 %58, %56
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %60, %62
-  br i1 %63, label %64, label %72
+53:                                               ; preds = %40, %39
+  %54 = phi i32 [ %31, %40 ], [ %.0, %39 ]
+  %55 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %11, ptr %55, align 4
+  %56 = mul nsw i32 %27, %23
+  %57 = mul nsw i32 %56, %54
+  %58 = load ptr, ptr %12, align 8
+  %59 = getelementptr inbounds i8, ptr %12, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %58, %60
+  br i1 %61, label %62, label %70
 
-64:                                               ; preds = %55
-  %.not67 = icmp eq i32 %59, 0
-  br i1 %.not67, label %67, label %65
+62:                                               ; preds = %53
+  %.not66 = icmp eq i32 %57, 0
+  br i1 %.not66, label %65, label %63
 
-65:                                               ; preds = %64
-  %66 = sext i32 %59 to i64
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %66)
+63:                                               ; preds = %62
+  %64 = sext i32 %57 to i64
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %64)
   %.pre = load ptr, ptr %12, align 8
-  %.pre63 = load ptr, ptr %61, align 8
-  %.pre64 = ptrtoint ptr %.pre63 to i64
-  %.pre65 = ptrtoint ptr %.pre to i64
+  %.pre62 = load ptr, ptr %59, align 8
+  %.pre63 = ptrtoint ptr %.pre62 to i64
+  %.pre64 = ptrtoint ptr %.pre to i64
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-67:                                               ; preds = %64
-  %68 = ptrtoint ptr %60 to i64
+65:                                               ; preds = %62
+  %66 = ptrtoint ptr %58 to i64
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %67, %65
-  %.pre-phi66 = phi i64 [ %.pre65, %65 ], [ %68, %67 ]
-  %.pre-phi = phi i64 [ %.pre64, %65 ], [ %68, %67 ]
-  %69 = phi ptr [ %.pre, %65 ], [ %60, %67 ]
-  %70 = sub i64 %.pre-phi, %.pre-phi66
-  %71 = getelementptr inbounds i8, ptr %69, i64 %70
-  br label %85
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %65, %63
+  %.pre-phi65 = phi i64 [ %.pre64, %63 ], [ %66, %65 ]
+  %.pre-phi = phi i64 [ %.pre63, %63 ], [ %66, %65 ]
+  %67 = phi ptr [ %.pre, %63 ], [ %58, %65 ]
+  %68 = sub i64 %.pre-phi, %.pre-phi65
+  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+  br label %83
 
-72:                                               ; preds = %55
-  %73 = ptrtoint ptr %62 to i64
-  %74 = ptrtoint ptr %60 to i64
-  %75 = sub i64 %73, %74
-  %76 = ashr exact i64 %75, 2
-  %77 = sext i32 %59 to i64
-  %.not54 = icmp slt i64 %76, %77
-  br i1 %.not54, label %78, label %79
+70:                                               ; preds = %53
+  %71 = ptrtoint ptr %60 to i64
+  %72 = ptrtoint ptr %58 to i64
+  %73 = sub i64 %71, %72
+  %74 = ashr exact i64 %73, 2
+  %75 = sext i32 %57 to i64
+  %.not53 = icmp slt i64 %74, %75
+  br i1 %.not53, label %76, label %77
 
-78:                                               ; preds = %72
+76:                                               ; preds = %70
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEEENK3$_0clEv", ptr noundef nonnull @.str.6, i32 noundef 619) #23
   unreachable
 
-79:                                               ; preds = %72
-  %80 = and i64 %74, 15
-  %81 = icmp eq i64 %80, 0
-  %or.cond = or i1 %38, %81
-  br i1 %or.cond, label %83, label %82
+77:                                               ; preds = %70
+  %78 = and i64 %72, 15
+  %79 = icmp eq i64 %78, 0
+  %or.cond = or i1 %36, %79
+  br i1 %or.cond, label %81, label %80
 
-82:                                               ; preds = %79
+80:                                               ; preds = %77
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEEENK3$_0clEv", ptr noundef nonnull @.str.6, i32 noundef 630) #23
   unreachable
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds float, ptr %60, i64 %77
-  br label %85
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds float, ptr %58, i64 %75
+  br label %83
 
-85:                                               ; preds = %83, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %.sink68 = phi ptr [ %60, %83 ], [ %69, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
-  %.sink = phi ptr [ %84, %83 ], [ %71, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %.sink68, ptr %86, align 8
+83:                                               ; preds = %81, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
+  %.sink67 = phi ptr [ %58, %81 ], [ %67, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
+  %.sink = phi ptr [ %82, %81 ], [ %69, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
+  %84 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %.sink67, ptr %84, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %.sroa.2.0..sroa_idx, align 8
   ret void

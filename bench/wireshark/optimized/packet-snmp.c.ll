@@ -1181,7 +1181,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 122:                                              ; preds = %._crit_edge.i.i
   %bcmp.i.i = call i32 @bcmp(ptr %103, ptr %117, i64 %102)
-  %.not58.i.i = icmp eq i32 %bcmp.i.i, 0
+  %.not56.i.i = icmp eq i32 %bcmp.i.i, 0
   br label %127
 
 123:                                              ; preds = %90, %85, %80, %70
@@ -1195,7 +1195,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 127:                                              ; preds = %122, %._crit_edge.i.i
   %.024.i = phi ptr [ %117, %122 ], [ null, %._crit_edge.i.i ]
   %.023.i = phi i64 [ %102, %122 ], [ 0, %._crit_edge.i.i ]
-  %.046.i.i = phi i1 [ %.not58.i.i, %122 ], [ false, %._crit_edge.i.i ]
+  %.046.i.i = phi i1 [ %.not56.i.i, %122 ], [ false, %._crit_edge.i.i ]
   %128 = zext i1 %.046.i.i to i32
   store i32 %128, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
   %129 = load i32, ptr @hf_snmp_msgAuthentication, align 4

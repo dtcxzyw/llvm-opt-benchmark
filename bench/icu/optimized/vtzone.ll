@@ -4989,19 +4989,15 @@ entry:
   %endMID = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+  br i1 %cmp.i, label %lor.lhs.false, label %return
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %dates, null
-  br i1 %cmp, label %if.then3, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
+lor.lhs.false:                                    ; preds = %entry
   %count.i = getelementptr inbounds i8, ptr %dates, i64 8
   %1 = load i32, ptr %count.i, align 8
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.end
+if.then3:                                         ; preds = %lor.lhs.false
   store i32 1, ptr %status, align 4
   br label %return
 
@@ -5416,19 +5412,15 @@ entry:
   store double %start, ptr %start.addr, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+  br i1 %cmp.i, label %lor.lhs.false, label %return
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %dates, null
-  br i1 %cmp, label %if.then3, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
+lor.lhs.false:                                    ; preds = %entry
   %count.i = getelementptr inbounds i8, ptr %dates, i64 8
   %1 = load i32, ptr %count.i, align 8
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %if.then3, label %if.else
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.end
+if.then3:                                         ; preds = %lor.lhs.false
   %call4 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 352) #15
   %new.isnull = icmp eq ptr %call4, null
   br i1 %new.isnull, label %if.then30, label %new.notnull

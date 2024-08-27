@@ -18753,7 +18753,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit: ; 
   %59 = shl nuw i64 %.sroa.speculated, 3
   %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #32
   %61 = invoke noalias noundef nonnull dereferenceable(4032) ptr @_Znwm(i64 noundef 4032) #32
-          to label %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit unwind label %107
+          to label %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit unwind label %106
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit: ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
   %62 = getelementptr inbounds ptr, ptr %60, i64 %.sroa.speculated
@@ -18762,7 +18762,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000E
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit
   %64 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
-          to label %65 unwind label %109
+          to label %65 unwind label %108
 
 65:                                               ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
   %66 = getelementptr inbounds i8, ptr %64, i64 8
@@ -18781,14 +18781,14 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: 
   %.not104 = icmp eq ptr %69, %68
   br i1 %.not104, label %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34, label %.lr.ph
 
-.lr.ph:                                           ; preds = %67, %103
-  %.sroa.22.1109 = phi ptr [ %.sroa.22.1, %103 ], [ %.sroa.22.1103, %67 ]
-  %.0108 = phi ptr [ %105, %103 ], [ %69, %67 ]
-  %.sroa.41.0107 = phi ptr [ %.sroa.41.2, %103 ], [ %.sroa.41.1, %67 ]
-  %.sroa.958.1106 = phi ptr [ %.sroa.958.4, %103 ], [ %.sroa.053.3, %67 ]
-  %.sroa.053.1105 = phi ptr [ %.sroa.053.4, %103 ], [ %.sroa.053.3, %67 ]
+.lr.ph:                                           ; preds = %67, %102
+  %.sroa.22.1109 = phi ptr [ %.sroa.22.1, %102 ], [ %.sroa.22.1103, %67 ]
+  %.0108 = phi ptr [ %104, %102 ], [ %69, %67 ]
+  %.sroa.41.0107 = phi ptr [ %.sroa.41.2, %102 ], [ %.sroa.41.1, %67 ]
+  %.sroa.958.1106 = phi ptr [ %.sroa.958.4, %102 ], [ %.sroa.053.3, %67 ]
+  %.sroa.053.1105 = phi ptr [ %.sroa.053.4, %102 ], [ %.sroa.053.3, %67 ]
   %70 = icmp eq ptr %.sroa.22.1109, %.sroa.41.0107
-  br i1 %70, label %71, label %103
+  br i1 %70, label %71, label %102
 
 71:                                               ; preds = %.lr.ph
   %72 = icmp ugt ptr %.sroa.958.1106, %.sroa.053.1105
@@ -18813,7 +18813,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: 
 
 _ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29: ; preds = %82, %74
   %83 = getelementptr inbounds i8, ptr %79, i64 %81
-  br label %103
+  br label %102
 
 84:                                               ; preds = %71
   %85 = ptrtoint ptr %.sroa.22.1109 to i64
@@ -18858,88 +18858,75 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i16
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22: ; preds = %.lr.ph.i.i.i18, %.noexc31
   %storemerge.i23 = phi ptr [ %94, %.noexc31 ], [ %98, %.lr.ph.i.i.i18 ]
-  %.not.i.i24 = icmp eq ptr %.sroa.053.1105, null
-  br i1 %.not.i.i24, label %103, label %102
-
-102:                                              ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.053.1105) #30
-  br label %103
+  br label %102
 
-103:                                              ; preds = %102, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29, %.lr.ph
-  %.sroa.053.4 = phi ptr [ %.sroa.053.1105, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %92, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %92, %102 ], [ %.sroa.053.1105, %.lr.ph ]
-  %.sroa.958.4 = phi ptr [ %79, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %94, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %94, %102 ], [ %.sroa.958.1106, %.lr.ph ]
-  %.sroa.22.4 = phi ptr [ %83, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %storemerge.i23, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %storemerge.i23, %102 ], [ %.sroa.22.1109, %.lr.ph ]
-  %.sroa.41.2 = phi ptr [ %.sroa.41.0107, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %95, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %95, %102 ], [ %.sroa.41.0107, %.lr.ph ]
-  %104 = load ptr, ptr %.0108, align 8
-  store ptr %104, ptr %.sroa.22.4, align 8
-  %105 = getelementptr inbounds i8, ptr %.0108, i64 8
+102:                                              ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29, %.lr.ph
+  %.sroa.053.4 = phi ptr [ %.sroa.053.1105, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %92, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %.sroa.053.1105, %.lr.ph ]
+  %.sroa.958.4 = phi ptr [ %79, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %94, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %.sroa.958.1106, %.lr.ph ]
+  %.sroa.22.4 = phi ptr [ %83, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %storemerge.i23, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %.sroa.22.1109, %.lr.ph ]
+  %.sroa.41.2 = phi ptr [ %.sroa.41.0107, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i29 ], [ %95, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22 ], [ %.sroa.41.0107, %.lr.ph ]
+  %103 = load ptr, ptr %.0108, align 8
+  store ptr %103, ptr %.sroa.22.4, align 8
+  %104 = getelementptr inbounds i8, ptr %.0108, i64 8
   %.sroa.22.1 = getelementptr inbounds i8, ptr %.sroa.22.4, i64 8
-  %106 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %105, %106
+  %105 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %104, %105
   br i1 %.not, label %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34, label %.lr.ph, !llvm.loop !118
 
-107:                                              ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
+  %107 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i42.thread
+  br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit44
 
-109:                                              ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
+108:                                              ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %61) #30
-  br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i42.thread
+  br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit44
 
-_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34: ; preds = %103, %67
-  %.sroa.053.1.lcssa = phi ptr [ %.sroa.053.3, %67 ], [ %.sroa.053.4, %103 ]
-  %.sroa.958.1.lcssa = phi ptr [ %.sroa.053.3, %67 ], [ %.sroa.958.4, %103 ]
-  %.sroa.41.0.lcssa = phi ptr [ %.sroa.41.1, %67 ], [ %.sroa.41.2, %103 ]
-  %.sroa.22.1.lcssa = phi ptr [ %.sroa.22.1103, %67 ], [ %.sroa.22.1, %103 ]
-  %110 = load ptr, ptr %0, align 8
+_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34: ; preds = %102, %67
+  %.sroa.053.1.lcssa = phi ptr [ %.sroa.053.3, %67 ], [ %.sroa.053.4, %102 ]
+  %.sroa.958.1.lcssa = phi ptr [ %.sroa.053.3, %67 ], [ %.sroa.958.4, %102 ]
+  %.sroa.41.0.lcssa = phi ptr [ %.sroa.41.1, %67 ], [ %.sroa.41.2, %102 ]
+  %.sroa.22.1.lcssa = phi ptr [ %.sroa.22.1103, %67 ], [ %.sroa.22.1, %102 ]
+  %109 = load ptr, ptr %0, align 8
   store ptr %.sroa.053.1.lcssa, ptr %0, align 8
   store ptr %.sroa.958.1.lcssa, ptr %8, align 8
   store ptr %.sroa.22.1.lcssa, ptr %6, align 8
   store ptr %.sroa.41.0.lcssa, ptr %30, align 8
-  %111 = ptrtoint ptr %.sroa.22.1.lcssa to i64
-  %112 = ptrtoint ptr %.sroa.958.1.lcssa to i64
-  %113 = sub i64 %111, %112
-  %114 = icmp eq i64 %113, 8
-  %115 = load i64, ptr %18, align 8
-  %116 = add i64 %115, 42
-  %117 = select i1 %114, i64 21, i64 %116
-  store i64 %117, ptr %18, align 8
-  %.not.i = icmp eq ptr %110, null
-  br i1 %.not.i, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit, label %118
+  %110 = ptrtoint ptr %.sroa.22.1.lcssa to i64
+  %111 = ptrtoint ptr %.sroa.958.1.lcssa to i64
+  %112 = sub i64 %110, %111
+  %113 = icmp eq i64 %112, 8
+  %114 = load i64, ptr %18, align 8
+  %115 = add i64 %114, 42
+  %116 = select i1 %113, i64 21, i64 %115
+  store i64 %116, ptr %18, align 8
+  %.not.i = icmp eq ptr %109, null
+  br i1 %.not.i, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit, label %117
 
-118:                                              ; preds = %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34
-  tail call void @_ZdlPv(ptr noundef nonnull %110) #30
+117:                                              ; preds = %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34
+  tail call void @_ZdlPv(ptr noundef nonnull %109) #30
   br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit
 
 _ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit: ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i16
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit
+  br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit44
 
 _ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp: ; preds = %90
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit
-
-_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ]
-  %.not.i43 = icmp eq ptr %.sroa.053.1105, null
-  br i1 %.not.i43, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit44, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i42.thread
-
-_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i42.thread: ; preds = %107, %109, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit
-  %.sroa.053.28491 = phi ptr [ %.sroa.053.1105, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit ], [ %60, %109 ], [ %60, %107 ]
-  %.pn8589 = phi { ptr, i32 } [ %lpad.phi, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit ], [ %lpad.thr_comm.split-lp, %109 ], [ %108, %107 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.053.28491) #30
   br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit44
 
-_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit44: ; preds = %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i42.thread
-  %.pn8590 = phi { ptr, i32 } [ %lpad.phi, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit ], [ %.pn8589, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i42.thread ]
-  resume { ptr, i32 } %.pn8590
+_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit44: ; preds = %108, %106, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit
+  %.sroa.053.28491 = phi ptr [ %60, %108 ], [ %60, %106 ], [ %.sroa.053.1105, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %.sroa.053.1105, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
+  %.pn8589 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %108 ], [ %107, %106 ], [ %lpad.loopexit.split-lp, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %lpad.loopexit, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.053.28491) #30
+  resume { ptr, i32 } %.pn8589
 
-_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit: ; preds = %118, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34, %44, %25
+_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEED2Ev.exit: ; preds = %117, %_ZNSt3__110unique_ptrIPNS_7__stateIcEENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit34, %44, %25
   ret void
 }
 

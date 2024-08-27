@@ -2939,8 +2939,8 @@ define hidden void @_ZN2os5Linux21capture_initial_stackEm(i64 noundef %0) local_
 
 .preheader.i:                                     ; preds = %58
   %62 = call i32 @feof(ptr noundef nonnull %61) #26
-  %.not1926.i = icmp eq i32 %62, 0
-  br i1 %.not1926.i, label %.lr.ph.i, label %_ZL8find_vmaPhPS_S0_.exit.thread48
+  %.not1924.i = icmp eq i32 %62, 0
+  br i1 %.not1924.i, label %.lr.ph.i, label %_ZL8find_vmaPhPS_S0_.exit.thread48
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %71
   %63 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %61, ptr noundef nonnull @.str.282, ptr noundef nonnull %2, ptr noundef nonnull %3) #26
@@ -2952,8 +2952,8 @@ define hidden void @_ZN2os5Linux21capture_initial_stackEm(i64 noundef %0) local_
   %.not20.i = icmp ule ptr %66, %60
   %67 = load ptr, ptr %3, align 8
   %68 = icmp ugt ptr %67, %60
-  %or.cond24.i = select i1 %.not20.i, i1 %68, i1 false
-  br i1 %or.cond24.i, label %74, label %.preheader58
+  %or.cond22.i = select i1 %.not20.i, i1 %68, i1 false
+  br i1 %or.cond22.i, label %74, label %.preheader58
 
 .preheader58:                                     ; preds = %65, %.lr.ph.i
   br label %69

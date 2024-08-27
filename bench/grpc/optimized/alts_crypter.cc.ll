@@ -27,8 +27,8 @@ if.then:                                          ; preds = %land.lhs.true2
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true2, %land.lhs.true, %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+  %cmp.not.i = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 62)

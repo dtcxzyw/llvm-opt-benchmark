@@ -49137,11 +49137,11 @@ _ZN4core3ops8function5FnMut8call_mut17hcc526cc700fc6bf7E.exit.i.i.i.i: ; preds =
   %75 = add i32 %74, -1
   store i32 %75, ptr %73, align 4, !noalias !14790
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %95
+  br i1 %76, label %77, label %.loopexit
 
 77:                                               ; preds = %71
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %7)
-  br label %95
+  br label %.loopexit
 
 78:                                               ; preds = %26
   %79 = landingpad { ptr, i32 }
@@ -49182,36 +49182,31 @@ _ZN4core3ops8function5FnMut8call_mut17hcc526cc700fc6bf7E.exit.i.i.i.i: ; preds =
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.loopexit, label %.lr.ph
 
-95:                                               ; preds = %77, %71
-  %96 = icmp ne ptr %.053, null
-  call void @llvm.assume(i1 %96)
-  br label %.loopexit
+.loopexit:                                        ; preds = %92, %3, %71, %77
+  %.045 = phi ptr [ %.053, %77 ], [ %.053, %71 ], [ %1, %3 ], [ %.sroa.3.015.i.i.ph, %92 ]
+  %.sroa.0.0 = phi i64 [ 1, %77 ], [ 1, %71 ], [ 0, %3 ], [ 0, %92 ]
+  %95 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %96 = insertvalue { i64, ptr } %95, ptr %.045, 1
+  ret { i64, ptr } %96
 
-.loopexit:                                        ; preds = %92, %3, %95
-  %.045 = phi ptr [ %.053, %95 ], [ %1, %3 ], [ %.sroa.3.015.i.i.ph, %92 ]
-  %.sroa.0.0 = phi i64 [ 1, %95 ], [ 0, %3 ], [ 0, %92 ]
-  %97 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %98 = insertvalue { i64, ptr } %97, ptr %.045, 1
-  ret { i64, ptr } %98
-
-.body.thread21:                                   ; preds = %.body.thread, %103, %91, %.body.thread.i.i, %68, %62, %59, %.body.thread.i.i.i.i.i
-  %eh.lpad-body19 = phi { ptr, i32 } [ %79, %91 ], [ %79, %.body.thread.i.i ], [ %63, %62 ], [ %63, %68 ], [ %eh.lpad-body6.i.i.i.i.i, %59 ], [ %eh.lpad-body6.i.i.i.i.i, %.body.thread.i.i.i.i.i ], [ %18, %103 ], [ %18, %.body.thread ]
+.body.thread21:                                   ; preds = %.body.thread, %101, %91, %.body.thread.i.i, %68, %62, %59, %.body.thread.i.i.i.i.i
+  %eh.lpad-body19 = phi { ptr, i32 } [ %79, %91 ], [ %79, %.body.thread.i.i ], [ %63, %62 ], [ %63, %68 ], [ %eh.lpad-body6.i.i.i.i.i, %59 ], [ %eh.lpad-body6.i.i.i.i.i, %.body.thread.i.i.i.i.i ], [ %18, %101 ], [ %18, %.body.thread ]
   resume { ptr, i32 } %eh.lpad-body19
 
 .body.thread:                                     ; preds = %17, %23
-  %99 = getelementptr inbounds i8, ptr %.053, i64 48
-  %100 = load i32, ptr %99, align 4, !noalias !14813, !noundef !4
-  %101 = add i32 %100, -1
-  store i32 %101, ptr %99, align 4, !noalias !14813
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.body.thread21
+  %97 = getelementptr inbounds i8, ptr %.053, i64 48
+  %98 = load i32, ptr %97, align 4, !noalias !14813, !noundef !4
+  %99 = add i32 %98, -1
+  store i32 %99, ptr %97, align 4, !noalias !14813
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %.body.thread21
 
-103:                                              ; preds = %.body.thread
+101:                                              ; preds = %.body.thread
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.053)
-          to label %.body.thread21 unwind label %104
+          to label %.body.thread21 unwind label %102
 
-104:                                              ; preds = %103
-  %105 = landingpad { ptr, i32 }
+102:                                              ; preds = %101
+  %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable

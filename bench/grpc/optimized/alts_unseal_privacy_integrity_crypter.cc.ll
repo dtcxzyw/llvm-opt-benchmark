@@ -16,8 +16,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+  %cmp.not.i = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 20)
@@ -62,8 +62,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.end
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cmp.i.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not.i, label %return, label %if.then.i.i
+  %cmp.not.i.i = icmp eq ptr %error_details, null
+  br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 46)

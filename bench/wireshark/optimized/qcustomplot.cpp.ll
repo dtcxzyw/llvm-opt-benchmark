@@ -115906,7 +115906,7 @@ _ZNK8QCPCurve9getRegionEdddddd.exit139:           ; preds = %161, %163, %168, %1
 175:                                              ; preds = %174
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  switch i32 %.0106236, label %default.unreachable240 [
+  switch i32 %.0106236, label %default.unreachable [
     i32 5, label %176
     i32 1, label %199
     i32 2, label %200
@@ -115955,7 +115955,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i141: ; preds = %_ZN5QListI7QPoi
   %.not.i.i142 = icmp eq i32 %192, 1
   br i1 %.not.i.i142, label %_ZN5QListI7QPointFED2Ev.exit.sink.split, label %_ZN5QListI7QPointFED2Ev.exit
 
-.loopexit:                                        ; preds = %.invoke241, %.invoke, %_ZN5QListI7QPointFE6appendEOS0_.exit, %_ZNK8QCPCurve11mayTraverseEii.exit.thread, %_ZNK8QCPCurve11mayTraverseEii.exit.thread228, %_ZN5QListI7QPointFElsEOS0_.exit, %286, %176
+.loopexit:                                        ; preds = %.invoke240, %.invoke, %_ZN5QListI7QPointFE6appendEOS0_.exit, %_ZNK8QCPCurve11mayTraverseEii.exit.thread, %_ZNK8QCPCurve11mayTraverseEii.exit.thread228, %_ZN5QListI7QPointFElsEOS0_.exit, %286, %176
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5QListI7QPointFED2Ev.exit146
@@ -116038,7 +116038,7 @@ _ZNK8QCPCurve11mayTraverseEii.exit:               ; preds = %175
   %switch.selectcmp14.i.not = icmp eq i32 %switch.and13.i, 0
   br i1 %switch.selectcmp14.i.not, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread228, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
 
-default.unreachable240:                           ; preds = %175
+default.unreachable:                              ; preds = %175
   unreachable
 
 _ZNK8QCPCurve11mayTraverseEii.exit.thread:        ; preds = %204, %203, %206, %205, %202, %199, %200, %_ZNK8QCPCurve11mayTraverseEii.exit
@@ -116230,32 +116230,32 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i175: ; preds = %260
   br label %.invoke
 
 .invoke:                                          ; preds = %266, %275
-  %.sink243 = phi ptr [ %18, %275 ], [ %19, %266 ]
-  %.sink242 = phi ptr [ %152, %275 ], [ %151, %266 ]
+  %.sink242 = phi ptr [ %18, %275 ], [ %19, %266 ]
+  %.sink241 = phi ptr [ %152, %275 ], [ %151, %266 ]
   %.sink = phi ptr [ %149, %275 ], [ %23, %266 ]
   %276 = phi ptr [ %10, %275 ], [ %1, %266 ]
-  store double %273, ptr %.sink243, align 8
-  store double %274, ptr %.sink242, align 8
+  store double %273, ptr %.sink242, align 8
+  store double %274, ptr %.sink241, align 8
   %277 = load i64, ptr %.sink, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsI7QPointFE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %276, i64 noundef %277, ptr noundef nonnull align 8 dereferenceable(16) %.sink243)
+  invoke void @_ZN9QtPrivate12QPodArrayOpsI7QPointFE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %276, i64 noundef %277, ptr noundef nonnull align 8 dereferenceable(16) %.sink242)
           to label %_ZN5QListI7QPointFElsEOS0_.exit unwind label %.loopexit
 
 _ZN5QListI7QPointFElsEOS0_.exit:                  ; preds = %.invoke
   %278 = load double, ptr %156, align 8
   %279 = load double, ptr %158, align 8
   %280 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %278, double noundef %279)
-          to label %.invoke241 unwind label %.loopexit
+          to label %.invoke240 unwind label %.loopexit
 
-.invoke241:                                       ; preds = %_ZN5QListI7QPointFElsEOS0_.exit, %286
-  %.sink249 = phi { double, double } [ %287, %286 ], [ %280, %_ZN5QListI7QPointFElsEOS0_.exit ]
-  %.sink248 = phi ptr [ %21, %286 ], [ %20, %_ZN5QListI7QPointFElsEOS0_.exit ]
-  %.sink245 = phi ptr [ %154, %286 ], [ %153, %_ZN5QListI7QPointFElsEOS0_.exit ]
-  %281 = extractvalue { double, double } %.sink249, 0
-  store double %281, ptr %.sink248, align 8
-  %282 = extractvalue { double, double } %.sink249, 1
-  store double %282, ptr %.sink245, align 8
+.invoke240:                                       ; preds = %_ZN5QListI7QPointFElsEOS0_.exit, %286
+  %.sink248 = phi { double, double } [ %287, %286 ], [ %280, %_ZN5QListI7QPointFElsEOS0_.exit ]
+  %.sink247 = phi ptr [ %21, %286 ], [ %20, %_ZN5QListI7QPointFElsEOS0_.exit ]
+  %.sink244 = phi ptr [ %154, %286 ], [ %153, %_ZN5QListI7QPointFElsEOS0_.exit ]
+  %281 = extractvalue { double, double } %.sink248, 0
+  store double %281, ptr %.sink247, align 8
+  %282 = extractvalue { double, double } %.sink248, 1
+  store double %282, ptr %.sink244, align 8
   %283 = load i64, ptr %23, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsI7QPointFE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %283, ptr noundef nonnull align 8 dereferenceable(16) %.sink248)
+  invoke void @_ZN9QtPrivate12QPodArrayOpsI7QPointFE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %283, ptr noundef nonnull align 8 dereferenceable(16) %.sink247)
           to label %_ZN5QListI7QPointFED2Ev.exit unwind label %.loopexit
 
 284:                                              ; preds = %_ZNK8QCPCurve9getRegionEdddddd.exit139
@@ -116264,15 +116264,15 @@ _ZN5QListI7QPointFElsEOS0_.exit:                  ; preds = %.invoke
 
 286:                                              ; preds = %284
   %287 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %157, double noundef %159)
-          to label %.invoke241 unwind label %.loopexit
+          to label %.invoke240 unwind label %.loopexit
 
 _ZN5QListI7QPointFED2Ev.exit.sink.split:          ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i171, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i166, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i141
-  %.sink251 = phi ptr [ %14, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i141 ], [ %15, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i166 ], [ %17, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i171 ]
-  %288 = load ptr, ptr %.sink251, align 8
+  %.sink250 = phi ptr [ %14, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i141 ], [ %15, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i166 ], [ %17, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i171 ]
+  %288 = load ptr, ptr %.sink250, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %288, i64 noundef 16, i64 noundef 8) #48
   br label %_ZN5QListI7QPointFED2Ev.exit
 
-_ZN5QListI7QPointFED2Ev.exit:                     ; preds = %_ZN5QListI7QPointFED2Ev.exit.sink.split, %.invoke241, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i171, %_ZN5QListI7QPointFElsEOS1_.exit169, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i166, %_ZN5QListI7QPointFED2Ev.exit164, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i141, %_ZN5QListI7QPointFElsEOS1_.exit, %284
+_ZN5QListI7QPointFED2Ev.exit:                     ; preds = %_ZN5QListI7QPointFED2Ev.exit.sink.split, %.invoke240, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i171, %_ZN5QListI7QPointFElsEOS1_.exit169, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i166, %_ZN5QListI7QPointFED2Ev.exit164, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i141, %_ZN5QListI7QPointFElsEOS1_.exit, %284
   %289 = getelementptr i8, ptr %.sroa.0203.0234, i64 24
   %.sroa.011.0.copyload = load ptr, ptr %9, align 8
   %.not230 = icmp eq ptr %289, %.sroa.011.0.copyload

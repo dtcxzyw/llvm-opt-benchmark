@@ -3199,9 +3199,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10CPALV1Tail8sanitizeEP21h
   br i1 %.not30, label %60, label %34
 
 34:                                               ; preds = %16
-  %35 = shl i32 %3, 2
-  %36 = icmp ugt i32 %3, 1073741823
-  br i1 %36, label %.thread, label %37
+  %35 = icmp ugt i32 %3, 1073741823
+  %36 = shl i32 %3, 2
+  br i1 %35, label %.thread, label %37
 
 37:                                               ; preds = %34
   %38 = zext i8 %21 to i64
@@ -3225,13 +3225,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10CPALV1Tail8sanitizeEP21h
   %53 = ptrtoint ptr %52 to i64
   %54 = sub i64 %53, %49
   %55 = trunc i64 %54 to i32
-  %.not16.i.i.i = icmp ugt i32 %35, %55
+  %.not16.i.i.i = icmp ugt i32 %36, %55
   br i1 %.not16.i.i.i, label %.thread, label %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit
 
 _ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit: ; preds = %51
   %56 = getelementptr inbounds i8, ptr %1, i64 28
   %57 = load i32, ptr %56, align 4
-  %58 = sub i32 %57, %35
+  %58 = sub i32 %57, %36
   store i32 %58, ptr %56, align 4
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %60, label %.thread
@@ -3259,9 +3259,9 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_co
   br i1 %.not31, label %105, label %79
 
 79:                                               ; preds = %60
-  %80 = shl i32 %3, 1
-  %81 = icmp slt i32 %3, 0
-  br i1 %81, label %.thread, label %82
+  %80 = icmp slt i32 %3, 0
+  %81 = shl i32 %3, 1
+  br i1 %80, label %.thread, label %82
 
 82:                                               ; preds = %79
   %83 = zext i8 %66 to i64
@@ -3285,13 +3285,13 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_co
   %98 = ptrtoint ptr %97 to i64
   %99 = sub i64 %98, %94
   %100 = trunc i64 %99 to i32
-  %.not16.i.i.i34 = icmp ugt i32 %80, %100
+  %.not16.i.i.i34 = icmp ugt i32 %81, %100
   br i1 %.not16.i.i.i34, label %.thread, label %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit
 
 _ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit: ; preds = %96
   %101 = getelementptr inbounds i8, ptr %1, i64 28
   %102 = load i32, ptr %101, align 4
-  %103 = sub i32 %102, %80
+  %103 = sub i32 %102, %81
   store i32 %103, ptr %101, align 4
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %105, label %.thread
@@ -3319,9 +3319,9 @@ _ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.
   br i1 %.not32, label %.thread, label %124
 
 124:                                              ; preds = %105
-  %125 = shl i32 %4, 1
-  %126 = icmp slt i32 %4, 0
-  br i1 %126, label %.thread, label %127
+  %125 = icmp slt i32 %4, 0
+  %126 = shl i32 %4, 1
+  br i1 %125, label %.thread, label %127
 
 127:                                              ; preds = %124
   %128 = zext i8 %111 to i64
@@ -3345,13 +3345,13 @@ _ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.
   %143 = ptrtoint ptr %142 to i64
   %144 = sub i64 %143, %139
   %145 = trunc i64 %144 to i32
-  %.not16.i.i.i36 = icmp ugt i32 %125, %145
+  %.not16.i.i.i36 = icmp ugt i32 %126, %145
   br i1 %.not16.i.i.i36, label %.thread, label %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit37
 
 _ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit37: ; preds = %141
   %146 = getelementptr inbounds i8, ptr %1, i64 28
   %147 = load i32, ptr %146, align 4
-  %148 = sub i32 %147, %125
+  %148 = sub i32 %147, %126
   store i32 %148, ptr %146, align 4
   %149 = icmp sgt i32 %148, 0
   br label %.thread
@@ -4036,9 +4036,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13BaseGlyphList8sanitizeEP
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
   %30 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %29, i32 6)
-  %31 = extractvalue { i32, i1 } %30, 0
-  %32 = extractvalue { i32, i1 } %30, 1
-  br i1 %32, label %_ZN21hb_sanitize_context_t8dispatchIN2OT20BaseGlyphPaintRecordEJPKNS1_13BaseGlyphListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %33
+  %31 = extractvalue { i32, i1 } %30, 1
+  %32 = extractvalue { i32, i1 } %30, 0
+  br i1 %31, label %_ZN21hb_sanitize_context_t8dispatchIN2OT20BaseGlyphPaintRecordEJPKNS1_13BaseGlyphListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %33
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4046,13 +4046,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13BaseGlyphList8sanitizeEP
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, %6
   %38 = trunc i64 %37 to i32
-  %.not20.i = icmp ugt i32 %31, %38
+  %.not20.i = icmp ugt i32 %32, %38
   br i1 %.not20.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT20BaseGlyphPaintRecordEJPKNS1_13BaseGlyphListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %_ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
 
 _ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %33
   %39 = getelementptr inbounds i8, ptr %1, i64 28
   %40 = load i32, ptr %39, align 4
-  %41 = sub i32 %40, %31
+  %41 = sub i32 %40, %32
   store i32 %41, ptr %39, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %_ZN21hb_sanitize_context_t8dispatchIN2OT20BaseGlyphPaintRecordEJPKNS1_13BaseGlyphListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit
@@ -6402,11 +6402,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9LayerList8sanitizeEP21hb_
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %19, %15
   %27 = or disjoint i32 %26, %25
-  %28 = shl nuw nsw i32 %22, 10
-  %29 = shl i32 %27, 2
-  %30 = or disjoint i32 %29, %28
-  %31 = icmp ugt i8 %13, 63
-  br i1 %31, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_5PaintENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_9LayerListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %32
+  %28 = icmp ugt i8 %13, 63
+  %29 = shl nuw nsw i32 %22, 10
+  %30 = shl i32 %27, 2
+  %31 = or disjoint i32 %30, %29
+  br i1 %28, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_5PaintENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_9LayerListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %32
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds i8, ptr %1, i64 16
@@ -6414,13 +6414,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9LayerList8sanitizeEP21hb_
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %35, %6
   %37 = trunc i64 %36 to i32
-  %.not20.i = icmp ugt i32 %30, %37
+  %.not20.i = icmp ugt i32 %31, %37
   br i1 %.not20.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_5PaintENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_9LayerListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %32
   %38 = getelementptr inbounds i8, ptr %1, i64 28
   %39 = load i32, ptr %38, align 4
-  %40 = sub i32 %39, %30
+  %40 = sub i32 %39, %31
   store i32 %40, ptr %38, align 4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_5PaintENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_9LayerListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit
@@ -6565,22 +6565,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT8ClipList8sanitizeEP21hb_s
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %31, i32 7)
-  %33 = extractvalue { i32, i1 } %32, 0
-  %34 = extractvalue { i32, i1 } %32, 1
-  br i1 %34, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10ClipRecordEJPKNS1_8ClipListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %35
+  %33 = extractvalue { i32, i1 } %32, 1
+  %34 = extractvalue { i32, i1 } %32, 0
+  br i1 %33, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10ClipRecordEJPKNS1_8ClipListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %35
 
 35:                                               ; preds = %13
   %36 = load ptr, ptr %12, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %37, %6
   %39 = trunc i64 %38 to i32
-  %.not20.i = icmp ugt i32 %33, %39
+  %.not20.i = icmp ugt i32 %34, %39
   br i1 %.not20.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10ClipRecordEJPKNS1_8ClipListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
 
 _ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %35
   %40 = getelementptr inbounds i8, ptr %1, i64 28
   %41 = load i32, ptr %40, align 4
-  %42 = sub i32 %41, %33
+  %42 = sub i32 %41, %34
   store i32 %42, ptr %40, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10ClipRecordEJPKNS1_8ClipListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit
@@ -6895,22 +6895,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeE
   %68 = or disjoint i32 %64, %67
   %69 = mul nuw i32 %68, %60
   %70 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %69, i32 6)
-  %71 = extractvalue { i32, i1 } %70, 0
-  %72 = extractvalue { i32, i1 } %70, 1
-  br i1 %72, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
+  %71 = extractvalue { i32, i1 } %70, 1
+  %72 = extractvalue { i32, i1 } %70, 0
+  br i1 %71, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
 
 73:                                               ; preds = %53
   %74 = load ptr, ptr %13, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %75, %51
   %77 = trunc i64 %76 to i32
-  %.not16.i.i.i.i.i.i = icmp ugt i32 %71, %77
+  %.not16.i.i.i.i.i.i = icmp ugt i32 %72, %77
   br i1 %.not16.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %73
   %78 = getelementptr inbounds i8, ptr %1, i64 28
   %79 = load i32, ptr %78, align 4
-  %80 = sub i32 %79, %71
+  %80 = sub i32 %79, %72
   store i32 %80, ptr %78, align 4
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
@@ -7100,9 +7100,9 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %82 = zext nneg i8 %.lobit.i.i.i.i to i32
   %83 = shl nuw nsw i32 %81, %82
   %84 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %80, i32 %83)
-  %85 = extractvalue { i32, i1 } %84, 0
-  %86 = extractvalue { i32, i1 } %84, 1
-  br i1 %86, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %87
+  %85 = extractvalue { i32, i1 } %84, 1
+  %86 = extractvalue { i32, i1 } %84, 0
+  br i1 %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %87
 
 87:                                               ; preds = %73
   %88 = zext i8 %70 to i64
@@ -7117,12 +7117,12 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %.not.i16.i.i.i = icmp ugt i64 %96, %13
   %97 = sub i64 %51, %95
   %98 = trunc i64 %97 to i32
-  %.not16.i.i.i.i = icmp ugt i32 %85, %98
+  %.not16.i.i.i.i = icmp ugt i32 %86, %98
   %or.cond.i.i.i = select i1 %.not.i16.i.i.i, i1 true, i1 %.not16.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %87
-  %99 = sub i32 %56, %85
+  %99 = sub i32 %56, %86
   store i32 %99, ptr %54, align 4
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
@@ -7705,22 +7705,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4CBLC8sanitizeEP21hb_sanit
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
   %40 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %39, i32 48)
-  %41 = extractvalue { i32, i1 } %40, 0
-  %42 = extractvalue { i32, i1 } %40, 1
-  br i1 %42, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %43
+  %41 = extractvalue { i32, i1 } %40, 1
+  %42 = extractvalue { i32, i1 } %40, 0
+  br i1 %41, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %43
 
 43:                                               ; preds = %21
   %44 = load ptr, ptr %12, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %45, %6
   %47 = trunc i64 %46 to i32
-  %.not20.i = icmp ugt i32 %41, %47
+  %.not20.i = icmp ugt i32 %42, %47
   br i1 %.not20.i, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
 
 _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %43
   %48 = getelementptr inbounds i8, ptr %1, i64 28
   %49 = load i32, ptr %48, align 4
-  %50 = sub i32 %49, %41
+  %50 = sub i32 %49, %42
   store i32 %50, ptr %48, align 4
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
@@ -7818,9 +7818,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT15BitmapSizeTable8sanitize
   %51 = or disjoint i32 %43, %39
   %52 = or disjoint i32 %51, %50
   %53 = or disjoint i32 %52, %47
-  %54 = shl i32 %53, 3
-  %55 = icmp ugt i8 %37, 31
-  br i1 %55, label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24, label %56
+  %54 = icmp ugt i8 %37, 31
+  %55 = shl i32 %53, 3
+  br i1 %54, label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24, label %56
 
 56:                                               ; preds = %17
   %57 = ptrtoint ptr %36 to i64
@@ -7833,13 +7833,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT15BitmapSizeTable8sanitize
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %61, %57
   %63 = trunc i64 %62 to i32
-  %.not16.i.i.i.i.i.i = icmp ugt i32 %54, %63
+  %.not16.i.i.i.i.i.i = icmp ugt i32 %55, %63
   br i1 %.not16.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24, label %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i
 
 _ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i: ; preds = %59
   %64 = getelementptr inbounds i8, ptr %1, i64 28
   %65 = load i32, ptr %64, align 4
-  %66 = sub i32 %65, %54
+  %66 = sub i32 %65, %55
   store i32 %66, ptr %64, align 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.preheader.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24
@@ -8344,24 +8344,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4sbix8sanitizeEP21hb_sanit
   %35 = zext i8 %34 to i32
   %36 = or disjoint i32 %29, %25
   %37 = or disjoint i32 %36, %35
-  %38 = shl nuw nsw i32 %32, 10
-  %39 = shl i32 %37, 2
-  %40 = or disjoint i32 %39, %38
-  %41 = icmp ugt i8 %23, 63
-  br i1 %41, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10SBIXStrikeENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_4sbixEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %42
+  %38 = icmp ugt i8 %23, 63
+  %39 = shl nuw nsw i32 %32, 10
+  %40 = shl i32 %37, 2
+  %41 = or disjoint i32 %40, %39
+  br i1 %38, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10SBIXStrikeENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_4sbixEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %42
 
 42:                                               ; preds = %21
   %43 = load ptr, ptr %12, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %6
   %46 = trunc i64 %45 to i32
-  %.not20.i = icmp ugt i32 %40, %46
+  %.not20.i = icmp ugt i32 %41, %46
   br i1 %.not20.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10SBIXStrikeENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_4sbixEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_10SBIXStrikeENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_10SBIXStrikeENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %42
   %47 = getelementptr inbounds i8, ptr %1, i64 28
   %48 = load i32, ptr %47, align 4
-  %49 = sub i32 %48, %40
+  %49 = sub i32 %48, %41
   store i32 %49, ptr %47, align 4
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10SBIXStrikeENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_4sbixEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit
@@ -8436,21 +8436,21 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10SBIXStrikeENS_7IntTypeIjLj4EEELb1EEES4_E16sani
 101:                                              ; preds = %97
   %102 = load i32, ptr %66, align 8
   %103 = add i32 %102, 1
-  %104 = shl i32 %103, 2
-  %105 = icmp ugt i32 %103, 1073741823
-  br i1 %105, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i, label %106
+  %104 = icmp ugt i32 %103, 1073741823
+  %105 = shl i32 %103, 2
+  br i1 %104, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i, label %106
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %12, align 8
   %108 = ptrtoint ptr %107 to i64
   %109 = sub i64 %108, %99
   %110 = trunc i64 %109 to i32
-  %.not16.i.i.i.i.i.i.i.i = icmp ugt i32 %104, %110
+  %.not16.i.i.i.i.i.i.i.i = icmp ugt i32 %105, %110
   br i1 %.not16.i.i.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i: ; preds = %106
   %111 = load i32, ptr %47, align 4
-  %112 = sub i32 %111, %104
+  %112 = sub i32 %111, %105
   store i32 %112, ptr %47, align 4
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %120, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i

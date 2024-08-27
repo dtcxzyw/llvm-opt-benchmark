@@ -90,7 +90,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.60 = private unnamed_addr constant [8 x i8] c"len > 0\00", align 1
 @__PRETTY_FUNCTION__.recv_line = private unnamed_addr constant [40 x i8] c"int recv_line(conn_t *, char *, size_t)\00", align 1
 @.str.61 = private unnamed_addr constant [5 x i8] c"conn\00", align 1
-@.str.62 = private unnamed_addr constant [4 x i8] c"buf\00", align 1
 @.str.63 = private unnamed_addr constant [13 x i8] c"conn->sd > 0\00", align 1
 @.str.64 = private unnamed_addr constant [7 x i8] c"%s: %s\00", align 1
 @.str.65 = private unnamed_addr constant [21 x i8] c"len <= (size_t)nread\00", align 1
@@ -4048,113 +4047,105 @@ define internal fastcc range(i32 0, 2) i32 @recv_line(ptr noundef %0, ptr nounde
   unreachable
 
 4:                                                ; preds = %2
-  %.not51 = icmp eq ptr %1, null
-  br i1 %.not51, label %5, label %6
+  %5 = load i32, ptr %0, align 8
+  %6 = icmp eq i32 %5, -1
+  br i1 %6, label %46, label %7
 
-5:                                                ; preds = %4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.11, i32 noundef 859, ptr noundef nonnull @__PRETTY_FUNCTION__.recv_line) #31
-  unreachable
+7:                                                ; preds = %4
+  %8 = icmp sgt i32 %5, 0
+  br i1 %8, label %.preheader, label %9
 
-6:                                                ; preds = %4
-  %7 = load i32, ptr %0, align 8
-  %8 = icmp eq i32 %7, -1
-  br i1 %8, label %48, label %9
-
-9:                                                ; preds = %6
-  %10 = icmp sgt i32 %7, 0
-  br i1 %10, label %.preheader, label %11
-
-11:                                               ; preds = %9
+9:                                                ; preds = %7
   tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.11, i32 noundef 864, ptr noundef nonnull @__PRETTY_FUNCTION__.recv_line) #31
   unreachable
 
-.preheader:                                       ; preds = %9, %46
-  %.041 = phi ptr [ %.2, %46 ], [ %1, %9 ]
-  %.040 = phi i64 [ %13, %46 ], [ 1023, %9 ]
-  %12 = load i32, ptr %0, align 8
-  %13 = tail call i64 @recv(i32 noundef %12, ptr noundef %.041, i64 noundef %.040, i32 noundef 2) #26
-  %14 = icmp slt i64 %13, 1
-  br i1 %14, label %15, label %27
+.preheader:                                       ; preds = %7, %44
+  %.041 = phi ptr [ %.2, %44 ], [ %1, %7 ]
+  %.040 = phi i64 [ %11, %44 ], [ 1023, %7 ]
+  %10 = load i32, ptr %0, align 8
+  %11 = tail call i64 @recv(i32 noundef %10, ptr noundef %.041, i64 noundef %.040, i32 noundef 2) #26
+  %12 = icmp slt i64 %11, 1
+  br i1 %12, label %13, label %25
 
-15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @__errno_location() #35
-  %19 = load i32, ptr %18, align 4
-  %20 = tail call ptr @strerror(i32 noundef %19) #26
-  tail call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, ptr noundef %17, ptr noundef %20)
-  %21 = load i32, ptr %0, align 8
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %send_string_noreconn.exit, label %23
+13:                                               ; preds = %.preheader
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @__errno_location() #35
+  %17 = load i32, ptr %16, align 4
+  %18 = tail call ptr @strerror(i32 noundef %17) #26
+  tail call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, ptr noundef %15, ptr noundef %18)
+  %19 = load i32, ptr %0, align 8
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %send_string_noreconn.exit, label %21
 
-23:                                               ; preds = %15
+21:                                               ; preds = %13
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, i32 noundef 824, ptr noundef nonnull @__PRETTY_FUNCTION__.send_string_noreconn) #31
   unreachable
 
-send_string_noreconn.exit:                        ; preds = %15
-  %24 = tail call i64 @send(i32 noundef %21, ptr noundef nonnull @.str.5, i64 noundef 5, i32 noundef 0) #26
-  %25 = load i32, ptr %0, align 8
-  %26 = tail call i32 @close(i32 noundef %25) #26
+send_string_noreconn.exit:                        ; preds = %13
+  %22 = tail call i64 @send(i32 noundef %19, ptr noundef nonnull @.str.5, i64 noundef 5, i32 noundef 0) #26
+  %23 = load i32, ptr %0, align 8
+  %24 = tail call i32 @close(i32 noundef %23) #26
   store i32 -1, ptr %0, align 8
-  br label %48
+  br label %46
 
-27:                                               ; preds = %.preheader
-  %28 = tail call ptr @memchr(ptr noundef %.041, i32 noundef 10, i64 noundef %13) #27
-  %.not52 = icmp eq ptr %28, null
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %.041 to i64
-  %reass.sub = sub i64 %29, %30
-  %31 = add i64 %reass.sub, 1
-  %.1 = select i1 %.not52, i64 %13, i64 %31
-  %.not53 = icmp eq i64 %.1, 0
-  br i1 %.not53, label %32, label %33
+25:                                               ; preds = %.preheader
+  %26 = tail call ptr @memchr(ptr noundef %.041, i32 noundef 10, i64 noundef %11) #27
+  %.not51 = icmp eq ptr %26, null
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %.041 to i64
+  %reass.sub = sub i64 %27, %28
+  %29 = add i64 %reass.sub, 1
+  %.1 = select i1 %.not51, i64 %11, i64 %29
+  %.not52 = icmp eq i64 %.1, 0
+  br i1 %.not52, label %30, label %31
 
-32:                                               ; preds = %27
+30:                                               ; preds = %25
   tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.11, i32 noundef 884, ptr noundef nonnull @__PRETTY_FUNCTION__.recv_line) #31
   unreachable
 
-33:                                               ; preds = %27
-  %.not54 = icmp ugt i64 %.1, %13
-  br i1 %.not54, label %34, label %35
+31:                                               ; preds = %25
+  %.not53 = icmp ugt i64 %.1, %11
+  br i1 %.not53, label %32, label %33
 
-34:                                               ; preds = %33
+32:                                               ; preds = %31
   tail call void @__assert_fail(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.11, i32 noundef 885, ptr noundef nonnull @__PRETTY_FUNCTION__.recv_line) #31
   unreachable
 
-35:                                               ; preds = %33
-  %36 = load i32, ptr %0, align 8
-  %37 = tail call i64 @recv(i32 noundef %36, ptr noundef %.041, i64 noundef %.1, i32 noundef 0) #26
-  %38 = icmp eq i64 %37, -1
-  br i1 %38, label %39, label %40
+33:                                               ; preds = %31
+  %34 = load i32, ptr %0, align 8
+  %35 = tail call i64 @recv(i32 noundef %34, ptr noundef %.041, i64 noundef %.1, i32 noundef 0) #26
+  %36 = icmp eq i64 %35, -1
+  br i1 %36, label %37, label %38
 
-39:                                               ; preds = %35
+37:                                               ; preds = %33
   tail call fastcc void @reconnect(ptr noundef nonnull %0)
-  br label %46
+  br label %44
 
-40:                                               ; preds = %35
-  %41 = icmp sgt i64 %37, 0
-  %42 = icmp eq i64 %37, %.1
-  %or.cond = and i1 %41, %42
-  br i1 %or.cond, label %44, label %43
+38:                                               ; preds = %33
+  %39 = icmp sgt i64 %35, 0
+  %40 = icmp eq i64 %35, %.1
+  %or.cond = and i1 %39, %40
+  br i1 %or.cond, label %42, label %41
 
-43:                                               ; preds = %40
+41:                                               ; preds = %38
   tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.11, i32 noundef 890, ptr noundef nonnull @__PRETTY_FUNCTION__.recv_line) #31
   unreachable
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %.041, i64 %.1
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %.041, i64 %.1
+  br label %44
+
+44:                                               ; preds = %42, %37
+  %.2 = phi ptr [ %.041, %37 ], [ %43, %42 ]
+  br i1 %.not51, label %.preheader, label %45
+
+45:                                               ; preds = %44
+  store i8 0, ptr %.2, align 1
   br label %46
 
-46:                                               ; preds = %44, %39
-  %.2 = phi ptr [ %.041, %39 ], [ %45, %44 ]
-  br i1 %.not52, label %.preheader, label %47
-
-47:                                               ; preds = %46
-  store i8 0, ptr %.2, align 1
-  br label %48
-
-48:                                               ; preds = %6, %47, %send_string_noreconn.exit
-  %.0 = phi i32 [ 0, %send_string_noreconn.exit ], [ 1, %47 ], [ 0, %6 ]
+46:                                               ; preds = %4, %45, %send_string_noreconn.exit
+  %.0 = phi i32 [ 0, %send_string_noreconn.exit ], [ 1, %45 ], [ 0, %4 ]
   ret i32 %.0
 }
 

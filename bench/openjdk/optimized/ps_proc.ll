@@ -83,8 +83,8 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
 .preheader.i:                                     ; preds = %17
   %invariant.gep.i = getelementptr i8, ptr %5, i64 -1
   %24 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef nonnull %22)
-  %.not24.i = icmp eq ptr %24, null
-  br i1 %.not24.i, label %fgets_no_cr.exit.i, label %.lr.ph.i
+  %.not.i23.i = icmp eq ptr %24, null
+  br i1 %.not.i23.i, label %fgets_no_cr.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %25 = getelementptr inbounds i8, ptr %6, i64 40
@@ -97,8 +97,8 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
 
 28:                                               ; preds = %.backedge.i, %.lr.ph.i
   %29 = load i8, ptr %5, align 16
-  %.not.i.i = icmp eq i8 %29, 0
-  br i1 %.not.i.i, label %34, label %30
+  %.not10.i.i = icmp eq i8 %29, 0
+  br i1 %.not10.i.i, label %34, label %30
 
 30:                                               ; preds = %28
   %strlen.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5)
@@ -183,8 +183,8 @@ split_n_str.exit.i:                               ; preds = %.critedge.loopexit.
 
 .backedge.i:                                      ; preds = %.preheader.i.i, %68, %62, %59, %56, %48, %split_n_str.exit.i
   %57 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef nonnull %22)
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %fgets_no_cr.exit.i, label %28, !llvm.loop !10
+  %.not.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i, label %fgets_no_cr.exit.i, label %28, !llvm.loop !10
 
 58:                                               ; preds = %53
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.20, ptr noundef nonnull %49) #16

@@ -4158,9 +4158,9 @@ define i32 @nk_utf_decode(ptr noundef readonly %c, ptr noundef writeonly %u, i32
 entry:
   %tobool = icmp eq ptr %c, null
   %tobool1 = icmp eq ptr %u, null
-  %or.cond.not46 = or i1 %tobool, %tobool1
+  %or.cond.not44 = or i1 %tobool, %tobool1
   %tobool2.not = icmp eq i32 %clen, 0
-  %or.cond14 = or i1 %or.cond.not46, %tobool2.not
+  %or.cond14 = or i1 %or.cond.not44, %tobool2.not
   br i1 %or.cond14, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
@@ -4168,8 +4168,8 @@ if.end4:                                          ; preds = %entry
   %0 = load i8, ptr %c, align 1
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end4, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end4 ]
+for.body.i:                                       ; preds = %for.inc.i, %if.end4
+  %indvars.iv.i = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %and8.i = and i8 %1, %0
@@ -4193,9 +4193,9 @@ for.cond.preheader:                               ; preds = %nk_utf_decode_byte.
   %not.i = xor i8 %1, -1
   %and12.i = and i8 %0, %not.i
   %conv14.i = zext i8 %and12.i to i32
-  %cmp861 = icmp sgt i32 %clen, 1
-  %cmp962 = icmp ugt i64 %indvars.iv.i, 1
-  %5 = and i1 %cmp861, %cmp962
+  %cmp859 = icmp sgt i32 %clen, 1
+  %cmp960 = icmp ugt i64 %indvars.iv.i, 1
+  %5 = and i1 %cmp859, %cmp960
   br i1 %5, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
@@ -4204,13 +4204,13 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %udecoded.065 = phi i32 [ %conv14.i, %for.body.preheader ], [ %or, %for.inc ]
+  %udecoded.063 = phi i32 [ %conv14.i, %for.body.preheader ], [ %or, %for.inc ]
   %arrayidx10 = getelementptr inbounds i8, ptr %c, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx10, align 1
   br label %for.body.i15
 
-for.body.i15:                                     ; preds = %for.body, %for.inc.i21
-  %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i22, %for.inc.i21 ], [ 0, %for.body ]
+for.body.i15:                                     ; preds = %for.inc.i21, %for.body
+  %indvars.iv.i16 = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i22, %for.inc.i21 ]
   %arrayidx.i17 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16
   %8 = load i8, ptr %arrayidx.i17, align 1
   %and8.i18 = and i8 %8, %7
@@ -4226,13 +4226,13 @@ for.inc.i21:                                      ; preds = %for.body.i15
 
 nk_utf_decode_byte.exit30:                        ; preds = %for.body.i15
   %cmp12.not = icmp eq i64 %indvars.iv.i16, 0
-  br i1 %cmp12.not, label %for.inc, label %return.loopexit81
+  br i1 %cmp12.not, label %for.inc, label %return.loopexit79
 
 for.inc:                                          ; preds = %nk_utf_decode_byte.exit30
   %not.i27 = xor i8 %8, -1
   %and12.i28 = and i8 %7, %not.i27
   %conv14.i29 = zext i8 %and12.i28 to i32
-  %shl = shl i32 %udecoded.065, 6
+  %shl = shl i32 %udecoded.063, 6
   %or = or i32 %shl, %conv14.i29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -4243,40 +4243,40 @@ for.inc:                                          ; preds = %nk_utf_decode_byte.
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %udecoded.0.lcssa = phi i32 [ %conv14.i, %for.cond.preheader ], [ %or, %for.inc ]
-  %cmp9.lcssa = phi i1 [ %cmp962, %for.cond.preheader ], [ %cmp9, %for.inc ]
-  br i1 %cmp9.lcssa, label %return, label %if.end.i
+  %cmp9.lcssa = phi i1 [ %cmp960, %for.cond.preheader ], [ %cmp9, %for.inc ]
+  br i1 %cmp9.lcssa, label %return, label %if.end18
 
-if.end.i:                                         ; preds = %for.end
+if.end18:                                         ; preds = %for.end
   store i32 %udecoded.0.lcssa, ptr %u, align 4
   %idxprom.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx.i31 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i
   %11 = load i32, ptr %arrayidx.i31, align 4
   %cmp.not.i = icmp ugt i32 %11, %udecoded.0.lcssa
-  br i1 %cmp.not.i, label %if.then7.i36, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %if.then7.i34, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.end.i
+land.lhs.true.i:                                  ; preds = %if.end18
   %arrayidx2.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx2.i, align 4
   %cmp3.i = icmp uge i32 %udecoded.0.lcssa, %12
   %13 = add i32 %udecoded.0.lcssa, -55296
   %or.cond.i = icmp ult i32 %13, 2047
   %or.cond11.i = or i1 %or.cond.i, %cmp3.i
-  br i1 %or.cond11.i, label %if.then7.i36, label %return
+  br i1 %or.cond11.i, label %if.then7.i34, label %return
 
-if.then7.i36:                                     ; preds = %land.lhs.true.i, %if.end.i
+if.then7.i34:                                     ; preds = %land.lhs.true.i, %if.end18
   store i32 65533, ptr %u, align 4
   br label %return
 
 return.loopexit:                                  ; preds = %for.inc.i21
-  %indvars78.le91 = trunc i64 %indvars.iv to i32
+  %indvars76.le89 = trunc i64 %indvars.iv to i32
   br label %return
 
-return.loopexit81:                                ; preds = %nk_utf_decode_byte.exit30
-  %indvars78.le = trunc i64 %indvars.iv to i32
+return.loopexit79:                                ; preds = %nk_utf_decode_byte.exit30
+  %indvars76.le = trunc i64 %indvars.iv to i32
   br label %return
 
-return:                                           ; preds = %for.inc.i, %return.loopexit81, %return.loopexit, %land.lhs.true.i, %if.then7.i36, %for.end, %nk_utf_decode_byte.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %nk_utf_decode_byte.exit ], [ 0, %for.end ], [ %3, %if.then7.i36 ], [ %3, %land.lhs.true.i ], [ %indvars78.le91, %return.loopexit ], [ %indvars78.le, %return.loopexit81 ], [ 1, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %return.loopexit79, %return.loopexit, %land.lhs.true.i, %if.then7.i34, %for.end, %nk_utf_decode_byte.exit, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %nk_utf_decode_byte.exit ], [ 0, %for.end ], [ %3, %if.then7.i34 ], [ %3, %land.lhs.true.i ], [ %indvars76.le89, %return.loopexit ], [ %indvars76.le, %return.loopexit79 ], [ 1, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -4360,7 +4360,7 @@ if.end4.i:                                        ; preds = %entry
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %1, %0
@@ -4381,9 +4381,9 @@ nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
 
 for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
-  %cmp861.i = icmp sgt i32 %len, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %5 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %len, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %5 = and i1 %cmp859.i, %cmp960.i
   br i1 %5, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -4398,7 +4398,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -4414,7 +4414,7 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4424,20 +4424,20 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
   br i1 %11, label %for.body.i, label %for.end.i, !llvm.loop !20
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
   %spec.select = select i1 %cmp9.lcssa.i, i32 0, i32 %3
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %for.end.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %spec.select, %for.end.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %for.end.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit79.i
+  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %spec.select, %for.end.i ], [ 1, %for.inc.i.i ]
   %tobool293 = icmp ne i32 %retval.0.i, 0
   %cmp94 = icmp sgt i32 %len, 0
   %12 = and i1 %tobool293, %cmp94
@@ -4460,7 +4460,7 @@ if.end4.i14:                                      ; preds = %while.body
   br label %for.body.i.i15
 
 for.body.i.i15:                                   ; preds = %for.inc.i.i21, %if.end4.i14
-  %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i22, %for.inc.i.i21 ], [ 0, %if.end4.i14 ]
+  %indvars.iv.i.i16 = phi i64 [ 0, %if.end4.i14 ], [ %indvars.iv.next.i.i22, %for.inc.i.i21 ]
   %arrayidx.i.i17 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i16
   %14 = load i8, ptr %arrayidx.i.i17, align 1
   %and8.i.i18 = and i8 %14, %13
@@ -4481,9 +4481,9 @@ nk_utf_decode_byte.exit.i25:                      ; preds = %for.body.i.i15
   br i1 %or.cond1.i26, label %for.cond.preheader.i27, label %nk_utf_decode.exit76
 
 for.cond.preheader.i27:                           ; preds = %nk_utf_decode_byte.exit.i25
-  %cmp861.i31 = icmp sgt i32 %sub, 1
-  %cmp962.i32 = icmp ugt i64 %indvars.iv.i.i16, 1
-  %18 = and i1 %cmp861.i31, %cmp962.i32
+  %cmp859.i31 = icmp sgt i32 %sub, 1
+  %cmp960.i32 = icmp ugt i64 %indvars.iv.i.i16, 1
+  %18 = and i1 %cmp859.i31, %cmp960.i32
   br i1 %18, label %for.body.preheader.i46, label %for.end.i33
 
 for.body.preheader.i46:                           ; preds = %for.cond.preheader.i27
@@ -4498,7 +4498,7 @@ for.body.i47:                                     ; preds = %for.inc.i66, %for.b
   br label %for.body.i15.i51
 
 for.body.i15.i51:                                 ; preds = %for.inc.i21.i57, %for.body.i47
-  %indvars.iv.i16.i52 = phi i64 [ %indvars.iv.next.i22.i58, %for.inc.i21.i57 ], [ 0, %for.body.i47 ]
+  %indvars.iv.i16.i52 = phi i64 [ 0, %for.body.i47 ], [ %indvars.iv.next.i22.i58, %for.inc.i21.i57 ]
   %arrayidx.i17.i53 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i52
   %21 = load i8, ptr %arrayidx.i17.i53, align 1
   %and8.i18.i54 = and i8 %21, %20
@@ -4514,7 +4514,7 @@ for.inc.i21.i57:                                  ; preds = %for.body.i15.i51
 
 nk_utf_decode_byte.exit30.i62:                    ; preds = %for.body.i15.i51
   %cmp12.not.i63 = icmp eq i64 %indvars.iv.i16.i52, 0
-  br i1 %cmp12.not.i63, label %for.inc.i66, label %return.loopexit81.i64
+  br i1 %cmp12.not.i63, label %for.inc.i66, label %return.loopexit79.i64
 
 for.inc.i66:                                      ; preds = %nk_utf_decode_byte.exit30.i62
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -4524,20 +4524,20 @@ for.inc.i66:                                      ; preds = %nk_utf_decode_byte.
   br i1 %24, label %for.body.i47, label %for.end.i33, !llvm.loop !20
 
 for.end.i33:                                      ; preds = %for.inc.i66, %for.cond.preheader.i27
-  %cmp9.lcssa.i35 = phi i1 [ %cmp962.i32, %for.cond.preheader.i27 ], [ %23, %for.inc.i66 ]
+  %cmp9.lcssa.i35 = phi i1 [ %cmp960.i32, %for.cond.preheader.i27 ], [ %23, %for.inc.i66 ]
   %spec.select77 = select i1 %cmp9.lcssa.i35, i32 0, i32 %16
   br label %nk_utf_decode.exit76
 
 return.loopexit.i60:                              ; preds = %for.inc.i21.i57
-  %indvars78.le91.i61 = trunc i64 %indvars.iv.i48 to i32
+  %indvars76.le89.i61 = trunc i64 %indvars.iv.i48 to i32
   br label %nk_utf_decode.exit76
 
-return.loopexit81.i64:                            ; preds = %nk_utf_decode_byte.exit30.i62
-  %indvars78.le.i65 = trunc i64 %indvars.iv.i48 to i32
+return.loopexit79.i64:                            ; preds = %nk_utf_decode_byte.exit30.i62
+  %indvars76.le.i65 = trunc i64 %indvars.iv.i48 to i32
   br label %nk_utf_decode.exit76
 
-nk_utf_decode.exit76:                             ; preds = %for.inc.i.i21, %for.end.i33, %nk_utf_decode_byte.exit.i25, %return.loopexit.i60, %return.loopexit81.i64
-  %retval.0.i24 = phi i32 [ 1, %nk_utf_decode_byte.exit.i25 ], [ %indvars78.le91.i61, %return.loopexit.i60 ], [ %indvars78.le.i65, %return.loopexit81.i64 ], [ %spec.select77, %for.end.i33 ], [ 1, %for.inc.i.i21 ]
+nk_utf_decode.exit76:                             ; preds = %for.inc.i.i21, %for.end.i33, %nk_utf_decode_byte.exit.i25, %return.loopexit.i60, %return.loopexit79.i64
+  %retval.0.i24 = phi i32 [ 1, %nk_utf_decode_byte.exit.i25 ], [ %indvars76.le89.i61, %return.loopexit.i60 ], [ %indvars76.le.i65, %return.loopexit79.i64 ], [ %spec.select77, %for.end.i33 ], [ 1, %for.inc.i.i21 ]
   %tobool2 = icmp ne i32 %retval.0.i24, 0
   %cmp = icmp slt i32 %add, %len
   %25 = and i1 %tobool2, %cmp
@@ -4577,7 +4577,7 @@ if.end4.i:                                        ; preds = %if.end5
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %1, %0
@@ -4601,9 +4601,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %length, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %5 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %length, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %5 = and i1 %cmp859.i, %cmp960.i
   br i1 %5, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -4613,13 +4613,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -4635,13 +4635,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %8, -1
   %and12.i28.i = and i8 %7, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %6
@@ -4651,40 +4651,40 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %while.end, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %while.end, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   store i32 %udecoded.0.lcssa.i, ptr %unicode, align 4
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %13
   %14 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %14, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   store i32 65533, ptr %unicode, align 4
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %retval.0.i = phi i32 [ %3, %if.then7.i34.i ], [ %3, %land.lhs.true.i.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ %indvars76.le.i, %return.loopexit79.i ]
   %tobool6.not108 = icmp eq i32 %retval.0.i, 0
   br i1 %tobool6.not108, label %while.end, label %while.body.preheader
 
@@ -4718,7 +4718,7 @@ if.end4.i25:                                      ; preds = %if.end9
   br label %for.body.i.i26
 
 for.body.i.i26:                                   ; preds = %for.inc.i.i32, %if.end4.i25
-  %indvars.iv.i.i27 = phi i64 [ %indvars.iv.next.i.i33, %for.inc.i.i32 ], [ 0, %if.end4.i25 ]
+  %indvars.iv.i.i27 = phi i64 [ 0, %if.end4.i25 ], [ %indvars.iv.next.i.i33, %for.inc.i.i32 ]
   %arrayidx.i.i28 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i27
   %16 = load i8, ptr %arrayidx.i.i28, align 1
   %and8.i.i29 = and i8 %16, %15
@@ -4742,9 +4742,9 @@ for.cond.preheader.i38:                           ; preds = %nk_utf_decode_byte.
   %not.i.i39 = xor i8 %16, -1
   %and12.i.i40 = and i8 %15, %not.i.i39
   %conv14.i.i41 = zext i8 %and12.i.i40 to i32
-  %cmp861.i42 = icmp sgt i32 %sub, 1
-  %cmp962.i43 = icmp ugt i64 %indvars.iv.i.i27, 1
-  %20 = and i1 %cmp861.i42, %cmp962.i43
+  %cmp859.i42 = icmp sgt i32 %sub, 1
+  %cmp960.i43 = icmp ugt i64 %indvars.iv.i.i27, 1
+  %20 = and i1 %cmp859.i42, %cmp960.i43
   br i1 %20, label %for.body.preheader.i57, label %for.end.i44
 
 for.body.preheader.i57:                           ; preds = %for.cond.preheader.i38
@@ -4754,13 +4754,13 @@ for.body.preheader.i57:                           ; preds = %for.cond.preheader.
 
 for.body.i58:                                     ; preds = %for.inc.i77, %for.body.preheader.i57
   %indvars.iv.i59 = phi i64 [ 1, %for.body.preheader.i57 ], [ %indvars.iv.next.i83, %for.inc.i77 ]
-  %udecoded.065.i60 = phi i32 [ %conv14.i.i41, %for.body.preheader.i57 ], [ %or.i82, %for.inc.i77 ]
+  %udecoded.063.i60 = phi i32 [ %conv14.i.i41, %for.body.preheader.i57 ], [ %or.i82, %for.inc.i77 ]
   %arrayidx10.i61 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i59
   %22 = load i8, ptr %arrayidx10.i61, align 1
   br label %for.body.i15.i62
 
 for.body.i15.i62:                                 ; preds = %for.inc.i21.i68, %for.body.i58
-  %indvars.iv.i16.i63 = phi i64 [ %indvars.iv.next.i22.i69, %for.inc.i21.i68 ], [ 0, %for.body.i58 ]
+  %indvars.iv.i16.i63 = phi i64 [ 0, %for.body.i58 ], [ %indvars.iv.next.i22.i69, %for.inc.i21.i68 ]
   %arrayidx.i17.i64 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i63
   %23 = load i8, ptr %arrayidx.i17.i64, align 1
   %and8.i18.i65 = and i8 %23, %22
@@ -4776,13 +4776,13 @@ for.inc.i21.i68:                                  ; preds = %for.body.i15.i62
 
 nk_utf_decode_byte.exit30.i73:                    ; preds = %for.body.i15.i62
   %cmp12.not.i74 = icmp eq i64 %indvars.iv.i16.i63, 0
-  br i1 %cmp12.not.i74, label %for.inc.i77, label %return.loopexit81.i75
+  br i1 %cmp12.not.i74, label %for.inc.i77, label %return.loopexit79.i75
 
 for.inc.i77:                                      ; preds = %nk_utf_decode_byte.exit30.i73
   %not.i27.i78 = xor i8 %23, -1
   %and12.i28.i79 = and i8 %22, %not.i27.i78
   %conv14.i29.i80 = zext i8 %and12.i28.i79 to i32
-  %shl.i81 = shl i32 %udecoded.065.i60, 6
+  %shl.i81 = shl i32 %udecoded.063.i60, 6
   %or.i82 = or i32 %shl.i81, %conv14.i29.i80
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i59, 1
   %cmp8.i85 = icmp ult i64 %indvars.iv.next.i83, %21
@@ -4792,40 +4792,40 @@ for.inc.i77:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i44:                                      ; preds = %for.inc.i77, %for.cond.preheader.i38
   %udecoded.0.lcssa.i45 = phi i32 [ %conv14.i.i41, %for.cond.preheader.i38 ], [ %or.i82, %for.inc.i77 ]
-  %cmp9.lcssa.i46 = phi i1 [ %cmp962.i43, %for.cond.preheader.i38 ], [ %25, %for.inc.i77 ]
-  br i1 %cmp9.lcssa.i46, label %while.end, label %if.end.i.i47
+  %cmp9.lcssa.i46 = phi i1 [ %cmp960.i43, %for.cond.preheader.i38 ], [ %25, %for.inc.i77 ]
+  br i1 %cmp9.lcssa.i46, label %while.end, label %if.end18.i47
 
-if.end.i.i47:                                     ; preds = %for.end.i44
+if.end18.i47:                                     ; preds = %for.end.i44
   store i32 %udecoded.0.lcssa.i45, ptr %unicode, align 4
   %idxprom.i.i48 = and i64 %indvars.iv.i.i27, 4294967295
   %arrayidx.i31.i49 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i48
   %27 = load i32, ptr %arrayidx.i31.i49, align 4
   %cmp.not.i.i50 = icmp ugt i32 %27, %udecoded.0.lcssa.i45
-  br i1 %cmp.not.i.i50, label %if.then7.i36.i56, label %land.lhs.true.i.i51
+  br i1 %cmp.not.i.i50, label %if.then7.i34.i56, label %land.lhs.true.i.i51
 
-land.lhs.true.i.i51:                              ; preds = %if.end.i.i47
+land.lhs.true.i.i51:                              ; preds = %if.end18.i47
   %arrayidx2.i.i52 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i48
   %28 = load i32, ptr %arrayidx2.i.i52, align 4
   %cmp3.i.i53 = icmp uge i32 %udecoded.0.lcssa.i45, %28
   %29 = add i32 %udecoded.0.lcssa.i45, -55296
   %or.cond.i.i54 = icmp ult i32 %29, 2047
   %or.cond11.i.i55 = or i1 %or.cond.i.i54, %cmp3.i.i53
-  br i1 %or.cond11.i.i55, label %if.then7.i36.i56, label %nk_utf_decode.exit87
+  br i1 %or.cond11.i.i55, label %if.then7.i34.i56, label %nk_utf_decode.exit87
 
-if.then7.i36.i56:                                 ; preds = %land.lhs.true.i.i51, %if.end.i.i47
+if.then7.i34.i56:                                 ; preds = %land.lhs.true.i.i51, %if.end18.i47
   store i32 65533, ptr %unicode, align 4
   br label %nk_utf_decode.exit87
 
 return.loopexit.i71:                              ; preds = %for.inc.i21.i68
-  %indvars78.le91.i72 = trunc i64 %indvars.iv.i59 to i32
+  %indvars76.le89.i72 = trunc i64 %indvars.iv.i59 to i32
   br label %nk_utf_decode.exit87
 
-return.loopexit81.i75:                            ; preds = %nk_utf_decode_byte.exit30.i73
-  %indvars78.le.i76 = trunc i64 %indvars.iv.i59 to i32
+return.loopexit79.i75:                            ; preds = %nk_utf_decode_byte.exit30.i73
+  %indvars76.le.i76 = trunc i64 %indvars.iv.i59 to i32
   br label %nk_utf_decode.exit87
 
-nk_utf_decode.exit87:                             ; preds = %for.inc.i.i32, %nk_utf_decode_byte.exit.i36, %land.lhs.true.i.i51, %if.then7.i36.i56, %return.loopexit.i71, %return.loopexit81.i75
-  %retval.0.i35 = phi i32 [ 1, %nk_utf_decode_byte.exit.i36 ], [ %18, %if.then7.i36.i56 ], [ %18, %land.lhs.true.i.i51 ], [ %indvars78.le91.i72, %return.loopexit.i71 ], [ %indvars78.le.i76, %return.loopexit81.i75 ], [ 1, %for.inc.i.i32 ]
+nk_utf_decode.exit87:                             ; preds = %for.inc.i.i32, %nk_utf_decode_byte.exit.i36, %land.lhs.true.i.i51, %if.then7.i34.i56, %return.loopexit.i71, %return.loopexit79.i75
+  %retval.0.i35 = phi i32 [ 1, %nk_utf_decode_byte.exit.i36 ], [ %18, %if.then7.i34.i56 ], [ %18, %land.lhs.true.i.i51 ], [ %indvars76.le89.i72, %return.loopexit.i71 ], [ %indvars76.le.i76, %return.loopexit79.i75 ], [ 1, %for.inc.i.i32 ]
   %tobool6.not = icmp eq i32 %retval.0.i35, 0
   br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !24
 
@@ -5935,8 +5935,8 @@ nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
 
 for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  br i1 %cmp962.i, label %for.body.i.preheader, label %if.end.i.i
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  br i1 %cmp960.i, label %for.body.i.preheader, label %if.end18.i
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %zext = and i64 %indvars.iv.i.i, 4294967295
@@ -5952,7 +5952,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -5968,7 +5968,7 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5977,21 +5977,21 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i
   %10 = icmp ult i64 %indvars.iv.next.i, %zext
-  br i1 %10, label %nk_utf_decode.exit, label %if.end.i.i
+  br i1 %10, label %nk_utf_decode.exit, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
+if.end18.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %for.end.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %for.end.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %3, %if.end.i.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end18.i, %nk_utf_decode_byte.exit.i, %for.end.i, %return.loopexit.i, %return.loopexit79.i
+  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %for.end.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %3, %if.end18.i ], [ 1, %for.inc.i.i ]
   %add = add nsw i32 %retval.0.i, %byte_len.025
   %inc = add nuw nsw i32 %i.024, 1
   %exitcond34.not = icmp eq i32 %inc, %len
@@ -6060,8 +6060,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  br i1 %cmp962.i, label %for.body.i.preheader, label %if.end.i.i
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  br i1 %cmp960.i, label %for.body.i.preheader, label %if.end18.i
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %zext = and i64 %indvars.iv.i.i, 4294967295
@@ -6072,13 +6072,13 @@ for.body.i.preheader:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 1, %for.body.i.preheader ]
-  %udecoded.065.i = phi i32 [ %or.i, %for.inc.i ], [ %conv14.i.i, %for.body.i.preheader ]
+  %udecoded.063.i = phi i32 [ %or.i, %for.inc.i ], [ %conv14.i.i, %for.body.i.preheader ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -6094,13 +6094,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %8, -1
   %and12.i28.i = and i8 %7, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %6
@@ -6108,39 +6108,39 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i
   %10 = icmp ult i64 %indvars.iv.next.i, %zext
-  br i1 %10, label %return, label %if.end.i.i
+  br i1 %10, label %return, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
+if.end18.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   %udecoded.0.lcssa.i78 = phi i32 [ %or.i, %for.end.i ], [ %conv14.i.i, %for.cond.preheader.i ]
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %11 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %11, %udecoded.0.lcssa.i78
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i78, %12
   %13 = add i32 %udecoded.0.lcssa.i78, -55296
   %or.cond.i.i = icmp ult i32 %13, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i78, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i78, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i34.i ], [ %3, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
   %cmp97 = icmp ne i32 %unicode.1, 0
   %tobool298 = icmp ne i32 %retval.0.i, 0
   %14 = and i1 %cmp97, %tobool298
@@ -6181,8 +6181,8 @@ for.cond.preheader.i24:                           ; preds = %nk_utf_decode_byte.
   %not.i.i25 = xor i8 %16, -1
   %and12.i.i26 = and i8 %15, %not.i.i25
   %conv14.i.i27 = zext i8 %and12.i.i26 to i32
-  %cmp962.i28 = icmp ugt i64 %indvars.iv.i.i13, 1
-  br i1 %cmp962.i28, label %for.body.i43.preheader, label %if.end.i.i32
+  %cmp960.i28 = icmp ugt i64 %indvars.iv.i.i13, 1
+  br i1 %cmp960.i28, label %for.body.i43.preheader, label %if.end18.i32
 
 for.body.i43.preheader:                           ; preds = %for.cond.preheader.i24
   %zext118 = and i64 %indvars.iv.i.i13, 4294967295
@@ -6193,13 +6193,13 @@ for.body.i43.preheader:                           ; preds = %for.cond.preheader.
 
 for.body.i43:                                     ; preds = %for.body.i43.preheader, %for.inc.i62
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i68, %for.inc.i62 ], [ 1, %for.body.i43.preheader ]
-  %udecoded.065.i45 = phi i32 [ %or.i67, %for.inc.i62 ], [ %conv14.i.i27, %for.body.i43.preheader ]
+  %udecoded.063.i45 = phi i32 [ %or.i67, %for.inc.i62 ], [ %conv14.i.i27, %for.body.i43.preheader ]
   %arrayidx10.i46 = getelementptr inbounds i8, ptr %add.ptr4, i64 %indvars.iv.i44
   %22 = load i8, ptr %arrayidx10.i46, align 1
   br label %for.body.i15.i47
 
 for.body.i15.i47:                                 ; preds = %for.inc.i21.i53, %for.body.i43
-  %indvars.iv.i16.i48 = phi i64 [ %indvars.iv.next.i22.i54, %for.inc.i21.i53 ], [ 0, %for.body.i43 ]
+  %indvars.iv.i16.i48 = phi i64 [ 0, %for.body.i43 ], [ %indvars.iv.next.i22.i54, %for.inc.i21.i53 ]
   %arrayidx.i17.i49 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i48
   %23 = load i8, ptr %arrayidx.i17.i49, align 1
   %and8.i18.i50 = and i8 %23, %22
@@ -6215,13 +6215,13 @@ for.inc.i21.i53:                                  ; preds = %for.body.i15.i47
 
 nk_utf_decode_byte.exit30.i58:                    ; preds = %for.body.i15.i47
   %cmp12.not.i59 = icmp eq i64 %indvars.iv.i16.i48, 0
-  br i1 %cmp12.not.i59, label %for.inc.i62, label %return.loopexit81.i60
+  br i1 %cmp12.not.i59, label %for.inc.i62, label %return.loopexit79.i60
 
 for.inc.i62:                                      ; preds = %nk_utf_decode_byte.exit30.i58
   %not.i27.i63 = xor i8 %23, -1
   %and12.i28.i64 = and i8 %22, %not.i27.i63
   %conv14.i29.i65 = zext i8 %and12.i28.i64 to i32
-  %shl.i66 = shl i32 %udecoded.065.i45, 6
+  %shl.i66 = shl i32 %udecoded.063.i45, 6
   %or.i67 = or i32 %shl.i66, %conv14.i29.i65
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next.i68, %21
@@ -6229,43 +6229,43 @@ for.inc.i62:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i29:                                      ; preds = %for.inc.i62
   %25 = icmp ult i64 %indvars.iv.next.i68, %zext118
-  br i1 %25, label %nk_utf_decode.exit72.thread, label %if.end.i.i32
+  br i1 %25, label %nk_utf_decode.exit72.thread, label %if.end18.i32
 
 nk_utf_decode.exit72.thread:                      ; preds = %for.end.i29
   %inc132 = add nuw nsw i32 %num_runes.0100, 1
   br label %while.end
 
-if.end.i.i32:                                     ; preds = %for.cond.preheader.i24, %for.end.i29
+if.end18.i32:                                     ; preds = %for.cond.preheader.i24, %for.end.i29
   %udecoded.0.lcssa.i3081 = phi i32 [ %or.i67, %for.end.i29 ], [ %conv14.i.i27, %for.cond.preheader.i24 ]
   %idxprom.i.i33 = and i64 %indvars.iv.i.i13, 4294967295
   %arrayidx.i31.i34 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i33
   %26 = load i32, ptr %arrayidx.i31.i34, align 4
   %cmp.not.i.i35 = icmp ugt i32 %26, %udecoded.0.lcssa.i3081
-  br i1 %cmp.not.i.i35, label %if.then7.i36.i41, label %land.lhs.true.i.i36
+  br i1 %cmp.not.i.i35, label %if.then7.i34.i41, label %land.lhs.true.i.i36
 
-land.lhs.true.i.i36:                              ; preds = %if.end.i.i32
+land.lhs.true.i.i36:                              ; preds = %if.end18.i32
   %arrayidx2.i.i37 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i33
   %27 = load i32, ptr %arrayidx2.i.i37, align 4
   %cmp3.i.i38 = icmp uge i32 %udecoded.0.lcssa.i3081, %27
   %28 = add i32 %udecoded.0.lcssa.i3081, -55296
   %or.cond.i.i39 = icmp ult i32 %28, 2047
   %or.cond11.i.i40 = or i1 %or.cond.i.i39, %cmp3.i.i38
-  br i1 %or.cond11.i.i40, label %if.then7.i36.i41, label %nk_utf_decode.exit72
+  br i1 %or.cond11.i.i40, label %if.then7.i34.i41, label %nk_utf_decode.exit72
 
-if.then7.i36.i41:                                 ; preds = %land.lhs.true.i.i36, %if.end.i.i32
+if.then7.i34.i41:                                 ; preds = %land.lhs.true.i.i36, %if.end18.i32
   br label %nk_utf_decode.exit72
 
 return.loopexit.i56:                              ; preds = %for.inc.i21.i53
-  %indvars78.le91.i57 = trunc i64 %indvars.iv.i44 to i32
+  %indvars76.le89.i57 = trunc i64 %indvars.iv.i44 to i32
   br label %nk_utf_decode.exit72
 
-return.loopexit81.i60:                            ; preds = %nk_utf_decode_byte.exit30.i58
-  %indvars78.le.i61 = trunc i64 %indvars.iv.i44 to i32
+return.loopexit79.i60:                            ; preds = %nk_utf_decode_byte.exit30.i58
+  %indvars76.le.i61 = trunc i64 %indvars.iv.i44 to i32
   br label %nk_utf_decode.exit72
 
-nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %nk_utf_decode_byte.exit.i22, %land.lhs.true.i.i36, %if.then7.i36.i41, %return.loopexit.i56, %return.loopexit81.i60
-  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i41 ], [ %udecoded.0.lcssa.i3081, %land.lhs.true.i.i36 ], [ 65533, %return.loopexit81.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %for.inc.i.i18 ]
-  %retval.0.i21 = phi i32 [ %18, %if.then7.i36.i41 ], [ %18, %land.lhs.true.i.i36 ], [ %indvars78.le.i61, %return.loopexit81.i60 ], [ %indvars78.le91.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ 1, %for.inc.i.i18 ]
+nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %nk_utf_decode_byte.exit.i22, %land.lhs.true.i.i36, %if.then7.i34.i41, %return.loopexit.i56, %return.loopexit79.i60
+  %unicode.2 = phi i32 [ 65533, %if.then7.i34.i41 ], [ %udecoded.0.lcssa.i3081, %land.lhs.true.i.i36 ], [ 65533, %return.loopexit79.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %for.inc.i.i18 ]
+  %retval.0.i21 = phi i32 [ %18, %if.then7.i34.i41 ], [ %18, %land.lhs.true.i.i36 ], [ %indvars76.le.i61, %return.loopexit79.i60 ], [ %indvars76.le89.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ 1, %for.inc.i.i18 ]
   %add = add nsw i32 %retval.0.i21, %byte_len.099
   %inc = add nuw nsw i32 %num_runes.0100, 1
   %cmp = icmp ne i32 %unicode.2, 0
@@ -6708,7 +6708,7 @@ if.end4.i:                                        ; preds = %if.end5
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %3, %2
@@ -6732,9 +6732,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %3, -1
   %and12.i.i = and i8 %2, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %conv, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %7 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %conv, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %7 = and i1 %cmp859.i, %cmp960.i
   br i1 %7, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -6744,13 +6744,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %.fr, i64 %indvars.iv.i
   %9 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %10 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %10, %9
@@ -6766,13 +6766,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %10, -1
   %and12.i28.i = and i8 %9, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %8
@@ -6782,40 +6782,40 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %12, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %while.end, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %12, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %while.end, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   store i32 %udecoded.0.lcssa.i, ptr %unicode, align 4
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %14, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %15 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %15
   %16 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %16, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   store i32 65533, ptr %unicode, align 4
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ %5, %if.then7.i36.i ], [ %5, %land.lhs.true.i.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %retval.0.i = phi i32 [ %5, %if.then7.i34.i ], [ %5, %land.lhs.true.i.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ %indvars76.le.i, %return.loopexit79.i ]
   %tobool7.not109 = icmp eq i32 %retval.0.i, 0
   br i1 %tobool7.not109, label %while.end, label %while.body.lr.ph
 
@@ -6855,7 +6855,7 @@ if.end4.i26:                                      ; preds = %if.end11
   br label %for.body.i.i27
 
 for.body.i.i27:                                   ; preds = %for.inc.i.i33, %if.end4.i26
-  %indvars.iv.i.i28 = phi i64 [ %indvars.iv.next.i.i34, %for.inc.i.i33 ], [ 0, %if.end4.i26 ]
+  %indvars.iv.i.i28 = phi i64 [ 0, %if.end4.i26 ], [ %indvars.iv.next.i.i34, %for.inc.i.i33 ]
   %arrayidx.i.i29 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i28
   %18 = load i8, ptr %arrayidx.i.i29, align 1
   %and8.i.i30 = and i8 %18, %17
@@ -6879,9 +6879,9 @@ for.cond.preheader.i39:                           ; preds = %nk_utf_decode_byte.
   %not.i.i40 = xor i8 %18, -1
   %and12.i.i41 = and i8 %17, %not.i.i40
   %conv14.i.i42 = zext i8 %and12.i.i41 to i32
-  %cmp861.i43 = icmp sgt i32 %sub, 1
-  %cmp962.i44 = icmp ugt i64 %indvars.iv.i.i28, 1
-  %22 = and i1 %cmp861.i43, %cmp962.i44
+  %cmp859.i43 = icmp sgt i32 %sub, 1
+  %cmp960.i44 = icmp ugt i64 %indvars.iv.i.i28, 1
+  %22 = and i1 %cmp859.i43, %cmp960.i44
   br i1 %22, label %for.body.preheader.i58, label %for.end.i45
 
 for.body.preheader.i58:                           ; preds = %for.cond.preheader.i39
@@ -6891,13 +6891,13 @@ for.body.preheader.i58:                           ; preds = %for.cond.preheader.
 
 for.body.i59:                                     ; preds = %for.inc.i78, %for.body.preheader.i58
   %indvars.iv.i60 = phi i64 [ 1, %for.body.preheader.i58 ], [ %indvars.iv.next.i84, %for.inc.i78 ]
-  %udecoded.065.i61 = phi i32 [ %conv14.i.i42, %for.body.preheader.i58 ], [ %or.i83, %for.inc.i78 ]
+  %udecoded.063.i61 = phi i32 [ %conv14.i.i42, %for.body.preheader.i58 ], [ %or.i83, %for.inc.i78 ]
   %arrayidx10.i62 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i60
   %24 = load i8, ptr %arrayidx10.i62, align 1
   br label %for.body.i15.i63
 
 for.body.i15.i63:                                 ; preds = %for.inc.i21.i69, %for.body.i59
-  %indvars.iv.i16.i64 = phi i64 [ %indvars.iv.next.i22.i70, %for.inc.i21.i69 ], [ 0, %for.body.i59 ]
+  %indvars.iv.i16.i64 = phi i64 [ 0, %for.body.i59 ], [ %indvars.iv.next.i22.i70, %for.inc.i21.i69 ]
   %arrayidx.i17.i65 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i64
   %25 = load i8, ptr %arrayidx.i17.i65, align 1
   %and8.i18.i66 = and i8 %25, %24
@@ -6913,13 +6913,13 @@ for.inc.i21.i69:                                  ; preds = %for.body.i15.i63
 
 nk_utf_decode_byte.exit30.i74:                    ; preds = %for.body.i15.i63
   %cmp12.not.i75 = icmp eq i64 %indvars.iv.i16.i64, 0
-  br i1 %cmp12.not.i75, label %for.inc.i78, label %return.loopexit81.i76
+  br i1 %cmp12.not.i75, label %for.inc.i78, label %return.loopexit79.i76
 
 for.inc.i78:                                      ; preds = %nk_utf_decode_byte.exit30.i74
   %not.i27.i79 = xor i8 %25, -1
   %and12.i28.i80 = and i8 %24, %not.i27.i79
   %conv14.i29.i81 = zext i8 %and12.i28.i80 to i32
-  %shl.i82 = shl i32 %udecoded.065.i61, 6
+  %shl.i82 = shl i32 %udecoded.063.i61, 6
   %or.i83 = or i32 %shl.i82, %conv14.i29.i81
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i60, 1
   %cmp8.i86 = icmp ult i64 %indvars.iv.next.i84, %23
@@ -6929,40 +6929,40 @@ for.inc.i78:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i45:                                      ; preds = %for.inc.i78, %for.cond.preheader.i39
   %udecoded.0.lcssa.i46 = phi i32 [ %conv14.i.i42, %for.cond.preheader.i39 ], [ %or.i83, %for.inc.i78 ]
-  %cmp9.lcssa.i47 = phi i1 [ %cmp962.i44, %for.cond.preheader.i39 ], [ %27, %for.inc.i78 ]
-  br i1 %cmp9.lcssa.i47, label %while.end, label %if.end.i.i48
+  %cmp9.lcssa.i47 = phi i1 [ %cmp960.i44, %for.cond.preheader.i39 ], [ %27, %for.inc.i78 ]
+  br i1 %cmp9.lcssa.i47, label %while.end, label %if.end18.i48
 
-if.end.i.i48:                                     ; preds = %for.end.i45
+if.end18.i48:                                     ; preds = %for.end.i45
   store i32 %udecoded.0.lcssa.i46, ptr %unicode, align 4
   %idxprom.i.i49 = and i64 %indvars.iv.i.i28, 4294967295
   %arrayidx.i31.i50 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i49
   %29 = load i32, ptr %arrayidx.i31.i50, align 4
   %cmp.not.i.i51 = icmp ugt i32 %29, %udecoded.0.lcssa.i46
-  br i1 %cmp.not.i.i51, label %if.then7.i36.i57, label %land.lhs.true.i.i52
+  br i1 %cmp.not.i.i51, label %if.then7.i34.i57, label %land.lhs.true.i.i52
 
-land.lhs.true.i.i52:                              ; preds = %if.end.i.i48
+land.lhs.true.i.i52:                              ; preds = %if.end18.i48
   %arrayidx2.i.i53 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i49
   %30 = load i32, ptr %arrayidx2.i.i53, align 4
   %cmp3.i.i54 = icmp uge i32 %udecoded.0.lcssa.i46, %30
   %31 = add i32 %udecoded.0.lcssa.i46, -55296
   %or.cond.i.i55 = icmp ult i32 %31, 2047
   %or.cond11.i.i56 = or i1 %or.cond.i.i55, %cmp3.i.i54
-  br i1 %or.cond11.i.i56, label %if.then7.i36.i57, label %nk_utf_decode.exit88
+  br i1 %or.cond11.i.i56, label %if.then7.i34.i57, label %nk_utf_decode.exit88
 
-if.then7.i36.i57:                                 ; preds = %land.lhs.true.i.i52, %if.end.i.i48
+if.then7.i34.i57:                                 ; preds = %land.lhs.true.i.i52, %if.end18.i48
   store i32 65533, ptr %unicode, align 4
   br label %nk_utf_decode.exit88
 
 return.loopexit.i72:                              ; preds = %for.inc.i21.i69
-  %indvars78.le91.i73 = trunc i64 %indvars.iv.i60 to i32
+  %indvars76.le89.i73 = trunc i64 %indvars.iv.i60 to i32
   br label %nk_utf_decode.exit88
 
-return.loopexit81.i76:                            ; preds = %nk_utf_decode_byte.exit30.i74
-  %indvars78.le.i77 = trunc i64 %indvars.iv.i60 to i32
+return.loopexit79.i76:                            ; preds = %nk_utf_decode_byte.exit30.i74
+  %indvars76.le.i77 = trunc i64 %indvars.iv.i60 to i32
   br label %nk_utf_decode.exit88
 
-nk_utf_decode.exit88:                             ; preds = %for.inc.i.i33, %nk_utf_decode_byte.exit.i37, %land.lhs.true.i.i52, %if.then7.i36.i57, %return.loopexit.i72, %return.loopexit81.i76
-  %retval.0.i36 = phi i32 [ 1, %nk_utf_decode_byte.exit.i37 ], [ %20, %if.then7.i36.i57 ], [ %20, %land.lhs.true.i.i52 ], [ %indvars78.le91.i73, %return.loopexit.i72 ], [ %indvars78.le.i77, %return.loopexit81.i76 ], [ 1, %for.inc.i.i33 ]
+nk_utf_decode.exit88:                             ; preds = %for.inc.i.i33, %nk_utf_decode_byte.exit.i37, %land.lhs.true.i.i52, %if.then7.i34.i57, %return.loopexit.i72, %return.loopexit79.i76
+  %retval.0.i36 = phi i32 [ 1, %nk_utf_decode_byte.exit.i37 ], [ %20, %if.then7.i34.i57 ], [ %20, %land.lhs.true.i.i52 ], [ %indvars76.le89.i73, %return.loopexit.i72 ], [ %indvars76.le.i77, %return.loopexit79.i76 ], [ 1, %for.inc.i.i33 ]
   %tobool7.not = icmp eq i32 %retval.0.i36, 0
   br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !36
 
@@ -7056,8 +7056,8 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
-  %cmp962.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp962.i.i, label %for.body.i.preheader.i, label %if.end.i.i.i
+  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  br i1 %cmp960.i.i, label %for.body.i.preheader.i, label %if.end18.i.i
 
 for.body.i.preheader.i:                           ; preds = %for.cond.preheader.i.i
   %zext.i = and i64 %indvars.iv.i.i.i, 4294967295
@@ -7076,7 +7076,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br label %for.body.i15.i.i
 
 for.body.i15.i.i:                                 ; preds = %for.inc.i21.i.i, %for.body.i.i
-  %indvars.iv.i16.i.i = phi i64 [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ], [ 0, %for.body.i.i ]
+  %indvars.iv.i16.i.i = phi i64 [ 0, %for.body.i.i ], [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ]
   %arrayidx.i17.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i
   %10 = load i8, ptr %arrayidx.i17.i.i, align 1
   %and8.i18.i.i = and i8 %10, %9
@@ -7092,7 +7092,7 @@ for.inc.i21.i.i:                                  ; preds = %for.body.i15.i.i
 
 nk_utf_decode_byte.exit30.i.i:                    ; preds = %for.body.i15.i.i
   %cmp12.not.i.i = icmp eq i64 %indvars.iv.i16.i.i, 0
-  br i1 %cmp12.not.i.i, label %for.inc.i.i, label %return.loopexit81.i.i
+  br i1 %cmp12.not.i.i, label %for.inc.i.i, label %return.loopexit79.i.i
 
 for.inc.i.i:                                      ; preds = %nk_utf_decode_byte.exit30.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7101,21 +7101,21 @@ for.inc.i.i:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %12 = icmp ugt i64 %zext.i, %8
-  br i1 %12, label %nk_utf_decode.exit.i, label %if.end.i.i.i
+  br i1 %12, label %nk_utf_decode.exit.i, label %if.end18.i.i
 
-if.end.i.i.i:                                     ; preds = %for.end.i.i, %for.cond.preheader.i.i
+if.end18.i.i:                                     ; preds = %for.end.i.i, %for.cond.preheader.i.i
   br label %nk_utf_decode.exit.i
 
 return.loopexit.i.i:                              ; preds = %for.inc.i21.i.i
-  %indvars78.le91.i.i = trunc i64 %indvars.iv.i.i to i32
+  %indvars76.le89.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-return.loopexit81.i.i:                            ; preds = %nk_utf_decode_byte.exit30.i.i
-  %indvars78.le.i.i = trunc i64 %indvars.iv.i.i to i32
+return.loopexit79.i.i:                            ; preds = %nk_utf_decode_byte.exit30.i.i
+  %indvars76.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %if.end.i.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
-  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %3, %if.end.i.i.i ], [ 1, %for.inc.i.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit79.i.i, %return.loopexit.i.i, %if.end18.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
+  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars76.le89.i.i, %return.loopexit.i.i ], [ %indvars76.le.i.i, %return.loopexit79.i.i ], [ %3, %if.end18.i.i ], [ 1, %for.inc.i.i.i ]
   %add.i = add nsw i32 %retval.0.i.i, %byte_len.022.i
   %inc.i = add nuw nsw i32 %i.021.i, 1
   %exitcond31.not.i = icmp eq i32 %inc.i, %len
@@ -7177,8 +7177,8 @@ nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
 
 for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  br i1 %cmp962.i, label %for.body.i.preheader, label %if.end.i.i
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  br i1 %cmp960.i, label %for.body.i.preheader, label %if.end18.i
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %zext = and i64 %indvars.iv.i.i, 4294967295
@@ -7194,7 +7194,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -7210,7 +7210,7 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7219,21 +7219,21 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i
   %10 = icmp ult i64 %indvars.iv.next.i, %zext
-  br i1 %10, label %nk_utf_decode.exit, label %if.end.i.i
+  br i1 %10, label %nk_utf_decode.exit, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
+if.end18.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %for.end.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %for.end.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %3, %if.end.i.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end18.i, %nk_utf_decode_byte.exit.i, %for.end.i, %return.loopexit.i, %return.loopexit79.i
+  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %for.end.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %3, %if.end18.i ], [ 1, %for.inc.i.i ]
   %add = add nsw i32 %retval.0.i, %byte_len.022
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond31.not = icmp eq i32 %inc, %len
@@ -7305,8 +7305,8 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
-  %cmp962.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp962.i.i, label %for.body.i.preheader.i, label %if.end.i.i.i
+  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  br i1 %cmp960.i.i, label %for.body.i.preheader.i, label %if.end18.i.i
 
 for.body.i.preheader.i:                           ; preds = %for.cond.preheader.i.i
   %zext.i = and i64 %indvars.iv.i.i.i, 4294967295
@@ -7325,7 +7325,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br label %for.body.i15.i.i
 
 for.body.i15.i.i:                                 ; preds = %for.inc.i21.i.i, %for.body.i.i
-  %indvars.iv.i16.i.i = phi i64 [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ], [ 0, %for.body.i.i ]
+  %indvars.iv.i16.i.i = phi i64 [ 0, %for.body.i.i ], [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ]
   %arrayidx.i17.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i
   %12 = load i8, ptr %arrayidx.i17.i.i, align 1
   %and8.i18.i.i = and i8 %12, %11
@@ -7341,7 +7341,7 @@ for.inc.i21.i.i:                                  ; preds = %for.body.i15.i.i
 
 nk_utf_decode_byte.exit30.i.i:                    ; preds = %for.body.i15.i.i
   %cmp12.not.i.i = icmp eq i64 %indvars.iv.i16.i.i, 0
-  br i1 %cmp12.not.i.i, label %for.inc.i.i, label %return.loopexit81.i.i
+  br i1 %cmp12.not.i.i, label %for.inc.i.i, label %return.loopexit79.i.i
 
 for.inc.i.i:                                      ; preds = %nk_utf_decode_byte.exit30.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7350,21 +7350,21 @@ for.inc.i.i:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %14 = icmp ugt i64 %zext.i, %10
-  br i1 %14, label %nk_utf_decode.exit.i, label %if.end.i.i.i
+  br i1 %14, label %nk_utf_decode.exit.i, label %if.end18.i.i
 
-if.end.i.i.i:                                     ; preds = %for.end.i.i, %for.cond.preheader.i.i
+if.end18.i.i:                                     ; preds = %for.end.i.i, %for.cond.preheader.i.i
   br label %nk_utf_decode.exit.i
 
 return.loopexit.i.i:                              ; preds = %for.inc.i21.i.i
-  %indvars78.le91.i.i = trunc i64 %indvars.iv.i.i to i32
+  %indvars76.le89.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-return.loopexit81.i.i:                            ; preds = %nk_utf_decode_byte.exit30.i.i
-  %indvars78.le.i.i = trunc i64 %indvars.iv.i.i to i32
+return.loopexit79.i.i:                            ; preds = %nk_utf_decode_byte.exit30.i.i
+  %indvars76.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %if.end.i.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
-  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %5, %if.end.i.i.i ], [ 1, %for.inc.i.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit79.i.i, %return.loopexit.i.i, %if.end18.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
+  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars76.le89.i.i, %return.loopexit.i.i ], [ %indvars76.le.i.i, %return.loopexit79.i.i ], [ %5, %if.end18.i.i ], [ 1, %for.inc.i.i.i ]
   %add.i = add nsw i32 %retval.0.i.i, %byte_len.022.i
   %inc.i2 = add nuw nsw i32 %i.021.i, 1
   %exitcond31.not.i = icmp eq i32 %i.021.i, %siz.05.i15
@@ -7418,8 +7418,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  br i1 %cmp962.i, label %for.body.i.preheader, label %if.end.i.i
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  br i1 %cmp960.i, label %for.body.i.preheader, label %if.end18.i
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %zext = and i64 %indvars.iv.i.i, 4294967295
@@ -7430,13 +7430,13 @@ for.body.i.preheader:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 1, %for.body.i.preheader ]
-  %udecoded.065.i = phi i32 [ %or.i, %for.inc.i ], [ %conv14.i.i, %for.body.i.preheader ]
+  %udecoded.063.i = phi i32 [ %or.i, %for.inc.i ], [ %conv14.i.i, %for.body.i.preheader ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -7452,13 +7452,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %8, -1
   %and12.i28.i = and i8 %7, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %6
@@ -7466,39 +7466,39 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i
   %10 = icmp ult i64 %indvars.iv.next.i, %zext
-  br i1 %10, label %while.end, label %if.end.i.i
+  br i1 %10, label %while.end, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
+if.end18.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   %udecoded.0.lcssa.i75 = phi i32 [ %or.i, %for.end.i ], [ %conv14.i.i, %for.cond.preheader.i ]
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %11 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %11, %udecoded.0.lcssa.i75
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i75, %12
   %13 = add i32 %udecoded.0.lcssa.i75, -55296
   %or.cond.i.i = icmp ult i32 %13, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i75, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i75, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i34.i ], [ %3, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
   %cmp94 = icmp ne i32 %unicode.1, 0
   %tobool295 = icmp ne i32 %retval.0.i, 0
   %14 = and i1 %cmp94, %tobool295
@@ -7539,8 +7539,8 @@ for.cond.preheader.i24:                           ; preds = %nk_utf_decode_byte.
   %not.i.i25 = xor i8 %16, -1
   %and12.i.i26 = and i8 %15, %not.i.i25
   %conv14.i.i27 = zext i8 %and12.i.i26 to i32
-  %cmp962.i28 = icmp ugt i64 %indvars.iv.i.i13, 1
-  br i1 %cmp962.i28, label %for.body.i43.preheader, label %if.end.i.i32
+  %cmp960.i28 = icmp ugt i64 %indvars.iv.i.i13, 1
+  br i1 %cmp960.i28, label %for.body.i43.preheader, label %if.end18.i32
 
 for.body.i43.preheader:                           ; preds = %for.cond.preheader.i24
   %zext115 = and i64 %indvars.iv.i.i13, 4294967295
@@ -7551,13 +7551,13 @@ for.body.i43.preheader:                           ; preds = %for.cond.preheader.
 
 for.body.i43:                                     ; preds = %for.body.i43.preheader, %for.inc.i62
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i68, %for.inc.i62 ], [ 1, %for.body.i43.preheader ]
-  %udecoded.065.i45 = phi i32 [ %or.i67, %for.inc.i62 ], [ %conv14.i.i27, %for.body.i43.preheader ]
+  %udecoded.063.i45 = phi i32 [ %or.i67, %for.inc.i62 ], [ %conv14.i.i27, %for.body.i43.preheader ]
   %arrayidx10.i46 = getelementptr inbounds i8, ptr %add.ptr4, i64 %indvars.iv.i44
   %22 = load i8, ptr %arrayidx10.i46, align 1
   br label %for.body.i15.i47
 
 for.body.i15.i47:                                 ; preds = %for.inc.i21.i53, %for.body.i43
-  %indvars.iv.i16.i48 = phi i64 [ %indvars.iv.next.i22.i54, %for.inc.i21.i53 ], [ 0, %for.body.i43 ]
+  %indvars.iv.i16.i48 = phi i64 [ 0, %for.body.i43 ], [ %indvars.iv.next.i22.i54, %for.inc.i21.i53 ]
   %arrayidx.i17.i49 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i48
   %23 = load i8, ptr %arrayidx.i17.i49, align 1
   %and8.i18.i50 = and i8 %23, %22
@@ -7573,13 +7573,13 @@ for.inc.i21.i53:                                  ; preds = %for.body.i15.i47
 
 nk_utf_decode_byte.exit30.i58:                    ; preds = %for.body.i15.i47
   %cmp12.not.i59 = icmp eq i64 %indvars.iv.i16.i48, 0
-  br i1 %cmp12.not.i59, label %for.inc.i62, label %return.loopexit81.i60
+  br i1 %cmp12.not.i59, label %for.inc.i62, label %return.loopexit79.i60
 
 for.inc.i62:                                      ; preds = %nk_utf_decode_byte.exit30.i58
   %not.i27.i63 = xor i8 %23, -1
   %and12.i28.i64 = and i8 %22, %not.i27.i63
   %conv14.i29.i65 = zext i8 %and12.i28.i64 to i32
-  %shl.i66 = shl i32 %udecoded.065.i45, 6
+  %shl.i66 = shl i32 %udecoded.063.i45, 6
   %or.i67 = or i32 %shl.i66, %conv14.i29.i65
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next.i68, %21
@@ -7587,43 +7587,43 @@ for.inc.i62:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i29:                                      ; preds = %for.inc.i62
   %25 = icmp ult i64 %indvars.iv.next.i68, %zext115
-  br i1 %25, label %nk_utf_decode.exit72.thread, label %if.end.i.i32
+  br i1 %25, label %nk_utf_decode.exit72.thread, label %if.end18.i32
 
 nk_utf_decode.exit72.thread:                      ; preds = %for.end.i29
   %inc129 = add nuw nsw i32 %num_runes.097, 1
   br label %while.end
 
-if.end.i.i32:                                     ; preds = %for.cond.preheader.i24, %for.end.i29
+if.end18.i32:                                     ; preds = %for.cond.preheader.i24, %for.end.i29
   %udecoded.0.lcssa.i3078 = phi i32 [ %or.i67, %for.end.i29 ], [ %conv14.i.i27, %for.cond.preheader.i24 ]
   %idxprom.i.i33 = and i64 %indvars.iv.i.i13, 4294967295
   %arrayidx.i31.i34 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i33
   %26 = load i32, ptr %arrayidx.i31.i34, align 4
   %cmp.not.i.i35 = icmp ugt i32 %26, %udecoded.0.lcssa.i3078
-  br i1 %cmp.not.i.i35, label %if.then7.i36.i41, label %land.lhs.true.i.i36
+  br i1 %cmp.not.i.i35, label %if.then7.i34.i41, label %land.lhs.true.i.i36
 
-land.lhs.true.i.i36:                              ; preds = %if.end.i.i32
+land.lhs.true.i.i36:                              ; preds = %if.end18.i32
   %arrayidx2.i.i37 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i33
   %27 = load i32, ptr %arrayidx2.i.i37, align 4
   %cmp3.i.i38 = icmp uge i32 %udecoded.0.lcssa.i3078, %27
   %28 = add i32 %udecoded.0.lcssa.i3078, -55296
   %or.cond.i.i39 = icmp ult i32 %28, 2047
   %or.cond11.i.i40 = or i1 %or.cond.i.i39, %cmp3.i.i38
-  br i1 %or.cond11.i.i40, label %if.then7.i36.i41, label %nk_utf_decode.exit72
+  br i1 %or.cond11.i.i40, label %if.then7.i34.i41, label %nk_utf_decode.exit72
 
-if.then7.i36.i41:                                 ; preds = %land.lhs.true.i.i36, %if.end.i.i32
+if.then7.i34.i41:                                 ; preds = %land.lhs.true.i.i36, %if.end18.i32
   br label %nk_utf_decode.exit72
 
 return.loopexit.i56:                              ; preds = %for.inc.i21.i53
-  %indvars78.le91.i57 = trunc i64 %indvars.iv.i44 to i32
+  %indvars76.le89.i57 = trunc i64 %indvars.iv.i44 to i32
   br label %nk_utf_decode.exit72
 
-return.loopexit81.i60:                            ; preds = %nk_utf_decode_byte.exit30.i58
-  %indvars78.le.i61 = trunc i64 %indvars.iv.i44 to i32
+return.loopexit79.i60:                            ; preds = %nk_utf_decode_byte.exit30.i58
+  %indvars76.le.i61 = trunc i64 %indvars.iv.i44 to i32
   br label %nk_utf_decode.exit72
 
-nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %nk_utf_decode_byte.exit.i22, %land.lhs.true.i.i36, %if.then7.i36.i41, %return.loopexit.i56, %return.loopexit81.i60
-  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i41 ], [ %udecoded.0.lcssa.i3078, %land.lhs.true.i.i36 ], [ 65533, %return.loopexit81.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %for.inc.i.i18 ]
-  %retval.0.i21 = phi i32 [ %18, %if.then7.i36.i41 ], [ %18, %land.lhs.true.i.i36 ], [ %indvars78.le.i61, %return.loopexit81.i60 ], [ %indvars78.le91.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ 1, %for.inc.i.i18 ]
+nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %nk_utf_decode_byte.exit.i22, %land.lhs.true.i.i36, %if.then7.i34.i41, %return.loopexit.i56, %return.loopexit79.i60
+  %unicode.2 = phi i32 [ 65533, %if.then7.i34.i41 ], [ %udecoded.0.lcssa.i3078, %land.lhs.true.i.i36 ], [ 65533, %return.loopexit79.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %for.inc.i.i18 ]
+  %retval.0.i21 = phi i32 [ %18, %if.then7.i34.i41 ], [ %18, %land.lhs.true.i.i36 ], [ %indvars76.le.i61, %return.loopexit79.i60 ], [ %indvars76.le89.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ 1, %for.inc.i.i18 ]
   %add = add nsw i32 %retval.0.i21, %byte_len.096
   %inc = add nuw nsw i32 %num_runes.097, 1
   %cmp = icmp ne i32 %unicode.2, 0
@@ -8176,7 +8176,7 @@ if.end4.i:                                        ; preds = %if.end5
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %3, %2
@@ -8200,9 +8200,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %3, -1
   %and12.i.i = and i8 %2, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %conv, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %7 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %conv, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %7 = and i1 %cmp859.i, %cmp960.i
   br i1 %7, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -8212,13 +8212,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %.fr, i64 %indvars.iv.i
   %9 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %10 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %10, %9
@@ -8234,13 +8234,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %10, -1
   %and12.i28.i = and i8 %9, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %8
@@ -8250,40 +8250,40 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %12, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %while.end, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %12, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %while.end, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   store i32 %udecoded.0.lcssa.i, ptr %unicode, align 4
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %14, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %15 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %15
   %16 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %16, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   store i32 65533, ptr %unicode, align 4
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ %5, %if.then7.i36.i ], [ %5, %land.lhs.true.i.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %retval.0.i = phi i32 [ %5, %if.then7.i34.i ], [ %5, %land.lhs.true.i.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ %indvars76.le.i, %return.loopexit79.i ]
   %tobool7.not109 = icmp eq i32 %retval.0.i, 0
   br i1 %tobool7.not109, label %while.end, label %while.body.lr.ph
 
@@ -8323,7 +8323,7 @@ if.end4.i26:                                      ; preds = %if.end11
   br label %for.body.i.i27
 
 for.body.i.i27:                                   ; preds = %for.inc.i.i33, %if.end4.i26
-  %indvars.iv.i.i28 = phi i64 [ %indvars.iv.next.i.i34, %for.inc.i.i33 ], [ 0, %if.end4.i26 ]
+  %indvars.iv.i.i28 = phi i64 [ 0, %if.end4.i26 ], [ %indvars.iv.next.i.i34, %for.inc.i.i33 ]
   %arrayidx.i.i29 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i28
   %18 = load i8, ptr %arrayidx.i.i29, align 1
   %and8.i.i30 = and i8 %18, %17
@@ -8347,9 +8347,9 @@ for.cond.preheader.i39:                           ; preds = %nk_utf_decode_byte.
   %not.i.i40 = xor i8 %18, -1
   %and12.i.i41 = and i8 %17, %not.i.i40
   %conv14.i.i42 = zext i8 %and12.i.i41 to i32
-  %cmp861.i43 = icmp sgt i32 %sub, 1
-  %cmp962.i44 = icmp ugt i64 %indvars.iv.i.i28, 1
-  %22 = and i1 %cmp861.i43, %cmp962.i44
+  %cmp859.i43 = icmp sgt i32 %sub, 1
+  %cmp960.i44 = icmp ugt i64 %indvars.iv.i.i28, 1
+  %22 = and i1 %cmp859.i43, %cmp960.i44
   br i1 %22, label %for.body.preheader.i58, label %for.end.i45
 
 for.body.preheader.i58:                           ; preds = %for.cond.preheader.i39
@@ -8359,13 +8359,13 @@ for.body.preheader.i58:                           ; preds = %for.cond.preheader.
 
 for.body.i59:                                     ; preds = %for.inc.i78, %for.body.preheader.i58
   %indvars.iv.i60 = phi i64 [ 1, %for.body.preheader.i58 ], [ %indvars.iv.next.i84, %for.inc.i78 ]
-  %udecoded.065.i61 = phi i32 [ %conv14.i.i42, %for.body.preheader.i58 ], [ %or.i83, %for.inc.i78 ]
+  %udecoded.063.i61 = phi i32 [ %conv14.i.i42, %for.body.preheader.i58 ], [ %or.i83, %for.inc.i78 ]
   %arrayidx10.i62 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i60
   %24 = load i8, ptr %arrayidx10.i62, align 1
   br label %for.body.i15.i63
 
 for.body.i15.i63:                                 ; preds = %for.inc.i21.i69, %for.body.i59
-  %indvars.iv.i16.i64 = phi i64 [ %indvars.iv.next.i22.i70, %for.inc.i21.i69 ], [ 0, %for.body.i59 ]
+  %indvars.iv.i16.i64 = phi i64 [ 0, %for.body.i59 ], [ %indvars.iv.next.i22.i70, %for.inc.i21.i69 ]
   %arrayidx.i17.i65 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i64
   %25 = load i8, ptr %arrayidx.i17.i65, align 1
   %and8.i18.i66 = and i8 %25, %24
@@ -8381,13 +8381,13 @@ for.inc.i21.i69:                                  ; preds = %for.body.i15.i63
 
 nk_utf_decode_byte.exit30.i74:                    ; preds = %for.body.i15.i63
   %cmp12.not.i75 = icmp eq i64 %indvars.iv.i16.i64, 0
-  br i1 %cmp12.not.i75, label %for.inc.i78, label %return.loopexit81.i76
+  br i1 %cmp12.not.i75, label %for.inc.i78, label %return.loopexit79.i76
 
 for.inc.i78:                                      ; preds = %nk_utf_decode_byte.exit30.i74
   %not.i27.i79 = xor i8 %25, -1
   %and12.i28.i80 = and i8 %24, %not.i27.i79
   %conv14.i29.i81 = zext i8 %and12.i28.i80 to i32
-  %shl.i82 = shl i32 %udecoded.065.i61, 6
+  %shl.i82 = shl i32 %udecoded.063.i61, 6
   %or.i83 = or i32 %shl.i82, %conv14.i29.i81
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i60, 1
   %cmp8.i86 = icmp ult i64 %indvars.iv.next.i84, %23
@@ -8397,40 +8397,40 @@ for.inc.i78:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i45:                                      ; preds = %for.inc.i78, %for.cond.preheader.i39
   %udecoded.0.lcssa.i46 = phi i32 [ %conv14.i.i42, %for.cond.preheader.i39 ], [ %or.i83, %for.inc.i78 ]
-  %cmp9.lcssa.i47 = phi i1 [ %cmp962.i44, %for.cond.preheader.i39 ], [ %27, %for.inc.i78 ]
-  br i1 %cmp9.lcssa.i47, label %while.end, label %if.end.i.i48
+  %cmp9.lcssa.i47 = phi i1 [ %cmp960.i44, %for.cond.preheader.i39 ], [ %27, %for.inc.i78 ]
+  br i1 %cmp9.lcssa.i47, label %while.end, label %if.end18.i48
 
-if.end.i.i48:                                     ; preds = %for.end.i45
+if.end18.i48:                                     ; preds = %for.end.i45
   store i32 %udecoded.0.lcssa.i46, ptr %unicode, align 4
   %idxprom.i.i49 = and i64 %indvars.iv.i.i28, 4294967295
   %arrayidx.i31.i50 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i49
   %29 = load i32, ptr %arrayidx.i31.i50, align 4
   %cmp.not.i.i51 = icmp ugt i32 %29, %udecoded.0.lcssa.i46
-  br i1 %cmp.not.i.i51, label %if.then7.i36.i57, label %land.lhs.true.i.i52
+  br i1 %cmp.not.i.i51, label %if.then7.i34.i57, label %land.lhs.true.i.i52
 
-land.lhs.true.i.i52:                              ; preds = %if.end.i.i48
+land.lhs.true.i.i52:                              ; preds = %if.end18.i48
   %arrayidx2.i.i53 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i49
   %30 = load i32, ptr %arrayidx2.i.i53, align 4
   %cmp3.i.i54 = icmp uge i32 %udecoded.0.lcssa.i46, %30
   %31 = add i32 %udecoded.0.lcssa.i46, -55296
   %or.cond.i.i55 = icmp ult i32 %31, 2047
   %or.cond11.i.i56 = or i1 %or.cond.i.i55, %cmp3.i.i54
-  br i1 %or.cond11.i.i56, label %if.then7.i36.i57, label %nk_utf_decode.exit88
+  br i1 %or.cond11.i.i56, label %if.then7.i34.i57, label %nk_utf_decode.exit88
 
-if.then7.i36.i57:                                 ; preds = %land.lhs.true.i.i52, %if.end.i.i48
+if.then7.i34.i57:                                 ; preds = %land.lhs.true.i.i52, %if.end18.i48
   store i32 65533, ptr %unicode, align 4
   br label %nk_utf_decode.exit88
 
 return.loopexit.i72:                              ; preds = %for.inc.i21.i69
-  %indvars78.le91.i73 = trunc i64 %indvars.iv.i60 to i32
+  %indvars76.le89.i73 = trunc i64 %indvars.iv.i60 to i32
   br label %nk_utf_decode.exit88
 
-return.loopexit81.i76:                            ; preds = %nk_utf_decode_byte.exit30.i74
-  %indvars78.le.i77 = trunc i64 %indvars.iv.i60 to i32
+return.loopexit79.i76:                            ; preds = %nk_utf_decode_byte.exit30.i74
+  %indvars76.le.i77 = trunc i64 %indvars.iv.i60 to i32
   br label %nk_utf_decode.exit88
 
-nk_utf_decode.exit88:                             ; preds = %for.inc.i.i33, %nk_utf_decode_byte.exit.i37, %land.lhs.true.i.i52, %if.then7.i36.i57, %return.loopexit.i72, %return.loopexit81.i76
-  %retval.0.i36 = phi i32 [ 1, %nk_utf_decode_byte.exit.i37 ], [ %20, %if.then7.i36.i57 ], [ %20, %land.lhs.true.i.i52 ], [ %indvars78.le91.i73, %return.loopexit.i72 ], [ %indvars78.le.i77, %return.loopexit81.i76 ], [ 1, %for.inc.i.i33 ]
+nk_utf_decode.exit88:                             ; preds = %for.inc.i.i33, %nk_utf_decode_byte.exit.i37, %land.lhs.true.i.i52, %if.then7.i34.i57, %return.loopexit.i72, %return.loopexit79.i76
+  %retval.0.i36 = phi i32 [ 1, %nk_utf_decode_byte.exit.i37 ], [ %20, %if.then7.i34.i57 ], [ %20, %land.lhs.true.i.i52 ], [ %indvars76.le89.i73, %return.loopexit.i72 ], [ %indvars76.le.i77, %return.loopexit79.i76 ], [ 1, %for.inc.i.i33 ]
   %tobool7.not = icmp eq i32 %retval.0.i36, 0
   br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !41
 
@@ -10666,7 +10666,7 @@ if.end4.i:                                        ; preds = %entry
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %1, %0
@@ -10690,9 +10690,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %text_len, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %5 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %text_len, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %5 = and i1 %cmp859.i, %cmp960.i
   br i1 %5, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -10702,13 +10702,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -10724,13 +10724,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %8, -1
   %and12.i28.i = and i8 %7, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %6
@@ -10740,39 +10740,39 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %return, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %return, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %13
   %14 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %14, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i34.i ], [ %3, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
   %tobool.not115 = icmp ne i32 %retval.0.i, 0
   %cmp1116 = fcmp ogt float %space, 0.000000e+00
   %or.cond117 = and i1 %tobool.not115, %cmp1116
@@ -10866,7 +10866,7 @@ if.end4.i35:                                      ; preds = %for.end
   br label %for.body.i.i36
 
 for.body.i.i36:                                   ; preds = %for.inc.i.i42, %if.end4.i35
-  %indvars.iv.i.i37 = phi i64 [ %indvars.iv.next.i.i43, %for.inc.i.i42 ], [ 0, %if.end4.i35 ]
+  %indvars.iv.i.i37 = phi i64 [ 0, %if.end4.i35 ], [ %indvars.iv.next.i.i43, %for.inc.i.i42 ]
   %arrayidx.i.i38 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i37
   %24 = load i8, ptr %arrayidx.i.i38, align 1
   %and8.i.i39 = and i8 %24, %23
@@ -10890,9 +10890,9 @@ for.cond.preheader.i48:                           ; preds = %nk_utf_decode_byte.
   %not.i.i49 = xor i8 %24, -1
   %and12.i.i50 = and i8 %23, %not.i.i49
   %conv14.i.i51 = zext i8 %and12.i.i50 to i32
-  %cmp861.i52 = icmp sgt i32 %sub, 1
-  %cmp962.i53 = icmp ugt i64 %indvars.iv.i.i37, 1
-  %28 = and i1 %cmp861.i52, %cmp962.i53
+  %cmp859.i52 = icmp sgt i32 %sub, 1
+  %cmp960.i53 = icmp ugt i64 %indvars.iv.i.i37, 1
+  %28 = and i1 %cmp859.i52, %cmp960.i53
   br i1 %28, label %for.body.preheader.i67, label %for.end.i54
 
 for.body.preheader.i67:                           ; preds = %for.cond.preheader.i48
@@ -10902,13 +10902,13 @@ for.body.preheader.i67:                           ; preds = %for.cond.preheader.
 
 for.body.i68:                                     ; preds = %for.inc.i87, %for.body.preheader.i67
   %indvars.iv.i69 = phi i64 [ 1, %for.body.preheader.i67 ], [ %indvars.iv.next.i93, %for.inc.i87 ]
-  %udecoded.065.i70 = phi i32 [ %conv14.i.i51, %for.body.preheader.i67 ], [ %or.i92, %for.inc.i87 ]
+  %udecoded.063.i70 = phi i32 [ %conv14.i.i51, %for.body.preheader.i67 ], [ %or.i92, %for.inc.i87 ]
   %arrayidx10.i71 = getelementptr inbounds i8, ptr %arrayidx13, i64 %indvars.iv.i69
   %30 = load i8, ptr %arrayidx10.i71, align 1
   br label %for.body.i15.i72
 
 for.body.i15.i72:                                 ; preds = %for.inc.i21.i78, %for.body.i68
-  %indvars.iv.i16.i73 = phi i64 [ %indvars.iv.next.i22.i79, %for.inc.i21.i78 ], [ 0, %for.body.i68 ]
+  %indvars.iv.i16.i73 = phi i64 [ 0, %for.body.i68 ], [ %indvars.iv.next.i22.i79, %for.inc.i21.i78 ]
   %arrayidx.i17.i74 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i73
   %31 = load i8, ptr %arrayidx.i17.i74, align 1
   %and8.i18.i75 = and i8 %31, %30
@@ -10924,13 +10924,13 @@ for.inc.i21.i78:                                  ; preds = %for.body.i15.i72
 
 nk_utf_decode_byte.exit30.i83:                    ; preds = %for.body.i15.i72
   %cmp12.not.i84 = icmp eq i64 %indvars.iv.i16.i73, 0
-  br i1 %cmp12.not.i84, label %for.inc.i87, label %return.loopexit81.i85
+  br i1 %cmp12.not.i84, label %for.inc.i87, label %return.loopexit79.i85
 
 for.inc.i87:                                      ; preds = %nk_utf_decode_byte.exit30.i83
   %not.i27.i88 = xor i8 %31, -1
   %and12.i28.i89 = and i8 %30, %not.i27.i88
   %conv14.i29.i90 = zext i8 %and12.i28.i89 to i32
-  %shl.i91 = shl i32 %udecoded.065.i70, 6
+  %shl.i91 = shl i32 %udecoded.063.i70, 6
   %or.i92 = or i32 %shl.i91, %conv14.i29.i90
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i69, 1
   %cmp8.i95 = icmp ult i64 %indvars.iv.next.i93, %29
@@ -10940,43 +10940,43 @@ for.inc.i87:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i54:                                      ; preds = %for.inc.i87, %for.cond.preheader.i48
   %udecoded.0.lcssa.i55 = phi i32 [ %conv14.i.i51, %for.cond.preheader.i48 ], [ %or.i92, %for.inc.i87 ]
-  %cmp9.lcssa.i56 = phi i1 [ %cmp962.i53, %for.cond.preheader.i48 ], [ %33, %for.inc.i87 ]
-  br i1 %cmp9.lcssa.i56, label %nk_utf_decode.exit97.thread, label %if.end.i.i57
+  %cmp9.lcssa.i56 = phi i1 [ %cmp960.i53, %for.cond.preheader.i48 ], [ %33, %for.inc.i87 ]
+  br i1 %cmp9.lcssa.i56, label %nk_utf_decode.exit97.thread, label %if.end18.i57
 
-if.end.i.i57:                                     ; preds = %for.end.i54
+if.end18.i57:                                     ; preds = %for.end.i54
   %idxprom.i.i58 = and i64 %indvars.iv.i.i37, 4294967295
   %arrayidx.i31.i59 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i58
   %35 = load i32, ptr %arrayidx.i31.i59, align 4
   %cmp.not.i.i60 = icmp ugt i32 %35, %udecoded.0.lcssa.i55
-  br i1 %cmp.not.i.i60, label %if.then7.i36.i66, label %land.lhs.true.i.i61
+  br i1 %cmp.not.i.i60, label %if.then7.i34.i66, label %land.lhs.true.i.i61
 
-land.lhs.true.i.i61:                              ; preds = %if.end.i.i57
+land.lhs.true.i.i61:                              ; preds = %if.end18.i57
   %arrayidx2.i.i62 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i58
   %36 = load i32, ptr %arrayidx2.i.i62, align 4
   %cmp3.i.i63 = icmp uge i32 %udecoded.0.lcssa.i55, %36
   %37 = add i32 %udecoded.0.lcssa.i55, -55296
   %or.cond.i.i64 = icmp ult i32 %37, 2047
   %or.cond11.i.i65 = or i1 %or.cond.i.i64, %cmp3.i.i63
-  br i1 %or.cond11.i.i65, label %if.then7.i36.i66, label %nk_utf_decode.exit97
+  br i1 %or.cond11.i.i65, label %if.then7.i34.i66, label %nk_utf_decode.exit97
 
-if.then7.i36.i66:                                 ; preds = %land.lhs.true.i.i61, %if.end.i.i57
+if.then7.i34.i66:                                 ; preds = %land.lhs.true.i.i61, %if.end18.i57
   br label %nk_utf_decode.exit97
 
 return.loopexit.i81:                              ; preds = %for.inc.i21.i78
-  %indvars78.le91.i82 = trunc i64 %indvars.iv.i69 to i32
+  %indvars76.le89.i82 = trunc i64 %indvars.iv.i69 to i32
   br label %nk_utf_decode.exit97
 
-return.loopexit81.i85:                            ; preds = %nk_utf_decode_byte.exit30.i83
-  %indvars78.le.i86 = trunc i64 %indvars.iv.i69 to i32
+return.loopexit79.i85:                            ; preds = %nk_utf_decode_byte.exit30.i83
+  %indvars76.le.i86 = trunc i64 %indvars.iv.i69 to i32
   br label %nk_utf_decode.exit97
 
 nk_utf_decode.exit97.thread:                      ; preds = %for.end, %for.end.i54
   %cmp2174 = icmp slt i32 %add, %text_len
   br i1 %cmp2174, label %if.else, label %return
 
-nk_utf_decode.exit97:                             ; preds = %for.inc.i.i42, %nk_utf_decode_byte.exit.i46, %land.lhs.true.i.i61, %if.then7.i36.i66, %return.loopexit.i81, %return.loopexit81.i85
-  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i66 ], [ %udecoded.0.lcssa.i55, %land.lhs.true.i.i61 ], [ 65533, %return.loopexit81.i85 ], [ 65533, %return.loopexit.i81 ], [ 65533, %nk_utf_decode_byte.exit.i46 ], [ 65533, %for.inc.i.i42 ]
-  %retval.0.i45 = phi i32 [ %26, %if.then7.i36.i66 ], [ %26, %land.lhs.true.i.i61 ], [ %indvars78.le.i86, %return.loopexit81.i85 ], [ %indvars78.le91.i82, %return.loopexit.i81 ], [ 1, %nk_utf_decode_byte.exit.i46 ], [ 1, %for.inc.i.i42 ]
+nk_utf_decode.exit97:                             ; preds = %for.inc.i.i42, %nk_utf_decode_byte.exit.i46, %land.lhs.true.i.i61, %if.then7.i34.i66, %return.loopexit.i81, %return.loopexit79.i85
+  %unicode.2 = phi i32 [ 65533, %if.then7.i34.i66 ], [ %udecoded.0.lcssa.i55, %land.lhs.true.i.i61 ], [ 65533, %return.loopexit79.i85 ], [ 65533, %return.loopexit.i81 ], [ 65533, %nk_utf_decode_byte.exit.i46 ], [ 65533, %for.inc.i.i42 ]
+  %retval.0.i45 = phi i32 [ %26, %if.then7.i34.i66 ], [ %26, %land.lhs.true.i.i61 ], [ %indvars76.le.i86, %return.loopexit79.i85 ], [ %indvars76.le89.i82, %return.loopexit.i81 ], [ 1, %nk_utf_decode_byte.exit.i46 ], [ 1, %for.inc.i.i42 ]
   %tobool.not = icmp ne i32 %retval.0.i45, 0
   %cmp1 = fcmp olt float %call4, %space
   %or.cond = select i1 %tobool.not, i1 %cmp1, i1 false
@@ -14677,7 +14677,7 @@ if.end4.i:                                        ; preds = %land.lhs.true18
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %8, %7
@@ -14701,9 +14701,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %8, -1
   %and12.i.i = and i8 %7, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %len, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %12 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %len, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %12 = and i1 %cmp859.i, %cmp960.i
   br i1 %12, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -14713,13 +14713,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i
   %14 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %15 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %15, %14
@@ -14735,13 +14735,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %15, -1
   %and12.i28.i = and i8 %14, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %13
@@ -14751,39 +14751,39 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %17, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %while.end, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %17, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %while.end, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %19 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %19, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %20 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %20
   %21 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %21, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
-  %retval.0.i = phi i32 [ %10, %if.then7.i36.i ], [ %10, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %10, %if.then7.i34.i ], [ %10, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ]
   %tobool29.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool29.not, label %while.end, label %if.end31
 
@@ -14826,7 +14826,7 @@ if.end40:                                         ; preds = %if.end40.lr.ph, %nk
   br label %for.body.i.i41
 
 for.body.i.i41:                                   ; preds = %for.inc.i.i47, %if.end40
-  %indvars.iv.i.i42 = phi i64 [ %indvars.iv.next.i.i48, %for.inc.i.i47 ], [ 0, %if.end40 ]
+  %indvars.iv.i.i42 = phi i64 [ 0, %if.end40 ], [ %indvars.iv.next.i.i48, %for.inc.i.i47 ]
   %arrayidx.i.i43 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i42
   %24 = load i8, ptr %arrayidx.i.i43, align 1
   %and8.i.i44 = and i8 %24, %23
@@ -14850,9 +14850,9 @@ for.cond.preheader.i53:                           ; preds = %nk_utf_decode_byte.
   %not.i.i54 = xor i8 %24, -1
   %and12.i.i55 = and i8 %23, %not.i.i54
   %conv14.i.i56 = zext i8 %and12.i.i55 to i32
-  %cmp861.i57 = icmp sgt i32 %sub, 1
-  %cmp962.i58 = icmp ugt i64 %indvars.iv.i.i42, 1
-  %28 = and i1 %cmp861.i57, %cmp962.i58
+  %cmp859.i57 = icmp sgt i32 %sub, 1
+  %cmp960.i58 = icmp ugt i64 %indvars.iv.i.i42, 1
+  %28 = and i1 %cmp859.i57, %cmp960.i58
   br i1 %28, label %for.body.preheader.i72, label %for.end.i59
 
 for.body.preheader.i72:                           ; preds = %for.cond.preheader.i53
@@ -14862,13 +14862,13 @@ for.body.preheader.i72:                           ; preds = %for.cond.preheader.
 
 for.body.i73:                                     ; preds = %for.inc.i92, %for.body.preheader.i72
   %indvars.iv.i74 = phi i64 [ 1, %for.body.preheader.i72 ], [ %indvars.iv.next.i98, %for.inc.i92 ]
-  %udecoded.065.i75 = phi i32 [ %conv14.i.i56, %for.body.preheader.i72 ], [ %or.i97, %for.inc.i92 ]
+  %udecoded.063.i75 = phi i32 [ %conv14.i.i56, %for.body.preheader.i72 ], [ %or.i97, %for.inc.i92 ]
   %arrayidx10.i76 = getelementptr inbounds i8, ptr %add.ptr42, i64 %indvars.iv.i74
   %30 = load i8, ptr %arrayidx10.i76, align 1
   br label %for.body.i15.i77
 
 for.body.i15.i77:                                 ; preds = %for.inc.i21.i83, %for.body.i73
-  %indvars.iv.i16.i78 = phi i64 [ %indvars.iv.next.i22.i84, %for.inc.i21.i83 ], [ 0, %for.body.i73 ]
+  %indvars.iv.i16.i78 = phi i64 [ 0, %for.body.i73 ], [ %indvars.iv.next.i22.i84, %for.inc.i21.i83 ]
   %arrayidx.i17.i79 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i78
   %31 = load i8, ptr %arrayidx.i17.i79, align 1
   %and8.i18.i80 = and i8 %31, %30
@@ -14884,13 +14884,13 @@ for.inc.i21.i83:                                  ; preds = %for.body.i15.i77
 
 nk_utf_decode_byte.exit30.i88:                    ; preds = %for.body.i15.i77
   %cmp12.not.i89 = icmp eq i64 %indvars.iv.i16.i78, 0
-  br i1 %cmp12.not.i89, label %for.inc.i92, label %return.loopexit81.i90
+  br i1 %cmp12.not.i89, label %for.inc.i92, label %return.loopexit79.i90
 
 for.inc.i92:                                      ; preds = %nk_utf_decode_byte.exit30.i88
   %not.i27.i93 = xor i8 %31, -1
   %and12.i28.i94 = and i8 %30, %not.i27.i93
   %conv14.i29.i95 = zext i8 %and12.i28.i94 to i32
-  %shl.i96 = shl i32 %udecoded.065.i75, 6
+  %shl.i96 = shl i32 %udecoded.063.i75, 6
   %or.i97 = or i32 %shl.i96, %conv14.i29.i95
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i74, 1
   %cmp8.i100 = icmp ult i64 %indvars.iv.next.i98, %29
@@ -14900,18 +14900,18 @@ for.inc.i92:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i59:                                      ; preds = %for.inc.i92, %for.cond.preheader.i53
   %udecoded.0.lcssa.i60 = phi i32 [ %conv14.i.i56, %for.cond.preheader.i53 ], [ %or.i97, %for.inc.i92 ]
-  %cmp9.lcssa.i61 = phi i1 [ %cmp962.i58, %for.cond.preheader.i53 ], [ %33, %for.inc.i92 ]
+  %cmp9.lcssa.i61 = phi i1 [ %cmp960.i58, %for.cond.preheader.i53 ], [ %33, %for.inc.i92 ]
   %next.1.fr = freeze i32 %udecoded.0.lcssa.i60
-  br i1 %cmp9.lcssa.i61, label %nk_utf_decode.exit102.thread, label %if.end.i.i62
+  br i1 %cmp9.lcssa.i61, label %nk_utf_decode.exit102.thread, label %if.end18.i62
 
-if.end.i.i62:                                     ; preds = %for.end.i59
+if.end18.i62:                                     ; preds = %for.end.i59
   %idxprom.i.i63 = and i64 %indvars.iv.i.i42, 4294967295
   %arrayidx.i31.i64 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i63
   %35 = load i32, ptr %arrayidx.i31.i64, align 4
   %cmp.not.i.i65 = icmp ugt i32 %35, %next.1.fr
   br i1 %cmp.not.i.i65, label %nk_utf_decode.exit102.thread, label %land.lhs.true.i.i66
 
-land.lhs.true.i.i66:                              ; preds = %if.end.i.i62
+land.lhs.true.i.i66:                              ; preds = %if.end18.i62
   %arrayidx2.i.i67 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i63
   %36 = load i32, ptr %arrayidx2.i.i67, align 4
   %cmp3.i.i68 = icmp uge i32 %next.1.fr, %36
@@ -14921,11 +14921,11 @@ land.lhs.true.i.i66:                              ; preds = %if.end.i.i62
   br i1 %or.cond11.i.i70, label %nk_utf_decode.exit102.thread, label %nk_utf_decode.exit102
 
 return.loopexit.i86:                              ; preds = %for.inc.i21.i83
-  %indvars78.le91.i87 = trunc i64 %indvars.iv.i74 to i32
+  %indvars76.le89.i87 = trunc i64 %indvars.iv.i74 to i32
   br label %nk_utf_decode.exit102.thread
 
-return.loopexit81.i90:                            ; preds = %nk_utf_decode_byte.exit30.i88
-  %indvars78.le.i91 = trunc i64 %indvars.iv.i74 to i32
+return.loopexit79.i90:                            ; preds = %nk_utf_decode_byte.exit30.i88
+  %indvars76.le.i91 = trunc i64 %indvars.iv.i74 to i32
   br label %nk_utf_decode.exit102.thread
 
 nk_utf_decode.exit102:                            ; preds = %land.lhs.true.i.i66
@@ -14933,10 +14933,10 @@ nk_utf_decode.exit102:                            ; preds = %land.lhs.true.i.i66
   %spec.select = select i1 %cmp44, i32 0, i32 %next.1.fr
   br label %nk_utf_decode.exit102.thread
 
-nk_utf_decode.exit102.thread:                     ; preds = %for.inc.i.i47, %if.end.i.i62, %land.lhs.true.i.i66, %nk_utf_decode_byte.exit.i51, %return.loopexit.i86, %return.loopexit81.i90, %for.end.i59, %nk_utf_decode.exit102
-  %retval.0.i50123 = phi i32 [ %26, %nk_utf_decode.exit102 ], [ %indvars78.le.i91, %return.loopexit81.i90 ], [ %indvars78.le91.i87, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 1, %nk_utf_decode_byte.exit.i51 ], [ %26, %land.lhs.true.i.i66 ], [ %26, %if.end.i.i62 ], [ 1, %for.inc.i.i47 ]
-  %next.1121 = phi i32 [ %next.1.fr, %nk_utf_decode.exit102 ], [ 65533, %return.loopexit81.i90 ], [ 65533, %return.loopexit.i86 ], [ 65533, %for.end.i59 ], [ 65533, %nk_utf_decode_byte.exit.i51 ], [ 65533, %land.lhs.true.i.i66 ], [ 65533, %if.end.i.i62 ], [ 65533, %for.inc.i.i47 ]
-  %38 = phi i32 [ %spec.select, %nk_utf_decode.exit102 ], [ 0, %return.loopexit81.i90 ], [ 0, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 0, %nk_utf_decode_byte.exit.i51 ], [ 0, %land.lhs.true.i.i66 ], [ 0, %if.end.i.i62 ], [ 0, %for.inc.i.i47 ]
+nk_utf_decode.exit102.thread:                     ; preds = %for.inc.i.i47, %if.end18.i62, %land.lhs.true.i.i66, %nk_utf_decode_byte.exit.i51, %return.loopexit.i86, %return.loopexit79.i90, %for.end.i59, %nk_utf_decode.exit102
+  %retval.0.i50123 = phi i32 [ %26, %nk_utf_decode.exit102 ], [ %indvars76.le.i91, %return.loopexit79.i90 ], [ %indvars76.le89.i87, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 1, %nk_utf_decode_byte.exit.i51 ], [ %26, %land.lhs.true.i.i66 ], [ %26, %if.end18.i62 ], [ 1, %for.inc.i.i47 ]
+  %next.1121 = phi i32 [ %next.1.fr, %nk_utf_decode.exit102 ], [ 65533, %return.loopexit79.i90 ], [ 65533, %return.loopexit.i86 ], [ 65533, %for.end.i59 ], [ 65533, %nk_utf_decode_byte.exit.i51 ], [ 65533, %land.lhs.true.i.i66 ], [ 65533, %if.end18.i62 ], [ 65533, %for.inc.i.i47 ]
+  %38 = phi i32 [ %spec.select, %nk_utf_decode.exit102 ], [ 0, %return.loopexit79.i90 ], [ 0, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 0, %nk_utf_decode_byte.exit.i51 ], [ 0, %land.lhs.true.i.i66 ], [ 0, %if.end18.i62 ], [ 0, %for.inc.i.i47 ]
   %39 = load ptr, ptr %.in, align 8
   %40 = load ptr, ptr %font, align 8
   call void %39(ptr %40, float noundef %font_height, ptr noundef nonnull %g, i32 noundef %unicode.0144, i32 noundef %38) #52
@@ -31452,7 +31452,7 @@ if.end54:                                         ; preds = %if.end45
   %37 = load ptr, ptr %alloc, align 8
   %38 = load i64, ptr %img_size, align 8
   %39 = load ptr, ptr %temporary, align 8
-  %call60 = call ptr %37(ptr %39, ptr noundef null, i64 noundef %38) #52
+  %call60 = tail call ptr %37(ptr %39, ptr noundef null, i64 noundef %38) #52
   store ptr %call60, ptr %atlas, align 8
   %tobool62.not = icmp eq ptr %call60, null
   br i1 %tobool62.not, label %if.then166, label %if.end64
@@ -31464,12 +31464,12 @@ if.end64:                                         ; preds = %if.end54
   %43 = load i32, ptr %glyph_count, align 8
   %44 = load ptr, ptr %config, align 8
   %45 = load i32, ptr %font_num, align 8
-  call fastcc void @nk_font_bake(ptr noundef nonnull %23, ptr noundef nonnull %call60, i32 noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45)
+  tail call fastcc void @nk_font_bake(ptr noundef nonnull %23, ptr noundef nonnull %call60, i32 noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45)
   %46 = load ptr, ptr %atlas, align 8
   %47 = load i32, ptr %width, align 4
   %48 = load i32, ptr %height, align 4
   %49 = load i64, ptr %custom, align 8
-  call fastcc void @nk_font_bake_custom_data(ptr noundef %46, i32 noundef %47, i32 noundef %48, i64 %49)
+  tail call fastcc void @nk_font_bake_custom_data(ptr noundef %46, i32 noundef %47, i32 noundef %48, i64 %49)
   %cmp = icmp eq i32 %fmt, 1
   br i1 %cmp, label %if.then73, label %if.end94
 
@@ -31481,7 +31481,7 @@ if.then73:                                        ; preds = %if.end64
   %mul79 = mul i32 %mul78, %52
   %conv80 = sext i32 %mul79 to i64
   %53 = load ptr, ptr %temporary, align 8
-  %call82 = call ptr %50(ptr %53, ptr noundef null, i64 noundef %conv80) #52
+  %call82 = tail call ptr %50(ptr %53, ptr noundef null, i64 noundef %conv80) #52
   %tobool83.not = icmp eq ptr %call82, null
   br i1 %tobool83.not, label %if.then166, label %if.end85
 
@@ -31522,7 +31522,7 @@ nk_font_bake_convert.exit:                        ; preds = %nk_font_bake_conver
   %58 = phi ptr [ %.pre, %nk_font_bake_convert.exit.loopexit ], [ %56, %if.end85 ]
   %59 = load ptr, ptr %free, align 8
   %60 = load ptr, ptr %temporary, align 8
-  call void %59(ptr %60, ptr noundef %58) #52
+  tail call void %59(ptr %60, ptr noundef %58) #52
   store ptr %call82, ptr %atlas, align 8
   br label %if.end94
 
@@ -31720,14 +31720,14 @@ for.body106:                                      ; preds = %for.cond103.prehead
 for.end158:                                       ; preds = %for.body106
   %87 = load ptr, ptr %free, align 8
   %88 = load ptr, ptr %temporary, align 8
-  call void %87(ptr %88, ptr noundef nonnull %call27) #52
+  tail call void %87(ptr %88, ptr noundef nonnull %call27) #52
   %89 = load ptr, ptr %atlas, align 8
   br label %return
 
 if.then166:                                       ; preds = %nk_memset.exit, %if.end45, %if.end54, %if.then73
   %90 = load ptr, ptr %free, align 8
   %91 = load ptr, ptr %temporary, align 8
-  call void %90(ptr %91, ptr noundef nonnull %call27) #52
+  tail call void %90(ptr %91, ptr noundef nonnull %call27) #52
   br label %if.end172
 
 if.end172:                                        ; preds = %nk_font_baker_memory.exit, %if.then166
@@ -31739,7 +31739,7 @@ if.end172:                                        ; preds = %nk_font_baker_memor
 if.then175:                                       ; preds = %if.end172
   %93 = load ptr, ptr %free14, align 8
   %94 = load ptr, ptr %permanent, align 8
-  call void %93(ptr %94, ptr noundef nonnull %92) #52
+  tail call void %93(ptr %94, ptr noundef nonnull %92) #52
   store ptr null, ptr %glyphs173, align 8
   br label %if.end183
 
@@ -31751,7 +31751,7 @@ if.end183:                                        ; preds = %if.then175, %if.end
 if.then186:                                       ; preds = %if.end183
   %96 = load ptr, ptr %free, align 8
   %97 = load ptr, ptr %temporary, align 8
-  call void %96(ptr %97, ptr noundef nonnull %95) #52
+  tail call void %96(ptr %97, ptr noundef nonnull %95) #52
   store ptr null, ptr %atlas, align 8
   br label %return
 
@@ -31761,14 +31761,12 @@ return:                                           ; preds = %if.end183, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_font_bake_pack(ptr nocapture noundef %baker, ptr noundef writeonly %image_memory, ptr nocapture noundef %width, ptr nocapture noundef %height, ptr nocapture noundef %custom, ptr noundef readonly %config_list, i32 noundef %count, ptr noundef %alloc) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @nk_font_bake_pack(ptr nocapture noundef %baker, ptr nocapture noundef writeonly %image_memory, ptr nocapture noundef %width, ptr nocapture noundef %height, ptr nocapture noundef %custom, ptr noundef readonly %config_list, i32 noundef %count, ptr noundef %alloc) unnamed_addr #17 {
 entry:
   %custom_space = alloca %struct.stbrp_rect, align 4
-  %tobool = icmp ne ptr %image_memory, null
   %tobool5 = icmp ne ptr %config_list, null
-  %or.cond2 = and i1 %tobool, %tobool5
   %tobool7 = icmp ne i32 %count, 0
-  %or.cond3 = and i1 %or.cond2, %tobool7
+  %or.cond3 = and i1 %tobool5, %tobool7
   br i1 %or.cond3, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %entry, %for.inc
@@ -33110,8 +33108,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  br i1 %cmp962.i, label %for.body.i.preheader, label %if.end.i.i
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  br i1 %cmp960.i, label %for.body.i.preheader, label %if.end18.i
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %zext = and i64 %indvars.iv.i.i, 4294967295
@@ -33122,13 +33120,13 @@ for.body.i.preheader:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 1, %for.body.i.preheader ]
-  %udecoded.065.i = phi i32 [ %or.i, %for.inc.i ], [ %conv14.i.i, %for.body.i.preheader ]
+  %udecoded.063.i = phi i32 [ %or.i, %for.inc.i ], [ %conv14.i.i, %for.body.i.preheader ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %glyph, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -33144,13 +33142,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %8, -1
   %and12.i28.i = and i8 %7, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %6
@@ -33158,39 +33156,39 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i
   %10 = icmp ult i64 %indvars.iv.next.i, %zext
-  br i1 %10, label %if.end12, label %if.end.i.i
+  br i1 %10, label %if.end12, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
+if.end18.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   %udecoded.0.lcssa.i25 = phi i32 [ %or.i, %for.end.i ], [ %conv14.i.i, %for.cond.preheader.i ]
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %11 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %11, %udecoded.0.lcssa.i25
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i25, %12
   %13 = add i32 %udecoded.0.lcssa.i25, -55296
   %or.cond.i.i = icmp ult i32 %13, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i25, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
-  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i25, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i34.i ], [ %3, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ]
   %tobool1.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool1.not, label %if.end12, label %land.lhs.true
 
@@ -39014,7 +39012,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %100 = load ptr, ptr %width, align 8
   %101 = load float, ptr %height180, align 8
   %102 = load ptr, ptr %10, align 8
-  %call428 = call float %100(ptr %102, float noundef %101, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #52
+  %call428 = tail call float %100(ptr %102, float noundef %101, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #52
   %header170.sroa.0.0.vec.extract80 = extractelement <2 x float> %header170.sroa.0.2, i64 0
   %103 = load float, ptr %padding183, align 4
   %add437 = fadd float %header170.sroa.0.0.vec.extract80, %103
@@ -39024,10 +39022,10 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %105 = load float, ptr %y189, align 4
   %add450 = fadd float %header170.sroa.0.4.vec.extract91, %105
   %106 = load float, ptr %height180, align 8
-  %107 = call float @llvm.fmuladd.f32(float %105, float 2.000000e+00, float %106)
+  %107 = tail call float @llvm.fmuladd.f32(float %105, float 2.000000e+00, float %106)
   %spacing460 = getelementptr inbounds i8, ptr %ctx, i64 9236
   %108 = load float, ptr %spacing460, align 4
-  %109 = call float @llvm.fmuladd.f32(float %108, float 2.000000e+00, float %call428)
+  %109 = tail call float @llvm.fmuladd.f32(float %108, float 2.000000e+00, float %call428)
   %110 = fadd <2 x float> %header170.sroa.0.2, %header170.sroa.21.2
   %add466 = extractelement <2 x float> %110, i64 0
   %sub468 = fsub float %add466, %add444
@@ -39039,7 +39037,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i381, float 0.000000e+00, float %107
   %111 = load ptr, ptr %width, align 8
   %112 = load ptr, ptr %10, align 8
-  %call.i = call float %111(ptr %112, float noundef %106, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #52
+  %call.i = tail call float %111(ptr %112, float noundef %106, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #52
   %add35.i = fadd float %add444, 0.000000e+00
   %113 = insertelement <2 x float> poison, float %add35.i, i64 0
   %114 = insertelement <2 x float> poison, float %cond501, i64 0
@@ -39054,7 +39052,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %cmp179.i = fcmp olt float %div164.i, %sub178.i
   %sub178.div164.i = select i1 %cmp179.i, float %sub178.i, float %div164.i
   %label.sroa.15.12.vec.insert51.i = insertelement <2 x float> %114, float %sub178.div164.i, i64 1
-  call void @nk_draw_text(ptr noundef nonnull %buffer, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa, ptr noundef nonnull %10, i32 %text.sroa.3.0, i32 %text.sroa.7.0)
+  tail call void @nk_draw_text(ptr noundef nonnull %buffer, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa, ptr noundef nonnull %10, i32 %text.sroa.3.0, i32 %text.sroa.7.0)
   br label %if.end503
 
 if.end503:                                        ; preds = %nk_strlen.exit, %if.end165
@@ -39088,23 +39086,23 @@ if.then511:                                       ; preds = %if.end503
 
 sw.bb530:                                         ; preds = %if.then511
   %data533 = getelementptr inbounds i8, ptr %ctx, i64 9256
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %body.sroa.0.4.vec.insert, <2 x float> %body.sroa.5.12.vec.insert, ptr noundef nonnull %data533, i32 -1)
+  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %body.sroa.0.4.vec.insert, <2 x float> %body.sroa.5.12.vec.insert, ptr noundef nonnull %data533, i32 -1)
   br label %if.end543
 
 sw.bb534:                                         ; preds = %if.then511
   %data537 = getelementptr inbounds i8, ptr %ctx, i64 9256
-  call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %body.sroa.0.4.vec.insert, <2 x float> %body.sroa.5.12.vec.insert, ptr noundef nonnull %data537, i32 -1)
+  tail call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %body.sroa.0.4.vec.insert, <2 x float> %body.sroa.5.12.vec.insert, ptr noundef nonnull %data537, i32 -1)
   br label %if.end543
 
 sw.bb538:                                         ; preds = %if.then511
   %data541 = getelementptr inbounds i8, ptr %ctx, i64 9256
   %124 = load i32, ptr %data541, align 8
-  call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %body.sroa.0.4.vec.insert, <2 x float> %body.sroa.5.12.vec.insert, float noundef 0.000000e+00, i32 %124)
+  tail call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %body.sroa.0.4.vec.insert, <2 x float> %body.sroa.5.12.vec.insert, float noundef 0.000000e+00, i32 %124)
   br label %if.end543
 
 if.end543:                                        ; preds = %if.then511, %sw.bb530, %sw.bb534, %sw.bb538, %if.end503
   %clip544 = getelementptr inbounds i8, ptr %11, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %clip544, ptr noundef nonnull align 8 dereferenceable(16) %bounds104, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %clip544, ptr noundef nonnull align 8 dereferenceable(16) %bounds104, i64 16, i1 false)
   %clip547 = getelementptr inbounds i8, ptr %3, i64 112
   %125 = load float, ptr %clip544, align 4
   %y551 = getelementptr inbounds i8, ptr %11, i64 72
@@ -39147,7 +39145,7 @@ if.end543:                                        ; preds = %if.then511, %sw.bb5
   store float %cond41.i, ptr %w.i, align 8
   store float %cond49.i387, ptr %h.i, align 4
   %133 = load ptr, ptr %buffer, align 8
-  %call.i.i = call fastcc ptr @nk_buffer_alloc(ptr noundef %133, i32 noundef 0, i64 noundef 24, i64 noundef 8)
+  %call.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %133, i32 noundef 0, i64 noundef 24, i64 noundef 8)
   %tobool1.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool1.not.i.i, label %nk_push_scissor.exit, label %if.end10.i
 
@@ -39774,19 +39772,19 @@ if.end52.i.i:                                     ; preds = %if.then19.i.i, %if.
   %padding.i.i = getelementptr inbounds i8, ptr %ctx, i64 6020
   %98 = load float, ptr %padding.i.i, align 4
   %mul89.i.i = fmul float %98, 2.000000e+00
-  %99 = call float @llvm.fmuladd.f32(float %97, float 2.000000e+00, float %mul89.i.i)
+  %99 = tail call float @llvm.fmuladd.f32(float %97, float 2.000000e+00, float %mul89.i.i)
   %neg.i.i = fneg float %99
-  %100 = call float @llvm.fmuladd.f32(float %div.i.i, float %96, float %neg.i.i)
+  %100 = tail call float @llvm.fmuladd.f32(float %div.i.i, float %96, float %neg.i.i)
   %w90.i.i = getelementptr inbounds i8, ptr %cursor.i.i, i64 8
   store float %100, ptr %w90.i.i, align 4
-  %101 = call float @llvm.fmuladd.f32(float %div84.i.i, float %96, float %95)
+  %101 = tail call float @llvm.fmuladd.f32(float %div84.i.i, float %96, float %95)
   %add95.i.i = fadd float %97, %101
   %add98.i.i = fadd float %98, %add95.i.i
   store float %add98.i.i, ptr %cursor.i.i, align 4
   %y104.i.i = getelementptr inbounds i8, ptr %ctx, i64 6024
   %102 = load float, ptr %y104.i.i, align 4
   %mul105.i.i = fmul float %102, 2.000000e+00
-  %103 = call float @llvm.fmuladd.f32(float %97, float 2.000000e+00, float %mul105.i.i)
+  %103 = tail call float @llvm.fmuladd.f32(float %97, float 2.000000e+00, float %mul105.i.i)
   %sub106.i.i = fsub float %cond.i403.i, %103
   %h107.i.i = getelementptr inbounds i8, ptr %cursor.i.i, i64 12
   store float %sub106.i.i, ptr %h107.i.i, align 4
@@ -39814,7 +39812,7 @@ if.end52.i.i:                                     ; preds = %if.then19.i.i, %if.
   store float %cond.i403.i, ptr %h140.i.i, align 4
   %call141.i.i = call fastcc float @nk_scrollbar_behavior(ptr noundef nonnull %state250.i, ptr noundef %cond.i30, i32 noundef %scroll_has_scrolling.0.i, ptr noundef nonnull %scroll.i.i, ptr noundef nonnull %cursor.i.i, ptr noundef nonnull %empty_west.i.i, ptr noundef nonnull %empty_east.i.i, float noundef %cond82.i.i, float noundef %conv269.i, float noundef %cond59.i.i, i32 noundef 1)
   %div142.i.i = fdiv float %call141.i.i, %conv269.i
-  %104 = call float @llvm.fmuladd.f32(float %div142.i.i, float %96, float %95)
+  %104 = tail call float @llvm.fmuladd.f32(float %div142.i.i, float %96, float %95)
   store float %104, ptr %cursor.i.i, align 4
   %draw_begin.i.i = getelementptr inbounds i8, ptr %ctx, i64 6488
   %105 = load ptr, ptr %draw_begin.i.i, align 8
@@ -39824,7 +39822,7 @@ if.end52.i.i:                                     ; preds = %if.then19.i.i, %if.
 if.then148.i.i:                                   ; preds = %if.end52.i.i
   %userdata.i.i = getelementptr inbounds i8, ptr %ctx, i64 6480
   %106 = load ptr, ptr %userdata.i.i, align 8
-  call void %105(ptr noundef nonnull %buffer.i26, ptr %106) #52
+  tail call void %105(ptr noundef nonnull %buffer.i26, ptr %106) #52
   br label %if.end150.i.i
 
 if.end150.i.i:                                    ; preds = %if.then148.i.i, %if.end52.i.i
@@ -39838,7 +39836,7 @@ if.end150.i.i:                                    ; preds = %if.then148.i.i, %if
 if.then152.i.i:                                   ; preds = %if.end150.i.i
   %userdata154.i.i = getelementptr inbounds i8, ptr %ctx, i64 6480
   %109 = load ptr, ptr %userdata154.i.i, align 8
-  call void %108(ptr noundef nonnull %buffer.i26, ptr %109) #52
+  tail call void %108(ptr noundef nonnull %buffer.i26, ptr %109) #52
   br label %nk_do_scrollbarh.exit.i
 
 nk_do_scrollbarh.exit.i:                          ; preds = %if.then152.i.i, %if.end150.i.i, %if.end249.i
@@ -40056,7 +40054,7 @@ cond.end356.i:                                    ; preds = %cond.false348.i, %c
   %b.sroa.2.12.vec.insert.i = insertelement <2 x float> %b.sroa.2.0.copyload.i, float %sub361.i, i64 1
   %border363.i = getelementptr inbounds i8, ptr %1, i64 60
   %140 = load float, ptr %border363.i, align 4
-  call void @nk_stroke_rect(ptr noundef nonnull %buffer.i26, <2 x float> %b.sroa.0.0.copyload.i, <2 x float> %b.sroa.2.12.vec.insert.i, float noundef 0.000000e+00, float noundef %140, i32 %retval.sroa.0.0.i412.i)
+  tail call void @nk_stroke_rect(ptr noundef nonnull %buffer.i26, <2 x float> %b.sroa.0.0.copyload.i, <2 x float> %b.sroa.2.12.vec.insert.i, float noundef 0.000000e+00, float noundef %140, i32 %retval.sroa.0.0.i412.i)
   %.pre.i = load i32, ptr %flags.i28, align 4
   br label %if.end364.i
 
@@ -40085,7 +40083,7 @@ if.then374.i:                                     ; preds = %if.end364.i
 if.then388.i:                                     ; preds = %if.then374.i
   %panel_padding.sroa.0.0.vec.extract165.i = extractelement <2 x float> %retval.sroa.0.0.i.i, i64 0
   %neg.i = fneg float %panel_padding.sroa.0.0.vec.extract165.i
-  %147 = call float @llvm.fmuladd.f32(float %neg.i, float 5.000000e-01, float %146)
+  %147 = tail call float @llvm.fmuladd.f32(float %neg.i, float 5.000000e-01, float %146)
   br label %if.end403.i
 
 if.else394.i:                                     ; preds = %if.then374.i
@@ -40112,7 +40110,7 @@ if.end403.i:                                      ; preds = %if.else394.i, %if.t
 
 if.then417.i:                                     ; preds = %if.end403.i
   %data.i = getelementptr inbounds i8, ptr %ctx, i64 9328
-  call void @nk_draw_image(ptr noundef nonnull %buffer.i26, <2 x float> %scaler.sroa.0.1.i, <2 x float> %scaler.sroa.27.12.vec.insert.i, ptr noundef nonnull %data.i, i32 -1)
+  tail call void @nk_draw_image(ptr noundef nonnull %buffer.i26, <2 x float> %scaler.sroa.0.1.i, <2 x float> %scaler.sroa.27.12.vec.insert.i, ptr noundef nonnull %data.i, i32 -1)
   br label %if.end453.i
 
 if.else418.i:                                     ; preds = %if.end403.i
@@ -40125,14 +40123,14 @@ if.then422.i:                                     ; preds = %if.else418.i
   %scaler.sroa.0.4.vec.extract.i = extractelement <2 x float> %scaler.sroa.0.1.i, i64 1
   %add428.i = fadd float %scrollbar_size.sroa.4.0.copyload.i, %scaler.sroa.0.4.vec.extract.i
   %add431.i = fadd float %scrollbar_size.sroa.0.0.copyload.i, %scaler.sroa.0.0.vec.extract32.i
-  call void @nk_fill_triangle(ptr noundef nonnull %buffer.i26, float noundef %scaler.sroa.0.0.vec.extract32.i, float noundef %scaler.sroa.0.4.vec.extract.i, float noundef %scaler.sroa.0.0.vec.extract32.i, float noundef %add428.i, float noundef %add431.i, float noundef %add428.i, i32 %151)
+  tail call void @nk_fill_triangle(ptr noundef nonnull %buffer.i26, float noundef %scaler.sroa.0.0.vec.extract32.i, float noundef %scaler.sroa.0.4.vec.extract.i, float noundef %scaler.sroa.0.0.vec.extract32.i, float noundef %add428.i, float noundef %add431.i, float noundef %add428.i, i32 %151)
   br label %if.end453.i
 
 if.else436.i:                                     ; preds = %if.else418.i
   %add439.i = fadd float %scrollbar_size.sroa.0.0.copyload.i, %scaler.sroa.0.0.vec.extract32.i
   %scaler.sroa.0.4.vec.extract51.i = extractelement <2 x float> %scaler.sroa.0.1.i, i64 1
   %add446.i = fadd float %scrollbar_size.sroa.4.0.copyload.i, %scaler.sroa.0.4.vec.extract51.i
-  call void @nk_fill_triangle(ptr noundef nonnull %buffer.i26, float noundef %add439.i, float noundef %scaler.sroa.0.4.vec.extract51.i, float noundef %add439.i, float noundef %add446.i, float noundef %scaler.sroa.0.0.vec.extract32.i, float noundef %add446.i, i32 %151)
+  tail call void @nk_fill_triangle(ptr noundef nonnull %buffer.i26, float noundef %add439.i, float noundef %scaler.sroa.0.4.vec.extract51.i, float noundef %add439.i, float noundef %add446.i, float noundef %scaler.sroa.0.0.vec.extract32.i, float noundef %add446.i, i32 %151)
   br label %if.end453.i
 
 if.end453.i:                                      ; preds = %if.else436.i, %if.then422.i, %if.then417.i
@@ -40288,8 +40286,8 @@ if.then584.i:                                     ; preds = %if.end580.i
 if.then588.i:                                     ; preds = %if.then584.i
   %begin.i429.i = getelementptr inbounds i8, ptr %0, i64 144
   %clip.i430.i = getelementptr inbounds i8, ptr %0, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %begin.i429.i, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %clip.i430.i, ptr noundef nonnull align 4 dereferenceable(16) @nk_null_rect, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %begin.i429.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %clip.i430.i, ptr noundef nonnull align 4 dereferenceable(16) @nk_null_rect, i64 16, i1 false)
   br label %if.end592.i
 
 if.else590.i:                                     ; preds = %if.then584.i
@@ -40359,16 +40357,16 @@ if.then617.i:                                     ; preds = %land.lhs.true611.i
   br i1 %cmp10.not.i.i.i, label %if.end19.i.i.thread.i, label %if.end19.i.i.i
 
 if.end19.i.i.thread.i:                            ; preds = %if.then617.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %property.i, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %property.i, i8 0, i64 104, i1 false)
   br label %if.end630.i
 
 if.end19.i.i.i:                                   ; preds = %if.then617.i
   %sub.i.i.i = sub nuw nsw i64 4, %and.i.i432.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %property.i, i8 0, i64 %sub.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %property.i, i8 0, i64 %sub.i.i.i, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %property.i, i64 %sub.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %scevgep.i.i.i, i8 0, i64 100, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %scevgep.i.i.i, i8 0, i64 100, i1 false)
   %scevgep29.i.i.i = getelementptr i8, ptr %scevgep.i.i.i, i64 100
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i.i, i8 0, i64 %and.i.i432.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i.i, i8 0, i64 %and.i.i432.i, i1 false)
   br label %if.end630.i
 
 if.else619.i:                                     ; preds = %land.lhs.true611.i, %land.lhs.true606.i, %if.end601.if.else619_crit_edge.i
@@ -40414,16 +40412,16 @@ if.then647.i:                                     ; preds = %land.lhs.true640.i
   br i1 %cmp10.not.i.i434.i, label %if.end19.i.i439.thread.i, label %if.end19.i.i439.i
 
 if.end19.i.i439.thread.i:                         ; preds = %if.then647.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %edit.i, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %edit.i, i8 0, i64 44, i1 false)
   br label %if.end660.i
 
 if.end19.i.i439.i:                                ; preds = %if.then647.i
   %sub.i.i436.i = sub nuw nsw i64 4, %and.i.i433.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %edit.i, i8 0, i64 %sub.i.i436.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %edit.i, i8 0, i64 %sub.i.i436.i, i1 false)
   %scevgep.i.i438.i = getelementptr i8, ptr %edit.i, i64 %sub.i.i436.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %scevgep.i.i438.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %scevgep.i.i438.i, i8 0, i64 40, i1 false)
   %scevgep29.i.i446.i = getelementptr i8, ptr %scevgep.i.i438.i, i64 40
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i446.i, i8 0, i64 %and.i.i433.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i446.i, i8 0, i64 %and.i.i433.i, i1 false)
   br label %if.end660.i
 
 if.else649.i:                                     ; preds = %land.lhs.true640.i, %land.lhs.true633.i, %if.end630.if.else649_crit_edge.i
@@ -44131,10 +44129,6 @@ entry:
   br i1 %or.cond2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tobool1.not.i = icmp eq ptr %style, null
-  br i1 %tobool1.not.i, label %nk_do_button.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %if.end
   %r.sroa.0.0.vec.extract.i = extractelement <2 x float> %bounds.coerce0, i64 0
   %padding.i = getelementptr inbounds i8, ptr %style, i64 160
   %1 = load float, ptr %padding.i, align 8
@@ -44145,24 +44139,20 @@ if.end.i:                                         ; preds = %if.end
   %rounding.i = getelementptr inbounds i8, ptr %style, i64 156
   %3 = load float, ptr %rounding.i, align 4
   %add4.i = fadd float %add3.i, %3
-  %content.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add4.i, i64 0
   %r.sroa.0.4.vec.extract.i = extractelement <2 x float> %bounds.coerce0, i64 1
   %y7.i = getelementptr inbounds i8, ptr %style, i64 164
   %4 = load float, ptr %y7.i, align 4
   %add8.i = fadd float %r.sroa.0.4.vec.extract.i, %4
   %add10.i = fadd float %2, %add8.i
   %add12.i = fadd float %3, %add10.i
-  %content.sroa.0.4.vec.insert = insertelement <2 x float> %content.sroa.0.0.vec.insert, float %add12.i, i64 1
   %r.sroa.5.8.vec.extract.i = extractelement <2 x float> %bounds.coerce1, i64 0
   %add17.i = fadd float %1, %2
   %add19.i = fadd float %add17.i, %3
   %5 = tail call float @llvm.fmuladd.f32(float %add19.i, float -2.000000e+00, float %r.sroa.5.8.vec.extract.i)
-  %content.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %5, i64 0
   %r.sroa.5.12.vec.extract.i = extractelement <2 x float> %bounds.coerce1, i64 1
   %add24.i = fadd float %2, %4
   %add26.i = fadd float %3, %add24.i
   %6 = tail call float @llvm.fmuladd.f32(float %add26.i, float -2.000000e+00, float %r.sroa.5.12.vec.extract.i)
-  %content.sroa.3.12.vec.insert = insertelement <2 x float> %content.sroa.3.8.vec.insert, float %6, i64 1
   %touch_padding.i = getelementptr inbounds i8, ptr %style, i64 176
   %7 = load float, ptr %touch_padding.i, align 8
   %sub.i = fsub float %r.sroa.0.0.vec.extract.i, %7
@@ -44176,24 +44166,18 @@ if.end.i:                                         ; preds = %if.end
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i)
   %bounds.sroa.3.12.vec.insert.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i, float %10, i64 1
   %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
-  br label %nk_do_button.exit
-
-nk_do_button.exit:                                ; preds = %if.end, %if.end.i
-  %content.sroa.3.0 = phi <2 x float> [ undef, %if.end ], [ %content.sroa.3.12.vec.insert, %if.end.i ]
-  %content.sroa.0.0 = phi <2 x float> [ undef, %if.end ], [ %content.sroa.0.4.vec.insert, %if.end.i ]
-  %retval.0.i = phi i32 [ 0, %if.end ], [ %call.i, %if.end.i ]
   %draw_begin = getelementptr inbounds i8, ptr %style, i64 200
   %11 = load ptr, ptr %draw_begin, align 8
   %tobool6.not = icmp eq ptr %11, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
-if.then7:                                         ; preds = %nk_do_button.exit
+if.then7:                                         ; preds = %if.end
   %userdata = getelementptr inbounds i8, ptr %style, i64 192
   %12 = load ptr, ptr %userdata, align 8
   tail call void %11(ptr noundef %out, ptr %12) #52
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then7, %nk_do_button.exit
+if.end9:                                          ; preds = %if.then7, %if.end
   %13 = load i32, ptr %state, align 4
   %call.i19 = call fastcc ptr @nk_draw_button(ptr noundef %out, ptr noundef nonnull readonly %bounds, i32 noundef %13, ptr noundef nonnull %style)
   %14 = load i32, ptr %call.i19, align 8
@@ -44245,15 +44229,13 @@ nk_rgb_factor.exit.i:                             ; preds = %if.end.i.i, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  %tobool.i.not.i = icmp eq ptr %out, null
-  br i1 %tobool.i.not.i, label %nk_draw_button_text.exit, label %if.end.i10.i
+  %tobool.not.i.i = icmp eq ptr %out, null
+  br i1 %tobool.not.i.i, label %nk_draw_button_text.exit, label %if.end.i10.i
 
 if.end.i10.i:                                     ; preds = %nk_rgb_factor.exit.i
-  %b.sroa.14.12.vec.extract.i.i = extractelement <2 x float> %content.sroa.3.0, i64 1
-  %cmp.i12.i = fcmp olt float %b.sroa.14.12.vec.extract.i.i, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i.i = select i1 %cmp.i12.i, float 0.000000e+00, float %b.sroa.14.12.vec.extract.i.i
-  %b.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %content.sroa.0.0, i64 1
-  %add.i.i = fadd float %b.sroa.0.4.vec.extract.i.i, 0.000000e+00
+  %cmp.i12.i = fcmp olt float %6, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i.i = select i1 %cmp.i12.i, float 0.000000e+00, float %6
+  %add.i.i = fadd float %add12.i, 0.000000e+00
   %label.sroa.0.4.vec.insert.i.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %add.i.i, i64 1
   %height.i.i = getelementptr inbounds i8, ptr %font, i64 8
   %16 = load float, ptr %height.i.i, align 8
@@ -44270,12 +44252,10 @@ if.end.i10.i:                                     ; preds = %nk_rgb_factor.exit.
   br i1 %tobool30.not.i.i, label %if.else.i.i, label %if.then31.i.i
 
 if.then31.i.i:                                    ; preds = %if.end.i10.i
-  %b.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %content.sroa.0.0, i64 0
-  %add35.i.i = fadd float %b.sroa.0.0.vec.extract.i.i, 0.000000e+00
+  %add35.i.i = fadd float %add4.i, 0.000000e+00
   %label.sroa.0.0.vec.insert8.i.i = insertelement <2 x float> %label.sroa.0.4.vec.insert.i.i, float %add35.i.i, i64 0
-  %b.sroa.14.8.vec.extract.i.i = extractelement <2 x float> %content.sroa.3.0, i64 0
-  %cmp41.i.i = fcmp ogt float %b.sroa.14.8.vec.extract.i.i, 0.000000e+00
-  %cond49.i.i = select i1 %cmp41.i.i, float %b.sroa.14.8.vec.extract.i.i, float 0.000000e+00
+  %cmp41.i.i = fcmp ogt float %5, 0.000000e+00
+  %cond49.i.i = select i1 %cmp41.i.i, float %5, float 0.000000e+00
   %label.sroa.15.8.vec.insert32.i.i = insertelement <2 x float> %label.sroa.15.12.vec.insert.i.i, float %cond49.i.i, i64 0
   br label %if.end158.i.i
 
@@ -44287,17 +44267,14 @@ if.else.i.i:                                      ; preds = %if.end.i10.i
 if.then53.i.i:                                    ; preds = %if.else.i.i
   %cmp57.i.i = fcmp ogt float %19, 1.000000e+00
   %cond64.i.i = select i1 %cmp57.i.i, float %19, float 1.000000e+00
-  %b.sroa.0.0.vec.extract94.i.i = extractelement <2 x float> %content.sroa.0.0, i64 0
-  %add69.i.i = fadd float %b.sroa.0.0.vec.extract94.i.i, 0.000000e+00
-  %b.sroa.14.8.vec.extract118.i.i = extractelement <2 x float> %content.sroa.3.0, i64 0
-  %sub.i.i = fsub float %b.sroa.14.8.vec.extract118.i.i, %cond64.i.i
+  %add69.i.i = fadd float %add4.i, 0.000000e+00
+  %sub.i.i = fsub float %5, %cond64.i.i
   %div.i.i = fmul float %sub.i.i, 5.000000e-01
   %add75.i.i = fadd float %add69.i.i, %div.i.i
-  %cmp82.i.i = fcmp olt float %b.sroa.0.0.vec.extract94.i.i, %add75.i.i
+  %cmp82.i.i = fcmp olt float %add4.i, %add75.i.i
   %cond91.i.i = select i1 %cmp82.i.i, float %add75.i.i, float %add69.i.i
   %label.sroa.0.0.vec.insert15.i.i = insertelement <2 x float> %label.sroa.0.4.vec.insert.i.i, float %cond91.i.i, i64 0
-  %20 = fadd <2 x float> %content.sroa.3.0, %content.sroa.0.0
-  %add95.i.i = extractelement <2 x float> %20, i64 0
+  %add95.i.i = fadd float %add4.i, %5
   %add98.i.i = fadd float %cond64.i.i, %cond91.i.i
   %cmp99.i.i = fcmp olt float %add95.i.i, %add98.i.i
   %cond109.i.i = select i1 %cmp99.i.i, float %add95.i.i, float %add98.i.i
@@ -44316,12 +44293,10 @@ if.else119.i.i:                                   ; preds = %if.else.i.i
   br i1 %tobool121.not.i.i, label %nk_draw_button_text.exit, label %if.then122.i.i
 
 if.then122.i.i:                                   ; preds = %if.else119.i.i
-  %b.sroa.0.0.vec.extract104.i.i = extractelement <2 x float> %content.sroa.0.0, i64 0
-  %add126.i.i = fadd float %b.sroa.0.0.vec.extract104.i.i, 0.000000e+00
-  %21 = fadd <2 x float> %content.sroa.3.0, %content.sroa.0.0
-  %add129.i.i = extractelement <2 x float> %21, i64 0
+  %add126.i.i = fadd float %add4.i, 0.000000e+00
+  %add129.i.i = fadd float %add4.i, %5
   %sub133.i.i = fsub float %add129.i.i, %19
-  %cmp134.i.i = fcmp olt float %b.sroa.0.0.vec.extract104.i.i, %sub133.i.i
+  %cmp134.i.i = fcmp olt float %add4.i, %sub133.i.i
   %sub133.add126.i.i = select i1 %cmp134.i.i, float %sub133.i.i, float %add126.i.i
   %label.sroa.0.0.vec.insert25.i.i = insertelement <2 x float> %label.sroa.0.4.vec.insert.i.i, float %sub133.add126.i.i, i64 0
   %label.sroa.15.8.vec.insert49.i.i = insertelement <2 x float> %label.sroa.15.12.vec.insert.i.i, float %19, i64 0
@@ -44336,9 +44311,9 @@ if.end158.i.i:                                    ; preds = %if.then122.i.i, %if
 
 if.then161.i.i:                                   ; preds = %if.end158.i.i
   %div164.i.i = fmul float %mul.b.sroa.14.12.vec.extract.i.i, 5.000000e-01
-  %add165.i.i = fadd float %b.sroa.0.4.vec.extract.i.i, %div164.i.i
-  %22 = load float, ptr %height.i.i, align 8
-  %div167.i.i = fmul float %22, 5.000000e-01
+  %add165.i.i = fadd float %add12.i, %div164.i.i
+  %20 = load float, ptr %height.i.i, align 8
+  %div167.i.i = fmul float %20, 5.000000e-01
   %sub168.i.i = fsub float %add165.i.i, %div167.i.i
   %label.sroa.0.4.vec.insert27.i.i = insertelement <2 x float> %label.sroa.0.0.i.i, float %sub168.i.i, i64 1
   %add177.i.i = fadd float %div164.i.i, %div167.i.i
@@ -44354,11 +44329,11 @@ if.else194.i.i:                                   ; preds = %if.end158.i.i
   br i1 %tobool196.not.i.i, label %if.end207.i.i, label %if.then197.i.i
 
 if.then197.i.i:                                   ; preds = %if.else194.i.i
-  %add200.i.i = fadd float %b.sroa.0.4.vec.extract.i.i, %mul.b.sroa.14.12.vec.extract.i.i
-  %23 = load float, ptr %height.i.i, align 8
-  %sub202.i.i = fsub float %add200.i.i, %23
+  %add200.i.i = fadd float %add12.i, %mul.b.sroa.14.12.vec.extract.i.i
+  %21 = load float, ptr %height.i.i, align 8
+  %sub202.i.i = fsub float %add200.i.i, %21
   %label.sroa.0.4.vec.insert29.i.i = insertelement <2 x float> %label.sroa.0.0.i.i, float %sub202.i.i, i64 1
-  %label.sroa.15.12.vec.insert53.i.i = insertelement <2 x float> %label.sroa.15.0.i.i, float %23, i64 1
+  %label.sroa.15.12.vec.insert53.i.i = insertelement <2 x float> %label.sroa.15.0.i.i, float %21, i64 1
   br label %if.end207.i.i
 
 if.end207.i.i:                                    ; preds = %if.then197.i.i, %if.else194.i.i, %if.then161.i.i
@@ -44369,18 +44344,18 @@ if.end207.i.i:                                    ; preds = %if.then197.i.i, %if
 
 nk_draw_button_text.exit:                         ; preds = %nk_rgb_factor.exit.i, %if.else119.i.i, %if.end207.i.i
   %draw_end = getelementptr inbounds i8, ptr %style, i64 208
-  %24 = load ptr, ptr %draw_end, align 8
-  %tobool10.not = icmp eq ptr %24, null
+  %22 = load ptr, ptr %draw_end, align 8
+  %tobool10.not = icmp eq ptr %22, null
   br i1 %tobool10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %nk_draw_button_text.exit
   %userdata13 = getelementptr inbounds i8, ptr %style, i64 192
-  %25 = load ptr, ptr %userdata13, align 8
-  tail call void %24(ptr noundef %out, ptr %25) #52
+  %23 = load ptr, ptr %userdata13, align 8
+  tail call void %22(ptr noundef %out, ptr %23) #52
   br label %return
 
 return:                                           ; preds = %nk_draw_button_text.exit, %if.then11, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.i, %if.then11 ], [ %retval.0.i, %nk_draw_button_text.exit ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %call.i, %if.then11 ], [ %call.i, %nk_draw_button_text.exit ]
   ret i32 %retval.0
 }
 
@@ -44591,9 +44566,9 @@ entry:
   %tobool5 = icmp ne ptr %str, null
   %or.cond2 = and i1 %tobool5, %or.cond1
   %1 = extractelement <2 x float> %bounds.coerce0, i64 0
-  br i1 %or.cond2, label %nk_do_button.exit, label %return
+  br i1 %or.cond2, label %if.end, label %return
 
-nk_do_button.exit:                                ; preds = %entry
+if.end:                                           ; preds = %entry
   %2 = extractelement <2 x float> %bounds.coerce1, i64 1
   %3 = extractelement <2 x float> %bounds.coerce0, i64 1
   %r.sroa.0.0.vec.extract.i = extractelement <2 x float> %bounds.coerce0, i64 0
@@ -44640,7 +44615,7 @@ nk_do_button.exit:                                ; preds = %entry
   %tobool11.not = icmp eq i32 %and, 0
   br i1 %tobool11.not, label %if.else, label %if.then12
 
-if.then12:                                        ; preds = %nk_do_button.exit
+if.then12:                                        ; preds = %if.end
   %16 = fadd <2 x float> %bounds.coerce0, %bounds.coerce1
   %add14 = extractelement <2 x float> %16, i64 0
   %17 = load float, ptr %padding.i, align 8
@@ -44650,7 +44625,7 @@ if.then12:                                        ; preds = %nk_do_button.exit
   %cond = select i1 %cmp, float 0.000000e+00, float %sub
   br label %if.end26
 
-if.else:                                          ; preds = %nk_do_button.exit
+if.else:                                          ; preds = %if.end
   %19 = load float, ptr %padding.i, align 8
   %20 = tail call float @llvm.fmuladd.f32(float %19, float 2.000000e+00, float %1)
   br label %if.end26
@@ -44723,8 +44698,8 @@ nk_rgb_factor.exit.i:                             ; preds = %if.end.i.i, %if.end
   %retval.sroa.3.0.i.i = phi i8 [ %conv4.i.i, %if.end.i.i ], [ %col.sroa.5.0.extract.trunc.i.i, %if.end43 ]
   %retval.sroa.0.0.i.i = phi i8 [ %conv1.i.i, %if.end.i.i ], [ %col.sroa.0.0.extract.trunc.i.i, %if.end43 ]
   %retval.sroa.5.0.i.i = phi i8 [ %conv7.i.i, %if.end.i.i ], [ %col.sroa.7.0.extract.trunc.i.i, %if.end43 ]
-  %tobool.i.not.i = icmp eq ptr %out, null
-  br i1 %tobool.i.not.i, label %nk_draw_button_text_image.exit, label %if.end.i12.i
+  %tobool.not.i.i = icmp eq ptr %out, null
+  br i1 %tobool.not.i.i, label %nk_draw_button_text_image.exit, label %if.end.i12.i
 
 if.end.i12.i:                                     ; preds = %nk_rgb_factor.exit.i
   %retval.sroa.5.0.insert.ext.i.i = zext i8 %retval.sroa.5.0.i.i to i32
@@ -44979,9 +44954,9 @@ entry:
   %tobool1 = icmp ne ptr %style, null
   %tobool3 = icmp ne ptr %font, null
   %or.cond1 = and i1 %tobool1, %tobool3
-  br i1 %or.cond1, label %nk_do_button.exit, label %return
+  br i1 %or.cond1, label %if.end, label %return
 
-nk_do_button.exit:                                ; preds = %entry
+if.end:                                           ; preds = %entry
   %r.sroa.0.0.vec.extract.i = extractelement <2 x float> %bounds.coerce0, i64 0
   %padding.i = getelementptr inbounds i8, ptr %style, i64 160
   %1 = load float, ptr %padding.i, align 8
@@ -45031,7 +45006,7 @@ nk_do_button.exit:                                ; preds = %entry
   %tobool9.not = icmp eq i32 %and, 0
   br i1 %tobool9.not, label %if.else, label %if.then10
 
-if.then10:                                        ; preds = %nk_do_button.exit
+if.then10:                                        ; preds = %if.end
   %add12 = fadd float %add4.i, %5
   %12 = load float, ptr %padding.i, align 8
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 2.000000e+00, float %11)
@@ -45040,7 +45015,7 @@ if.then10:                                        ; preds = %nk_do_button.exit
   %cond = select i1 %cmp, float 0.000000e+00, float %sub15
   br label %if.end24
 
-if.else:                                          ; preds = %nk_do_button.exit
+if.else:                                          ; preds = %if.end
   %14 = load float, ptr %padding.i, align 8
   %15 = tail call float @llvm.fmuladd.f32(float %14, float 2.000000e+00, float %add4.i)
   br label %if.end24
@@ -45132,8 +45107,8 @@ nk_rgb_factor.exit48.i:                           ; preds = %if.end.i26.i, %nk_r
   %retval.sroa.5.0.i38.i = phi i8 [ %conv7.i35.i, %if.end.i26.i ], [ %col.sroa.7.0.extract.trunc.i.i, %nk_rgb_factor.exit.i ]
   %24 = load i32, ptr %text_background.i, align 8
   tail call fastcc void @nk_draw_symbol(ptr noundef %out, i32 noundef %symbol, <2 x float> %tri.sroa.0.0.vec.insert, <2 x float> %tri.sroa.4.12.vec.insert, i32 %24, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 0.000000e+00, ptr noundef nonnull %font)
-  %tobool.i.not.i = icmp eq ptr %out, null
-  br i1 %tobool.i.not.i, label %nk_draw_button_text_symbol.exit, label %if.end.i49.i
+  %tobool.not.i.i = icmp eq ptr %out, null
+  br i1 %tobool.not.i.i, label %nk_draw_button_text_symbol.exit, label %if.end.i49.i
 
 if.end.i49.i:                                     ; preds = %nk_rgb_factor.exit48.i
   %retval.sroa.5.0.insert.ext.i40.i = zext i8 %retval.sroa.5.0.i38.i to i32
@@ -46126,7 +46101,7 @@ return:                                           ; preds = %if.end38.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_symbol(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %symbol, i32 noundef %behavior, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
+define internal fastcc i32 @nk_do_button_symbol(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %symbol, i32 noundef %behavior, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
@@ -46137,11 +46112,9 @@ entry:
   %or.cond = and i1 %tobool, %tobool1
   %tobool3 = icmp ne ptr %font, null
   %or.cond1 = and i1 %or.cond, %tobool3
-  %tobool5 = icmp ne ptr %state, null
-  %or.cond2 = and i1 %tobool5, %or.cond1
-  br i1 %or.cond2, label %nk_do_button.exit, label %return
+  br i1 %or.cond1, label %if.end, label %return
 
-nk_do_button.exit:                                ; preds = %entry
+if.end:                                           ; preds = %entry
   %r.sroa.0.0.vec.extract.i = extractelement <2 x float> %bounds.coerce0, i64 0
   %padding.i = getelementptr inbounds i8, ptr %style, i64 160
   %1 = load float, ptr %padding.i, align 8
@@ -46182,19 +46155,19 @@ nk_do_button.exit:                                ; preds = %entry
   %bounds.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %9, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i)
   %bounds.sroa.3.12.vec.insert.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i, float %10, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
   %draw_begin = getelementptr inbounds i8, ptr %style, i64 200
   %11 = load ptr, ptr %draw_begin, align 8
   %tobool6.not = icmp eq ptr %11, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
-if.then7:                                         ; preds = %nk_do_button.exit
+if.then7:                                         ; preds = %if.end
   %userdata = getelementptr inbounds i8, ptr %style, i64 192
   %12 = load ptr, ptr %userdata, align 8
   tail call void %11(ptr noundef nonnull %out, ptr %12) #52
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then7, %nk_do_button.exit
+if.end9:                                          ; preds = %if.then7, %if.end
   %13 = load i32, ptr %state, align 4
   %call.i19 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %13, ptr noundef nonnull %style)
   %14 = load i32, ptr %call.i19, align 8
@@ -48488,8 +48461,8 @@ lor.lhs.false.i101:                               ; preds = %if.end24.i.i.i, %if
   br i1 %tobool1.not.i103, label %nk_layout_reset_min_row_height.exit, label %lor.lhs.false2.i104
 
 lor.lhs.false2.i104:                              ; preds = %lor.lhs.false2.i.i, %lor.lhs.false.i101
-  %.pr228 = phi ptr [ %.pr.pre, %lor.lhs.false.i101 ], [ %6, %lor.lhs.false2.i.i ]
-  %layout4.i105 = getelementptr inbounds i8, ptr %.pr228, i64 168
+  %.pr229 = phi ptr [ %.pr.pre, %lor.lhs.false.i101 ], [ %6, %lor.lhs.false2.i.i ]
+  %layout4.i105 = getelementptr inbounds i8, ptr %.pr229, i64 168
   %19 = load ptr, ptr %layout4.i105, align 8
   %tobool5.not.i106 = icmp eq ptr %19, null
   br i1 %tobool5.not.i106, label %nk_layout_reset_min_row_height.exit, label %if.end.i107
@@ -48688,31 +48661,31 @@ if.end39:                                         ; preds = %if.then9, %sw.bb, %
   %53 = extractelement <2 x float> %50, i64 1
   %54 = extractelement <2 x float> %50, i64 0
   %55 = extractelement <2 x float> %52, i64 0
-  %.pr217 = load i32, ptr %state, align 4
+  %.pr218 = load i32, ptr %state, align 4
   br i1 %tobool49.not, label %if.end53thread-pre-split, label %if.end53
 
 if.end53thread-pre-split:                         ; preds = %if.end39
-  %56 = icmp eq i32 %.pr217, 1
+  %56 = icmp eq i32 %.pr218, 1
   br i1 %56, label %if.then55, label %if.else63
 
 if.end53:                                         ; preds = %if.end39
-  %cmp51 = icmp ne i32 %.pr217, 1
+  %cmp51 = icmp ne i32 %.pr218, 1
   %cond52 = zext i1 %cmp51 to i32
   store i32 %cond52, ptr %state, align 4
   br i1 %cmp51, label %if.then55, label %if.else63
 
 if.then55:                                        ; preds = %if.end53thread-pre-split, %if.end53
   %sym_maximize = getelementptr inbounds i8, ptr %ctx, i64 8172
-  %.229 = select i1 %cmp, i64 7304, i64 7736
+  %.230 = select i1 %cmp, i64 7304, i64 7736
   br label %if.end71
 
 if.else63:                                        ; preds = %if.end53thread-pre-split, %if.end53
   %sym_minimize = getelementptr inbounds i8, ptr %ctx, i64 8168
-  %.230 = select i1 %cmp, i64 7520, i64 7952
+  %.231 = select i1 %cmp, i64 7520, i64 7952
   br label %if.end71
 
 if.end71:                                         ; preds = %if.else63, %if.then55
-  %.sink = phi i64 [ %.229, %if.then55 ], [ %.230, %if.else63 ]
+  %.sink = phi i64 [ %.230, %if.then55 ], [ %.231, %if.else63 ]
   %symbol.0.in = phi ptr [ %sym_maximize, %if.then55 ], [ %sym_minimize, %if.else63 ]
   %symbol.0 = load i32, ptr %symbol.0.in, align 4
   %tab_minimize_button = getelementptr inbounds i8, ptr %ctx, i64 %.sink
@@ -48734,14 +48707,14 @@ if.end71:                                         ; preds = %if.else63, %if.then
 if.end71.if.end102_crit_edge:                     ; preds = %if.end71
   %.pre = load ptr, ptr %style8, align 8
   %height133.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre222 = load float, ptr %height133.phi.trans.insert, align 8
+  %.pre223 = load float, ptr %height133.phi.trans.insert, align 8
   br label %if.end102
 
 if.then88:                                        ; preds = %if.end71
   %add91 = fadd float %58, %add82
-  %63 = call float @llvm.fmuladd.f32(float %item_spacing.sroa.0.0.copyload, float 4.000000e+00, float %add91)
+  %63 = tail call float @llvm.fmuladd.f32(float %item_spacing.sroa.0.0.copyload, float 4.000000e+00, float %add91)
   %sym.sroa.0.0.vec.insert10 = insertelement <2 x float> %sym.sroa.0.0.vec.insert, float %63, i64 0
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %sym.sroa.0.0.vec.insert10, <2 x float> %sym.sroa.9.8.vec.insert, ptr noundef nonnull %img, i32 -1)
+  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %sym.sroa.0.0.vec.insert10, <2 x float> %sym.sroa.9.8.vec.insert, ptr noundef nonnull %img, i32 -1)
   %64 = load ptr, ptr %style8, align 8
   %height96 = getelementptr inbounds i8, ptr %64, i64 8
   %65 = load float, ptr %height96, align 8
@@ -48752,7 +48725,7 @@ if.then88:                                        ; preds = %if.end71
   br label %if.end102
 
 if.end102:                                        ; preds = %if.end71.if.end102_crit_edge, %if.then88
-  %67 = phi float [ %65, %if.then88 ], [ %.pre222, %if.end71.if.end102_crit_edge ]
+  %67 = phi float [ %65, %if.then88 ], [ %.pre223, %if.end71.if.end102_crit_edge ]
   %68 = phi ptr [ %64, %if.then88 ], [ %.pre, %if.end71.if.end102_crit_edge ]
   %sym.sroa.0.0 = phi <2 x float> [ %sym.sroa.0.0.vec.insert10, %if.then88 ], [ %sym.sroa.0.0.vec.insert, %if.end71.if.end102_crit_edge ]
   %sym.sroa.9.0 = phi <2 x float> [ %sym.sroa.9.8.vec.insert18, %if.then88 ], [ %sym.sroa.9.8.vec.insert, %if.end71.if.end102_crit_edge ]
@@ -48811,27 +48784,27 @@ nk_rgb_factor.exit209:                            ; preds = %if.end102, %if.end.
 
 land.rhs.i.preheader:                             ; preds = %nk_rgb_factor.exit209
   %73 = load i8, ptr %title, align 1
-  %cmp.not.i218 = icmp eq i8 %73, 0
-  br i1 %cmp.not.i218, label %nk_strlen.exit, label %while.body.i
+  %cmp.not.i219 = icmp eq i8 %73, 0
+  br i1 %cmp.not.i219, label %nk_strlen.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i.preheader, %while.body.i
-  %str.addr.04.i220 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %land.rhs.i.preheader ]
-  %siz.05.i219 = phi i32 [ %inc.i, %while.body.i ], [ 0, %land.rhs.i.preheader ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i220, i64 1
-  %inc.i = add nuw nsw i32 %siz.05.i219, 1
+  %str.addr.04.i221 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %land.rhs.i.preheader ]
+  %siz.05.i220 = phi i32 [ %inc.i, %while.body.i ], [ 0, %land.rhs.i.preheader ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i221, i64 1
+  %inc.i = add nuw nsw i32 %siz.05.i220, 1
   %74 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.not.i = icmp eq i8 %74, 0
   br i1 %cmp.not.i, label %nk_strlen.exit, label %while.body.i
 
 nk_strlen.exit:                                   ; preds = %while.body.i, %land.rhs.i.preheader, %nk_rgb_factor.exit209
   %siz.0.lcssa.i = phi i32 [ 0, %nk_rgb_factor.exit209 ], [ 0, %land.rhs.i.preheader ], [ %inc.i, %while.body.i ]
-  %cmp.i213 = fcmp olt float %67, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i213, float 0.000000e+00, float %67
+  %cmp.i214 = fcmp olt float %67, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i214, float 0.000000e+00, float %67
   %b.sroa.0.4.vec.extract.i = extractelement <2 x float> %sym.sroa.0.0, i64 1
   %width.i = getelementptr inbounds i8, ptr %68, i64 16
   %75 = load ptr, ptr %width.i, align 8
   %76 = load ptr, ptr %68, align 8
-  %call.i = call float %75(ptr %76, float noundef %67, ptr noundef %title, i32 noundef %siz.0.lcssa.i) #52
+  %call.i = tail call float %75(ptr %76, float noundef %67, ptr noundef %title, i32 noundef %siz.0.lcssa.i) #52
   %add35.i = fadd float %add121, 0.000000e+00
   %77 = insertelement <2 x float> poison, float %add35.i, i64 0
   %cmp41.i = fcmp ogt float %sub, 0.000000e+00
@@ -48848,7 +48821,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %cmp179.i = fcmp olt float %div164.i, %sub178.i
   %sub178.div164.i = select i1 %cmp179.i, float %sub178.i, float %div164.i
   %label.sroa.15.12.vec.insert51.i = insertelement <2 x float> %78, float %sub178.div164.i, i64 1
-  call void @nk_draw_text(ptr noundef nonnull %buffer, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef %title, i32 noundef %siz.0.lcssa.i, ptr noundef nonnull %68, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i208)
+  tail call void @nk_draw_text(ptr noundef nonnull %buffer, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef %title, i32 noundef %siz.0.lcssa.i, ptr noundef nonnull %68, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i208)
   %80 = load i32, ptr %state, align 4
   %cmp146 = icmp eq i32 %80, 1
   br i1 %cmp146, label %if.then147, label %return
@@ -49762,8 +49735,8 @@ nk_strlen.exit.i:                                 ; preds = %while.body.i.i, %la
   %height88.i = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load float, ptr %height88.i, align 8
   %88 = load ptr, ptr %85, align 8
-  %call89.i = call float %86(ptr %88, float noundef %87, ptr noundef %title, i32 noundef %siz.0.lcssa.i.i) #52
-  %89 = call float @llvm.fmuladd.f32(float %padding.sroa.0.0.copyload.i, float 4.000000e+00, float %call89.i)
+  %call89.i = tail call float %86(ptr %88, float noundef %87, ptr noundef %title, i32 noundef %siz.0.lcssa.i.i) #52
+  %89 = tail call float @llvm.fmuladd.f32(float %padding.sroa.0.0.copyload.i, float 4.000000e+00, float %call89.i)
   %w91.i = getelementptr inbounds i8, ptr %header.i, i64 8
   %90 = load float, ptr %w91.i, align 8
   %add94.i = fadd float %item_spacing.sroa.0.0.copyload.i, %75
@@ -49814,9 +49787,9 @@ if.end.i187.i:                                    ; preds = %if.else142.i
   %97 = load float, ptr %y15.i.i, align 4
   %sub16.i.i = fsub float %add.i, %97
   %touch.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %touch.sroa.0.0.vec.insert.i.i, float %sub16.i.i, i64 1
-  %98 = call float @llvm.fmuladd.f32(float %96, float 2.000000e+00, float %sub..i)
+  %98 = tail call float @llvm.fmuladd.f32(float %96, float 2.000000e+00, float %sub..i)
   %touch.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %98, i64 0
-  %99 = call float @llvm.fmuladd.f32(float %97, float 2.000000e+00, float %93)
+  %99 = tail call float @llvm.fmuladd.f32(float %97, float 2.000000e+00, float %93)
   %touch.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %touch.sroa.3.8.vec.insert.i.i, float %99, i64 1
   %call.i.i37 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %dummy.i, <2 x float> %touch.sroa.0.4.vec.insert.i.i, <2 x float> %touch.sroa.3.12.vec.insert.i.i, ptr noundef %cond46.i, i32 noundef 0)
   %tobool24.not.i.i = icmp eq i32 %call.i.i37, 0
@@ -49838,7 +49811,7 @@ if.end27.i.i:                                     ; preds = %if.then25.i.i, %if.
 if.then29.i.i:                                    ; preds = %if.end27.i.i
   %userdata.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %102 = load ptr, ptr %userdata.i.i, align 8
-  call void %101(ptr noundef nonnull %buffer.i, ptr %102) #52
+  tail call void %101(ptr noundef nonnull %buffer.i, ptr %102) #52
   %.pre.i38 = load i32, ptr %selected, align 4
   br label %if.end31.i.i
 
@@ -49854,7 +49827,7 @@ if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.
 if.then33.i.i:                                    ; preds = %if.end31.i.i
   %userdata35.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %106 = load ptr, ptr %userdata35.i.i, align 8
-  call void %105(ptr noundef nonnull %buffer.i, ptr %106) #52
+  tail call void %105(ptr noundef nonnull %buffer.i, ptr %106) #52
   br label %nk_do_selectable.exit.i
 
 nk_do_selectable.exit.i:                          ; preds = %if.then33.i.i, %if.end31.i.i, %if.else142.i
@@ -53110,10 +53083,10 @@ nk_rgb_factor.exit:                               ; preds = %if.end, %if.end.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %width.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %glyphs.i)
   %b.sroa.4.8.vec.extract.i = extractelement <2 x float> %7, i64 0
-  %mul.i10 = fmul float %item_padding.sroa.0.0.copyload, 2.000000e+00
-  %cmp.i11 = fcmp olt float %b.sroa.4.8.vec.extract.i, %mul.i10
-  %mul.b.sroa.4.8.vec.extract.i = select i1 %cmp.i11, float %mul.i10, float %b.sroa.4.8.vec.extract.i
-  %8 = tail call float @llvm.fmuladd.f32(float %item_padding.sroa.0.0.copyload, float -2.000000e+00, float %mul.b.sroa.4.8.vec.extract.i)
+  %mul.i9 = fmul float %item_padding.sroa.0.0.copyload, 2.000000e+00
+  %cmp.i10 = fcmp olt float %b.sroa.4.8.vec.extract.i, %mul.i9
+  %cond.i = select i1 %cmp.i10, float %mul.i9, float %b.sroa.4.8.vec.extract.i
+  %8 = tail call float @llvm.fmuladd.f32(float %item_padding.sroa.0.0.copyload, float -2.000000e+00, float %cond.i)
   %height.i = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load float, ptr %height.i, align 8
   %10 = tail call float @llvm.fmuladd.f32(float %item_padding.sroa.2.0.copyload, float 2.000000e+00, float %9)
@@ -54486,9 +54459,9 @@ cond.end:                                         ; preds = %lor.lhs.false13, %i
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   store <2 x float> %6, ptr %7, align 8
   %tobool1.not.i = icmp eq ptr %style, null
-  br i1 %tobool1.not.i, label %nk_do_button_image.exit, label %nk_do_button.exit.i
+  br i1 %tobool1.not.i, label %nk_do_button_image.exit, label %if.end.i
 
-nk_do_button.exit.i:                              ; preds = %cond.end
+if.end.i:                                         ; preds = %cond.end
   %r.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %4, i64 0
   %padding.i.i = getelementptr inbounds i8, ptr %style, i64 160
   %8 = load float, ptr %padding.i.i, align 8
@@ -54543,13 +54516,13 @@ nk_do_button.exit.i:                              ; preds = %cond.end
   %tobool12.not.i = icmp eq ptr %24, null
   br i1 %tobool12.not.i, label %if.end15.i, label %if.then13.i
 
-if.then13.i:                                      ; preds = %nk_do_button.exit.i
+if.then13.i:                                      ; preds = %if.end.i
   %userdata.i = getelementptr inbounds i8, ptr %style, i64 192
   %25 = load ptr, ptr %userdata.i, align 8
   tail call void %24(ptr noundef nonnull %buffer, ptr %25) #52
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %if.then13.i, %nk_do_button.exit.i
+if.end15.i:                                       ; preds = %if.then13.i, %if.end.i
   %26 = load i32, ptr %last_widget_state, align 4
   %call.i21.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer, ptr noundef nonnull readonly %bounds.i, i32 noundef %26, ptr noundef nonnull %style)
   %color_factor_background.i.i = getelementptr inbounds i8, ptr %style, i64 124
@@ -55180,12 +55153,10 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_do_toggle(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %active, ptr noundef %str, i32 noundef %len, i32 noundef %type, ptr nocapture noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
+define internal fastcc void @nk_do_toggle(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr nocapture noundef %active, ptr noundef %str, i32 noundef %len, i32 noundef %type, ptr nocapture noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
-  %tobool3 = icmp ne ptr %font, null
-  %tobool5 = icmp ne ptr %active, null
-  %or.cond2 = and i1 %tobool5, %tobool3
-  br i1 %or.cond2, label %if.end, label %return
+  %tobool3.not = icmp eq ptr %font, null
+  br i1 %tobool3.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %r.sroa.7.8.vec.extract = extractelement <2 x float> %r.coerce1, i64 0
@@ -55365,8 +55336,8 @@ if.then.i:                                        ; preds = %if.then108
 
 if.else.i:                                        ; preds = %if.then108
   %and2.i = and i32 %23, 32
-  %tobool3.not.i83 = icmp eq i32 %and2.i, 0
-  br i1 %tobool3.not.i83, label %if.end10.i, label %if.then4.i
+  %tobool3.not.i84 = icmp eq i32 %and2.i, 0
+  br i1 %tobool3.not.i84, label %if.end10.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
   %hover5.i = getelementptr inbounds i8, ptr %style, i64 40
@@ -55416,9 +55387,9 @@ nk_rgb_factor.exit.i:                             ; preds = %if.end.i.i80, %if.e
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   %26 = load i32, ptr %background.0.i, align 8
   %cmp.i = icmp eq i32 %26, 0
-  br i1 %cmp.i, label %if.then13.i81, label %if.else21.i
+  br i1 %cmp.i, label %if.then13.i82, label %if.else21.i
 
-if.then13.i81:                                    ; preds = %nk_rgb_factor.exit.i
+if.then13.i82:                                    ; preds = %nk_rgb_factor.exit.i
   %border_color.i = getelementptr inbounds i8, ptr %style, i64 120
   %27 = load i32, ptr %border_color.i, align 8
   %col.sroa.0.0.extract.trunc.i30.i = trunc i32 %27 to i8
@@ -55428,7 +55399,7 @@ if.then13.i81:                                    ; preds = %nk_rgb_factor.exit.
   %col.sroa.7.0.extract.trunc.i34.i = trunc i32 %col.sroa.7.0.extract.shift.i33.i to i8
   br i1 %cmp.i.i79, label %nk_rgb_factor.exit58.i, label %if.end.i36.i
 
-if.end.i36.i:                                     ; preds = %if.then13.i81
+if.end.i36.i:                                     ; preds = %if.then13.i82
   %conv.i37.i = uitofp i8 %col.sroa.0.0.extract.trunc.i30.i to float
   %mul.i38.i = fmul float %25, %conv.i37.i
   %conv1.i39.i = fptoui float %mul.i38.i to i8
@@ -55440,10 +55411,10 @@ if.end.i36.i:                                     ; preds = %if.then13.i81
   %conv7.i45.i = fptoui float %mul6.i44.i to i8
   br label %nk_rgb_factor.exit58.i
 
-nk_rgb_factor.exit58.i:                           ; preds = %if.end.i36.i, %if.then13.i81
-  %retval.sroa.3.0.i46.i = phi i8 [ %conv4.i42.i, %if.end.i36.i ], [ %col.sroa.5.0.extract.trunc.i32.i, %if.then13.i81 ]
-  %retval.sroa.0.0.i47.i = phi i8 [ %conv1.i39.i, %if.end.i36.i ], [ %col.sroa.0.0.extract.trunc.i30.i, %if.then13.i81 ]
-  %retval.sroa.5.0.i48.i = phi i8 [ %conv7.i45.i, %if.end.i36.i ], [ %col.sroa.7.0.extract.trunc.i34.i, %if.then13.i81 ]
+nk_rgb_factor.exit58.i:                           ; preds = %if.end.i36.i, %if.then13.i82
+  %retval.sroa.3.0.i46.i = phi i8 [ %conv4.i42.i, %if.end.i36.i ], [ %col.sroa.5.0.extract.trunc.i32.i, %if.then13.i82 ]
+  %retval.sroa.0.0.i47.i = phi i8 [ %conv1.i39.i, %if.end.i36.i ], [ %col.sroa.0.0.extract.trunc.i30.i, %if.then13.i82 ]
+  %retval.sroa.5.0.i48.i = phi i8 [ %conv7.i45.i, %if.end.i36.i ], [ %col.sroa.7.0.extract.trunc.i34.i, %if.then13.i82 ]
   %col.sroa.9.0.extract.shift.i49.i = and i32 %27, -16777216
   %retval.sroa.5.0.insert.ext.i50.i = zext i8 %retval.sroa.5.0.i48.i to i32
   %retval.sroa.5.0.insert.shift.i51.i = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i50.i, 16
@@ -55458,8 +55429,8 @@ nk_rgb_factor.exit58.i:                           ; preds = %if.end.i36.i, %if.t
   %mul.i59.i = fmul float %28, 2.000000e+00
   %cmp.i60.i = fcmp olt float %0, %mul.i59.i
   %cond.i.i = select i1 %cmp.i60.i, float %mul.i59.i, float %0
-  %add.i.i82 = fadd float %r.sroa.0.0.vec.extract, %28
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %add.i.i82, i64 0
+  %add.i.i83 = fadd float %r.sroa.0.0.vec.extract, %28
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %add.i.i83, i64 0
   %add14.i.i = fadd float %sub47, %28
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %add14.i.i, i64 1
   %29 = tail call float @llvm.fmuladd.f32(float %28, float -2.000000e+00, float %cond.i.i)
@@ -55543,230 +55514,230 @@ if.else36.i:                                      ; preds = %if.then28.i
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.else36.i, %if.then31.i, %if.end26.i
-  %tobool.i.not.i = icmp eq ptr %out, null
-  br i1 %tobool.i.not.i, label %if.end109, label %if.end109.sink.split
+  %tobool.not.i.i81 = icmp eq ptr %out, null
+  br i1 %tobool.not.i.i81, label %if.end109, label %if.end109.sink.split
 
 if.else:                                          ; preds = %if.end106
-  br i1 %tobool.not.i, label %if.else.i254, label %if.then.i86
+  br i1 %tobool.not.i, label %if.else.i255, label %if.then.i87
 
-if.then.i86:                                      ; preds = %if.else
-  %hover.i87 = getelementptr inbounds i8, ptr %style, i64 40
-  br label %if.end10.i88
+if.then.i87:                                      ; preds = %if.else
+  %hover.i88 = getelementptr inbounds i8, ptr %style, i64 40
+  br label %if.end10.i89
 
-if.else.i254:                                     ; preds = %if.else
-  %and2.i255 = and i32 %23, 32
-  %tobool3.not.i256 = icmp eq i32 %and2.i255, 0
-  br i1 %tobool3.not.i256, label %if.end10.i88, label %if.then4.i257
+if.else.i255:                                     ; preds = %if.else
+  %and2.i256 = and i32 %23, 32
+  %tobool3.not.i257 = icmp eq i32 %and2.i256, 0
+  br i1 %tobool3.not.i257, label %if.end10.i89, label %if.then4.i258
 
-if.then4.i257:                                    ; preds = %if.else.i254
-  %hover5.i258 = getelementptr inbounds i8, ptr %style, i64 40
-  br label %if.end10.i88
+if.then4.i258:                                    ; preds = %if.else.i255
+  %hover5.i259 = getelementptr inbounds i8, ptr %style, i64 40
+  br label %if.end10.i89
 
-if.end10.i88:                                     ; preds = %if.then4.i257, %if.else.i254, %if.then.i86
-  %.sink135.i89 = phi i64 [ 168, %if.then4.i257 ], [ 168, %if.then.i86 ], [ 128, %if.else.i254 ]
-  %.sink.i90 = phi i64 [ 216, %if.then4.i257 ], [ 212, %if.then.i86 ], [ 208, %if.else.i254 ]
-  %background.0.i91 = phi ptr [ %hover5.i258, %if.then4.i257 ], [ %hover.i87, %if.then.i86 ], [ %style, %if.else.i254 ]
-  %cursor_hover6.i92 = getelementptr inbounds i8, ptr %style, i64 %.sink135.i89
-  %text_active.i93 = getelementptr inbounds i8, ptr %style, i64 %.sink.i90
-  %text.sroa.6.0.i94 = load i32, ptr %text_active.i93, align 4
-  %color_factor.i95 = getelementptr inbounds i8, ptr %style, i64 252
-  %41 = load float, ptr %color_factor.i95, align 4
-  %col.sroa.0.0.extract.trunc.i.i96 = trunc i32 %text.sroa.6.0.i94 to i8
-  %col.sroa.5.0.extract.shift.i.i97 = lshr i32 %text.sroa.6.0.i94, 8
-  %col.sroa.5.0.extract.trunc.i.i98 = trunc i32 %col.sroa.5.0.extract.shift.i.i97 to i8
-  %col.sroa.7.0.extract.shift.i.i99 = lshr i32 %text.sroa.6.0.i94, 16
-  %col.sroa.7.0.extract.trunc.i.i100 = trunc i32 %col.sroa.7.0.extract.shift.i.i99 to i8
-  %cmp.i.i101 = fcmp oeq float %41, 1.000000e+00
-  br i1 %cmp.i.i101, label %nk_rgb_factor.exit.i112, label %if.end.i.i102
+if.end10.i89:                                     ; preds = %if.then4.i258, %if.else.i255, %if.then.i87
+  %.sink135.i90 = phi i64 [ 168, %if.then4.i258 ], [ 168, %if.then.i87 ], [ 128, %if.else.i255 ]
+  %.sink.i91 = phi i64 [ 216, %if.then4.i258 ], [ 212, %if.then.i87 ], [ 208, %if.else.i255 ]
+  %background.0.i92 = phi ptr [ %hover5.i259, %if.then4.i258 ], [ %hover.i88, %if.then.i87 ], [ %style, %if.else.i255 ]
+  %cursor_hover6.i93 = getelementptr inbounds i8, ptr %style, i64 %.sink135.i90
+  %text_active.i94 = getelementptr inbounds i8, ptr %style, i64 %.sink.i91
+  %text.sroa.6.0.i95 = load i32, ptr %text_active.i94, align 4
+  %color_factor.i96 = getelementptr inbounds i8, ptr %style, i64 252
+  %41 = load float, ptr %color_factor.i96, align 4
+  %col.sroa.0.0.extract.trunc.i.i97 = trunc i32 %text.sroa.6.0.i95 to i8
+  %col.sroa.5.0.extract.shift.i.i98 = lshr i32 %text.sroa.6.0.i95, 8
+  %col.sroa.5.0.extract.trunc.i.i99 = trunc i32 %col.sroa.5.0.extract.shift.i.i98 to i8
+  %col.sroa.7.0.extract.shift.i.i100 = lshr i32 %text.sroa.6.0.i95, 16
+  %col.sroa.7.0.extract.trunc.i.i101 = trunc i32 %col.sroa.7.0.extract.shift.i.i100 to i8
+  %cmp.i.i102 = fcmp oeq float %41, 1.000000e+00
+  br i1 %cmp.i.i102, label %nk_rgb_factor.exit.i113, label %if.end.i.i103
 
-if.end.i.i102:                                    ; preds = %if.end10.i88
-  %conv.i.i103 = uitofp i8 %col.sroa.0.0.extract.trunc.i.i96 to float
-  %mul.i.i104 = fmul float %41, %conv.i.i103
-  %conv1.i.i105 = fptoui float %mul.i.i104 to i8
-  %conv2.i.i106 = uitofp i8 %col.sroa.5.0.extract.trunc.i.i98 to float
-  %mul3.i.i107 = fmul float %41, %conv2.i.i106
-  %conv4.i.i108 = fptoui float %mul3.i.i107 to i8
-  %conv5.i.i109 = uitofp i8 %col.sroa.7.0.extract.trunc.i.i100 to float
-  %mul6.i.i110 = fmul float %41, %conv5.i.i109
-  %conv7.i.i111 = fptoui float %mul6.i.i110 to i8
-  br label %nk_rgb_factor.exit.i112
+if.end.i.i103:                                    ; preds = %if.end10.i89
+  %conv.i.i104 = uitofp i8 %col.sroa.0.0.extract.trunc.i.i97 to float
+  %mul.i.i105 = fmul float %41, %conv.i.i104
+  %conv1.i.i106 = fptoui float %mul.i.i105 to i8
+  %conv2.i.i107 = uitofp i8 %col.sroa.5.0.extract.trunc.i.i99 to float
+  %mul3.i.i108 = fmul float %41, %conv2.i.i107
+  %conv4.i.i109 = fptoui float %mul3.i.i108 to i8
+  %conv5.i.i110 = uitofp i8 %col.sroa.7.0.extract.trunc.i.i101 to float
+  %mul6.i.i111 = fmul float %41, %conv5.i.i110
+  %conv7.i.i112 = fptoui float %mul6.i.i111 to i8
+  br label %nk_rgb_factor.exit.i113
 
-nk_rgb_factor.exit.i112:                          ; preds = %if.end.i.i102, %if.end10.i88
-  %retval.sroa.3.0.i.i113 = phi i8 [ %conv4.i.i108, %if.end.i.i102 ], [ %col.sroa.5.0.extract.trunc.i.i98, %if.end10.i88 ]
-  %retval.sroa.0.0.i.i114 = phi i8 [ %conv1.i.i105, %if.end.i.i102 ], [ %col.sroa.0.0.extract.trunc.i.i96, %if.end10.i88 ]
-  %retval.sroa.5.0.i.i115 = phi i8 [ %conv7.i.i111, %if.end.i.i102 ], [ %col.sroa.7.0.extract.trunc.i.i100, %if.end10.i88 ]
-  %col.sroa.9.0.extract.shift.i.i116 = and i32 %text.sroa.6.0.i94, -16777216
-  %retval.sroa.5.0.insert.ext.i.i117 = zext i8 %retval.sroa.5.0.i.i115 to i32
-  %retval.sroa.5.0.insert.shift.i.i118 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i.i117, 16
-  %retval.sroa.5.0.insert.insert.i.i119 = or disjoint i32 %retval.sroa.5.0.insert.shift.i.i118, %col.sroa.9.0.extract.shift.i.i116
-  %retval.sroa.3.0.insert.ext.i.i120 = zext i8 %retval.sroa.3.0.i.i113 to i32
-  %retval.sroa.3.0.insert.shift.i.i121 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i.i120, 8
-  %retval.sroa.3.0.insert.insert.i.i122 = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i119, %retval.sroa.3.0.insert.shift.i.i121
-  %retval.sroa.0.0.insert.ext.i.i123 = zext i8 %retval.sroa.0.0.i.i114 to i32
-  %retval.sroa.0.0.insert.insert.i.i124 = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i122, %retval.sroa.0.0.insert.ext.i.i123
-  %42 = load i32, ptr %background.0.i91, align 8
-  %cmp.i125 = icmp eq i32 %42, 0
-  br i1 %cmp.i125, label %if.then13.i178, label %if.else21.i126
+nk_rgb_factor.exit.i113:                          ; preds = %if.end.i.i103, %if.end10.i89
+  %retval.sroa.3.0.i.i114 = phi i8 [ %conv4.i.i109, %if.end.i.i103 ], [ %col.sroa.5.0.extract.trunc.i.i99, %if.end10.i89 ]
+  %retval.sroa.0.0.i.i115 = phi i8 [ %conv1.i.i106, %if.end.i.i103 ], [ %col.sroa.0.0.extract.trunc.i.i97, %if.end10.i89 ]
+  %retval.sroa.5.0.i.i116 = phi i8 [ %conv7.i.i112, %if.end.i.i103 ], [ %col.sroa.7.0.extract.trunc.i.i101, %if.end10.i89 ]
+  %col.sroa.9.0.extract.shift.i.i117 = and i32 %text.sroa.6.0.i95, -16777216
+  %retval.sroa.5.0.insert.ext.i.i118 = zext i8 %retval.sroa.5.0.i.i116 to i32
+  %retval.sroa.5.0.insert.shift.i.i119 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i.i118, 16
+  %retval.sroa.5.0.insert.insert.i.i120 = or disjoint i32 %retval.sroa.5.0.insert.shift.i.i119, %col.sroa.9.0.extract.shift.i.i117
+  %retval.sroa.3.0.insert.ext.i.i121 = zext i8 %retval.sroa.3.0.i.i114 to i32
+  %retval.sroa.3.0.insert.shift.i.i122 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i.i121, 8
+  %retval.sroa.3.0.insert.insert.i.i123 = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i120, %retval.sroa.3.0.insert.shift.i.i122
+  %retval.sroa.0.0.insert.ext.i.i124 = zext i8 %retval.sroa.0.0.i.i115 to i32
+  %retval.sroa.0.0.insert.insert.i.i125 = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i123, %retval.sroa.0.0.insert.ext.i.i124
+  %42 = load i32, ptr %background.0.i92, align 8
+  %cmp.i126 = icmp eq i32 %42, 0
+  br i1 %cmp.i126, label %if.then13.i179, label %if.else21.i127
 
-if.then13.i178:                                   ; preds = %nk_rgb_factor.exit.i112
-  %border_color.i179 = getelementptr inbounds i8, ptr %style, i64 120
-  %43 = load i32, ptr %border_color.i179, align 8
-  %col.sroa.0.0.extract.trunc.i30.i180 = trunc i32 %43 to i8
-  %col.sroa.5.0.extract.shift.i31.i181 = lshr i32 %43, 8
-  %col.sroa.5.0.extract.trunc.i32.i182 = trunc i32 %col.sroa.5.0.extract.shift.i31.i181 to i8
-  %col.sroa.7.0.extract.shift.i33.i183 = lshr i32 %43, 16
-  %col.sroa.7.0.extract.trunc.i34.i184 = trunc i32 %col.sroa.7.0.extract.shift.i33.i183 to i8
-  br i1 %cmp.i.i101, label %nk_rgb_factor.exit58.i195, label %if.end.i36.i185
+if.then13.i179:                                   ; preds = %nk_rgb_factor.exit.i113
+  %border_color.i180 = getelementptr inbounds i8, ptr %style, i64 120
+  %43 = load i32, ptr %border_color.i180, align 8
+  %col.sroa.0.0.extract.trunc.i30.i181 = trunc i32 %43 to i8
+  %col.sroa.5.0.extract.shift.i31.i182 = lshr i32 %43, 8
+  %col.sroa.5.0.extract.trunc.i32.i183 = trunc i32 %col.sroa.5.0.extract.shift.i31.i182 to i8
+  %col.sroa.7.0.extract.shift.i33.i184 = lshr i32 %43, 16
+  %col.sroa.7.0.extract.trunc.i34.i185 = trunc i32 %col.sroa.7.0.extract.shift.i33.i184 to i8
+  br i1 %cmp.i.i102, label %nk_rgb_factor.exit58.i196, label %if.end.i36.i186
 
-if.end.i36.i185:                                  ; preds = %if.then13.i178
-  %conv.i37.i186 = uitofp i8 %col.sroa.0.0.extract.trunc.i30.i180 to float
-  %mul.i38.i187 = fmul float %41, %conv.i37.i186
-  %conv1.i39.i188 = fptoui float %mul.i38.i187 to i8
-  %conv2.i40.i189 = uitofp i8 %col.sroa.5.0.extract.trunc.i32.i182 to float
-  %mul3.i41.i190 = fmul float %41, %conv2.i40.i189
-  %conv4.i42.i191 = fptoui float %mul3.i41.i190 to i8
-  %conv5.i43.i192 = uitofp i8 %col.sroa.7.0.extract.trunc.i34.i184 to float
-  %mul6.i44.i193 = fmul float %41, %conv5.i43.i192
-  %conv7.i45.i194 = fptoui float %mul6.i44.i193 to i8
-  br label %nk_rgb_factor.exit58.i195
+if.end.i36.i186:                                  ; preds = %if.then13.i179
+  %conv.i37.i187 = uitofp i8 %col.sroa.0.0.extract.trunc.i30.i181 to float
+  %mul.i38.i188 = fmul float %41, %conv.i37.i187
+  %conv1.i39.i189 = fptoui float %mul.i38.i188 to i8
+  %conv2.i40.i190 = uitofp i8 %col.sroa.5.0.extract.trunc.i32.i183 to float
+  %mul3.i41.i191 = fmul float %41, %conv2.i40.i190
+  %conv4.i42.i192 = fptoui float %mul3.i41.i191 to i8
+  %conv5.i43.i193 = uitofp i8 %col.sroa.7.0.extract.trunc.i34.i185 to float
+  %mul6.i44.i194 = fmul float %41, %conv5.i43.i193
+  %conv7.i45.i195 = fptoui float %mul6.i44.i194 to i8
+  br label %nk_rgb_factor.exit58.i196
 
-nk_rgb_factor.exit58.i195:                        ; preds = %if.end.i36.i185, %if.then13.i178
-  %retval.sroa.3.0.i46.i196 = phi i8 [ %conv4.i42.i191, %if.end.i36.i185 ], [ %col.sroa.5.0.extract.trunc.i32.i182, %if.then13.i178 ]
-  %retval.sroa.0.0.i47.i197 = phi i8 [ %conv1.i39.i188, %if.end.i36.i185 ], [ %col.sroa.0.0.extract.trunc.i30.i180, %if.then13.i178 ]
-  %retval.sroa.5.0.i48.i198 = phi i8 [ %conv7.i45.i194, %if.end.i36.i185 ], [ %col.sroa.7.0.extract.trunc.i34.i184, %if.then13.i178 ]
-  %col.sroa.9.0.extract.shift.i49.i199 = and i32 %43, -16777216
-  %retval.sroa.5.0.insert.ext.i50.i200 = zext i8 %retval.sroa.5.0.i48.i198 to i32
-  %retval.sroa.5.0.insert.shift.i51.i201 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i50.i200, 16
-  %retval.sroa.5.0.insert.insert.i52.i202 = or disjoint i32 %retval.sroa.5.0.insert.shift.i51.i201, %col.sroa.9.0.extract.shift.i49.i199
-  %retval.sroa.3.0.insert.ext.i53.i203 = zext i8 %retval.sroa.3.0.i46.i196 to i32
-  %retval.sroa.3.0.insert.shift.i54.i204 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i53.i203, 8
-  %retval.sroa.3.0.insert.insert.i55.i205 = or disjoint i32 %retval.sroa.5.0.insert.insert.i52.i202, %retval.sroa.3.0.insert.shift.i54.i204
-  %retval.sroa.0.0.insert.ext.i56.i206 = zext i8 %retval.sroa.0.0.i47.i197 to i32
-  %retval.sroa.0.0.insert.insert.i57.i207 = or disjoint i32 %retval.sroa.3.0.insert.insert.i55.i205, %retval.sroa.0.0.insert.ext.i56.i206
-  tail call void @nk_fill_circle(ptr noundef %out, <2 x float> %select.sroa.0.0.vec.insert, <2 x float> %select.sroa.11.12.vec.insert, i32 %retval.sroa.0.0.insert.insert.i57.i207)
+nk_rgb_factor.exit58.i196:                        ; preds = %if.end.i36.i186, %if.then13.i179
+  %retval.sroa.3.0.i46.i197 = phi i8 [ %conv4.i42.i192, %if.end.i36.i186 ], [ %col.sroa.5.0.extract.trunc.i32.i183, %if.then13.i179 ]
+  %retval.sroa.0.0.i47.i198 = phi i8 [ %conv1.i39.i189, %if.end.i36.i186 ], [ %col.sroa.0.0.extract.trunc.i30.i181, %if.then13.i179 ]
+  %retval.sroa.5.0.i48.i199 = phi i8 [ %conv7.i45.i195, %if.end.i36.i186 ], [ %col.sroa.7.0.extract.trunc.i34.i185, %if.then13.i179 ]
+  %col.sroa.9.0.extract.shift.i49.i200 = and i32 %43, -16777216
+  %retval.sroa.5.0.insert.ext.i50.i201 = zext i8 %retval.sroa.5.0.i48.i199 to i32
+  %retval.sroa.5.0.insert.shift.i51.i202 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i50.i201, 16
+  %retval.sroa.5.0.insert.insert.i52.i203 = or disjoint i32 %retval.sroa.5.0.insert.shift.i51.i202, %col.sroa.9.0.extract.shift.i49.i200
+  %retval.sroa.3.0.insert.ext.i53.i204 = zext i8 %retval.sroa.3.0.i46.i197 to i32
+  %retval.sroa.3.0.insert.shift.i54.i205 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i53.i204, 8
+  %retval.sroa.3.0.insert.insert.i55.i206 = or disjoint i32 %retval.sroa.5.0.insert.insert.i52.i203, %retval.sroa.3.0.insert.shift.i54.i205
+  %retval.sroa.0.0.insert.ext.i56.i207 = zext i8 %retval.sroa.0.0.i47.i198 to i32
+  %retval.sroa.0.0.insert.insert.i57.i208 = or disjoint i32 %retval.sroa.3.0.insert.insert.i55.i206, %retval.sroa.0.0.insert.ext.i56.i207
+  tail call void @nk_fill_circle(ptr noundef %out, <2 x float> %select.sroa.0.0.vec.insert, <2 x float> %select.sroa.11.12.vec.insert, i32 %retval.sroa.0.0.insert.insert.i57.i208)
   %44 = load float, ptr %border, align 8
-  %mul.i59.i210 = fmul float %44, 2.000000e+00
-  %cmp.i60.i211 = fcmp olt float %0, %mul.i59.i210
-  %cond.i.i212 = select i1 %cmp.i60.i211, float %mul.i59.i210, float %0
-  %add.i.i217 = fadd float %r.sroa.0.0.vec.extract, %44
-  %retval.sroa.0.0.vec.insert.i.i218 = insertelement <2 x float> poison, float %add.i.i217, i64 0
-  %add14.i.i220 = fadd float %sub47, %44
-  %retval.sroa.0.4.vec.insert.i.i221 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i218, float %add14.i.i220, i64 1
-  %45 = tail call float @llvm.fmuladd.f32(float %44, float -2.000000e+00, float %cond.i.i212)
-  %retval.sroa.3.8.vec.insert.i.i222 = insertelement <2 x float> poison, float %45, i64 0
-  %retval.sroa.3.12.vec.insert.i.i223 = shufflevector <2 x float> %retval.sroa.3.8.vec.insert.i.i222, <2 x float> poison, <2 x i32> zeroinitializer
-  %data.i224 = getelementptr inbounds i8, ptr %background.0.i91, i64 8
-  %46 = load float, ptr %color_factor.i95, align 4
-  %47 = load i32, ptr %data.i224, align 8
-  %col.sroa.0.0.extract.trunc.i61.i225 = trunc i32 %47 to i8
-  %col.sroa.5.0.extract.shift.i62.i226 = lshr i32 %47, 8
-  %col.sroa.5.0.extract.trunc.i63.i227 = trunc i32 %col.sroa.5.0.extract.shift.i62.i226 to i8
-  %col.sroa.7.0.extract.shift.i64.i228 = lshr i32 %47, 16
-  %col.sroa.7.0.extract.trunc.i65.i229 = trunc i32 %col.sroa.7.0.extract.shift.i64.i228 to i8
-  %cmp.i66.i230 = fcmp oeq float %46, 1.000000e+00
-  br i1 %cmp.i66.i230, label %nk_rgb_factor.exit89.i241, label %if.end.i67.i231
+  %mul.i59.i211 = fmul float %44, 2.000000e+00
+  %cmp.i60.i212 = fcmp olt float %0, %mul.i59.i211
+  %cond.i.i213 = select i1 %cmp.i60.i212, float %mul.i59.i211, float %0
+  %add.i.i218 = fadd float %r.sroa.0.0.vec.extract, %44
+  %retval.sroa.0.0.vec.insert.i.i219 = insertelement <2 x float> poison, float %add.i.i218, i64 0
+  %add14.i.i221 = fadd float %sub47, %44
+  %retval.sroa.0.4.vec.insert.i.i222 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i219, float %add14.i.i221, i64 1
+  %45 = tail call float @llvm.fmuladd.f32(float %44, float -2.000000e+00, float %cond.i.i213)
+  %retval.sroa.3.8.vec.insert.i.i223 = insertelement <2 x float> poison, float %45, i64 0
+  %retval.sroa.3.12.vec.insert.i.i224 = shufflevector <2 x float> %retval.sroa.3.8.vec.insert.i.i223, <2 x float> poison, <2 x i32> zeroinitializer
+  %data.i225 = getelementptr inbounds i8, ptr %background.0.i92, i64 8
+  %46 = load float, ptr %color_factor.i96, align 4
+  %47 = load i32, ptr %data.i225, align 8
+  %col.sroa.0.0.extract.trunc.i61.i226 = trunc i32 %47 to i8
+  %col.sroa.5.0.extract.shift.i62.i227 = lshr i32 %47, 8
+  %col.sroa.5.0.extract.trunc.i63.i228 = trunc i32 %col.sroa.5.0.extract.shift.i62.i227 to i8
+  %col.sroa.7.0.extract.shift.i64.i229 = lshr i32 %47, 16
+  %col.sroa.7.0.extract.trunc.i65.i230 = trunc i32 %col.sroa.7.0.extract.shift.i64.i229 to i8
+  %cmp.i66.i231 = fcmp oeq float %46, 1.000000e+00
+  br i1 %cmp.i66.i231, label %nk_rgb_factor.exit89.i242, label %if.end.i67.i232
 
-if.end.i67.i231:                                  ; preds = %nk_rgb_factor.exit58.i195
-  %conv.i68.i232 = uitofp i8 %col.sroa.0.0.extract.trunc.i61.i225 to float
-  %mul.i69.i233 = fmul float %46, %conv.i68.i232
-  %conv1.i70.i234 = fptoui float %mul.i69.i233 to i8
-  %conv2.i71.i235 = uitofp i8 %col.sroa.5.0.extract.trunc.i63.i227 to float
-  %mul3.i72.i236 = fmul float %46, %conv2.i71.i235
-  %conv4.i73.i237 = fptoui float %mul3.i72.i236 to i8
-  %conv5.i74.i238 = uitofp i8 %col.sroa.7.0.extract.trunc.i65.i229 to float
-  %mul6.i75.i239 = fmul float %46, %conv5.i74.i238
-  %conv7.i76.i240 = fptoui float %mul6.i75.i239 to i8
-  br label %nk_rgb_factor.exit89.i241
+if.end.i67.i232:                                  ; preds = %nk_rgb_factor.exit58.i196
+  %conv.i68.i233 = uitofp i8 %col.sroa.0.0.extract.trunc.i61.i226 to float
+  %mul.i69.i234 = fmul float %46, %conv.i68.i233
+  %conv1.i70.i235 = fptoui float %mul.i69.i234 to i8
+  %conv2.i71.i236 = uitofp i8 %col.sroa.5.0.extract.trunc.i63.i228 to float
+  %mul3.i72.i237 = fmul float %46, %conv2.i71.i236
+  %conv4.i73.i238 = fptoui float %mul3.i72.i237 to i8
+  %conv5.i74.i239 = uitofp i8 %col.sroa.7.0.extract.trunc.i65.i230 to float
+  %mul6.i75.i240 = fmul float %46, %conv5.i74.i239
+  %conv7.i76.i241 = fptoui float %mul6.i75.i240 to i8
+  br label %nk_rgb_factor.exit89.i242
 
-nk_rgb_factor.exit89.i241:                        ; preds = %if.end.i67.i231, %nk_rgb_factor.exit58.i195
-  %retval.sroa.3.0.i77.i242 = phi i8 [ %conv4.i73.i237, %if.end.i67.i231 ], [ %col.sroa.5.0.extract.trunc.i63.i227, %nk_rgb_factor.exit58.i195 ]
-  %retval.sroa.0.0.i78.i243 = phi i8 [ %conv1.i70.i234, %if.end.i67.i231 ], [ %col.sroa.0.0.extract.trunc.i61.i225, %nk_rgb_factor.exit58.i195 ]
-  %retval.sroa.5.0.i79.i244 = phi i8 [ %conv7.i76.i240, %if.end.i67.i231 ], [ %col.sroa.7.0.extract.trunc.i65.i229, %nk_rgb_factor.exit58.i195 ]
-  %col.sroa.9.0.extract.shift.i80.i245 = and i32 %47, -16777216
-  %retval.sroa.5.0.insert.ext.i81.i246 = zext i8 %retval.sroa.5.0.i79.i244 to i32
-  %retval.sroa.5.0.insert.shift.i82.i247 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i81.i246, 16
-  %retval.sroa.5.0.insert.insert.i83.i248 = or disjoint i32 %retval.sroa.5.0.insert.shift.i82.i247, %col.sroa.9.0.extract.shift.i80.i245
-  %retval.sroa.3.0.insert.ext.i84.i249 = zext i8 %retval.sroa.3.0.i77.i242 to i32
-  %retval.sroa.3.0.insert.shift.i85.i250 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i84.i249, 8
-  %retval.sroa.3.0.insert.insert.i86.i251 = or disjoint i32 %retval.sroa.5.0.insert.insert.i83.i248, %retval.sroa.3.0.insert.shift.i85.i250
-  %retval.sroa.0.0.insert.ext.i87.i252 = zext i8 %retval.sroa.0.0.i78.i243 to i32
-  %retval.sroa.0.0.insert.insert.i88.i253 = or disjoint i32 %retval.sroa.3.0.insert.insert.i86.i251, %retval.sroa.0.0.insert.ext.i87.i252
-  tail call void @nk_fill_circle(ptr noundef %out, <2 x float> %retval.sroa.0.4.vec.insert.i.i221, <2 x float> %retval.sroa.3.12.vec.insert.i.i223, i32 %retval.sroa.0.0.insert.insert.i88.i253)
-  br label %if.end26.i136
+nk_rgb_factor.exit89.i242:                        ; preds = %if.end.i67.i232, %nk_rgb_factor.exit58.i196
+  %retval.sroa.3.0.i77.i243 = phi i8 [ %conv4.i73.i238, %if.end.i67.i232 ], [ %col.sroa.5.0.extract.trunc.i63.i228, %nk_rgb_factor.exit58.i196 ]
+  %retval.sroa.0.0.i78.i244 = phi i8 [ %conv1.i70.i235, %if.end.i67.i232 ], [ %col.sroa.0.0.extract.trunc.i61.i226, %nk_rgb_factor.exit58.i196 ]
+  %retval.sroa.5.0.i79.i245 = phi i8 [ %conv7.i76.i241, %if.end.i67.i232 ], [ %col.sroa.7.0.extract.trunc.i65.i230, %nk_rgb_factor.exit58.i196 ]
+  %col.sroa.9.0.extract.shift.i80.i246 = and i32 %47, -16777216
+  %retval.sroa.5.0.insert.ext.i81.i247 = zext i8 %retval.sroa.5.0.i79.i245 to i32
+  %retval.sroa.5.0.insert.shift.i82.i248 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i81.i247, 16
+  %retval.sroa.5.0.insert.insert.i83.i249 = or disjoint i32 %retval.sroa.5.0.insert.shift.i82.i248, %col.sroa.9.0.extract.shift.i80.i246
+  %retval.sroa.3.0.insert.ext.i84.i250 = zext i8 %retval.sroa.3.0.i77.i243 to i32
+  %retval.sroa.3.0.insert.shift.i85.i251 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i84.i250, 8
+  %retval.sroa.3.0.insert.insert.i86.i252 = or disjoint i32 %retval.sroa.5.0.insert.insert.i83.i249, %retval.sroa.3.0.insert.shift.i85.i251
+  %retval.sroa.0.0.insert.ext.i87.i253 = zext i8 %retval.sroa.0.0.i78.i244 to i32
+  %retval.sroa.0.0.insert.insert.i88.i254 = or disjoint i32 %retval.sroa.3.0.insert.insert.i86.i252, %retval.sroa.0.0.insert.ext.i87.i253
+  tail call void @nk_fill_circle(ptr noundef %out, <2 x float> %retval.sroa.0.4.vec.insert.i.i222, <2 x float> %retval.sroa.3.12.vec.insert.i.i224, i32 %retval.sroa.0.0.insert.insert.i88.i254)
+  br label %if.end26.i137
 
-if.else21.i126:                                   ; preds = %nk_rgb_factor.exit.i112
-  %data22.i127 = getelementptr inbounds i8, ptr %background.0.i91, i64 8
-  %mul.i92.i128 = fmul float %41, 2.550000e+02
-  %conv1.i93.i129 = fptoui float %mul.i92.i128 to i8
-  %48 = zext i8 %conv1.i93.i129 to i32
+if.else21.i127:                                   ; preds = %nk_rgb_factor.exit.i113
+  %data22.i128 = getelementptr inbounds i8, ptr %background.0.i92, i64 8
+  %mul.i92.i129 = fmul float %41, 2.550000e+02
+  %conv1.i93.i130 = fptoui float %mul.i92.i129 to i8
+  %48 = zext i8 %conv1.i93.i130 to i32
   %49 = mul nuw nsw i32 %48, 65793
   %50 = or disjoint i32 %49, -16777216
-  %retval.sroa.0.0.insert.insert.i108.i135 = select i1 %cmp.i.i101, i32 -1, i32 %50
-  tail call void @nk_draw_image(ptr noundef %out, <2 x float> %select.sroa.0.0.vec.insert, <2 x float> %select.sroa.11.12.vec.insert, ptr noundef nonnull %data22.i127, i32 %retval.sroa.0.0.insert.insert.i108.i135)
-  br label %if.end26.i136
+  %retval.sroa.0.0.insert.insert.i108.i136 = select i1 %cmp.i.i102, i32 -1, i32 %50
+  tail call void @nk_draw_image(ptr noundef %out, <2 x float> %select.sroa.0.0.vec.insert, <2 x float> %select.sroa.11.12.vec.insert, ptr noundef nonnull %data22.i128, i32 %retval.sroa.0.0.insert.insert.i108.i136)
+  br label %if.end26.i137
 
-if.end26.i136:                                    ; preds = %if.else21.i126, %nk_rgb_factor.exit89.i241
-  %tobool27.not.i137 = icmp eq i32 %24, 0
-  br i1 %tobool27.not.i137, label %if.end39.i142, label %if.then28.i138
+if.end26.i137:                                    ; preds = %if.else21.i127, %nk_rgb_factor.exit89.i242
+  %tobool27.not.i138 = icmp eq i32 %24, 0
+  br i1 %tobool27.not.i138, label %if.end39.i143, label %if.then28.i139
 
-if.then28.i138:                                   ; preds = %if.end26.i136
-  %51 = load i32, ptr %cursor_hover6.i92, align 8
-  %cmp30.i139 = icmp eq i32 %51, 1
-  %data32.i140 = getelementptr inbounds i8, ptr %cursor_hover6.i92, i64 8
-  br i1 %cmp30.i139, label %if.then31.i168, label %if.else36.i141
+if.then28.i139:                                   ; preds = %if.end26.i137
+  %51 = load i32, ptr %cursor_hover6.i93, align 8
+  %cmp30.i140 = icmp eq i32 %51, 1
+  %data32.i141 = getelementptr inbounds i8, ptr %cursor_hover6.i93, i64 8
+  br i1 %cmp30.i140, label %if.then31.i169, label %if.else36.i142
 
-if.then31.i168:                                   ; preds = %if.then28.i138
-  %52 = load float, ptr %color_factor.i95, align 4
-  %cmp.i110.i169 = fcmp oeq float %52, 1.000000e+00
-  %mul.i112.i170 = fmul float %52, 2.550000e+02
-  %conv1.i113.i171 = fptoui float %mul.i112.i170 to i8
-  %53 = zext i8 %conv1.i113.i171 to i32
+if.then31.i169:                                   ; preds = %if.then28.i139
+  %52 = load float, ptr %color_factor.i96, align 4
+  %cmp.i110.i170 = fcmp oeq float %52, 1.000000e+00
+  %mul.i112.i171 = fmul float %52, 2.550000e+02
+  %conv1.i113.i172 = fptoui float %mul.i112.i171 to i8
+  %53 = zext i8 %conv1.i113.i172 to i32
   %54 = mul nuw nsw i32 %53, 65793
   %55 = or disjoint i32 %54, -16777216
-  %retval.sroa.0.0.insert.insert.i128.i177 = select i1 %cmp.i110.i169, i32 -1, i32 %55
-  tail call void @nk_draw_image(ptr noundef %out, <2 x float> %cursor.sroa.0.4.vec.insert, <2 x float> %cursor.sroa.6.12.vec.insert, ptr noundef nonnull readonly %data32.i140, i32 %retval.sroa.0.0.insert.insert.i128.i177)
-  br label %if.end39.i142
+  %retval.sroa.0.0.insert.insert.i128.i178 = select i1 %cmp.i110.i170, i32 -1, i32 %55
+  tail call void @nk_draw_image(ptr noundef %out, <2 x float> %cursor.sroa.0.4.vec.insert, <2 x float> %cursor.sroa.6.12.vec.insert, ptr noundef nonnull readonly %data32.i141, i32 %retval.sroa.0.0.insert.insert.i128.i178)
+  br label %if.end39.i143
 
-if.else36.i141:                                   ; preds = %if.then28.i138
-  %56 = load i32, ptr %data32.i140, align 8
+if.else36.i142:                                   ; preds = %if.then28.i139
+  %56 = load i32, ptr %data32.i141, align 8
   tail call void @nk_fill_circle(ptr noundef %out, <2 x float> %cursor.sroa.0.4.vec.insert, <2 x float> %cursor.sroa.6.12.vec.insert, i32 %56)
-  br label %if.end39.i142
+  br label %if.end39.i143
 
-if.end39.i142:                                    ; preds = %if.else36.i141, %if.then31.i168, %if.end26.i136
-  %tobool.i.not.i143 = icmp eq ptr %out, null
-  br i1 %tobool.i.not.i143, label %if.end109, label %if.end109.sink.split
+if.end39.i143:                                    ; preds = %if.else36.i142, %if.then31.i169, %if.end26.i137
+  %tobool.not.i.i144 = icmp eq ptr %out, null
+  br i1 %tobool.not.i.i144, label %if.end109, label %if.end109.sink.split
 
-if.end109.sink.split:                             ; preds = %if.end39.i142, %if.end39.i
-  %retval.sroa.0.0.insert.insert.i.i124.sink = phi i32 [ %retval.sroa.0.0.insert.insert.i.i, %if.end39.i ], [ %retval.sroa.0.0.insert.insert.i.i124, %if.end39.i142 ]
-  %text_background.i145 = getelementptr inbounds i8, ptr %style, i64 220
-  %57 = load i32, ptr %text_background.i145, align 4
-  %cmp.i132.i147 = fcmp olt float %0, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i.i148 = select i1 %cmp.i132.i147, float 0.000000e+00, float %0
+if.end109.sink.split:                             ; preds = %if.end39.i143, %if.end39.i
+  %retval.sroa.0.0.insert.insert.i.i125.sink = phi i32 [ %retval.sroa.0.0.insert.insert.i.i, %if.end39.i ], [ %retval.sroa.0.0.insert.insert.i.i125, %if.end39.i143 ]
+  %text_background.i146 = getelementptr inbounds i8, ptr %style, i64 220
+  %57 = load i32, ptr %text_background.i146, align 4
+  %cmp.i132.i148 = fcmp olt float %0, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i.i149 = select i1 %cmp.i132.i148, float 0.000000e+00, float %0
   %58 = load float, ptr %height, align 8
-  %width.i.i151 = getelementptr inbounds i8, ptr %font, i64 16
-  %59 = load ptr, ptr %width.i.i151, align 8
+  %width.i.i152 = getelementptr inbounds i8, ptr %font, i64 16
+  %59 = load ptr, ptr %width.i.i152, align 8
   %60 = load ptr, ptr %font, align 8
-  %call.i.i152 = tail call float %59(ptr %60, float noundef %58, ptr noundef %str, i32 noundef %len) #52
-  %add35.i.i154 = fadd float %add81, 0.000000e+00
-  %61 = insertelement <2 x float> poison, float %add35.i.i154, i64 0
-  %cmp41.i.i156 = fcmp ogt float %sub99, 0.000000e+00
-  %cond49.i.i157 = select i1 %cmp41.i.i156, float %sub99, float 0.000000e+00
-  %62 = insertelement <2 x float> poison, float %cond49.i.i157, i64 0
-  %div164.i.i158 = fmul float %mul.b.sroa.14.12.vec.extract.i.i148, 5.000000e-01
-  %add165.i.i159 = fadd float %div164.i.i158, %sub47
+  %call.i.i153 = tail call float %59(ptr %60, float noundef %58, ptr noundef %str, i32 noundef %len) #52
+  %add35.i.i155 = fadd float %add81, 0.000000e+00
+  %61 = insertelement <2 x float> poison, float %add35.i.i155, i64 0
+  %cmp41.i.i157 = fcmp ogt float %sub99, 0.000000e+00
+  %cond49.i.i158 = select i1 %cmp41.i.i157, float %sub99, float 0.000000e+00
+  %62 = insertelement <2 x float> poison, float %cond49.i.i158, i64 0
+  %div164.i.i159 = fmul float %mul.b.sroa.14.12.vec.extract.i.i149, 5.000000e-01
+  %add165.i.i160 = fadd float %div164.i.i159, %sub47
   %63 = load float, ptr %height, align 8
-  %div167.i.i160 = fmul float %63, 5.000000e-01
-  %sub168.i.i161 = fsub float %add165.i.i159, %div167.i.i160
-  %label.sroa.0.4.vec.insert27.i.i162 = insertelement <2 x float> %61, float %sub168.i.i161, i64 1
-  %add177.i.i163 = fadd float %div164.i.i158, %div167.i.i160
-  %sub178.i.i164 = fsub float %mul.b.sroa.14.12.vec.extract.i.i148, %add177.i.i163
-  %cmp179.i.i165 = fcmp olt float %div164.i.i158, %sub178.i.i164
-  %sub178.div164.i.i166 = select i1 %cmp179.i.i165, float %sub178.i.i164, float %div164.i.i158
-  %label.sroa.15.12.vec.insert51.i.i167 = insertelement <2 x float> %62, float %sub178.div164.i.i166, i64 1
-  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i.i162, <2 x float> %label.sroa.15.12.vec.insert51.i.i167, ptr noundef %str, i32 noundef %len, ptr noundef nonnull %font, i32 %57, i32 %retval.sroa.0.0.insert.insert.i.i124.sink)
+  %div167.i.i161 = fmul float %63, 5.000000e-01
+  %sub168.i.i162 = fsub float %add165.i.i160, %div167.i.i161
+  %label.sroa.0.4.vec.insert27.i.i163 = insertelement <2 x float> %61, float %sub168.i.i162, i64 1
+  %add177.i.i164 = fadd float %div164.i.i159, %div167.i.i161
+  %sub178.i.i165 = fsub float %mul.b.sroa.14.12.vec.extract.i.i149, %add177.i.i164
+  %cmp179.i.i166 = fcmp olt float %div164.i.i159, %sub178.i.i165
+  %sub178.div164.i.i167 = select i1 %cmp179.i.i166, float %sub178.i.i165, float %div164.i.i159
+  %label.sroa.15.12.vec.insert51.i.i168 = insertelement <2 x float> %62, float %sub178.div164.i.i167, i64 1
+  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i.i163, <2 x float> %label.sroa.15.12.vec.insert51.i.i168, ptr noundef %str, i32 noundef %len, ptr noundef nonnull %font, i32 %57, i32 %retval.sroa.0.0.insert.insert.i.i125.sink)
   br label %if.end109
 
-if.end109:                                        ; preds = %if.end109.sink.split, %if.end39.i142, %if.end39.i
+if.end109:                                        ; preds = %if.end109.sink.split, %if.end39.i143, %if.end39.i
   %draw_end = getelementptr inbounds i8, ptr %style, i64 280
   %64 = load ptr, ptr %draw_end, align 8
   %tobool110.not = icmp eq ptr %64, null
@@ -56772,18 +56743,16 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value, ptr noundef %img, ptr nocapture noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
+define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value, ptr noundef %img, ptr nocapture noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %icon = alloca %struct.nk_rect, align 4
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
   %0 = getelementptr inbounds i8, ptr %bounds, i64 8
   store <2 x float> %bounds.coerce1, ptr %0, align 8
-  %tobool = icmp ne ptr %state, null
   %tobool3 = icmp ne ptr %str, null
-  %or.cond1 = and i1 %tobool, %tobool3
   %tobool5 = icmp ne i32 %len, 0
-  %or.cond2 = and i1 %or.cond1, %tobool5
+  %or.cond2 = and i1 %tobool3, %tobool5
   %tobool7 = icmp ne ptr %value, null
   %or.cond3 = and i1 %or.cond2, %tobool7
   %tobool11 = icmp ne ptr %font, null
@@ -56808,7 +56777,7 @@ if.end:                                           ; preds = %entry
   %touch.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %8, i64 0
   %9 = tail call float @llvm.fmuladd.f32(float %7, float 2.000000e+00, float %3)
   %touch.sroa.3.12.vec.insert = insertelement <2 x float> %touch.sroa.3.8.vec.insert, float %9, i64 1
-  %call = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %state, <2 x float> %touch.sroa.0.4.vec.insert, <2 x float> %touch.sroa.3.12.vec.insert, ptr noundef %in, i32 noundef 0)
+  %call = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %touch.sroa.0.4.vec.insert, <2 x float> %touch.sroa.3.12.vec.insert, ptr noundef %in, i32 noundef 0)
   %tobool24.not = icmp eq i32 %call, 0
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
@@ -57738,7 +57707,7 @@ if.then40.i:                                      ; preds = %cond.end
   %add67.i = fadd float %add65.i, %18
   %bounds.sroa.0.0.vec.insert122.i = insertelement <2 x float> %bounds.sroa.0.4.vec.insert.i, float %add67.i, i64 0
   %mul74.i = fmul float %18, 2.000000e+00
-  %19 = call float @llvm.fmuladd.f32(float %14, float 2.000000e+00, float %mul74.i)
+  %19 = tail call float @llvm.fmuladd.f32(float %14, float 2.000000e+00, float %mul74.i)
   %sub75.i = fsub float %12, %19
   %bounds.sroa.21.8.vec.insert147.i = insertelement <2 x float> %bounds.sroa.21.12.vec.insert.i, float %sub75.i, i64 0
   %.pre.i = load float, ptr %cursor_size.i, align 4
@@ -57750,7 +57719,7 @@ if.end77.i:                                       ; preds = %if.then40.i, %cond.
   %bounds.sroa.21.0.i = phi <2 x float> [ %bounds.sroa.21.12.vec.insert.i, %cond.end ], [ %bounds.sroa.21.8.vec.insert147.i, %if.then40.i ]
   %val.addr.0.i = phi float [ %3, %cond.end ], [ %val.addr.2.i, %if.then40.i ]
   %bounds.sroa.0.0.vec.extract126.i = extractelement <2 x float> %bounds.sroa.0.0.i, i64 0
-  %21 = call float @llvm.fmuladd.f32(float %20, float 5.000000e-01, float %bounds.sroa.0.0.vec.extract126.i)
+  %21 = tail call float @llvm.fmuladd.f32(float %20, float 5.000000e-01, float %bounds.sroa.0.0.vec.extract126.i)
   %bounds.sroa.0.0.vec.insert124.i = insertelement <2 x float> %bounds.sroa.0.0.i, float %21, i64 0
   %bounds.sroa.21.8.vec.extract144.i = extractelement <2 x float> %bounds.sroa.21.0.i, i64 0
   %sub85.i = fsub float %bounds.sroa.21.8.vec.extract144.i, %20
@@ -57767,18 +57736,18 @@ if.end77.i:                                       ; preds = %if.then40.i, %cond.
   %sub112.i = fsub float %cond95.cond100.i, %cond95.i
   %div113.i = fdiv float %sub112.i, %value_step
   %div117.i = fdiv float %sub85.i, %div.i
-  %22 = call float @llvm.fmuladd.f32(float %div117.i, float %div113.i, float %21)
+  %22 = tail call float @llvm.fmuladd.f32(float %div117.i, float %div113.i, float %21)
   %y126.i = getelementptr inbounds i8, ptr %ctx, i64 2320
   %23 = load float, ptr %y126.i, align 4
   %24 = insertelement <2 x float> poison, float %20, i64 0
   %visual_cursor.sroa.8.8.vec.insert.i = insertelement <2 x float> %24, float %23, i64 1
   %bounds.sroa.0.4.vec.extract.i = extractelement <2 x float> %bounds.sroa.0.0.i, i64 1
   %bounds.sroa.21.12.vec.extract.i = extractelement <2 x float> %bounds.sroa.21.0.i, i64 1
-  %25 = call float @llvm.fmuladd.f32(float %bounds.sroa.21.12.vec.extract.i, float 5.000000e-01, float %bounds.sroa.0.4.vec.extract.i)
+  %25 = tail call float @llvm.fmuladd.f32(float %bounds.sroa.21.12.vec.extract.i, float 5.000000e-01, float %bounds.sroa.0.4.vec.extract.i)
   %neg.i = fneg float %23
-  %26 = call float @llvm.fmuladd.f32(float %neg.i, float 5.000000e-01, float %25)
+  %26 = tail call float @llvm.fmuladd.f32(float %neg.i, float 5.000000e-01, float %25)
   %neg140.i = fneg float %20
-  %27 = call float @llvm.fmuladd.f32(float %neg140.i, float 5.000000e-01, float %22)
+  %27 = tail call float @llvm.fmuladd.f32(float %neg140.i, float 5.000000e-01, float %22)
   %28 = load i32, ptr %last_widget_state, align 4
   %and.i.i = and i32 %28, 2
   %..i.i = or disjoint i32 %and.i.i, 4
@@ -57811,7 +57780,7 @@ nk_input_has_mouse_click_in_rect.exit.i.i.i:      ; preds = %if.end.i.i.i.i
 if.then10.i.i:                                    ; preds = %nk_input_has_mouse_click_in_rect.exit.i.i.i
   %pos.i.i = getelementptr inbounds i8, ptr %cond, i64 324
   %32 = load float, ptr %pos.i.i, align 4
-  %33 = call float @llvm.fmuladd.f32(float %20, float 5.000000e-01, float %27)
+  %33 = tail call float @llvm.fmuladd.f32(float %20, float 5.000000e-01, float %27)
   %sub.i.i = fsub float %32, %33
   store i32 34, ptr %last_widget_state, align 4
   %cmp.i.i = fcmp olt float %sub.i.i, 0.000000e+00
@@ -57835,7 +57804,7 @@ if.then15.i.i:                                    ; preds = %if.then10.i.i
   %cond49.i.i = select i1 %cmp38.i.i, float %cond95.i, float %cond37.i.i
   %sub50.i.i = fsub float %cond49.i.i, %cond95.i
   %div51.i.i = fdiv float %sub50.i.i, %value_step
-  %35 = call float @llvm.fmuladd.f32(float %div117.i, float %div51.i.i, float %21)
+  %35 = tail call float @llvm.fmuladd.f32(float %div117.i, float %div51.i.i, float %21)
   store float %35, ptr %clicked_pos.i.i.i.i, align 4
   br label %if.end.i.i.i
 
@@ -57911,7 +57880,7 @@ nk_slider_behavior.exit.i:                        ; preds = %if.end79.sink.split
   %41 = phi i32 [ %..i.i, %if.end77.i ], [ %38, %land.rhs.i78.i.i ], [ %or77.i.i, %if.end79.sink.split.i.i ], [ %38, %if.end.i69.i.i ]
   %logical_cursor.sroa.0.1.i = phi float [ %22, %if.end77.i ], [ %logical_cursor.sroa.0.0.i, %land.rhs.i78.i.i ], [ %logical_cursor.sroa.0.0.i, %if.end79.sink.split.i.i ], [ %logical_cursor.sroa.0.0.i, %if.end.i69.i.i ]
   %slider_value.addr.09498106.i.i = phi float [ %cond95.cond100.i, %if.end77.i ], [ %slider_value.addr.0.ph.i.i, %land.rhs.i78.i.i ], [ %slider_value.addr.0.ph.i.i, %if.end79.sink.split.i.i ], [ %slider_value.addr.0.ph.i.i, %if.end.i69.i.i ]
-  %42 = call float @llvm.fmuladd.f32(float %neg140.i, float 5.000000e-01, float %logical_cursor.sroa.0.1.i)
+  %42 = tail call float @llvm.fmuladd.f32(float %neg140.i, float 5.000000e-01, float %logical_cursor.sroa.0.1.i)
   %43 = insertelement <2 x float> poison, float %42, i64 0
   %visual_cursor.sroa.0.0.vec.insert95.i = insertelement <2 x float> %43, float %26, i64 1
   %draw_begin.i = getelementptr inbounds i8, ptr %ctx, i64 2784
@@ -57922,7 +57891,7 @@ nk_slider_behavior.exit.i:                        ; preds = %if.end79.sink.split
 if.then149.i:                                     ; preds = %nk_slider_behavior.exit.i
   %userdata.i = getelementptr inbounds i8, ptr %ctx, i64 2776
   %45 = load ptr, ptr %userdata.i, align 8
-  call void %44(ptr noundef nonnull %buffer, ptr %45) #52
+  tail call void %44(ptr noundef nonnull %buffer, ptr %45) #52
   %.pre171.i = load i32, ptr %last_widget_state, align 4
   br label %if.end151.i
 
@@ -57984,7 +57953,7 @@ sw.bb.i.i:                                        ; preds = %if.end5.i.i
   %50 = mul nuw nsw i32 %49, 65793
   %51 = or disjoint i32 %50, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i89.i, i32 -1, i32 %51
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, ptr noundef nonnull %data.i.i, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, ptr noundef nonnull %data.i.i, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   br label %sw.epilog.i.i
 
 sw.bb27.i.i:                                      ; preds = %if.end5.i.i
@@ -57998,7 +57967,7 @@ sw.bb27.i.i:                                      ; preds = %if.end5.i.i
   %54 = mul nuw nsw i32 %53, 65793
   %55 = or disjoint i32 %54, -16777216
   %retval.sroa.0.0.insert.insert.i78.i.i = select i1 %cmp.i60.i.i, i32 -1, i32 %55
-  call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, ptr noundef nonnull %data28.i.i, i32 %retval.sroa.0.0.insert.insert.i78.i.i)
+  tail call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, ptr noundef nonnull %data28.i.i, i32 %retval.sroa.0.0.insert.insert.i78.i.i)
   br label %sw.epilog.i.i
 
 sw.bb32.i.i:                                      ; preds = %if.end5.i.i
@@ -58041,7 +58010,7 @@ nk_rgb_factor.exit99.i.i:                         ; preds = %if.end.i81.i.i, %sw
   %retval.sroa.3.0.insert.insert.i96.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i93.i.i, %retval.sroa.3.0.insert.shift.i95.i.i
   %retval.sroa.0.0.insert.ext.i97.i.i = zext i8 %retval.sroa.0.0.i89.i.i to i32
   %retval.sroa.0.0.insert.insert.i98.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i96.i.i, %retval.sroa.0.0.insert.ext.i97.i.i
-  call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, float noundef %56, i32 %retval.sroa.0.0.insert.insert.i98.i.i)
+  tail call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, float noundef %56, i32 %retval.sroa.0.0.insert.insert.i98.i.i)
   %59 = load float, ptr %rounding.i.i, align 4
   %border.i.i = getelementptr inbounds i8, ptr %ctx, i64 2288
   %60 = load float, ptr %border.i.i, align 8
@@ -58081,7 +58050,7 @@ nk_rgb_factor.exit128.i.i:                        ; preds = %if.end.i106.i.i, %n
   %retval.sroa.3.0.insert.insert.i125.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i122.i.i, %retval.sroa.3.0.insert.shift.i124.i.i
   %retval.sroa.0.0.insert.ext.i126.i.i = zext i8 %retval.sroa.0.0.i117.i.i to i32
   %retval.sroa.0.0.insert.insert.i127.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i125.i.i, %retval.sroa.0.0.insert.ext.i126.i.i
-  call void @nk_stroke_rect(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, float noundef %59, float noundef %60, i32 %retval.sroa.0.0.insert.insert.i127.i.i)
+  tail call void @nk_stroke_rect(ptr noundef nonnull %buffer, <2 x float> %bounds.sroa.0.0.vec.insert124.i, <2 x float> %bounds.sroa.21.8.vec.insert.i, float noundef %59, float noundef %60, i32 %retval.sroa.0.0.insert.insert.i127.i.i)
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %nk_rgb_factor.exit128.i.i, %sw.bb27.i.i, %sw.bb.i.i, %if.end5.i.i
@@ -58122,7 +58091,7 @@ nk_rgb_factor.exit157.i.i:                        ; preds = %if.end.i135.i.i, %s
   %retval.sroa.3.0.insert.insert.i154.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i151.i.i, %retval.sroa.3.0.insert.shift.i153.i.i
   %retval.sroa.0.0.insert.ext.i155.i.i = zext i8 %retval.sroa.0.0.i146.i.i to i32
   %retval.sroa.0.0.insert.insert.i156.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i154.i.i, %retval.sroa.0.0.insert.ext.i155.i.i
-  call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %bar.sroa.0.4.vec.insert.i.i, <2 x float> %bar.sroa.6.12.vec.insert.i.i, float noundef %63, i32 %retval.sroa.0.0.insert.insert.i156.i.i)
+  tail call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %bar.sroa.0.4.vec.insert.i.i, <2 x float> %bar.sroa.6.12.vec.insert.i.i, float noundef %63, i32 %retval.sroa.0.0.insert.insert.i156.i.i)
   %65 = load float, ptr %rounding41.i.i, align 4
   %bar_filled.i.i = getelementptr inbounds i8, ptr %ctx, i64 2160
   %66 = load float, ptr %color_factor43.i.i, align 4
@@ -58160,7 +58129,7 @@ nk_rgb_factor.exit186.i.i:                        ; preds = %if.end.i164.i.i, %n
   %retval.sroa.3.0.insert.insert.i183.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i180.i.i, %retval.sroa.3.0.insert.shift.i182.i.i
   %retval.sroa.0.0.insert.ext.i184.i.i = zext i8 %retval.sroa.0.0.i175.i.i to i32
   %retval.sroa.0.0.insert.insert.i185.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i183.i.i, %retval.sroa.0.0.insert.ext.i184.i.i
-  call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %bar.sroa.0.4.vec.insert.i.i, <2 x float> %fill.sroa.3.12.vec.insert.i.i, float noundef %65, i32 %retval.sroa.0.0.insert.insert.i185.i.i)
+  tail call void @nk_fill_rect(ptr noundef nonnull %buffer, <2 x float> %bar.sroa.0.4.vec.insert.i.i, <2 x float> %fill.sroa.3.12.vec.insert.i.i, float noundef %65, i32 %retval.sroa.0.0.insert.insert.i185.i.i)
   %68 = load i32, ptr %cursor_hover.i.i, align 8
   %cmp.i88.i = icmp eq i32 %68, 1
   %data51.i.i = getelementptr inbounds i8, ptr %cursor_hover.i.i, i64 8
@@ -58175,7 +58144,7 @@ if.then50.i.i:                                    ; preds = %nk_rgb_factor.exit1
   %71 = mul nuw nsw i32 %70, 65793
   %72 = or disjoint i32 %71, -16777216
   %retval.sroa.0.0.insert.insert.i205.i.i = select i1 %cmp.i187.i.i, i32 -1, i32 %72
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %visual_cursor.sroa.0.0.vec.insert95.i, <2 x float> %visual_cursor.sroa.8.8.vec.insert.i, ptr noundef nonnull readonly %data51.i.i, i32 %retval.sroa.0.0.insert.insert.i205.i.i)
+  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %visual_cursor.sroa.0.0.vec.insert95.i, <2 x float> %visual_cursor.sroa.8.8.vec.insert.i, ptr noundef nonnull readonly %data51.i.i, i32 %retval.sroa.0.0.insert.insert.i205.i.i)
   br label %nk_draw_slider.exit.i
 
 if.else55.i.i:                                    ; preds = %nk_rgb_factor.exit186.i.i
@@ -58213,7 +58182,7 @@ nk_rgb_factor.exit235.i.i:                        ; preds = %if.end.i213.i.i, %i
   %retval.sroa.3.0.insert.insert.i232.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i229.i.i, %retval.sroa.3.0.insert.shift.i231.i.i
   %retval.sroa.0.0.insert.ext.i233.i.i = zext i8 %retval.sroa.0.0.i224.i.i to i32
   %retval.sroa.0.0.insert.insert.i234.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i232.i.i, %retval.sroa.0.0.insert.ext.i233.i.i
-  call void @nk_fill_circle(ptr noundef nonnull %buffer, <2 x float> %visual_cursor.sroa.0.0.vec.insert95.i, <2 x float> %visual_cursor.sroa.8.8.vec.insert.i, i32 %retval.sroa.0.0.insert.insert.i234.i.i)
+  tail call void @nk_fill_circle(ptr noundef nonnull %buffer, <2 x float> %visual_cursor.sroa.0.0.vec.insert95.i, <2 x float> %visual_cursor.sroa.8.8.vec.insert.i, i32 %retval.sroa.0.0.insert.insert.i234.i.i)
   br label %nk_draw_slider.exit.i
 
 nk_draw_slider.exit.i:                            ; preds = %nk_rgb_factor.exit235.i.i, %if.then50.i.i
@@ -58225,7 +58194,7 @@ nk_draw_slider.exit.i:                            ; preds = %nk_rgb_factor.exit2
 if.then153.i:                                     ; preds = %nk_draw_slider.exit.i
   %userdata155.i = getelementptr inbounds i8, ptr %ctx, i64 2776
   %75 = load ptr, ptr %userdata155.i, align 8
-  call void %74(ptr noundef nonnull %buffer, ptr %75) #52
+  tail call void %74(ptr noundef nonnull %buffer, ptr %75) #52
   br label %nk_do_slider.exit
 
 nk_do_slider.exit:                                ; preds = %nk_draw_slider.exit.i, %if.then153.i
@@ -59294,8 +59263,8 @@ nk_utf_decode_byte.exit.i.i.i:                    ; preds = %for.body.i.i.i.i
   br i1 %or.cond1.i.i.i, label %for.cond.preheader.i.i.i, label %nk_utf_decode.exit.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %nk_utf_decode_byte.exit.i.i.i
-  %cmp962.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
-  br i1 %cmp962.i.i.i, label %for.body.i.preheader.i.i, label %if.end.i.i.i.i
+  %cmp960.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  br i1 %cmp960.i.i.i, label %for.body.i.preheader.i.i, label %if.end18.i.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %for.cond.preheader.i.i.i
   %zext.i.i = and i64 %indvars.iv.i.i.i.i, 4294967295
@@ -59311,7 +59280,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br label %for.body.i15.i.i.i
 
 for.body.i15.i.i.i:                               ; preds = %for.inc.i21.i.i.i, %for.body.i.i.i
-  %indvars.iv.i16.i.i.i = phi i64 [ %indvars.iv.next.i22.i.i.i, %for.inc.i21.i.i.i ], [ 0, %for.body.i.i.i ]
+  %indvars.iv.i16.i.i.i = phi i64 [ 0, %for.body.i.i.i ], [ %indvars.iv.next.i22.i.i.i, %for.inc.i21.i.i.i ]
   %arrayidx.i17.i.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i.i
   %27 = load i8, ptr %arrayidx.i17.i.i.i, align 1
   %and8.i18.i.i.i = and i8 %27, %26
@@ -59327,7 +59296,7 @@ for.inc.i21.i.i.i:                                ; preds = %for.body.i15.i.i.i
 
 nk_utf_decode_byte.exit30.i.i.i:                  ; preds = %for.body.i15.i.i.i
   %cmp12.not.i.i.i = icmp eq i64 %indvars.iv.i16.i.i.i, 0
-  br i1 %cmp12.not.i.i.i, label %for.inc.i.i.i, label %return.loopexit81.i.i.i
+  br i1 %cmp12.not.i.i.i, label %for.inc.i.i.i, label %return.loopexit79.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %nk_utf_decode_byte.exit30.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -59336,21 +59305,21 @@ for.inc.i.i.i:                                    ; preds = %nk_utf_decode_byte.
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
   %29 = icmp ugt i64 %zext.i.i, %25
-  br i1 %29, label %nk_utf_decode.exit.i.i, label %if.end.i.i.i.i
+  br i1 %29, label %nk_utf_decode.exit.i.i, label %if.end18.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %for.end.i.i.i, %for.cond.preheader.i.i.i
+if.end18.i.i.i:                                   ; preds = %for.end.i.i.i, %for.cond.preheader.i.i.i
   br label %nk_utf_decode.exit.i.i
 
 return.loopexit.i.i.i:                            ; preds = %for.inc.i21.i.i.i
-  %indvars78.le91.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
+  %indvars76.le89.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
   br label %nk_utf_decode.exit.i.i
 
-return.loopexit81.i.i.i:                          ; preds = %nk_utf_decode_byte.exit30.i.i.i
-  %indvars78.le.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
+return.loopexit79.i.i.i:                          ; preds = %nk_utf_decode_byte.exit30.i.i.i
+  %indvars76.le.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
   br label %nk_utf_decode.exit.i.i
 
-nk_utf_decode.exit.i.i:                           ; preds = %for.inc.i.i.i.i, %return.loopexit81.i.i.i, %return.loopexit.i.i.i, %if.end.i.i.i.i, %for.end.i.i.i, %nk_utf_decode_byte.exit.i.i.i
-  %retval.0.i.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i.i ], [ 0, %for.end.i.i.i ], [ %indvars78.le91.i.i.i, %return.loopexit.i.i.i ], [ %indvars78.le.i.i.i, %return.loopexit81.i.i.i ], [ %22, %if.end.i.i.i.i ], [ 1, %for.inc.i.i.i.i ]
+nk_utf_decode.exit.i.i:                           ; preds = %for.inc.i.i.i.i, %return.loopexit79.i.i.i, %return.loopexit.i.i.i, %if.end18.i.i.i, %for.end.i.i.i, %nk_utf_decode_byte.exit.i.i.i
+  %retval.0.i.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i.i ], [ 0, %for.end.i.i.i ], [ %indvars76.le89.i.i.i, %return.loopexit.i.i.i ], [ %indvars76.le.i.i.i, %return.loopexit79.i.i.i ], [ %22, %if.end18.i.i.i ], [ 1, %for.inc.i.i.i.i ]
   %add.i.i = add nsw i32 %retval.0.i.i.i, %byte_len.022.i.i
   %inc.i.i = add nuw nsw i32 %i.021.i.i, 1
   %exitcond31.not.i.i = icmp eq i32 %inc.i.i, %len
@@ -59444,7 +59413,7 @@ if.end4.i:                                        ; preds = %lor.lhs.false2
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %2, %1
@@ -59468,9 +59437,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %2, -1
   %and12.i.i = and i8 %1, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %total_len, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %6 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %total_len, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %6 = and i1 %cmp859.i, %cmp960.i
   br i1 %6, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -59480,13 +59449,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i
   %8 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %9 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %9, %8
@@ -59502,13 +59471,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %9, -1
   %and12.i28.i = and i8 %8, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %7
@@ -59518,42 +59487,42 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %11, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %while.end, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %11, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %while.end, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %13, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %14
   %15 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %15, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %4, %if.then7.i36.i ], [ %4, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
-  %cmp4233 = icmp sgt i32 %total_len, 0
-  %tobool6234 = icmp ne i32 %retval.0.i, 0
-  %16 = and i1 %tobool6234, %cmp4233
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %4, %if.then7.i34.i ], [ %4, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %cmp4231 = icmp sgt i32 %total_len, 0
+  %tobool6232 = icmp ne i32 %retval.0.i, 0
+  %16 = and i1 %tobool6232, %cmp4231
   br i1 %16, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %nk_utf_decode.exit
@@ -59561,23 +59530,23 @@ while.body.lr.ph:                                 ; preds = %nk_utf_decode.exit
   %filter = getelementptr inbounds i8, ptr %state, i64 152
   %select_start = getelementptr inbounds i8, ptr %state, i64 172
   %select_end = getelementptr inbounds i8, ptr %state, i64 176
-  %len.i.i60 = getelementptr inbounds i8, ptr %state, i64 144
+  %len.i.i59 = getelementptr inbounds i8, ptr %state, i64 144
   %cursor.i.i = getelementptr inbounds i8, ptr %state, i64 168
   %string = getelementptr inbounds i8, ptr %state, i64 24
   %has_preferred_x.i = getelementptr inbounds i8, ptr %state, i64 183
-  %undo.i122 = getelementptr inbounds i8, ptr %state, i64 192
-  %redo_point.i.i.i.i123 = getelementptr inbounds i8, ptr %state, i64 5378
-  %redo_char_point.i.i.i.i124 = getelementptr inbounds i8, ptr %state, i64 5382
-  %undo_point.i.i.i125 = getelementptr inbounds i8, ptr %state, i64 5376
-  %undo_char_point7.i.i.i128 = getelementptr inbounds i8, ptr %state, i64 5380
+  %undo.i120 = getelementptr inbounds i8, ptr %state, i64 192
+  %redo_point.i.i.i.i121 = getelementptr inbounds i8, ptr %state, i64 5378
+  %redo_char_point.i.i.i.i122 = getelementptr inbounds i8, ptr %state, i64 5382
+  %undo_point.i.i.i123 = getelementptr inbounds i8, ptr %state, i64 5376
+  %undo_char_point7.i.i.i126 = getelementptr inbounds i8, ptr %state, i64 5380
   %undo_char.i.i = getelementptr inbounds i8, ptr %state, i64 1380
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit204
-  %text_len.0238 = phi i32 [ 0, %while.body.lr.ph ], [ %add67, %nk_utf_decode.exit204 ]
-  %glyph_len.0237 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %retval.0.i152, %nk_utf_decode.exit204 ]
-  %unicode.0235 = phi i32 [ %unicode.1, %while.body.lr.ph ], [ %unicode.2, %nk_utf_decode.exit204 ]
-  switch i32 %unicode.0235, label %if.end16 [
+while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit202
+  %text_len.0236 = phi i32 [ 0, %while.body.lr.ph ], [ %add67, %nk_utf_decode.exit202 ]
+  %glyph_len.0235 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %retval.0.i150, %nk_utf_decode.exit202 ]
+  %unicode.0233 = phi i32 [ %unicode.1, %while.body.lr.ph ], [ %unicode.2, %nk_utf_decode.exit202 ]
+  switch i32 %unicode.0233, label %if.end16 [
     i32 127, label %next
     i32 10, label %land.lhs.true
   ]
@@ -59593,7 +59562,7 @@ if.end16:                                         ; preds = %while.body, %land.l
   br i1 %tobool17.not, label %if.end23, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end16
-  %call20 = call i32 %18(ptr noundef nonnull %state, i32 noundef %unicode.0235) #52
+  %call20 = call i32 %18(ptr noundef nonnull %state, i32 noundef %unicode.0233) #52
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %next, label %if.end23
 
@@ -59605,7 +59574,7 @@ if.end23:                                         ; preds = %land.lhs.true18, %i
 
 land.lhs.true26:                                  ; preds = %if.end23
   %21 = load i32, ptr %cursor.i.i, align 8
-  %22 = load i32, ptr %len.i.i60, align 8
+  %22 = load i32, ptr %len.i.i59, align 8
   %cmp27 = icmp slt i32 %21, %22
   br i1 %cmp27, label %if.then29, label %if.end16.i.i
 
@@ -59615,43 +59584,43 @@ if.then29:                                        ; preds = %land.lhs.true26
   br i1 %cmp32, label %if.then34, label %for.cond.preheader.i50
 
 if.then34:                                        ; preds = %if.then29
-  store i16 99, ptr %redo_point.i.i.i.i123, align 2
-  store i16 999, ptr %redo_char_point.i.i.i.i124, align 2
-  %24 = load i16, ptr %undo_point.i.i.i125, align 4
+  store i16 99, ptr %redo_point.i.i.i.i121, align 2
+  store i16 999, ptr %redo_char_point.i.i.i.i122, align 2
+  %24 = load i16, ptr %undo_point.i.i.i123, align 4
   %cmp.i.i.i = icmp eq i16 %24, 99
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then34
-  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i122)
+  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i120)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then34
-  %25 = load i16, ptr %undo_char_point7.i.i.i128, align 4
+  %25 = load i16, ptr %undo_char_point7.i.i.i126, align 4
   %cmp912.i.i.i = icmp sgt i16 %25, 998
   br i1 %cmp912.i.i.i, label %while.body.i.i.i, label %nk_textedit_makeundo_replace.exit
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
-  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i122)
-  %26 = load i16, ptr %undo_char_point7.i.i.i128, align 4
+  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i120)
+  %26 = load i16, ptr %undo_char_point7.i.i.i126, align 4
   %cmp9.i.i.i = icmp sgt i16 %26, 998
   br i1 %cmp9.i.i.i, label %while.body.i.i.i, label %nk_textedit_makeundo_replace.exit, !llvm.loop !213
 
 nk_textedit_makeundo_replace.exit:                ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %27 = load i16, ptr %undo_point.i.i.i125, align 4
+  %27 = load i16, ptr %undo_point.i.i.i123, align 4
   %inc.i.i.i = add i16 %27, 1
-  store i16 %inc.i.i.i, ptr %undo_point.i.i.i125, align 4
+  store i16 %inc.i.i.i, ptr %undo_point.i.i.i123, align 4
   %idxprom.i.i.i = sext i16 %27 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i122, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i120, i64 0, i64 %idxprom.i.i.i
   store i32 %21, ptr %arrayidx.i.i.i, align 4
   %insert_length.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   store i16 1, ptr %insert_length.i.i, align 4
   %delete_length.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 6
   store i16 1, ptr %delete_length.i.i, align 2
-  %28 = load i16, ptr %undo_char_point7.i.i.i128, align 4
+  %28 = load i16, ptr %undo_char_point7.i.i.i126, align 4
   %char_storage5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   store i16 %28, ptr %char_storage5.i.i, align 4
   %conv8.i.i = add i16 %28, 1
-  store i16 %conv8.i.i, ptr %undo_char_point7.i.i.i128, align 4
+  store i16 %conv8.i.i, ptr %undo_char_point7.i.i.i126, align 4
   %idxprom.i.i45 = sext i16 %28 to i64
   %arrayidx.i.i46 = getelementptr inbounds [999 x i32], ptr %undo_char.i.i, i64 0, i64 %idxprom.i.i45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
@@ -59664,12 +59633,12 @@ nk_textedit_makeundo_replace.exit:                ; preds = %while.body.i.i.i, %
   store i32 %29, ptr %arrayidx.i.i46, align 4
   %30 = load i32, ptr %cursor.i.i, align 8
   call void @nk_str_delete_runes(ptr noundef nonnull %string, i32 noundef %30, i32 noundef 1)
-  %.pre270 = load i32, ptr %cursor.i.i, align 8
+  %.pre268 = load i32, ptr %cursor.i.i, align 8
   br label %for.cond.preheader.i50
 
 for.cond.preheader.i50:                           ; preds = %if.then29, %nk_textedit_makeundo_replace.exit
-  %31 = phi i32 [ %21, %if.then29 ], [ %.pre270, %nk_textedit_makeundo_replace.exit ]
-  %idx.ext = sext i32 %text_len.0238 to i64
+  %31 = phi i32 [ %21, %if.then29 ], [ %.pre268, %nk_textedit_makeundo_replace.exit ]
+  %idx.ext = sext i32 %text_len.0236 to i64
   %add.ptr = getelementptr inbounds i8, ptr %text, i64 %idx.ext
   %32 = load i8, ptr %add.ptr, align 1
   br label %for.body.i.i.i
@@ -59698,8 +59667,8 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
-  %cmp962.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp962.i.i, label %for.body.i.preheader.i, label %if.end.i.i.i55
+  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  br i1 %cmp960.i.i, label %for.body.i.preheader.i, label %if.end18.i.i
 
 for.body.i.preheader.i:                           ; preds = %for.cond.preheader.i.i
   %zext.i = and i64 %indvars.iv.i.i.i, 4294967295
@@ -59707,18 +59676,18 @@ for.body.i.preheader.i:                           ; preds = %for.cond.preheader.
   %narrow.i = add nuw nsw i32 %37, 2
   %38 = zext nneg i32 %narrow.i to i64
   %39 = call i32 @llvm.umin.i32(i32 %indvars.iv.i51, i32 2)
-  %narrow271 = add nuw nsw i32 %39, 2
-  %40 = zext nneg i32 %narrow271 to i64
-  br label %for.body.i.i56
+  %narrow269 = add nuw nsw i32 %39, 2
+  %40 = zext nneg i32 %narrow269 to i64
+  br label %for.body.i.i55
 
-for.body.i.i56:                                   ; preds = %for.inc.i.i58, %for.body.i.preheader.i
-  %indvars.iv.i.i57 = phi i64 [ %indvars.iv.next.i.i59, %for.inc.i.i58 ], [ 1, %for.body.i.preheader.i ]
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i.i57
+for.body.i.i55:                                   ; preds = %for.inc.i.i57, %for.body.i.preheader.i
+  %indvars.iv.i.i56 = phi i64 [ %indvars.iv.next.i.i58, %for.inc.i.i57 ], [ 1, %for.body.i.preheader.i ]
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i.i56
   %41 = load i8, ptr %arrayidx10.i.i, align 1
   br label %for.body.i15.i.i
 
-for.body.i15.i.i:                                 ; preds = %for.inc.i21.i.i, %for.body.i.i56
-  %indvars.iv.i16.i.i = phi i64 [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ], [ 0, %for.body.i.i56 ]
+for.body.i15.i.i:                                 ; preds = %for.inc.i21.i.i, %for.body.i.i55
+  %indvars.iv.i16.i.i = phi i64 [ 0, %for.body.i.i55 ], [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ]
   %arrayidx.i17.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i
   %42 = load i8, ptr %arrayidx.i17.i.i, align 1
   %and8.i18.i.i = and i8 %42, %41
@@ -59734,55 +59703,55 @@ for.inc.i21.i.i:                                  ; preds = %for.body.i15.i.i
 
 nk_utf_decode_byte.exit30.i.i:                    ; preds = %for.body.i15.i.i
   %cmp12.not.i.i = icmp eq i64 %indvars.iv.i16.i.i, 0
-  br i1 %cmp12.not.i.i, label %for.inc.i.i58, label %return.loopexit81.i.i
+  br i1 %cmp12.not.i.i, label %for.inc.i.i57, label %return.loopexit79.i.i
 
-for.inc.i.i58:                                    ; preds = %nk_utf_decode_byte.exit30.i.i
-  %indvars.iv.next.i.i59 = add nuw nsw i64 %indvars.iv.i.i57, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i59, %38
-  br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i.i56, !llvm.loop !20
+for.inc.i.i57:                                    ; preds = %nk_utf_decode_byte.exit30.i.i
+  %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i56, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i58, %38
+  br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i.i55, !llvm.loop !20
 
-for.end.i.i:                                      ; preds = %for.inc.i.i58
+for.end.i.i:                                      ; preds = %for.inc.i.i57
   %44 = icmp ugt i64 %zext.i, %40
-  br i1 %44, label %nk_utf_decode.exit.i, label %if.end.i.i.i55
+  br i1 %44, label %nk_utf_decode.exit.i, label %if.end18.i.i
 
-if.end.i.i.i55:                                   ; preds = %for.end.i.i, %for.cond.preheader.i.i
+if.end18.i.i:                                     ; preds = %for.end.i.i, %for.cond.preheader.i.i
   br label %nk_utf_decode.exit.i
 
 return.loopexit.i.i:                              ; preds = %for.inc.i21.i.i
-  %indvars78.le91.i.i = trunc i64 %indvars.iv.i.i57 to i32
+  %indvars76.le89.i.i = trunc i64 %indvars.iv.i.i56 to i32
   br label %nk_utf_decode.exit.i
 
-return.loopexit81.i.i:                            ; preds = %nk_utf_decode_byte.exit30.i.i
-  %indvars78.le.i.i = trunc i64 %indvars.iv.i.i57 to i32
+return.loopexit79.i.i:                            ; preds = %nk_utf_decode_byte.exit30.i.i
+  %indvars76.le.i.i = trunc i64 %indvars.iv.i.i56 to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %if.end.i.i.i55, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
-  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %35, %if.end.i.i.i55 ], [ 1, %for.inc.i.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit79.i.i, %return.loopexit.i.i, %if.end18.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
+  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars76.le89.i.i, %return.loopexit.i.i ], [ %indvars76.le.i.i, %return.loopexit79.i.i ], [ %35, %if.end18.i.i ], [ 1, %for.inc.i.i.i ]
   %call4.i = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %string, i32 noundef %31, ptr noundef nonnull %add.ptr, i32 noundef %retval.0.i.i)
   %45 = load i32, ptr %cursor.i.i, align 8
   %inc = add nsw i32 %45, 1
   br label %next.sink.split
 
 if.then.i.i:                                      ; preds = %if.end23
-  %46 = load i32, ptr %len.i.i60, align 8
+  %46 = load i32, ptr %len.i.i59, align 8
   %cmp2.i.i = icmp sgt i32 %19, %46
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i62
+  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   store i32 %46, ptr %select_start, align 4
-  br label %if.end.i.i62
+  br label %if.end.i.i
 
-if.end.i.i62:                                     ; preds = %if.then3.i.i, %if.then.i.i
+if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i.i
   %47 = phi i32 [ %46, %if.then3.i.i ], [ %19, %if.then.i.i ]
   %cmp6.i.i = icmp sgt i32 %20, %46
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end9.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i.i62
+if.then7.i.i:                                     ; preds = %if.end.i.i
   store i32 %46, ptr %select_end, align 8
   br label %if.end9.i.i
 
-if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.end.i.i62
-  %48 = phi i32 [ %46, %if.then7.i.i ], [ %20, %if.end.i.i62 ]
+if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.end.i.i
+  %48 = phi i32 [ %46, %if.then7.i.i ], [ %20, %if.end.i.i ]
   %cmp12.i.i = icmp eq i32 %47, %48
   br i1 %cmp12.i.i, label %if.then13.i.i, label %if.end9.i.i.if.end16.i.i_crit_edge
 
@@ -59809,7 +59778,7 @@ if.then19.i.i:                                    ; preds = %if.end16.i.i
 nk_textedit_clamp.exit.i:                         ; preds = %if.then19.i.i, %if.end16.i.i
   %53 = phi i32 [ %50, %if.then19.i.i ], [ %49, %if.end16.i.i ]
   %cmp.not.i = icmp eq i32 %52, %51
-  br i1 %cmp.not.i, label %for.cond.preheader.i67, label %if.then.i
+  br i1 %cmp.not.i, label %for.cond.preheader.i65, label %if.then.i
 
 if.then.i:                                        ; preds = %nk_textedit_clamp.exit.i
   %cmp3.i = icmp slt i32 %52, %51
@@ -59833,138 +59802,138 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %.sink.i = phi i32 [ %54, %if.then4.i ], [ %55, %if.else.i ]
   store i32 %.sink.i, ptr %cursor.i.i, align 8
   store i8 0, ptr %has_preferred_x.i, align 1
-  br label %for.cond.preheader.i67
+  br label %for.cond.preheader.i65
 
-for.cond.preheader.i67:                           ; preds = %if.end.i, %nk_textedit_clamp.exit.i
+for.cond.preheader.i65:                           ; preds = %if.end.i, %nk_textedit_clamp.exit.i
   %56 = phi i32 [ %.sink.i, %if.end.i ], [ %53, %nk_textedit_clamp.exit.i ]
-  %idx.ext48 = sext i32 %text_len.0238 to i64
+  %idx.ext48 = sext i32 %text_len.0236 to i64
   %add.ptr49 = getelementptr inbounds i8, ptr %text, i64 %idx.ext48
   %57 = load i8, ptr %add.ptr49, align 1
-  br label %for.body.i.i.i73
+  br label %for.body.i.i.i71
 
-for.body.i.i.i73:                                 ; preds = %for.inc.i.i.i80, %for.cond.preheader.i67
-  %indvars.iv.i74 = phi i32 [ %indvars.iv.next.i83, %for.inc.i.i.i80 ], [ -2, %for.cond.preheader.i67 ]
-  %indvars.iv.i.i.i75 = phi i64 [ %indvars.iv.next.i.i.i81, %for.inc.i.i.i80 ], [ 0, %for.cond.preheader.i67 ]
-  %arrayidx.i.i.i76 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i75
-  %58 = load i8, ptr %arrayidx.i.i.i76, align 1
-  %and8.i.i.i77 = and i8 %58, %57
-  %arrayidx3.i.i.i78 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i75
-  %59 = load i8, ptr %arrayidx3.i.i.i78, align 1
-  %cmp5.i.i.i79 = icmp eq i8 %and8.i.i.i77, %59
-  br i1 %cmp5.i.i.i79, label %nk_utf_decode_byte.exit.i.i91, label %for.inc.i.i.i80
+for.body.i.i.i71:                                 ; preds = %for.inc.i.i.i78, %for.cond.preheader.i65
+  %indvars.iv.i72 = phi i32 [ %indvars.iv.next.i81, %for.inc.i.i.i78 ], [ -2, %for.cond.preheader.i65 ]
+  %indvars.iv.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i79, %for.inc.i.i.i78 ], [ 0, %for.cond.preheader.i65 ]
+  %arrayidx.i.i.i74 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i73
+  %58 = load i8, ptr %arrayidx.i.i.i74, align 1
+  %and8.i.i.i75 = and i8 %58, %57
+  %arrayidx3.i.i.i76 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i73
+  %59 = load i8, ptr %arrayidx3.i.i.i76, align 1
+  %cmp5.i.i.i77 = icmp eq i8 %and8.i.i.i75, %59
+  br i1 %cmp5.i.i.i77, label %nk_utf_decode_byte.exit.i.i89, label %for.inc.i.i.i78
 
-for.inc.i.i.i80:                                  ; preds = %for.body.i.i.i73
-  %indvars.iv.next.i.i.i81 = add nuw nsw i64 %indvars.iv.i.i.i75, 1
-  %exitcond.not.i.i.i82 = icmp eq i64 %indvars.iv.next.i.i.i81, 5
-  %indvars.iv.next.i83 = add nsw i32 %indvars.iv.i74, 1
-  br i1 %exitcond.not.i.i.i82, label %nk_utf_decode.exit.i84, label %for.body.i.i.i73, !llvm.loop !19
+for.inc.i.i.i78:                                  ; preds = %for.body.i.i.i71
+  %indvars.iv.next.i.i.i79 = add nuw nsw i64 %indvars.iv.i.i.i73, 1
+  %exitcond.not.i.i.i80 = icmp eq i64 %indvars.iv.next.i.i.i79, 5
+  %indvars.iv.next.i81 = add nsw i32 %indvars.iv.i72, 1
+  br i1 %exitcond.not.i.i.i80, label %nk_utf_decode.exit.i82, label %for.body.i.i.i71, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i.i91:                    ; preds = %for.body.i.i.i73
-  %60 = trunc nuw nsw i64 %indvars.iv.i.i.i75 to i32
+nk_utf_decode_byte.exit.i.i89:                    ; preds = %for.body.i.i.i71
+  %60 = trunc nuw nsw i64 %indvars.iv.i.i.i73 to i32
   %61 = add i32 %60, -1
-  %or.cond1.i.i92 = icmp ult i32 %61, 3
-  br i1 %or.cond1.i.i92, label %for.cond.preheader.i.i93, label %nk_utf_decode.exit.i84
+  %or.cond1.i.i90 = icmp ult i32 %61, 3
+  br i1 %or.cond1.i.i90, label %for.cond.preheader.i.i91, label %nk_utf_decode.exit.i82
 
-for.cond.preheader.i.i93:                         ; preds = %nk_utf_decode_byte.exit.i.i91
-  %cmp962.i.i94 = icmp ugt i64 %indvars.iv.i.i.i75, 1
-  br i1 %cmp962.i.i94, label %for.body.i.preheader.i96, label %if.end.i.i.i95
+for.cond.preheader.i.i91:                         ; preds = %nk_utf_decode_byte.exit.i.i89
+  %cmp960.i.i92 = icmp ugt i64 %indvars.iv.i.i.i73, 1
+  br i1 %cmp960.i.i92, label %for.body.i.preheader.i94, label %if.end18.i.i93
 
-for.body.i.preheader.i96:                         ; preds = %for.cond.preheader.i.i93
-  %zext.i97 = and i64 %indvars.iv.i.i.i75, 4294967295
-  %62 = call i32 @llvm.umin.i32(i32 %indvars.iv.i74, i32 2)
-  %narrow.i98 = add nuw nsw i32 %62, 2
-  %63 = zext nneg i32 %narrow.i98 to i64
-  %64 = call i32 @llvm.umin.i32(i32 %indvars.iv.i74, i32 2)
+for.body.i.preheader.i94:                         ; preds = %for.cond.preheader.i.i91
+  %zext.i95 = and i64 %indvars.iv.i.i.i73, 4294967295
+  %62 = call i32 @llvm.umin.i32(i32 %indvars.iv.i72, i32 2)
+  %narrow.i96 = add nuw nsw i32 %62, 2
+  %63 = zext nneg i32 %narrow.i96 to i64
+  %64 = call i32 @llvm.umin.i32(i32 %indvars.iv.i72, i32 2)
   %narrow = add nuw nsw i32 %64, 2
   %65 = zext nneg i32 %narrow to i64
-  br label %for.body.i.i99
+  br label %for.body.i.i97
 
-for.body.i.i99:                                   ; preds = %for.inc.i.i117, %for.body.i.preheader.i96
-  %indvars.iv.i.i100 = phi i64 [ %indvars.iv.next.i.i118, %for.inc.i.i117 ], [ 1, %for.body.i.preheader.i96 ]
-  %arrayidx10.i.i101 = getelementptr inbounds i8, ptr %add.ptr49, i64 %indvars.iv.i.i100
-  %66 = load i8, ptr %arrayidx10.i.i101, align 1
-  br label %for.body.i15.i.i102
+for.body.i.i97:                                   ; preds = %for.inc.i.i115, %for.body.i.preheader.i94
+  %indvars.iv.i.i98 = phi i64 [ %indvars.iv.next.i.i116, %for.inc.i.i115 ], [ 1, %for.body.i.preheader.i94 ]
+  %arrayidx10.i.i99 = getelementptr inbounds i8, ptr %add.ptr49, i64 %indvars.iv.i.i98
+  %66 = load i8, ptr %arrayidx10.i.i99, align 1
+  br label %for.body.i15.i.i100
 
-for.body.i15.i.i102:                              ; preds = %for.inc.i21.i.i108, %for.body.i.i99
-  %indvars.iv.i16.i.i103 = phi i64 [ %indvars.iv.next.i22.i.i109, %for.inc.i21.i.i108 ], [ 0, %for.body.i.i99 ]
-  %arrayidx.i17.i.i104 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i103
-  %67 = load i8, ptr %arrayidx.i17.i.i104, align 1
-  %and8.i18.i.i105 = and i8 %67, %66
-  %arrayidx3.i19.i.i106 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i.i103
-  %68 = load i8, ptr %arrayidx3.i19.i.i106, align 1
-  %cmp5.i20.i.i107 = icmp eq i8 %and8.i18.i.i105, %68
-  br i1 %cmp5.i20.i.i107, label %nk_utf_decode_byte.exit30.i.i113, label %for.inc.i21.i.i108
+for.body.i15.i.i100:                              ; preds = %for.inc.i21.i.i106, %for.body.i.i97
+  %indvars.iv.i16.i.i101 = phi i64 [ 0, %for.body.i.i97 ], [ %indvars.iv.next.i22.i.i107, %for.inc.i21.i.i106 ]
+  %arrayidx.i17.i.i102 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i101
+  %67 = load i8, ptr %arrayidx.i17.i.i102, align 1
+  %and8.i18.i.i103 = and i8 %67, %66
+  %arrayidx3.i19.i.i104 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i.i101
+  %68 = load i8, ptr %arrayidx3.i19.i.i104, align 1
+  %cmp5.i20.i.i105 = icmp eq i8 %and8.i18.i.i103, %68
+  br i1 %cmp5.i20.i.i105, label %nk_utf_decode_byte.exit30.i.i111, label %for.inc.i21.i.i106
 
-for.inc.i21.i.i108:                               ; preds = %for.body.i15.i.i102
-  %indvars.iv.next.i22.i.i109 = add nuw nsw i64 %indvars.iv.i16.i.i103, 1
-  %exitcond.not.i23.i.i110 = icmp eq i64 %indvars.iv.next.i22.i.i109, 5
-  br i1 %exitcond.not.i23.i.i110, label %return.loopexit.i.i111, label %for.body.i15.i.i102, !llvm.loop !19
+for.inc.i21.i.i106:                               ; preds = %for.body.i15.i.i100
+  %indvars.iv.next.i22.i.i107 = add nuw nsw i64 %indvars.iv.i16.i.i101, 1
+  %exitcond.not.i23.i.i108 = icmp eq i64 %indvars.iv.next.i22.i.i107, 5
+  br i1 %exitcond.not.i23.i.i108, label %return.loopexit.i.i109, label %for.body.i15.i.i100, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i.i113:                 ; preds = %for.body.i15.i.i102
-  %cmp12.not.i.i114 = icmp eq i64 %indvars.iv.i16.i.i103, 0
-  br i1 %cmp12.not.i.i114, label %for.inc.i.i117, label %return.loopexit81.i.i115
+nk_utf_decode_byte.exit30.i.i111:                 ; preds = %for.body.i15.i.i100
+  %cmp12.not.i.i112 = icmp eq i64 %indvars.iv.i16.i.i101, 0
+  br i1 %cmp12.not.i.i112, label %for.inc.i.i115, label %return.loopexit79.i.i113
 
-for.inc.i.i117:                                   ; preds = %nk_utf_decode_byte.exit30.i.i113
-  %indvars.iv.next.i.i118 = add nuw nsw i64 %indvars.iv.i.i100, 1
-  %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i.i118, %63
-  br i1 %exitcond.not.i119, label %for.end.i.i120, label %for.body.i.i99, !llvm.loop !20
+for.inc.i.i115:                                   ; preds = %nk_utf_decode_byte.exit30.i.i111
+  %indvars.iv.next.i.i116 = add nuw nsw i64 %indvars.iv.i.i98, 1
+  %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i.i116, %63
+  br i1 %exitcond.not.i117, label %for.end.i.i118, label %for.body.i.i97, !llvm.loop !20
 
-for.end.i.i120:                                   ; preds = %for.inc.i.i117
-  %69 = icmp ugt i64 %zext.i97, %65
-  br i1 %69, label %nk_utf_decode.exit.i84, label %if.end.i.i.i95
+for.end.i.i118:                                   ; preds = %for.inc.i.i115
+  %69 = icmp ugt i64 %zext.i95, %65
+  br i1 %69, label %nk_utf_decode.exit.i82, label %if.end18.i.i93
 
-if.end.i.i.i95:                                   ; preds = %for.end.i.i120, %for.cond.preheader.i.i93
-  br label %nk_utf_decode.exit.i84
+if.end18.i.i93:                                   ; preds = %for.end.i.i118, %for.cond.preheader.i.i91
+  br label %nk_utf_decode.exit.i82
 
-return.loopexit.i.i111:                           ; preds = %for.inc.i21.i.i108
-  %indvars78.le91.i.i112 = trunc i64 %indvars.iv.i.i100 to i32
-  br label %nk_utf_decode.exit.i84
+return.loopexit.i.i109:                           ; preds = %for.inc.i21.i.i106
+  %indvars76.le89.i.i110 = trunc i64 %indvars.iv.i.i98 to i32
+  br label %nk_utf_decode.exit.i82
 
-return.loopexit81.i.i115:                         ; preds = %nk_utf_decode_byte.exit30.i.i113
-  %indvars78.le.i.i116 = trunc i64 %indvars.iv.i.i100 to i32
-  br label %nk_utf_decode.exit.i84
+return.loopexit79.i.i113:                         ; preds = %nk_utf_decode_byte.exit30.i.i111
+  %indvars76.le.i.i114 = trunc i64 %indvars.iv.i.i98 to i32
+  br label %nk_utf_decode.exit.i82
 
-nk_utf_decode.exit.i84:                           ; preds = %for.inc.i.i.i80, %return.loopexit81.i.i115, %return.loopexit.i.i111, %if.end.i.i.i95, %for.end.i.i120, %nk_utf_decode_byte.exit.i.i91
-  %retval.0.i.i85 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i91 ], [ 0, %for.end.i.i120 ], [ %indvars78.le91.i.i112, %return.loopexit.i.i111 ], [ %indvars78.le.i.i116, %return.loopexit81.i.i115 ], [ %60, %if.end.i.i.i95 ], [ 1, %for.inc.i.i.i80 ]
-  %call4.i90 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %string, i32 noundef %56, ptr noundef nonnull %add.ptr49, i32 noundef %retval.0.i.i85)
+nk_utf_decode.exit.i82:                           ; preds = %for.inc.i.i.i78, %return.loopexit79.i.i113, %return.loopexit.i.i109, %if.end18.i.i93, %for.end.i.i118, %nk_utf_decode_byte.exit.i.i89
+  %retval.0.i.i83 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i89 ], [ 0, %for.end.i.i118 ], [ %indvars76.le89.i.i110, %return.loopexit.i.i109 ], [ %indvars76.le.i.i114, %return.loopexit79.i.i113 ], [ %60, %if.end18.i.i93 ], [ 1, %for.inc.i.i.i78 ]
+  %call4.i88 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %string, i32 noundef %56, ptr noundef nonnull %add.ptr49, i32 noundef %retval.0.i.i83)
   %70 = load i32, ptr %cursor.i.i, align 8
-  store i16 99, ptr %redo_point.i.i.i.i123, align 2
-  store i16 999, ptr %redo_char_point.i.i.i.i124, align 2
-  %71 = load i16, ptr %undo_point.i.i.i125, align 4
-  %cmp.i.i.i126 = icmp eq i16 %71, 99
-  br i1 %cmp.i.i.i126, label %if.then.i.i.i137, label %if.end.i.i.i127
+  store i16 99, ptr %redo_point.i.i.i.i121, align 2
+  store i16 999, ptr %redo_char_point.i.i.i.i122, align 2
+  %71 = load i16, ptr %undo_point.i.i.i123, align 4
+  %cmp.i.i.i124 = icmp eq i16 %71, 99
+  br i1 %cmp.i.i.i124, label %if.then.i.i.i135, label %if.end.i.i.i125
 
-if.then.i.i.i137:                                 ; preds = %nk_utf_decode.exit.i84
-  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i122)
-  br label %if.end.i.i.i127
+if.then.i.i.i135:                                 ; preds = %nk_utf_decode.exit.i82
+  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i120)
+  br label %if.end.i.i.i125
 
-if.end.i.i.i127:                                  ; preds = %if.then.i.i.i137, %nk_utf_decode.exit.i84
-  %72 = load i16, ptr %undo_char_point7.i.i.i128, align 4
-  %cmp912.i.i.i129 = icmp sgt i16 %72, 999
-  br i1 %cmp912.i.i.i129, label %while.body.i.i.i135, label %nk_textedit_makeundo_insert.exit
+if.end.i.i.i125:                                  ; preds = %if.then.i.i.i135, %nk_utf_decode.exit.i82
+  %72 = load i16, ptr %undo_char_point7.i.i.i126, align 4
+  %cmp912.i.i.i127 = icmp sgt i16 %72, 999
+  br i1 %cmp912.i.i.i127, label %while.body.i.i.i133, label %nk_textedit_makeundo_insert.exit
 
-while.body.i.i.i135:                              ; preds = %if.end.i.i.i127, %while.body.i.i.i135
-  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i122)
-  %73 = load i16, ptr %undo_char_point7.i.i.i128, align 4
-  %cmp9.i.i.i136 = icmp sgt i16 %73, 999
-  br i1 %cmp9.i.i.i136, label %while.body.i.i.i135, label %nk_textedit_makeundo_insert.exit, !llvm.loop !213
+while.body.i.i.i133:                              ; preds = %if.end.i.i.i125, %while.body.i.i.i133
+  call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i120)
+  %73 = load i16, ptr %undo_char_point7.i.i.i126, align 4
+  %cmp9.i.i.i134 = icmp sgt i16 %73, 999
+  br i1 %cmp9.i.i.i134, label %while.body.i.i.i133, label %nk_textedit_makeundo_insert.exit, !llvm.loop !213
 
-nk_textedit_makeundo_insert.exit:                 ; preds = %while.body.i.i.i135, %if.end.i.i.i127
-  %74 = load i16, ptr %undo_point.i.i.i125, align 4
-  %inc.i.i.i130 = add i16 %74, 1
-  store i16 %inc.i.i.i130, ptr %undo_point.i.i.i125, align 4
-  %idxprom.i.i.i131 = sext i16 %74 to i64
-  %arrayidx.i.i.i132 = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i122, i64 0, i64 %idxprom.i.i.i131
-  store i32 %70, ptr %arrayidx.i.i.i132, align 4
-  %insert_length.i.i133 = getelementptr inbounds i8, ptr %arrayidx.i.i.i132, i64 4
-  store i16 0, ptr %insert_length.i.i133, align 4
-  %delete_length.i.i134 = getelementptr inbounds i8, ptr %arrayidx.i.i.i132, i64 6
-  store i16 1, ptr %delete_length.i.i134, align 2
-  %char_storage.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i132, i64 8
+nk_textedit_makeundo_insert.exit:                 ; preds = %while.body.i.i.i133, %if.end.i.i.i125
+  %74 = load i16, ptr %undo_point.i.i.i123, align 4
+  %inc.i.i.i128 = add i16 %74, 1
+  store i16 %inc.i.i.i128, ptr %undo_point.i.i.i123, align 4
+  %idxprom.i.i.i129 = sext i16 %74 to i64
+  %arrayidx.i.i.i130 = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i120, i64 0, i64 %idxprom.i.i.i129
+  store i32 %70, ptr %arrayidx.i.i.i130, align 4
+  %insert_length.i.i131 = getelementptr inbounds i8, ptr %arrayidx.i.i.i130, i64 4
+  store i16 0, ptr %insert_length.i.i131, align 4
+  %delete_length.i.i132 = getelementptr inbounds i8, ptr %arrayidx.i.i.i130, i64 6
+  store i16 1, ptr %delete_length.i.i132, align 2
+  %char_storage.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i130, i64 8
   store i16 -1, ptr %char_storage.i.i, align 4
   %75 = load i32, ptr %cursor.i.i, align 8
   %add = add nsw i32 %75, 1
-  %76 = load i32, ptr %len.i.i60, align 8
+  %76 = load i32, ptr %len.i.i59, align 8
   %add. = call i32 @llvm.smin.i32(i32 %add, i32 %76)
   br label %next.sink.split
 
@@ -59975,131 +59944,131 @@ next.sink.split:                                  ; preds = %nk_textedit_makeund
   br label %next
 
 next:                                             ; preds = %next.sink.split, %while.body, %land.lhs.true18, %land.lhs.true
-  %add67 = add nsw i32 %text_len.0238, %glyph_len.0237
+  %add67 = add nsw i32 %text_len.0236, %glyph_len.0235
   %idx.ext68 = sext i32 %add67 to i64
   %add.ptr69 = getelementptr inbounds i8, ptr %text, i64 %idx.ext68
   %sub = sub nsw i32 %total_len, %add67
-  %tobool2.not.i140 = icmp eq i32 %total_len, %add67
-  br i1 %tobool2.not.i140, label %while.end, label %if.end4.i142
+  %tobool2.not.i138 = icmp eq i32 %total_len, %add67
+  br i1 %tobool2.not.i138, label %while.end, label %if.end4.i140
 
-if.end4.i142:                                     ; preds = %next
+if.end4.i140:                                     ; preds = %next
   %77 = load i8, ptr %add.ptr69, align 1
-  br label %for.body.i.i143
+  br label %for.body.i.i141
 
-for.body.i.i143:                                  ; preds = %for.inc.i.i149, %if.end4.i142
-  %indvars.iv.i.i144 = phi i64 [ %indvars.iv.next.i.i150, %for.inc.i.i149 ], [ 0, %if.end4.i142 ]
-  %arrayidx.i.i145 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i144
-  %78 = load i8, ptr %arrayidx.i.i145, align 1
-  %and8.i.i146 = and i8 %78, %77
-  %arrayidx3.i.i147 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i144
-  %79 = load i8, ptr %arrayidx3.i.i147, align 1
-  %cmp5.i.i148 = icmp eq i8 %and8.i.i146, %79
-  br i1 %cmp5.i.i148, label %nk_utf_decode_byte.exit.i153, label %for.inc.i.i149
+for.body.i.i141:                                  ; preds = %for.inc.i.i147, %if.end4.i140
+  %indvars.iv.i.i142 = phi i64 [ 0, %if.end4.i140 ], [ %indvars.iv.next.i.i148, %for.inc.i.i147 ]
+  %arrayidx.i.i143 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i142
+  %78 = load i8, ptr %arrayidx.i.i143, align 1
+  %and8.i.i144 = and i8 %78, %77
+  %arrayidx3.i.i145 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i142
+  %79 = load i8, ptr %arrayidx3.i.i145, align 1
+  %cmp5.i.i146 = icmp eq i8 %and8.i.i144, %79
+  br i1 %cmp5.i.i146, label %nk_utf_decode_byte.exit.i151, label %for.inc.i.i147
 
-for.inc.i.i149:                                   ; preds = %for.body.i.i143
-  %indvars.iv.next.i.i150 = add nuw nsw i64 %indvars.iv.i.i144, 1
-  %exitcond.not.i.i151 = icmp eq i64 %indvars.iv.next.i.i150, 5
-  br i1 %exitcond.not.i.i151, label %nk_utf_decode.exit204, label %for.body.i.i143, !llvm.loop !19
+for.inc.i.i147:                                   ; preds = %for.body.i.i141
+  %indvars.iv.next.i.i148 = add nuw nsw i64 %indvars.iv.i.i142, 1
+  %exitcond.not.i.i149 = icmp eq i64 %indvars.iv.next.i.i148, 5
+  br i1 %exitcond.not.i.i149, label %nk_utf_decode.exit202, label %for.body.i.i141, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i153:                     ; preds = %for.body.i.i143
-  %80 = trunc nuw nsw i64 %indvars.iv.i.i144 to i32
+nk_utf_decode_byte.exit.i151:                     ; preds = %for.body.i.i141
+  %80 = trunc nuw nsw i64 %indvars.iv.i.i142 to i32
   %81 = add i32 %80, -1
-  %or.cond1.i154 = icmp ult i32 %81, 3
-  br i1 %or.cond1.i154, label %for.cond.preheader.i155, label %nk_utf_decode.exit204
+  %or.cond1.i152 = icmp ult i32 %81, 3
+  br i1 %or.cond1.i152, label %for.cond.preheader.i153, label %nk_utf_decode.exit202
 
-for.cond.preheader.i155:                          ; preds = %nk_utf_decode_byte.exit.i153
-  %not.i.i156 = xor i8 %78, -1
-  %and12.i.i157 = and i8 %77, %not.i.i156
-  %conv14.i.i158 = zext i8 %and12.i.i157 to i32
-  %cmp861.i159 = icmp sgt i32 %sub, 1
-  %cmp962.i160 = icmp ugt i64 %indvars.iv.i.i144, 1
-  %82 = and i1 %cmp861.i159, %cmp962.i160
-  br i1 %82, label %for.body.preheader.i174, label %for.end.i161
+for.cond.preheader.i153:                          ; preds = %nk_utf_decode_byte.exit.i151
+  %not.i.i154 = xor i8 %78, -1
+  %and12.i.i155 = and i8 %77, %not.i.i154
+  %conv14.i.i156 = zext i8 %and12.i.i155 to i32
+  %cmp859.i157 = icmp sgt i32 %sub, 1
+  %cmp960.i158 = icmp ugt i64 %indvars.iv.i.i142, 1
+  %82 = and i1 %cmp859.i157, %cmp960.i158
+  br i1 %82, label %for.body.preheader.i172, label %for.end.i159
 
-for.body.preheader.i174:                          ; preds = %for.cond.preheader.i155
+for.body.preheader.i172:                          ; preds = %for.cond.preheader.i153
   %83 = zext nneg i32 %sub to i64
-  %zext269 = and i64 %indvars.iv.i.i144, 4294967295
-  br label %for.body.i175
+  %zext267 = and i64 %indvars.iv.i.i142, 4294967295
+  br label %for.body.i173
 
-for.body.i175:                                    ; preds = %for.inc.i194, %for.body.preheader.i174
-  %indvars.iv.i176 = phi i64 [ 1, %for.body.preheader.i174 ], [ %indvars.iv.next.i200, %for.inc.i194 ]
-  %udecoded.065.i177 = phi i32 [ %conv14.i.i158, %for.body.preheader.i174 ], [ %or.i199, %for.inc.i194 ]
-  %arrayidx10.i178 = getelementptr inbounds i8, ptr %add.ptr69, i64 %indvars.iv.i176
-  %84 = load i8, ptr %arrayidx10.i178, align 1
-  br label %for.body.i15.i179
+for.body.i173:                                    ; preds = %for.inc.i192, %for.body.preheader.i172
+  %indvars.iv.i174 = phi i64 [ 1, %for.body.preheader.i172 ], [ %indvars.iv.next.i198, %for.inc.i192 ]
+  %udecoded.063.i175 = phi i32 [ %conv14.i.i156, %for.body.preheader.i172 ], [ %or.i197, %for.inc.i192 ]
+  %arrayidx10.i176 = getelementptr inbounds i8, ptr %add.ptr69, i64 %indvars.iv.i174
+  %84 = load i8, ptr %arrayidx10.i176, align 1
+  br label %for.body.i15.i177
 
-for.body.i15.i179:                                ; preds = %for.inc.i21.i185, %for.body.i175
-  %indvars.iv.i16.i180 = phi i64 [ %indvars.iv.next.i22.i186, %for.inc.i21.i185 ], [ 0, %for.body.i175 ]
-  %arrayidx.i17.i181 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i180
-  %85 = load i8, ptr %arrayidx.i17.i181, align 1
-  %and8.i18.i182 = and i8 %85, %84
-  %arrayidx3.i19.i183 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i180
-  %86 = load i8, ptr %arrayidx3.i19.i183, align 1
-  %cmp5.i20.i184 = icmp eq i8 %and8.i18.i182, %86
-  br i1 %cmp5.i20.i184, label %nk_utf_decode_byte.exit30.i190, label %for.inc.i21.i185
+for.body.i15.i177:                                ; preds = %for.inc.i21.i183, %for.body.i173
+  %indvars.iv.i16.i178 = phi i64 [ 0, %for.body.i173 ], [ %indvars.iv.next.i22.i184, %for.inc.i21.i183 ]
+  %arrayidx.i17.i179 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i178
+  %85 = load i8, ptr %arrayidx.i17.i179, align 1
+  %and8.i18.i180 = and i8 %85, %84
+  %arrayidx3.i19.i181 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i178
+  %86 = load i8, ptr %arrayidx3.i19.i181, align 1
+  %cmp5.i20.i182 = icmp eq i8 %and8.i18.i180, %86
+  br i1 %cmp5.i20.i182, label %nk_utf_decode_byte.exit30.i188, label %for.inc.i21.i183
 
-for.inc.i21.i185:                                 ; preds = %for.body.i15.i179
-  %indvars.iv.next.i22.i186 = add nuw nsw i64 %indvars.iv.i16.i180, 1
-  %exitcond.not.i23.i187 = icmp eq i64 %indvars.iv.next.i22.i186, 5
-  br i1 %exitcond.not.i23.i187, label %return.loopexit.i188, label %for.body.i15.i179, !llvm.loop !19
+for.inc.i21.i183:                                 ; preds = %for.body.i15.i177
+  %indvars.iv.next.i22.i184 = add nuw nsw i64 %indvars.iv.i16.i178, 1
+  %exitcond.not.i23.i185 = icmp eq i64 %indvars.iv.next.i22.i184, 5
+  br i1 %exitcond.not.i23.i185, label %return.loopexit.i186, label %for.body.i15.i177, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i190:                   ; preds = %for.body.i15.i179
-  %cmp12.not.i191 = icmp eq i64 %indvars.iv.i16.i180, 0
-  br i1 %cmp12.not.i191, label %for.inc.i194, label %return.loopexit81.i192
+nk_utf_decode_byte.exit30.i188:                   ; preds = %for.body.i15.i177
+  %cmp12.not.i189 = icmp eq i64 %indvars.iv.i16.i178, 0
+  br i1 %cmp12.not.i189, label %for.inc.i192, label %return.loopexit79.i190
 
-for.inc.i194:                                     ; preds = %nk_utf_decode_byte.exit30.i190
-  %not.i27.i195 = xor i8 %85, -1
-  %and12.i28.i196 = and i8 %84, %not.i27.i195
-  %conv14.i29.i197 = zext i8 %and12.i28.i196 to i32
-  %shl.i198 = shl i32 %udecoded.065.i177, 6
-  %or.i199 = or i32 %shl.i198, %conv14.i29.i197
-  %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i176, 1
-  %cmp8.i202 = icmp ult i64 %indvars.iv.next.i200, %83
-  %87 = icmp ult i64 %indvars.iv.next.i200, %zext269
-  %88 = and i1 %cmp8.i202, %87
-  br i1 %88, label %for.body.i175, label %for.end.i161, !llvm.loop !20
+for.inc.i192:                                     ; preds = %nk_utf_decode_byte.exit30.i188
+  %not.i27.i193 = xor i8 %85, -1
+  %and12.i28.i194 = and i8 %84, %not.i27.i193
+  %conv14.i29.i195 = zext i8 %and12.i28.i194 to i32
+  %shl.i196 = shl i32 %udecoded.063.i175, 6
+  %or.i197 = or i32 %shl.i196, %conv14.i29.i195
+  %indvars.iv.next.i198 = add nuw nsw i64 %indvars.iv.i174, 1
+  %cmp8.i200 = icmp ult i64 %indvars.iv.next.i198, %83
+  %87 = icmp ult i64 %indvars.iv.next.i198, %zext267
+  %88 = and i1 %cmp8.i200, %87
+  br i1 %88, label %for.body.i173, label %for.end.i159, !llvm.loop !20
 
-for.end.i161:                                     ; preds = %for.inc.i194, %for.cond.preheader.i155
-  %udecoded.0.lcssa.i162 = phi i32 [ %conv14.i.i158, %for.cond.preheader.i155 ], [ %or.i199, %for.inc.i194 ]
-  %cmp9.lcssa.i163 = phi i1 [ %cmp962.i160, %for.cond.preheader.i155 ], [ %87, %for.inc.i194 ]
-  br i1 %cmp9.lcssa.i163, label %while.end, label %if.end.i.i164
+for.end.i159:                                     ; preds = %for.inc.i192, %for.cond.preheader.i153
+  %udecoded.0.lcssa.i160 = phi i32 [ %conv14.i.i156, %for.cond.preheader.i153 ], [ %or.i197, %for.inc.i192 ]
+  %cmp9.lcssa.i161 = phi i1 [ %cmp960.i158, %for.cond.preheader.i153 ], [ %87, %for.inc.i192 ]
+  br i1 %cmp9.lcssa.i161, label %while.end, label %if.end18.i162
 
-if.end.i.i164:                                    ; preds = %for.end.i161
-  %idxprom.i.i165 = and i64 %indvars.iv.i.i144, 4294967295
-  %arrayidx.i31.i166 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i165
-  %89 = load i32, ptr %arrayidx.i31.i166, align 4
-  %cmp.not.i.i167 = icmp ugt i32 %89, %udecoded.0.lcssa.i162
-  br i1 %cmp.not.i.i167, label %if.then7.i36.i173, label %land.lhs.true.i.i168
+if.end18.i162:                                    ; preds = %for.end.i159
+  %idxprom.i.i163 = and i64 %indvars.iv.i.i142, 4294967295
+  %arrayidx.i31.i164 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i163
+  %89 = load i32, ptr %arrayidx.i31.i164, align 4
+  %cmp.not.i.i165 = icmp ugt i32 %89, %udecoded.0.lcssa.i160
+  br i1 %cmp.not.i.i165, label %if.then7.i34.i171, label %land.lhs.true.i.i166
 
-land.lhs.true.i.i168:                             ; preds = %if.end.i.i164
-  %arrayidx2.i.i169 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i165
-  %90 = load i32, ptr %arrayidx2.i.i169, align 4
-  %cmp3.i.i170 = icmp uge i32 %udecoded.0.lcssa.i162, %90
-  %91 = add i32 %udecoded.0.lcssa.i162, -55296
-  %or.cond.i.i171 = icmp ult i32 %91, 2047
-  %or.cond11.i.i172 = or i1 %or.cond.i.i171, %cmp3.i.i170
-  br i1 %or.cond11.i.i172, label %if.then7.i36.i173, label %nk_utf_decode.exit204
+land.lhs.true.i.i166:                             ; preds = %if.end18.i162
+  %arrayidx2.i.i167 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i163
+  %90 = load i32, ptr %arrayidx2.i.i167, align 4
+  %cmp3.i.i168 = icmp uge i32 %udecoded.0.lcssa.i160, %90
+  %91 = add i32 %udecoded.0.lcssa.i160, -55296
+  %or.cond.i.i169 = icmp ult i32 %91, 2047
+  %or.cond11.i.i170 = or i1 %or.cond.i.i169, %cmp3.i.i168
+  br i1 %or.cond11.i.i170, label %if.then7.i34.i171, label %nk_utf_decode.exit202
 
-if.then7.i36.i173:                                ; preds = %land.lhs.true.i.i168, %if.end.i.i164
-  br label %nk_utf_decode.exit204
+if.then7.i34.i171:                                ; preds = %land.lhs.true.i.i166, %if.end18.i162
+  br label %nk_utf_decode.exit202
 
-return.loopexit.i188:                             ; preds = %for.inc.i21.i185
-  %indvars78.le91.i189 = trunc i64 %indvars.iv.i176 to i32
-  br label %nk_utf_decode.exit204
+return.loopexit.i186:                             ; preds = %for.inc.i21.i183
+  %indvars76.le89.i187 = trunc i64 %indvars.iv.i174 to i32
+  br label %nk_utf_decode.exit202
 
-return.loopexit81.i192:                           ; preds = %nk_utf_decode_byte.exit30.i190
-  %indvars78.le.i193 = trunc i64 %indvars.iv.i176 to i32
-  br label %nk_utf_decode.exit204
+return.loopexit79.i190:                           ; preds = %nk_utf_decode_byte.exit30.i188
+  %indvars76.le.i191 = trunc i64 %indvars.iv.i174 to i32
+  br label %nk_utf_decode.exit202
 
-nk_utf_decode.exit204:                            ; preds = %for.inc.i.i149, %nk_utf_decode_byte.exit.i153, %land.lhs.true.i.i168, %if.then7.i36.i173, %return.loopexit.i188, %return.loopexit81.i192
-  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i173 ], [ %udecoded.0.lcssa.i162, %land.lhs.true.i.i168 ], [ 65533, %return.loopexit81.i192 ], [ 65533, %return.loopexit.i188 ], [ 65533, %nk_utf_decode_byte.exit.i153 ], [ 65533, %for.inc.i.i149 ]
-  %retval.0.i152 = phi i32 [ %80, %if.then7.i36.i173 ], [ %80, %land.lhs.true.i.i168 ], [ %indvars78.le.i193, %return.loopexit81.i192 ], [ %indvars78.le91.i189, %return.loopexit.i188 ], [ 1, %nk_utf_decode_byte.exit.i153 ], [ 1, %for.inc.i.i149 ]
+nk_utf_decode.exit202:                            ; preds = %for.inc.i.i147, %nk_utf_decode_byte.exit.i151, %land.lhs.true.i.i166, %if.then7.i34.i171, %return.loopexit.i186, %return.loopexit79.i190
+  %unicode.2 = phi i32 [ 65533, %if.then7.i34.i171 ], [ %udecoded.0.lcssa.i160, %land.lhs.true.i.i166 ], [ 65533, %return.loopexit79.i190 ], [ 65533, %return.loopexit.i186 ], [ 65533, %nk_utf_decode_byte.exit.i151 ], [ 65533, %for.inc.i.i147 ]
+  %retval.0.i150 = phi i32 [ %80, %if.then7.i34.i171 ], [ %80, %land.lhs.true.i.i166 ], [ %indvars76.le.i191, %return.loopexit79.i190 ], [ %indvars76.le89.i187, %return.loopexit.i186 ], [ 1, %nk_utf_decode_byte.exit.i151 ], [ 1, %for.inc.i.i147 ]
   %cmp4 = icmp slt i32 %add67, %total_len
-  %tobool6 = icmp ne i32 %retval.0.i152, 0
+  %tobool6 = icmp ne i32 %retval.0.i150, 0
   %92 = and i1 %tobool6, %cmp4
   br i1 %92, label %while.body, label %while.end, !llvm.loop !215
 
-while.end:                                        ; preds = %for.end.i161, %next, %nk_utf_decode.exit204, %for.end.i, %nk_utf_decode.exit, %entry, %lor.lhs.false2
+while.end:                                        ; preds = %for.end.i159, %next, %nk_utf_decode.exit202, %for.end.i, %nk_utf_decode.exit, %entry, %lor.lhs.false2
   ret void
 }
 
@@ -61468,15 +61437,15 @@ cond.true37:                                      ; preds = %entry
   br label %cond.end41
 
 cond.end41:                                       ; preds = %entry, %cond.true37
-  %area.sroa.24.01353 = phi <2 x float> [ %area.sroa.24.8.vec.insert253, %cond.true37 ], [ %area.sroa.24.12.vec.insert, %entry ]
+  %area.sroa.24.01351 = phi <2 x float> [ %area.sroa.24.8.vec.insert253, %cond.true37 ], [ %area.sroa.24.12.vec.insert, %entry ]
   %cond42 = phi float [ %add38, %cond.true37 ], [ %sub22, %entry ]
   %clip43 = getelementptr inbounds i8, ptr %out, i64 8
   %old_clip.sroa.0.0.copyload = load <2 x float>, ptr %clip43, align 8
   %old_clip.sroa.6.0.clip43.sroa_idx = getelementptr inbounds i8, ptr %out, i64 16
   %old_clip.sroa.6.0.copyload = load <2 x float>, ptr %old_clip.sroa.6.0.clip43.sroa_idx, align 8
-  %area.sroa.24.8.vec.extract255 = extractelement <2 x float> %area.sroa.24.01353, i64 0
+  %area.sroa.24.8.vec.extract255 = extractelement <2 x float> %area.sroa.24.01351, i64 0
   %add48 = fadd float %add5, %area.sroa.24.8.vec.extract255
-  %area.sroa.24.12.vec.extract272 = extractelement <2 x float> %area.sroa.24.01353, i64 1
+  %area.sroa.24.12.vec.extract272 = extractelement <2 x float> %area.sroa.24.01351, i64 1
   %add51 = fadd float %add11, %area.sroa.24.12.vec.extract272
   %old_clip.sroa.0.0.vec.extract = extractelement <2 x float> %old_clip.sroa.0.0.copyload, i64 0
   %cmp.i = fcmp olt float %old_clip.sroa.0.0.vec.extract, %add5
@@ -61561,7 +61530,7 @@ land.end89:                                       ; preds = %land.rhs, %land.rhs
 
 if.end92:                                         ; preds = %cond.end41, %land.end89, %land.lhs.true54, %land.lhs.true
   %18 = phi i8 [ %conv90, %land.end89 ], [ %9, %land.lhs.true54 ], [ %9, %land.lhs.true ], [ %9, %cond.end41 ]
-  %retval.0.i1357 = phi i32 [ %retval.0.i.ph, %land.end89 ], [ %retval.0.i.ph, %land.lhs.true54 ], [ %retval.0.i.ph, %land.lhs.true ], [ 0, %cond.end41 ]
+  %retval.0.i1355 = phi i32 [ %retval.0.i.ph, %land.end89 ], [ %retval.0.i.ph, %land.lhs.true54 ], [ %retval.0.i.ph, %land.lhs.true ], [ 0, %cond.end41 ]
   %tobool93.not = icmp eq i8 %9, 0
   %tobool97.not = icmp eq i8 %18, 0
   br i1 %tobool93.not, label %land.lhs.true94, label %if.else
@@ -61672,11 +61641,11 @@ if.end.i594:                                      ; preds = %if.end126
   %add165 = fadd float %sub162, %27
   %cmp.i597 = fcmp ole float %add5, %24
   %cmp6.i600 = fcmp olt float %24, %add48
-  %or.cond.i601.not1396.not1397 = select i1 %cmp.i597, i1 %cmp6.i600, i1 false
+  %or.cond.i601.not1394.not1395 = select i1 %cmp.i597, i1 %cmp6.i600, i1 false
   %cmp10.i606 = fcmp ole float %add11, %26
-  %or.cond1392.not = select i1 %or.cond.i601.not1396.not1397, i1 %cmp10.i606, i1 false
+  %or.cond1390.not = select i1 %or.cond.i601.not1394.not1395, i1 %cmp10.i606, i1 false
   %cmp17.i610 = fcmp olt float %26, %add51
-  %narrow = select i1 %or.cond1392.not, i1 %cmp17.i610, i1 false
+  %narrow = select i1 %or.cond1390.not, i1 %cmp17.i610, i1 false
   %retval.0.i602 = zext i1 %narrow to i32
   %tobool168.not = icmp eq i8 %select_all.1, 0
   br i1 %tobool168.not, label %if.else170, label %if.then169
@@ -61774,7 +61743,7 @@ if.end226:                                        ; preds = %if.else170, %if.the
 
 for.body:                                         ; preds = %if.end226, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end226 ], [ %indvars.iv.next, %for.inc ]
-  %cursor_follow.21442 = phi i8 [ %cursor_follow.1, %if.end226 ], [ %cursor_follow.3, %for.inc ]
+  %cursor_follow.21440 = phi i8 [ %cursor_follow.1, %if.end226 ], [ %cursor_follow.3, %for.inc ]
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = and i32 %39, 30
   %or.cond3 = icmp eq i32 %40, 4
@@ -61801,7 +61770,7 @@ if.then240:                                       ; preds = %land.lhs.true5.i, %
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true.i, %land.lhs.true5.i, %if.then240, %for.body
-  %cursor_follow.3 = phi i8 [ %cursor_follow.21442, %for.body ], [ 1, %if.then240 ], [ %cursor_follow.21442, %land.lhs.true5.i ], [ %cursor_follow.21442, %land.lhs.true.i ]
+  %cursor_follow.3 = phi i8 [ %cursor_follow.21440, %for.body ], [ 1, %if.then240 ], [ %cursor_follow.21440, %land.lhs.true5.i ], [ %cursor_follow.21440, %land.lhs.true.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !220
@@ -61913,11 +61882,11 @@ if.end8.i660:                                     ; preds = %land.lhs.true5.i661
   br label %nk_input_is_key_pressed.exit663
 
 nk_input_is_key_pressed.exit663:                  ; preds = %land.lhs.true.i657, %land.lhs.true5.i661, %if.end8.i660
-  %tobool281.not1398 = phi i1 [ true, %if.end8.i660 ], [ false, %land.lhs.true5.i661 ], [ false, %land.lhs.true.i657 ]
-  %or.cond5.not1399 = and i1 %tobool279.not, %tobool281.not1398
+  %tobool281.not1396 = phi i1 [ true, %if.end8.i660 ], [ false, %land.lhs.true5.i661 ], [ false, %land.lhs.true.i657 ]
+  %or.cond5.not1397 = and i1 %tobool279.not, %tobool281.not1396
   %and283 = and i32 %flags, 64
   %tobool284.not = icmp eq i32 %and283, 0
-  %or.cond584 = or i1 %tobool284.not, %or.cond5.not1399
+  %or.cond584 = or i1 %tobool284.not, %or.cond5.not1397
   br i1 %or.cond584, label %if.end.i672, label %if.then285
 
 if.then285:                                       ; preds = %nk_input_is_key_pressed.exit663
@@ -61941,7 +61910,7 @@ if.then304:                                       ; preds = %if.then285
   br label %if.end309
 
 if.end309:                                        ; preds = %if.then304, %if.then285
-  %brmerge = or i1 %tobool117.not, %tobool281.not1398
+  %brmerge = or i1 %tobool117.not, %tobool281.not1396
   br i1 %brmerge, label %if.end.i672, label %if.then314
 
 if.then314:                                       ; preds = %if.end309
@@ -62041,13 +62010,13 @@ if.end.i672:                                      ; preds = %nk_input_is_key_pre
 
 land.lhs.true.i676:                               ; preds = %if.end.i672
   %tobool2.not.i677 = icmp eq i32 %66, 0
-  %or.cond1394 = or i1 %tobool284.not, %tobool2.not.i677
-  br i1 %or.cond1394, label %if.end.i684, label %land.lhs.true323
+  %or.cond1392 = or i1 %tobool284.not, %tobool2.not.i677
+  br i1 %or.cond1392, label %if.end.i684, label %land.lhs.true323
 
 land.lhs.true5.i680:                              ; preds = %if.end.i672
   %cmp.i681 = icmp ult i32 %66, 2
-  %or.cond1395 = or i1 %tobool284.not, %cmp.i681
-  br i1 %or.cond1395, label %if.end.i684, label %land.lhs.true323
+  %or.cond1393 = or i1 %tobool284.not, %cmp.i681
+  br i1 %or.cond1393, label %if.end.i684, label %land.lhs.true323
 
 land.lhs.true323:                                 ; preds = %land.lhs.true5.i680, %land.lhs.true.i676
   %paste325 = getelementptr inbounds i8, ptr %edit, i64 8
@@ -62088,7 +62057,7 @@ if.then339:                                       ; preds = %nk_input_is_key_pre
 
 if.end341:                                        ; preds = %land.lhs.true5.i692, %land.lhs.true.i688, %nk_input_is_key_pressed.exit694, %if.then339, %if.end126
   %cursor_follow.0 = phi i8 [ 1, %if.then339 ], [ %cursor_follow.7, %nk_input_is_key_pressed.exit694 ], [ 0, %if.end126 ], [ %cursor_follow.7, %land.lhs.true.i688 ], [ %cursor_follow.7, %land.lhs.true5.i692 ]
-  %is_hovered.0.in = phi i32 [ %retval.0.i602, %if.then339 ], [ %retval.0.i602, %nk_input_is_key_pressed.exit694 ], [ %retval.0.i1357, %if.end126 ], [ %retval.0.i602, %land.lhs.true.i688 ], [ %retval.0.i602, %land.lhs.true5.i692 ]
+  %is_hovered.0.in = phi i32 [ %retval.0.i602, %if.then339 ], [ %retval.0.i602, %nk_input_is_key_pressed.exit694 ], [ %retval.0.i1355, %if.end126 ], [ %retval.0.i602, %land.lhs.true.i688 ], [ %retval.0.i602, %land.lhs.true5.i692 ]
   %ret.1 = phi i32 [ %ret.2, %if.then339 ], [ %ret.2, %nk_input_is_key_pressed.exit694 ], [ %spec.select583, %if.end126 ], [ %ret.2, %land.lhs.true.i688 ], [ %ret.2, %land.lhs.true5.i692 ]
   %71 = load i8, ptr %active, align 1
   %tobool343.not = icmp eq i8 %71, 0
@@ -62097,15 +62066,15 @@ if.end341:                                        ; preds = %land.lhs.true5.i692
 if.else345:                                       ; preds = %if.end341
   %72 = load i32, ptr %state, align 4
   %and346 = and i32 %72, 2
-  %.1629 = or disjoint i32 %and346, 4
+  %.1627 = or disjoint i32 %and346, 4
   br label %if.end351
 
 if.end351:                                        ; preds = %if.else345, %if.end341
-  %.sink1627 = phi i32 [ 34, %if.end341 ], [ %.1629, %if.else345 ]
+  %.sink1625 = phi i32 [ 34, %if.end341 ], [ %.1627, %if.else345 ]
   %tobool352.not = icmp eq i32 %is_hovered.0.in, 0
-  %or354 = or i32 %.sink1627, 18
-  %spec.select1680 = select i1 %tobool352.not, i32 %.sink1627, i32 %or354
-  store i32 %spec.select1680, ptr %state, align 4
+  %or354 = or i32 %.sink1625, 18
+  %spec.select1678 = select i1 %tobool352.not, i32 %.sink1625, i32 %or354
+  store i32 %spec.select1678, ptr %state, align 4
   %len.i696 = getelementptr inbounds i8, ptr %edit, i64 144
   %73 = load i32, ptr %len.i696, align 8
   %tobool1.not.i697 = icmp eq i32 %73, 0
@@ -62128,12 +62097,12 @@ lor.lhs.false2.i703:                              ; preds = %lor.lhs.false2.i, %
   br label %nk_str_len_char.exit
 
 nk_str_len_char.exit:                             ; preds = %if.end351, %lor.lhs.false2.i703
-  %retval.0.i6991373 = phi ptr [ %retval.0.i699.ph, %lor.lhs.false2.i703 ], [ null, %if.end351 ]
+  %retval.0.i6991371 = phi ptr [ %retval.0.i699.ph, %lor.lhs.false2.i703 ], [ null, %if.end351 ]
   %retval.0.i705 = phi i32 [ %conv.i, %lor.lhs.false2.i703 ], [ 0, %if.end351 ]
-  %and362 = and i32 %spec.select1680, 32
+  %and362 = and i32 %spec.select1678, 32
   %tobool363.not = icmp eq i32 %and362, 0
   %active365 = getelementptr inbounds i8, ptr %style, i64 80
-  %and367 = and i32 %spec.select1680, 16
+  %and367 = and i32 %spec.select1678, 16
   %tobool368.not = icmp eq i32 %and367, 0
   %hover = getelementptr inbounds i8, ptr %style, i64 40
   %spec.select589 = select i1 %tobool368.not, ptr %style, ptr %hover
@@ -62278,17 +62247,17 @@ if.then404:                                       ; preds = %sw.epilog
   %91 = load i32, ptr %select_end410, align 8
   %. = call i32 @llvm.smin.i32(i32 %90, i32 %91)
   %cond428 = call i32 @llvm.smax.i32(i32 %90, i32 %91)
-  %tobool429 = icmp ne ptr %retval.0.i6991373, null
+  %tobool429 = icmp ne ptr %retval.0.i6991371, null
   %tobool431 = icmp ne i32 %retval.0.i705, 0
   %or.cond6 = and i1 %tobool429, %tobool431
   br i1 %or.cond6, label %if.end4.i, label %if.end583
 
 if.end4.i:                                        ; preds = %if.then404
-  %92 = load i8, ptr %retval.0.i6991373, align 1
+  %92 = load i8, ptr %retval.0.i6991371, align 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %93 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %93, %92
@@ -62312,9 +62281,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %93, -1
   %and12.i.i = and i8 %92, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %retval.0.i705, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %97 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %retval.0.i705, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %97 = and i1 %cmp859.i, %cmp960.i
   br i1 %97, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -62324,13 +62293,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
-  %arrayidx10.i = getelementptr inbounds i8, ptr %retval.0.i6991373, i64 %indvars.iv.i
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %arrayidx10.i = getelementptr inbounds i8, ptr %retval.0.i6991371, i64 %indvars.iv.i
   %99 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %100 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %100, %99
@@ -62346,13 +62315,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %100, -1
   %and12.i28.i = and i8 %99, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %98
@@ -62362,430 +62331,430 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %102, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %nk_utf_decode.exit, label %if.end.i.i781
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %102, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %nk_utf_decode.exit, label %if.end18.i
 
-if.end.i.i781:                                    ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %104 = load i32, ptr %arrayidx.i31.i, align 4
-  %cmp.not.i.i782 = icmp ugt i32 %104, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i782, label %if.then7.i36.i, label %land.lhs.true.i.i
+  %cmp.not.i.i781 = icmp ugt i32 %104, %udecoded.0.lcssa.i
+  br i1 %cmp.not.i.i781, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i781
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %105 = load i32, ptr %arrayidx2.i.i, align 4
-  %cmp3.i.i783 = icmp uge i32 %udecoded.0.lcssa.i, %105
+  %cmp3.i.i782 = icmp uge i32 %udecoded.0.lcssa.i, %105
   %106 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %106, 2047
-  %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i783
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i782
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i781
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %for.end.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode434.1 = phi i32 [ 65533, %for.end.i ], [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i780 = phi i32 [ 0, %for.end.i ], [ %95, %if.then7.i36.i ], [ %95, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %for.end.i, %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode434.1 = phi i32 [ 65533, %for.end.i ], [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i780 = phi i32 [ 0, %for.end.i ], [ %95, %if.then7.i34.i ], [ %95, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
   %width = getelementptr inbounds i8, ptr %font, i64 16
   %107 = load ptr, ptr %width, align 8
   %height438 = getelementptr inbounds i8, ptr %font, i64 8
   %108 = load float, ptr %height438, align 8
   %109 = load ptr, ptr %font, align 8
-  %call440 = call float %107(ptr %109, float noundef %108, ptr noundef nonnull %retval.0.i6991373, i32 noundef %retval.0.i780) #52
-  %cmp44114431474 = icmp sgt i32 %retval.0.i705, 0
-  %tobool44414441475 = icmp ne i32 %retval.0.i780, 0
-  %110 = and i1 %cmp44114431474, %tobool44414441475
+  %call440 = call float %107(ptr %109, float noundef %108, ptr noundef nonnull %retval.0.i6991371, i32 noundef %retval.0.i780) #52
+  %cmp44114411472 = icmp sgt i32 %retval.0.i705, 0
+  %tobool44414421473 = icmp ne i32 %retval.0.i780, 0
+  %110 = and i1 %cmp44114411472, %tobool44414421473
   br i1 %110, label %while.body.lr.ph.lr.ph, label %while.end.thread
 
 while.end.thread:                                 ; preds = %nk_utf_decode.exit
-  %text_size.sroa.0.4.vec.insert1566 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond42, i64 1
+  %text_size.sroa.0.4.vec.insert1564 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond42, i64 1
   br label %land.lhs.true571
 
 while.body.lr.ph.lr.ph:                           ; preds = %nk_utf_decode.exit
   %cursor449 = getelementptr inbounds i8, ptr %edit, i64 168
   br label %while.body.lr.ph
 
-while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit849
-  %total_lines.0.ph1489 = phi i32 [ 1, %while.body.lr.ph.lr.ph ], [ %inc538, %nk_utf_decode.exit849 ]
-  %text_size.sroa.0.1.ph1488 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit849 ]
-  %cursor_ptr.1.ph1487 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %cursor_ptr.2, %nk_utf_decode.exit849 ]
-  %select_begin_ptr.1.ph1486 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_begin_ptr.2, %nk_utf_decode.exit849 ]
-  %select_end_ptr.1.ph1485 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_end_ptr.2, %nk_utf_decode.exit849 ]
-  %cursor_pos.sroa.0.1.ph1484 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %cursor_pos.sroa.0.2, %nk_utf_decode.exit849 ]
-  %selection_offset_start.sroa.0.1.ph1483 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_start.sroa.0.2, %nk_utf_decode.exit849 ]
-  %selection_offset_end.sroa.0.1.ph1482 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_end.sroa.0.2, %nk_utf_decode.exit849 ]
-  %glyph_width.0.ph1481 = phi float [ %call440, %while.body.lr.ph.lr.ph ], [ %call551, %nk_utf_decode.exit849 ]
-  %glyph_len433.0.ph1480 = phi i32 [ %retval.0.i780, %while.body.lr.ph.lr.ph ], [ %retval.0.i797, %nk_utf_decode.exit849 ]
-  %text_len435.0.ph1479 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc539, %nk_utf_decode.exit849 ]
-  %glyphs.0.ph1478 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc540, %nk_utf_decode.exit849 ]
-  %unicode434.0.ph1476 = phi i32 [ %unicode434.1, %while.body.lr.ph.lr.ph ], [ %unicode434.2, %nk_utf_decode.exit849 ]
-  %sub453 = add nsw i32 %total_lines.0.ph1489, -1
+while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit848
+  %total_lines.0.ph1487 = phi i32 [ 1, %while.body.lr.ph.lr.ph ], [ %inc538, %nk_utf_decode.exit848 ]
+  %text_size.sroa.0.1.ph1486 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit848 ]
+  %cursor_ptr.1.ph1485 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %cursor_ptr.2, %nk_utf_decode.exit848 ]
+  %select_begin_ptr.1.ph1484 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_begin_ptr.2, %nk_utf_decode.exit848 ]
+  %select_end_ptr.1.ph1483 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_end_ptr.2, %nk_utf_decode.exit848 ]
+  %cursor_pos.sroa.0.1.ph1482 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %cursor_pos.sroa.0.2, %nk_utf_decode.exit848 ]
+  %selection_offset_start.sroa.0.1.ph1481 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_start.sroa.0.2, %nk_utf_decode.exit848 ]
+  %selection_offset_end.sroa.0.1.ph1480 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_end.sroa.0.2, %nk_utf_decode.exit848 ]
+  %glyph_width.0.ph1479 = phi float [ %call440, %while.body.lr.ph.lr.ph ], [ %call551, %nk_utf_decode.exit848 ]
+  %glyph_len433.0.ph1478 = phi i32 [ %retval.0.i780, %while.body.lr.ph.lr.ph ], [ %retval.0.i796, %nk_utf_decode.exit848 ]
+  %text_len435.0.ph1477 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc539, %nk_utf_decode.exit848 ]
+  %glyphs.0.ph1476 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc540, %nk_utf_decode.exit848 ]
+  %unicode434.0.ph1474 = phi i32 [ %unicode434.1, %while.body.lr.ph.lr.ph ], [ %unicode434.2, %nk_utf_decode.exit848 ]
+  %sub453 = add nsw i32 %total_lines.0.ph1487, -1
   %conv454 = sitofp i32 %sub453 to float
   %mul = fmul float %cond42, %conv454
-  %idx.ext = sext i32 %text_len435.0.ph1479 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %retval.0.i6991373, i64 %idx.ext
+  %idx.ext = sext i32 %text_len435.0.ph1477 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %retval.0.i6991371, i64 %idx.ext
   %conv485 = uitofp nneg i32 %sub453 to float
   %mul486 = fmul float %cond42, %conv485
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit915
-  %cursor_ptr.11456 = phi ptr [ %cursor_ptr.1.ph1487, %while.body.lr.ph ], [ %cursor_ptr.2, %nk_utf_decode.exit915 ]
-  %select_begin_ptr.11455 = phi ptr [ %select_begin_ptr.1.ph1486, %while.body.lr.ph ], [ %select_begin_ptr.2, %nk_utf_decode.exit915 ]
-  %select_end_ptr.11454 = phi ptr [ %select_end_ptr.1.ph1485, %while.body.lr.ph ], [ %select_end_ptr.2, %nk_utf_decode.exit915 ]
-  %cursor_pos.sroa.0.11453 = phi <2 x float> [ %cursor_pos.sroa.0.1.ph1484, %while.body.lr.ph ], [ %cursor_pos.sroa.0.2, %nk_utf_decode.exit915 ]
-  %selection_offset_start.sroa.0.11452 = phi <2 x float> [ %selection_offset_start.sroa.0.1.ph1483, %while.body.lr.ph ], [ %selection_offset_start.sroa.0.2, %nk_utf_decode.exit915 ]
-  %selection_offset_end.sroa.0.11451 = phi <2 x float> [ %selection_offset_end.sroa.0.1.ph1482, %while.body.lr.ph ], [ %selection_offset_end.sroa.0.2, %nk_utf_decode.exit915 ]
-  %line_width.01450 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %add555, %nk_utf_decode.exit915 ]
-  %glyph_width.01449 = phi float [ %glyph_width.0.ph1481, %while.body.lr.ph ], [ %call566, %nk_utf_decode.exit915 ]
-  %glyph_len433.01448 = phi i32 [ %glyph_len433.0.ph1480, %while.body.lr.ph ], [ %retval.0.i863, %nk_utf_decode.exit915 ]
-  %text_len435.01447 = phi i32 [ %text_len435.0.ph1479, %while.body.lr.ph ], [ %add554, %nk_utf_decode.exit915 ]
-  %glyphs.01446 = phi i32 [ %glyphs.0.ph1478, %while.body.lr.ph ], [ %inc553, %nk_utf_decode.exit915 ]
-  %unicode434.01445 = phi i32 [ %unicode434.0.ph1476, %while.body.lr.ph ], [ %unicode434.3, %nk_utf_decode.exit915 ]
-  %tobool447.not = icmp eq ptr %cursor_ptr.11456, null
+while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit914
+  %cursor_ptr.11454 = phi ptr [ %cursor_ptr.1.ph1485, %while.body.lr.ph ], [ %cursor_ptr.2, %nk_utf_decode.exit914 ]
+  %select_begin_ptr.11453 = phi ptr [ %select_begin_ptr.1.ph1484, %while.body.lr.ph ], [ %select_begin_ptr.2, %nk_utf_decode.exit914 ]
+  %select_end_ptr.11452 = phi ptr [ %select_end_ptr.1.ph1483, %while.body.lr.ph ], [ %select_end_ptr.2, %nk_utf_decode.exit914 ]
+  %cursor_pos.sroa.0.11451 = phi <2 x float> [ %cursor_pos.sroa.0.1.ph1482, %while.body.lr.ph ], [ %cursor_pos.sroa.0.2, %nk_utf_decode.exit914 ]
+  %selection_offset_start.sroa.0.11450 = phi <2 x float> [ %selection_offset_start.sroa.0.1.ph1481, %while.body.lr.ph ], [ %selection_offset_start.sroa.0.2, %nk_utf_decode.exit914 ]
+  %selection_offset_end.sroa.0.11449 = phi <2 x float> [ %selection_offset_end.sroa.0.1.ph1480, %while.body.lr.ph ], [ %selection_offset_end.sroa.0.2, %nk_utf_decode.exit914 ]
+  %line_width.01448 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %add555, %nk_utf_decode.exit914 ]
+  %glyph_width.01447 = phi float [ %glyph_width.0.ph1479, %while.body.lr.ph ], [ %call566, %nk_utf_decode.exit914 ]
+  %glyph_len433.01446 = phi i32 [ %glyph_len433.0.ph1478, %while.body.lr.ph ], [ %retval.0.i862, %nk_utf_decode.exit914 ]
+  %text_len435.01445 = phi i32 [ %text_len435.0.ph1477, %while.body.lr.ph ], [ %add554, %nk_utf_decode.exit914 ]
+  %glyphs.01444 = phi i32 [ %glyphs.0.ph1476, %while.body.lr.ph ], [ %inc553, %nk_utf_decode.exit914 ]
+  %unicode434.01443 = phi i32 [ %unicode434.0.ph1474, %while.body.lr.ph ], [ %unicode434.3, %nk_utf_decode.exit914 ]
+  %tobool447.not = icmp eq ptr %cursor_ptr.11454, null
   br i1 %tobool447.not, label %land.lhs.true448, label %if.end462
 
 land.lhs.true448:                                 ; preds = %while.body
   %111 = load i32, ptr %cursor449, align 8
-  %cmp450 = icmp eq i32 %glyphs.01446, %111
+  %cmp450 = icmp eq i32 %glyphs.01444, %111
   br i1 %cmp450, label %if.then452, label %if.end462
 
 if.then452:                                       ; preds = %land.lhs.true448
-  %sub456 = sub nsw i32 %text_len435.01447, %text_len435.0.ph1479
+  %sub456 = sub nsw i32 %text_len435.01445, %text_len435.0.ph1477
   %call457 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub456, float noundef %cond42, ptr noundef nonnull %remaining, ptr noundef nonnull %out_offset, ptr noundef nonnull %glyph_offset)
   %cursor_pos.sroa.0.0.vec.insert = insertelement <2 x float> %call457, float %mul, i64 1
-  %idx.ext460 = sext i32 %text_len435.01447 to i64
-  %add.ptr461 = getelementptr inbounds i8, ptr %retval.0.i6991373, i64 %idx.ext460
+  %idx.ext460 = sext i32 %text_len435.01445 to i64
+  %add.ptr461 = getelementptr inbounds i8, ptr %retval.0.i6991371, i64 %idx.ext460
   br label %if.end462
 
 if.end462:                                        ; preds = %if.then452, %land.lhs.true448, %while.body
-  %cursor_pos.sroa.0.2 = phi <2 x float> [ %cursor_pos.sroa.0.11453, %while.body ], [ %cursor_pos.sroa.0.0.vec.insert, %if.then452 ], [ %cursor_pos.sroa.0.11453, %land.lhs.true448 ]
-  %cursor_ptr.2 = phi ptr [ %cursor_ptr.11456, %while.body ], [ %add.ptr461, %if.then452 ], [ null, %land.lhs.true448 ]
-  %tobool463.not = icmp eq ptr %select_begin_ptr.11455, null
+  %cursor_pos.sroa.0.2 = phi <2 x float> [ %cursor_pos.sroa.0.11451, %while.body ], [ %cursor_pos.sroa.0.0.vec.insert, %if.then452 ], [ %cursor_pos.sroa.0.11451, %land.lhs.true448 ]
+  %cursor_ptr.2 = phi ptr [ %cursor_ptr.11454, %while.body ], [ %add.ptr461, %if.then452 ], [ null, %land.lhs.true448 ]
+  %tobool463.not = icmp eq ptr %select_begin_ptr.11453, null
   br i1 %tobool463.not, label %land.lhs.true464, label %if.end497
 
 land.lhs.true464:                                 ; preds = %if.end462
   %112 = load i32, ptr %select_start409, align 4
   %113 = load i32, ptr %select_end410, align 8
   %cmp467.not = icmp ne i32 %112, %113
-  %cmp470 = icmp eq i32 %glyphs.01446, %.
+  %cmp470 = icmp eq i32 %glyphs.01444, %.
   %or.cond587 = select i1 %cmp467.not, i1 %cmp470, i1 false
   br i1 %or.cond587, label %if.then472, label %if.end497
 
 if.then472:                                       ; preds = %land.lhs.true464
-  %sub491 = sub nsw i32 %text_len435.01447, %text_len435.0.ph1479
+  %sub491 = sub nsw i32 %text_len435.01445, %text_len435.0.ph1477
   %call492 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub491, float noundef %cond42, ptr noundef nonnull %remaining476, ptr noundef nonnull %out_offset474, ptr noundef nonnull %glyph_offset473)
   %selection_offset_start.sroa.0.0.vec.insert = insertelement <2 x float> %call492, float %mul486, i64 1
-  %idx.ext495 = sext i32 %text_len435.01447 to i64
-  %add.ptr496 = getelementptr inbounds i8, ptr %retval.0.i6991373, i64 %idx.ext495
+  %idx.ext495 = sext i32 %text_len435.01445 to i64
+  %add.ptr496 = getelementptr inbounds i8, ptr %retval.0.i6991371, i64 %idx.ext495
   br label %if.end497
 
 if.end497:                                        ; preds = %if.then472, %land.lhs.true464, %if.end462
-  %selection_offset_start.sroa.0.2 = phi <2 x float> [ %selection_offset_start.sroa.0.11452, %if.end462 ], [ %selection_offset_start.sroa.0.0.vec.insert, %if.then472 ], [ %selection_offset_start.sroa.0.11452, %land.lhs.true464 ]
-  %select_begin_ptr.2 = phi ptr [ %select_begin_ptr.11455, %if.end462 ], [ %add.ptr496, %if.then472 ], [ null, %land.lhs.true464 ]
-  %tobool498.not = icmp eq ptr %select_end_ptr.11454, null
+  %selection_offset_start.sroa.0.2 = phi <2 x float> [ %selection_offset_start.sroa.0.11450, %if.end462 ], [ %selection_offset_start.sroa.0.0.vec.insert, %if.then472 ], [ %selection_offset_start.sroa.0.11450, %land.lhs.true464 ]
+  %select_begin_ptr.2 = phi ptr [ %select_begin_ptr.11453, %if.end462 ], [ %add.ptr496, %if.then472 ], [ null, %land.lhs.true464 ]
+  %tobool498.not = icmp eq ptr %select_end_ptr.11452, null
   br i1 %tobool498.not, label %land.lhs.true499, label %if.end525
 
 land.lhs.true499:                                 ; preds = %if.end497
   %114 = load i32, ptr %select_start409, align 4
   %115 = load i32, ptr %select_end410, align 8
   %cmp502.not = icmp ne i32 %114, %115
-  %cmp505 = icmp eq i32 %glyphs.01446, %cond428
+  %cmp505 = icmp eq i32 %glyphs.01444, %cond428
   %or.cond588 = select i1 %cmp502.not, i1 %cmp505, i1 false
   br i1 %or.cond588, label %if.then507, label %if.end525
 
 if.then507:                                       ; preds = %land.lhs.true499
-  %sub519 = sub nsw i32 %text_len435.01447, %text_len435.0.ph1479
+  %sub519 = sub nsw i32 %text_len435.01445, %text_len435.0.ph1477
   %call520 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub519, float noundef %cond42, ptr noundef nonnull %remaining511, ptr noundef nonnull %out_offset509, ptr noundef nonnull %glyph_offset508)
   %selection_offset_end.sroa.0.0.vec.insert = insertelement <2 x float> %call520, float %mul, i64 1
-  %idx.ext523 = sext i32 %text_len435.01447 to i64
-  %add.ptr524 = getelementptr inbounds i8, ptr %retval.0.i6991373, i64 %idx.ext523
+  %idx.ext523 = sext i32 %text_len435.01445 to i64
+  %add.ptr524 = getelementptr inbounds i8, ptr %retval.0.i6991371, i64 %idx.ext523
   br label %if.end525
 
 if.end525:                                        ; preds = %if.then507, %land.lhs.true499, %if.end497
-  %selection_offset_end.sroa.0.2 = phi <2 x float> [ %selection_offset_end.sroa.0.11451, %if.end497 ], [ %selection_offset_end.sroa.0.0.vec.insert, %if.then507 ], [ %selection_offset_end.sroa.0.11451, %land.lhs.true499 ]
-  %select_end_ptr.2 = phi ptr [ %select_end_ptr.11454, %if.end497 ], [ %add.ptr524, %if.then507 ], [ null, %land.lhs.true499 ]
-  %cmp526 = icmp eq i32 %unicode434.01445, 10
+  %selection_offset_end.sroa.0.2 = phi <2 x float> [ %selection_offset_end.sroa.0.11449, %if.end497 ], [ %selection_offset_end.sroa.0.0.vec.insert, %if.then507 ], [ %selection_offset_end.sroa.0.11449, %land.lhs.true499 ]
+  %select_end_ptr.2 = phi ptr [ %select_end_ptr.11452, %if.end497 ], [ %add.ptr524, %if.then507 ], [ null, %land.lhs.true499 ]
+  %cmp526 = icmp eq i32 %unicode434.01443, 10
   br i1 %cmp526, label %if.then528, label %if.end552
 
 if.then528:                                       ; preds = %if.end525
-  %text_size.sroa.0.0.vec.extract = extractelement <2 x float> %text_size.sroa.0.1.ph1488, i64 0
-  %cmp530 = fcmp olt float %text_size.sroa.0.0.vec.extract, %line_width.01450
-  %cond536 = select i1 %cmp530, float %line_width.01450, float %text_size.sroa.0.0.vec.extract
-  %text_size.sroa.0.0.vec.insert = insertelement <2 x float> %text_size.sroa.0.1.ph1488, float %cond536, i64 0
-  %inc538 = add nuw nsw i32 %total_lines.0.ph1489, 1
-  %inc539 = add nsw i32 %text_len435.01447, 1
-  %inc540 = add nsw i32 %glyphs.01446, 1
+  %text_size.sroa.0.0.vec.extract = extractelement <2 x float> %text_size.sroa.0.1.ph1486, i64 0
+  %cmp530 = fcmp olt float %text_size.sroa.0.0.vec.extract, %line_width.01448
+  %cond536 = select i1 %cmp530, float %line_width.01448, float %text_size.sroa.0.0.vec.extract
+  %text_size.sroa.0.0.vec.insert = insertelement <2 x float> %text_size.sroa.0.1.ph1486, float %cond536, i64 0
+  %inc538 = add nuw nsw i32 %total_lines.0.ph1487, 1
+  %inc539 = add nsw i32 %text_len435.01445, 1
+  %inc540 = add nsw i32 %glyphs.01444, 1
   %idx.ext541 = sext i32 %inc539 to i64
-  %add.ptr542 = getelementptr inbounds i8, ptr %retval.0.i6991373, i64 %idx.ext541
+  %add.ptr542 = getelementptr inbounds i8, ptr %retval.0.i6991371, i64 %idx.ext541
   %sub543 = sub nsw i32 %retval.0.i705, %inc539
-  %tobool2.not.i785 = icmp eq i32 %retval.0.i705, %inc539
-  br i1 %tobool2.not.i785, label %nk_utf_decode.exit849, label %if.end4.i787
+  %tobool2.not.i784 = icmp eq i32 %retval.0.i705, %inc539
+  br i1 %tobool2.not.i784, label %nk_utf_decode.exit848, label %if.end4.i786
 
-if.end4.i787:                                     ; preds = %if.then528
+if.end4.i786:                                     ; preds = %if.then528
   %116 = load i8, ptr %add.ptr542, align 1
-  br label %for.body.i.i788
+  br label %for.body.i.i787
 
-for.body.i.i788:                                  ; preds = %for.inc.i.i794, %if.end4.i787
-  %indvars.iv.i.i789 = phi i64 [ %indvars.iv.next.i.i795, %for.inc.i.i794 ], [ 0, %if.end4.i787 ]
-  %arrayidx.i.i790 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i789
-  %117 = load i8, ptr %arrayidx.i.i790, align 1
-  %and8.i.i791 = and i8 %117, %116
-  %arrayidx3.i.i792 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i789
-  %118 = load i8, ptr %arrayidx3.i.i792, align 1
-  %cmp5.i.i793 = icmp eq i8 %and8.i.i791, %118
-  br i1 %cmp5.i.i793, label %nk_utf_decode_byte.exit.i798, label %for.inc.i.i794
+for.body.i.i787:                                  ; preds = %for.inc.i.i793, %if.end4.i786
+  %indvars.iv.i.i788 = phi i64 [ 0, %if.end4.i786 ], [ %indvars.iv.next.i.i794, %for.inc.i.i793 ]
+  %arrayidx.i.i789 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i788
+  %117 = load i8, ptr %arrayidx.i.i789, align 1
+  %and8.i.i790 = and i8 %117, %116
+  %arrayidx3.i.i791 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i788
+  %118 = load i8, ptr %arrayidx3.i.i791, align 1
+  %cmp5.i.i792 = icmp eq i8 %and8.i.i790, %118
+  br i1 %cmp5.i.i792, label %nk_utf_decode_byte.exit.i797, label %for.inc.i.i793
 
-for.inc.i.i794:                                   ; preds = %for.body.i.i788
-  %indvars.iv.next.i.i795 = add nuw nsw i64 %indvars.iv.i.i789, 1
-  %exitcond.not.i.i796 = icmp eq i64 %indvars.iv.next.i.i795, 5
-  br i1 %exitcond.not.i.i796, label %nk_utf_decode.exit849, label %for.body.i.i788, !llvm.loop !19
+for.inc.i.i793:                                   ; preds = %for.body.i.i787
+  %indvars.iv.next.i.i794 = add nuw nsw i64 %indvars.iv.i.i788, 1
+  %exitcond.not.i.i795 = icmp eq i64 %indvars.iv.next.i.i794, 5
+  br i1 %exitcond.not.i.i795, label %nk_utf_decode.exit848, label %for.body.i.i787, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i798:                     ; preds = %for.body.i.i788
-  %119 = trunc nuw nsw i64 %indvars.iv.i.i789 to i32
+nk_utf_decode_byte.exit.i797:                     ; preds = %for.body.i.i787
+  %119 = trunc nuw nsw i64 %indvars.iv.i.i788 to i32
   %120 = add i32 %119, -1
-  %or.cond1.i799 = icmp ult i32 %120, 3
-  br i1 %or.cond1.i799, label %for.cond.preheader.i800, label %nk_utf_decode.exit849
+  %or.cond1.i798 = icmp ult i32 %120, 3
+  br i1 %or.cond1.i798, label %for.cond.preheader.i799, label %nk_utf_decode.exit848
 
-for.cond.preheader.i800:                          ; preds = %nk_utf_decode_byte.exit.i798
-  %not.i.i801 = xor i8 %117, -1
-  %and12.i.i802 = and i8 %116, %not.i.i801
-  %conv14.i.i803 = zext i8 %and12.i.i802 to i32
-  %cmp861.i804 = icmp sgt i32 %sub543, 1
-  %cmp962.i805 = icmp ugt i64 %indvars.iv.i.i789, 1
-  %121 = and i1 %cmp861.i804, %cmp962.i805
-  br i1 %121, label %for.body.preheader.i819, label %for.end.i806
+for.cond.preheader.i799:                          ; preds = %nk_utf_decode_byte.exit.i797
+  %not.i.i800 = xor i8 %117, -1
+  %and12.i.i801 = and i8 %116, %not.i.i800
+  %conv14.i.i802 = zext i8 %and12.i.i801 to i32
+  %cmp859.i803 = icmp sgt i32 %sub543, 1
+  %cmp960.i804 = icmp ugt i64 %indvars.iv.i.i788, 1
+  %121 = and i1 %cmp859.i803, %cmp960.i804
+  br i1 %121, label %for.body.preheader.i818, label %for.end.i805
 
-for.body.preheader.i819:                          ; preds = %for.cond.preheader.i800
+for.body.preheader.i818:                          ; preds = %for.cond.preheader.i799
   %122 = zext nneg i32 %sub543 to i64
-  %zext1543 = and i64 %indvars.iv.i.i789, 4294967295
-  br label %for.body.i820
+  %zext1541 = and i64 %indvars.iv.i.i788, 4294967295
+  br label %for.body.i819
 
-for.body.i820:                                    ; preds = %for.inc.i839, %for.body.preheader.i819
-  %indvars.iv.i821 = phi i64 [ 1, %for.body.preheader.i819 ], [ %indvars.iv.next.i845, %for.inc.i839 ]
-  %udecoded.065.i822 = phi i32 [ %conv14.i.i803, %for.body.preheader.i819 ], [ %or.i844, %for.inc.i839 ]
-  %arrayidx10.i823 = getelementptr inbounds i8, ptr %add.ptr542, i64 %indvars.iv.i821
-  %123 = load i8, ptr %arrayidx10.i823, align 1
-  br label %for.body.i15.i824
+for.body.i819:                                    ; preds = %for.inc.i838, %for.body.preheader.i818
+  %indvars.iv.i820 = phi i64 [ 1, %for.body.preheader.i818 ], [ %indvars.iv.next.i844, %for.inc.i838 ]
+  %udecoded.063.i821 = phi i32 [ %conv14.i.i802, %for.body.preheader.i818 ], [ %or.i843, %for.inc.i838 ]
+  %arrayidx10.i822 = getelementptr inbounds i8, ptr %add.ptr542, i64 %indvars.iv.i820
+  %123 = load i8, ptr %arrayidx10.i822, align 1
+  br label %for.body.i15.i823
 
-for.body.i15.i824:                                ; preds = %for.inc.i21.i830, %for.body.i820
-  %indvars.iv.i16.i825 = phi i64 [ %indvars.iv.next.i22.i831, %for.inc.i21.i830 ], [ 0, %for.body.i820 ]
-  %arrayidx.i17.i826 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i825
-  %124 = load i8, ptr %arrayidx.i17.i826, align 1
-  %and8.i18.i827 = and i8 %124, %123
-  %arrayidx3.i19.i828 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i825
-  %125 = load i8, ptr %arrayidx3.i19.i828, align 1
-  %cmp5.i20.i829 = icmp eq i8 %and8.i18.i827, %125
-  br i1 %cmp5.i20.i829, label %nk_utf_decode_byte.exit30.i835, label %for.inc.i21.i830
+for.body.i15.i823:                                ; preds = %for.inc.i21.i829, %for.body.i819
+  %indvars.iv.i16.i824 = phi i64 [ 0, %for.body.i819 ], [ %indvars.iv.next.i22.i830, %for.inc.i21.i829 ]
+  %arrayidx.i17.i825 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i824
+  %124 = load i8, ptr %arrayidx.i17.i825, align 1
+  %and8.i18.i826 = and i8 %124, %123
+  %arrayidx3.i19.i827 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i824
+  %125 = load i8, ptr %arrayidx3.i19.i827, align 1
+  %cmp5.i20.i828 = icmp eq i8 %and8.i18.i826, %125
+  br i1 %cmp5.i20.i828, label %nk_utf_decode_byte.exit30.i834, label %for.inc.i21.i829
 
-for.inc.i21.i830:                                 ; preds = %for.body.i15.i824
-  %indvars.iv.next.i22.i831 = add nuw nsw i64 %indvars.iv.i16.i825, 1
-  %exitcond.not.i23.i832 = icmp eq i64 %indvars.iv.next.i22.i831, 5
-  br i1 %exitcond.not.i23.i832, label %return.loopexit.i833, label %for.body.i15.i824, !llvm.loop !19
+for.inc.i21.i829:                                 ; preds = %for.body.i15.i823
+  %indvars.iv.next.i22.i830 = add nuw nsw i64 %indvars.iv.i16.i824, 1
+  %exitcond.not.i23.i831 = icmp eq i64 %indvars.iv.next.i22.i830, 5
+  br i1 %exitcond.not.i23.i831, label %return.loopexit.i832, label %for.body.i15.i823, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i835:                   ; preds = %for.body.i15.i824
-  %cmp12.not.i836 = icmp eq i64 %indvars.iv.i16.i825, 0
-  br i1 %cmp12.not.i836, label %for.inc.i839, label %return.loopexit81.i837
+nk_utf_decode_byte.exit30.i834:                   ; preds = %for.body.i15.i823
+  %cmp12.not.i835 = icmp eq i64 %indvars.iv.i16.i824, 0
+  br i1 %cmp12.not.i835, label %for.inc.i838, label %return.loopexit79.i836
 
-for.inc.i839:                                     ; preds = %nk_utf_decode_byte.exit30.i835
-  %not.i27.i840 = xor i8 %124, -1
-  %and12.i28.i841 = and i8 %123, %not.i27.i840
-  %conv14.i29.i842 = zext i8 %and12.i28.i841 to i32
-  %shl.i843 = shl i32 %udecoded.065.i822, 6
-  %or.i844 = or i32 %shl.i843, %conv14.i29.i842
-  %indvars.iv.next.i845 = add nuw nsw i64 %indvars.iv.i821, 1
-  %cmp8.i847 = icmp ult i64 %indvars.iv.next.i845, %122
-  %126 = icmp ult i64 %indvars.iv.next.i845, %zext1543
-  %127 = and i1 %cmp8.i847, %126
-  br i1 %127, label %for.body.i820, label %for.end.i806, !llvm.loop !20
+for.inc.i838:                                     ; preds = %nk_utf_decode_byte.exit30.i834
+  %not.i27.i839 = xor i8 %124, -1
+  %and12.i28.i840 = and i8 %123, %not.i27.i839
+  %conv14.i29.i841 = zext i8 %and12.i28.i840 to i32
+  %shl.i842 = shl i32 %udecoded.063.i821, 6
+  %or.i843 = or i32 %shl.i842, %conv14.i29.i841
+  %indvars.iv.next.i844 = add nuw nsw i64 %indvars.iv.i820, 1
+  %cmp8.i846 = icmp ult i64 %indvars.iv.next.i844, %122
+  %126 = icmp ult i64 %indvars.iv.next.i844, %zext1541
+  %127 = and i1 %cmp8.i846, %126
+  br i1 %127, label %for.body.i819, label %for.end.i805, !llvm.loop !20
 
-for.end.i806:                                     ; preds = %for.inc.i839, %for.cond.preheader.i800
-  %udecoded.0.lcssa.i807 = phi i32 [ %conv14.i.i803, %for.cond.preheader.i800 ], [ %or.i844, %for.inc.i839 ]
-  %cmp9.lcssa.i808 = phi i1 [ %cmp962.i805, %for.cond.preheader.i800 ], [ %126, %for.inc.i839 ]
-  br i1 %cmp9.lcssa.i808, label %nk_utf_decode.exit849, label %if.end.i.i809
+for.end.i805:                                     ; preds = %for.inc.i838, %for.cond.preheader.i799
+  %udecoded.0.lcssa.i806 = phi i32 [ %conv14.i.i802, %for.cond.preheader.i799 ], [ %or.i843, %for.inc.i838 ]
+  %cmp9.lcssa.i807 = phi i1 [ %cmp960.i804, %for.cond.preheader.i799 ], [ %126, %for.inc.i838 ]
+  br i1 %cmp9.lcssa.i807, label %nk_utf_decode.exit848, label %if.end18.i808
 
-if.end.i.i809:                                    ; preds = %for.end.i806
-  %idxprom.i.i810 = and i64 %indvars.iv.i.i789, 4294967295
-  %arrayidx.i31.i811 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i810
-  %128 = load i32, ptr %arrayidx.i31.i811, align 4
-  %cmp.not.i.i812 = icmp ugt i32 %128, %udecoded.0.lcssa.i807
-  br i1 %cmp.not.i.i812, label %if.then7.i36.i818, label %land.lhs.true.i.i813
+if.end18.i808:                                    ; preds = %for.end.i805
+  %idxprom.i.i809 = and i64 %indvars.iv.i.i788, 4294967295
+  %arrayidx.i31.i810 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i809
+  %128 = load i32, ptr %arrayidx.i31.i810, align 4
+  %cmp.not.i.i811 = icmp ugt i32 %128, %udecoded.0.lcssa.i806
+  br i1 %cmp.not.i.i811, label %if.then7.i34.i817, label %land.lhs.true.i.i812
 
-land.lhs.true.i.i813:                             ; preds = %if.end.i.i809
-  %arrayidx2.i.i814 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i810
-  %129 = load i32, ptr %arrayidx2.i.i814, align 4
-  %cmp3.i.i815 = icmp uge i32 %udecoded.0.lcssa.i807, %129
-  %130 = add i32 %udecoded.0.lcssa.i807, -55296
-  %or.cond.i.i816 = icmp ult i32 %130, 2047
-  %or.cond11.i.i817 = or i1 %or.cond.i.i816, %cmp3.i.i815
-  br i1 %or.cond11.i.i817, label %if.then7.i36.i818, label %nk_utf_decode.exit849
+land.lhs.true.i.i812:                             ; preds = %if.end18.i808
+  %arrayidx2.i.i813 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i809
+  %129 = load i32, ptr %arrayidx2.i.i813, align 4
+  %cmp3.i.i814 = icmp uge i32 %udecoded.0.lcssa.i806, %129
+  %130 = add i32 %udecoded.0.lcssa.i806, -55296
+  %or.cond.i.i815 = icmp ult i32 %130, 2047
+  %or.cond11.i.i816 = or i1 %or.cond.i.i815, %cmp3.i.i814
+  br i1 %or.cond11.i.i816, label %if.then7.i34.i817, label %nk_utf_decode.exit848
 
-if.then7.i36.i818:                                ; preds = %land.lhs.true.i.i813, %if.end.i.i809
-  br label %nk_utf_decode.exit849
+if.then7.i34.i817:                                ; preds = %land.lhs.true.i.i812, %if.end18.i808
+  br label %nk_utf_decode.exit848
 
-return.loopexit.i833:                             ; preds = %for.inc.i21.i830
-  %indvars78.le91.i834 = trunc i64 %indvars.iv.i821 to i32
-  br label %nk_utf_decode.exit849
+return.loopexit.i832:                             ; preds = %for.inc.i21.i829
+  %indvars76.le89.i833 = trunc i64 %indvars.iv.i820 to i32
+  br label %nk_utf_decode.exit848
 
-return.loopexit81.i837:                           ; preds = %nk_utf_decode_byte.exit30.i835
-  %indvars78.le.i838 = trunc i64 %indvars.iv.i821 to i32
-  br label %nk_utf_decode.exit849
+return.loopexit79.i836:                           ; preds = %nk_utf_decode_byte.exit30.i834
+  %indvars76.le.i837 = trunc i64 %indvars.iv.i820 to i32
+  br label %nk_utf_decode.exit848
 
-nk_utf_decode.exit849:                            ; preds = %for.inc.i.i794, %if.then528, %nk_utf_decode_byte.exit.i798, %for.end.i806, %land.lhs.true.i.i813, %if.then7.i36.i818, %return.loopexit.i833, %return.loopexit81.i837
-  %unicode434.2 = phi i32 [ 10, %if.then528 ], [ 65533, %for.end.i806 ], [ 65533, %if.then7.i36.i818 ], [ %udecoded.0.lcssa.i807, %land.lhs.true.i.i813 ], [ 65533, %return.loopexit81.i837 ], [ 65533, %return.loopexit.i833 ], [ 65533, %nk_utf_decode_byte.exit.i798 ], [ 65533, %for.inc.i.i794 ]
-  %retval.0.i797 = phi i32 [ 0, %if.then528 ], [ 0, %for.end.i806 ], [ %119, %if.then7.i36.i818 ], [ %119, %land.lhs.true.i.i813 ], [ %indvars78.le.i838, %return.loopexit81.i837 ], [ %indvars78.le91.i834, %return.loopexit.i833 ], [ 1, %nk_utf_decode_byte.exit.i798 ], [ 1, %for.inc.i.i794 ]
+nk_utf_decode.exit848:                            ; preds = %for.inc.i.i793, %if.then528, %nk_utf_decode_byte.exit.i797, %for.end.i805, %land.lhs.true.i.i812, %if.then7.i34.i817, %return.loopexit.i832, %return.loopexit79.i836
+  %unicode434.2 = phi i32 [ 10, %if.then528 ], [ 65533, %for.end.i805 ], [ 65533, %if.then7.i34.i817 ], [ %udecoded.0.lcssa.i806, %land.lhs.true.i.i812 ], [ 65533, %return.loopexit79.i836 ], [ 65533, %return.loopexit.i832 ], [ 65533, %nk_utf_decode_byte.exit.i797 ], [ 65533, %for.inc.i.i793 ]
+  %retval.0.i796 = phi i32 [ 0, %if.then528 ], [ 0, %for.end.i805 ], [ %119, %if.then7.i34.i817 ], [ %119, %land.lhs.true.i.i812 ], [ %indvars76.le.i837, %return.loopexit79.i836 ], [ %indvars76.le89.i833, %return.loopexit.i832 ], [ 1, %nk_utf_decode_byte.exit.i797 ], [ 1, %for.inc.i.i793 ]
   %131 = load ptr, ptr %width, align 8
   %132 = load float, ptr %height438, align 8
   %133 = load ptr, ptr %font, align 8
-  %call551 = call float %131(ptr %133, float noundef %132, ptr noundef nonnull %add.ptr542, i32 noundef %retval.0.i797) #52
-  %cmp4411443 = icmp slt i32 %inc539, %retval.0.i705
-  %tobool4441444 = icmp ne i32 %retval.0.i797, 0
-  %134 = and i1 %cmp4411443, %tobool4441444
+  %call551 = call float %131(ptr %133, float noundef %132, ptr noundef nonnull %add.ptr542, i32 noundef %retval.0.i796) #52
+  %cmp4411441 = icmp slt i32 %inc539, %retval.0.i705
+  %tobool4441442 = icmp ne i32 %retval.0.i796, 0
+  %134 = and i1 %cmp4411441, %tobool4441442
   br i1 %134, label %while.body.lr.ph, label %while.end, !llvm.loop !221
 
 if.end552:                                        ; preds = %if.end525
-  %inc553 = add nsw i32 %glyphs.01446, 1
-  %add554 = add nsw i32 %glyph_len433.01448, %text_len435.01447
-  %add555 = fadd float %glyph_width.01449, %line_width.01450
+  %inc553 = add nsw i32 %glyphs.01444, 1
+  %add554 = add nsw i32 %glyph_len433.01446, %text_len435.01445
+  %add555 = fadd float %glyph_width.01447, %line_width.01448
   %idx.ext556 = sext i32 %add554 to i64
-  %add.ptr557 = getelementptr inbounds i8, ptr %retval.0.i6991373, i64 %idx.ext556
+  %add.ptr557 = getelementptr inbounds i8, ptr %retval.0.i6991371, i64 %idx.ext556
   %sub558 = sub nsw i32 %retval.0.i705, %add554
-  %tobool2.not.i851 = icmp eq i32 %retval.0.i705, %add554
-  br i1 %tobool2.not.i851, label %nk_utf_decode.exit915, label %if.end4.i853
+  %tobool2.not.i850 = icmp eq i32 %retval.0.i705, %add554
+  br i1 %tobool2.not.i850, label %nk_utf_decode.exit914, label %if.end4.i852
 
-if.end4.i853:                                     ; preds = %if.end552
+if.end4.i852:                                     ; preds = %if.end552
   %135 = load i8, ptr %add.ptr557, align 1
-  br label %for.body.i.i854
+  br label %for.body.i.i853
 
-for.body.i.i854:                                  ; preds = %for.inc.i.i860, %if.end4.i853
-  %indvars.iv.i.i855 = phi i64 [ %indvars.iv.next.i.i861, %for.inc.i.i860 ], [ 0, %if.end4.i853 ]
-  %arrayidx.i.i856 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i855
-  %136 = load i8, ptr %arrayidx.i.i856, align 1
-  %and8.i.i857 = and i8 %136, %135
-  %arrayidx3.i.i858 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i855
-  %137 = load i8, ptr %arrayidx3.i.i858, align 1
-  %cmp5.i.i859 = icmp eq i8 %and8.i.i857, %137
-  br i1 %cmp5.i.i859, label %nk_utf_decode_byte.exit.i864, label %for.inc.i.i860
+for.body.i.i853:                                  ; preds = %for.inc.i.i859, %if.end4.i852
+  %indvars.iv.i.i854 = phi i64 [ 0, %if.end4.i852 ], [ %indvars.iv.next.i.i860, %for.inc.i.i859 ]
+  %arrayidx.i.i855 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i854
+  %136 = load i8, ptr %arrayidx.i.i855, align 1
+  %and8.i.i856 = and i8 %136, %135
+  %arrayidx3.i.i857 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i854
+  %137 = load i8, ptr %arrayidx3.i.i857, align 1
+  %cmp5.i.i858 = icmp eq i8 %and8.i.i856, %137
+  br i1 %cmp5.i.i858, label %nk_utf_decode_byte.exit.i863, label %for.inc.i.i859
 
-for.inc.i.i860:                                   ; preds = %for.body.i.i854
-  %indvars.iv.next.i.i861 = add nuw nsw i64 %indvars.iv.i.i855, 1
-  %exitcond.not.i.i862 = icmp eq i64 %indvars.iv.next.i.i861, 5
-  br i1 %exitcond.not.i.i862, label %nk_utf_decode.exit915, label %for.body.i.i854, !llvm.loop !19
+for.inc.i.i859:                                   ; preds = %for.body.i.i853
+  %indvars.iv.next.i.i860 = add nuw nsw i64 %indvars.iv.i.i854, 1
+  %exitcond.not.i.i861 = icmp eq i64 %indvars.iv.next.i.i860, 5
+  br i1 %exitcond.not.i.i861, label %nk_utf_decode.exit914, label %for.body.i.i853, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i864:                     ; preds = %for.body.i.i854
-  %138 = trunc nuw nsw i64 %indvars.iv.i.i855 to i32
+nk_utf_decode_byte.exit.i863:                     ; preds = %for.body.i.i853
+  %138 = trunc nuw nsw i64 %indvars.iv.i.i854 to i32
   %139 = add i32 %138, -1
-  %or.cond1.i865 = icmp ult i32 %139, 3
-  br i1 %or.cond1.i865, label %for.cond.preheader.i866, label %nk_utf_decode.exit915
+  %or.cond1.i864 = icmp ult i32 %139, 3
+  br i1 %or.cond1.i864, label %for.cond.preheader.i865, label %nk_utf_decode.exit914
 
-for.cond.preheader.i866:                          ; preds = %nk_utf_decode_byte.exit.i864
-  %not.i.i867 = xor i8 %136, -1
-  %and12.i.i868 = and i8 %135, %not.i.i867
-  %conv14.i.i869 = zext i8 %and12.i.i868 to i32
-  %cmp861.i870 = icmp sgt i32 %sub558, 1
-  %cmp962.i871 = icmp ugt i64 %indvars.iv.i.i855, 1
-  %140 = and i1 %cmp861.i870, %cmp962.i871
-  br i1 %140, label %for.body.preheader.i885, label %for.end.i872
+for.cond.preheader.i865:                          ; preds = %nk_utf_decode_byte.exit.i863
+  %not.i.i866 = xor i8 %136, -1
+  %and12.i.i867 = and i8 %135, %not.i.i866
+  %conv14.i.i868 = zext i8 %and12.i.i867 to i32
+  %cmp859.i869 = icmp sgt i32 %sub558, 1
+  %cmp960.i870 = icmp ugt i64 %indvars.iv.i.i854, 1
+  %140 = and i1 %cmp859.i869, %cmp960.i870
+  br i1 %140, label %for.body.preheader.i884, label %for.end.i871
 
-for.body.preheader.i885:                          ; preds = %for.cond.preheader.i866
+for.body.preheader.i884:                          ; preds = %for.cond.preheader.i865
   %141 = zext nneg i32 %sub558 to i64
-  %zext1542 = and i64 %indvars.iv.i.i855, 4294967295
-  br label %for.body.i886
+  %zext1540 = and i64 %indvars.iv.i.i854, 4294967295
+  br label %for.body.i885
 
-for.body.i886:                                    ; preds = %for.inc.i905, %for.body.preheader.i885
-  %indvars.iv.i887 = phi i64 [ 1, %for.body.preheader.i885 ], [ %indvars.iv.next.i911, %for.inc.i905 ]
-  %udecoded.065.i888 = phi i32 [ %conv14.i.i869, %for.body.preheader.i885 ], [ %or.i910, %for.inc.i905 ]
-  %arrayidx10.i889 = getelementptr inbounds i8, ptr %add.ptr557, i64 %indvars.iv.i887
-  %142 = load i8, ptr %arrayidx10.i889, align 1
-  br label %for.body.i15.i890
+for.body.i885:                                    ; preds = %for.inc.i904, %for.body.preheader.i884
+  %indvars.iv.i886 = phi i64 [ 1, %for.body.preheader.i884 ], [ %indvars.iv.next.i910, %for.inc.i904 ]
+  %udecoded.063.i887 = phi i32 [ %conv14.i.i868, %for.body.preheader.i884 ], [ %or.i909, %for.inc.i904 ]
+  %arrayidx10.i888 = getelementptr inbounds i8, ptr %add.ptr557, i64 %indvars.iv.i886
+  %142 = load i8, ptr %arrayidx10.i888, align 1
+  br label %for.body.i15.i889
 
-for.body.i15.i890:                                ; preds = %for.inc.i21.i896, %for.body.i886
-  %indvars.iv.i16.i891 = phi i64 [ %indvars.iv.next.i22.i897, %for.inc.i21.i896 ], [ 0, %for.body.i886 ]
-  %arrayidx.i17.i892 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i891
-  %143 = load i8, ptr %arrayidx.i17.i892, align 1
-  %and8.i18.i893 = and i8 %143, %142
-  %arrayidx3.i19.i894 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i891
-  %144 = load i8, ptr %arrayidx3.i19.i894, align 1
-  %cmp5.i20.i895 = icmp eq i8 %and8.i18.i893, %144
-  br i1 %cmp5.i20.i895, label %nk_utf_decode_byte.exit30.i901, label %for.inc.i21.i896
+for.body.i15.i889:                                ; preds = %for.inc.i21.i895, %for.body.i885
+  %indvars.iv.i16.i890 = phi i64 [ 0, %for.body.i885 ], [ %indvars.iv.next.i22.i896, %for.inc.i21.i895 ]
+  %arrayidx.i17.i891 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i890
+  %143 = load i8, ptr %arrayidx.i17.i891, align 1
+  %and8.i18.i892 = and i8 %143, %142
+  %arrayidx3.i19.i893 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i890
+  %144 = load i8, ptr %arrayidx3.i19.i893, align 1
+  %cmp5.i20.i894 = icmp eq i8 %and8.i18.i892, %144
+  br i1 %cmp5.i20.i894, label %nk_utf_decode_byte.exit30.i900, label %for.inc.i21.i895
 
-for.inc.i21.i896:                                 ; preds = %for.body.i15.i890
-  %indvars.iv.next.i22.i897 = add nuw nsw i64 %indvars.iv.i16.i891, 1
-  %exitcond.not.i23.i898 = icmp eq i64 %indvars.iv.next.i22.i897, 5
-  br i1 %exitcond.not.i23.i898, label %return.loopexit.i899, label %for.body.i15.i890, !llvm.loop !19
+for.inc.i21.i895:                                 ; preds = %for.body.i15.i889
+  %indvars.iv.next.i22.i896 = add nuw nsw i64 %indvars.iv.i16.i890, 1
+  %exitcond.not.i23.i897 = icmp eq i64 %indvars.iv.next.i22.i896, 5
+  br i1 %exitcond.not.i23.i897, label %return.loopexit.i898, label %for.body.i15.i889, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i901:                   ; preds = %for.body.i15.i890
-  %cmp12.not.i902 = icmp eq i64 %indvars.iv.i16.i891, 0
-  br i1 %cmp12.not.i902, label %for.inc.i905, label %return.loopexit81.i903
+nk_utf_decode_byte.exit30.i900:                   ; preds = %for.body.i15.i889
+  %cmp12.not.i901 = icmp eq i64 %indvars.iv.i16.i890, 0
+  br i1 %cmp12.not.i901, label %for.inc.i904, label %return.loopexit79.i902
 
-for.inc.i905:                                     ; preds = %nk_utf_decode_byte.exit30.i901
-  %not.i27.i906 = xor i8 %143, -1
-  %and12.i28.i907 = and i8 %142, %not.i27.i906
-  %conv14.i29.i908 = zext i8 %and12.i28.i907 to i32
-  %shl.i909 = shl i32 %udecoded.065.i888, 6
-  %or.i910 = or i32 %shl.i909, %conv14.i29.i908
-  %indvars.iv.next.i911 = add nuw nsw i64 %indvars.iv.i887, 1
-  %cmp8.i913 = icmp ult i64 %indvars.iv.next.i911, %141
-  %145 = icmp ult i64 %indvars.iv.next.i911, %zext1542
-  %146 = and i1 %cmp8.i913, %145
-  br i1 %146, label %for.body.i886, label %for.end.i872, !llvm.loop !20
+for.inc.i904:                                     ; preds = %nk_utf_decode_byte.exit30.i900
+  %not.i27.i905 = xor i8 %143, -1
+  %and12.i28.i906 = and i8 %142, %not.i27.i905
+  %conv14.i29.i907 = zext i8 %and12.i28.i906 to i32
+  %shl.i908 = shl i32 %udecoded.063.i887, 6
+  %or.i909 = or i32 %shl.i908, %conv14.i29.i907
+  %indvars.iv.next.i910 = add nuw nsw i64 %indvars.iv.i886, 1
+  %cmp8.i912 = icmp ult i64 %indvars.iv.next.i910, %141
+  %145 = icmp ult i64 %indvars.iv.next.i910, %zext1540
+  %146 = and i1 %cmp8.i912, %145
+  br i1 %146, label %for.body.i885, label %for.end.i871, !llvm.loop !20
 
-for.end.i872:                                     ; preds = %for.inc.i905, %for.cond.preheader.i866
-  %udecoded.0.lcssa.i873 = phi i32 [ %conv14.i.i869, %for.cond.preheader.i866 ], [ %or.i910, %for.inc.i905 ]
-  %cmp9.lcssa.i874 = phi i1 [ %cmp962.i871, %for.cond.preheader.i866 ], [ %145, %for.inc.i905 ]
-  br i1 %cmp9.lcssa.i874, label %nk_utf_decode.exit915, label %if.end.i.i875
+for.end.i871:                                     ; preds = %for.inc.i904, %for.cond.preheader.i865
+  %udecoded.0.lcssa.i872 = phi i32 [ %conv14.i.i868, %for.cond.preheader.i865 ], [ %or.i909, %for.inc.i904 ]
+  %cmp9.lcssa.i873 = phi i1 [ %cmp960.i870, %for.cond.preheader.i865 ], [ %145, %for.inc.i904 ]
+  br i1 %cmp9.lcssa.i873, label %nk_utf_decode.exit914, label %if.end18.i874
 
-if.end.i.i875:                                    ; preds = %for.end.i872
-  %idxprom.i.i876 = and i64 %indvars.iv.i.i855, 4294967295
-  %arrayidx.i31.i877 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i876
-  %147 = load i32, ptr %arrayidx.i31.i877, align 4
-  %cmp.not.i.i878 = icmp ugt i32 %147, %udecoded.0.lcssa.i873
-  br i1 %cmp.not.i.i878, label %if.then7.i36.i884, label %land.lhs.true.i.i879
+if.end18.i874:                                    ; preds = %for.end.i871
+  %idxprom.i.i875 = and i64 %indvars.iv.i.i854, 4294967295
+  %arrayidx.i31.i876 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i875
+  %147 = load i32, ptr %arrayidx.i31.i876, align 4
+  %cmp.not.i.i877 = icmp ugt i32 %147, %udecoded.0.lcssa.i872
+  br i1 %cmp.not.i.i877, label %if.then7.i34.i883, label %land.lhs.true.i.i878
 
-land.lhs.true.i.i879:                             ; preds = %if.end.i.i875
-  %arrayidx2.i.i880 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i876
-  %148 = load i32, ptr %arrayidx2.i.i880, align 4
-  %cmp3.i.i881 = icmp uge i32 %udecoded.0.lcssa.i873, %148
-  %149 = add i32 %udecoded.0.lcssa.i873, -55296
-  %or.cond.i.i882 = icmp ult i32 %149, 2047
-  %or.cond11.i.i883 = or i1 %or.cond.i.i882, %cmp3.i.i881
-  br i1 %or.cond11.i.i883, label %if.then7.i36.i884, label %nk_utf_decode.exit915
+land.lhs.true.i.i878:                             ; preds = %if.end18.i874
+  %arrayidx2.i.i879 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i875
+  %148 = load i32, ptr %arrayidx2.i.i879, align 4
+  %cmp3.i.i880 = icmp uge i32 %udecoded.0.lcssa.i872, %148
+  %149 = add i32 %udecoded.0.lcssa.i872, -55296
+  %or.cond.i.i881 = icmp ult i32 %149, 2047
+  %or.cond11.i.i882 = or i1 %or.cond.i.i881, %cmp3.i.i880
+  br i1 %or.cond11.i.i882, label %if.then7.i34.i883, label %nk_utf_decode.exit914
 
-if.then7.i36.i884:                                ; preds = %land.lhs.true.i.i879, %if.end.i.i875
-  br label %nk_utf_decode.exit915
+if.then7.i34.i883:                                ; preds = %land.lhs.true.i.i878, %if.end18.i874
+  br label %nk_utf_decode.exit914
 
-return.loopexit.i899:                             ; preds = %for.inc.i21.i896
-  %indvars78.le91.i900 = trunc i64 %indvars.iv.i887 to i32
-  br label %nk_utf_decode.exit915
+return.loopexit.i898:                             ; preds = %for.inc.i21.i895
+  %indvars76.le89.i899 = trunc i64 %indvars.iv.i886 to i32
+  br label %nk_utf_decode.exit914
 
-return.loopexit81.i903:                           ; preds = %nk_utf_decode_byte.exit30.i901
-  %indvars78.le.i904 = trunc i64 %indvars.iv.i887 to i32
-  br label %nk_utf_decode.exit915
+return.loopexit79.i902:                           ; preds = %nk_utf_decode_byte.exit30.i900
+  %indvars76.le.i903 = trunc i64 %indvars.iv.i886 to i32
+  br label %nk_utf_decode.exit914
 
-nk_utf_decode.exit915:                            ; preds = %for.inc.i.i860, %if.end552, %nk_utf_decode_byte.exit.i864, %for.end.i872, %land.lhs.true.i.i879, %if.then7.i36.i884, %return.loopexit.i899, %return.loopexit81.i903
-  %unicode434.3 = phi i32 [ %unicode434.01445, %if.end552 ], [ 65533, %for.end.i872 ], [ 65533, %if.then7.i36.i884 ], [ %udecoded.0.lcssa.i873, %land.lhs.true.i.i879 ], [ 65533, %return.loopexit81.i903 ], [ 65533, %return.loopexit.i899 ], [ 65533, %nk_utf_decode_byte.exit.i864 ], [ 65533, %for.inc.i.i860 ]
-  %retval.0.i863 = phi i32 [ 0, %if.end552 ], [ 0, %for.end.i872 ], [ %138, %if.then7.i36.i884 ], [ %138, %land.lhs.true.i.i879 ], [ %indvars78.le.i904, %return.loopexit81.i903 ], [ %indvars78.le91.i900, %return.loopexit.i899 ], [ 1, %nk_utf_decode_byte.exit.i864 ], [ 1, %for.inc.i.i860 ]
+nk_utf_decode.exit914:                            ; preds = %for.inc.i.i859, %if.end552, %nk_utf_decode_byte.exit.i863, %for.end.i871, %land.lhs.true.i.i878, %if.then7.i34.i883, %return.loopexit.i898, %return.loopexit79.i902
+  %unicode434.3 = phi i32 [ %unicode434.01443, %if.end552 ], [ 65533, %for.end.i871 ], [ 65533, %if.then7.i34.i883 ], [ %udecoded.0.lcssa.i872, %land.lhs.true.i.i878 ], [ 65533, %return.loopexit79.i902 ], [ 65533, %return.loopexit.i898 ], [ 65533, %nk_utf_decode_byte.exit.i863 ], [ 65533, %for.inc.i.i859 ]
+  %retval.0.i862 = phi i32 [ 0, %if.end552 ], [ 0, %for.end.i871 ], [ %138, %if.then7.i34.i883 ], [ %138, %land.lhs.true.i.i878 ], [ %indvars76.le.i903, %return.loopexit79.i902 ], [ %indvars76.le89.i899, %return.loopexit.i898 ], [ 1, %nk_utf_decode_byte.exit.i863 ], [ 1, %for.inc.i.i859 ]
   %150 = load ptr, ptr %width, align 8
   %151 = load float, ptr %height438, align 8
   %152 = load ptr, ptr %font, align 8
-  %call566 = call float %150(ptr %152, float noundef %151, ptr noundef nonnull %add.ptr557, i32 noundef %retval.0.i863) #52
+  %call566 = call float %150(ptr %152, float noundef %151, ptr noundef nonnull %add.ptr557, i32 noundef %retval.0.i862) #52
   %cmp441 = icmp slt i32 %add554, %retval.0.i705
-  %tobool444 = icmp ne i32 %retval.0.i863, 0
+  %tobool444 = icmp ne i32 %retval.0.i862, 0
   %153 = and i1 %cmp441, %tobool444
   br i1 %153, label %while.body, label %while.end, !llvm.loop !221
 
-while.end:                                        ; preds = %nk_utf_decode.exit849, %nk_utf_decode.exit915
-  %text_size.sroa.0.1.ph.lcssa = phi <2 x float> [ %text_size.sroa.0.1.ph1488, %nk_utf_decode.exit915 ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit849 ]
-  %total_lines.0.ph.lcssa = phi i32 [ %total_lines.0.ph1489, %nk_utf_decode.exit915 ], [ %inc538, %nk_utf_decode.exit849 ]
-  %line_width.0.lcssa = phi float [ %add555, %nk_utf_decode.exit915 ], [ 0.000000e+00, %nk_utf_decode.exit849 ]
+while.end:                                        ; preds = %nk_utf_decode.exit848, %nk_utf_decode.exit914
+  %text_size.sroa.0.1.ph.lcssa = phi <2 x float> [ %text_size.sroa.0.1.ph1486, %nk_utf_decode.exit914 ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit848 ]
+  %total_lines.0.ph.lcssa = phi i32 [ %total_lines.0.ph1487, %nk_utf_decode.exit914 ], [ %inc538, %nk_utf_decode.exit848 ]
+  %line_width.0.lcssa = phi float [ %add555, %nk_utf_decode.exit914 ], [ 0.000000e+00, %nk_utf_decode.exit848 ]
   %conv567 = sitofp i32 %total_lines.0.ph.lcssa to float
   %mul568 = fmul float %cond42, %conv567
   %text_size.sroa.0.4.vec.insert = insertelement <2 x float> %text_size.sroa.0.1.ph.lcssa, float %mul568, i64 1
@@ -62793,14 +62762,14 @@ while.end:                                        ; preds = %nk_utf_decode.exit8
   br i1 %tobool570.not, label %land.lhs.true571, label %if.end583
 
 land.lhs.true571:                                 ; preds = %while.end.thread, %while.end
-  %text_size.sroa.0.4.vec.insert1575 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert1566, %while.end.thread ], [ %text_size.sroa.0.4.vec.insert, %while.end ]
-  %mul5681574 = phi float [ %cond42, %while.end.thread ], [ %mul568, %while.end ]
-  %select_begin_ptr.1.lcssa1573 = phi ptr [ null, %while.end.thread ], [ %select_begin_ptr.2, %while.end ]
-  %select_end_ptr.1.lcssa1572 = phi ptr [ null, %while.end.thread ], [ %select_end_ptr.2, %while.end ]
-  %cursor_pos.sroa.0.1.lcssa1571 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %cursor_pos.sroa.0.2, %while.end ]
-  %selection_offset_start.sroa.0.1.lcssa1570 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_start.sroa.0.2, %while.end ]
-  %selection_offset_end.sroa.0.1.lcssa1569 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_end.sroa.0.2, %while.end ]
-  %line_width.0.lcssa1568 = phi float [ 0.000000e+00, %while.end.thread ], [ %line_width.0.lcssa, %while.end ]
+  %text_size.sroa.0.4.vec.insert1573 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert1564, %while.end.thread ], [ %text_size.sroa.0.4.vec.insert, %while.end ]
+  %mul5681572 = phi float [ %cond42, %while.end.thread ], [ %mul568, %while.end ]
+  %select_begin_ptr.1.lcssa1571 = phi ptr [ null, %while.end.thread ], [ %select_begin_ptr.2, %while.end ]
+  %select_end_ptr.1.lcssa1570 = phi ptr [ null, %while.end.thread ], [ %select_end_ptr.2, %while.end ]
+  %cursor_pos.sroa.0.1.lcssa1569 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %cursor_pos.sroa.0.2, %while.end ]
+  %selection_offset_start.sroa.0.1.lcssa1568 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_start.sroa.0.2, %while.end ]
+  %selection_offset_end.sroa.0.1.lcssa1567 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_end.sroa.0.2, %while.end ]
+  %line_width.0.lcssa1566 = phi float [ 0.000000e+00, %while.end.thread ], [ %line_width.0.lcssa, %while.end ]
   %cursor572 = getelementptr inbounds i8, ptr %edit, i64 168
   %154 = load i32, ptr %cursor572, align 8
   %155 = load i32, ptr %len.i696, align 8
@@ -62808,19 +62777,19 @@ land.lhs.true571:                                 ; preds = %while.end.thread, %
   br i1 %cmp575, label %if.then577, label %if.end583
 
 if.then577:                                       ; preds = %land.lhs.true571
-  %cursor_pos.sroa.0.0.vec.insert90 = insertelement <2 x float> poison, float %line_width.0.lcssa1568, i64 0
-  %sub580 = fsub float %mul5681574, %cond42
+  %cursor_pos.sroa.0.0.vec.insert90 = insertelement <2 x float> poison, float %line_width.0.lcssa1566, i64 0
+  %sub580 = fsub float %mul5681572, %cond42
   %cursor_pos.sroa.0.4.vec.insert107 = insertelement <2 x float> %cursor_pos.sroa.0.0.vec.insert90, float %sub580, i64 1
   br label %if.end583
 
 if.end583:                                        ; preds = %while.end, %land.lhs.true571, %if.then577, %if.then404
-  %selection_offset_end.sroa.0.0 = phi <2 x float> [ %selection_offset_end.sroa.0.2, %while.end ], [ %selection_offset_end.sroa.0.1.lcssa1569, %if.then577 ], [ %selection_offset_end.sroa.0.1.lcssa1569, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %selection_offset_start.sroa.0.0 = phi <2 x float> [ %selection_offset_start.sroa.0.2, %while.end ], [ %selection_offset_start.sroa.0.1.lcssa1570, %if.then577 ], [ %selection_offset_start.sroa.0.1.lcssa1570, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %cursor_pos.sroa.0.0 = phi <2 x float> [ %cursor_pos.sroa.0.2, %while.end ], [ %cursor_pos.sroa.0.4.vec.insert107, %if.then577 ], [ %cursor_pos.sroa.0.1.lcssa1571, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %select_end_ptr.0 = phi ptr [ %select_end_ptr.2, %while.end ], [ %select_end_ptr.1.lcssa1572, %if.then577 ], [ %select_end_ptr.1.lcssa1572, %land.lhs.true571 ], [ null, %if.then404 ]
-  %select_begin_ptr.0 = phi ptr [ %select_begin_ptr.2, %while.end ], [ %select_begin_ptr.1.lcssa1573, %if.then577 ], [ %select_begin_ptr.1.lcssa1573, %land.lhs.true571 ], [ null, %if.then404 ]
+  %selection_offset_end.sroa.0.0 = phi <2 x float> [ %selection_offset_end.sroa.0.2, %while.end ], [ %selection_offset_end.sroa.0.1.lcssa1567, %if.then577 ], [ %selection_offset_end.sroa.0.1.lcssa1567, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %selection_offset_start.sroa.0.0 = phi <2 x float> [ %selection_offset_start.sroa.0.2, %while.end ], [ %selection_offset_start.sroa.0.1.lcssa1568, %if.then577 ], [ %selection_offset_start.sroa.0.1.lcssa1568, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %cursor_pos.sroa.0.0 = phi <2 x float> [ %cursor_pos.sroa.0.2, %while.end ], [ %cursor_pos.sroa.0.4.vec.insert107, %if.then577 ], [ %cursor_pos.sroa.0.1.lcssa1569, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %select_end_ptr.0 = phi ptr [ %select_end_ptr.2, %while.end ], [ %select_end_ptr.1.lcssa1570, %if.then577 ], [ %select_end_ptr.1.lcssa1570, %land.lhs.true571 ], [ null, %if.then404 ]
+  %select_begin_ptr.0 = phi ptr [ %select_begin_ptr.2, %while.end ], [ %select_begin_ptr.1.lcssa1571, %if.then577 ], [ %select_begin_ptr.1.lcssa1571, %land.lhs.true571 ], [ null, %if.then404 ]
   %cursor_ptr.0 = phi ptr [ %cursor_ptr.2, %while.end ], [ null, %if.then577 ], [ null, %land.lhs.true571 ], [ null, %if.then404 ]
-  %text_size.sroa.0.0 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert, %while.end ], [ %text_size.sroa.0.4.vec.insert1575, %if.then577 ], [ %text_size.sroa.0.4.vec.insert1575, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %text_size.sroa.0.0 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert, %while.end ], [ %text_size.sroa.0.4.vec.insert1573, %if.then577 ], [ %text_size.sroa.0.4.vec.insert1573, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
   %tobool584.not = icmp eq i8 %cursor_follow.0, 0
   br i1 %tobool584.not, label %if.end682, label %if.then585
 
@@ -62868,7 +62837,7 @@ if.else639:                                       ; preds = %if.then585
   br label %if.end642
 
 if.end642:                                        ; preds = %if.end611, %if.then619, %if.else639
-  br i1 %tobool24.not.not, label %if.end682.thread1374, label %if.then645
+  br i1 %tobool24.not.not, label %if.end682.thread1372, label %if.then645
 
 if.then645:                                       ; preds = %if.end642
   %cursor_pos.sroa.0.4.vec.extract = extractelement <2 x float> %cursor_pos.sroa.0.0, i64 1
@@ -62894,7 +62863,7 @@ if.then671:                                       ; preds = %if.end664
   store float %add668, ptr %y648, align 4
   br label %if.then685
 
-if.end682.thread1374:                             ; preds = %if.end642
+if.end682.thread1372:                             ; preds = %if.end642
   %y680 = getelementptr inbounds i8, ptr %edit, i64 164
   store float 0.000000e+00, ptr %y680, align 4
   br label %if.end709
@@ -62918,7 +62887,7 @@ if.then685:                                       ; preds = %if.end682.if.then68
   %sub693 = fsub float %sub690, %163
   %164 = insertelement <2 x float> poison, float %sub693, i64 0
   %scroll.sroa.0.0.vec.insert = insertelement <2 x float> %164, float %add11, i64 1
-  %scroll.sroa.3.8.vec.insert = insertelement <2 x float> %area.sroa.24.01353, float %163, i64 0
+  %scroll.sroa.3.8.vec.insert = insertelement <2 x float> %area.sroa.24.01351, float %163, i64 0
   %y699 = getelementptr inbounds i8, ptr %edit, i64 164
   %mul701 = fmul float %area.sroa.24.12.vec.extract272, 0x3FB99999A0000000
   %mul703 = fmul float %area.sroa.24.12.vec.extract272, 0x3F847AE140000000
@@ -62928,11 +62897,11 @@ if.then685:                                       ; preds = %if.end682.if.then68
   store float %call706, ptr %y699, align 4
   br label %if.end709
 
-if.end709:                                        ; preds = %if.end682.thread1374, %if.then685, %if.end682
-  %tobool.not.i916 = icmp eq ptr %out, null
-  br i1 %tobool.not.i916, label %nk_push_scissor.exit, label %if.end.i917
+if.end709:                                        ; preds = %if.end682.thread1372, %if.then685, %if.end682
+  %tobool.not.i915 = icmp eq ptr %out, null
+  br i1 %tobool.not.i915, label %nk_push_scissor.exit, label %if.end.i916
 
-if.end.i917:                                      ; preds = %if.end709
+if.end.i916:                                      ; preds = %if.end709
   store float %x0..i, ptr %clip43, align 8
   %y3.i = getelementptr inbounds i8, ptr %out, i64 12
   store float %cond9.i, ptr %y3.i, align 4
@@ -62944,7 +62913,7 @@ if.end.i917:                                      ; preds = %if.end709
   %tobool1.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool1.not.i.i, label %nk_push_scissor.exit, label %if.end10.i
 
-if.end10.i:                                       ; preds = %if.end.i917
+if.end10.i:                                       ; preds = %if.end.i916
   %166 = load ptr, ptr %out, align 8
   %memory5.i.i = getelementptr inbounds i8, ptr %166, i64 64
   %167 = load ptr, ptr %memory5.i.i, align 8
@@ -62968,9 +62937,9 @@ if.end10.i:                                       ; preds = %if.end.i917
   store i64 %add.i.i, ptr %next.i.i, align 8
   %end.i.i = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %add.i.i, ptr %end.i.i, align 8
-  %conv.i918 = fptosi float %x0..i to i16
+  %conv.i917 = fptosi float %x0..i to i16
   %x12.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  store i16 %conv.i918, ptr %x12.i, align 8
+  store i16 %conv.i917, ptr %x12.i, align 8
   %conv14.i = fptosi float %cond9.i to i16
   %y15.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i16 %conv14.i, ptr %y15.i, align 2
@@ -62982,7 +62951,7 @@ if.end10.i:                                       ; preds = %if.end.i917
   store i16 %conv29.i, ptr %h30.i, align 2
   br label %nk_push_scissor.exit
 
-nk_push_scissor.exit:                             ; preds = %if.end709, %if.end.i917, %if.end10.i
+nk_push_scissor.exit:                             ; preds = %if.end709, %if.end.i916, %if.end10.i
   %171 = load i32, ptr %state, align 4
   %and711 = and i32 %171, 32
   %tobool712.not = icmp eq i32 %and711, 0
@@ -63042,131 +63011,131 @@ if.end736:                                        ; preds = %if.end727, %if.else
   %background_color.sroa.0.0 = phi i32 [ %background_color.sroa.0.0.copyload, %if.else734 ], [ 0, %if.end727 ]
   %color_factor738 = getelementptr inbounds i8, ptr %style, i64 956
   %173 = load float, ptr %color_factor738, align 4
-  %col.sroa.0.0.extract.trunc.i920 = trunc i32 %cursor_color.sroa.0.0 to i8
-  %col.sroa.5.0.extract.shift.i921 = lshr i32 %cursor_color.sroa.0.0, 8
-  %col.sroa.5.0.extract.trunc.i922 = trunc i32 %col.sroa.5.0.extract.shift.i921 to i8
-  %col.sroa.7.0.extract.shift.i923 = lshr i32 %cursor_color.sroa.0.0, 16
-  %col.sroa.7.0.extract.trunc.i924 = trunc i32 %col.sroa.7.0.extract.shift.i923 to i8
-  %cmp.i925 = fcmp oeq float %173, 1.000000e+00
-  br i1 %cmp.i925, label %nk_rgb_factor.exit948, label %if.end.i926
+  %col.sroa.0.0.extract.trunc.i919 = trunc i32 %cursor_color.sroa.0.0 to i8
+  %col.sroa.5.0.extract.shift.i920 = lshr i32 %cursor_color.sroa.0.0, 8
+  %col.sroa.5.0.extract.trunc.i921 = trunc i32 %col.sroa.5.0.extract.shift.i920 to i8
+  %col.sroa.7.0.extract.shift.i922 = lshr i32 %cursor_color.sroa.0.0, 16
+  %col.sroa.7.0.extract.trunc.i923 = trunc i32 %col.sroa.7.0.extract.shift.i922 to i8
+  %cmp.i924 = fcmp oeq float %173, 1.000000e+00
+  br i1 %cmp.i924, label %nk_rgb_factor.exit947, label %if.end.i925
 
-if.end.i926:                                      ; preds = %if.end736
-  %conv.i927 = uitofp i8 %col.sroa.0.0.extract.trunc.i920 to float
-  %mul.i928 = fmul float %173, %conv.i927
-  %conv1.i929 = fptoui float %mul.i928 to i8
-  %conv2.i930 = uitofp i8 %col.sroa.5.0.extract.trunc.i922 to float
-  %mul3.i931 = fmul float %173, %conv2.i930
-  %conv4.i932 = fptoui float %mul3.i931 to i8
-  %conv5.i933 = uitofp i8 %col.sroa.7.0.extract.trunc.i924 to float
-  %mul6.i934 = fmul float %173, %conv5.i933
-  %conv7.i935 = fptoui float %mul6.i934 to i8
-  br label %nk_rgb_factor.exit948
+if.end.i925:                                      ; preds = %if.end736
+  %conv.i926 = uitofp i8 %col.sroa.0.0.extract.trunc.i919 to float
+  %mul.i927 = fmul float %173, %conv.i926
+  %conv1.i928 = fptoui float %mul.i927 to i8
+  %conv2.i929 = uitofp i8 %col.sroa.5.0.extract.trunc.i921 to float
+  %mul3.i930 = fmul float %173, %conv2.i929
+  %conv4.i931 = fptoui float %mul3.i930 to i8
+  %conv5.i932 = uitofp i8 %col.sroa.7.0.extract.trunc.i923 to float
+  %mul6.i933 = fmul float %173, %conv5.i932
+  %conv7.i934 = fptoui float %mul6.i933 to i8
+  br label %nk_rgb_factor.exit947
 
-nk_rgb_factor.exit948:                            ; preds = %if.end736, %if.end.i926
-  %retval.sroa.3.0.i936 = phi i8 [ %conv4.i932, %if.end.i926 ], [ %col.sroa.5.0.extract.trunc.i922, %if.end736 ]
-  %retval.sroa.0.0.i937 = phi i8 [ %conv1.i929, %if.end.i926 ], [ %col.sroa.0.0.extract.trunc.i920, %if.end736 ]
-  %retval.sroa.5.0.i938 = phi i8 [ %conv7.i935, %if.end.i926 ], [ %col.sroa.7.0.extract.trunc.i924, %if.end736 ]
-  %col.sroa.9.0.extract.shift.i939 = and i32 %cursor_color.sroa.0.0, -16777216
-  %retval.sroa.5.0.insert.ext.i940 = zext i8 %retval.sroa.5.0.i938 to i32
-  %retval.sroa.5.0.insert.shift.i941 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i940, 16
-  %retval.sroa.5.0.insert.insert.i942 = or disjoint i32 %retval.sroa.5.0.insert.shift.i941, %col.sroa.9.0.extract.shift.i939
-  %retval.sroa.3.0.insert.ext.i943 = zext i8 %retval.sroa.3.0.i936 to i32
-  %retval.sroa.3.0.insert.shift.i944 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i943, 8
-  %retval.sroa.3.0.insert.insert.i945 = or disjoint i32 %retval.sroa.5.0.insert.insert.i942, %retval.sroa.3.0.insert.shift.i944
-  %retval.sroa.0.0.insert.ext.i946 = zext i8 %retval.sroa.0.0.i937 to i32
-  %retval.sroa.0.0.insert.insert.i947 = or disjoint i32 %retval.sroa.3.0.insert.insert.i945, %retval.sroa.0.0.insert.ext.i946
-  %col.sroa.0.0.extract.trunc.i949 = trunc i32 %cursor_text_color.sroa.0.0 to i8
-  %col.sroa.5.0.extract.shift.i950 = lshr i32 %cursor_text_color.sroa.0.0, 8
-  %col.sroa.5.0.extract.trunc.i951 = trunc i32 %col.sroa.5.0.extract.shift.i950 to i8
-  %col.sroa.7.0.extract.shift.i952 = lshr i32 %cursor_text_color.sroa.0.0, 16
-  %col.sroa.7.0.extract.trunc.i953 = trunc i32 %col.sroa.7.0.extract.shift.i952 to i8
-  br i1 %cmp.i925, label %nk_rgb_factor.exit977, label %if.end.i955
+nk_rgb_factor.exit947:                            ; preds = %if.end736, %if.end.i925
+  %retval.sroa.3.0.i935 = phi i8 [ %conv4.i931, %if.end.i925 ], [ %col.sroa.5.0.extract.trunc.i921, %if.end736 ]
+  %retval.sroa.0.0.i936 = phi i8 [ %conv1.i928, %if.end.i925 ], [ %col.sroa.0.0.extract.trunc.i919, %if.end736 ]
+  %retval.sroa.5.0.i937 = phi i8 [ %conv7.i934, %if.end.i925 ], [ %col.sroa.7.0.extract.trunc.i923, %if.end736 ]
+  %col.sroa.9.0.extract.shift.i938 = and i32 %cursor_color.sroa.0.0, -16777216
+  %retval.sroa.5.0.insert.ext.i939 = zext i8 %retval.sroa.5.0.i937 to i32
+  %retval.sroa.5.0.insert.shift.i940 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i939, 16
+  %retval.sroa.5.0.insert.insert.i941 = or disjoint i32 %retval.sroa.5.0.insert.shift.i940, %col.sroa.9.0.extract.shift.i938
+  %retval.sroa.3.0.insert.ext.i942 = zext i8 %retval.sroa.3.0.i935 to i32
+  %retval.sroa.3.0.insert.shift.i943 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i942, 8
+  %retval.sroa.3.0.insert.insert.i944 = or disjoint i32 %retval.sroa.5.0.insert.insert.i941, %retval.sroa.3.0.insert.shift.i943
+  %retval.sroa.0.0.insert.ext.i945 = zext i8 %retval.sroa.0.0.i936 to i32
+  %retval.sroa.0.0.insert.insert.i946 = or disjoint i32 %retval.sroa.3.0.insert.insert.i944, %retval.sroa.0.0.insert.ext.i945
+  %col.sroa.0.0.extract.trunc.i948 = trunc i32 %cursor_text_color.sroa.0.0 to i8
+  %col.sroa.5.0.extract.shift.i949 = lshr i32 %cursor_text_color.sroa.0.0, 8
+  %col.sroa.5.0.extract.trunc.i950 = trunc i32 %col.sroa.5.0.extract.shift.i949 to i8
+  %col.sroa.7.0.extract.shift.i951 = lshr i32 %cursor_text_color.sroa.0.0, 16
+  %col.sroa.7.0.extract.trunc.i952 = trunc i32 %col.sroa.7.0.extract.shift.i951 to i8
+  br i1 %cmp.i924, label %nk_rgb_factor.exit976, label %if.end.i954
 
-if.end.i955:                                      ; preds = %nk_rgb_factor.exit948
-  %conv.i956 = uitofp i8 %col.sroa.0.0.extract.trunc.i949 to float
-  %mul.i957 = fmul float %173, %conv.i956
-  %conv1.i958 = fptoui float %mul.i957 to i8
-  %conv2.i959 = uitofp i8 %col.sroa.5.0.extract.trunc.i951 to float
-  %mul3.i960 = fmul float %173, %conv2.i959
-  %conv4.i961 = fptoui float %mul3.i960 to i8
-  %conv5.i962 = uitofp i8 %col.sroa.7.0.extract.trunc.i953 to float
-  %mul6.i963 = fmul float %173, %conv5.i962
-  %conv7.i964 = fptoui float %mul6.i963 to i8
-  br label %nk_rgb_factor.exit977
+if.end.i954:                                      ; preds = %nk_rgb_factor.exit947
+  %conv.i955 = uitofp i8 %col.sroa.0.0.extract.trunc.i948 to float
+  %mul.i956 = fmul float %173, %conv.i955
+  %conv1.i957 = fptoui float %mul.i956 to i8
+  %conv2.i958 = uitofp i8 %col.sroa.5.0.extract.trunc.i950 to float
+  %mul3.i959 = fmul float %173, %conv2.i958
+  %conv4.i960 = fptoui float %mul3.i959 to i8
+  %conv5.i961 = uitofp i8 %col.sroa.7.0.extract.trunc.i952 to float
+  %mul6.i962 = fmul float %173, %conv5.i961
+  %conv7.i963 = fptoui float %mul6.i962 to i8
+  br label %nk_rgb_factor.exit976
 
-nk_rgb_factor.exit977:                            ; preds = %nk_rgb_factor.exit948, %if.end.i955
-  %retval.sroa.3.0.i965 = phi i8 [ %conv4.i961, %if.end.i955 ], [ %col.sroa.5.0.extract.trunc.i951, %nk_rgb_factor.exit948 ]
-  %retval.sroa.0.0.i966 = phi i8 [ %conv1.i958, %if.end.i955 ], [ %col.sroa.0.0.extract.trunc.i949, %nk_rgb_factor.exit948 ]
-  %retval.sroa.5.0.i967 = phi i8 [ %conv7.i964, %if.end.i955 ], [ %col.sroa.7.0.extract.trunc.i953, %nk_rgb_factor.exit948 ]
-  %col.sroa.9.0.extract.shift.i968 = and i32 %cursor_text_color.sroa.0.0, -16777216
-  %retval.sroa.5.0.insert.ext.i969 = zext i8 %retval.sroa.5.0.i967 to i32
-  %retval.sroa.5.0.insert.shift.i970 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i969, 16
-  %retval.sroa.5.0.insert.insert.i971 = or disjoint i32 %retval.sroa.5.0.insert.shift.i970, %col.sroa.9.0.extract.shift.i968
-  %retval.sroa.3.0.insert.ext.i972 = zext i8 %retval.sroa.3.0.i965 to i32
-  %retval.sroa.3.0.insert.shift.i973 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i972, 8
-  %retval.sroa.3.0.insert.insert.i974 = or disjoint i32 %retval.sroa.5.0.insert.insert.i971, %retval.sroa.3.0.insert.shift.i973
-  %retval.sroa.0.0.insert.ext.i975 = zext i8 %retval.sroa.0.0.i966 to i32
-  %retval.sroa.0.0.insert.insert.i976 = or disjoint i32 %retval.sroa.3.0.insert.insert.i974, %retval.sroa.0.0.insert.ext.i975
+nk_rgb_factor.exit976:                            ; preds = %nk_rgb_factor.exit947, %if.end.i954
+  %retval.sroa.3.0.i964 = phi i8 [ %conv4.i960, %if.end.i954 ], [ %col.sroa.5.0.extract.trunc.i950, %nk_rgb_factor.exit947 ]
+  %retval.sroa.0.0.i965 = phi i8 [ %conv1.i957, %if.end.i954 ], [ %col.sroa.0.0.extract.trunc.i948, %nk_rgb_factor.exit947 ]
+  %retval.sroa.5.0.i966 = phi i8 [ %conv7.i963, %if.end.i954 ], [ %col.sroa.7.0.extract.trunc.i952, %nk_rgb_factor.exit947 ]
+  %col.sroa.9.0.extract.shift.i967 = and i32 %cursor_text_color.sroa.0.0, -16777216
+  %retval.sroa.5.0.insert.ext.i968 = zext i8 %retval.sroa.5.0.i966 to i32
+  %retval.sroa.5.0.insert.shift.i969 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i968, 16
+  %retval.sroa.5.0.insert.insert.i970 = or disjoint i32 %retval.sroa.5.0.insert.shift.i969, %col.sroa.9.0.extract.shift.i967
+  %retval.sroa.3.0.insert.ext.i971 = zext i8 %retval.sroa.3.0.i964 to i32
+  %retval.sroa.3.0.insert.shift.i972 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i971, 8
+  %retval.sroa.3.0.insert.insert.i973 = or disjoint i32 %retval.sroa.5.0.insert.insert.i970, %retval.sroa.3.0.insert.shift.i972
+  %retval.sroa.0.0.insert.ext.i974 = zext i8 %retval.sroa.0.0.i965 to i32
+  %retval.sroa.0.0.insert.insert.i975 = or disjoint i32 %retval.sroa.3.0.insert.insert.i973, %retval.sroa.0.0.insert.ext.i974
   %174 = load i32, ptr %select_start409, align 4
   %175 = load i32, ptr %select_end410, align 8
   %cmp745 = icmp eq i32 %174, %175
   br i1 %cmp745, label %if.then747, label %if.else761
 
-if.then747:                                       ; preds = %nk_rgb_factor.exit977
+if.then747:                                       ; preds = %nk_rgb_factor.exit976
   %176 = load i32, ptr %len.i696, align 8
-  %tobool1.not.i980 = icmp eq i32 %176, 0
-  br i1 %tobool1.not.i980, label %nk_str_len_char.exit995, label %lor.lhs.false2.i981
+  %tobool1.not.i979 = icmp eq i32 %176, 0
+  br i1 %tobool1.not.i979, label %nk_str_len_char.exit994, label %lor.lhs.false2.i980
 
-lor.lhs.false2.i981:                              ; preds = %if.then747
-  %allocated.i982 = getelementptr inbounds i8, ptr %edit, i64 112
-  %177 = load i64, ptr %allocated.i982, align 8
-  %tobool3.not.i983 = icmp eq i64 %177, 0
-  br i1 %tobool3.not.i983, label %lor.lhs.false2.i991, label %if.end.i984
+lor.lhs.false2.i980:                              ; preds = %if.then747
+  %allocated.i981 = getelementptr inbounds i8, ptr %edit, i64 112
+  %177 = load i64, ptr %allocated.i981, align 8
+  %tobool3.not.i982 = icmp eq i64 %177, 0
+  br i1 %tobool3.not.i982, label %lor.lhs.false2.i990, label %if.end.i983
 
-if.end.i984:                                      ; preds = %lor.lhs.false2.i981
-  %memory.i985 = getelementptr inbounds i8, ptr %edit, i64 88
-  %178 = load ptr, ptr %memory.i985, align 8
-  br label %lor.lhs.false2.i991
+if.end.i983:                                      ; preds = %lor.lhs.false2.i980
+  %memory.i984 = getelementptr inbounds i8, ptr %edit, i64 88
+  %178 = load ptr, ptr %memory.i984, align 8
+  br label %lor.lhs.false2.i990
 
-lor.lhs.false2.i991:                              ; preds = %lor.lhs.false2.i981, %if.end.i984
-  %retval.0.i986.ph = phi ptr [ null, %lor.lhs.false2.i981 ], [ %178, %if.end.i984 ]
-  %conv.i993 = trunc i64 %177 to i32
-  br label %nk_str_len_char.exit995
+lor.lhs.false2.i990:                              ; preds = %lor.lhs.false2.i980, %if.end.i983
+  %retval.0.i985.ph = phi ptr [ null, %lor.lhs.false2.i980 ], [ %178, %if.end.i983 ]
+  %conv.i992 = trunc i64 %177 to i32
+  br label %nk_str_len_char.exit994
 
-nk_str_len_char.exit995:                          ; preds = %if.then747, %lor.lhs.false2.i991
-  %retval.0.i9861377 = phi ptr [ %retval.0.i986.ph, %lor.lhs.false2.i991 ], [ null, %if.then747 ]
-  %retval.0.i994 = phi i32 [ %conv.i993, %lor.lhs.false2.i991 ], [ 0, %if.then747 ]
+nk_str_len_char.exit994:                          ; preds = %if.then747, %lor.lhs.false2.i990
+  %retval.0.i9851375 = phi ptr [ %retval.0.i985.ph, %lor.lhs.false2.i990 ], [ null, %if.then747 ]
+  %retval.0.i993 = phi i32 [ %conv.i992, %lor.lhs.false2.i990 ], [ 0, %if.then747 ]
   %scrollbar754 = getelementptr inbounds i8, ptr %edit, i64 160
   %179 = load float, ptr %scrollbar754, align 8
   %sub756 = fsub float %add5, %179
   %y759 = getelementptr inbounds i8, ptr %edit, i64 164
   %180 = load float, ptr %y759, align 4
   %sub760 = fsub float %add11, %180
-  call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub756, float noundef %sub760, float noundef 0.000000e+00, ptr noundef %retval.0.i9861377, i32 noundef %retval.0.i994, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
+  call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub756, float noundef %sub760, float noundef 0.000000e+00, ptr noundef %retval.0.i9851375, i32 noundef %retval.0.i993, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
   br label %if.end848
 
-if.else761:                                       ; preds = %nk_rgb_factor.exit977
+if.else761:                                       ; preds = %nk_rgb_factor.exit976
   %cmp767 = icmp sgt i32 %., 0
   br i1 %cmp767, label %if.then769, label %if.end782
 
 if.then769:                                       ; preds = %if.else761
   %181 = load i32, ptr %len.i696, align 8
-  %tobool1.not.i998 = icmp eq i32 %181, 0
-  br i1 %tobool1.not.i998, label %nk_str_get_const.exit1005, label %lor.lhs.false2.i999
+  %tobool1.not.i997 = icmp eq i32 %181, 0
+  br i1 %tobool1.not.i997, label %nk_str_get_const.exit1004, label %lor.lhs.false2.i998
 
-lor.lhs.false2.i999:                              ; preds = %if.then769
-  %allocated.i1000 = getelementptr inbounds i8, ptr %edit, i64 112
-  %182 = load i64, ptr %allocated.i1000, align 8
-  %tobool3.not.i1001 = icmp eq i64 %182, 0
-  br i1 %tobool3.not.i1001, label %nk_str_get_const.exit1005, label %if.end.i1002
+lor.lhs.false2.i998:                              ; preds = %if.then769
+  %allocated.i999 = getelementptr inbounds i8, ptr %edit, i64 112
+  %182 = load i64, ptr %allocated.i999, align 8
+  %tobool3.not.i1000 = icmp eq i64 %182, 0
+  br i1 %tobool3.not.i1000, label %nk_str_get_const.exit1004, label %if.end.i1001
 
-if.end.i1002:                                     ; preds = %lor.lhs.false2.i999
-  %memory.i1003 = getelementptr inbounds i8, ptr %edit, i64 88
-  %183 = load ptr, ptr %memory.i1003, align 8
-  br label %nk_str_get_const.exit1005
+if.end.i1001:                                     ; preds = %lor.lhs.false2.i998
+  %memory.i1002 = getelementptr inbounds i8, ptr %edit, i64 88
+  %183 = load ptr, ptr %memory.i1002, align 8
+  br label %nk_str_get_const.exit1004
 
-nk_str_get_const.exit1005:                        ; preds = %if.then769, %lor.lhs.false2.i999, %if.end.i1002
-  %retval.0.i1004 = phi ptr [ %183, %if.end.i1002 ], [ null, %lor.lhs.false2.i999 ], [ null, %if.then769 ]
+nk_str_get_const.exit1004:                        ; preds = %if.then769, %lor.lhs.false2.i998, %if.end.i1001
+  %retval.0.i1003 = phi ptr [ %183, %if.end.i1001 ], [ null, %lor.lhs.false2.i998 ], [ null, %if.then769 ]
   %scrollbar774 = getelementptr inbounds i8, ptr %edit, i64 160
   %184 = load float, ptr %scrollbar774, align 8
   %sub776 = fsub float %add5, %184
@@ -63174,17 +63143,17 @@ nk_str_get_const.exit1005:                        ; preds = %if.then769, %lor.lh
   %185 = load float, ptr %y779, align 4
   %sub780 = fsub float %add11, %185
   %sub.ptr.lhs.cast = ptrtoint ptr %select_begin_ptr.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %retval.0.i1004 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %retval.0.i1003 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv781 = trunc i64 %sub.ptr.sub to i32
-  call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub776, float noundef %sub780, float noundef 0.000000e+00, ptr noundef %retval.0.i1004, i32 noundef %conv781, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
-  %.pre1550 = load i32, ptr %select_start409, align 4
-  %.pre1551 = load i32, ptr %select_end410, align 8
+  call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub776, float noundef %sub780, float noundef 0.000000e+00, ptr noundef %retval.0.i1003, i32 noundef %conv781, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
+  %.pre1548 = load i32, ptr %select_start409, align 4
+  %.pre1549 = load i32, ptr %select_end410, align 8
   br label %if.end782
 
-if.end782:                                        ; preds = %nk_str_get_const.exit1005, %if.else761
-  %186 = phi i32 [ %.pre1551, %nk_str_get_const.exit1005 ], [ %175, %if.else761 ]
-  %187 = phi i32 [ %.pre1550, %nk_str_get_const.exit1005 ], [ %174, %if.else761 ]
+if.end782:                                        ; preds = %nk_str_get_const.exit1004, %if.else761
+  %186 = phi i32 [ %.pre1549, %nk_str_get_const.exit1004 ], [ %175, %if.else761 ]
+  %187 = phi i32 [ %.pre1548, %nk_str_get_const.exit1004 ], [ %174, %if.else761 ]
   %cmp785.not = icmp eq i32 %187, %186
   br i1 %cmp785.not, label %if.end848, label %if.then787
 
@@ -63194,30 +63163,30 @@ if.then787:                                       ; preds = %if.end782
 
 if.then789:                                       ; preds = %if.then787
   %188 = load i32, ptr %len.i696, align 8
-  %tobool1.not.i1008 = icmp eq i32 %188, 0
-  br i1 %tobool1.not.i1008, label %nk_str_len_char.exit1023, label %lor.lhs.false2.i1009
+  %tobool1.not.i1007 = icmp eq i32 %188, 0
+  br i1 %tobool1.not.i1007, label %nk_str_len_char.exit1022, label %lor.lhs.false2.i1008
 
-lor.lhs.false2.i1009:                             ; preds = %if.then789
-  %allocated.i1010 = getelementptr inbounds i8, ptr %edit, i64 112
-  %189 = load i64, ptr %allocated.i1010, align 8
-  %tobool3.not.i1011 = icmp eq i64 %189, 0
-  br i1 %tobool3.not.i1011, label %nk_str_len_char.exit1023, label %if.end.i1012
+lor.lhs.false2.i1008:                             ; preds = %if.then789
+  %allocated.i1009 = getelementptr inbounds i8, ptr %edit, i64 112
+  %189 = load i64, ptr %allocated.i1009, align 8
+  %tobool3.not.i1010 = icmp eq i64 %189, 0
+  br i1 %tobool3.not.i1010, label %nk_str_len_char.exit1022, label %if.end.i1011
 
-if.end.i1012:                                     ; preds = %lor.lhs.false2.i1009
-  %memory.i1013 = getelementptr inbounds i8, ptr %edit, i64 88
-  %190 = load ptr, ptr %memory.i1013, align 8
+if.end.i1011:                                     ; preds = %lor.lhs.false2.i1008
+  %memory.i1012 = getelementptr inbounds i8, ptr %edit, i64 88
+  %190 = load ptr, ptr %memory.i1012, align 8
   %191 = shl i64 %189, 32
   %192 = ashr exact i64 %191, 32
-  br label %nk_str_len_char.exit1023
+  br label %nk_str_len_char.exit1022
 
-nk_str_len_char.exit1023:                         ; preds = %if.end.i1012, %lor.lhs.false2.i1009, %if.then789
-  %retval.0.i10141380 = phi ptr [ null, %if.then789 ], [ null, %lor.lhs.false2.i1009 ], [ %190, %if.end.i1012 ]
-  %retval.0.i1022 = phi i64 [ 0, %if.then789 ], [ 0, %lor.lhs.false2.i1009 ], [ %192, %if.end.i1012 ]
-  %add.ptr796 = getelementptr inbounds i8, ptr %retval.0.i10141380, i64 %retval.0.i1022
+nk_str_len_char.exit1022:                         ; preds = %if.end.i1011, %lor.lhs.false2.i1008, %if.then789
+  %retval.0.i10131378 = phi ptr [ null, %if.then789 ], [ null, %lor.lhs.false2.i1008 ], [ %190, %if.end.i1011 ]
+  %retval.0.i1021 = phi i64 [ 0, %if.then789 ], [ 0, %lor.lhs.false2.i1008 ], [ %192, %if.end.i1011 ]
+  %add.ptr796 = getelementptr inbounds i8, ptr %retval.0.i10131378, i64 %retval.0.i1021
   br label %if.end813
 
-if.end813:                                        ; preds = %if.then787, %nk_str_len_char.exit1023
-  %select_end_ptr.4 = phi ptr [ %select_end_ptr.0, %if.then787 ], [ %add.ptr796, %nk_str_len_char.exit1023 ]
+if.end813:                                        ; preds = %if.then787, %nk_str_len_char.exit1022
+  %select_end_ptr.4 = phi ptr [ %select_end_ptr.0, %if.then787 ], [ %add.ptr796, %nk_str_len_char.exit1022 ]
   %scrollbar799 = getelementptr inbounds i8, ptr %edit, i64 160
   %193 = load float, ptr %scrollbar799, align 8
   %sub801 = fsub float %add5, %193
@@ -63232,9 +63201,9 @@ if.end813:                                        ; preds = %if.then787, %nk_str
   %sub.ptr.sub811 = sub i64 %sub.ptr.lhs.cast809, %sub.ptr.rhs.cast810
   %conv812 = trunc i64 %sub.ptr.sub811 to i32
   call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub801, float noundef %sub807, float noundef %selection_offset_start.sroa.0.0.vec.extract, ptr noundef %select_begin_ptr.0, i32 noundef %conv812, float noundef %cond42, ptr noundef %font, i32 %sel_background_color.sroa.0.0, i32 %sel_text_color.sroa.0.0, i32 noundef 1)
-  %.pre1552 = load i32, ptr %select_start409, align 4
-  %.pre1553 = load i32, ptr %select_end410, align 8
-  %cmp816.not = icmp eq i32 %.pre1552, %.pre1553
+  %.pre1550 = load i32, ptr %select_start409, align 4
+  %.pre1551 = load i32, ptr %select_end410, align 8
+  %cmp816.not = icmp eq i32 %.pre1550, %.pre1551
   br i1 %cmp816.not, label %if.end848, label %land.lhs.true818
 
 land.lhs.true818:                                 ; preds = %if.end813
@@ -63243,30 +63212,30 @@ land.lhs.true818:                                 ; preds = %if.end813
   br i1 %cmp821, label %if.then823, label %if.end848
 
 if.then823:                                       ; preds = %land.lhs.true818
-  %tobool1.not.i1026 = icmp eq i32 %195, 0
-  br i1 %tobool1.not.i1026, label %nk_str_len_char.exit1041, label %lor.lhs.false2.i1027
+  %tobool1.not.i1025 = icmp eq i32 %195, 0
+  br i1 %tobool1.not.i1025, label %nk_str_len_char.exit1040, label %lor.lhs.false2.i1026
 
-lor.lhs.false2.i1027:                             ; preds = %if.then823
-  %allocated.i1028 = getelementptr inbounds i8, ptr %edit, i64 112
-  %196 = load i64, ptr %allocated.i1028, align 8
-  %tobool3.not.i1029 = icmp eq i64 %196, 0
-  br i1 %tobool3.not.i1029, label %lor.lhs.false2.i1037, label %if.end.i1030
+lor.lhs.false2.i1026:                             ; preds = %if.then823
+  %allocated.i1027 = getelementptr inbounds i8, ptr %edit, i64 112
+  %196 = load i64, ptr %allocated.i1027, align 8
+  %tobool3.not.i1028 = icmp eq i64 %196, 0
+  br i1 %tobool3.not.i1028, label %lor.lhs.false2.i1036, label %if.end.i1029
 
-if.end.i1030:                                     ; preds = %lor.lhs.false2.i1027
-  %memory.i1031 = getelementptr inbounds i8, ptr %edit, i64 88
-  %197 = load ptr, ptr %memory.i1031, align 8
-  br label %lor.lhs.false2.i1037
+if.end.i1029:                                     ; preds = %lor.lhs.false2.i1026
+  %memory.i1030 = getelementptr inbounds i8, ptr %edit, i64 88
+  %197 = load ptr, ptr %memory.i1030, align 8
+  br label %lor.lhs.false2.i1036
 
-lor.lhs.false2.i1037:                             ; preds = %lor.lhs.false2.i1027, %if.end.i1030
-  %retval.0.i1032.ph = phi ptr [ null, %lor.lhs.false2.i1027 ], [ %197, %if.end.i1030 ]
-  %sext1400 = shl i64 %196, 32
-  %198 = ashr exact i64 %sext1400, 32
-  br label %nk_str_len_char.exit1041
+lor.lhs.false2.i1036:                             ; preds = %lor.lhs.false2.i1026, %if.end.i1029
+  %retval.0.i1031.ph = phi ptr [ null, %lor.lhs.false2.i1026 ], [ %197, %if.end.i1029 ]
+  %sext1398 = shl i64 %196, 32
+  %198 = ashr exact i64 %sext1398, 32
+  br label %nk_str_len_char.exit1040
 
-nk_str_len_char.exit1041:                         ; preds = %if.then823, %lor.lhs.false2.i1037
-  %retval.0.i10321383 = phi ptr [ %retval.0.i1032.ph, %lor.lhs.false2.i1037 ], [ null, %if.then823 ]
-  %retval.0.i1040 = phi i64 [ %198, %lor.lhs.false2.i1037 ], [ 0, %if.then823 ]
-  %add.ptr831 = getelementptr inbounds i8, ptr %retval.0.i10321383, i64 %retval.0.i1040
+nk_str_len_char.exit1040:                         ; preds = %if.then823, %lor.lhs.false2.i1036
+  %retval.0.i10311381 = phi ptr [ %retval.0.i1031.ph, %lor.lhs.false2.i1036 ], [ null, %if.then823 ]
+  %retval.0.i1039 = phi i64 [ %198, %lor.lhs.false2.i1036 ], [ 0, %if.then823 ]
+  %add.ptr831 = getelementptr inbounds i8, ptr %retval.0.i10311381, i64 %retval.0.i1039
   %scrollbar833 = getelementptr inbounds i8, ptr %edit, i64 160
   %199 = load float, ptr %scrollbar833, align 8
   %sub835 = fsub float %add5, %199
@@ -63283,7 +63252,7 @@ nk_str_len_char.exit1041:                         ; preds = %if.then823, %lor.lh
   call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub835, float noundef %sub841, float noundef %selection_offset_end.sroa.0.0.vec.extract, ptr noundef %select_end_ptr.4, i32 noundef %conv846, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 1)
   br label %if.end848
 
-if.end848:                                        ; preds = %if.end782, %if.end813, %land.lhs.true818, %nk_str_len_char.exit1041, %nk_str_len_char.exit995
+if.end848:                                        ; preds = %if.end782, %if.end813, %land.lhs.true818, %nk_str_len_char.exit1040, %nk_str_len_char.exit994
   %201 = load i32, ptr %select_start409, align 4
   %202 = load i32, ptr %select_end410, align 8
   %cmp851 = icmp eq i32 %201, %202
@@ -63293,19 +63262,19 @@ if.then853:                                       ; preds = %if.end848
   %cursor854 = getelementptr inbounds i8, ptr %edit, i64 168
   %203 = load i32, ptr %cursor854, align 8
   %204 = load i32, ptr %len.i696, align 8
-  %tobool1.not.i1044 = icmp eq i32 %204, 0
-  br i1 %tobool1.not.i1044, label %nk_str_len.exit, label %lor.lhs.false2.i1045
+  %tobool1.not.i1043 = icmp eq i32 %204, 0
+  br i1 %tobool1.not.i1043, label %nk_str_len.exit, label %lor.lhs.false2.i1044
 
-lor.lhs.false2.i1045:                             ; preds = %if.then853
-  %allocated.i1046 = getelementptr inbounds i8, ptr %edit, i64 112
-  %205 = load i64, ptr %allocated.i1046, align 8
-  %tobool3.not.i1047 = icmp eq i64 %205, 0
-  %spec.select.i = select i1 %tobool3.not.i1047, i32 0, i32 %204
+lor.lhs.false2.i1044:                             ; preds = %if.then853
+  %allocated.i1045 = getelementptr inbounds i8, ptr %edit, i64 112
+  %205 = load i64, ptr %allocated.i1045, align 8
+  %tobool3.not.i1046 = icmp eq i64 %205, 0
+  %spec.select.i = select i1 %tobool3.not.i1046, i32 0, i32 %204
   br label %nk_str_len.exit
 
-nk_str_len.exit:                                  ; preds = %if.then853, %lor.lhs.false2.i1045
-  %retval.0.i1048 = phi i32 [ 0, %if.then853 ], [ %spec.select.i, %lor.lhs.false2.i1045 ]
-  %cmp857.not = icmp slt i32 %203, %retval.0.i1048
+nk_str_len.exit:                                  ; preds = %if.then853, %lor.lhs.false2.i1044
+  %retval.0.i1047 = phi i32 [ 0, %if.then853 ], [ %spec.select.i, %lor.lhs.false2.i1044 ]
+  %cmp857.not = icmp slt i32 %203, %retval.0.i1047
   br i1 %cmp857.not, label %lor.lhs.false859, label %if.then865
 
 lor.lhs.false859:                                 ; preds = %nk_str_len.exit
@@ -63315,85 +63284,85 @@ lor.lhs.false859:                                 ; preds = %nk_str_len.exit
 land.lhs.true861:                                 ; preds = %lor.lhs.false859
   %206 = load i8, ptr %cursor_ptr.0, align 1
   %cmp863 = icmp eq i8 %206, 10
-  br i1 %cmp863, label %if.then865, label %for.body.i.i1114
+  br i1 %cmp863, label %if.then865, label %for.body.i.i1113
 
-for.body.i.i1114:                                 ; preds = %land.lhs.true861, %for.inc.i.i1120
-  %indvars.iv1545 = phi i32 [ %indvars.iv.next1546, %for.inc.i.i1120 ], [ -2, %land.lhs.true861 ]
-  %indvars.iv.i.i1115 = phi i64 [ %indvars.iv.next.i.i1121, %for.inc.i.i1120 ], [ 0, %land.lhs.true861 ]
-  %arrayidx.i.i1116 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i1115
-  %207 = load i8, ptr %arrayidx.i.i1116, align 1
-  %and8.i.i1117 = and i8 %207, %206
-  %arrayidx3.i.i1118 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i1115
-  %208 = load i8, ptr %arrayidx3.i.i1118, align 1
-  %cmp5.i.i1119 = icmp eq i8 %and8.i.i1117, %208
-  br i1 %cmp5.i.i1119, label %nk_utf_decode_byte.exit.i1124, label %for.inc.i.i1120
+for.body.i.i1113:                                 ; preds = %land.lhs.true861, %for.inc.i.i1119
+  %indvars.iv1543 = phi i32 [ %indvars.iv.next1544, %for.inc.i.i1119 ], [ -2, %land.lhs.true861 ]
+  %indvars.iv.i.i1114 = phi i64 [ %indvars.iv.next.i.i1120, %for.inc.i.i1119 ], [ 0, %land.lhs.true861 ]
+  %arrayidx.i.i1115 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i1114
+  %207 = load i8, ptr %arrayidx.i.i1115, align 1
+  %and8.i.i1116 = and i8 %207, %206
+  %arrayidx3.i.i1117 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i1114
+  %208 = load i8, ptr %arrayidx3.i.i1117, align 1
+  %cmp5.i.i1118 = icmp eq i8 %and8.i.i1116, %208
+  br i1 %cmp5.i.i1118, label %nk_utf_decode_byte.exit.i1123, label %for.inc.i.i1119
 
-for.inc.i.i1120:                                  ; preds = %for.body.i.i1114
-  %indvars.iv.next.i.i1121 = add nuw nsw i64 %indvars.iv.i.i1115, 1
-  %exitcond.not.i.i1122 = icmp eq i64 %indvars.iv.next.i.i1121, 5
-  %indvars.iv.next1546 = add nsw i32 %indvars.iv1545, 1
-  br i1 %exitcond.not.i.i1122, label %if.else890, label %for.body.i.i1114, !llvm.loop !19
+for.inc.i.i1119:                                  ; preds = %for.body.i.i1113
+  %indvars.iv.next.i.i1120 = add nuw nsw i64 %indvars.iv.i.i1114, 1
+  %exitcond.not.i.i1121 = icmp eq i64 %indvars.iv.next.i.i1120, 5
+  %indvars.iv.next1544 = add nsw i32 %indvars.iv1543, 1
+  br i1 %exitcond.not.i.i1121, label %if.else890, label %for.body.i.i1113, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i1124:                    ; preds = %for.body.i.i1114
-  %209 = trunc nuw nsw i64 %indvars.iv.i.i1115 to i32
+nk_utf_decode_byte.exit.i1123:                    ; preds = %for.body.i.i1113
+  %209 = trunc nuw nsw i64 %indvars.iv.i.i1114 to i32
   %210 = add i32 %209, -1
-  %or.cond1.i1125 = icmp ult i32 %210, 3
-  br i1 %or.cond1.i1125, label %for.cond.preheader.i1126, label %if.else890
+  %or.cond1.i1124 = icmp ult i32 %210, 3
+  br i1 %or.cond1.i1124, label %for.cond.preheader.i1125, label %if.else890
 
-for.cond.preheader.i1126:                         ; preds = %nk_utf_decode_byte.exit.i1124
-  %cmp962.i1130 = icmp ugt i64 %indvars.iv.i.i1115, 1
-  br i1 %cmp962.i1130, label %for.body.i1145.preheader, label %if.end.i.i1134
+for.cond.preheader.i1125:                         ; preds = %nk_utf_decode_byte.exit.i1123
+  %cmp960.i1129 = icmp ugt i64 %indvars.iv.i.i1114, 1
+  br i1 %cmp960.i1129, label %for.body.i1144.preheader, label %if.end18.i1133
 
-for.body.i1145.preheader:                         ; preds = %for.cond.preheader.i1126
-  %zext1544 = and i64 %indvars.iv.i.i1115, 4294967295
-  %211 = call i32 @llvm.umin.i32(i32 %indvars.iv1545, i32 2)
-  %narrow1554 = add nuw nsw i32 %211, 2
-  %212 = zext nneg i32 %narrow1554 to i64
-  br label %for.body.i1145
+for.body.i1144.preheader:                         ; preds = %for.cond.preheader.i1125
+  %zext1542 = and i64 %indvars.iv.i.i1114, 4294967295
+  %211 = call i32 @llvm.umin.i32(i32 %indvars.iv1543, i32 2)
+  %narrow1552 = add nuw nsw i32 %211, 2
+  %212 = zext nneg i32 %narrow1552 to i64
+  br label %for.body.i1144
 
-for.body.i1145:                                   ; preds = %for.body.i1145.preheader, %for.inc.i1164
-  %indvars.iv.i1146 = phi i64 [ %indvars.iv.next.i1170, %for.inc.i1164 ], [ 1, %for.body.i1145.preheader ]
-  %arrayidx10.i1148 = getelementptr inbounds i8, ptr %cursor_ptr.0, i64 %indvars.iv.i1146
-  %213 = load i8, ptr %arrayidx10.i1148, align 1
-  br label %for.body.i15.i1149
+for.body.i1144:                                   ; preds = %for.body.i1144.preheader, %for.inc.i1163
+  %indvars.iv.i1145 = phi i64 [ %indvars.iv.next.i1169, %for.inc.i1163 ], [ 1, %for.body.i1144.preheader ]
+  %arrayidx10.i1147 = getelementptr inbounds i8, ptr %cursor_ptr.0, i64 %indvars.iv.i1145
+  %213 = load i8, ptr %arrayidx10.i1147, align 1
+  br label %for.body.i15.i1148
 
-for.body.i15.i1149:                               ; preds = %for.inc.i21.i1155, %for.body.i1145
-  %indvars.iv.i16.i1150 = phi i64 [ %indvars.iv.next.i22.i1156, %for.inc.i21.i1155 ], [ 0, %for.body.i1145 ]
-  %arrayidx.i17.i1151 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i1150
-  %214 = load i8, ptr %arrayidx.i17.i1151, align 1
-  %and8.i18.i1152 = and i8 %214, %213
-  %arrayidx3.i19.i1153 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i1150
-  %215 = load i8, ptr %arrayidx3.i19.i1153, align 1
-  %cmp5.i20.i1154 = icmp eq i8 %and8.i18.i1152, %215
-  br i1 %cmp5.i20.i1154, label %nk_utf_decode_byte.exit30.i1160, label %for.inc.i21.i1155
+for.body.i15.i1148:                               ; preds = %for.inc.i21.i1154, %for.body.i1144
+  %indvars.iv.i16.i1149 = phi i64 [ 0, %for.body.i1144 ], [ %indvars.iv.next.i22.i1155, %for.inc.i21.i1154 ]
+  %arrayidx.i17.i1150 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i1149
+  %214 = load i8, ptr %arrayidx.i17.i1150, align 1
+  %and8.i18.i1151 = and i8 %214, %213
+  %arrayidx3.i19.i1152 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i1149
+  %215 = load i8, ptr %arrayidx3.i19.i1152, align 1
+  %cmp5.i20.i1153 = icmp eq i8 %and8.i18.i1151, %215
+  br i1 %cmp5.i20.i1153, label %nk_utf_decode_byte.exit30.i1159, label %for.inc.i21.i1154
 
-for.inc.i21.i1155:                                ; preds = %for.body.i15.i1149
-  %indvars.iv.next.i22.i1156 = add nuw nsw i64 %indvars.iv.i16.i1150, 1
-  %exitcond.not.i23.i1157 = icmp eq i64 %indvars.iv.next.i22.i1156, 5
-  br i1 %exitcond.not.i23.i1157, label %return.loopexit.i1158, label %for.body.i15.i1149, !llvm.loop !19
+for.inc.i21.i1154:                                ; preds = %for.body.i15.i1148
+  %indvars.iv.next.i22.i1155 = add nuw nsw i64 %indvars.iv.i16.i1149, 1
+  %exitcond.not.i23.i1156 = icmp eq i64 %indvars.iv.next.i22.i1155, 5
+  br i1 %exitcond.not.i23.i1156, label %return.loopexit.i1157, label %for.body.i15.i1148, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i1160:                  ; preds = %for.body.i15.i1149
-  %cmp12.not.i1161 = icmp eq i64 %indvars.iv.i16.i1150, 0
-  br i1 %cmp12.not.i1161, label %for.inc.i1164, label %return.loopexit81.i1162
+nk_utf_decode_byte.exit30.i1159:                  ; preds = %for.body.i15.i1148
+  %cmp12.not.i1160 = icmp eq i64 %indvars.iv.i16.i1149, 0
+  br i1 %cmp12.not.i1160, label %for.inc.i1163, label %return.loopexit79.i1161
 
-for.inc.i1164:                                    ; preds = %nk_utf_decode_byte.exit30.i1160
-  %indvars.iv.next.i1170 = add nuw nsw i64 %indvars.iv.i1146, 1
-  %exitcond1548.not = icmp eq i64 %indvars.iv.next.i1170, %212
-  br i1 %exitcond1548.not, label %for.end.i1131, label %for.body.i1145, !llvm.loop !20
+for.inc.i1163:                                    ; preds = %nk_utf_decode_byte.exit30.i1159
+  %indvars.iv.next.i1169 = add nuw nsw i64 %indvars.iv.i1145, 1
+  %exitcond1546.not = icmp eq i64 %indvars.iv.next.i1169, %212
+  br i1 %exitcond1546.not, label %for.end.i1130, label %for.body.i1144, !llvm.loop !20
 
-for.end.i1131:                                    ; preds = %for.inc.i1164
-  %216 = icmp ult i64 %indvars.iv.next.i1170, %zext1544
-  br i1 %216, label %if.else890, label %if.end.i.i1134
+for.end.i1130:                                    ; preds = %for.inc.i1163
+  %216 = icmp ult i64 %indvars.iv.next.i1169, %zext1542
+  br i1 %216, label %if.else890, label %if.end18.i1133
 
-if.end.i.i1134:                                   ; preds = %for.cond.preheader.i1126, %for.end.i1131
+if.end18.i1133:                                   ; preds = %for.cond.preheader.i1125, %for.end.i1130
   br label %if.else890
 
-return.loopexit.i1158:                            ; preds = %for.inc.i21.i1155
-  %indvars78.le91.i1159 = trunc i64 %indvars.iv.i1146 to i32
+return.loopexit.i1157:                            ; preds = %for.inc.i21.i1154
+  %indvars76.le89.i1158 = trunc i64 %indvars.iv.i1145 to i32
   br label %if.else890
 
-return.loopexit81.i1162:                          ; preds = %nk_utf_decode_byte.exit30.i1160
-  %indvars78.le.i1163 = trunc i64 %indvars.iv.i1146 to i32
+return.loopexit79.i1161:                          ; preds = %nk_utf_decode_byte.exit30.i1159
+  %indvars76.le.i1162 = trunc i64 %indvars.iv.i1145 to i32
   br label %if.else890
 
 if.then865:                                       ; preds = %land.lhs.true861, %nk_str_len.exit
@@ -63418,11 +63387,11 @@ if.then865:                                       ; preds = %land.lhs.true861, %
   %220 = load float, ptr %y887, align 4
   %sub889 = fsub float %sub884, %220
   %cursor866.sroa.0.4.vec.insert21 = insertelement <2 x float> %cursor866.sroa.0.0.vec.insert, float %sub889, i64 1
-  call void @nk_fill_rect(ptr noundef %out, <2 x float> %cursor866.sroa.0.4.vec.insert21, <2 x float> %cursor866.sroa.5.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i947)
+  call void @nk_fill_rect(ptr noundef %out, <2 x float> %cursor866.sroa.0.4.vec.insert21, <2 x float> %cursor866.sroa.5.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i946)
   br label %if.end971
 
-if.else890:                                       ; preds = %for.inc.i.i1120, %if.end.i.i1134, %return.loopexit81.i1162, %return.loopexit.i1158, %for.end.i1131, %nk_utf_decode_byte.exit.i1124, %lor.lhs.false859
-  %phi.call = phi i32 [ 0, %lor.lhs.false859 ], [ 1, %nk_utf_decode_byte.exit.i1124 ], [ 0, %for.end.i1131 ], [ %indvars78.le91.i1159, %return.loopexit.i1158 ], [ %indvars78.le.i1163, %return.loopexit81.i1162 ], [ %209, %if.end.i.i1134 ], [ 1, %for.inc.i.i1120 ]
+if.else890:                                       ; preds = %for.inc.i.i1119, %if.end18.i1133, %return.loopexit79.i1161, %return.loopexit.i1157, %for.end.i1130, %nk_utf_decode_byte.exit.i1123, %lor.lhs.false859
+  %phi.call = phi i32 [ 0, %lor.lhs.false859 ], [ 1, %nk_utf_decode_byte.exit.i1123 ], [ 0, %for.end.i1130 ], [ %indvars76.le89.i1158, %return.loopexit.i1157 ], [ %indvars76.le.i1162, %return.loopexit79.i1161 ], [ %209, %if.end18.i1133 ], [ 1, %for.inc.i.i1119 ]
   %cursor_pos.sroa.0.0.vec.extract105 = extractelement <2 x float> %cursor_pos.sroa.0.0, i64 0
   %add896 = fadd float %add5, %cursor_pos.sroa.0.0.vec.extract105
   %scrollbar897 = getelementptr inbounds i8, ptr %edit, i64 160
@@ -63443,21 +63412,21 @@ if.else890:                                       ; preds = %for.inc.i.i1120, %i
   %call912 = call float %223(ptr %225, float noundef %224, ptr noundef %cursor_ptr.0, i32 noundef %phi.call) #52
   %label.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %call912, i64 0
   %label.sroa.4.12.vec.insert = insertelement <2 x float> %label.sroa.4.8.vec.insert, float %cond42, i64 1
-  call void @nk_fill_rect(ptr noundef %out, <2 x float> %label.sroa.0.4.vec.insert, <2 x float> %label.sroa.4.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i947)
-  br i1 %tobool.not.i916, label %nk_push_scissor.exit1339, label %if.end971.thread1390
+  call void @nk_fill_rect(ptr noundef %out, <2 x float> %label.sroa.0.4.vec.insert, <2 x float> %label.sroa.4.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i946)
+  br i1 %tobool.not.i915, label %nk_push_scissor.exit1337, label %if.end971.thread1388
 
-if.end971.thread1390:                             ; preds = %if.else890
-  %cmp.i1180 = fcmp olt float %cond42, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i1180, float 0.000000e+00, float %cond42
+if.end971.thread1388:                             ; preds = %if.else890
+  %cmp.i1178 = fcmp olt float %cond42, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i1178, float 0.000000e+00, float %cond42
   %226 = load float, ptr %height910, align 8
   %227 = load ptr, ptr %width908, align 8
   %228 = load ptr, ptr %font, align 8
-  %call.i1182 = call float %227(ptr %228, float noundef %226, ptr noundef %cursor_ptr.0, i32 noundef %phi.call) #52
+  %call.i1180 = call float %227(ptr %228, float noundef %226, ptr noundef %cursor_ptr.0, i32 noundef %phi.call) #52
   %add35.i = fadd float %sub899, 0.000000e+00
   %229 = insertelement <2 x float> poison, float %add35.i, i64 0
   %cmp41.i = fcmp ogt float %call912, 0.000000e+00
-  %cond49.i1183 = select i1 %cmp41.i, float %call912, float 0.000000e+00
-  %230 = insertelement <2 x float> poison, float %cond49.i1183, i64 0
+  %cond49.i1181 = select i1 %cmp41.i, float %call912, float 0.000000e+00
+  %230 = insertelement <2 x float> poison, float %cond49.i1181, i64 0
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %add165.i = fadd float %div164.i, %sub906
   %231 = load float, ptr %height910, align 8
@@ -63469,240 +63438,240 @@ if.end971.thread1390:                             ; preds = %if.else890
   %cmp179.i = fcmp olt float %div164.i, %sub178.i
   %sub178.div164.i = select i1 %cmp179.i, float %sub178.i, float %div164.i
   %label.sroa.15.12.vec.insert51.i = insertelement <2 x float> %230, float %sub178.div164.i, i64 1
-  call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef %cursor_ptr.0, i32 noundef %phi.call, ptr noundef nonnull %font, i32 %retval.sroa.0.0.insert.insert.i947, i32 %retval.sroa.0.0.insert.insert.i976)
-  br label %if.end.i1301
+  call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef %cursor_ptr.0, i32 noundef %phi.call, ptr noundef nonnull %font, i32 %retval.sroa.0.0.insert.insert.i946, i32 %retval.sroa.0.0.insert.insert.i975)
+  br label %if.end.i1299
 
 if.else922:                                       ; preds = %sw.epilog
   %232 = load i32, ptr %len.i696, align 8
-  %tobool1.not.i1186 = icmp eq i32 %232, 0
-  br i1 %tobool1.not.i1186, label %nk_str_get_const.exit1201, label %lor.lhs.false2.i1195
+  %tobool1.not.i1184 = icmp eq i32 %232, 0
+  br i1 %tobool1.not.i1184, label %nk_str_get_const.exit1199, label %lor.lhs.false2.i1193
 
-lor.lhs.false2.i1195:                             ; preds = %if.else922
-  %allocated.i1188 = getelementptr inbounds i8, ptr %edit, i64 112
-  %233 = load i64, ptr %allocated.i1188, align 8
-  %tobool3.not.i1197 = icmp eq i64 %233, 0
-  br i1 %tobool3.not.i1197, label %nk_str_get_const.exit1201, label %if.end.i1198
+lor.lhs.false2.i1193:                             ; preds = %if.else922
+  %allocated.i1186 = getelementptr inbounds i8, ptr %edit, i64 112
+  %233 = load i64, ptr %allocated.i1186, align 8
+  %tobool3.not.i1195 = icmp eq i64 %233, 0
+  br i1 %tobool3.not.i1195, label %nk_str_get_const.exit1199, label %if.end.i1196
 
-if.end.i1198:                                     ; preds = %lor.lhs.false2.i1195
-  %conv.i1189 = trunc i64 %233 to i32
-  %memory.i1199 = getelementptr inbounds i8, ptr %edit, i64 88
-  %234 = load ptr, ptr %memory.i1199, align 8
-  br label %nk_str_get_const.exit1201
+if.end.i1196:                                     ; preds = %lor.lhs.false2.i1193
+  %conv.i1187 = trunc i64 %233 to i32
+  %memory.i1197 = getelementptr inbounds i8, ptr %edit, i64 88
+  %234 = load ptr, ptr %memory.i1197, align 8
+  br label %nk_str_get_const.exit1199
 
-nk_str_get_const.exit1201:                        ; preds = %if.else922, %lor.lhs.false2.i1195, %if.end.i1198
-  %retval.0.i11901388 = phi i32 [ %conv.i1189, %if.end.i1198 ], [ 0, %lor.lhs.false2.i1195 ], [ 0, %if.else922 ]
-  %retval.0.i1200 = phi ptr [ %234, %if.end.i1198 ], [ null, %lor.lhs.false2.i1195 ], [ null, %if.else922 ]
-  %tobool.not.i1202 = icmp eq ptr %out, null
-  br i1 %tobool.not.i1202, label %nk_push_scissor.exit1241, label %if.end.i1203
+nk_str_get_const.exit1199:                        ; preds = %if.else922, %lor.lhs.false2.i1193, %if.end.i1196
+  %retval.0.i11881386 = phi i32 [ %conv.i1187, %if.end.i1196 ], [ 0, %lor.lhs.false2.i1193 ], [ 0, %if.else922 ]
+  %retval.0.i1198 = phi ptr [ %234, %if.end.i1196 ], [ null, %lor.lhs.false2.i1193 ], [ null, %if.else922 ]
+  %tobool.not.i1200 = icmp eq ptr %out, null
+  br i1 %tobool.not.i1200, label %nk_push_scissor.exit1239, label %if.end.i1201
 
-if.end.i1203:                                     ; preds = %nk_str_get_const.exit1201
+if.end.i1201:                                     ; preds = %nk_str_get_const.exit1199
   store float %x0..i, ptr %clip43, align 8
-  %y3.i1207 = getelementptr inbounds i8, ptr %out, i64 12
-  store float %cond9.i, ptr %y3.i1207, align 4
+  %y3.i1205 = getelementptr inbounds i8, ptr %out, i64 12
+  store float %cond9.i, ptr %y3.i1205, align 4
   store float %cond41.i, ptr %old_clip.sroa.6.0.clip43.sroa_idx, align 8
-  %h7.i1211 = getelementptr inbounds i8, ptr %out, i64 20
-  store float %cond49.i, ptr %h7.i1211, align 4
+  %h7.i1209 = getelementptr inbounds i8, ptr %out, i64 20
+  store float %cond49.i, ptr %h7.i1209, align 4
   %235 = load ptr, ptr %out, align 8
-  %call.i.i1212 = call fastcc ptr @nk_buffer_alloc(ptr noundef %235, i32 noundef 0, i64 noundef 24, i64 noundef 8)
-  %tobool1.not.i.i1213 = icmp eq ptr %call.i.i1212, null
-  br i1 %tobool1.not.i.i1213, label %nk_push_scissor.exit1241, label %if.end10.i1214
+  %call.i.i1210 = call fastcc ptr @nk_buffer_alloc(ptr noundef %235, i32 noundef 0, i64 noundef 24, i64 noundef 8)
+  %tobool1.not.i.i1211 = icmp eq ptr %call.i.i1210, null
+  br i1 %tobool1.not.i.i1211, label %nk_push_scissor.exit1239, label %if.end10.i1212
 
-if.end10.i1214:                                   ; preds = %if.end.i1203
+if.end10.i1212:                                   ; preds = %if.end.i1201
   %236 = load ptr, ptr %out, align 8
-  %memory5.i.i1215 = getelementptr inbounds i8, ptr %236, i64 64
-  %237 = load ptr, ptr %memory5.i.i1215, align 8
-  %sub.ptr.lhs.cast.i.i1216 = ptrtoint ptr %call.i.i1212 to i64
-  %sub.ptr.rhs.cast.i.i1217 = ptrtoint ptr %237 to i64
-  %sub.ptr.sub.i.i1218 = sub i64 %sub.ptr.lhs.cast.i.i1216, %sub.ptr.rhs.cast.i.i1217
-  %last.i.i1219 = getelementptr inbounds i8, ptr %out, i64 56
-  store i64 %sub.ptr.sub.i.i1218, ptr %last.i.i1219, align 8
-  %add.ptr.i.i1220 = getelementptr inbounds i8, ptr %call.i.i1212, i64 24
-  %add.ptr6.i.i1221 = getelementptr inbounds i8, ptr %call.i.i1212, i64 31
-  %238 = ptrtoint ptr %add.ptr6.i.i1221 to i64
-  %and.i.i1222 = and i64 %238, -8
-  %sub.ptr.rhs.cast8.i.i1223 = ptrtoint ptr %add.ptr.i.i1220 to i64
-  %sub.ptr.sub9.i.i1224 = sub i64 %and.i.i1222, %sub.ptr.rhs.cast8.i.i1223
-  store i32 1, ptr %call.i.i1212, align 8
+  %memory5.i.i1213 = getelementptr inbounds i8, ptr %236, i64 64
+  %237 = load ptr, ptr %memory5.i.i1213, align 8
+  %sub.ptr.lhs.cast.i.i1214 = ptrtoint ptr %call.i.i1210 to i64
+  %sub.ptr.rhs.cast.i.i1215 = ptrtoint ptr %237 to i64
+  %sub.ptr.sub.i.i1216 = sub i64 %sub.ptr.lhs.cast.i.i1214, %sub.ptr.rhs.cast.i.i1215
+  %last.i.i1217 = getelementptr inbounds i8, ptr %out, i64 56
+  store i64 %sub.ptr.sub.i.i1216, ptr %last.i.i1217, align 8
+  %add.ptr.i.i1218 = getelementptr inbounds i8, ptr %call.i.i1210, i64 24
+  %add.ptr6.i.i1219 = getelementptr inbounds i8, ptr %call.i.i1210, i64 31
+  %238 = ptrtoint ptr %add.ptr6.i.i1219 to i64
+  %and.i.i1220 = and i64 %238, -8
+  %sub.ptr.rhs.cast8.i.i1221 = ptrtoint ptr %add.ptr.i.i1218 to i64
+  %sub.ptr.sub9.i.i1222 = sub i64 %and.i.i1220, %sub.ptr.rhs.cast8.i.i1221
+  store i32 1, ptr %call.i.i1210, align 8
   %239 = load ptr, ptr %out, align 8
-  %allocated.i.i1225 = getelementptr inbounds i8, ptr %239, i64 88
-  %240 = load i64, ptr %allocated.i.i1225, align 8
-  %add.i.i1226 = add i64 %240, %sub.ptr.sub9.i.i1224
-  %next.i.i1227 = getelementptr inbounds i8, ptr %call.i.i1212, i64 8
-  store i64 %add.i.i1226, ptr %next.i.i1227, align 8
-  %end.i.i1228 = getelementptr inbounds i8, ptr %out, i64 48
-  store i64 %add.i.i1226, ptr %end.i.i1228, align 8
-  %conv.i1229 = fptosi float %x0..i to i16
-  %x12.i1230 = getelementptr inbounds i8, ptr %call.i.i1212, i64 16
-  store i16 %conv.i1229, ptr %x12.i1230, align 8
-  %conv14.i1231 = fptosi float %cond9.i to i16
-  %y15.i1232 = getelementptr inbounds i8, ptr %call.i.i1212, i64 18
-  store i16 %conv14.i1231, ptr %y15.i1232, align 2
-  %conv19.i1235 = fptoui float %cond41.i to i16
-  %w20.i1236 = getelementptr inbounds i8, ptr %call.i.i1212, i64 20
-  store i16 %conv19.i1235, ptr %w20.i1236, align 4
-  %conv29.i1239 = fptoui float %cond49.i to i16
-  %h30.i1240 = getelementptr inbounds i8, ptr %call.i.i1212, i64 22
-  store i16 %conv29.i1239, ptr %h30.i1240, align 2
-  br label %nk_push_scissor.exit1241
+  %allocated.i.i1223 = getelementptr inbounds i8, ptr %239, i64 88
+  %240 = load i64, ptr %allocated.i.i1223, align 8
+  %add.i.i1224 = add i64 %240, %sub.ptr.sub9.i.i1222
+  %next.i.i1225 = getelementptr inbounds i8, ptr %call.i.i1210, i64 8
+  store i64 %add.i.i1224, ptr %next.i.i1225, align 8
+  %end.i.i1226 = getelementptr inbounds i8, ptr %out, i64 48
+  store i64 %add.i.i1224, ptr %end.i.i1226, align 8
+  %conv.i1227 = fptosi float %x0..i to i16
+  %x12.i1228 = getelementptr inbounds i8, ptr %call.i.i1210, i64 16
+  store i16 %conv.i1227, ptr %x12.i1228, align 8
+  %conv14.i1229 = fptosi float %cond9.i to i16
+  %y15.i1230 = getelementptr inbounds i8, ptr %call.i.i1210, i64 18
+  store i16 %conv14.i1229, ptr %y15.i1230, align 2
+  %conv19.i1233 = fptoui float %cond41.i to i16
+  %w20.i1234 = getelementptr inbounds i8, ptr %call.i.i1210, i64 20
+  store i16 %conv19.i1233, ptr %w20.i1234, align 4
+  %conv29.i1237 = fptoui float %cond49.i to i16
+  %h30.i1238 = getelementptr inbounds i8, ptr %call.i.i1210, i64 22
+  store i16 %conv29.i1237, ptr %h30.i1238, align 2
+  br label %nk_push_scissor.exit1239
 
-nk_push_scissor.exit1241:                         ; preds = %nk_str_get_const.exit1201, %if.end.i1203, %if.end10.i1214
+nk_push_scissor.exit1239:                         ; preds = %nk_str_get_const.exit1199, %if.end.i1201, %if.end10.i1212
   %241 = load i32, ptr %state, align 4
   %and932 = and i32 %241, 32
   %tobool933.not = icmp eq i32 %and932, 0
   %and938 = and i32 %241, 16
   %tobool939.not = icmp eq i32 %and938, 0
-  %.1630 = select i1 %tobool939.not, i64 896, i64 900
+  %.1628 = select i1 %tobool939.not, i64 896, i64 900
   %style.hover = select i1 %tobool939.not, ptr %style, ptr %hover
-  %.sink1628 = select i1 %tobool933.not, i64 %.1630, i64 904
+  %.sink1626 = select i1 %tobool933.not, i64 %.1628, i64 904
   %background929.0 = select i1 %tobool933.not, ptr %style.hover, ptr %active365
-  %text_hover942 = getelementptr inbounds i8, ptr %style, i64 %.sink1628
+  %text_hover942 = getelementptr inbounds i8, ptr %style, i64 %.sink1626
   %text_color931.sroa.0.0 = load i32, ptr %text_hover942, align 4
   %242 = load i32, ptr %background929.0, align 8
   %cmp949 = icmp eq i32 %242, 1
   br i1 %cmp949, label %if.end956, label %if.else954
 
-if.else954:                                       ; preds = %nk_push_scissor.exit1241
+if.else954:                                       ; preds = %nk_push_scissor.exit1239
   %data955 = getelementptr inbounds i8, ptr %background929.0, i64 8
   %background_color930.sroa.0.0.copyload = load i32, ptr %data955, align 8
   br label %if.end956
 
-if.end956:                                        ; preds = %nk_push_scissor.exit1241, %if.else954
-  %background_color930.sroa.0.0 = phi i32 [ %background_color930.sroa.0.0.copyload, %if.else954 ], [ 0, %nk_push_scissor.exit1241 ]
+if.end956:                                        ; preds = %nk_push_scissor.exit1239, %if.else954
+  %background_color930.sroa.0.0 = phi i32 [ %background_color930.sroa.0.0.copyload, %if.else954 ], [ 0, %nk_push_scissor.exit1239 ]
   %color_factor958 = getelementptr inbounds i8, ptr %style, i64 956
   %243 = load float, ptr %color_factor958, align 4
-  %col.sroa.0.0.extract.trunc.i1242 = trunc i32 %background_color930.sroa.0.0 to i8
-  %col.sroa.5.0.extract.shift.i1243 = lshr i32 %background_color930.sroa.0.0, 8
-  %col.sroa.5.0.extract.trunc.i1244 = trunc i32 %col.sroa.5.0.extract.shift.i1243 to i8
-  %col.sroa.7.0.extract.shift.i1245 = lshr i32 %background_color930.sroa.0.0, 16
-  %col.sroa.7.0.extract.trunc.i1246 = trunc i32 %col.sroa.7.0.extract.shift.i1245 to i8
-  %cmp.i1247 = fcmp oeq float %243, 1.000000e+00
-  br i1 %cmp.i1247, label %nk_rgb_factor.exit1270, label %if.end.i1248
+  %col.sroa.0.0.extract.trunc.i1240 = trunc i32 %background_color930.sroa.0.0 to i8
+  %col.sroa.5.0.extract.shift.i1241 = lshr i32 %background_color930.sroa.0.0, 8
+  %col.sroa.5.0.extract.trunc.i1242 = trunc i32 %col.sroa.5.0.extract.shift.i1241 to i8
+  %col.sroa.7.0.extract.shift.i1243 = lshr i32 %background_color930.sroa.0.0, 16
+  %col.sroa.7.0.extract.trunc.i1244 = trunc i32 %col.sroa.7.0.extract.shift.i1243 to i8
+  %cmp.i1245 = fcmp oeq float %243, 1.000000e+00
+  br i1 %cmp.i1245, label %nk_rgb_factor.exit1268, label %if.end.i1246
 
-if.end.i1248:                                     ; preds = %if.end956
-  %conv.i1249 = uitofp i8 %col.sroa.0.0.extract.trunc.i1242 to float
-  %mul.i1250 = fmul float %243, %conv.i1249
-  %conv1.i1251 = fptoui float %mul.i1250 to i8
-  %conv2.i1252 = uitofp i8 %col.sroa.5.0.extract.trunc.i1244 to float
-  %mul3.i1253 = fmul float %243, %conv2.i1252
-  %conv4.i1254 = fptoui float %mul3.i1253 to i8
-  %conv5.i1255 = uitofp i8 %col.sroa.7.0.extract.trunc.i1246 to float
-  %mul6.i1256 = fmul float %243, %conv5.i1255
-  %conv7.i1257 = fptoui float %mul6.i1256 to i8
-  br label %nk_rgb_factor.exit1270
+if.end.i1246:                                     ; preds = %if.end956
+  %conv.i1247 = uitofp i8 %col.sroa.0.0.extract.trunc.i1240 to float
+  %mul.i1248 = fmul float %243, %conv.i1247
+  %conv1.i1249 = fptoui float %mul.i1248 to i8
+  %conv2.i1250 = uitofp i8 %col.sroa.5.0.extract.trunc.i1242 to float
+  %mul3.i1251 = fmul float %243, %conv2.i1250
+  %conv4.i1252 = fptoui float %mul3.i1251 to i8
+  %conv5.i1253 = uitofp i8 %col.sroa.7.0.extract.trunc.i1244 to float
+  %mul6.i1254 = fmul float %243, %conv5.i1253
+  %conv7.i1255 = fptoui float %mul6.i1254 to i8
+  br label %nk_rgb_factor.exit1268
 
-nk_rgb_factor.exit1270:                           ; preds = %if.end956, %if.end.i1248
-  %retval.sroa.3.0.i1258 = phi i8 [ %conv4.i1254, %if.end.i1248 ], [ %col.sroa.5.0.extract.trunc.i1244, %if.end956 ]
-  %retval.sroa.0.0.i1259 = phi i8 [ %conv1.i1251, %if.end.i1248 ], [ %col.sroa.0.0.extract.trunc.i1242, %if.end956 ]
-  %retval.sroa.5.0.i1260 = phi i8 [ %conv7.i1257, %if.end.i1248 ], [ %col.sroa.7.0.extract.trunc.i1246, %if.end956 ]
-  %col.sroa.9.0.extract.shift.i1261 = and i32 %background_color930.sroa.0.0, -16777216
-  %retval.sroa.5.0.insert.ext.i1262 = zext i8 %retval.sroa.5.0.i1260 to i32
-  %retval.sroa.5.0.insert.shift.i1263 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i1262, 16
-  %retval.sroa.5.0.insert.insert.i1264 = or disjoint i32 %retval.sroa.5.0.insert.shift.i1263, %col.sroa.9.0.extract.shift.i1261
-  %retval.sroa.3.0.insert.ext.i1265 = zext i8 %retval.sroa.3.0.i1258 to i32
-  %retval.sroa.3.0.insert.shift.i1266 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i1265, 8
-  %retval.sroa.3.0.insert.insert.i1267 = or disjoint i32 %retval.sroa.5.0.insert.insert.i1264, %retval.sroa.3.0.insert.shift.i1266
-  %retval.sroa.0.0.insert.ext.i1268 = zext i8 %retval.sroa.0.0.i1259 to i32
-  %retval.sroa.0.0.insert.insert.i1269 = or disjoint i32 %retval.sroa.3.0.insert.insert.i1267, %retval.sroa.0.0.insert.ext.i1268
-  %col.sroa.0.0.extract.trunc.i1271 = trunc i32 %text_color931.sroa.0.0 to i8
-  %col.sroa.5.0.extract.shift.i1272 = lshr i32 %text_color931.sroa.0.0, 8
-  %col.sroa.5.0.extract.trunc.i1273 = trunc i32 %col.sroa.5.0.extract.shift.i1272 to i8
-  %col.sroa.7.0.extract.shift.i1274 = lshr i32 %text_color931.sroa.0.0, 16
-  %col.sroa.7.0.extract.trunc.i1275 = trunc i32 %col.sroa.7.0.extract.shift.i1274 to i8
-  br i1 %cmp.i1247, label %nk_rgb_factor.exit1299, label %if.end.i1277
+nk_rgb_factor.exit1268:                           ; preds = %if.end956, %if.end.i1246
+  %retval.sroa.3.0.i1256 = phi i8 [ %conv4.i1252, %if.end.i1246 ], [ %col.sroa.5.0.extract.trunc.i1242, %if.end956 ]
+  %retval.sroa.0.0.i1257 = phi i8 [ %conv1.i1249, %if.end.i1246 ], [ %col.sroa.0.0.extract.trunc.i1240, %if.end956 ]
+  %retval.sroa.5.0.i1258 = phi i8 [ %conv7.i1255, %if.end.i1246 ], [ %col.sroa.7.0.extract.trunc.i1244, %if.end956 ]
+  %col.sroa.9.0.extract.shift.i1259 = and i32 %background_color930.sroa.0.0, -16777216
+  %retval.sroa.5.0.insert.ext.i1260 = zext i8 %retval.sroa.5.0.i1258 to i32
+  %retval.sroa.5.0.insert.shift.i1261 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i1260, 16
+  %retval.sroa.5.0.insert.insert.i1262 = or disjoint i32 %retval.sroa.5.0.insert.shift.i1261, %col.sroa.9.0.extract.shift.i1259
+  %retval.sroa.3.0.insert.ext.i1263 = zext i8 %retval.sroa.3.0.i1256 to i32
+  %retval.sroa.3.0.insert.shift.i1264 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i1263, 8
+  %retval.sroa.3.0.insert.insert.i1265 = or disjoint i32 %retval.sroa.5.0.insert.insert.i1262, %retval.sroa.3.0.insert.shift.i1264
+  %retval.sroa.0.0.insert.ext.i1266 = zext i8 %retval.sroa.0.0.i1257 to i32
+  %retval.sroa.0.0.insert.insert.i1267 = or disjoint i32 %retval.sroa.3.0.insert.insert.i1265, %retval.sroa.0.0.insert.ext.i1266
+  %col.sroa.0.0.extract.trunc.i1269 = trunc i32 %text_color931.sroa.0.0 to i8
+  %col.sroa.5.0.extract.shift.i1270 = lshr i32 %text_color931.sroa.0.0, 8
+  %col.sroa.5.0.extract.trunc.i1271 = trunc i32 %col.sroa.5.0.extract.shift.i1270 to i8
+  %col.sroa.7.0.extract.shift.i1272 = lshr i32 %text_color931.sroa.0.0, 16
+  %col.sroa.7.0.extract.trunc.i1273 = trunc i32 %col.sroa.7.0.extract.shift.i1272 to i8
+  br i1 %cmp.i1245, label %nk_rgb_factor.exit1297, label %if.end.i1275
 
-if.end.i1277:                                     ; preds = %nk_rgb_factor.exit1270
-  %conv.i1278 = uitofp i8 %col.sroa.0.0.extract.trunc.i1271 to float
-  %mul.i1279 = fmul float %243, %conv.i1278
-  %conv1.i1280 = fptoui float %mul.i1279 to i8
-  %conv2.i1281 = uitofp i8 %col.sroa.5.0.extract.trunc.i1273 to float
-  %mul3.i1282 = fmul float %243, %conv2.i1281
-  %conv4.i1283 = fptoui float %mul3.i1282 to i8
-  %conv5.i1284 = uitofp i8 %col.sroa.7.0.extract.trunc.i1275 to float
-  %mul6.i1285 = fmul float %243, %conv5.i1284
-  %conv7.i1286 = fptoui float %mul6.i1285 to i8
-  br label %nk_rgb_factor.exit1299
+if.end.i1275:                                     ; preds = %nk_rgb_factor.exit1268
+  %conv.i1276 = uitofp i8 %col.sroa.0.0.extract.trunc.i1269 to float
+  %mul.i1277 = fmul float %243, %conv.i1276
+  %conv1.i1278 = fptoui float %mul.i1277 to i8
+  %conv2.i1279 = uitofp i8 %col.sroa.5.0.extract.trunc.i1271 to float
+  %mul3.i1280 = fmul float %243, %conv2.i1279
+  %conv4.i1281 = fptoui float %mul3.i1280 to i8
+  %conv5.i1282 = uitofp i8 %col.sroa.7.0.extract.trunc.i1273 to float
+  %mul6.i1283 = fmul float %243, %conv5.i1282
+  %conv7.i1284 = fptoui float %mul6.i1283 to i8
+  br label %nk_rgb_factor.exit1297
 
-nk_rgb_factor.exit1299:                           ; preds = %nk_rgb_factor.exit1270, %if.end.i1277
-  %retval.sroa.3.0.i1287 = phi i8 [ %conv4.i1283, %if.end.i1277 ], [ %col.sroa.5.0.extract.trunc.i1273, %nk_rgb_factor.exit1270 ]
-  %retval.sroa.0.0.i1288 = phi i8 [ %conv1.i1280, %if.end.i1277 ], [ %col.sroa.0.0.extract.trunc.i1271, %nk_rgb_factor.exit1270 ]
-  %retval.sroa.5.0.i1289 = phi i8 [ %conv7.i1286, %if.end.i1277 ], [ %col.sroa.7.0.extract.trunc.i1275, %nk_rgb_factor.exit1270 ]
-  %col.sroa.9.0.extract.shift.i1290 = and i32 %text_color931.sroa.0.0, -16777216
-  %retval.sroa.5.0.insert.ext.i1291 = zext i8 %retval.sroa.5.0.i1289 to i32
-  %retval.sroa.5.0.insert.shift.i1292 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i1291, 16
-  %retval.sroa.5.0.insert.insert.i1293 = or disjoint i32 %retval.sroa.5.0.insert.shift.i1292, %col.sroa.9.0.extract.shift.i1290
-  %retval.sroa.3.0.insert.ext.i1294 = zext i8 %retval.sroa.3.0.i1287 to i32
-  %retval.sroa.3.0.insert.shift.i1295 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i1294, 8
-  %retval.sroa.3.0.insert.insert.i1296 = or disjoint i32 %retval.sroa.5.0.insert.insert.i1293, %retval.sroa.3.0.insert.shift.i1295
-  %retval.sroa.0.0.insert.ext.i1297 = zext i8 %retval.sroa.0.0.i1288 to i32
-  %retval.sroa.0.0.insert.insert.i1298 = or disjoint i32 %retval.sroa.3.0.insert.insert.i1296, %retval.sroa.0.0.insert.ext.i1297
+nk_rgb_factor.exit1297:                           ; preds = %nk_rgb_factor.exit1268, %if.end.i1275
+  %retval.sroa.3.0.i1285 = phi i8 [ %conv4.i1281, %if.end.i1275 ], [ %col.sroa.5.0.extract.trunc.i1271, %nk_rgb_factor.exit1268 ]
+  %retval.sroa.0.0.i1286 = phi i8 [ %conv1.i1278, %if.end.i1275 ], [ %col.sroa.0.0.extract.trunc.i1269, %nk_rgb_factor.exit1268 ]
+  %retval.sroa.5.0.i1287 = phi i8 [ %conv7.i1284, %if.end.i1275 ], [ %col.sroa.7.0.extract.trunc.i1273, %nk_rgb_factor.exit1268 ]
+  %col.sroa.9.0.extract.shift.i1288 = and i32 %text_color931.sroa.0.0, -16777216
+  %retval.sroa.5.0.insert.ext.i1289 = zext i8 %retval.sroa.5.0.i1287 to i32
+  %retval.sroa.5.0.insert.shift.i1290 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i1289, 16
+  %retval.sroa.5.0.insert.insert.i1291 = or disjoint i32 %retval.sroa.5.0.insert.shift.i1290, %col.sroa.9.0.extract.shift.i1288
+  %retval.sroa.3.0.insert.ext.i1292 = zext i8 %retval.sroa.3.0.i1285 to i32
+  %retval.sroa.3.0.insert.shift.i1293 = shl nuw nsw i32 %retval.sroa.3.0.insert.ext.i1292, 8
+  %retval.sroa.3.0.insert.insert.i1294 = or disjoint i32 %retval.sroa.5.0.insert.insert.i1291, %retval.sroa.3.0.insert.shift.i1293
+  %retval.sroa.0.0.insert.ext.i1295 = zext i8 %retval.sroa.0.0.i1286 to i32
+  %retval.sroa.0.0.insert.insert.i1296 = or disjoint i32 %retval.sroa.3.0.insert.insert.i1294, %retval.sroa.0.0.insert.ext.i1295
   %scrollbar964 = getelementptr inbounds i8, ptr %edit, i64 160
   %244 = load float, ptr %scrollbar964, align 8
   %sub966 = fsub float %add5, %244
   %y969 = getelementptr inbounds i8, ptr %edit, i64 164
   %245 = load float, ptr %y969, align 4
   %sub970 = fsub float %add11, %245
-  call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub966, float noundef %sub970, float noundef 0.000000e+00, ptr noundef %retval.0.i1200, i32 noundef %retval.0.i11901388, float noundef %cond42, ptr noundef %font, i32 %retval.sroa.0.0.insert.insert.i1269, i32 %retval.sroa.0.0.insert.insert.i1298, i32 noundef 0)
+  call fastcc void @nk_edit_draw_text(ptr noundef %out, ptr noundef nonnull %style, float noundef %sub966, float noundef %sub970, float noundef 0.000000e+00, ptr noundef %retval.0.i1198, i32 noundef %retval.0.i11881386, float noundef %cond42, ptr noundef %font, i32 %retval.sroa.0.0.insert.insert.i1267, i32 %retval.sroa.0.0.insert.insert.i1296, i32 noundef 0)
   br label %if.end971
 
-if.end971:                                        ; preds = %if.end848, %if.then865, %nk_rgb_factor.exit1299
-  %tobool.not.i1300 = icmp eq ptr %out, null
-  br i1 %tobool.not.i1300, label %nk_push_scissor.exit1339, label %if.end.i1301
+if.end971:                                        ; preds = %if.end848, %if.then865, %nk_rgb_factor.exit1297
+  %tobool.not.i1298 = icmp eq ptr %out, null
+  br i1 %tobool.not.i1298, label %nk_push_scissor.exit1337, label %if.end.i1299
 
-if.end.i1301:                                     ; preds = %if.end971.thread1390, %if.end971
+if.end.i1299:                                     ; preds = %if.end971.thread1388, %if.end971
   store float %old_clip.sroa.0.0.vec.extract, ptr %clip43, align 8
-  %y3.i1305 = getelementptr inbounds i8, ptr %out, i64 12
-  store float %old_clip.sroa.0.4.vec.extract, ptr %y3.i1305, align 4
+  %y3.i1303 = getelementptr inbounds i8, ptr %out, i64 12
+  store float %old_clip.sroa.0.4.vec.extract, ptr %y3.i1303, align 4
   store float %old_clip.sroa.6.8.vec.extract, ptr %old_clip.sroa.6.0.clip43.sroa_idx, align 8
-  %h7.i1309 = getelementptr inbounds i8, ptr %out, i64 20
-  store float %old_clip.sroa.6.12.vec.extract, ptr %h7.i1309, align 4
+  %h7.i1307 = getelementptr inbounds i8, ptr %out, i64 20
+  store float %old_clip.sroa.6.12.vec.extract, ptr %h7.i1307, align 4
   %246 = load ptr, ptr %out, align 8
-  %call.i.i1310 = call fastcc ptr @nk_buffer_alloc(ptr noundef %246, i32 noundef 0, i64 noundef 24, i64 noundef 8)
-  %tobool1.not.i.i1311 = icmp eq ptr %call.i.i1310, null
-  br i1 %tobool1.not.i.i1311, label %nk_push_scissor.exit1339, label %if.end10.i1312
+  %call.i.i1308 = call fastcc ptr @nk_buffer_alloc(ptr noundef %246, i32 noundef 0, i64 noundef 24, i64 noundef 8)
+  %tobool1.not.i.i1309 = icmp eq ptr %call.i.i1308, null
+  br i1 %tobool1.not.i.i1309, label %nk_push_scissor.exit1337, label %if.end10.i1310
 
-if.end10.i1312:                                   ; preds = %if.end.i1301
+if.end10.i1310:                                   ; preds = %if.end.i1299
   %247 = load ptr, ptr %out, align 8
-  %memory5.i.i1313 = getelementptr inbounds i8, ptr %247, i64 64
-  %248 = load ptr, ptr %memory5.i.i1313, align 8
-  %sub.ptr.lhs.cast.i.i1314 = ptrtoint ptr %call.i.i1310 to i64
-  %sub.ptr.rhs.cast.i.i1315 = ptrtoint ptr %248 to i64
-  %sub.ptr.sub.i.i1316 = sub i64 %sub.ptr.lhs.cast.i.i1314, %sub.ptr.rhs.cast.i.i1315
-  %last.i.i1317 = getelementptr inbounds i8, ptr %out, i64 56
-  store i64 %sub.ptr.sub.i.i1316, ptr %last.i.i1317, align 8
-  %add.ptr.i.i1318 = getelementptr inbounds i8, ptr %call.i.i1310, i64 24
-  %add.ptr6.i.i1319 = getelementptr inbounds i8, ptr %call.i.i1310, i64 31
-  %249 = ptrtoint ptr %add.ptr6.i.i1319 to i64
-  %and.i.i1320 = and i64 %249, -8
-  %sub.ptr.rhs.cast8.i.i1321 = ptrtoint ptr %add.ptr.i.i1318 to i64
-  %sub.ptr.sub9.i.i1322 = sub i64 %and.i.i1320, %sub.ptr.rhs.cast8.i.i1321
-  store i32 1, ptr %call.i.i1310, align 8
+  %memory5.i.i1311 = getelementptr inbounds i8, ptr %247, i64 64
+  %248 = load ptr, ptr %memory5.i.i1311, align 8
+  %sub.ptr.lhs.cast.i.i1312 = ptrtoint ptr %call.i.i1308 to i64
+  %sub.ptr.rhs.cast.i.i1313 = ptrtoint ptr %248 to i64
+  %sub.ptr.sub.i.i1314 = sub i64 %sub.ptr.lhs.cast.i.i1312, %sub.ptr.rhs.cast.i.i1313
+  %last.i.i1315 = getelementptr inbounds i8, ptr %out, i64 56
+  store i64 %sub.ptr.sub.i.i1314, ptr %last.i.i1315, align 8
+  %add.ptr.i.i1316 = getelementptr inbounds i8, ptr %call.i.i1308, i64 24
+  %add.ptr6.i.i1317 = getelementptr inbounds i8, ptr %call.i.i1308, i64 31
+  %249 = ptrtoint ptr %add.ptr6.i.i1317 to i64
+  %and.i.i1318 = and i64 %249, -8
+  %sub.ptr.rhs.cast8.i.i1319 = ptrtoint ptr %add.ptr.i.i1316 to i64
+  %sub.ptr.sub9.i.i1320 = sub i64 %and.i.i1318, %sub.ptr.rhs.cast8.i.i1319
+  store i32 1, ptr %call.i.i1308, align 8
   %250 = load ptr, ptr %out, align 8
-  %allocated.i.i1323 = getelementptr inbounds i8, ptr %250, i64 88
-  %251 = load i64, ptr %allocated.i.i1323, align 8
-  %add.i.i1324 = add i64 %251, %sub.ptr.sub9.i.i1322
-  %next.i.i1325 = getelementptr inbounds i8, ptr %call.i.i1310, i64 8
-  store i64 %add.i.i1324, ptr %next.i.i1325, align 8
-  %end.i.i1326 = getelementptr inbounds i8, ptr %out, i64 48
-  store i64 %add.i.i1324, ptr %end.i.i1326, align 8
-  %conv.i1327 = fptosi float %old_clip.sroa.0.0.vec.extract to i16
-  %x12.i1328 = getelementptr inbounds i8, ptr %call.i.i1310, i64 16
-  store i16 %conv.i1327, ptr %x12.i1328, align 8
-  %conv14.i1329 = fptosi float %old_clip.sroa.0.4.vec.extract to i16
-  %y15.i1330 = getelementptr inbounds i8, ptr %call.i.i1310, i64 18
-  store i16 %conv14.i1329, ptr %y15.i1330, align 2
-  %cmp.i1331 = fcmp ogt float %old_clip.sroa.6.8.vec.extract, 0.000000e+00
-  %cond.i1332 = select i1 %cmp.i1331, float %old_clip.sroa.6.8.vec.extract, float 0.000000e+00
-  %conv19.i1333 = fptoui float %cond.i1332 to i16
-  %w20.i1334 = getelementptr inbounds i8, ptr %call.i.i1310, i64 20
-  store i16 %conv19.i1333, ptr %w20.i1334, align 4
-  %cmp22.i1335 = fcmp ogt float %old_clip.sroa.6.12.vec.extract, 0.000000e+00
-  %cond28.i1336 = select i1 %cmp22.i1335, float %old_clip.sroa.6.12.vec.extract, float 0.000000e+00
-  %conv29.i1337 = fptoui float %cond28.i1336 to i16
-  %h30.i1338 = getelementptr inbounds i8, ptr %call.i.i1310, i64 22
-  store i16 %conv29.i1337, ptr %h30.i1338, align 2
-  br label %nk_push_scissor.exit1339
+  %allocated.i.i1321 = getelementptr inbounds i8, ptr %250, i64 88
+  %251 = load i64, ptr %allocated.i.i1321, align 8
+  %add.i.i1322 = add i64 %251, %sub.ptr.sub9.i.i1320
+  %next.i.i1323 = getelementptr inbounds i8, ptr %call.i.i1308, i64 8
+  store i64 %add.i.i1322, ptr %next.i.i1323, align 8
+  %end.i.i1324 = getelementptr inbounds i8, ptr %out, i64 48
+  store i64 %add.i.i1322, ptr %end.i.i1324, align 8
+  %conv.i1325 = fptosi float %old_clip.sroa.0.0.vec.extract to i16
+  %x12.i1326 = getelementptr inbounds i8, ptr %call.i.i1308, i64 16
+  store i16 %conv.i1325, ptr %x12.i1326, align 8
+  %conv14.i1327 = fptosi float %old_clip.sroa.0.4.vec.extract to i16
+  %y15.i1328 = getelementptr inbounds i8, ptr %call.i.i1308, i64 18
+  store i16 %conv14.i1327, ptr %y15.i1328, align 2
+  %cmp.i1329 = fcmp ogt float %old_clip.sroa.6.8.vec.extract, 0.000000e+00
+  %cond.i1330 = select i1 %cmp.i1329, float %old_clip.sroa.6.8.vec.extract, float 0.000000e+00
+  %conv19.i1331 = fptoui float %cond.i1330 to i16
+  %w20.i1332 = getelementptr inbounds i8, ptr %call.i.i1308, i64 20
+  store i16 %conv19.i1331, ptr %w20.i1332, align 4
+  %cmp22.i1333 = fcmp ogt float %old_clip.sroa.6.12.vec.extract, 0.000000e+00
+  %cond28.i1334 = select i1 %cmp22.i1333, float %old_clip.sroa.6.12.vec.extract, float 0.000000e+00
+  %conv29.i1335 = fptoui float %cond28.i1334 to i16
+  %h30.i1336 = getelementptr inbounds i8, ptr %call.i.i1308, i64 22
+  store i16 %conv29.i1335, ptr %h30.i1336, align 2
+  br label %nk_push_scissor.exit1337
 
-nk_push_scissor.exit1339:                         ; preds = %if.else890, %if.end971, %if.end.i1301, %if.end10.i1312
+nk_push_scissor.exit1337:                         ; preds = %if.else890, %if.end971, %if.end.i1299, %if.end10.i1310
   ret i32 %ret.1
 }
 
@@ -69011,8 +68980,8 @@ cond.false:                                       ; preds = %entry, %entry, %ent
 
 cond.end6:                                        ; preds = %entry, %cond.false
   %cond7 = phi ptr [ %cond5, %cond.false ], [ @.str.49, %entry ]
-  %tobool.i.not = icmp eq ptr %out, null
-  br i1 %tobool.i.not, label %sw.epilog, label %if.end.i
+  %tobool.not.i = icmp eq ptr %out, null
+  br i1 %tobool.not.i, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end6
   %b.sroa.14.12.vec.extract.i = extractelement <2 x float> %content.coerce1, i64 1
@@ -69242,16 +69211,16 @@ if.else:                                          ; preds = %if.end9
   %and27 = and i32 %8, 16
   %tobool28.not = icmp eq i32 %and27, 0
   %. = select i1 %tobool28.not, i64 8216, i64 8256
-  %.227 = select i1 %tobool28.not, i64 8352, i64 8356
-  %.228 = select i1 %tobool28.not, i64 8340, i64 8344
+  %.228 = select i1 %tobool28.not, i64 8352, i64 8356
+  %.229 = select i1 %tobool28.not, i64 8340, i64 8344
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.end9
-  %.sink225 = phi i64 [ 8296, %if.end9 ], [ %., %if.else ]
-  %.sink224 = phi i64 [ 8360, %if.end9 ], [ %.227, %if.else ]
-  %.sink = phi i64 [ 8348, %if.end9 ], [ %.228, %if.else ]
-  %hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink225
-  %symbol_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink224
+  %.sink226 = phi i64 [ 8296, %if.end9 ], [ %., %if.else ]
+  %.sink225 = phi i64 [ 8360, %if.end9 ], [ %.228, %if.else ]
+  %.sink = phi i64 [ 8348, %if.end9 ], [ %.229, %if.else ]
+  %hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink226
+  %symbol_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink225
   %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink
   %symbol_color.sroa.0.0 = load i32, ptr %symbol_hover, align 4
   %text.sroa.8.0 = load i32, ptr %label_hover, align 4
@@ -69445,9 +69414,9 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit2
   %22 = load i32, ptr %last_widget_state, align 8
   %and85 = and i32 %22, 16
   %tobool86.not = icmp eq i32 %and85, 0
-  %.229 = select i1 %tobool16.not, i64 8592, i64 8584
-  %.sink226 = select i1 %tobool86.not, i64 %.229, i64 8588
-  %sym_active = getelementptr inbounds i8, ptr %ctx, i64 %.sink226
+  %.230 = select i1 %tobool16.not, i64 8592, i64 8584
+  %.sink227 = select i1 %tobool86.not, i64 %.230, i64 8588
+  %sym_active = getelementptr inbounds i8, ptr %ctx, i64 %.sink227
   %sym.0 = load i32, ptr %sym_active, align 4
   %button_padding = getelementptr inbounds i8, ptr %ctx, i64 8612
   %y = getelementptr inbounds i8, ptr %ctx, i64 8616
@@ -69555,14 +69524,14 @@ nk_draw_button_symbol.exit:                       ; preds = %sw.epilog, %if.end.
   %sub190 = fsub float %sub188, %add176
   %42 = tail call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %9)
   %43 = load ptr, ptr %style6, align 8
-  %cmp.i210 = fcmp olt float %42, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i210, float 0.000000e+00, float %42
+  %cmp.i211 = fcmp olt float %42, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i211, float 0.000000e+00, float %42
   %height.i = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load float, ptr %height.i, align 8
   %width.i = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load ptr, ptr %width.i, align 8
   %46 = load ptr, ptr %43, align 8
-  %call.i211 = tail call float %45(ptr %46, float noundef %44, ptr noundef %selected, i32 noundef %len) #52
+  %call.i212 = tail call float %45(ptr %46, float noundef %44, ptr noundef %selected, i32 noundef %len) #52
   %add35.i = fadd float %add176, 0.000000e+00
   %47 = insertelement <2 x float> poison, float %add35.i, i64 0
   %cmp41.i = fcmp ogt float %sub190, 0.000000e+00
@@ -69588,16 +69557,16 @@ lor.lhs.false2.i:                                 ; preds = %nk_draw_button_symb
   %layout.i = getelementptr inbounds i8, ptr %50, i64 168
   %51 = load ptr, ptr %layout.i, align 8
   %tobool4.not.i = icmp eq ptr %51, null
-  br i1 %tobool4.not.i, label %return, label %if.end.i212
+  br i1 %tobool4.not.i, label %return, label %if.end.i213
 
-if.end.i212:                                      ; preds = %lor.lhs.false2.i
+if.end.i213:                                      ; preds = %lor.lhs.false2.i
   %popup5.i = getelementptr inbounds i8, ptr %0, i64 288
   %52 = load ptr, ptr %popup5.i, align 8
   %53 = fadd <2 x float> %5, %7
-  %add.i213 = extractelement <2 x float> %53, i64 1
+  %add.i214 = extractelement <2 x float> %53, i64 1
   %combo_border.i = getelementptr inbounds i8, ptr %ctx, i64 9364
   %54 = load float, ptr %combo_border.i, align 4
-  %sub.i = fsub float %add.i213, %54
+  %sub.i = fsub float %add.i214, %54
   %body.sroa.0.4.vec.insert.i = insertelement <2 x float> %5, float %sub.i, i64 1
   %combo_count.i = getelementptr inbounds i8, ptr %0, i64 352
   %55 = load i32, ptr %combo_count.i, align 8
@@ -69606,11 +69575,11 @@ if.end.i212:                                      ; preds = %lor.lhs.false2.i
   %tobool13.i = icmp ne ptr %52, null
   br i1 %tobool13.i, label %land.lhs.true.i, label %land.end.i
 
-land.lhs.true.i:                                  ; preds = %if.end.i212
+land.lhs.true.i:                                  ; preds = %if.end.i213
   %name.i = getelementptr inbounds i8, ptr %0, i64 344
   %56 = load i32, ptr %name.i, align 8
-  %cmp.i214 = icmp eq i32 %56, %55
-  br i1 %cmp.i214, label %land.rhs.i, label %land.end.i
+  %cmp.i215 = icmp eq i32 %56, %55
+  br i1 %cmp.i215, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %0, i64 296
@@ -69618,8 +69587,8 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %cmp17.i = icmp eq i32 %57, 32
   br label %land.end.i
 
-land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i212
-  %58 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i212 ], [ %cmp17.i, %land.rhs.i ]
+land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i213
+  %58 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i213 ], [ %cmp17.i, %land.rhs.i ]
   %tobool24.i = xor i1 %tobool13.i, true
   %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %58
   %or.cond4.i = or i1 %tobool16.not, %tobool13.i
@@ -70065,10 +70034,10 @@ if.end9:                                          ; preds = %if.end
   %and26 = and i32 %8, 16
   %tobool27.not = icmp eq i32 %and26, 0
   %. = select i1 %tobool27.not, i64 8216, i64 8256
-  %.216 = select i1 %tobool27.not, i64 8340, i64 8344
-  %.sink214 = select i1 %tobool21.not, i64 %., i64 8296
-  %.sink = select i1 %tobool21.not, i64 %.216, i64 8348
-  %hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink214
+  %.217 = select i1 %tobool27.not, i64 8340, i64 8344
+  %.sink215 = select i1 %tobool21.not, i64 %., i64 8296
+  %.sink = select i1 %tobool21.not, i64 %.217, i64 8348
+  %hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink215
   %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink
   %text.sroa.7.0 = load i32, ptr %label_hover, align 4
   %color_factor = getelementptr inbounds i8, ptr %ctx, i64 8628
@@ -70229,9 +70198,9 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit1
   %22 = load i32, ptr %last_widget_state, align 8
   %and78 = and i32 %22, 16
   %tobool79.not = icmp eq i32 %and78, 0
-  %.217 = select i1 %tobool16.not, i64 8592, i64 8584
-  %.sink215 = select i1 %tobool79.not, i64 %.217, i64 8588
-  %sym_active = getelementptr inbounds i8, ptr %ctx, i64 %.sink215
+  %.218 = select i1 %tobool16.not, i64 8592, i64 8584
+  %.sink216 = select i1 %tobool79.not, i64 %.218, i64 8588
+  %sym_active = getelementptr inbounds i8, ptr %ctx, i64 %.sink216
   %sym.0 = load i32, ptr %sym_active, align 4
   %cmp90.not = icmp eq i32 %sym.0, 0
   %button_padding = getelementptr inbounds i8, ptr %ctx, i64 8612
@@ -70358,14 +70327,14 @@ if.end139:                                        ; preds = %nk_draw_button_symb
   %sub205 = fsub float %add.sub97, %41
   %sub207 = fsub float %sub205, %add175
   %44 = load ptr, ptr %style6, align 8
-  %cmp.i201 = fcmp olt float %43, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i201, float 0.000000e+00, float %43
+  %cmp.i202 = fcmp olt float %43, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i202, float 0.000000e+00, float %43
   %height.i = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load float, ptr %height.i, align 8
   %width.i = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %width.i, align 8
   %47 = load ptr, ptr %44, align 8
-  %call.i202 = tail call float %46(ptr %47, float noundef %45, ptr noundef %selected, i32 noundef %len) #52
+  %call.i203 = tail call float %46(ptr %47, float noundef %45, ptr noundef %selected, i32 noundef %len) #52
   %add35.i = fadd float %add175, 0.000000e+00
   %48 = insertelement <2 x float> poison, float %add35.i, i64 0
   %cmp41.i = fcmp ogt float %sub207, 0.000000e+00
@@ -70391,16 +70360,16 @@ lor.lhs.false2.i:                                 ; preds = %if.end139
   %layout.i = getelementptr inbounds i8, ptr %51, i64 168
   %52 = load ptr, ptr %layout.i, align 8
   %tobool4.not.i = icmp eq ptr %52, null
-  br i1 %tobool4.not.i, label %return, label %if.end.i203
+  br i1 %tobool4.not.i, label %return, label %if.end.i204
 
-if.end.i203:                                      ; preds = %lor.lhs.false2.i
+if.end.i204:                                      ; preds = %lor.lhs.false2.i
   %popup5.i = getelementptr inbounds i8, ptr %0, i64 288
   %53 = load ptr, ptr %popup5.i, align 8
   %54 = fadd <2 x float> %5, %7
-  %add.i204 = extractelement <2 x float> %54, i64 1
+  %add.i205 = extractelement <2 x float> %54, i64 1
   %combo_border.i = getelementptr inbounds i8, ptr %ctx, i64 9364
   %55 = load float, ptr %combo_border.i, align 4
-  %sub.i = fsub float %add.i204, %55
+  %sub.i = fsub float %add.i205, %55
   %body.sroa.0.4.vec.insert.i = insertelement <2 x float> %5, float %sub.i, i64 1
   %combo_count.i = getelementptr inbounds i8, ptr %0, i64 352
   %56 = load i32, ptr %combo_count.i, align 8
@@ -70409,11 +70378,11 @@ if.end.i203:                                      ; preds = %lor.lhs.false2.i
   %tobool13.i = icmp ne ptr %53, null
   br i1 %tobool13.i, label %land.lhs.true.i, label %land.end.i
 
-land.lhs.true.i:                                  ; preds = %if.end.i203
+land.lhs.true.i:                                  ; preds = %if.end.i204
   %name.i = getelementptr inbounds i8, ptr %0, i64 344
   %57 = load i32, ptr %name.i, align 8
-  %cmp.i205 = icmp eq i32 %57, %56
-  br i1 %cmp.i205, label %land.rhs.i, label %land.end.i
+  %cmp.i206 = icmp eq i32 %57, %56
+  br i1 %cmp.i206, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %0, i64 296
@@ -70421,8 +70390,8 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %cmp17.i = icmp eq i32 %58, 32
   br label %land.end.i
 
-land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i203
-  %59 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i203 ], [ %cmp17.i, %land.rhs.i ]
+land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i204
+  %59 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i204 ], [ %cmp17.i, %land.rhs.i ]
   %tobool24.i = xor i1 %tobool13.i, true
   %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %59
   %or.cond4.i = or i1 %tobool16.not, %tobool13.i
@@ -75964,7 +75933,7 @@ if.end4.i:                                        ; preds = %entry
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %2, %1
@@ -75988,9 +75957,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %2, -1
   %and12.i.i = and i8 %1, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %len, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %6 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %len, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %6 = and i1 %cmp859.i, %cmp960.i
   br i1 %6, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -76000,13 +75969,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i
   %8 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %9 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %9, %8
@@ -76022,13 +75991,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %9, -1
   %and12.i28.i = and i8 %8, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %7
@@ -76038,39 +76007,39 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %11, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %return, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %11, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %return, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %13, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %14
   %15 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %15, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
-  %retval.0.i = phi i32 [ %4, %if.then7.i36.i ], [ %4, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %4, %if.then7.i34.i ], [ %4, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ]
   %tobool5.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool5.not, label %return, label %while.cond.preheader
 
@@ -76176,7 +76145,7 @@ if.end4.i26:                                      ; preds = %nk_font_find_glyph.
   br label %for.body.i.i27
 
 for.body.i.i27:                                   ; preds = %for.inc.i.i33, %if.end4.i26
-  %indvars.iv.i.i28 = phi i64 [ %indvars.iv.next.i.i34, %for.inc.i.i33 ], [ 0, %if.end4.i26 ]
+  %indvars.iv.i.i28 = phi i64 [ 0, %if.end4.i26 ], [ %indvars.iv.next.i.i34, %for.inc.i.i33 ]
   %arrayidx.i.i29 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i28
   %29 = load i8, ptr %arrayidx.i.i29, align 1
   %and8.i.i30 = and i8 %29, %28
@@ -76200,9 +76169,9 @@ for.cond.preheader.i39:                           ; preds = %nk_utf_decode_byte.
   %not.i.i40 = xor i8 %29, -1
   %and12.i.i41 = and i8 %28, %not.i.i40
   %conv14.i.i42 = zext i8 %and12.i.i41 to i32
-  %cmp861.i43 = icmp sgt i32 %sub, 1
-  %cmp962.i44 = icmp ugt i64 %indvars.iv.i.i28, 1
-  %33 = and i1 %cmp861.i43, %cmp962.i44
+  %cmp859.i43 = icmp sgt i32 %sub, 1
+  %cmp960.i44 = icmp ugt i64 %indvars.iv.i.i28, 1
+  %33 = and i1 %cmp859.i43, %cmp960.i44
   br i1 %33, label %for.body.preheader.i58, label %for.end.i45
 
 for.body.preheader.i58:                           ; preds = %for.cond.preheader.i39
@@ -76212,13 +76181,13 @@ for.body.preheader.i58:                           ; preds = %for.cond.preheader.
 
 for.body.i59:                                     ; preds = %for.inc.i78, %for.body.preheader.i58
   %indvars.iv.i60 = phi i64 [ 1, %for.body.preheader.i58 ], [ %indvars.iv.next.i84, %for.inc.i78 ]
-  %udecoded.065.i61 = phi i32 [ %conv14.i.i42, %for.body.preheader.i58 ], [ %or.i83, %for.inc.i78 ]
+  %udecoded.063.i61 = phi i32 [ %conv14.i.i42, %for.body.preheader.i58 ], [ %or.i83, %for.inc.i78 ]
   %arrayidx10.i62 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i60
   %35 = load i8, ptr %arrayidx10.i62, align 1
   br label %for.body.i15.i63
 
 for.body.i15.i63:                                 ; preds = %for.inc.i21.i69, %for.body.i59
-  %indvars.iv.i16.i64 = phi i64 [ %indvars.iv.next.i22.i70, %for.inc.i21.i69 ], [ 0, %for.body.i59 ]
+  %indvars.iv.i16.i64 = phi i64 [ 0, %for.body.i59 ], [ %indvars.iv.next.i22.i70, %for.inc.i21.i69 ]
   %arrayidx.i17.i65 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i64
   %36 = load i8, ptr %arrayidx.i17.i65, align 1
   %and8.i18.i66 = and i8 %36, %35
@@ -76240,7 +76209,7 @@ for.inc.i78:                                      ; preds = %nk_utf_decode_byte.
   %not.i27.i79 = xor i8 %36, -1
   %and12.i28.i80 = and i8 %35, %not.i27.i79
   %conv14.i29.i81 = zext i8 %and12.i28.i80 to i32
-  %shl.i82 = shl i32 %udecoded.065.i61, 6
+  %shl.i82 = shl i32 %udecoded.063.i61, 6
   %or.i83 = or i32 %shl.i82, %conv14.i29.i81
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i60, 1
   %cmp8.i86 = icmp ult i64 %indvars.iv.next.i84, %34
@@ -76250,17 +76219,17 @@ for.inc.i78:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i45:                                      ; preds = %for.inc.i78, %for.cond.preheader.i39
   %udecoded.0.lcssa.i46 = phi i32 [ %conv14.i.i42, %for.cond.preheader.i39 ], [ %or.i83, %for.inc.i78 ]
-  %cmp9.lcssa.i47 = phi i1 [ %cmp962.i44, %for.cond.preheader.i39 ], [ %38, %for.inc.i78 ]
-  br i1 %cmp9.lcssa.i47, label %return, label %if.end.i.i48
+  %cmp9.lcssa.i47 = phi i1 [ %cmp960.i44, %for.cond.preheader.i39 ], [ %38, %for.inc.i78 ]
+  br i1 %cmp9.lcssa.i47, label %return, label %if.end18.i48
 
-if.end.i.i48:                                     ; preds = %for.end.i45
+if.end18.i48:                                     ; preds = %for.end.i45
   %idxprom.i.i49 = and i64 %indvars.iv.i.i28, 4294967295
   %arrayidx.i31.i50 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i49
   %40 = load i32, ptr %arrayidx.i31.i50, align 4
   %cmp.not.i.i51 = icmp ugt i32 %40, %udecoded.0.lcssa.i46
   br i1 %cmp.not.i.i51, label %return, label %land.lhs.true.i.i52
 
-land.lhs.true.i.i52:                              ; preds = %if.end.i.i48
+land.lhs.true.i.i52:                              ; preds = %if.end18.i48
   %arrayidx2.i.i53 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i49
   %41 = load i32, ptr %arrayidx2.i.i53, align 4
   %cmp3.i.i54 = icmp uge i32 %udecoded.0.lcssa.i46, %41
@@ -76278,8 +76247,8 @@ nk_utf_decode.exit88:                             ; preds = %land.lhs.true.i.i52
   %or.cond2 = select i1 %.not16, i1 true, i1 %cmp9
   br i1 %or.cond2, label %return, label %lor.lhs.false.i, !llvm.loop !252
 
-return:                                           ; preds = %for.inc.i.i, %if.end.i.i48, %land.lhs.true.i.i52, %nk_utf_decode_byte.exit.i37, %for.end.i45, %nk_font_find_glyph.exit, %nk_utf_decode.exit88, %for.inc.i.i33, %nk_utf_decode_byte.exit30.i74, %for.inc.i21.i69, %nk_utf_decode_byte.exit.i, %while.cond.preheader, %for.end.i, %nk_utf_decode.exit, %entry
-  %retval.0 = phi float [ 0.000000e+00, %entry ], [ 0.000000e+00, %nk_utf_decode.exit ], [ 0.000000e+00, %for.end.i ], [ 0.000000e+00, %while.cond.preheader ], [ 0.000000e+00, %nk_utf_decode_byte.exit.i ], [ %27, %for.inc.i21.i69 ], [ %27, %nk_utf_decode_byte.exit30.i74 ], [ %27, %for.inc.i.i33 ], [ %27, %nk_utf_decode.exit88 ], [ %27, %nk_font_find_glyph.exit ], [ %27, %for.end.i45 ], [ %27, %nk_utf_decode_byte.exit.i37 ], [ %27, %land.lhs.true.i.i52 ], [ %27, %if.end.i.i48 ], [ 0.000000e+00, %for.inc.i.i ]
+return:                                           ; preds = %for.inc.i.i, %if.end18.i48, %land.lhs.true.i.i52, %nk_utf_decode_byte.exit.i37, %for.end.i45, %nk_font_find_glyph.exit, %nk_utf_decode.exit88, %for.inc.i.i33, %nk_utf_decode_byte.exit30.i74, %for.inc.i21.i69, %nk_utf_decode_byte.exit.i, %while.cond.preheader, %for.end.i, %nk_utf_decode.exit, %entry
+  %retval.0 = phi float [ 0.000000e+00, %entry ], [ 0.000000e+00, %nk_utf_decode.exit ], [ 0.000000e+00, %for.end.i ], [ 0.000000e+00, %while.cond.preheader ], [ 0.000000e+00, %nk_utf_decode_byte.exit.i ], [ %27, %for.inc.i21.i69 ], [ %27, %nk_utf_decode_byte.exit30.i74 ], [ %27, %for.inc.i.i33 ], [ %27, %nk_utf_decode.exit88 ], [ %27, %nk_font_find_glyph.exit ], [ %27, %for.end.i45 ], [ %27, %nk_utf_decode_byte.exit.i37 ], [ %27, %land.lhs.true.i.i52 ], [ %27, %if.end18.i48 ], [ 0.000000e+00, %for.inc.i.i ]
   ret float %retval.0
 }
 
@@ -76608,21 +76577,21 @@ if.end55:                                         ; preds = %if.then16, %if.end1
   %y90 = getelementptr inbounds i8, ptr %style, i64 272
   %13 = load float, ptr %y90, align 4
   %mul91 = fmul float %13, 2.000000e+00
-  %14 = call float @llvm.fmuladd.f32(float %12, float 2.000000e+00, float %mul91)
+  %14 = tail call float @llvm.fmuladd.f32(float %12, float 2.000000e+00, float %mul91)
   %neg = fneg float %14
-  %15 = call float @llvm.fmuladd.f32(float %div, float %11, float %neg)
+  %15 = tail call float @llvm.fmuladd.f32(float %div, float %11, float %neg)
   %cmp92 = fcmp olt float %15, 0.000000e+00
   %cond103 = select i1 %cmp92, float 0.000000e+00, float %15
   %h104 = getelementptr inbounds i8, ptr %cursor, i64 12
   store float %cond103, ptr %h104, align 4
-  %16 = call float @llvm.fmuladd.f32(float %div87, float %11, float %10)
+  %16 = tail call float @llvm.fmuladd.f32(float %div87, float %11, float %10)
   %add108 = fadd float %12, %16
   %add111 = fadd float %13, %add108
   %y112 = getelementptr inbounds i8, ptr %cursor, i64 4
   store float %add111, ptr %y112, align 4
   %17 = load float, ptr %padding, align 4
   %mul117 = fmul float %17, 2.000000e+00
-  %18 = call float @llvm.fmuladd.f32(float %12, float 2.000000e+00, float %mul117)
+  %18 = tail call float @llvm.fmuladd.f32(float %12, float 2.000000e+00, float %mul117)
   %sub118 = fsub float %cond, %18
   %w119 = getelementptr inbounds i8, ptr %cursor, i64 8
   store float %sub118, ptr %w119, align 4
@@ -76654,7 +76623,7 @@ if.end55:                                         ; preds = %if.then16, %if.end1
   store float %cond171, ptr %h172, align 4
   %call173 = call fastcc float @nk_scrollbar_behavior(ptr noundef %state, ptr noundef %in, i32 noundef %has_scrolling, ptr noundef nonnull %scroll, ptr noundef nonnull %cursor, ptr noundef nonnull %empty_north, ptr noundef nonnull %empty_south, float noundef %cond85, float noundef %target, float noundef %cond62, i32 noundef 0)
   %div174 = fdiv float %call173, %target
-  %20 = call float @llvm.fmuladd.f32(float %div174, float %11, float %10)
+  %20 = tail call float @llvm.fmuladd.f32(float %div174, float %11, float %10)
   %border_cursor = getelementptr inbounds i8, ptr %style, i64 260
   %21 = load float, ptr %border_cursor, align 4
   %add177 = fadd float %21, %20
@@ -76669,7 +76638,7 @@ if.end55:                                         ; preds = %if.then16, %if.end1
 if.then183:                                       ; preds = %if.end55
   %userdata = getelementptr inbounds i8, ptr %style, i64 728
   %24 = load ptr, ptr %userdata, align 8
-  call void %23(ptr noundef %out, ptr %24) #52
+  tail call void %23(ptr noundef %out, ptr %24) #52
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then183, %if.end55
@@ -76683,7 +76652,7 @@ if.end185:                                        ; preds = %if.then183, %if.end
 if.then187:                                       ; preds = %if.end185
   %userdata189 = getelementptr inbounds i8, ptr %style, i64 728
   %27 = load ptr, ptr %userdata189, align 8
-  call void %26(ptr noundef %out, ptr %27) #52
+  tail call void %26(ptr noundef %out, ptr %27) #52
   br label %return
 
 return:                                           ; preds = %if.end185, %if.then187, %entry
@@ -77688,8 +77657,8 @@ if.end57:                                         ; preds = %if.then49, %if.else
   %25 = load <2 x float>, ptr %bounds, align 4
   %26 = getelementptr inbounds i8, ptr %bounds, i64 8
   %27 = load <2 x float>, ptr %26, align 4
-  %tobool.i.not = icmp eq ptr %out, null
-  br i1 %tobool.i.not, label %nk_widget_text.exit, label %if.end.i97
+  %tobool.not.i = icmp eq ptr %out, null
+  br i1 %tobool.not.i, label %nk_widget_text.exit, label %if.end.i97
 
 if.end.i97:                                       ; preds = %if.end57
   %b.sroa.14.12.vec.extract.i = extractelement <2 x float> %27, i64 1
@@ -79430,7 +79399,7 @@ sw.epilog:                                        ; preds = %retry, %if.then19.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef readonly %font, ptr noundef %begin, i32 noundef %byte_len, float noundef %row_height, ptr noundef writeonly %remaining, ptr noundef writeonly %out_offset, ptr nocapture noundef %glyphs) unnamed_addr #20 {
+define internal fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef readonly %font, ptr noundef %begin, i32 noundef %byte_len, float noundef %row_height, ptr nocapture noundef writeonly %remaining, ptr noundef writeonly %out_offset, ptr nocapture noundef %glyphs) unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %begin, null
   %cmp = icmp sgt i32 %byte_len, 0
@@ -79448,7 +79417,7 @@ if.end4.i:                                        ; preds = %entry
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %1, %0
@@ -79472,9 +79441,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %byte_len, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %5 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %byte_len, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %5 = and i1 %cmp859.i, %cmp960.i
   br i1 %5, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -79484,13 +79453,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %begin, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %8 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %8, %7
@@ -79506,13 +79475,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %8, -1
   %and12.i28.i = and i8 %7, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %6
@@ -79522,39 +79491,39 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %return, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %10, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %return, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %13
   %14 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %14, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
-  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i34.i ], [ %3, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ]
   %tobool5.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool5.not, label %return, label %while.body.lr.ph.preheader
 
@@ -79617,7 +79586,7 @@ if.end4.i72:                                      ; preds = %if.then23
   br label %for.body.i.i73
 
 for.body.i.i73:                                   ; preds = %for.inc.i.i79, %if.end4.i72
-  %indvars.iv.i.i74 = phi i64 [ %indvars.iv.next.i.i80, %for.inc.i.i79 ], [ 0, %if.end4.i72 ]
+  %indvars.iv.i.i74 = phi i64 [ 0, %if.end4.i72 ], [ %indvars.iv.next.i.i80, %for.inc.i.i79 ]
   %arrayidx.i.i75 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i74
   %26 = load i8, ptr %arrayidx.i.i75, align 1
   %and8.i.i76 = and i8 %26, %25
@@ -79641,9 +79610,9 @@ for.cond.preheader.i85:                           ; preds = %nk_utf_decode_byte.
   %not.i.i86 = xor i8 %26, -1
   %and12.i.i87 = and i8 %25, %not.i.i86
   %conv14.i.i88 = zext i8 %and12.i.i87 to i32
-  %cmp861.i89 = icmp sgt i64 %23, 1
-  %cmp962.i90 = icmp ugt i64 %indvars.iv.i.i74, 1
-  %30 = and i1 %cmp861.i89, %cmp962.i90
+  %cmp859.i89 = icmp sgt i64 %23, 1
+  %cmp960.i90 = icmp ugt i64 %indvars.iv.i.i74, 1
+  %30 = and i1 %cmp859.i89, %cmp960.i90
   br i1 %30, label %for.body.preheader.i104, label %for.end.i91
 
 for.body.preheader.i104:                          ; preds = %for.cond.preheader.i85
@@ -79652,13 +79621,13 @@ for.body.preheader.i104:                          ; preds = %for.cond.preheader.
 
 for.body.i105:                                    ; preds = %for.inc.i124, %for.body.preheader.i104
   %indvars.iv.i106 = phi i64 [ 1, %for.body.preheader.i104 ], [ %indvars.iv.next.i130, %for.inc.i124 ]
-  %udecoded.065.i107 = phi i32 [ %conv14.i.i88, %for.body.preheader.i104 ], [ %or.i129, %for.inc.i124 ]
+  %udecoded.063.i107 = phi i32 [ %conv14.i.i88, %for.body.preheader.i104 ], [ %or.i129, %for.inc.i124 ]
   %arrayidx10.i108 = getelementptr inbounds i8, ptr %add.ptr27, i64 %indvars.iv.i106
   %31 = load i8, ptr %arrayidx10.i108, align 1
   br label %for.body.i15.i109
 
 for.body.i15.i109:                                ; preds = %for.inc.i21.i115, %for.body.i105
-  %indvars.iv.i16.i110 = phi i64 [ %indvars.iv.next.i22.i116, %for.inc.i21.i115 ], [ 0, %for.body.i105 ]
+  %indvars.iv.i16.i110 = phi i64 [ 0, %for.body.i105 ], [ %indvars.iv.next.i22.i116, %for.inc.i21.i115 ]
   %arrayidx.i17.i111 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i110
   %32 = load i8, ptr %arrayidx.i17.i111, align 1
   %and8.i18.i112 = and i8 %32, %31
@@ -79674,13 +79643,13 @@ for.inc.i21.i115:                                 ; preds = %for.body.i15.i109
 
 nk_utf_decode_byte.exit30.i120:                   ; preds = %for.body.i15.i109
   %cmp12.not.i121 = icmp eq i64 %indvars.iv.i16.i110, 0
-  br i1 %cmp12.not.i121, label %for.inc.i124, label %return.loopexit81.i122
+  br i1 %cmp12.not.i121, label %for.inc.i124, label %return.loopexit79.i122
 
 for.inc.i124:                                     ; preds = %nk_utf_decode_byte.exit30.i120
   %not.i27.i125 = xor i8 %32, -1
   %and12.i28.i126 = and i8 %31, %not.i27.i125
   %conv14.i29.i127 = zext i8 %and12.i28.i126 to i32
-  %shl.i128 = shl i32 %udecoded.065.i107, 6
+  %shl.i128 = shl i32 %udecoded.063.i107, 6
   %or.i129 = or i32 %shl.i128, %conv14.i29.i127
   %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i106, 1
   %cmp8.i132 = icmp ult i64 %indvars.iv.next.i130, %23
@@ -79690,39 +79659,39 @@ for.inc.i124:                                     ; preds = %nk_utf_decode_byte.
 
 for.end.i91:                                      ; preds = %for.inc.i124, %for.cond.preheader.i85
   %udecoded.0.lcssa.i92 = phi i32 [ %conv14.i.i88, %for.cond.preheader.i85 ], [ %or.i129, %for.inc.i124 ]
-  %cmp9.lcssa.i93 = phi i1 [ %cmp962.i90, %for.cond.preheader.i85 ], [ %34, %for.inc.i124 ]
-  br i1 %cmp9.lcssa.i93, label %while.end, label %if.end.i.i94
+  %cmp9.lcssa.i93 = phi i1 [ %cmp960.i90, %for.cond.preheader.i85 ], [ %34, %for.inc.i124 ]
+  br i1 %cmp9.lcssa.i93, label %while.end, label %if.end18.i94
 
-if.end.i.i94:                                     ; preds = %for.end.i91
+if.end18.i94:                                     ; preds = %for.end.i91
   %idxprom.i.i95 = and i64 %indvars.iv.i.i74, 4294967295
   %arrayidx.i31.i96 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i95
   %36 = load i32, ptr %arrayidx.i31.i96, align 4
   %cmp.not.i.i97 = icmp ugt i32 %36, %udecoded.0.lcssa.i92
-  br i1 %cmp.not.i.i97, label %if.then7.i36.i103, label %land.lhs.true.i.i98
+  br i1 %cmp.not.i.i97, label %if.then7.i34.i103, label %land.lhs.true.i.i98
 
-land.lhs.true.i.i98:                              ; preds = %if.end.i.i94
+land.lhs.true.i.i98:                              ; preds = %if.end18.i94
   %arrayidx2.i.i99 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i95
   %37 = load i32, ptr %arrayidx2.i.i99, align 4
   %cmp3.i.i100 = icmp uge i32 %udecoded.0.lcssa.i92, %37
   %38 = add i32 %udecoded.0.lcssa.i92, -55296
   %or.cond.i.i101 = icmp ult i32 %38, 2047
   %or.cond11.i.i102 = or i1 %or.cond.i.i101, %cmp3.i.i100
-  br i1 %or.cond11.i.i102, label %if.then7.i36.i103, label %nk_utf_decode.exit134
+  br i1 %or.cond11.i.i102, label %if.then7.i34.i103, label %nk_utf_decode.exit134
 
-if.then7.i36.i103:                                ; preds = %land.lhs.true.i.i98, %if.end.i.i94
+if.then7.i34.i103:                                ; preds = %land.lhs.true.i.i98, %if.end18.i94
   br label %nk_utf_decode.exit134
 
 return.loopexit.i118:                             ; preds = %for.inc.i21.i115
-  %indvars78.le91.i119 = trunc i64 %indvars.iv.i106 to i32
+  %indvars76.le89.i119 = trunc i64 %indvars.iv.i106 to i32
   br label %nk_utf_decode.exit134
 
-return.loopexit81.i122:                           ; preds = %nk_utf_decode_byte.exit30.i120
-  %indvars78.le.i123 = trunc i64 %indvars.iv.i106 to i32
+return.loopexit79.i122:                           ; preds = %nk_utf_decode_byte.exit30.i120
+  %indvars76.le.i123 = trunc i64 %indvars.iv.i106 to i32
   br label %nk_utf_decode.exit134
 
-nk_utf_decode.exit134:                            ; preds = %for.inc.i.i79, %nk_utf_decode_byte.exit.i83, %land.lhs.true.i.i98, %if.then7.i36.i103, %return.loopexit.i118, %return.loopexit81.i122
-  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i103 ], [ %udecoded.0.lcssa.i92, %land.lhs.true.i.i98 ], [ 65533, %return.loopexit81.i122 ], [ 65533, %return.loopexit.i118 ], [ 65533, %nk_utf_decode_byte.exit.i83 ], [ 65533, %for.inc.i.i79 ]
-  %retval.0.i82 = phi i32 [ %28, %if.then7.i36.i103 ], [ %28, %land.lhs.true.i.i98 ], [ %indvars78.le.i123, %return.loopexit81.i122 ], [ %indvars78.le91.i119, %return.loopexit.i118 ], [ 1, %nk_utf_decode_byte.exit.i83 ], [ 1, %for.inc.i.i79 ]
+nk_utf_decode.exit134:                            ; preds = %for.inc.i.i79, %nk_utf_decode_byte.exit.i83, %land.lhs.true.i.i98, %if.then7.i34.i103, %return.loopexit.i118, %return.loopexit79.i122
+  %unicode.2 = phi i32 [ 65533, %if.then7.i34.i103 ], [ %udecoded.0.lcssa.i92, %land.lhs.true.i.i98 ], [ 65533, %return.loopexit79.i122 ], [ 65533, %return.loopexit.i118 ], [ 65533, %nk_utf_decode_byte.exit.i83 ], [ 65533, %for.inc.i.i79 ]
+  %retval.0.i82 = phi i32 [ %28, %if.then7.i34.i103 ], [ %28, %land.lhs.true.i.i98 ], [ %indvars76.le.i123, %return.loopexit79.i122 ], [ %indvars76.le89.i119, %return.loopexit.i118 ], [ 1, %nk_utf_decode_byte.exit.i83 ], [ 1, %for.inc.i.i79 ]
   %cmp9 = icmp slt i64 %indvars.iv.next, %18
   %tobool10 = icmp ne i32 %retval.0.i82, 0
   %39 = and i1 %tobool10, %cmp9
@@ -79746,7 +79715,7 @@ if.end4.i138:                                     ; preds = %if.end30
   br label %for.body.i.i139
 
 for.body.i.i139:                                  ; preds = %for.inc.i.i145, %if.end4.i138
-  %indvars.iv.i.i140 = phi i64 [ %indvars.iv.next.i.i146, %for.inc.i.i145 ], [ 0, %if.end4.i138 ]
+  %indvars.iv.i.i140 = phi i64 [ 0, %if.end4.i138 ], [ %indvars.iv.next.i.i146, %for.inc.i.i145 ]
   %arrayidx.i.i141 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i140
   %43 = load i8, ptr %arrayidx.i.i141, align 1
   %and8.i.i142 = and i8 %43, %42
@@ -79770,9 +79739,9 @@ for.cond.preheader.i151:                          ; preds = %nk_utf_decode_byte.
   %not.i.i152 = xor i8 %43, -1
   %and12.i.i153 = and i8 %42, %not.i.i152
   %conv14.i.i154 = zext i8 %and12.i.i153 to i32
-  %cmp861.i155 = icmp sgt i32 %sub36, 1
-  %cmp962.i156 = icmp ugt i64 %indvars.iv.i.i140, 1
-  %47 = and i1 %cmp861.i155, %cmp962.i156
+  %cmp859.i155 = icmp sgt i32 %sub36, 1
+  %cmp960.i156 = icmp ugt i64 %indvars.iv.i.i140, 1
+  %47 = and i1 %cmp859.i155, %cmp960.i156
   br i1 %47, label %for.body.preheader.i170, label %for.end.i157
 
 for.body.preheader.i170:                          ; preds = %for.cond.preheader.i151
@@ -79782,13 +79751,13 @@ for.body.preheader.i170:                          ; preds = %for.cond.preheader.
 
 for.body.i171:                                    ; preds = %for.inc.i190, %for.body.preheader.i170
   %indvars.iv.i172 = phi i64 [ 1, %for.body.preheader.i170 ], [ %indvars.iv.next.i196, %for.inc.i190 ]
-  %udecoded.065.i173 = phi i32 [ %conv14.i.i154, %for.body.preheader.i170 ], [ %or.i195, %for.inc.i190 ]
+  %udecoded.063.i173 = phi i32 [ %conv14.i.i154, %for.body.preheader.i170 ], [ %or.i195, %for.inc.i190 ]
   %arrayidx10.i174 = getelementptr inbounds i8, ptr %add.ptr35, i64 %indvars.iv.i172
   %49 = load i8, ptr %arrayidx10.i174, align 1
   br label %for.body.i15.i175
 
 for.body.i15.i175:                                ; preds = %for.inc.i21.i181, %for.body.i171
-  %indvars.iv.i16.i176 = phi i64 [ %indvars.iv.next.i22.i182, %for.inc.i21.i181 ], [ 0, %for.body.i171 ]
+  %indvars.iv.i16.i176 = phi i64 [ 0, %for.body.i171 ], [ %indvars.iv.next.i22.i182, %for.inc.i21.i181 ]
   %arrayidx.i17.i177 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i176
   %50 = load i8, ptr %arrayidx.i17.i177, align 1
   %and8.i18.i178 = and i8 %50, %49
@@ -79804,13 +79773,13 @@ for.inc.i21.i181:                                 ; preds = %for.body.i15.i175
 
 nk_utf_decode_byte.exit30.i186:                   ; preds = %for.body.i15.i175
   %cmp12.not.i187 = icmp eq i64 %indvars.iv.i16.i176, 0
-  br i1 %cmp12.not.i187, label %for.inc.i190, label %return.loopexit81.i188
+  br i1 %cmp12.not.i187, label %for.inc.i190, label %return.loopexit79.i188
 
 for.inc.i190:                                     ; preds = %nk_utf_decode_byte.exit30.i186
   %not.i27.i191 = xor i8 %50, -1
   %and12.i28.i192 = and i8 %49, %not.i27.i191
   %conv14.i29.i193 = zext i8 %and12.i28.i192 to i32
-  %shl.i194 = shl i32 %udecoded.065.i173, 6
+  %shl.i194 = shl i32 %udecoded.063.i173, 6
   %or.i195 = or i32 %shl.i194, %conv14.i29.i193
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i172, 1
   %cmp8.i198 = icmp ult i64 %indvars.iv.next.i196, %48
@@ -79820,39 +79789,39 @@ for.inc.i190:                                     ; preds = %nk_utf_decode_byte.
 
 for.end.i157:                                     ; preds = %for.inc.i190, %for.cond.preheader.i151
   %udecoded.0.lcssa.i158 = phi i32 [ %conv14.i.i154, %for.cond.preheader.i151 ], [ %or.i195, %for.inc.i190 ]
-  %cmp9.lcssa.i159 = phi i1 [ %cmp962.i156, %for.cond.preheader.i151 ], [ %52, %for.inc.i190 ]
-  br i1 %cmp9.lcssa.i159, label %nk_utf_decode.exit200, label %if.end.i.i160
+  %cmp9.lcssa.i159 = phi i1 [ %cmp960.i156, %for.cond.preheader.i151 ], [ %52, %for.inc.i190 ]
+  br i1 %cmp9.lcssa.i159, label %nk_utf_decode.exit200, label %if.end18.i160
 
-if.end.i.i160:                                    ; preds = %for.end.i157
+if.end18.i160:                                    ; preds = %for.end.i157
   %idxprom.i.i161 = and i64 %indvars.iv.i.i140, 4294967295
   %arrayidx.i31.i162 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i161
   %54 = load i32, ptr %arrayidx.i31.i162, align 4
   %cmp.not.i.i163 = icmp ugt i32 %54, %udecoded.0.lcssa.i158
-  br i1 %cmp.not.i.i163, label %if.then7.i36.i169, label %land.lhs.true.i.i164
+  br i1 %cmp.not.i.i163, label %if.then7.i34.i169, label %land.lhs.true.i.i164
 
-land.lhs.true.i.i164:                             ; preds = %if.end.i.i160
+land.lhs.true.i.i164:                             ; preds = %if.end18.i160
   %arrayidx2.i.i165 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i161
   %55 = load i32, ptr %arrayidx2.i.i165, align 4
   %cmp3.i.i166 = icmp uge i32 %udecoded.0.lcssa.i158, %55
   %56 = add i32 %udecoded.0.lcssa.i158, -55296
   %or.cond.i.i167 = icmp ult i32 %56, 2047
   %or.cond11.i.i168 = or i1 %or.cond.i.i167, %cmp3.i.i166
-  br i1 %or.cond11.i.i168, label %if.then7.i36.i169, label %nk_utf_decode.exit200
+  br i1 %or.cond11.i.i168, label %if.then7.i34.i169, label %nk_utf_decode.exit200
 
-if.then7.i36.i169:                                ; preds = %land.lhs.true.i.i164, %if.end.i.i160
+if.then7.i34.i169:                                ; preds = %land.lhs.true.i.i164, %if.end18.i160
   br label %nk_utf_decode.exit200
 
 return.loopexit.i184:                             ; preds = %for.inc.i21.i181
-  %indvars78.le91.i185 = trunc i64 %indvars.iv.i172 to i32
+  %indvars76.le89.i185 = trunc i64 %indvars.iv.i172 to i32
   br label %nk_utf_decode.exit200
 
-return.loopexit81.i188:                           ; preds = %nk_utf_decode_byte.exit30.i186
-  %indvars78.le.i189 = trunc i64 %indvars.iv.i172 to i32
+return.loopexit79.i188:                           ; preds = %nk_utf_decode_byte.exit30.i186
+  %indvars76.le.i189 = trunc i64 %indvars.iv.i172 to i32
   br label %nk_utf_decode.exit200
 
-nk_utf_decode.exit200:                            ; preds = %for.inc.i.i145, %if.end30, %nk_utf_decode_byte.exit.i149, %for.end.i157, %land.lhs.true.i.i164, %if.then7.i36.i169, %return.loopexit.i184, %return.loopexit81.i188
-  %unicode.3 = phi i32 [ %unicode.0244, %if.end30 ], [ 65533, %for.end.i157 ], [ 65533, %if.then7.i36.i169 ], [ %udecoded.0.lcssa.i158, %land.lhs.true.i.i164 ], [ 65533, %return.loopexit81.i188 ], [ 65533, %return.loopexit.i184 ], [ 65533, %nk_utf_decode_byte.exit.i149 ], [ 65533, %for.inc.i.i145 ]
-  %retval.0.i148 = phi i32 [ 0, %if.end30 ], [ 0, %for.end.i157 ], [ %45, %if.then7.i36.i169 ], [ %45, %land.lhs.true.i.i164 ], [ %indvars78.le.i189, %return.loopexit81.i188 ], [ %indvars78.le91.i185, %return.loopexit.i184 ], [ 1, %nk_utf_decode_byte.exit.i149 ], [ 1, %for.inc.i.i145 ]
+nk_utf_decode.exit200:                            ; preds = %for.inc.i.i145, %if.end30, %nk_utf_decode_byte.exit.i149, %for.end.i157, %land.lhs.true.i.i164, %if.then7.i34.i169, %return.loopexit.i184, %return.loopexit79.i188
+  %unicode.3 = phi i32 [ %unicode.0244, %if.end30 ], [ 65533, %for.end.i157 ], [ 65533, %if.then7.i34.i169 ], [ %udecoded.0.lcssa.i158, %land.lhs.true.i.i164 ], [ 65533, %return.loopexit79.i188 ], [ 65533, %return.loopexit.i184 ], [ 65533, %nk_utf_decode_byte.exit.i149 ], [ 65533, %for.inc.i.i145 ]
+  %retval.0.i148 = phi i32 [ 0, %if.end30 ], [ 0, %for.end.i157 ], [ %45, %if.then7.i34.i169 ], [ %45, %land.lhs.true.i.i164 ], [ %indvars76.le.i189, %return.loopexit79.i188 ], [ %indvars76.le89.i185, %return.loopexit.i184 ], [ 1, %nk_utf_decode_byte.exit.i149 ], [ 1, %for.inc.i.i145 ]
   %57 = load ptr, ptr %width, align 8
   %58 = load float, ptr %height, align 8
   %59 = load ptr, ptr %font, align 8
@@ -79887,17 +79856,13 @@ if.end55:                                         ; preds = %while.end, %if.then
   %or.cond2 = select i1 %cmp56, i1 true, i1 %cmp59
   %text_size.sroa.0.4.vec.insert38 = insertelement <2 x float> %text_size.sroa.0.2, float %.pre294, i64 1
   %text_size.sroa.0.3 = select i1 %or.cond2, <2 x float> %text_size.sroa.0.4.vec.insert38, <2 x float> %text_size.sroa.0.2
-  %tobool64.not = icmp eq ptr %remaining, null
-  br i1 %tobool64.not, label %return, label %if.then65
-
-if.then65:                                        ; preds = %if.end55
   %idx.ext66 = sext i32 %text_len.0220 to i64
   %add.ptr67 = getelementptr inbounds i8, ptr %begin, i64 %idx.ext66
   store ptr %add.ptr67, ptr %remaining, align 8
   br label %return
 
-return:                                           ; preds = %for.end.i, %if.end55, %if.then65, %nk_utf_decode.exit, %if.then
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.then ], [ zeroinitializer, %nk_utf_decode.exit ], [ %text_size.sroa.0.3, %if.then65 ], [ %text_size.sroa.0.3, %if.end55 ], [ zeroinitializer, %for.end.i ]
+return:                                           ; preds = %for.end.i, %nk_utf_decode.exit, %if.end55, %if.then
+  %retval.sroa.0.0 = phi <2 x float> [ %text_size.sroa.0.3, %if.end55 ], [ %retval.sroa.0.4.vec.insert.i, %if.then ], [ zeroinitializer, %nk_utf_decode.exit ], [ zeroinitializer, %for.end.i ]
   ret <2 x float> %retval.sroa.0.0
 }
 
@@ -79949,7 +79914,7 @@ if.end4.i:                                        ; preds = %if.end.i83, %if.end
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %and8.i.i = and i8 %2, %1
@@ -79973,9 +79938,9 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %2, -1
   %and12.i.i = and i8 %1, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %byte_len, 1
-  %cmp962.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %6 = and i1 %cmp861.i, %cmp962.i
+  %cmp859.i = icmp sgt i32 %byte_len, 1
+  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %6 = and i1 %cmp859.i, %cmp960.i
   br i1 %6, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -79985,13 +79950,13 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i
   %8 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i22.i, %for.inc.i21.i ], [ 0, %for.body.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
   %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
   %9 = load i8, ptr %arrayidx.i17.i, align 1
   %and8.i18.i = and i8 %9, %8
@@ -80007,13 +79972,13 @@ for.inc.i21.i:                                    ; preds = %for.body.i15.i
 
 nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
   %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
-  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit81.i
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit79.i
 
 for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
   %not.i27.i = xor i8 %9, -1
   %and12.i28.i = and i8 %8, %not.i27.i
   %conv14.i29.i = zext i8 %and12.i28.i to i32
-  %shl.i = shl i32 %udecoded.065.i, 6
+  %shl.i = shl i32 %udecoded.063.i, 6
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i = icmp ult i64 %indvars.iv.next.i, %7
@@ -80023,47 +79988,47 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %udecoded.0.lcssa.i = phi i32 [ %conv14.i.i, %for.cond.preheader.i ], [ %or.i, %for.inc.i ]
-  %cmp9.lcssa.i = phi i1 [ %cmp962.i, %for.cond.preheader.i ], [ %11, %for.inc.i ]
-  br i1 %cmp9.lcssa.i, label %if.end80, label %if.end.i.i
+  %cmp9.lcssa.i = phi i1 [ %cmp960.i, %for.cond.preheader.i ], [ %11, %for.inc.i ]
+  br i1 %cmp9.lcssa.i, label %if.end80, label %if.end18.i
 
-if.end.i.i:                                       ; preds = %for.end.i
+if.end18.i:                                       ; preds = %for.end.i
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %13, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
+land.lhs.true.i.i:                                ; preds = %if.end18.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i, %14
   %15 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %15, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
 
-if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
-  %indvars78.le91.i = trunc i64 %indvars.iv.i to i32
+  %indvars76.le89.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.exit30.i
-  %indvars78.le.i = trunc i64 %indvars.iv.i to i32
+return.loopexit79.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.1 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
-  %retval.0.i = phi i32 [ %4, %if.then7.i36.i ], [ %4, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit79.i
+  %unicode.1 = phi i32 [ 65533, %if.then7.i34.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit79.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %4, %if.then7.i34.i ], [ %4, %land.lhs.true.i.i ], [ %indvars76.le.i, %return.loopexit79.i ], [ %indvars76.le89.i, %return.loopexit.i ]
   %tobool14.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool14.not, label %if.end80, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %nk_utf_decode.exit
-  %retval.0.i484 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
-  %unicode.1483 = phi i32 [ %unicode.1, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
-  %cmp385399415 = icmp sgt i32 %byte_len, 0
-  br i1 %cmp385399415, label %while.body.lr.ph.lr.ph.lr.ph, label %if.end80
+  %retval.0.i483 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %unicode.1482 = phi i32 [ %unicode.1, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %cmp384398414 = icmp sgt i32 %byte_len, 0
+  br i1 %cmp384398414, label %while.body.lr.ph.lr.ph.lr.ph, label %if.end80
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %while.cond.preheader
   %width = getelementptr inbounds i8, ptr %font, i64 16
@@ -80071,82 +80036,82 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %while.cond.preheade
   %16 = insertelement <2 x float> poison, float %pos_x, i64 0
   %add23 = fadd float %pos_x, %x_offset
   %tobool25.not = icmp eq i32 %is_selected, 0
-  %tobool.i106.not = icmp eq ptr %out, null
-  %cmp.i109 = fcmp olt float %row_height, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i109, float 0.000000e+00, float %row_height
+  %tobool.not.i = icmp eq ptr %out, null
+  %cmp.i108 = fcmp olt float %row_height, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i108, float 0.000000e+00, float %row_height
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %17 = zext nneg i32 %byte_len to i64
   br label %while.body.lr.ph.lr.ph
 
-while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %nk_utf_decode.exit175
-  %glyph_len.0.ph.ph421 = phi i32 [ %retval.0.i484, %while.body.lr.ph.lr.ph.lr.ph ], [ %retval.0.i123, %nk_utf_decode.exit175 ]
-  %line_count.0.ph.ph420 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc30, %nk_utf_decode.exit175 ]
-  %line_offset.0.ph.ph419 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph.lr.ph ], [ %add33, %nk_utf_decode.exit175 ]
-  %line.0.ph.ph418 = phi ptr [ %text, %while.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr32, %nk_utf_decode.exit175 ]
-  %text_len.0.ph.ph417 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc, %nk_utf_decode.exit175 ]
-  %unicode.0.ph.ph416 = phi i32 [ %unicode.1483, %while.body.lr.ph.lr.ph.lr.ph ], [ %unicode.2, %nk_utf_decode.exit175 ]
+while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %nk_utf_decode.exit174
+  %glyph_len.0.ph.ph420 = phi i32 [ %retval.0.i483, %while.body.lr.ph.lr.ph.lr.ph ], [ %retval.0.i122, %nk_utf_decode.exit174 ]
+  %line_count.0.ph.ph419 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc30, %nk_utf_decode.exit174 ]
+  %line_offset.0.ph.ph418 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph.lr.ph ], [ %add33, %nk_utf_decode.exit174 ]
+  %line.0.ph.ph417 = phi ptr [ %text, %while.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr32, %nk_utf_decode.exit174 ]
+  %text_len.0.ph.ph416 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc, %nk_utf_decode.exit174 ]
+  %unicode.0.ph.ph415 = phi i32 [ %unicode.1482, %while.body.lr.ph.lr.ph.lr.ph ], [ %unicode.2, %nk_utf_decode.exit174 ]
   br label %while.body.lr.ph
 
-while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit307
-  %glyph_len.0.ph404 = phi i32 [ %glyph_len.0.ph.ph421, %while.body.lr.ph.lr.ph ], [ %retval.0.i255, %nk_utf_decode.exit307 ]
-  %text_len.0.ph403 = phi i32 [ %text_len.0.ph.ph417, %while.body.lr.ph.lr.ph ], [ %add52, %nk_utf_decode.exit307 ]
-  %line_width.0.ph402 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph ], [ %add51, %nk_utf_decode.exit307 ]
-  %unicode.0.ph401 = phi i32 [ %unicode.0.ph.ph416, %while.body.lr.ph.lr.ph ], [ %unicode.4, %nk_utf_decode.exit307 ]
-  %18 = sext i32 %text_len.0.ph403 to i64
+while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit306
+  %glyph_len.0.ph403 = phi i32 [ %glyph_len.0.ph.ph420, %while.body.lr.ph.lr.ph ], [ %retval.0.i254, %nk_utf_decode.exit306 ]
+  %text_len.0.ph402 = phi i32 [ %text_len.0.ph.ph416, %while.body.lr.ph.lr.ph ], [ %add52, %nk_utf_decode.exit306 ]
+  %line_width.0.ph401 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph ], [ %add51, %nk_utf_decode.exit306 ]
+  %unicode.0.ph400 = phi i32 [ %unicode.0.ph.ph415, %while.body.lr.ph.lr.ph ], [ %unicode.4, %nk_utf_decode.exit306 ]
+  %18 = sext i32 %text_len.0.ph402 to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit241
-  %indvars.iv = phi i64 [ %18, %while.body.lr.ph ], [ %indvars.iv.next, %nk_utf_decode.exit241 ]
-  %glyph_len.0389 = phi i32 [ %glyph_len.0.ph404, %while.body.lr.ph ], [ %retval.0.i189, %nk_utf_decode.exit241 ]
-  %unicode.0387 = phi i32 [ %unicode.0.ph401, %while.body.lr.ph ], [ %unicode.3, %nk_utf_decode.exit241 ]
-  switch i32 %unicode.0387, label %if.end47 [
+while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit240
+  %indvars.iv = phi i64 [ %18, %while.body.lr.ph ], [ %indvars.iv.next, %nk_utf_decode.exit240 ]
+  %glyph_len.0388 = phi i32 [ %glyph_len.0.ph403, %while.body.lr.ph ], [ %retval.0.i188, %nk_utf_decode.exit240 ]
+  %unicode.0386 = phi i32 [ %unicode.0.ph400, %while.body.lr.ph ], [ %unicode.3, %nk_utf_decode.exit240 ]
+  switch i32 %unicode.0386, label %if.end47 [
     i32 10, label %if.then19
     i32 13, label %if.then41
   ]
 
 if.then19:                                        ; preds = %while.body
   %19 = trunc nsw i64 %indvars.iv to i32
-  %add = fadd float %pos_y, %line_offset.0.ph.ph419
+  %add = fadd float %pos_y, %line_offset.0.ph.ph418
   %label.sroa.0.0.vec.insert = insertelement <2 x float> %16, float %add, i64 1
-  %tobool20.not = icmp eq i32 %line_count.0.ph.ph420, 0
+  %tobool20.not = icmp eq i32 %line_count.0.ph.ph419, 0
   %label.sroa.0.0.vec.insert14 = insertelement <2 x float> %label.sroa.0.0.vec.insert, float %add23, i64 0
   %label.sroa.0.1 = select i1 %tobool20.not, <2 x float> %label.sroa.0.0.vec.insert14, <2 x float> %label.sroa.0.0.vec.insert
   br i1 %tobool25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.then19
-  %20 = insertelement <2 x float> poison, float %line_width.0.ph402, i64 0
+  %20 = insertelement <2 x float> poison, float %line_width.0.ph401, i64 0
   %label.sroa.6.8.vec.insert = insertelement <2 x float> %20, float %row_height, i64 1
   tail call void @nk_fill_rect(ptr noundef %out, <2 x float> %label.sroa.0.1, <2 x float> %label.sroa.6.8.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i104)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.then19
-  br i1 %tobool.i106.not, label %nk_widget_text.exit, label %if.end.i107
+  br i1 %tobool.not.i, label %nk_widget_text.exit, label %if.end.i106
 
-if.end.i107:                                      ; preds = %if.end27
+if.end.i106:                                      ; preds = %if.end27
   %sext = shl i64 %indvars.iv, 32
   %idx.ext28 = ashr exact i64 %sext, 32
   %add.ptr29 = getelementptr inbounds i8, ptr %text, i64 %idx.ext28
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr29 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %line.0.ph.ph418 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %line.0.ph.ph417 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   %b.sroa.0.4.vec.extract.i = extractelement <2 x float> %label.sroa.0.1, i64 1
   %21 = load float, ptr %height, align 8
   %22 = load ptr, ptr %width, align 8
   %23 = load ptr, ptr %font, align 8
-  %call.i = tail call float %22(ptr %23, float noundef %21, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv) #52
+  %call.i = tail call float %22(ptr %23, float noundef %21, ptr noundef nonnull %line.0.ph.ph417, i32 noundef %conv) #52
   %24 = fadd float %call.i, 0.000000e+00
   %cmp57.i = fcmp ogt float %24, 1.000000e+00
   %cond64.i = select i1 %cmp57.i, float %24, float 1.000000e+00
   %b.sroa.0.0.vec.extract94.i = extractelement <2 x float> %label.sroa.0.1, i64 0
   %add69.i = fadd float %b.sroa.0.0.vec.extract94.i, 0.000000e+00
-  %sub.i = fsub float %line_width.0.ph402, %cond64.i
+  %sub.i = fsub float %line_width.0.ph401, %cond64.i
   %div.i = fmul float %sub.i, 5.000000e-01
   %add75.i = fadd float %add69.i, %div.i
   %cmp82.i = fcmp olt float %b.sroa.0.0.vec.extract94.i, %add75.i
   %cond91.i = select i1 %cmp82.i, float %add75.i, float %add69.i
   %25 = insertelement <2 x float> poison, float %cond91.i, i64 0
-  %add95.i = fadd float %line_width.0.ph402, %b.sroa.0.0.vec.extract94.i
+  %add95.i = fadd float %line_width.0.ph401, %b.sroa.0.0.vec.extract94.i
   %add98.i = fadd float %cond64.i, %cond91.i
   %cmp99.i = fcmp olt float %add95.i, %add98.i
   %cond109.i = select i1 %cmp99.i, float %add95.i, float %add98.i
@@ -80165,134 +80130,134 @@ if.end.i107:                                      ; preds = %if.end27
   %cmp179.i = fcmp olt float %div164.i, %sub178.i
   %sub178.div164.i = select i1 %cmp179.i, float %sub178.i, float %div164.i
   %label.sroa.15.12.vec.insert51.i = insertelement <2 x float> %label.sroa.15.0.i, float %sub178.div164.i, i64 1
-  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
+  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef nonnull %line.0.ph.ph417, i32 noundef %conv, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
   br label %nk_widget_text.exit
 
-nk_widget_text.exit:                              ; preds = %if.end27, %if.end.i107
+nk_widget_text.exit:                              ; preds = %if.end27, %if.end.i106
   %inc = add nsw i32 %19, 1
-  %inc30 = add nuw nsw i32 %line_count.0.ph.ph420, 1
+  %inc30 = add nuw nsw i32 %line_count.0.ph.ph419, 1
   %idx.ext31 = sext i32 %inc to i64
   %add.ptr32 = getelementptr inbounds i8, ptr %text, i64 %idx.ext31
-  %add33 = fadd float %row_height, %line_offset.0.ph.ph419
+  %add33 = fadd float %row_height, %line_offset.0.ph.ph418
   %sub36 = sub nsw i32 %byte_len, %inc
-  %tobool2.not.i111 = icmp eq i32 %byte_len, %inc
-  br i1 %tobool2.not.i111, label %if.end80, label %if.end4.i113
+  %tobool2.not.i110 = icmp eq i32 %byte_len, %inc
+  br i1 %tobool2.not.i110, label %if.end80, label %if.end4.i112
 
-if.end4.i113:                                     ; preds = %nk_widget_text.exit
+if.end4.i112:                                     ; preds = %nk_widget_text.exit
   %28 = load i8, ptr %add.ptr32, align 1
-  br label %for.body.i.i114
+  br label %for.body.i.i113
 
-for.body.i.i114:                                  ; preds = %for.inc.i.i120, %if.end4.i113
-  %indvars.iv.i.i115 = phi i64 [ %indvars.iv.next.i.i121, %for.inc.i.i120 ], [ 0, %if.end4.i113 ]
-  %arrayidx.i.i116 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i115
-  %29 = load i8, ptr %arrayidx.i.i116, align 1
-  %and8.i.i117 = and i8 %29, %28
-  %arrayidx3.i.i118 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i115
-  %30 = load i8, ptr %arrayidx3.i.i118, align 1
-  %cmp5.i.i119 = icmp eq i8 %and8.i.i117, %30
-  br i1 %cmp5.i.i119, label %nk_utf_decode_byte.exit.i124, label %for.inc.i.i120
+for.body.i.i113:                                  ; preds = %for.inc.i.i119, %if.end4.i112
+  %indvars.iv.i.i114 = phi i64 [ 0, %if.end4.i112 ], [ %indvars.iv.next.i.i120, %for.inc.i.i119 ]
+  %arrayidx.i.i115 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i114
+  %29 = load i8, ptr %arrayidx.i.i115, align 1
+  %and8.i.i116 = and i8 %29, %28
+  %arrayidx3.i.i117 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i114
+  %30 = load i8, ptr %arrayidx3.i.i117, align 1
+  %cmp5.i.i118 = icmp eq i8 %and8.i.i116, %30
+  br i1 %cmp5.i.i118, label %nk_utf_decode_byte.exit.i123, label %for.inc.i.i119
 
-for.inc.i.i120:                                   ; preds = %for.body.i.i114
-  %indvars.iv.next.i.i121 = add nuw nsw i64 %indvars.iv.i.i115, 1
-  %exitcond.not.i.i122 = icmp eq i64 %indvars.iv.next.i.i121, 5
-  br i1 %exitcond.not.i.i122, label %nk_utf_decode.exit175, label %for.body.i.i114, !llvm.loop !19
+for.inc.i.i119:                                   ; preds = %for.body.i.i113
+  %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i114, 1
+  %exitcond.not.i.i121 = icmp eq i64 %indvars.iv.next.i.i120, 5
+  br i1 %exitcond.not.i.i121, label %nk_utf_decode.exit174, label %for.body.i.i113, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i124:                     ; preds = %for.body.i.i114
-  %31 = trunc nuw nsw i64 %indvars.iv.i.i115 to i32
+nk_utf_decode_byte.exit.i123:                     ; preds = %for.body.i.i113
+  %31 = trunc nuw nsw i64 %indvars.iv.i.i114 to i32
   %32 = add i32 %31, -1
-  %or.cond1.i125 = icmp ult i32 %32, 3
-  br i1 %or.cond1.i125, label %for.cond.preheader.i126, label %nk_utf_decode.exit175
+  %or.cond1.i124 = icmp ult i32 %32, 3
+  br i1 %or.cond1.i124, label %for.cond.preheader.i125, label %nk_utf_decode.exit174
 
-for.cond.preheader.i126:                          ; preds = %nk_utf_decode_byte.exit.i124
-  %not.i.i127 = xor i8 %29, -1
-  %and12.i.i128 = and i8 %28, %not.i.i127
-  %conv14.i.i129 = zext i8 %and12.i.i128 to i32
-  %cmp861.i130 = icmp sgt i32 %sub36, 1
-  %cmp962.i131 = icmp ugt i64 %indvars.iv.i.i115, 1
-  %33 = and i1 %cmp861.i130, %cmp962.i131
-  br i1 %33, label %for.body.preheader.i145, label %for.end.i132
+for.cond.preheader.i125:                          ; preds = %nk_utf_decode_byte.exit.i123
+  %not.i.i126 = xor i8 %29, -1
+  %and12.i.i127 = and i8 %28, %not.i.i126
+  %conv14.i.i128 = zext i8 %and12.i.i127 to i32
+  %cmp859.i129 = icmp sgt i32 %sub36, 1
+  %cmp960.i130 = icmp ugt i64 %indvars.iv.i.i114, 1
+  %33 = and i1 %cmp859.i129, %cmp960.i130
+  br i1 %33, label %for.body.preheader.i144, label %for.end.i131
 
-for.body.preheader.i145:                          ; preds = %for.cond.preheader.i126
+for.body.preheader.i144:                          ; preds = %for.cond.preheader.i125
   %34 = zext nneg i32 %sub36 to i64
-  %zext478 = and i64 %indvars.iv.i.i115, 4294967295
-  br label %for.body.i146
+  %zext477 = and i64 %indvars.iv.i.i114, 4294967295
+  br label %for.body.i145
 
-for.body.i146:                                    ; preds = %for.inc.i165, %for.body.preheader.i145
-  %indvars.iv.i147 = phi i64 [ 1, %for.body.preheader.i145 ], [ %indvars.iv.next.i171, %for.inc.i165 ]
-  %udecoded.065.i148 = phi i32 [ %conv14.i.i129, %for.body.preheader.i145 ], [ %or.i170, %for.inc.i165 ]
-  %arrayidx10.i149 = getelementptr inbounds i8, ptr %add.ptr32, i64 %indvars.iv.i147
-  %35 = load i8, ptr %arrayidx10.i149, align 1
-  br label %for.body.i15.i150
+for.body.i145:                                    ; preds = %for.inc.i164, %for.body.preheader.i144
+  %indvars.iv.i146 = phi i64 [ 1, %for.body.preheader.i144 ], [ %indvars.iv.next.i170, %for.inc.i164 ]
+  %udecoded.063.i147 = phi i32 [ %conv14.i.i128, %for.body.preheader.i144 ], [ %or.i169, %for.inc.i164 ]
+  %arrayidx10.i148 = getelementptr inbounds i8, ptr %add.ptr32, i64 %indvars.iv.i146
+  %35 = load i8, ptr %arrayidx10.i148, align 1
+  br label %for.body.i15.i149
 
-for.body.i15.i150:                                ; preds = %for.inc.i21.i156, %for.body.i146
-  %indvars.iv.i16.i151 = phi i64 [ %indvars.iv.next.i22.i157, %for.inc.i21.i156 ], [ 0, %for.body.i146 ]
-  %arrayidx.i17.i152 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i151
-  %36 = load i8, ptr %arrayidx.i17.i152, align 1
-  %and8.i18.i153 = and i8 %36, %35
-  %arrayidx3.i19.i154 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i151
-  %37 = load i8, ptr %arrayidx3.i19.i154, align 1
-  %cmp5.i20.i155 = icmp eq i8 %and8.i18.i153, %37
-  br i1 %cmp5.i20.i155, label %nk_utf_decode_byte.exit30.i161, label %for.inc.i21.i156
+for.body.i15.i149:                                ; preds = %for.inc.i21.i155, %for.body.i145
+  %indvars.iv.i16.i150 = phi i64 [ 0, %for.body.i145 ], [ %indvars.iv.next.i22.i156, %for.inc.i21.i155 ]
+  %arrayidx.i17.i151 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i150
+  %36 = load i8, ptr %arrayidx.i17.i151, align 1
+  %and8.i18.i152 = and i8 %36, %35
+  %arrayidx3.i19.i153 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i150
+  %37 = load i8, ptr %arrayidx3.i19.i153, align 1
+  %cmp5.i20.i154 = icmp eq i8 %and8.i18.i152, %37
+  br i1 %cmp5.i20.i154, label %nk_utf_decode_byte.exit30.i160, label %for.inc.i21.i155
 
-for.inc.i21.i156:                                 ; preds = %for.body.i15.i150
-  %indvars.iv.next.i22.i157 = add nuw nsw i64 %indvars.iv.i16.i151, 1
-  %exitcond.not.i23.i158 = icmp eq i64 %indvars.iv.next.i22.i157, 5
-  br i1 %exitcond.not.i23.i158, label %return.loopexit.i159, label %for.body.i15.i150, !llvm.loop !19
+for.inc.i21.i155:                                 ; preds = %for.body.i15.i149
+  %indvars.iv.next.i22.i156 = add nuw nsw i64 %indvars.iv.i16.i150, 1
+  %exitcond.not.i23.i157 = icmp eq i64 %indvars.iv.next.i22.i156, 5
+  br i1 %exitcond.not.i23.i157, label %return.loopexit.i158, label %for.body.i15.i149, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i161:                   ; preds = %for.body.i15.i150
-  %cmp12.not.i162 = icmp eq i64 %indvars.iv.i16.i151, 0
-  br i1 %cmp12.not.i162, label %for.inc.i165, label %return.loopexit81.i163
+nk_utf_decode_byte.exit30.i160:                   ; preds = %for.body.i15.i149
+  %cmp12.not.i161 = icmp eq i64 %indvars.iv.i16.i150, 0
+  br i1 %cmp12.not.i161, label %for.inc.i164, label %return.loopexit79.i162
 
-for.inc.i165:                                     ; preds = %nk_utf_decode_byte.exit30.i161
-  %not.i27.i166 = xor i8 %36, -1
-  %and12.i28.i167 = and i8 %35, %not.i27.i166
-  %conv14.i29.i168 = zext i8 %and12.i28.i167 to i32
-  %shl.i169 = shl i32 %udecoded.065.i148, 6
-  %or.i170 = or i32 %shl.i169, %conv14.i29.i168
-  %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i147, 1
-  %cmp8.i173 = icmp ult i64 %indvars.iv.next.i171, %34
-  %38 = icmp ult i64 %indvars.iv.next.i171, %zext478
-  %39 = and i1 %cmp8.i173, %38
-  br i1 %39, label %for.body.i146, label %for.end.i132, !llvm.loop !20
+for.inc.i164:                                     ; preds = %nk_utf_decode_byte.exit30.i160
+  %not.i27.i165 = xor i8 %36, -1
+  %and12.i28.i166 = and i8 %35, %not.i27.i165
+  %conv14.i29.i167 = zext i8 %and12.i28.i166 to i32
+  %shl.i168 = shl i32 %udecoded.063.i147, 6
+  %or.i169 = or i32 %shl.i168, %conv14.i29.i167
+  %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i146, 1
+  %cmp8.i172 = icmp ult i64 %indvars.iv.next.i170, %34
+  %38 = icmp ult i64 %indvars.iv.next.i170, %zext477
+  %39 = and i1 %cmp8.i172, %38
+  br i1 %39, label %for.body.i145, label %for.end.i131, !llvm.loop !20
 
-for.end.i132:                                     ; preds = %for.inc.i165, %for.cond.preheader.i126
-  %udecoded.0.lcssa.i133 = phi i32 [ %conv14.i.i129, %for.cond.preheader.i126 ], [ %or.i170, %for.inc.i165 ]
-  %cmp9.lcssa.i134 = phi i1 [ %cmp962.i131, %for.cond.preheader.i126 ], [ %38, %for.inc.i165 ]
-  br i1 %cmp9.lcssa.i134, label %if.end80, label %if.end.i.i135
+for.end.i131:                                     ; preds = %for.inc.i164, %for.cond.preheader.i125
+  %udecoded.0.lcssa.i132 = phi i32 [ %conv14.i.i128, %for.cond.preheader.i125 ], [ %or.i169, %for.inc.i164 ]
+  %cmp9.lcssa.i133 = phi i1 [ %cmp960.i130, %for.cond.preheader.i125 ], [ %38, %for.inc.i164 ]
+  br i1 %cmp9.lcssa.i133, label %if.end80, label %if.end18.i134
 
-if.end.i.i135:                                    ; preds = %for.end.i132
-  %idxprom.i.i136 = and i64 %indvars.iv.i.i115, 4294967295
-  %arrayidx.i31.i137 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i136
-  %40 = load i32, ptr %arrayidx.i31.i137, align 4
-  %cmp.not.i.i138 = icmp ugt i32 %40, %udecoded.0.lcssa.i133
-  br i1 %cmp.not.i.i138, label %if.then7.i36.i144, label %land.lhs.true.i.i139
+if.end18.i134:                                    ; preds = %for.end.i131
+  %idxprom.i.i135 = and i64 %indvars.iv.i.i114, 4294967295
+  %arrayidx.i31.i136 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i135
+  %40 = load i32, ptr %arrayidx.i31.i136, align 4
+  %cmp.not.i.i137 = icmp ugt i32 %40, %udecoded.0.lcssa.i132
+  br i1 %cmp.not.i.i137, label %if.then7.i34.i143, label %land.lhs.true.i.i138
 
-land.lhs.true.i.i139:                             ; preds = %if.end.i.i135
-  %arrayidx2.i.i140 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i136
-  %41 = load i32, ptr %arrayidx2.i.i140, align 4
-  %cmp3.i.i141 = icmp uge i32 %udecoded.0.lcssa.i133, %41
-  %42 = add i32 %udecoded.0.lcssa.i133, -55296
-  %or.cond.i.i142 = icmp ult i32 %42, 2047
-  %or.cond11.i.i143 = or i1 %or.cond.i.i142, %cmp3.i.i141
-  br i1 %or.cond11.i.i143, label %if.then7.i36.i144, label %nk_utf_decode.exit175
+land.lhs.true.i.i138:                             ; preds = %if.end18.i134
+  %arrayidx2.i.i139 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i135
+  %41 = load i32, ptr %arrayidx2.i.i139, align 4
+  %cmp3.i.i140 = icmp uge i32 %udecoded.0.lcssa.i132, %41
+  %42 = add i32 %udecoded.0.lcssa.i132, -55296
+  %or.cond.i.i141 = icmp ult i32 %42, 2047
+  %or.cond11.i.i142 = or i1 %or.cond.i.i141, %cmp3.i.i140
+  br i1 %or.cond11.i.i142, label %if.then7.i34.i143, label %nk_utf_decode.exit174
 
-if.then7.i36.i144:                                ; preds = %land.lhs.true.i.i139, %if.end.i.i135
-  br label %nk_utf_decode.exit175
+if.then7.i34.i143:                                ; preds = %land.lhs.true.i.i138, %if.end18.i134
+  br label %nk_utf_decode.exit174
 
-return.loopexit.i159:                             ; preds = %for.inc.i21.i156
-  %indvars78.le91.i160 = trunc i64 %indvars.iv.i147 to i32
-  br label %nk_utf_decode.exit175
+return.loopexit.i158:                             ; preds = %for.inc.i21.i155
+  %indvars76.le89.i159 = trunc i64 %indvars.iv.i146 to i32
+  br label %nk_utf_decode.exit174
 
-return.loopexit81.i163:                           ; preds = %nk_utf_decode_byte.exit30.i161
-  %indvars78.le.i164 = trunc i64 %indvars.iv.i147 to i32
-  br label %nk_utf_decode.exit175
+return.loopexit79.i162:                           ; preds = %nk_utf_decode_byte.exit30.i160
+  %indvars76.le.i163 = trunc i64 %indvars.iv.i146 to i32
+  br label %nk_utf_decode.exit174
 
-nk_utf_decode.exit175:                            ; preds = %for.inc.i.i120, %nk_utf_decode_byte.exit.i124, %land.lhs.true.i.i139, %if.then7.i36.i144, %return.loopexit.i159, %return.loopexit81.i163
-  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i144 ], [ %udecoded.0.lcssa.i133, %land.lhs.true.i.i139 ], [ 65533, %return.loopexit81.i163 ], [ 65533, %return.loopexit.i159 ], [ 65533, %nk_utf_decode_byte.exit.i124 ], [ 65533, %for.inc.i.i120 ]
-  %retval.0.i123 = phi i32 [ %31, %if.then7.i36.i144 ], [ %31, %land.lhs.true.i.i139 ], [ %indvars78.le.i164, %return.loopexit81.i163 ], [ %indvars78.le91.i160, %return.loopexit.i159 ], [ 1, %nk_utf_decode_byte.exit.i124 ], [ 1, %for.inc.i.i120 ]
-  %cmp385399 = icmp slt i32 %inc, %byte_len
-  %tobool17386400 = icmp ne i32 %retval.0.i123, 0
-  %43 = and i1 %cmp385399, %tobool17386400
+nk_utf_decode.exit174:                            ; preds = %for.inc.i.i119, %nk_utf_decode_byte.exit.i123, %land.lhs.true.i.i138, %if.then7.i34.i143, %return.loopexit.i158, %return.loopexit79.i162
+  %unicode.2 = phi i32 [ 65533, %if.then7.i34.i143 ], [ %udecoded.0.lcssa.i132, %land.lhs.true.i.i138 ], [ 65533, %return.loopexit79.i162 ], [ 65533, %return.loopexit.i158 ], [ 65533, %nk_utf_decode_byte.exit.i123 ], [ 65533, %for.inc.i.i119 ]
+  %retval.0.i122 = phi i32 [ %31, %if.then7.i34.i143 ], [ %31, %land.lhs.true.i.i138 ], [ %indvars76.le.i163, %return.loopexit79.i162 ], [ %indvars76.le89.i159, %return.loopexit.i158 ], [ 1, %nk_utf_decode_byte.exit.i123 ], [ 1, %for.inc.i.i119 ]
+  %cmp384398 = icmp slt i32 %inc, %byte_len
+  %tobool17385399 = icmp ne i32 %retval.0.i122, 0
+  %43 = and i1 %cmp384398, %tobool17385399
   br i1 %43, label %while.body.lr.ph.lr.ph, label %if.end80, !llvm.loop !258
 
 if.then41:                                        ; preds = %while.body
@@ -80300,122 +80265,122 @@ if.then41:                                        ; preds = %while.body
   %add.ptr44 = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.next
   %44 = sub nsw i64 %17, %indvars.iv.next
   %45 = trunc nsw i64 %indvars.iv.next to i32
-  %tobool2.not.i177 = icmp eq i32 %byte_len, %45
-  br i1 %tobool2.not.i177, label %while.end, label %if.end4.i179
+  %tobool2.not.i176 = icmp eq i32 %byte_len, %45
+  br i1 %tobool2.not.i176, label %while.end, label %if.end4.i178
 
-if.end4.i179:                                     ; preds = %if.then41
+if.end4.i178:                                     ; preds = %if.then41
   %46 = load i8, ptr %add.ptr44, align 1
-  br label %for.body.i.i180
+  br label %for.body.i.i179
 
-for.body.i.i180:                                  ; preds = %for.inc.i.i186, %if.end4.i179
-  %indvars.iv.i.i181 = phi i64 [ %indvars.iv.next.i.i187, %for.inc.i.i186 ], [ 0, %if.end4.i179 ]
-  %arrayidx.i.i182 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i181
-  %47 = load i8, ptr %arrayidx.i.i182, align 1
-  %and8.i.i183 = and i8 %47, %46
-  %arrayidx3.i.i184 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i181
-  %48 = load i8, ptr %arrayidx3.i.i184, align 1
-  %cmp5.i.i185 = icmp eq i8 %and8.i.i183, %48
-  br i1 %cmp5.i.i185, label %nk_utf_decode_byte.exit.i190, label %for.inc.i.i186
+for.body.i.i179:                                  ; preds = %for.inc.i.i185, %if.end4.i178
+  %indvars.iv.i.i180 = phi i64 [ 0, %if.end4.i178 ], [ %indvars.iv.next.i.i186, %for.inc.i.i185 ]
+  %arrayidx.i.i181 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i180
+  %47 = load i8, ptr %arrayidx.i.i181, align 1
+  %and8.i.i182 = and i8 %47, %46
+  %arrayidx3.i.i183 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i180
+  %48 = load i8, ptr %arrayidx3.i.i183, align 1
+  %cmp5.i.i184 = icmp eq i8 %and8.i.i182, %48
+  br i1 %cmp5.i.i184, label %nk_utf_decode_byte.exit.i189, label %for.inc.i.i185
 
-for.inc.i.i186:                                   ; preds = %for.body.i.i180
-  %indvars.iv.next.i.i187 = add nuw nsw i64 %indvars.iv.i.i181, 1
-  %exitcond.not.i.i188 = icmp eq i64 %indvars.iv.next.i.i187, 5
-  br i1 %exitcond.not.i.i188, label %nk_utf_decode.exit241, label %for.body.i.i180, !llvm.loop !19
+for.inc.i.i185:                                   ; preds = %for.body.i.i179
+  %indvars.iv.next.i.i186 = add nuw nsw i64 %indvars.iv.i.i180, 1
+  %exitcond.not.i.i187 = icmp eq i64 %indvars.iv.next.i.i186, 5
+  br i1 %exitcond.not.i.i187, label %nk_utf_decode.exit240, label %for.body.i.i179, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i190:                     ; preds = %for.body.i.i180
-  %49 = trunc nuw nsw i64 %indvars.iv.i.i181 to i32
+nk_utf_decode_byte.exit.i189:                     ; preds = %for.body.i.i179
+  %49 = trunc nuw nsw i64 %indvars.iv.i.i180 to i32
   %50 = add i32 %49, -1
-  %or.cond1.i191 = icmp ult i32 %50, 3
-  br i1 %or.cond1.i191, label %for.cond.preheader.i192, label %nk_utf_decode.exit241
+  %or.cond1.i190 = icmp ult i32 %50, 3
+  br i1 %or.cond1.i190, label %for.cond.preheader.i191, label %nk_utf_decode.exit240
 
-for.cond.preheader.i192:                          ; preds = %nk_utf_decode_byte.exit.i190
-  %not.i.i193 = xor i8 %47, -1
-  %and12.i.i194 = and i8 %46, %not.i.i193
-  %conv14.i.i195 = zext i8 %and12.i.i194 to i32
-  %cmp861.i196 = icmp sgt i64 %44, 1
-  %cmp962.i197 = icmp ugt i64 %indvars.iv.i.i181, 1
-  %51 = and i1 %cmp861.i196, %cmp962.i197
-  br i1 %51, label %for.body.preheader.i211, label %for.end.i198
+for.cond.preheader.i191:                          ; preds = %nk_utf_decode_byte.exit.i189
+  %not.i.i192 = xor i8 %47, -1
+  %and12.i.i193 = and i8 %46, %not.i.i192
+  %conv14.i.i194 = zext i8 %and12.i.i193 to i32
+  %cmp859.i195 = icmp sgt i64 %44, 1
+  %cmp960.i196 = icmp ugt i64 %indvars.iv.i.i180, 1
+  %51 = and i1 %cmp859.i195, %cmp960.i196
+  br i1 %51, label %for.body.preheader.i210, label %for.end.i197
 
-for.body.preheader.i211:                          ; preds = %for.cond.preheader.i192
-  %zext474 = and i64 %indvars.iv.i.i181, 4294967295
-  br label %for.body.i212
+for.body.preheader.i210:                          ; preds = %for.cond.preheader.i191
+  %zext473 = and i64 %indvars.iv.i.i180, 4294967295
+  br label %for.body.i211
 
-for.body.i212:                                    ; preds = %for.inc.i231, %for.body.preheader.i211
-  %indvars.iv.i213 = phi i64 [ 1, %for.body.preheader.i211 ], [ %indvars.iv.next.i237, %for.inc.i231 ]
-  %udecoded.065.i214 = phi i32 [ %conv14.i.i195, %for.body.preheader.i211 ], [ %or.i236, %for.inc.i231 ]
-  %arrayidx10.i215 = getelementptr inbounds i8, ptr %add.ptr44, i64 %indvars.iv.i213
-  %52 = load i8, ptr %arrayidx10.i215, align 1
-  br label %for.body.i15.i216
+for.body.i211:                                    ; preds = %for.inc.i230, %for.body.preheader.i210
+  %indvars.iv.i212 = phi i64 [ 1, %for.body.preheader.i210 ], [ %indvars.iv.next.i236, %for.inc.i230 ]
+  %udecoded.063.i213 = phi i32 [ %conv14.i.i194, %for.body.preheader.i210 ], [ %or.i235, %for.inc.i230 ]
+  %arrayidx10.i214 = getelementptr inbounds i8, ptr %add.ptr44, i64 %indvars.iv.i212
+  %52 = load i8, ptr %arrayidx10.i214, align 1
+  br label %for.body.i15.i215
 
-for.body.i15.i216:                                ; preds = %for.inc.i21.i222, %for.body.i212
-  %indvars.iv.i16.i217 = phi i64 [ %indvars.iv.next.i22.i223, %for.inc.i21.i222 ], [ 0, %for.body.i212 ]
-  %arrayidx.i17.i218 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i217
-  %53 = load i8, ptr %arrayidx.i17.i218, align 1
-  %and8.i18.i219 = and i8 %53, %52
-  %arrayidx3.i19.i220 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i217
-  %54 = load i8, ptr %arrayidx3.i19.i220, align 1
-  %cmp5.i20.i221 = icmp eq i8 %and8.i18.i219, %54
-  br i1 %cmp5.i20.i221, label %nk_utf_decode_byte.exit30.i227, label %for.inc.i21.i222
+for.body.i15.i215:                                ; preds = %for.inc.i21.i221, %for.body.i211
+  %indvars.iv.i16.i216 = phi i64 [ 0, %for.body.i211 ], [ %indvars.iv.next.i22.i222, %for.inc.i21.i221 ]
+  %arrayidx.i17.i217 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i216
+  %53 = load i8, ptr %arrayidx.i17.i217, align 1
+  %and8.i18.i218 = and i8 %53, %52
+  %arrayidx3.i19.i219 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i216
+  %54 = load i8, ptr %arrayidx3.i19.i219, align 1
+  %cmp5.i20.i220 = icmp eq i8 %and8.i18.i218, %54
+  br i1 %cmp5.i20.i220, label %nk_utf_decode_byte.exit30.i226, label %for.inc.i21.i221
 
-for.inc.i21.i222:                                 ; preds = %for.body.i15.i216
-  %indvars.iv.next.i22.i223 = add nuw nsw i64 %indvars.iv.i16.i217, 1
-  %exitcond.not.i23.i224 = icmp eq i64 %indvars.iv.next.i22.i223, 5
-  br i1 %exitcond.not.i23.i224, label %return.loopexit.i225, label %for.body.i15.i216, !llvm.loop !19
+for.inc.i21.i221:                                 ; preds = %for.body.i15.i215
+  %indvars.iv.next.i22.i222 = add nuw nsw i64 %indvars.iv.i16.i216, 1
+  %exitcond.not.i23.i223 = icmp eq i64 %indvars.iv.next.i22.i222, 5
+  br i1 %exitcond.not.i23.i223, label %return.loopexit.i224, label %for.body.i15.i215, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i227:                   ; preds = %for.body.i15.i216
-  %cmp12.not.i228 = icmp eq i64 %indvars.iv.i16.i217, 0
-  br i1 %cmp12.not.i228, label %for.inc.i231, label %return.loopexit81.i229
+nk_utf_decode_byte.exit30.i226:                   ; preds = %for.body.i15.i215
+  %cmp12.not.i227 = icmp eq i64 %indvars.iv.i16.i216, 0
+  br i1 %cmp12.not.i227, label %for.inc.i230, label %return.loopexit79.i228
 
-for.inc.i231:                                     ; preds = %nk_utf_decode_byte.exit30.i227
-  %not.i27.i232 = xor i8 %53, -1
-  %and12.i28.i233 = and i8 %52, %not.i27.i232
-  %conv14.i29.i234 = zext i8 %and12.i28.i233 to i32
-  %shl.i235 = shl i32 %udecoded.065.i214, 6
-  %or.i236 = or i32 %shl.i235, %conv14.i29.i234
-  %indvars.iv.next.i237 = add nuw nsw i64 %indvars.iv.i213, 1
-  %cmp8.i239 = icmp ult i64 %indvars.iv.next.i237, %44
-  %55 = icmp ult i64 %indvars.iv.next.i237, %zext474
-  %56 = and i1 %cmp8.i239, %55
-  br i1 %56, label %for.body.i212, label %for.end.i198, !llvm.loop !20
+for.inc.i230:                                     ; preds = %nk_utf_decode_byte.exit30.i226
+  %not.i27.i231 = xor i8 %53, -1
+  %and12.i28.i232 = and i8 %52, %not.i27.i231
+  %conv14.i29.i233 = zext i8 %and12.i28.i232 to i32
+  %shl.i234 = shl i32 %udecoded.063.i213, 6
+  %or.i235 = or i32 %shl.i234, %conv14.i29.i233
+  %indvars.iv.next.i236 = add nuw nsw i64 %indvars.iv.i212, 1
+  %cmp8.i238 = icmp ult i64 %indvars.iv.next.i236, %44
+  %55 = icmp ult i64 %indvars.iv.next.i236, %zext473
+  %56 = and i1 %cmp8.i238, %55
+  br i1 %56, label %for.body.i211, label %for.end.i197, !llvm.loop !20
 
-for.end.i198:                                     ; preds = %for.inc.i231, %for.cond.preheader.i192
-  %udecoded.0.lcssa.i199 = phi i32 [ %conv14.i.i195, %for.cond.preheader.i192 ], [ %or.i236, %for.inc.i231 ]
-  %cmp9.lcssa.i200 = phi i1 [ %cmp962.i197, %for.cond.preheader.i192 ], [ %55, %for.inc.i231 ]
-  br i1 %cmp9.lcssa.i200, label %while.end, label %if.end.i.i201
+for.end.i197:                                     ; preds = %for.inc.i230, %for.cond.preheader.i191
+  %udecoded.0.lcssa.i198 = phi i32 [ %conv14.i.i194, %for.cond.preheader.i191 ], [ %or.i235, %for.inc.i230 ]
+  %cmp9.lcssa.i199 = phi i1 [ %cmp960.i196, %for.cond.preheader.i191 ], [ %55, %for.inc.i230 ]
+  br i1 %cmp9.lcssa.i199, label %while.end, label %if.end18.i200
 
-if.end.i.i201:                                    ; preds = %for.end.i198
-  %idxprom.i.i202 = and i64 %indvars.iv.i.i181, 4294967295
-  %arrayidx.i31.i203 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i202
-  %57 = load i32, ptr %arrayidx.i31.i203, align 4
-  %cmp.not.i.i204 = icmp ugt i32 %57, %udecoded.0.lcssa.i199
-  br i1 %cmp.not.i.i204, label %if.then7.i36.i210, label %land.lhs.true.i.i205
+if.end18.i200:                                    ; preds = %for.end.i197
+  %idxprom.i.i201 = and i64 %indvars.iv.i.i180, 4294967295
+  %arrayidx.i31.i202 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i201
+  %57 = load i32, ptr %arrayidx.i31.i202, align 4
+  %cmp.not.i.i203 = icmp ugt i32 %57, %udecoded.0.lcssa.i198
+  br i1 %cmp.not.i.i203, label %if.then7.i34.i209, label %land.lhs.true.i.i204
 
-land.lhs.true.i.i205:                             ; preds = %if.end.i.i201
-  %arrayidx2.i.i206 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i202
-  %58 = load i32, ptr %arrayidx2.i.i206, align 4
-  %cmp3.i.i207 = icmp uge i32 %udecoded.0.lcssa.i199, %58
-  %59 = add i32 %udecoded.0.lcssa.i199, -55296
-  %or.cond.i.i208 = icmp ult i32 %59, 2047
-  %or.cond11.i.i209 = or i1 %or.cond.i.i208, %cmp3.i.i207
-  br i1 %or.cond11.i.i209, label %if.then7.i36.i210, label %nk_utf_decode.exit241
+land.lhs.true.i.i204:                             ; preds = %if.end18.i200
+  %arrayidx2.i.i205 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i201
+  %58 = load i32, ptr %arrayidx2.i.i205, align 4
+  %cmp3.i.i206 = icmp uge i32 %udecoded.0.lcssa.i198, %58
+  %59 = add i32 %udecoded.0.lcssa.i198, -55296
+  %or.cond.i.i207 = icmp ult i32 %59, 2047
+  %or.cond11.i.i208 = or i1 %or.cond.i.i207, %cmp3.i.i206
+  br i1 %or.cond11.i.i208, label %if.then7.i34.i209, label %nk_utf_decode.exit240
 
-if.then7.i36.i210:                                ; preds = %land.lhs.true.i.i205, %if.end.i.i201
-  br label %nk_utf_decode.exit241
+if.then7.i34.i209:                                ; preds = %land.lhs.true.i.i204, %if.end18.i200
+  br label %nk_utf_decode.exit240
 
-return.loopexit.i225:                             ; preds = %for.inc.i21.i222
-  %indvars78.le91.i226 = trunc i64 %indvars.iv.i213 to i32
-  br label %nk_utf_decode.exit241
+return.loopexit.i224:                             ; preds = %for.inc.i21.i221
+  %indvars76.le89.i225 = trunc i64 %indvars.iv.i212 to i32
+  br label %nk_utf_decode.exit240
 
-return.loopexit81.i229:                           ; preds = %nk_utf_decode_byte.exit30.i227
-  %indvars78.le.i230 = trunc i64 %indvars.iv.i213 to i32
-  br label %nk_utf_decode.exit241
+return.loopexit79.i228:                           ; preds = %nk_utf_decode_byte.exit30.i226
+  %indvars76.le.i229 = trunc i64 %indvars.iv.i212 to i32
+  br label %nk_utf_decode.exit240
 
-nk_utf_decode.exit241:                            ; preds = %for.inc.i.i186, %nk_utf_decode_byte.exit.i190, %land.lhs.true.i.i205, %if.then7.i36.i210, %return.loopexit.i225, %return.loopexit81.i229
-  %unicode.3 = phi i32 [ 65533, %if.then7.i36.i210 ], [ %udecoded.0.lcssa.i199, %land.lhs.true.i.i205 ], [ 65533, %return.loopexit81.i229 ], [ 65533, %return.loopexit.i225 ], [ 65533, %nk_utf_decode_byte.exit.i190 ], [ 65533, %for.inc.i.i186 ]
-  %retval.0.i189 = phi i32 [ %49, %if.then7.i36.i210 ], [ %49, %land.lhs.true.i.i205 ], [ %indvars78.le.i230, %return.loopexit81.i229 ], [ %indvars78.le91.i226, %return.loopexit.i225 ], [ 1, %nk_utf_decode_byte.exit.i190 ], [ 1, %for.inc.i.i186 ]
+nk_utf_decode.exit240:                            ; preds = %for.inc.i.i185, %nk_utf_decode_byte.exit.i189, %land.lhs.true.i.i204, %if.then7.i34.i209, %return.loopexit.i224, %return.loopexit79.i228
+  %unicode.3 = phi i32 [ 65533, %if.then7.i34.i209 ], [ %udecoded.0.lcssa.i198, %land.lhs.true.i.i204 ], [ 65533, %return.loopexit79.i228 ], [ 65533, %return.loopexit.i224 ], [ 65533, %nk_utf_decode_byte.exit.i189 ], [ 65533, %for.inc.i.i185 ]
+  %retval.0.i188 = phi i32 [ %49, %if.then7.i34.i209 ], [ %49, %land.lhs.true.i.i204 ], [ %indvars76.le.i229, %return.loopexit79.i228 ], [ %indvars76.le89.i225, %return.loopexit.i224 ], [ 1, %nk_utf_decode_byte.exit.i189 ], [ 1, %for.inc.i.i185 ]
   %cmp = icmp slt i64 %indvars.iv.next, %17
-  %tobool17 = icmp ne i32 %retval.0.i189, 0
+  %tobool17 = icmp ne i32 %retval.0.i188, 0
   %60 = and i1 %cmp, %tobool17
   br i1 %60, label %while.body, label %while.end, !llvm.loop !258
 
@@ -80423,147 +80388,147 @@ if.end47:                                         ; preds = %while.body
   %61 = trunc nsw i64 %indvars.iv to i32
   %62 = load ptr, ptr %width, align 8
   %63 = load float, ptr %height, align 8
-  %sext479 = shl i64 %indvars.iv, 32
-  %idx.ext48 = ashr exact i64 %sext479, 32
+  %sext478 = shl i64 %indvars.iv, 32
+  %idx.ext48 = ashr exact i64 %sext478, 32
   %add.ptr49 = getelementptr inbounds i8, ptr %text, i64 %idx.ext48
   %64 = load ptr, ptr %font, align 8
-  %call50 = tail call float %62(ptr %64, float noundef %63, ptr noundef nonnull %add.ptr49, i32 noundef %glyph_len.0389) #52
-  %add51 = fadd float %line_width.0.ph402, %call50
-  %add52 = add nsw i32 %glyph_len.0389, %61
+  %call50 = tail call float %62(ptr %64, float noundef %63, ptr noundef nonnull %add.ptr49, i32 noundef %glyph_len.0388) #52
+  %add51 = fadd float %line_width.0.ph401, %call50
+  %add52 = add nsw i32 %glyph_len.0388, %61
   %idx.ext53 = sext i32 %add52 to i64
   %add.ptr54 = getelementptr inbounds i8, ptr %text, i64 %idx.ext53
   %sub55 = sub nsw i32 %byte_len, %add52
-  %tobool2.not.i243 = icmp eq i32 %byte_len, %add52
-  br i1 %tobool2.not.i243, label %while.end, label %if.end4.i245
+  %tobool2.not.i242 = icmp eq i32 %byte_len, %add52
+  br i1 %tobool2.not.i242, label %while.end, label %if.end4.i244
 
-if.end4.i245:                                     ; preds = %if.end47
+if.end4.i244:                                     ; preds = %if.end47
   %65 = load i8, ptr %add.ptr54, align 1
-  br label %for.body.i.i246
+  br label %for.body.i.i245
 
-for.body.i.i246:                                  ; preds = %for.inc.i.i252, %if.end4.i245
-  %indvars.iv.i.i247 = phi i64 [ %indvars.iv.next.i.i253, %for.inc.i.i252 ], [ 0, %if.end4.i245 ]
-  %arrayidx.i.i248 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i247
-  %66 = load i8, ptr %arrayidx.i.i248, align 1
-  %and8.i.i249 = and i8 %66, %65
-  %arrayidx3.i.i250 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i247
-  %67 = load i8, ptr %arrayidx3.i.i250, align 1
-  %cmp5.i.i251 = icmp eq i8 %and8.i.i249, %67
-  br i1 %cmp5.i.i251, label %nk_utf_decode_byte.exit.i256, label %for.inc.i.i252
+for.body.i.i245:                                  ; preds = %for.inc.i.i251, %if.end4.i244
+  %indvars.iv.i.i246 = phi i64 [ 0, %if.end4.i244 ], [ %indvars.iv.next.i.i252, %for.inc.i.i251 ]
+  %arrayidx.i.i247 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i246
+  %66 = load i8, ptr %arrayidx.i.i247, align 1
+  %and8.i.i248 = and i8 %66, %65
+  %arrayidx3.i.i249 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i246
+  %67 = load i8, ptr %arrayidx3.i.i249, align 1
+  %cmp5.i.i250 = icmp eq i8 %and8.i.i248, %67
+  br i1 %cmp5.i.i250, label %nk_utf_decode_byte.exit.i255, label %for.inc.i.i251
 
-for.inc.i.i252:                                   ; preds = %for.body.i.i246
-  %indvars.iv.next.i.i253 = add nuw nsw i64 %indvars.iv.i.i247, 1
-  %exitcond.not.i.i254 = icmp eq i64 %indvars.iv.next.i.i253, 5
-  br i1 %exitcond.not.i.i254, label %nk_utf_decode.exit307, label %for.body.i.i246, !llvm.loop !19
+for.inc.i.i251:                                   ; preds = %for.body.i.i245
+  %indvars.iv.next.i.i252 = add nuw nsw i64 %indvars.iv.i.i246, 1
+  %exitcond.not.i.i253 = icmp eq i64 %indvars.iv.next.i.i252, 5
+  br i1 %exitcond.not.i.i253, label %nk_utf_decode.exit306, label %for.body.i.i245, !llvm.loop !19
 
-nk_utf_decode_byte.exit.i256:                     ; preds = %for.body.i.i246
-  %68 = trunc nuw nsw i64 %indvars.iv.i.i247 to i32
+nk_utf_decode_byte.exit.i255:                     ; preds = %for.body.i.i245
+  %68 = trunc nuw nsw i64 %indvars.iv.i.i246 to i32
   %69 = add i32 %68, -1
-  %or.cond1.i257 = icmp ult i32 %69, 3
-  br i1 %or.cond1.i257, label %for.cond.preheader.i258, label %nk_utf_decode.exit307
+  %or.cond1.i256 = icmp ult i32 %69, 3
+  br i1 %or.cond1.i256, label %for.cond.preheader.i257, label %nk_utf_decode.exit306
 
-for.cond.preheader.i258:                          ; preds = %nk_utf_decode_byte.exit.i256
-  %not.i.i259 = xor i8 %66, -1
-  %and12.i.i260 = and i8 %65, %not.i.i259
-  %conv14.i.i261 = zext i8 %and12.i.i260 to i32
-  %cmp861.i262 = icmp sgt i32 %sub55, 1
-  %cmp962.i263 = icmp ugt i64 %indvars.iv.i.i247, 1
-  %70 = and i1 %cmp861.i262, %cmp962.i263
-  br i1 %70, label %for.body.preheader.i277, label %for.end.i264
+for.cond.preheader.i257:                          ; preds = %nk_utf_decode_byte.exit.i255
+  %not.i.i258 = xor i8 %66, -1
+  %and12.i.i259 = and i8 %65, %not.i.i258
+  %conv14.i.i260 = zext i8 %and12.i.i259 to i32
+  %cmp859.i261 = icmp sgt i32 %sub55, 1
+  %cmp960.i262 = icmp ugt i64 %indvars.iv.i.i246, 1
+  %70 = and i1 %cmp859.i261, %cmp960.i262
+  br i1 %70, label %for.body.preheader.i276, label %for.end.i263
 
-for.body.preheader.i277:                          ; preds = %for.cond.preheader.i258
+for.body.preheader.i276:                          ; preds = %for.cond.preheader.i257
   %71 = zext nneg i32 %sub55 to i64
-  %zext477 = and i64 %indvars.iv.i.i247, 4294967295
-  br label %for.body.i278
+  %zext476 = and i64 %indvars.iv.i.i246, 4294967295
+  br label %for.body.i277
 
-for.body.i278:                                    ; preds = %for.inc.i297, %for.body.preheader.i277
-  %indvars.iv.i279 = phi i64 [ 1, %for.body.preheader.i277 ], [ %indvars.iv.next.i303, %for.inc.i297 ]
-  %udecoded.065.i280 = phi i32 [ %conv14.i.i261, %for.body.preheader.i277 ], [ %or.i302, %for.inc.i297 ]
-  %arrayidx10.i281 = getelementptr inbounds i8, ptr %add.ptr54, i64 %indvars.iv.i279
-  %72 = load i8, ptr %arrayidx10.i281, align 1
-  br label %for.body.i15.i282
+for.body.i277:                                    ; preds = %for.inc.i296, %for.body.preheader.i276
+  %indvars.iv.i278 = phi i64 [ 1, %for.body.preheader.i276 ], [ %indvars.iv.next.i302, %for.inc.i296 ]
+  %udecoded.063.i279 = phi i32 [ %conv14.i.i260, %for.body.preheader.i276 ], [ %or.i301, %for.inc.i296 ]
+  %arrayidx10.i280 = getelementptr inbounds i8, ptr %add.ptr54, i64 %indvars.iv.i278
+  %72 = load i8, ptr %arrayidx10.i280, align 1
+  br label %for.body.i15.i281
 
-for.body.i15.i282:                                ; preds = %for.inc.i21.i288, %for.body.i278
-  %indvars.iv.i16.i283 = phi i64 [ %indvars.iv.next.i22.i289, %for.inc.i21.i288 ], [ 0, %for.body.i278 ]
-  %arrayidx.i17.i284 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i283
-  %73 = load i8, ptr %arrayidx.i17.i284, align 1
-  %and8.i18.i285 = and i8 %73, %72
-  %arrayidx3.i19.i286 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i283
-  %74 = load i8, ptr %arrayidx3.i19.i286, align 1
-  %cmp5.i20.i287 = icmp eq i8 %and8.i18.i285, %74
-  br i1 %cmp5.i20.i287, label %nk_utf_decode_byte.exit30.i293, label %for.inc.i21.i288
+for.body.i15.i281:                                ; preds = %for.inc.i21.i287, %for.body.i277
+  %indvars.iv.i16.i282 = phi i64 [ 0, %for.body.i277 ], [ %indvars.iv.next.i22.i288, %for.inc.i21.i287 ]
+  %arrayidx.i17.i283 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i282
+  %73 = load i8, ptr %arrayidx.i17.i283, align 1
+  %and8.i18.i284 = and i8 %73, %72
+  %arrayidx3.i19.i285 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i282
+  %74 = load i8, ptr %arrayidx3.i19.i285, align 1
+  %cmp5.i20.i286 = icmp eq i8 %and8.i18.i284, %74
+  br i1 %cmp5.i20.i286, label %nk_utf_decode_byte.exit30.i292, label %for.inc.i21.i287
 
-for.inc.i21.i288:                                 ; preds = %for.body.i15.i282
-  %indvars.iv.next.i22.i289 = add nuw nsw i64 %indvars.iv.i16.i283, 1
-  %exitcond.not.i23.i290 = icmp eq i64 %indvars.iv.next.i22.i289, 5
-  br i1 %exitcond.not.i23.i290, label %return.loopexit.i291, label %for.body.i15.i282, !llvm.loop !19
+for.inc.i21.i287:                                 ; preds = %for.body.i15.i281
+  %indvars.iv.next.i22.i288 = add nuw nsw i64 %indvars.iv.i16.i282, 1
+  %exitcond.not.i23.i289 = icmp eq i64 %indvars.iv.next.i22.i288, 5
+  br i1 %exitcond.not.i23.i289, label %return.loopexit.i290, label %for.body.i15.i281, !llvm.loop !19
 
-nk_utf_decode_byte.exit30.i293:                   ; preds = %for.body.i15.i282
-  %cmp12.not.i294 = icmp eq i64 %indvars.iv.i16.i283, 0
-  br i1 %cmp12.not.i294, label %for.inc.i297, label %return.loopexit81.i295
+nk_utf_decode_byte.exit30.i292:                   ; preds = %for.body.i15.i281
+  %cmp12.not.i293 = icmp eq i64 %indvars.iv.i16.i282, 0
+  br i1 %cmp12.not.i293, label %for.inc.i296, label %return.loopexit79.i294
 
-for.inc.i297:                                     ; preds = %nk_utf_decode_byte.exit30.i293
-  %not.i27.i298 = xor i8 %73, -1
-  %and12.i28.i299 = and i8 %72, %not.i27.i298
-  %conv14.i29.i300 = zext i8 %and12.i28.i299 to i32
-  %shl.i301 = shl i32 %udecoded.065.i280, 6
-  %or.i302 = or i32 %shl.i301, %conv14.i29.i300
-  %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i279, 1
-  %cmp8.i305 = icmp ult i64 %indvars.iv.next.i303, %71
-  %75 = icmp ult i64 %indvars.iv.next.i303, %zext477
-  %76 = and i1 %cmp8.i305, %75
-  br i1 %76, label %for.body.i278, label %for.end.i264, !llvm.loop !20
+for.inc.i296:                                     ; preds = %nk_utf_decode_byte.exit30.i292
+  %not.i27.i297 = xor i8 %73, -1
+  %and12.i28.i298 = and i8 %72, %not.i27.i297
+  %conv14.i29.i299 = zext i8 %and12.i28.i298 to i32
+  %shl.i300 = shl i32 %udecoded.063.i279, 6
+  %or.i301 = or i32 %shl.i300, %conv14.i29.i299
+  %indvars.iv.next.i302 = add nuw nsw i64 %indvars.iv.i278, 1
+  %cmp8.i304 = icmp ult i64 %indvars.iv.next.i302, %71
+  %75 = icmp ult i64 %indvars.iv.next.i302, %zext476
+  %76 = and i1 %cmp8.i304, %75
+  br i1 %76, label %for.body.i277, label %for.end.i263, !llvm.loop !20
 
-for.end.i264:                                     ; preds = %for.inc.i297, %for.cond.preheader.i258
-  %udecoded.0.lcssa.i265 = phi i32 [ %conv14.i.i261, %for.cond.preheader.i258 ], [ %or.i302, %for.inc.i297 ]
-  %cmp9.lcssa.i266 = phi i1 [ %cmp962.i263, %for.cond.preheader.i258 ], [ %75, %for.inc.i297 ]
-  br i1 %cmp9.lcssa.i266, label %while.end, label %if.end.i.i267
+for.end.i263:                                     ; preds = %for.inc.i296, %for.cond.preheader.i257
+  %udecoded.0.lcssa.i264 = phi i32 [ %conv14.i.i260, %for.cond.preheader.i257 ], [ %or.i301, %for.inc.i296 ]
+  %cmp9.lcssa.i265 = phi i1 [ %cmp960.i262, %for.cond.preheader.i257 ], [ %75, %for.inc.i296 ]
+  br i1 %cmp9.lcssa.i265, label %while.end, label %if.end18.i266
 
-if.end.i.i267:                                    ; preds = %for.end.i264
-  %idxprom.i.i268 = and i64 %indvars.iv.i.i247, 4294967295
-  %arrayidx.i31.i269 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i268
-  %77 = load i32, ptr %arrayidx.i31.i269, align 4
-  %cmp.not.i.i270 = icmp ugt i32 %77, %udecoded.0.lcssa.i265
-  br i1 %cmp.not.i.i270, label %if.then7.i36.i276, label %land.lhs.true.i.i271
+if.end18.i266:                                    ; preds = %for.end.i263
+  %idxprom.i.i267 = and i64 %indvars.iv.i.i246, 4294967295
+  %arrayidx.i31.i268 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i267
+  %77 = load i32, ptr %arrayidx.i31.i268, align 4
+  %cmp.not.i.i269 = icmp ugt i32 %77, %udecoded.0.lcssa.i264
+  br i1 %cmp.not.i.i269, label %if.then7.i34.i275, label %land.lhs.true.i.i270
 
-land.lhs.true.i.i271:                             ; preds = %if.end.i.i267
-  %arrayidx2.i.i272 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i268
-  %78 = load i32, ptr %arrayidx2.i.i272, align 4
-  %cmp3.i.i273 = icmp uge i32 %udecoded.0.lcssa.i265, %78
-  %79 = add i32 %udecoded.0.lcssa.i265, -55296
-  %or.cond.i.i274 = icmp ult i32 %79, 2047
-  %or.cond11.i.i275 = or i1 %or.cond.i.i274, %cmp3.i.i273
-  br i1 %or.cond11.i.i275, label %if.then7.i36.i276, label %nk_utf_decode.exit307
+land.lhs.true.i.i270:                             ; preds = %if.end18.i266
+  %arrayidx2.i.i271 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i267
+  %78 = load i32, ptr %arrayidx2.i.i271, align 4
+  %cmp3.i.i272 = icmp uge i32 %udecoded.0.lcssa.i264, %78
+  %79 = add i32 %udecoded.0.lcssa.i264, -55296
+  %or.cond.i.i273 = icmp ult i32 %79, 2047
+  %or.cond11.i.i274 = or i1 %or.cond.i.i273, %cmp3.i.i272
+  br i1 %or.cond11.i.i274, label %if.then7.i34.i275, label %nk_utf_decode.exit306
 
-if.then7.i36.i276:                                ; preds = %land.lhs.true.i.i271, %if.end.i.i267
-  br label %nk_utf_decode.exit307
+if.then7.i34.i275:                                ; preds = %land.lhs.true.i.i270, %if.end18.i266
+  br label %nk_utf_decode.exit306
 
-return.loopexit.i291:                             ; preds = %for.inc.i21.i288
-  %indvars78.le91.i292 = trunc i64 %indvars.iv.i279 to i32
-  br label %nk_utf_decode.exit307
+return.loopexit.i290:                             ; preds = %for.inc.i21.i287
+  %indvars76.le89.i291 = trunc i64 %indvars.iv.i278 to i32
+  br label %nk_utf_decode.exit306
 
-return.loopexit81.i295:                           ; preds = %nk_utf_decode_byte.exit30.i293
-  %indvars78.le.i296 = trunc i64 %indvars.iv.i279 to i32
-  br label %nk_utf_decode.exit307
+return.loopexit79.i294:                           ; preds = %nk_utf_decode_byte.exit30.i292
+  %indvars76.le.i295 = trunc i64 %indvars.iv.i278 to i32
+  br label %nk_utf_decode.exit306
 
-nk_utf_decode.exit307:                            ; preds = %for.inc.i.i252, %nk_utf_decode_byte.exit.i256, %land.lhs.true.i.i271, %if.then7.i36.i276, %return.loopexit.i291, %return.loopexit81.i295
-  %unicode.4 = phi i32 [ 65533, %if.then7.i36.i276 ], [ %udecoded.0.lcssa.i265, %land.lhs.true.i.i271 ], [ 65533, %return.loopexit81.i295 ], [ 65533, %return.loopexit.i291 ], [ 65533, %nk_utf_decode_byte.exit.i256 ], [ 65533, %for.inc.i.i252 ]
-  %retval.0.i255 = phi i32 [ %68, %if.then7.i36.i276 ], [ %68, %land.lhs.true.i.i271 ], [ %indvars78.le.i296, %return.loopexit81.i295 ], [ %indvars78.le91.i292, %return.loopexit.i291 ], [ 1, %nk_utf_decode_byte.exit.i256 ], [ 1, %for.inc.i.i252 ]
-  %cmp385 = icmp slt i32 %add52, %byte_len
-  %tobool17386 = icmp ne i32 %retval.0.i255, 0
-  %80 = and i1 %cmp385, %tobool17386
+nk_utf_decode.exit306:                            ; preds = %for.inc.i.i251, %nk_utf_decode_byte.exit.i255, %land.lhs.true.i.i270, %if.then7.i34.i275, %return.loopexit.i290, %return.loopexit79.i294
+  %unicode.4 = phi i32 [ 65533, %if.then7.i34.i275 ], [ %udecoded.0.lcssa.i264, %land.lhs.true.i.i270 ], [ 65533, %return.loopexit79.i294 ], [ 65533, %return.loopexit.i290 ], [ 65533, %nk_utf_decode_byte.exit.i255 ], [ 65533, %for.inc.i.i251 ]
+  %retval.0.i254 = phi i32 [ %68, %if.then7.i34.i275 ], [ %68, %land.lhs.true.i.i270 ], [ %indvars76.le.i295, %return.loopexit79.i294 ], [ %indvars76.le89.i291, %return.loopexit.i290 ], [ 1, %nk_utf_decode_byte.exit.i255 ], [ 1, %for.inc.i.i251 ]
+  %cmp384 = icmp slt i32 %add52, %byte_len
+  %tobool17385 = icmp ne i32 %retval.0.i254, 0
+  %80 = and i1 %cmp384, %tobool17385
   br i1 %80, label %while.body.lr.ph, label %while.end, !llvm.loop !258
 
-while.end:                                        ; preds = %for.end.i264, %if.end47, %nk_utf_decode.exit307, %for.end.i198, %if.then41, %nk_utf_decode.exit241
-  %line_width.0.ph.lcssa368 = phi float [ %line_width.0.ph402, %nk_utf_decode.exit241 ], [ %line_width.0.ph402, %if.then41 ], [ %line_width.0.ph402, %for.end.i198 ], [ %add51, %nk_utf_decode.exit307 ], [ %add51, %if.end47 ], [ %add51, %for.end.i264 ]
-  %text_len.0.lcssa = phi i32 [ %45, %nk_utf_decode.exit241 ], [ %45, %if.then41 ], [ %45, %for.end.i198 ], [ %add52, %nk_utf_decode.exit307 ], [ %add52, %if.end47 ], [ %add52, %for.end.i264 ]
-  %cmp57 = fcmp ogt float %line_width.0.ph.lcssa368, 0.000000e+00
+while.end:                                        ; preds = %for.end.i263, %if.end47, %nk_utf_decode.exit306, %for.end.i197, %if.then41, %nk_utf_decode.exit240
+  %line_width.0.ph.lcssa367 = phi float [ %line_width.0.ph401, %nk_utf_decode.exit240 ], [ %line_width.0.ph401, %if.then41 ], [ %line_width.0.ph401, %for.end.i197 ], [ %add51, %nk_utf_decode.exit306 ], [ %add51, %if.end47 ], [ %add51, %for.end.i263 ]
+  %text_len.0.lcssa = phi i32 [ %45, %nk_utf_decode.exit240 ], [ %45, %if.then41 ], [ %45, %for.end.i197 ], [ %add52, %nk_utf_decode.exit306 ], [ %add52, %if.end47 ], [ %add52, %for.end.i263 ]
+  %cmp57 = fcmp ogt float %line_width.0.ph.lcssa367, 0.000000e+00
   br i1 %cmp57, label %if.then59, label %if.end80
 
 if.then59:                                        ; preds = %while.end
-  %add61 = fadd float %pos_y, %line_offset.0.ph.ph419
+  %add61 = fadd float %pos_y, %line_offset.0.ph.ph418
   %81 = insertelement <2 x float> poison, float %pos_x, i64 0
   %label60.sroa.0.0.vec.insert = insertelement <2 x float> %81, float %add61, i64 1
-  %tobool66.not = icmp eq i32 %line_count.0.ph.ph420, 0
+  %tobool66.not = icmp eq i32 %line_count.0.ph.ph419, 0
   %add69 = fadd float %pos_x, %x_offset
   %label60.sroa.0.0.vec.insert7 = insertelement <2 x float> %label60.sroa.0.0.vec.insert, float %add69, i64 0
   %label60.sroa.0.0 = select i1 %tobool66.not, <2 x float> %label60.sroa.0.0.vec.insert7, <2 x float> %label60.sroa.0.0.vec.insert
@@ -80571,50 +80536,50 @@ if.then59:                                        ; preds = %while.end
   br i1 %tobool71.not, label %if.end73, label %if.then72
 
 if.then72:                                        ; preds = %if.then59
-  %82 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa368, i64 0
+  %82 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa367, i64 0
   %label60.sroa.6.8.vec.insert = insertelement <2 x float> %82, float %row_height, i64 1
   tail call void @nk_fill_rect(ptr noundef %out, <2 x float> %label60.sroa.0.0, <2 x float> %label60.sroa.6.8.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i104)
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then72, %if.then59
-  %tobool.i308.not = icmp eq ptr %out, null
-  br i1 %tobool.i308.not, label %if.end80, label %if.end.i309
+  %tobool.not.i307 = icmp eq ptr %out, null
+  br i1 %tobool.not.i307, label %if.end80, label %if.end.i308
 
-if.end.i309:                                      ; preds = %if.end73
+if.end.i308:                                      ; preds = %if.end73
   %idx.ext74 = sext i32 %text_len.0.lcssa to i64
   %add.ptr75 = getelementptr inbounds i8, ptr %text, i64 %idx.ext74
   %sub.ptr.lhs.cast76 = ptrtoint ptr %add.ptr75 to i64
-  %sub.ptr.rhs.cast77 = ptrtoint ptr %line.0.ph.ph418 to i64
+  %sub.ptr.rhs.cast77 = ptrtoint ptr %line.0.ph.ph417 to i64
   %sub.ptr.sub78 = sub i64 %sub.ptr.lhs.cast76, %sub.ptr.rhs.cast77
   %conv79 = trunc i64 %sub.ptr.sub78 to i32
-  %cmp.i312 = fcmp olt float %row_height, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i313 = select i1 %cmp.i312, float 0.000000e+00, float %row_height
-  %b.sroa.0.4.vec.extract.i314 = extractelement <2 x float> %label60.sroa.0.0, i64 1
-  %height.i317 = getelementptr inbounds i8, ptr %font, i64 8
-  %83 = load float, ptr %height.i317, align 8
-  %width.i321 = getelementptr inbounds i8, ptr %font, i64 16
-  %84 = load ptr, ptr %width.i321, align 8
+  %cmp.i311 = fcmp olt float %row_height, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i312 = select i1 %cmp.i311, float 0.000000e+00, float %row_height
+  %b.sroa.0.4.vec.extract.i313 = extractelement <2 x float> %label60.sroa.0.0, i64 1
+  %height.i316 = getelementptr inbounds i8, ptr %font, i64 8
+  %83 = load float, ptr %height.i316, align 8
+  %width.i320 = getelementptr inbounds i8, ptr %font, i64 16
+  %84 = load ptr, ptr %width.i320, align 8
   %85 = load ptr, ptr %font, align 8
-  %call.i322 = tail call float %84(ptr %85, float noundef %83, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv79) #52
+  %call.i321 = tail call float %84(ptr %85, float noundef %83, ptr noundef nonnull %line.0.ph.ph417, i32 noundef %conv79) #52
   %b.sroa.0.0.vec.extract.i = extractelement <2 x float> %label60.sroa.0.0, i64 0
   %add35.i = fadd float %b.sroa.0.0.vec.extract.i, 0.000000e+00
   %86 = insertelement <2 x float> poison, float %add35.i, i64 0
-  %87 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa368, i64 0
-  %div164.i325 = fmul float %mul.b.sroa.14.12.vec.extract.i313, 5.000000e-01
-  %add165.i326 = fadd float %div164.i325, %b.sroa.0.4.vec.extract.i314
-  %88 = load float, ptr %height.i317, align 8
-  %div167.i327 = fmul float %88, 5.000000e-01
-  %sub168.i328 = fsub float %add165.i326, %div167.i327
-  %label.sroa.0.4.vec.insert27.i329 = insertelement <2 x float> %86, float %sub168.i328, i64 1
-  %add177.i330 = fadd float %div164.i325, %div167.i327
-  %sub178.i331 = fsub float %mul.b.sroa.14.12.vec.extract.i313, %add177.i330
-  %cmp179.i332 = fcmp olt float %div164.i325, %sub178.i331
-  %sub178.div164.i333 = select i1 %cmp179.i332, float %sub178.i331, float %div164.i325
-  %label.sroa.15.12.vec.insert51.i334 = insertelement <2 x float> %87, float %sub178.div164.i333, i64 1
-  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i329, <2 x float> %label.sroa.15.12.vec.insert51.i334, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv79, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
+  %87 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa367, i64 0
+  %div164.i324 = fmul float %mul.b.sroa.14.12.vec.extract.i312, 5.000000e-01
+  %add165.i325 = fadd float %div164.i324, %b.sroa.0.4.vec.extract.i313
+  %88 = load float, ptr %height.i316, align 8
+  %div167.i326 = fmul float %88, 5.000000e-01
+  %sub168.i327 = fsub float %add165.i325, %div167.i326
+  %label.sroa.0.4.vec.insert27.i328 = insertelement <2 x float> %86, float %sub168.i327, i64 1
+  %add177.i329 = fadd float %div164.i324, %div167.i326
+  %sub178.i330 = fsub float %mul.b.sroa.14.12.vec.extract.i312, %add177.i329
+  %cmp179.i331 = fcmp olt float %div164.i324, %sub178.i330
+  %sub178.div164.i332 = select i1 %cmp179.i331, float %sub178.i330, float %div164.i324
+  %label.sroa.15.12.vec.insert51.i333 = insertelement <2 x float> %87, float %sub178.div164.i332, i64 1
+  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i328, <2 x float> %label.sroa.15.12.vec.insert51.i333, ptr noundef nonnull %line.0.ph.ph417, i32 noundef %conv79, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
   br label %if.end80
 
-if.end80:                                         ; preds = %for.end.i132, %nk_widget_text.exit, %nk_utf_decode.exit175, %while.cond.preheader, %for.end.i, %if.end.i309, %if.end73, %nk_utf_decode.exit, %entry, %while.end
+if.end80:                                         ; preds = %for.end.i131, %nk_widget_text.exit, %nk_utf_decode.exit174, %while.cond.preheader, %for.end.i, %if.end.i308, %if.end73, %nk_utf_decode.exit, %entry, %while.end
   ret void
 }
 
@@ -81193,19 +81158,15 @@ for.end32:                                        ; preds = %for.body, %for.end,
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @nk_dtoa(ptr noundef returned %s, double noundef %n) unnamed_addr #46 {
 entry:
-  %tobool.not = icmp eq ptr %s, null
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
   %cmp = fcmp oeq double %n, 0.000000e+00
   br i1 %cmp, label %if.then1, label %if.end3
 
-if.then1:                                         ; preds = %if.end
+if.then1:                                         ; preds = %entry
   store i8 48, ptr %s, align 1
   %arrayidx2 = getelementptr inbounds i8, ptr %s, i64 1
-  br label %return.sink.split
+  br label %return
 
-if.end3:                                          ; preds = %if.end
+if.end3:                                          ; preds = %entry
   %cmp4 = fcmp olt double %n, 0.000000e+00
   %fneg = fneg double %n
   %n.addr.0 = select i1 %cmp4, double %fneg, double %n
@@ -81349,7 +81310,7 @@ if.end58:                                         ; preds = %if.then56, %if.end5
   br i1 %6, label %while.body, label %while.end, !llvm.loop !266
 
 while.end:                                        ; preds = %if.end58
-  br i1 %spec.select68, label %if.then60, label %return.sink.split
+  br i1 %spec.select68, label %if.then60, label %return
 
 if.then60:                                        ; preds = %while.end
   %incdec.ptr61 = getelementptr inbounds i8, ptr %c.3, i64 1
@@ -81367,7 +81328,7 @@ if.end68:                                         ; preds = %if.then60
   store i8 45, ptr %incdec.ptr61, align 1
   %c.5 = getelementptr inbounds i8, ptr %c.3, i64 2
   %cmp70105.not = icmp eq i32 %m1.096, 0
-  br i1 %cmp70105.not, label %return.sink.split, label %while.body72.preheader
+  br i1 %cmp70105.not, label %return, label %while.body72.preheader
 
 while.body72.preheader:                           ; preds = %if.end68.thread, %if.end68
   %c.6108.ph = phi ptr [ %c.5, %if.end68 ], [ %c.5121, %if.end68.thread ]
@@ -81393,7 +81354,7 @@ while.end79:                                      ; preds = %while.body72
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr77, i64 %idx.neg
   %cmp81111.not = icmp eq i32 %m.4106, 0
-  br i1 %cmp81111.not, label %return.sink.split, label %for.body.preheader
+  br i1 %cmp81111.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.end79
   %8 = zext nneg i32 %m.4106 to i64
@@ -81417,14 +81378,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp81 = icmp slt i64 %indvars.iv.next115, %indvars.iv.next
-  br i1 %cmp81, label %for.body, label %return.sink.split, !llvm.loop !268
+  br i1 %cmp81, label %for.body, label %return, !llvm.loop !268
 
-return.sink.split:                                ; preds = %for.body, %while.end, %while.end79, %if.end68, %if.then1
+return:                                           ; preds = %for.body, %while.end, %while.end79, %if.end68, %if.then1
   %c.4.sink = phi ptr [ %arrayidx2, %if.then1 ], [ %c.3, %while.end ], [ %incdec.ptr77, %while.end79 ], [ %c.5, %if.end68 ], [ %incdec.ptr77, %for.body ]
   store i8 0, ptr %c.4.sink, align 1
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %entry
   ret ptr %s
 }
 

@@ -1969,10 +1969,8 @@ if.else.i.i.i16:                                  ; preds = %if.end
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %queue.sroa.26.1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %tobool.i.i.i = icmp ne ptr %queue.sroa.48.1, null
-  %conv.neg.i.i.i = sext i1 %tobool.i.i.i to i64
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
-  %mul.i.i.i = shl nsw i64 %sub.i.i.i, 6
+  %sub.i.i.i = shl i64 %sub.ptr.sub.i.i.i, 3
+  %mul.i.i.i = add i64 %sub.i.i.i, -64
   %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %queue.sroa.32.1 to i64
   %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %queue.sroa.40.1 to i64
   %sub.ptr.sub5.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
@@ -2117,16 +2115,12 @@ for.inc:                                          ; preds = %_ZNSt5dequeIPN4mold
 
 do.cond:                                          ; preds = %for.inc
   %cmp.i.i.i = icmp eq ptr %queue.sroa.32.2, %storemerge.i.i
-  br i1 %cmp.i.i.i, label %do.end, label %do.body, !llvm.loop !29
+  br i1 %cmp.i.i.i, label %if.then.i.i.i19, label %do.body, !llvm.loop !29
 
-do.end:                                           ; preds = %do.cond
-  %tobool.not.i.i.i = icmp eq ptr %call5.i.i.i.i3247, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt5queueIPN4mold9MultiGlob8TrieNodeESt5dequeIS3_SaIS3_EEED2Ev.exit, label %if.then.i.i.i19
-
-if.then.i.i.i19:                                  ; preds = %do.end
+if.then.i.i.i19:                                  ; preds = %do.cond
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %queue.sroa.48.2, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %queue.sroa.26.2, %add.ptr.i.i.i20
-  br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN4mold9MultiGlob8TrieNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
+  br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt5queueIPN4mold9MultiGlob8TrieNodeESt5dequeIS3_SaIS3_EEED2Ev.exit
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i19, %for.body.i.i.i.i
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %queue.sroa.26.2, %if.then.i.i.i19 ]
@@ -2134,13 +2128,10 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i19, %f
   tail call void @_ZdlPv(ptr noundef %11) #23
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %queue.sroa.48.2
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN4mold9MultiGlob8TrieNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i, !llvm.loop !30
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt5queueIPN4mold9MultiGlob8TrieNodeESt5dequeIS3_SaIS3_EEED2Ev.exit, !llvm.loop !30
 
-_ZNSt11_Deque_baseIPN4mold9MultiGlob8TrieNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i: ; preds = %for.body.i.i.i.i, %if.then.i.i.i19
+_ZNSt5queueIPN4mold9MultiGlob8TrieNodeESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds = %for.body.i.i.i.i, %if.then.i.i.i19
   tail call void @_ZdlPv(ptr noundef %call5.i.i.i.i3247) #23
-  br label %_ZNSt5queueIPN4mold9MultiGlob8TrieNodeESt5dequeIS3_SaIS3_EEED2Ev.exit
-
-_ZNSt5queueIPN4mold9MultiGlob8TrieNodeESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds = %do.end, %_ZNSt11_Deque_baseIPN4mold9MultiGlob8TrieNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
   ret void
 }
 

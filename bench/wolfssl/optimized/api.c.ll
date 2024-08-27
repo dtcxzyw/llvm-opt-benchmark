@@ -22534,42 +22534,54 @@ entry:
   store i64 0, ptr %info, align 8
   %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.7, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
   %cmp4.not = icmp eq i32 %call, 0
-  br i1 %cmp4.not, label %if.then20, label %do.end43.sink.split
+  br i1 %cmp4.not, label %if.then20, label %do.body6
 
-if.then20:                                        ; preds = %entry
-  %0 = load ptr, ptr %cert_buf, align 8
-  %1 = load i64, ptr %cert_sz, align 8
-  %call22 = call i32 @wc_PemToDer(ptr noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %pDer, ptr noundef null, ptr noundef nonnull %info, ptr noundef nonnull %eccKey) #25
-  %cmp27 = icmp eq i32 %call22, 0
-  br i1 %cmp27, label %do.end43, label %do.end43.sink.split
-
-do.end43.sink.split:                              ; preds = %if.then20, %entry
-  %.sink = phi i32 [ 32582, %entry ], [ 32584, %if.then20 ]
-  %.str.1663.sink = phi ptr [ @.str.1663, %entry ], [ @.str.1664, %if.then20 ]
-  %call.sink = phi i32 [ %call, %entry ], [ %call22, %if.then20 ]
-  %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef %.sink)
+do.body6:                                         ; preds = %entry
+  %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32582)
+  %0 = load ptr, ptr @stdout, align 8
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %0)
+  %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1663, ptr noundef nonnull @.str.938)
   %2 = load ptr, ptr @stdout, align 8
-  %3 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %2)
-  %call9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull %.str.1663.sink, ptr noundef nonnull @.str.938)
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %2)
+  %call11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call, i32 noundef 0)
   %4 = load ptr, ptr @stdout, align 8
-  %5 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %4)
-  %call11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call.sink, i32 noundef 0)
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %4)
   %6 = load ptr, ptr @stdout, align 8
-  %7 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %6)
-  %8 = load ptr, ptr @stdout, align 8
-  %call13 = call i32 @fflush(ptr noundef %8)
+  %call13 = tail call i32 @fflush(ptr noundef %6)
+  %.pr.pre = load ptr, ptr %cert_buf, align 8
   br label %do.end43
 
-do.end43:                                         ; preds = %do.end43.sink.split, %if.then20
-  %cmp48.not = phi i1 [ false, %if.then20 ], [ true, %do.end43.sink.split ]
+if.then20:                                        ; preds = %entry
+  %7 = load ptr, ptr %cert_buf, align 8
+  %8 = load i64, ptr %cert_sz, align 8
+  %call22 = call i32 @wc_PemToDer(ptr noundef %7, i64 noundef %8, i32 noundef 0, ptr noundef nonnull %pDer, ptr noundef null, ptr noundef nonnull %info, ptr noundef nonnull %eccKey) #25
+  %cmp27 = icmp eq i32 %call22, 0
+  br i1 %cmp27, label %do.end43, label %do.body29
+
+do.body29:                                        ; preds = %if.then20
+  %call30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32584)
+  %9 = load ptr, ptr @stdout, align 8
+  %10 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %9)
+  %call32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1664, ptr noundef nonnull @.str.938)
+  %11 = load ptr, ptr @stdout, align 8
+  %12 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %11)
+  %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call22, i32 noundef 0)
+  %13 = load ptr, ptr @stdout, align 8
+  %14 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %13)
+  %15 = load ptr, ptr @stdout, align 8
+  %call36 = call i32 @fflush(ptr noundef %15)
+  br label %do.end43
+
+do.end43:                                         ; preds = %do.body6, %do.body29, %if.then20
+  %16 = phi ptr [ %7, %if.then20 ], [ %7, %do.body29 ], [ %.pr.pre, %do.body6 ]
+  %cmp48.not = phi i1 [ false, %if.then20 ], [ true, %do.body29 ], [ true, %do.body6 ]
   call void @wc_FreeDer(ptr noundef nonnull %pDer) #25
   store ptr null, ptr %pDer, align 8
-  %9 = load ptr, ptr %cert_buf, align 8
-  %cmp44.not = icmp eq ptr %9, null
+  %cmp44.not = icmp eq ptr %16, null
   br i1 %cmp44.not, label %if.end46, label %if.then45
 
 if.then45:                                        ; preds = %do.end43
-  call void @free(ptr noundef nonnull %9) #25
+  call void @free(ptr noundef nonnull %16) #25
   store ptr null, ptr %cert_buf, align 8
   br label %if.end46
 
@@ -22584,56 +22596,58 @@ if.then49:                                        ; preds = %if.end46
 
 do.body58:                                        ; preds = %if.then49
   %call59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32599)
-  %10 = load ptr, ptr @stdout, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %10)
+  %17 = load ptr, ptr @stdout, align 8
+  %18 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %17)
   %call61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1666, ptr noundef nonnull @.str.938)
-  %12 = load ptr, ptr @stdout, align 8
-  %13 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %12)
+  %19 = load ptr, ptr @stdout, align 8
+  %20 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %19)
   %call63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call51, i32 noundef 0)
-  %14 = load ptr, ptr @stdout, align 8
-  %15 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %14)
-  %16 = load ptr, ptr @stdout, align 8
-  %call65 = call i32 @fflush(ptr noundef %16)
+  %21 = load ptr, ptr @stdout, align 8
+  %22 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %21)
+  %23 = load ptr, ptr @stdout, align 8
+  %call65 = call i32 @fflush(ptr noundef %23)
+  %.pre.pre = load ptr, ptr %cert_buf, align 8
   br label %do.end116.critedge
 
 do.end72:                                         ; preds = %if.then49
   store i8 10, ptr %key_buf, align 16
   %add.ptr = getelementptr inbounds i8, ptr %key_buf, i64 1
-  %17 = load ptr, ptr %cert_buf, align 8
-  %18 = load i64, ptr %cert_sz, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %17, i64 %18, i1 false)
-  %add = add i64 %18, 1
+  %24 = load ptr, ptr %cert_buf, align 8
+  %25 = load i64, ptr %cert_sz, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %24, i64 %25, i1 false)
+  %add = add i64 %25, 1
   %call95 = call i32 @wc_PemToDer(ptr noundef nonnull %key_buf, i64 noundef %add, i32 noundef 0, ptr noundef nonnull %pDer, ptr noundef null, ptr noundef nonnull %info, ptr noundef nonnull %eccKey) #25
   %cmp100.not = icmp eq i32 %call95, 0
   br i1 %cmp100.not, label %do.body102, label %do.end116
 
 do.body102:                                       ; preds = %do.end72
   %call103 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32603)
-  %19 = load ptr, ptr @stdout, align 8
-  %20 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %19)
+  %26 = load ptr, ptr @stdout, align 8
+  %27 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %26)
   %call105 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.976, ptr noundef nonnull @.str.1669, ptr noundef nonnull @.str.938)
-  %21 = load ptr, ptr @stdout, align 8
-  %22 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %21)
+  %28 = load ptr, ptr @stdout, align 8
+  %29 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %28)
   %call107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.979, i32 noundef 0, i32 noundef 0)
-  %23 = load ptr, ptr @stdout, align 8
-  %24 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %23)
-  %25 = load ptr, ptr @stdout, align 8
-  %call109 = call i32 @fflush(ptr noundef %25)
+  %30 = load ptr, ptr @stdout, align 8
+  %31 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %30)
+  %32 = load ptr, ptr @stdout, align 8
+  %call109 = call i32 @fflush(ptr noundef %32)
   br label %do.end116
 
 do.end116.critedge:                               ; preds = %if.end46, %do.body58
+  %.pre = phi ptr [ null, %if.end46 ], [ %.pre.pre, %do.body58 ]
   store i8 10, ptr %key_buf, align 16
   br label %do.end116
 
 do.end116:                                        ; preds = %do.end116.critedge, %do.end72, %do.body102
+  %33 = phi ptr [ %24, %do.body102 ], [ %24, %do.end72 ], [ %.pre, %do.end116.critedge ]
   %_ret.4 = phi i32 [ 0, %do.body102 ], [ 1, %do.end72 ], [ 0, %do.end116.critedge ]
   call void @wc_FreeDer(ptr noundef nonnull %pDer) #25
-  %26 = load ptr, ptr %cert_buf, align 8
-  %cmp117.not = icmp eq ptr %26, null
+  %cmp117.not = icmp eq ptr %33, null
   br i1 %cmp117.not, label %if.end119, label %if.then118
 
 if.then118:                                       ; preds = %do.end116
-  call void @free(ptr noundef nonnull %26) #25
+  call void @free(ptr noundef nonnull %33) #25
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then118, %do.end116
@@ -22719,198 +22733,181 @@ entry:
   br i1 %cmp4.not, label %if.then20, label %do.end17
 
 do.end17:                                         ; preds = %entry
-  %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32644)
+  %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32644)
   %0 = load ptr, ptr @stdout, align 8
-  %1 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %0)
-  %call9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1678, ptr noundef nonnull @.str.938)
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %0)
+  %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1678, ptr noundef nonnull @.str.938)
   %2 = load ptr, ptr @stdout, align 8
-  %3 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %2)
-  %call11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call, i32 noundef 0)
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %2)
+  %call11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call, i32 noundef 0)
   %4 = load ptr, ptr @stdout, align 8
-  %5 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %4)
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %4)
   %6 = load ptr, ptr @stdout, align 8
-  %call13 = call i32 @fflush(ptr noundef %6)
+  %call13 = tail call i32 @fflush(ptr noundef %6)
   br label %if.end281
 
 if.then20:                                        ; preds = %entry
   %7 = load i64, ptr %cert_sz, align 8
-  %call21 = call noalias ptr @malloc(i64 noundef %7) #31
+  %call21 = tail call noalias ptr @malloc(i64 noundef %7) #31
   %tobool.not = icmp eq ptr %call21, null
   br i1 %tobool.not, label %do.body23, label %if.then38
 
 do.body23:                                        ; preds = %if.then20
-  %call24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32646)
+  %call24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32646)
   %8 = load ptr, ptr @stdout, align 8
-  %9 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %8)
-  %call26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.905, ptr noundef nonnull @.str.1679)
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %8)
+  %call26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.905, ptr noundef nonnull @.str.1679)
   %10 = load ptr, ptr @stdout, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %10)
-  %call28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1680)
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %10)
+  %call28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1680)
   %12 = load ptr, ptr @stdout, align 8
-  %13 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %12)
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %12)
   %14 = load ptr, ptr @stdout, align 8
-  %call30 = call i32 @fflush(ptr noundef %14)
+  %call30 = tail call i32 @fflush(ptr noundef %14)
   br label %if.end281
 
 if.then38:                                        ; preds = %if.then20
   %15 = load ptr, ptr %cert_buf, align 8
   %conv = trunc i64 %7 to i32
-  %call41 = call i32 @wc_CertPemToDer(ptr noundef %15, i32 noundef %conv, ptr noundef nonnull %call21, i32 noundef %conv, i32 noundef 0) #25
+  %call41 = tail call i32 @wc_CertPemToDer(ptr noundef %15, i32 noundef %conv, ptr noundef nonnull %call21, i32 noundef %conv, i32 noundef 0) #25
   %cmp47 = icmp sgt i32 %call41, -1
   br i1 %cmp47, label %if.then68, label %do.body50
 
 do.body50:                                        ; preds = %if.then38
-  %call51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32648)
+  %call51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32648)
   %16 = load ptr, ptr @stdout, align 8
-  %17 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %16)
-  %call53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1681, ptr noundef nonnull @.str.1682, ptr noundef nonnull @.str.938)
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %16)
+  %call53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1681, ptr noundef nonnull @.str.1682, ptr noundef nonnull @.str.938)
   %18 = load ptr, ptr @stdout, align 8
-  %19 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %18)
-  %call55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1683, i32 noundef %call41, i32 noundef 0)
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %18)
+  %call55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1683, i32 noundef %call41, i32 noundef 0)
   br label %if.then280.sink.split
 
 if.then68:                                        ; preds = %if.then38
-  %20 = load i64, ptr %cert_sz, align 8
-  %conv70 = trunc i64 %20 to i32
-  %call71 = call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv70, ptr noundef null, i32 noundef -1, i32 noundef 0) #25
+  %call71 = tail call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv, ptr noundef null, i32 noundef -1, i32 noundef 0) #25
   %cmp77 = icmp eq i32 %call71, -173
   br i1 %cmp77, label %if.then98, label %do.body80
 
 do.body80:                                        ; preds = %if.then68
-  %call81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32651)
-  %21 = load ptr, ptr @stdout, align 8
-  %22 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %21)
-  %call83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1684, ptr noundef nonnull @.str.983)
-  %23 = load ptr, ptr @stdout, align 8
-  %24 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %23)
-  %call85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call71, i32 noundef -173)
+  %call81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32651)
+  %20 = load ptr, ptr @stdout, align 8
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %20)
+  %call83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1684, ptr noundef nonnull @.str.983)
+  %22 = load ptr, ptr @stdout, align 8
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %22)
+  %call85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call71, i32 noundef -173)
   br label %if.then280.sink.split
 
 if.then98:                                        ; preds = %if.then68
-  %25 = load ptr, ptr %cert_buf, align 8
-  %26 = load i64, ptr %cert_sz, align 8
-  %conv100 = trunc i64 %26 to i32
-  %call101 = call i32 @wc_CertPemToDer(ptr noundef %25, i32 noundef %conv100, ptr noundef null, i32 noundef -1, i32 noundef 0) #25
+  %call101 = tail call i32 @wc_CertPemToDer(ptr noundef %15, i32 noundef %conv, ptr noundef null, i32 noundef -1, i32 noundef 0) #25
   %cmp107 = icmp eq i32 %call101, -173
   br i1 %cmp107, label %if.then128, label %do.body110
 
 do.body110:                                       ; preds = %if.then98
-  %call111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32653)
-  %27 = load ptr, ptr @stdout, align 8
-  %28 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %27)
-  %call113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1685, ptr noundef nonnull @.str.983)
-  %29 = load ptr, ptr @stdout, align 8
-  %30 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %29)
-  %call115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call101, i32 noundef -173)
+  %call111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32653)
+  %24 = load ptr, ptr @stdout, align 8
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %24)
+  %call113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1685, ptr noundef nonnull @.str.983)
+  %26 = load ptr, ptr @stdout, align 8
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %26)
+  %call115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call101, i32 noundef -173)
   br label %if.then280.sink.split
 
 if.then128:                                       ; preds = %if.then98
-  %31 = load i64, ptr %cert_sz, align 8
-  %conv130 = trunc i64 %31 to i32
-  %call131 = call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv130, ptr noundef nonnull %call21, i32 noundef -1, i32 noundef 0) #25
+  %call131 = tail call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv, ptr noundef nonnull %call21, i32 noundef -1, i32 noundef 0) #25
   %cmp137 = icmp eq i32 %call131, -173
   br i1 %cmp137, label %if.then158, label %do.body140
 
 do.body140:                                       ; preds = %if.then128
-  %call141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32655)
-  %32 = load ptr, ptr @stdout, align 8
-  %33 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %32)
-  %call143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1686, ptr noundef nonnull @.str.983)
-  %34 = load ptr, ptr @stdout, align 8
-  %35 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %34)
-  %call145 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call131, i32 noundef -173)
+  %call141 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32655)
+  %28 = load ptr, ptr @stdout, align 8
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %28)
+  %call143 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1686, ptr noundef nonnull @.str.983)
+  %30 = load ptr, ptr @stdout, align 8
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %30)
+  %call145 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call131, i32 noundef -173)
   br label %if.then280.sink.split
 
 if.then158:                                       ; preds = %if.then128
-  %36 = load i64, ptr %cert_sz, align 8
-  %conv160 = trunc i64 %36 to i32
-  %call162 = call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv160, ptr noundef null, i32 noundef %conv, i32 noundef 0) #25
+  %call162 = tail call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv, ptr noundef null, i32 noundef %conv, i32 noundef 0) #25
   %cmp168 = icmp eq i32 %call162, -173
   br i1 %cmp168, label %if.then189, label %do.body171
 
 do.body171:                                       ; preds = %if.then158
-  %call172 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32657)
-  %37 = load ptr, ptr @stdout, align 8
-  %38 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %37)
-  %call174 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1687, ptr noundef nonnull @.str.983)
-  %39 = load ptr, ptr @stdout, align 8
-  %40 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %39)
-  %call176 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call162, i32 noundef -173)
+  %call172 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32657)
+  %32 = load ptr, ptr @stdout, align 8
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %32)
+  %call174 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1687, ptr noundef nonnull @.str.983)
+  %34 = load ptr, ptr @stdout, align 8
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %34)
+  %call176 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call162, i32 noundef -173)
   br label %if.then280.sink.split
 
 if.then189:                                       ; preds = %if.then158
-  %41 = load i64, ptr %cert_sz, align 8
-  %conv191 = trunc i64 %41 to i32
-  %call193 = call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv191, ptr noundef nonnull %call21, i32 noundef %conv, i32 noundef 0) #25
+  %call193 = tail call i32 @wc_CertPemToDer(ptr noundef null, i32 noundef %conv, ptr noundef nonnull %call21, i32 noundef %conv, i32 noundef 0) #25
   %cmp199 = icmp eq i32 %call193, -173
   br i1 %cmp199, label %if.then220, label %do.body202
 
 do.body202:                                       ; preds = %if.then189
-  %call203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32659)
-  %42 = load ptr, ptr @stdout, align 8
-  %43 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %42)
-  %call205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1688, ptr noundef nonnull @.str.983)
-  %44 = load ptr, ptr @stdout, align 8
-  %45 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %44)
-  %call207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call193, i32 noundef -173)
+  %call203 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32659)
+  %36 = load ptr, ptr @stdout, align 8
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %36)
+  %call205 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1688, ptr noundef nonnull @.str.983)
+  %38 = load ptr, ptr @stdout, align 8
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %38)
+  %call207 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call193, i32 noundef -173)
   br label %if.then280.sink.split
 
 if.then220:                                       ; preds = %if.then189
-  %46 = load ptr, ptr %cert_buf, align 8
-  %47 = load i64, ptr %cert_sz, align 8
-  %conv222 = trunc i64 %47 to i32
-  %call224 = call i32 @wc_CertPemToDer(ptr noundef %46, i32 noundef %conv222, ptr noundef null, i32 noundef %conv, i32 noundef 0) #25
+  %call224 = tail call i32 @wc_CertPemToDer(ptr noundef %15, i32 noundef %conv, ptr noundef null, i32 noundef %conv, i32 noundef 0) #25
   %cmp230 = icmp eq i32 %call224, -173
   br i1 %cmp230, label %if.then251, label %do.body233
 
 do.body233:                                       ; preds = %if.then220
-  %call234 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32661)
-  %48 = load ptr, ptr @stdout, align 8
-  %49 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %48)
-  %call236 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1689, ptr noundef nonnull @.str.983)
-  %50 = load ptr, ptr @stdout, align 8
-  %51 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %50)
-  %call238 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call224, i32 noundef -173)
+  %call234 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32661)
+  %40 = load ptr, ptr @stdout, align 8
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %40)
+  %call236 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1689, ptr noundef nonnull @.str.983)
+  %42 = load ptr, ptr @stdout, align 8
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %42)
+  %call238 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call224, i32 noundef -173)
   br label %if.then280.sink.split
 
 if.then251:                                       ; preds = %if.then220
-  %52 = load ptr, ptr %cert_buf, align 8
-  %53 = load i64, ptr %cert_sz, align 8
-  %conv253 = trunc i64 %53 to i32
-  %call254 = call i32 @wc_CertPemToDer(ptr noundef %52, i32 noundef %conv253, ptr noundef nonnull %call21, i32 noundef -1, i32 noundef 0) #25
+  %call254 = tail call i32 @wc_CertPemToDer(ptr noundef %15, i32 noundef %conv, ptr noundef nonnull %call21, i32 noundef -1, i32 noundef 0) #25
   %cmp260 = icmp eq i32 %call254, -173
   br i1 %cmp260, label %if.then280, label %do.body263
 
 do.body263:                                       ; preds = %if.then251
-  %call264 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32663)
-  %54 = load ptr, ptr @stdout, align 8
-  %55 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %54)
-  %call266 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1690, ptr noundef nonnull @.str.983)
-  %56 = load ptr, ptr @stdout, align 8
-  %57 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %56)
-  %call268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call254, i32 noundef -173)
+  %call264 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32663)
+  %44 = load ptr, ptr @stdout, align 8
+  %45 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %44)
+  %call266 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1690, ptr noundef nonnull @.str.983)
+  %46 = load ptr, ptr @stdout, align 8
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %46)
+  %call268 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call254, i32 noundef -173)
   br label %if.then280.sink.split
 
 if.then280.sink.split:                            ; preds = %do.body233, %do.body171, %do.body110, %do.body50, %do.body80, %do.body140, %do.body202, %do.body263
-  %58 = load ptr, ptr @stdout, align 8
-  %59 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %58)
-  %60 = load ptr, ptr @stdout, align 8
-  %call270 = call i32 @fflush(ptr noundef %60)
+  %48 = load ptr, ptr @stdout, align 8
+  %49 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %48)
+  %50 = load ptr, ptr @stdout, align 8
+  %call270 = tail call i32 @fflush(ptr noundef %50)
   br label %if.then280
 
 if.then280:                                       ; preds = %if.then280.sink.split, %if.then251
   %_ret.9.ph = phi i32 [ 1, %if.then251 ], [ 0, %if.then280.sink.split ]
-  call void @free(ptr noundef nonnull %call21) #25
+  tail call void @free(ptr noundef nonnull %call21) #25
   br label %if.end281
 
 if.end281:                                        ; preds = %do.end17, %do.body23, %if.then280
   %_ret.955 = phi i32 [ %_ret.9.ph, %if.then280 ], [ 0, %do.body23 ], [ 0, %do.end17 ]
-  %61 = load ptr, ptr %cert_buf, align 8
-  %cmp282.not = icmp eq ptr %61, null
+  %51 = load ptr, ptr %cert_buf, align 8
+  %cmp282.not = icmp eq ptr %51, null
   br i1 %cmp282.not, label %if.end285, label %if.then284
 
 if.then284:                                       ; preds = %if.end281
-  call void @free(ptr noundef nonnull %61) #25
+  tail call void @free(ptr noundef nonnull %51) #25
   br label %if.end285
 
 if.end285:                                        ; preds = %if.then284, %if.end281
@@ -30968,17 +30965,17 @@ do.end17:                                         ; preds = %entry
   br i1 %cmp18.not, label %if.end56, label %if.then26
 
 do.end17.thread:                                  ; preds = %entry
-  %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53400)
+  %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53400)
   %1 = load ptr, ptr @stdout, align 8
-  %2 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %1)
-  %call9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1960, ptr noundef nonnull @.str.938)
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %1)
+  %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1960, ptr noundef nonnull @.str.938)
   %3 = load ptr, ptr @stdout, align 8
-  %4 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %3)
-  %call11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call, i32 noundef 0)
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %3)
+  %call11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call, i32 noundef 0)
   %5 = load ptr, ptr @stdout, align 8
-  %6 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %5)
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %5)
   %7 = load ptr, ptr @stdout, align 8
-  %call13 = call i32 @fflush(ptr noundef %7)
+  %call13 = tail call i32 @fflush(ptr noundef %7)
   %8 = load ptr, ptr %cert_buf, align 8
   %cmp18.not11 = icmp eq ptr %8, null
   br i1 %cmp18.not11, label %if.end56, label %if.then19.thread
@@ -30986,11 +30983,11 @@ do.end17.thread:                                  ; preds = %entry
 if.then19.thread:                                 ; preds = %do.end17.thread
   %9 = load i64, ptr %cert_sz, align 8
   %10 = getelementptr i8, ptr %8, i64 %9
-  %arrayidx12 = getelementptr i8, ptr %10, i64 -1
-  %11 = load i8, ptr %arrayidx12, align 1
-  %not13 = xor i8 %11, -1
-  store i8 %not13, ptr %arrayidx12, align 1
-  br label %if.end52
+  %arrayidx15 = getelementptr i8, ptr %10, i64 -1
+  %11 = load i8, ptr %arrayidx15, align 1
+  %not16 = xor i8 %11, -1
+  store i8 %not16, ptr %arrayidx15, align 1
+  br label %if.then55
 
 if.then26:                                        ; preds = %do.end17
   %12 = load i64, ptr %cert_sz, align 8
@@ -30999,39 +30996,33 @@ if.then26:                                        ; preds = %do.end17
   %14 = load i8, ptr %arrayidx, align 1
   %not = xor i8 %14, -1
   store i8 %not, ptr %arrayidx, align 1
-  %15 = load ptr, ptr %cert_buf, align 8
-  %16 = load i64, ptr %cert_sz, align 8
-  %call28 = call fastcc i32 @verify_sig_cm(ptr noundef nonnull @.str.1958, ptr noundef %15, i64 noundef %16)
+  %call28 = tail call fastcc i32 @verify_sig_cm(ptr noundef nonnull @.str.1958, ptr noundef nonnull %0, i64 noundef %12)
   %cmp34 = icmp eq i32 %call28, -155
-  br i1 %cmp34, label %if.end52, label %do.body37
+  br i1 %cmp34, label %if.then55, label %do.body37
 
 do.body37:                                        ; preds = %if.then26
-  %call38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53411)
+  %call38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53411)
+  %15 = load ptr, ptr @stdout, align 8
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %15)
+  %call40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1961, ptr noundef nonnull @.str.1962)
   %17 = load ptr, ptr @stdout, align 8
-  %18 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %17)
-  %call40 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1961, ptr noundef nonnull @.str.1962)
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %17)
+  %call42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call28, i32 noundef -155)
   %19 = load ptr, ptr @stdout, align 8
-  %20 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %19)
-  %call42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call28, i32 noundef -155)
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %19)
   %21 = load ptr, ptr @stdout, align 8
-  %22 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %21)
-  %23 = load ptr, ptr @stdout, align 8
-  %call44 = call i32 @fflush(ptr noundef %23)
-  br label %if.end52
+  %call44 = tail call i32 @fflush(ptr noundef %21)
+  br label %if.then55
 
-if.end52:                                         ; preds = %if.then19.thread, %if.then26, %do.body37
+if.then55:                                        ; preds = %do.body37, %if.then26, %if.then19.thread
+  %.ph = phi ptr [ %8, %if.then19.thread ], [ %0, %if.then26 ], [ %0, %do.body37 ]
   %_ret.1.ph = phi i32 [ 0, %if.then19.thread ], [ 1, %if.then26 ], [ 0, %do.body37 ]
-  %.pr = load ptr, ptr %cert_buf, align 8
-  %cmp53.not = icmp eq ptr %.pr, null
-  br i1 %cmp53.not, label %if.end56, label %if.then55
-
-if.then55:                                        ; preds = %if.end52
-  call void @free(ptr noundef nonnull %.pr) #25
+  tail call void @free(ptr noundef nonnull %.ph) #25
   br label %if.end56
 
-if.end56:                                         ; preds = %do.end17, %do.end17.thread, %if.then55, %if.end52
-  %_ret.117 = phi i32 [ %_ret.1.ph, %if.then55 ], [ %_ret.1.ph, %if.end52 ], [ 0, %do.end17.thread ], [ 1, %do.end17 ]
-  ret i32 %_ret.117
+if.end56:                                         ; preds = %do.end17, %do.end17.thread, %if.then55
+  %_ret.120 = phi i32 [ %_ret.1.ph, %if.then55 ], [ 1, %do.end17 ], [ 0, %do.end17.thread ]
+  ret i32 %_ret.120
 }
 
 ; Function Attrs: nounwind uwtable
@@ -31051,17 +31042,17 @@ do.end17:                                         ; preds = %entry
   br i1 %cmp18.not, label %if.end56, label %if.then26
 
 do.end17.thread:                                  ; preds = %entry
-  %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53368)
+  %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53368)
   %1 = load ptr, ptr @stdout, align 8
-  %2 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %1)
-  %call9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1960, ptr noundef nonnull @.str.938)
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %1)
+  %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1960, ptr noundef nonnull @.str.938)
   %3 = load ptr, ptr @stdout, align 8
-  %4 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %3)
-  %call11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call, i32 noundef 0)
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %3)
+  %call11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call, i32 noundef 0)
   %5 = load ptr, ptr @stdout, align 8
-  %6 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %5)
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %5)
   %7 = load ptr, ptr @stdout, align 8
-  %call13 = call i32 @fflush(ptr noundef %7)
+  %call13 = tail call i32 @fflush(ptr noundef %7)
   %8 = load ptr, ptr %cert_buf, align 8
   %cmp18.not11 = icmp eq ptr %8, null
   br i1 %cmp18.not11, label %if.end56, label %if.then19.thread
@@ -31069,11 +31060,11 @@ do.end17.thread:                                  ; preds = %entry
 if.then19.thread:                                 ; preds = %do.end17.thread
   %9 = load i64, ptr %cert_sz, align 8
   %10 = getelementptr i8, ptr %8, i64 %9
-  %arrayidx12 = getelementptr i8, ptr %10, i64 -1
-  %11 = load i8, ptr %arrayidx12, align 1
-  %not13 = xor i8 %11, -1
-  store i8 %not13, ptr %arrayidx12, align 1
-  br label %if.end52
+  %arrayidx15 = getelementptr i8, ptr %10, i64 -1
+  %11 = load i8, ptr %arrayidx15, align 1
+  %not16 = xor i8 %11, -1
+  store i8 %not16, ptr %arrayidx15, align 1
+  br label %if.then55
 
 if.then26:                                        ; preds = %do.end17
   %12 = load i64, ptr %cert_sz, align 8
@@ -31082,39 +31073,33 @@ if.then26:                                        ; preds = %do.end17
   %14 = load i8, ptr %arrayidx, align 1
   %not = xor i8 %14, -1
   store i8 %not, ptr %arrayidx, align 1
-  %15 = load ptr, ptr %cert_buf, align 8
-  %16 = load i64, ptr %cert_sz, align 8
-  %call28 = call fastcc i32 @verify_sig_cm(ptr noundef nonnull @.str.5, ptr noundef %15, i64 noundef %16)
+  %call28 = tail call fastcc i32 @verify_sig_cm(ptr noundef nonnull @.str.5, ptr noundef nonnull %0, i64 noundef %12)
   %cmp34 = icmp eq i32 %call28, -155
-  br i1 %cmp34, label %if.end52, label %do.body37
+  br i1 %cmp34, label %if.then55, label %do.body37
 
 do.body37:                                        ; preds = %if.then26
-  %call38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53378)
+  %call38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 53378)
+  %15 = load ptr, ptr @stdout, align 8
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %15)
+  %call40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1967, ptr noundef nonnull @.str.1962)
   %17 = load ptr, ptr @stdout, align 8
-  %18 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %17)
-  %call40 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.1967, ptr noundef nonnull @.str.1962)
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %17)
+  %call42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call28, i32 noundef -155)
   %19 = load ptr, ptr @stdout, align 8
-  %20 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %19)
-  %call42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call28, i32 noundef -155)
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %19)
   %21 = load ptr, ptr @stdout, align 8
-  %22 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %21)
-  %23 = load ptr, ptr @stdout, align 8
-  %call44 = call i32 @fflush(ptr noundef %23)
-  br label %if.end52
+  %call44 = tail call i32 @fflush(ptr noundef %21)
+  br label %if.then55
 
-if.end52:                                         ; preds = %if.then19.thread, %if.then26, %do.body37
+if.then55:                                        ; preds = %do.body37, %if.then26, %if.then19.thread
+  %.ph = phi ptr [ %8, %if.then19.thread ], [ %0, %if.then26 ], [ %0, %do.body37 ]
   %_ret.1.ph = phi i32 [ 0, %if.then19.thread ], [ 1, %if.then26 ], [ 0, %do.body37 ]
-  %.pr = load ptr, ptr %cert_buf, align 8
-  %cmp53.not = icmp eq ptr %.pr, null
-  br i1 %cmp53.not, label %if.end56, label %if.then55
-
-if.then55:                                        ; preds = %if.end52
-  call void @free(ptr noundef nonnull %.pr) #25
+  tail call void @free(ptr noundef nonnull %.ph) #25
   br label %if.end56
 
-if.end56:                                         ; preds = %do.end17, %do.end17.thread, %if.then55, %if.end52
-  %_ret.117 = phi i32 [ %_ret.1.ph, %if.then55 ], [ %_ret.1.ph, %if.end52 ], [ 0, %do.end17.thread ], [ 1, %do.end17 ]
-  ret i32 %_ret.117
+if.end56:                                         ; preds = %do.end17, %do.end17.thread, %if.then55
+  %_ret.120 = phi i32 [ %_ret.1.ph, %if.then55 ], [ 1, %do.end17 ], [ 0, %do.end17.thread ]
+  ret i32 %_ret.120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -37243,14 +37228,10 @@ declare i32 @wc_SignatureGetSize(i32 noundef, ptr noundef, i32 noundef) local_un
 declare i32 @wc_InitRsaKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -244, 1) i32 @load_file(ptr noundef %fname, ptr noundef writeonly %buf, ptr noundef %bufLen) unnamed_addr #3 {
+define internal fastcc range(i32 -244, 1) i32 @load_file(ptr noundef %fname, ptr nocapture noundef writeonly %buf, ptr nocapture noundef %bufLen) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %fname, null
-  %cmp1 = icmp eq ptr %buf, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %bufLen, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  br i1 %or.cond1, label %return, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr null, ptr %buf, align 8
@@ -37422,81 +37403,74 @@ entry:
   store ptr null, ptr %pDer, align 8
   %call = call fastcc i32 @load_file(ptr noundef %ca_cert_file, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
   %cmp = icmp eq i32 %call, 0
+  %.pre = load ptr, ptr %cert_buf, align 8
   br i1 %cmp, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %cert_buf, align 8
-  %1 = load i64, ptr %cert_sz, align 8
-  %call.i = call ptr @wolfSSL_CertManagerNew() #25
+  %0 = load i64, ptr %cert_sz, align 8
+  %call.i = tail call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %test_cm_load_ca_buffer.exit.thread, label %test_cm_load_ca_buffer.exit
 
 test_cm_load_ca_buffer.exit.thread:               ; preds = %if.then
-  %2 = load ptr, ptr @stderr, align 8
-  %3 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %2) #24
+  %1 = load ptr, ptr @stderr, align 8
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %1) #24
   br label %if.end19
 
 test_cm_load_ca_buffer.exit:                      ; preds = %if.then
-  %call2.i = call i32 @wolfSSL_CertManagerLoadCABuffer(ptr noundef nonnull %call.i, ptr noundef %0, i64 noundef %1, i32 noundef 1) #25
-  call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i) #25
+  %call2.i = tail call i32 @wolfSSL_CertManagerLoadCABuffer(ptr noundef nonnull %call.i, ptr noundef %.pre, i64 noundef %0, i32 noundef 1) #25
+  tail call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i) #25
   %cmp2 = icmp eq i32 %call2.i, 1
   br i1 %cmp2, label %if.then3, label %if.end19
 
 if.then3:                                         ; preds = %test_cm_load_ca_buffer.exit
-  %4 = load ptr, ptr %cert_buf, align 8
-  %5 = load i64, ptr %cert_sz, align 8
-  %add = add i64 %5, 1
-  %call4 = call ptr @realloc(ptr noundef %4, i64 noundef %add) #32
+  %add = add i64 %0, 1
+  %call4 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %add) #32
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.end19, label %if.else
 
 if.else:                                          ; preds = %if.then3
-  store ptr %call4, ptr %cert_buf, align 8
-  %6 = load i64, ptr %cert_sz, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %call4, i64 %6
+  %arrayidx = getelementptr inbounds i8, ptr %call4, i64 %0
   store i8 0, ptr %arrayidx, align 1
-  %call.i6 = call ptr @wolfSSL_CertManagerNew() #25
+  %call.i6 = tail call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i7 = icmp eq ptr %call.i6, null
   br i1 %cmp.i7, label %if.then.i11, label %if.end9
 
 if.then.i11:                                      ; preds = %if.else
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %7) #24
+  %3 = load ptr, ptr @stderr, align 8
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %3) #24
   br label %if.end19
 
 if.end9:                                          ; preds = %if.else
-  %add7 = add i64 %6, 1
-  %call2.i9 = call i32 @wolfSSL_CertManagerLoadCABuffer(ptr noundef nonnull %call.i6, ptr noundef nonnull %call4, i64 noundef %add7, i32 noundef 1) #25
-  call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i6) #25
+  %call2.i9 = tail call i32 @wolfSSL_CertManagerLoadCABuffer(ptr noundef nonnull %call.i6, ptr noundef nonnull %call4, i64 noundef %add, i32 noundef 1) #25
+  tail call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i6) #25
   %cmp10 = icmp eq i32 %call2.i9, 1
   br i1 %cmp10, label %if.then11, label %if.end19
 
 if.then11:                                        ; preds = %if.end9
-  %9 = load ptr, ptr %cert_buf, align 8
-  %10 = load i64, ptr %cert_sz, align 8
-  %call12 = call i32 @wc_PemToDer(ptr noundef %9, i64 noundef %10, i32 noundef 6, ptr noundef nonnull %pDer, ptr noundef null, ptr noundef null, ptr noundef null) #25
+  %call12 = call i32 @wc_PemToDer(ptr noundef nonnull %call4, i64 noundef %0, i32 noundef 6, ptr noundef nonnull %pDer, ptr noundef null, ptr noundef null, ptr noundef null) #25
   %cmp13 = icmp eq i32 %call12, 0
-  %11 = load ptr, ptr %pDer, align 8
-  %cmp14 = icmp ne ptr %11, null
+  %5 = load ptr, ptr %pDer, align 8
+  %cmp14 = icmp ne ptr %5, null
   %or.cond = select i1 %cmp13, i1 %cmp14, i1 false
   br i1 %or.cond, label %if.then15, label %if.end19
 
 if.then15:                                        ; preds = %if.then11
-  %12 = load ptr, ptr %11, align 8
-  %length = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load i32, ptr %length, align 8
+  %6 = load ptr, ptr %5, align 8
+  %length = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load i32, ptr %length, align 8
   %call.i13 = call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i14 = icmp eq ptr %call.i13, null
   br i1 %cmp.i14, label %if.then.i18, label %if.end.i15
 
 if.then.i18:                                      ; preds = %if.then15
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %14) #24
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %8) #24
   br label %test_cm_load_ca_buffer.exit19
 
 if.end.i15:                                       ; preds = %if.then15
-  %conv = zext i32 %13 to i64
-  %call2.i16 = call i32 @wolfSSL_CertManagerLoadCABuffer(ptr noundef nonnull %call.i13, ptr noundef %12, i64 noundef %conv, i32 noundef 2) #25
+  %conv = zext i32 %7 to i64
+  %call2.i16 = call i32 @wolfSSL_CertManagerLoadCABuffer(ptr noundef nonnull %call.i13, ptr noundef %6, i64 noundef %conv, i32 noundef 2) #25
   call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i13) #25
   br label %test_cm_load_ca_buffer.exit19
 
@@ -37506,9 +37480,9 @@ test_cm_load_ca_buffer.exit19:                    ; preds = %if.then.i18, %if.en
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i11, %test_cm_load_ca_buffer.exit.thread, %if.then3, %test_cm_load_ca_buffer.exit, %if.end9, %test_cm_load_ca_buffer.exit19, %if.then11, %entry
+  %10 = phi ptr [ %call4, %test_cm_load_ca_buffer.exit19 ], [ %call4, %if.then11 ], [ %call4, %if.end9 ], [ %.pre, %entry ], [ %call4, %if.then.i11 ], [ %.pre, %test_cm_load_ca_buffer.exit.thread ], [ %.pre, %if.then3 ], [ %.pre, %test_cm_load_ca_buffer.exit ]
   %ret.0 = phi i32 [ %retval.0.i17, %test_cm_load_ca_buffer.exit19 ], [ %call12, %if.then11 ], [ %call2.i9, %if.end9 ], [ %call, %entry ], [ -1, %if.then.i11 ], [ -1, %test_cm_load_ca_buffer.exit.thread ], [ -125, %if.then3 ], [ %call2.i, %test_cm_load_ca_buffer.exit ]
-  %16 = load ptr, ptr %cert_buf, align 8
-  call void @free(ptr noundef %16) #25
+  call void @free(ptr noundef %10) #25
   ret i32 %ret.0
 }
 
@@ -37530,81 +37504,74 @@ entry:
   store ptr null, ptr %pDer, align 8
   %call = call fastcc i32 @load_file(ptr noundef %ca_cert_file, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
   %cmp = icmp eq i32 %call, 0
+  %.pre = load ptr, ptr %cert_buf, align 8
   br i1 %cmp, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %cert_buf, align 8
-  %1 = load i64, ptr %cert_sz, align 8
-  %call.i = call ptr @wolfSSL_CertManagerNew() #25
+  %0 = load i64, ptr %cert_sz, align 8
+  %call.i = tail call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %test_cm_load_ca_buffer_ex.exit.thread, label %test_cm_load_ca_buffer_ex.exit
 
 test_cm_load_ca_buffer_ex.exit.thread:            ; preds = %if.then
-  %2 = load ptr, ptr @stderr, align 8
-  %3 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %2) #24
+  %1 = load ptr, ptr @stderr, align 8
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %1) #24
   br label %if.end19
 
 test_cm_load_ca_buffer_ex.exit:                   ; preds = %if.then
-  %call2.i = call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i, ptr noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef %flags) #25
-  call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i) #25
+  %call2.i = tail call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i, ptr noundef %.pre, i64 noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef %flags) #25
+  tail call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i) #25
   %cmp2 = icmp eq i32 %call2.i, 1
   br i1 %cmp2, label %if.then3, label %if.end19
 
 if.then3:                                         ; preds = %test_cm_load_ca_buffer_ex.exit
-  %4 = load ptr, ptr %cert_buf, align 8
-  %5 = load i64, ptr %cert_sz, align 8
-  %add = add i64 %5, 1
-  %call4 = call ptr @realloc(ptr noundef %4, i64 noundef %add) #32
+  %add = add i64 %0, 1
+  %call4 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %add) #32
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.end19, label %if.else
 
 if.else:                                          ; preds = %if.then3
-  store ptr %call4, ptr %cert_buf, align 8
-  %6 = load i64, ptr %cert_sz, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %call4, i64 %6
+  %arrayidx = getelementptr inbounds i8, ptr %call4, i64 %0
   store i8 0, ptr %arrayidx, align 1
-  %call.i8 = call ptr @wolfSSL_CertManagerNew() #25
+  %call.i8 = tail call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i9 = icmp eq ptr %call.i8, null
   br i1 %cmp.i9, label %if.then.i13, label %if.end9
 
 if.then.i13:                                      ; preds = %if.else
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %7) #24
+  %3 = load ptr, ptr @stderr, align 8
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %3) #24
   br label %if.end19
 
 if.end9:                                          ; preds = %if.else
-  %add7 = add i64 %6, 1
-  %call2.i11 = call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i8, ptr noundef nonnull %call4, i64 noundef %add7, i32 noundef 1, i32 noundef 0, i32 noundef %flags) #25
-  call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i8) #25
+  %call2.i11 = tail call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i8, ptr noundef nonnull %call4, i64 noundef %add, i32 noundef 1, i32 noundef 0, i32 noundef %flags) #25
+  tail call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i8) #25
   %cmp10 = icmp eq i32 %call2.i11, 1
   br i1 %cmp10, label %if.then11, label %if.end19
 
 if.then11:                                        ; preds = %if.end9
-  %9 = load ptr, ptr %cert_buf, align 8
-  %10 = load i64, ptr %cert_sz, align 8
-  %call12 = call i32 @wc_PemToDer(ptr noundef %9, i64 noundef %10, i32 noundef 6, ptr noundef nonnull %pDer, ptr noundef null, ptr noundef null, ptr noundef null) #25
+  %call12 = call i32 @wc_PemToDer(ptr noundef nonnull %call4, i64 noundef %0, i32 noundef 6, ptr noundef nonnull %pDer, ptr noundef null, ptr noundef null, ptr noundef null) #25
   %cmp13 = icmp eq i32 %call12, 0
-  %11 = load ptr, ptr %pDer, align 8
-  %cmp14 = icmp ne ptr %11, null
+  %5 = load ptr, ptr %pDer, align 8
+  %cmp14 = icmp ne ptr %5, null
   %or.cond = select i1 %cmp13, i1 %cmp14, i1 false
   br i1 %or.cond, label %if.then15, label %if.end19
 
 if.then15:                                        ; preds = %if.then11
-  %12 = load ptr, ptr %11, align 8
-  %length = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load i32, ptr %length, align 8
+  %6 = load ptr, ptr %5, align 8
+  %length = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load i32, ptr %length, align 8
   %call.i15 = call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i16 = icmp eq ptr %call.i15, null
   br i1 %cmp.i16, label %if.then.i20, label %if.end.i17
 
 if.then.i20:                                      ; preds = %if.then15
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %14) #24
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = call i64 @fwrite(ptr nonnull @.str.1802, i64 23, i64 1, ptr %8) #24
   br label %test_cm_load_ca_buffer_ex.exit21
 
 if.end.i17:                                       ; preds = %if.then15
-  %conv = zext i32 %13 to i64
-  %call2.i18 = call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i15, ptr noundef %12, i64 noundef %conv, i32 noundef 2, i32 noundef 0, i32 noundef %flags) #25
+  %conv = zext i32 %7 to i64
+  %call2.i18 = call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i15, ptr noundef %6, i64 noundef %conv, i32 noundef 2, i32 noundef 0, i32 noundef %flags) #25
   call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i15) #25
   br label %test_cm_load_ca_buffer_ex.exit21
 
@@ -37614,9 +37581,9 @@ test_cm_load_ca_buffer_ex.exit21:                 ; preds = %if.then.i20, %if.en
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i13, %test_cm_load_ca_buffer_ex.exit.thread, %if.then3, %test_cm_load_ca_buffer_ex.exit, %if.end9, %test_cm_load_ca_buffer_ex.exit21, %if.then11, %entry
+  %10 = phi ptr [ %call4, %test_cm_load_ca_buffer_ex.exit21 ], [ %call4, %if.then11 ], [ %call4, %if.end9 ], [ %.pre, %entry ], [ %call4, %if.then.i13 ], [ %.pre, %test_cm_load_ca_buffer_ex.exit.thread ], [ %.pre, %if.then3 ], [ %.pre, %test_cm_load_ca_buffer_ex.exit ]
   %ret.0 = phi i32 [ %retval.0.i19, %test_cm_load_ca_buffer_ex.exit21 ], [ %call12, %if.then11 ], [ %call2.i11, %if.end9 ], [ %call, %entry ], [ -1, %if.then.i13 ], [ -1, %test_cm_load_ca_buffer_ex.exit.thread ], [ -125, %if.then3 ], [ %call2.i, %test_cm_load_ca_buffer_ex.exit ]
-  %16 = load ptr, ptr %cert_buf, align 8
-  call void @free(ptr noundef %16) #25
+  call void @free(ptr noundef %10) #25
   ret i32 %ret.0
 }
 

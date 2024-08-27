@@ -8870,13 +8870,9 @@ if.end:                                           ; preds = %land.end.thread49, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr nocapture noundef %token, i32 noundef %vsize, i32 noundef %vnsize, i32 noundef %vtsize, ptr noundef writeonly %ret, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr nocapture noundef %token, i32 noundef %vsize, i32 noundef %vnsize, i32 noundef %vtsize, ptr nocapture noundef writeonly %ret, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 {
 entry:
   %vi = alloca %"struct.tinyobj::vertex_index_t", align 4
-  %tobool.not = icmp eq ptr %ret, null
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
   store i32 -1, ptr %vi, align 4
   %vt_idx.i = getelementptr inbounds i8, ptr %vi, i64 4
   store i32 -1, ptr %vt_idx.i, align 4
@@ -8887,9 +8883,9 @@ if.end:                                           ; preds = %entry
   %call1 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call, i32 noundef %vsize, ptr noundef nonnull %vi, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call1, label %if.end3, label %return
 
-if.end3:                                          ; preds = %if.end
+if.end3:                                          ; preds = %entry
   %1 = load ptr, ptr %token, align 8
-  %call4 = call i64 @strcspn(ptr noundef %1, ptr noundef nonnull @.str.80) #27
+  %call4 = tail call i64 @strcspn(ptr noundef %1, ptr noundef nonnull @.str.80) #27
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %call4
   store ptr %add.ptr, ptr %token, align 8
   %2 = load i8, ptr %add.ptr, align 1
@@ -8906,18 +8902,18 @@ if.end6:                                          ; preds = %if.end3
 if.then10:                                        ; preds = %if.end6
   %incdec.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store ptr %incdec.ptr11, ptr %token, align 8
-  %call12 = call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr11) #27
+  %call12 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr11) #27
   %call13 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call12, i32 noundef %vnsize, ptr noundef nonnull %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call13, label %return.sink.split.sink.split, label %return
 
 if.end18:                                         ; preds = %if.end6
-  %call19 = call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr) #27
+  %call19 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr) #27
   %call20 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call19, i32 noundef %vtsize, ptr noundef nonnull %vt_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call20, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end18
   %4 = load ptr, ptr %token, align 8
-  %call23 = call i64 @strcspn(ptr noundef %4, ptr noundef nonnull @.str.80) #27
+  %call23 = tail call i64 @strcspn(ptr noundef %4, ptr noundef nonnull @.str.80) #27
   %add.ptr24 = getelementptr inbounds i8, ptr %4, i64 %call23
   store ptr %add.ptr24, ptr %token, align 8
   %5 = load i8, ptr %add.ptr24, align 1
@@ -8927,13 +8923,13 @@ if.end22:                                         ; preds = %if.end18
 if.end29:                                         ; preds = %if.end22
   %incdec.ptr30 = getelementptr inbounds i8, ptr %add.ptr24, i64 1
   store ptr %incdec.ptr30, ptr %token, align 8
-  %call31 = call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr30) #27
+  %call31 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr30) #27
   %call33 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call31, i32 noundef %vnsize, ptr noundef nonnull %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call33, label %return.sink.split.sink.split, label %return
 
 return.sink.split.sink.split:                     ; preds = %if.end29, %if.then10
   %6 = load ptr, ptr %token, align 8
-  %call16 = call i64 @strcspn(ptr noundef %6, ptr noundef nonnull @.str.80) #27
+  %call16 = tail call i64 @strcspn(ptr noundef %6, ptr noundef nonnull @.str.80) #27
   %add.ptr17 = getelementptr inbounds i8, ptr %6, i64 %call16
   store ptr %add.ptr17, ptr %token, align 8
   br label %return.sink.split
@@ -8942,8 +8938,8 @@ return.sink.split:                                ; preds = %return.sink.split.s
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ret, ptr noundef nonnull align 4 dereferenceable(12) %vi, i64 12, i1 false)
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end29, %if.end18, %if.then10, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.then10 ], [ false, %if.end18 ], [ false, %if.end29 ], [ true, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end29, %if.end18, %if.then10, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then10 ], [ false, %if.end18 ], [ false, %if.end29 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -15105,25 +15101,21 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %idx, i32 noundef %n, ptr noundef writeonly %ret, i1 noundef zeroext %allow_zero, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %idx, i32 noundef %n, ptr nocapture noundef writeonly %ret, i1 noundef zeroext %allow_zero, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %tobool.not = icmp eq ptr %ret, null
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
   %cmp = icmp sgt i32 %idx, 0
   br i1 %cmp, label %if.then1, label %if.end2
 
-if.then1:                                         ; preds = %if.end
+if.then1:                                         ; preds = %entry
   %sub = add nsw i32 %idx, -1
   store i32 %sub, ptr %ret, align 4
   br label %return
 
-if.end2:                                          ; preds = %if.end
+if.end2:                                          ; preds = %entry
   %cmp3 = icmp eq i32 %idx, 0
   br i1 %cmp3, label %if.then4, label %if.then20
 
@@ -15214,8 +15206,8 @@ if.then20:                                        ; preds = %if.end2
   %cmp21 = icmp sgt i32 %add, -1
   br label %return
 
-return:                                           ; preds = %if.then20, %entry, %if.end15, %if.then1
-  %retval.0 = phi i1 [ true, %if.then1 ], [ %allow_zero, %if.end15 ], [ false, %entry ], [ %cmp21, %if.then20 ]
+return:                                           ; preds = %if.then20, %if.end15, %if.then1
+  %retval.0 = phi i1 [ true, %if.then1 ], [ %allow_zero, %if.end15 ], [ %cmp21, %if.then20 ]
   ret i1 %retval.0
 }
 

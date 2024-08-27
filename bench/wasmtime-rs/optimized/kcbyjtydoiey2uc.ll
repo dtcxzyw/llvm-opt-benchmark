@@ -93,9 +93,9 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   %35 = getelementptr inbounds i8, ptr %12, i64 128
   %36 = load ptr, ptr %35, align 8, !alias.scope !5, !noalias !8, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %36, i64 %34
-  %.sroa.5.0..sroa_idx31 = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.5.0..sroa_idx30 = getelementptr inbounds i8, ptr %37, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  store i8 2, ptr %.sroa.5.0..sroa_idx31, align 8
+  store i8 2, ptr %.sroa.5.0..sroa_idx30, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 20
   store i32 %1, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 24
@@ -109,20 +109,20 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   store i32 %1, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %40 = invoke noundef align 8 dereferenceable_or_null(48) ptr @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$11sub_type_at17h5960366df7f7bb67E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i32 noundef %1)
-          to label %.noexc24 unwind label %.loopexit.split-lp
+          to label %.noexc23 unwind label %.loopexit.split-lp
 
-.noexc24:                                         ; preds = %33
+.noexc23:                                         ; preds = %33
   %41 = icmp eq ptr %40, null
   br i1 %41, label %46, label %42
 
-42:                                               ; preds = %.noexc24
+42:                                               ; preds = %.noexc23
   store ptr %40, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = load i8, ptr %43, align 8, !range !10, !noundef !4
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %61, label %52
 
-46:                                               ; preds = %.noexc24
+46:                                               ; preds = %.noexc23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr @anon.e3f1e4be6fbba51fc6e34428ac15f44e.4, ptr %7, align 8
   %47 = getelementptr inbounds i8, ptr %7, i64 8
@@ -134,9 +134,9 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   %50 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 0, ptr %50, align 8
   %51 = invoke noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %2)
-          to label %.noexc25 unwind label %.loopexit.split-lp
+          to label %.noexc24 unwind label %.loopexit.split-lp
 
-.noexc25:                                         ; preds = %46
+.noexc24:                                         ; preds = %46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %68
 
@@ -160,9 +160,9 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   %59 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 2, ptr %59, align 8, !alias.scope !11, !noalias !14
   %60 = invoke noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %2)
-          to label %.noexc26 unwind label %.loopexit.split-lp
+          to label %.noexc25 unwind label %.loopexit.split-lp
 
-.noexc26:                                         ; preds = %52
+.noexc25:                                         ; preds = %52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %68
@@ -179,13 +179,13 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 67:                                               ; preds = %61
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %65, i64 noundef %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3f1e4be6fbba51fc6e34428ac15f44e.2) #12
-          to label %.noexc27 unwind label %.loopexit.split-lp
+          to label %.noexc26 unwind label %.loopexit.split-lp
 
-.noexc27:                                         ; preds = %67
+.noexc26:                                         ; preds = %67
   unreachable
 
-68:                                               ; preds = %.noexc25, %.noexc26
-  %.sroa.4.0.i.ph = phi ptr [ %60, %.noexc26 ], [ %51, %.noexc25 ]
+68:                                               ; preds = %.noexc24, %.noexc25
+  %.sroa.4.0.i.ph = phi ptr [ %60, %.noexc25 ], [ %51, %.noexc24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %69 = getelementptr inbounds i8, ptr %0, i64 8
@@ -211,9 +211,9 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   br label %80
 
 77:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit"
-  %.sroa.035.050 = phi ptr [ %72, %.lr.ph ], [ %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit" ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.035.050, i64 4
-  %.sroa.011.0.copyload = load i32, ptr %.sroa.035.050, align 1
+  %.sroa.034.042 = phi ptr [ %72, %.lr.ph ], [ %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit" ]
+  %78 = getelementptr inbounds i8, ptr %.sroa.034.042, i64 4
+  %.sroa.011.0.copyload = load i32, ptr %.sroa.034.042, align 1
   %79 = invoke noundef zeroext i1 @_ZN10wasmparser9validator9operators6Locals6define17h638e428ec2fb3330E(ptr noalias noundef nonnull align 8 dereferenceable(56) %24, i32 noundef 1, i32 %.sroa.011.0.copyload)
           to label %81 unwind label %.loopexit
 
@@ -229,14 +229,14 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 85:                                               ; preds = %81
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbf611bdfe207164dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %82)
-          to label %.noexc29 unwind label %.loopexit
+          to label %.noexc28 unwind label %.loopexit
 
-.noexc29:                                         ; preds = %85
-  %.pre.i28 = load i64, ptr %75, align 8, !alias.scope !17
+.noexc28:                                         ; preds = %85
+  %.pre.i27 = load i64, ptr %75, align 8, !alias.scope !17
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit": ; preds = %81, %.noexc29
-  %86 = phi i64 [ %.pre.i28, %.noexc29 ], [ %82, %81 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit": ; preds = %81, %.noexc28
+  %86 = phi i64 [ %.pre.i27, %.noexc28 ], [ %82, %81 ]
   %87 = load ptr, ptr %76, align 8, !alias.scope !17, !nonnull !4, !noundef !4
   %88 = getelementptr inbounds i8, ptr %87, i64 %86
   store i8 1, ptr %88, align 1

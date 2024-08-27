@@ -267,16 +267,16 @@ if.end:                                           ; preds = %entry
 land.rhs.i:                                       ; preds = %if.end
   %1 = load i32, ptr %saltlen, align 4
   %cmp1.i.i = icmp slt i32 %1, 0
-  br i1 %cmp1.i.i, label %return.sink.split.i.i, label %if.end.i.i
+  br i1 %cmp1.i.i, label %return.sink.split.i.i, label %land.lhs.true3.i.i
 
-if.end.i.i:                                       ; preds = %land.rhs.i
-  %2 = load i32, ptr %trailerField.i, align 4
-  %cmp4.not.i.i = icmp eq i32 %2, 1
+land.lhs.true3.i.i:                               ; preds = %land.rhs.i
+  %trailerField.val.i = load i32, ptr %trailerField.i, align 4
+  %cmp4.not.i.i = icmp eq i32 %trailerField.val.i, 1
   br i1 %cmp4.not.i.i, label %if.end4, label %return.sink.split.i.i
 
-return.sink.split.i.i:                            ; preds = %if.end.i.i, %land.rhs.i
-  %.sink1.i.i = phi i32 [ 592, %land.rhs.i ], [ 600, %if.end.i.i ]
-  %.sink.i.i = phi i32 [ 150, %land.rhs.i ], [ 139, %if.end.i.i ]
+return.sink.split.i.i:                            ; preds = %land.lhs.true3.i.i, %land.rhs.i
+  %.sink1.i.i = phi i32 [ 592, %land.rhs.i ], [ 600, %land.lhs.true3.i.i ]
+  %.sink.i.i = phi i32 [ 150, %land.rhs.i ], [ 139, %land.lhs.true3.i.i ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i.i, ptr noundef null) #6
@@ -289,14 +289,14 @@ if.then3:                                         ; preds = %if.end, %return.sin
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 149, ptr noundef null) #6
   br label %err
 
-if.end4:                                          ; preds = %if.end.i.i
+if.end4:                                          ; preds = %land.lhs.true3.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %trailerField.i)
   %tobool5.not = icmp eq ptr %pkey, null
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %3 = load ptr, ptr %md, align 8
-  %call7 = call i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef nonnull %pkctx.addr, ptr noundef %3, ptr noundef null, ptr noundef nonnull %pkey) #6
+  %2 = load ptr, ptr %md, align 8
+  %call7 = call i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef nonnull %pkctx.addr, ptr noundef %2, ptr noundef null, ptr noundef nonnull %pkey) #6
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %err, label %if.then6.if.end20_crit_edge
 
@@ -310,10 +310,10 @@ if.else:                                          ; preds = %if.end4
   br i1 %cmp12, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.else
-  %4 = load ptr, ptr %md, align 8
-  %call15 = call i32 @EVP_MD_get_type(ptr noundef %4) #6
-  %5 = load ptr, ptr %checkmd, align 8
-  %call16 = call i32 @EVP_MD_get_type(ptr noundef %5) #6
+  %3 = load ptr, ptr %md, align 8
+  %call15 = call i32 @EVP_MD_get_type(ptr noundef %3) #6
+  %4 = load ptr, ptr %checkmd, align 8
+  %call16 = call i32 @EVP_MD_get_type(ptr noundef %4) #6
   %cmp17.not = icmp eq i32 %call15, %call16
   br i1 %cmp17.not, label %if.end20, label %if.then18
 
@@ -324,22 +324,22 @@ if.then18:                                        ; preds = %if.end14
   br label %err
 
 if.end20:                                         ; preds = %if.then6.if.end20_crit_edge, %if.end14
-  %6 = phi ptr [ %.pre, %if.then6.if.end20_crit_edge ], [ %pkctx, %if.end14 ]
-  %call21 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %6, i32 noundef 6) #6
+  %5 = phi ptr [ %.pre, %if.then6.if.end20_crit_edge ], [ %pkctx, %if.end14 ]
+  %call21 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %5, i32 noundef 6) #6
   %cmp22 = icmp slt i32 %call21, 1
   br i1 %cmp22, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
-  %7 = load ptr, ptr %pkctx.addr, align 8
-  %8 = load i32, ptr %saltlen, align 4
-  %call25 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %7, i32 noundef %8) #6
+  %6 = load ptr, ptr %pkctx.addr, align 8
+  %7 = load i32, ptr %saltlen, align 4
+  %call25 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %6, i32 noundef %7) #6
   %cmp26 = icmp slt i32 %call25, 1
   br i1 %cmp26, label %err, label %if.end28
 
 if.end28:                                         ; preds = %if.end24
-  %9 = load ptr, ptr %pkctx.addr, align 8
-  %10 = load ptr, ptr %mgf1md, align 8
-  %call29 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %9, ptr noundef %10) #6
+  %8 = load ptr, ptr %pkctx.addr, align 8
+  %9 = load ptr, ptr %mgf1md, align 8
+  %call29 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %8, ptr noundef %9) #6
   %cmp30 = icmp slt i32 %call29, 1
   %spec.select = select i1 %cmp30, i32 -1, i32 1
   br label %err
@@ -374,29 +374,29 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
+  %trailerField.val = load i32, ptr %trailerField, align 4
   %cmp.not.i = icmp eq ptr %psaltlen, null
-  br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %land.lhs.true3.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
   %0 = load i32, ptr %psaltlen, align 4
   %cmp1.i = icmp slt i32 %0, 0
-  br i1 %cmp1.i, label %return.sink.split.i, label %if.end.i
+  br i1 %cmp1.i, label %return.sink.split.i, label %land.lhs.true3.i
 
-if.end.i:                                         ; preds = %land.lhs.true.i, %land.rhs
-  %1 = load i32, ptr %trailerField, align 4
-  %cmp4.not.i = icmp eq i32 %1, 1
+land.lhs.true3.i:                                 ; preds = %land.lhs.true.i, %land.rhs
+  %cmp4.not.i = icmp eq i32 %trailerField.val, 1
   br i1 %cmp4.not.i, label %land.end, label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.end.i, %land.lhs.true.i
-  %.sink1.i = phi i32 [ 592, %land.lhs.true.i ], [ 600, %if.end.i ]
-  %.sink.i = phi i32 [ 150, %land.lhs.true.i ], [ 139, %if.end.i ]
+return.sink.split.i:                              ; preds = %land.lhs.true3.i, %land.lhs.true.i
+  %.sink1.i = phi i32 [ 592, %land.lhs.true.i ], [ 600, %land.lhs.true3.i ]
+  %.sink.i = phi i32 [ 150, %land.lhs.true.i ], [ 139, %land.lhs.true3.i ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i, ptr noundef null) #6
   br label %land.end
 
-land.end:                                         ; preds = %return.sink.split.i, %if.end.i, %entry
-  %land.ext = phi i32 [ 0, %entry ], [ 1, %if.end.i ], [ 0, %return.sink.split.i ]
+land.end:                                         ; preds = %return.sink.split.i, %land.lhs.true3.i, %entry
+  %land.ext = phi i32 [ 0, %entry ], [ 1, %land.lhs.true3.i ], [ 0, %return.sink.split.i ]
   ret i32 %land.ext
 }
 
@@ -774,16 +774,16 @@ if.then:                                          ; preds = %sw.bb
 land.rhs.i:                                       ; preds = %if.then
   %2 = load i32, ptr %min_saltlen, align 4
   %cmp1.i.i = icmp slt i32 %2, 0
-  br i1 %cmp1.i.i, label %return.sink.split.i.i, label %if.end.i.i
+  br i1 %cmp1.i.i, label %return.sink.split.i.i, label %land.lhs.true3.i.i
 
-if.end.i.i:                                       ; preds = %land.rhs.i
-  %3 = load i32, ptr %trailerField.i, align 4
-  %cmp4.not.i.i = icmp eq i32 %3, 1
+land.lhs.true3.i.i:                               ; preds = %land.rhs.i
+  %trailerField.val.i = load i32, ptr %trailerField.i, align 4
+  %cmp4.not.i.i = icmp eq i32 %trailerField.val.i, 1
   br i1 %cmp4.not.i.i, label %if.end, label %return.sink.split.i.i
 
-return.sink.split.i.i:                            ; preds = %if.end.i.i, %land.rhs.i
-  %.sink1.i.i = phi i32 [ 592, %land.rhs.i ], [ 600, %if.end.i.i ]
-  %.sink.i.i = phi i32 [ 150, %land.rhs.i ], [ 139, %if.end.i.i ]
+return.sink.split.i.i:                            ; preds = %land.lhs.true3.i.i, %land.rhs.i
+  %.sink1.i.i = phi i32 [ 592, %land.rhs.i ], [ 600, %land.lhs.true3.i.i ]
+  %.sink.i.i = phi i32 [ 150, %land.rhs.i ], [ 139, %land.lhs.true3.i.i ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i.i, ptr noundef null) #6
@@ -796,10 +796,10 @@ if.then4:                                         ; preds = %if.then, %return.si
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 786691, ptr noundef null) #6
   br label %return
 
-if.end:                                           ; preds = %if.end.i.i
+if.end:                                           ; preds = %land.lhs.true3.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %trailerField.i)
-  %4 = load ptr, ptr %md, align 8
-  %call5 = call i32 @EVP_MD_get_type(ptr noundef %4) #6
+  %3 = load ptr, ptr %md, align 8
+  %call5 = call i32 @EVP_MD_get_type(ptr noundef %3) #6
   store i32 %call5, ptr %arg2, align 4
   br label %return
 
@@ -1004,16 +1004,16 @@ if.end:                                           ; preds = %entry
 land.rhs.i:                                       ; preds = %if.end
   %1 = load i32, ptr %saltlen, align 4
   %cmp1.i.i = icmp slt i32 %1, 0
-  br i1 %cmp1.i.i, label %return.sink.split.i.i, label %if.end.i.i
+  br i1 %cmp1.i.i, label %return.sink.split.i.i, label %land.lhs.true3.i.i
 
-if.end.i.i:                                       ; preds = %land.rhs.i
-  %2 = load i32, ptr %trailerField.i, align 4
-  %cmp4.not.i.i = icmp eq i32 %2, 1
+land.lhs.true3.i.i:                               ; preds = %land.rhs.i
+  %trailerField.val.i = load i32, ptr %trailerField.i, align 4
+  %cmp4.not.i.i = icmp eq i32 %trailerField.val.i, 1
   br i1 %cmp4.not.i.i, label %if.end4, label %return.sink.split.i.i
 
-return.sink.split.i.i:                            ; preds = %if.end.i.i, %land.rhs.i
-  %.sink1.i.i = phi i32 [ 592, %land.rhs.i ], [ 600, %if.end.i.i ]
-  %.sink.i.i = phi i32 [ 150, %land.rhs.i ], [ 139, %if.end.i.i ]
+return.sink.split.i.i:                            ; preds = %land.lhs.true3.i.i, %land.rhs.i
+  %.sink1.i.i = phi i32 [ 592, %land.rhs.i ], [ 600, %land.lhs.true3.i.i ]
+  %.sink.i.i = phi i32 [ 150, %land.rhs.i ], [ 139, %land.lhs.true3.i.i ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i.i, ptr noundef null) #6
@@ -1023,25 +1023,25 @@ ossl_rsa_pss_get_param.exit.thread:               ; preds = %if.end, %return.sin
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %trailerField.i)
   br label %err
 
-if.end4:                                          ; preds = %if.end.i.i
+if.end4:                                          ; preds = %land.lhs.true3.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %trailerField.i)
-  %3 = load ptr, ptr %md, align 8
-  %call5 = call i32 @EVP_MD_get_type(ptr noundef %3) #6
+  %2 = load ptr, ptr %md, align 8
+  %call5 = call i32 @EVP_MD_get_type(ptr noundef %2) #6
   %call5.off = add i32 %call5, -672
   %switch = icmp ult i32 %call5.off, 3
   br i1 %switch, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end4
-  %4 = load ptr, ptr %mgf1md, align 8
-  %call10 = call i32 @EVP_MD_get_type(ptr noundef %4) #6
+  %3 = load ptr, ptr %mgf1md, align 8
+  %call10 = call i32 @EVP_MD_get_type(ptr noundef %3) #6
   %cmp11 = icmp eq i32 %call5, %call10
   br i1 %cmp11, label %land.lhs.true12, label %if.else
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
-  %5 = load i32, ptr %saltlen, align 4
-  %6 = load ptr, ptr %md, align 8
-  %call13 = call i32 @EVP_MD_get_size(ptr noundef %6) #6
-  %cmp14 = icmp eq i32 %5, %call13
+  %4 = load i32, ptr %saltlen, align 4
+  %5 = load ptr, ptr %md, align 8
+  %call13 = call i32 @EVP_MD_get_size(ptr noundef %5) #6
+  %cmp14 = icmp eq i32 %4, %call13
   br i1 %cmp14, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %if.end4, %land.lhs.true12, %land.lhs.true
@@ -1049,8 +1049,8 @@ if.else:                                          ; preds = %if.end4, %land.lhs.
 
 if.end16:                                         ; preds = %land.lhs.true12, %if.else
   %flags.0 = phi i32 [ 0, %if.else ], [ 2, %land.lhs.true12 ]
-  %7 = load ptr, ptr %md, align 8
-  %call17 = call i32 @EVP_MD_get_size(ptr noundef %7) #6
+  %6 = load ptr, ptr %md, align 8
+  %call17 = call i32 @EVP_MD_get_size(ptr noundef %6) #6
   switch i32 %call5, label %if.end28.fold.split [
     i32 64, label %if.end28
     i32 114, label %if.then22

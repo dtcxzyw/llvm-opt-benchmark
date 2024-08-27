@@ -228,56 +228,56 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
   %122 = urem i64 %119, %121
   %123 = getelementptr inbounds i8, ptr %.0, i64 6
   %124 = load i8, ptr %123, align 2
-  %.not25.i = icmp eq i8 %124, 0
-  br i1 %.not25.i, label %bloom_add_value.exit, label %.lr.ph.i
+  %.not24.i = icmp eq i8 %124, 0
+  br i1 %.not24.i, label %bloom_add_value.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %bloom_get_procinfo.exit
   %125 = getelementptr inbounds i8, ptr %.0, i64 16
   %126 = getelementptr inbounds i8, ptr %.0, i64 12
   %127 = zext i8 %124 to i64
-  br label %.lr.ph.split.i
+  br label %128
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %144
-  %.1 = phi i8 [ %.030, %.lr.ph.i ], [ %.2, %144 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %144 ]
-  %128 = mul nuw nsw i64 %indvars.iv.i, %122
-  %129 = add nuw nsw i64 %128, %118
-  %130 = urem i64 %129, %121
-  %131 = trunc nuw i64 %130 to i32
-  %132 = lshr i64 %130, 3
-  %133 = and i32 %131, 7
-  %134 = getelementptr [0 x i8], ptr %125, i64 0, i64 %132
-  %135 = load i8, ptr %134, align 1
-  %136 = zext i8 %135 to i32
-  %137 = shl nuw nsw i32 1, %133
-  %138 = and i32 %137, %136
-  %.not.i29 = icmp eq i32 %138, 0
-  br i1 %.not.i29, label %139, label %144
+128:                                              ; preds = %145, %.lr.ph.i
+  %.1 = phi i8 [ %.030, %.lr.ph.i ], [ %.2, %145 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %145 ]
+  %129 = mul nuw nsw i64 %indvars.iv.i, %122
+  %130 = add nuw nsw i64 %129, %118
+  %131 = urem i64 %130, %121
+  %132 = trunc nuw i64 %131 to i32
+  %133 = lshr i64 %131, 3
+  %134 = and i32 %132, 7
+  %135 = getelementptr [0 x i8], ptr %125, i64 0, i64 %133
+  %136 = load i8, ptr %135, align 1
+  %137 = zext i8 %136 to i32
+  %138 = shl nuw nsw i32 1, %134
+  %139 = and i32 %138, %137
+  %.not.i29 = icmp eq i32 %139, 0
+  br i1 %.not.i29, label %140, label %145
 
-139:                                              ; preds = %.lr.ph.split.i
-  %140 = trunc nuw i32 %137 to i8
-  %141 = or i8 %135, %140
-  store i8 %141, ptr %134, align 1
-  %142 = load i32, ptr %126, align 4
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %126, align 4
-  br label %144
+140:                                              ; preds = %128
+  %141 = trunc nuw i32 %138 to i8
+  %142 = or i8 %136, %141
+  store i8 %142, ptr %135, align 1
+  %143 = load i32, ptr %126, align 4
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %126, align 4
+  br label %145
 
-144:                                              ; preds = %139, %.lr.ph.split.i
-  %.2 = phi i8 [ 1, %139 ], [ %.1, %.lr.ph.split.i ]
+145:                                              ; preds = %140, %128
+  %.2 = phi i8 [ 1, %140 ], [ %.1, %128 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %145 = icmp ult i64 %indvars.iv.next.i, %127
-  br i1 %145, label %.lr.ph.split.i, label %bloom_add_value.exit, !llvm.loop !5
+  %146 = icmp ult i64 %indvars.iv.next.i, %127
+  br i1 %146, label %128, label %bloom_add_value.exit, !llvm.loop !5
 
-bloom_add_value.exit:                             ; preds = %144, %bloom_get_procinfo.exit
-  %.3 = phi i8 [ %.030, %bloom_get_procinfo.exit ], [ %.2, %144 ]
-  %146 = ptrtoint ptr %.0 to i64
-  %147 = getelementptr inbounds i8, ptr %7, i64 8
-  %148 = load ptr, ptr %147, align 8
-  store i64 %146, ptr %148, align 8
-  %149 = and i8 %.3, 1
-  %150 = zext nneg i8 %149 to i64
-  ret i64 %150
+bloom_add_value.exit:                             ; preds = %145, %bloom_get_procinfo.exit
+  %.3 = phi i8 [ %.030, %bloom_get_procinfo.exit ], [ %.2, %145 ]
+  %147 = ptrtoint ptr %.0 to i64
+  %148 = getelementptr inbounds i8, ptr %7, i64 8
+  %149 = load ptr, ptr %148, align 8
+  store i64 %147, ptr %149, align 8
+  %150 = and i8 %.3, 1
+  %151 = zext nneg i8 %150 to i64
+  ret i64 %151
 }
 
 declare ptr @get_fn_opclass_options(ptr noundef) local_unnamed_addr #1

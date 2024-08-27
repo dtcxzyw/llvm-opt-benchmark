@@ -3199,8 +3199,8 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 44:                                               ; preds = %42
   %45 = load ptr, ptr %8, align 8
   %46 = load ptr, ptr %11, align 8
-  %47 = call fastcc ptr @summary_session(ptr noundef %46, ptr noundef %0, i32 noundef %43)
-  call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef %47) #10
+  %47 = tail call fastcc ptr @summary_session(ptr noundef %46, ptr noundef %0, i32 noundef %43)
+  tail call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef %47) #10
   br label %48
 
 48:                                               ; preds = %44, %42
@@ -3211,13 +3211,13 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 50:                                               ; preds = %48
   %51 = load ptr, ptr %8, align 8
   %52 = load ptr, ptr %11, align 8
-  %53 = call fastcc ptr @summary_template(ptr noundef %52, ptr noundef %0, i32 noundef %49)
-  call void @col_append_str(ptr noundef %51, i32 noundef 25, ptr noundef %53) #10
+  %53 = tail call fastcc ptr @summary_template(ptr noundef %52, ptr noundef %0, i32 noundef %49)
+  tail call void @col_append_str(ptr noundef %51, i32 noundef 25, ptr noundef %53) #10
   br label %54
 
 54:                                               ; preds = %48, %50
   %55 = load i32, ptr @ett_treelist, align 16
-  call fastcc void @dissect_rsvp_msg_tree(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %55, ptr noundef nonnull %13, i32 noundef %3)
+  tail call fastcc void @dissect_rsvp_msg_tree(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %55, ptr noundef nonnull %13, i32 noundef %3)
   switch i8 %10, label %56 [
     i8 20, label %290
     i8 15, label %290
@@ -3225,7 +3225,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   ]
 
 56:                                               ; preds = %.thread, %54
-  %57 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #10
+  %57 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8
@@ -3396,7 +3396,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   br label %160
 
 158:                                              ; preds = %56
-  %159 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_rsvp_session_type, ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
+  %159 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_rsvp_session_type, ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
   br label %160
 
 160:                                              ; preds = %56, %158, %144, %130, %116, %102, %91, %77, %63
@@ -3631,7 +3631,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
   %4 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 6, i32 noundef 2) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -3643,21 +3643,21 @@ define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noun
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5, %19
-  %.136 = phi i32 [ %.2, %19 ], [ 0, %5 ]
-  %.02435 = phi i32 [ %20, %19 ], [ 8, %5 ]
-  %.12634 = phi i32 [ %.227, %19 ], [ 0, %5 ]
-  %9 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.02435, i32 noundef 3) #10
+  %.134 = phi i32 [ %.2, %19 ], [ 0, %5 ]
+  %.02433 = phi i32 [ %20, %19 ], [ 8, %5 ]
+  %.12632 = phi i32 [ %.227, %19 ], [ 0, %5 ]
+  %9 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.02433, i32 noundef 3) #10
   %.not31 = icmp eq i32 %9, 0
   br i1 %.not31, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.02435) #10
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.02433) #10
   %12 = zext i16 %11 to i32
   %13 = icmp eq i16 %11, 0
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %10
-  %15 = add nuw nsw i32 %.02435, 2
+  %15 = add nuw nsw i32 %.02433, 2
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #10
   switch i8 %16, label %19 [
     i8 1, label %17
@@ -3672,31 +3672,17 @@ define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noun
   br label %19
 
 19:                                               ; preds = %17, %18, %14
-  %.227 = phi i32 [ %.12634, %14 ], [ %.02435, %18 ], [ %.12634, %17 ]
-  %.2 = phi i32 [ %.136, %14 ], [ %.136, %18 ], [ %.02435, %17 ]
-  %20 = add nuw nsw i32 %.02435, %12
+  %.227 = phi i32 [ %.12632, %14 ], [ %.02433, %18 ], [ %.12632, %17 ]
+  %.2 = phi i32 [ %.134, %14 ], [ %.134, %18 ], [ %.02433, %17 ]
+  %20 = add nuw nsw i32 %.02433, %12
   %21 = icmp ult i32 %20, %7
   br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %19, %10, %.lr.ph, %5, %3
-  %.025 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %.227, %19 ], [ %.12634, %10 ], [ %.12634, %.lr.ph ]
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %.2, %19 ], [ %.136, %10 ], [ %.136, %.lr.ph ]
-  %.not32 = icmp eq ptr %1, null
-  br i1 %.not32, label %23, label %22
-
-22:                                               ; preds = %.critedge
+.critedge:                                        ; preds = %.lr.ph, %10, %19, %5, %3
+  %.025 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %.12632, %.lr.ph ], [ %.12632, %10 ], [ %.227, %19 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %.134, %.lr.ph ], [ %.134, %10 ], [ %.2, %19 ]
   store i32 %.0, ptr %1, align 4
-  br label %23
-
-23:                                               ; preds = %22, %.critedge
-  %.not33 = icmp eq ptr %2, null
-  br i1 %.not33, label %25, label %24
-
-24:                                               ; preds = %23
   store i32 %.025, ptr %2, align 4
-  br label %25
-
-25:                                               ; preds = %24, %23
   ret void
 }
 
@@ -3963,8 +3949,8 @@ define internal fastcc void @dissect_rsvp_msg_tree(ptr noundef %0, ptr noundef %
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
-  %37 = call fastcc ptr @summary_session(ptr noundef %36, ptr noundef %0, i32 noundef %33)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.1447, ptr noundef %37) #10
+  %37 = tail call fastcc ptr @summary_session(ptr noundef %36, ptr noundef %0, i32 noundef %33)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.1447, ptr noundef %37) #10
   br label %38
 
 38:                                               ; preds = %34, %30
@@ -3975,13 +3961,13 @@ define internal fastcc void @dissect_rsvp_msg_tree(ptr noundef %0, ptr noundef %
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
-  %43 = call fastcc ptr @summary_template(ptr noundef %42, ptr noundef %0, i32 noundef %39)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.1447, ptr noundef %43) #10
+  %43 = tail call fastcc ptr @summary_template(ptr noundef %42, ptr noundef %0, i32 noundef %39)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.1447, ptr noundef %43) #10
   br label %44
 
 44:                                               ; preds = %40, %38
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @ett_treelist, i64 4), align 4
-  %46 = call ptr @val_to_str_ext(i32 noundef %31, ptr noundef nonnull @message_type_vals_ext, ptr noundef nonnull @.str.1449) #10
+  %46 = tail call ptr @val_to_str_ext(i32 noundef %31, ptr noundef nonnull @message_type_vals_ext, ptr noundef nonnull @.str.1449) #10
   %47 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %45, ptr noundef nonnull %19, ptr noundef nonnull @.str.1448, ptr noundef %46) #10
   br i1 %.not, label %50, label %48
 

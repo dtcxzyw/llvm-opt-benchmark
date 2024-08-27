@@ -860,7 +860,11 @@ if.end9:                                          ; preds = %if.then8, %cond.fal
   %tobool16.not = phi i1 [ false, %if.then8 ], [ true, %validate_branchname.exit ], [ true, %cond.false ]
   call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_name, i32 noundef %track, ptr noundef nonnull %real_ref, ptr noundef nonnull %oid)
   %tobool10.not = icmp eq i32 %dry_run, 0
-  br i1 %tobool10.not, label %if.end12, label %cleanup
+  br i1 %tobool10.not, label %if.end12, label %if.end9.cleanup_crit_edge
+
+if.end9.cleanup_crit_edge:                        ; preds = %if.end9
+  %.pre = load ptr, ptr %real_ref, align 8
+  br label %cleanup
 
 if.end12:                                         ; preds = %if.end9
   %tobool13.not = icmp eq i32 %reflog, 0
@@ -933,9 +937,9 @@ if.then38:                                        ; preds = %if.end34
   call fastcc void @setup_tracking(ptr noundef nonnull %add.ptr, ptr noundef nonnull %5, i32 noundef %track, i32 noundef %quiet)
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end34, %if.then38, %if.end9
+cleanup:                                          ; preds = %if.end9.cleanup_crit_edge, %if.end34, %if.then38
+  %7 = phi ptr [ %.pre, %if.end9.cleanup_crit_edge ], [ %5, %if.end34 ], [ %5, %if.then38 ]
   call void @strbuf_release(ptr noundef nonnull %ref) #13
-  %7 = load ptr, ptr %real_ref, align 8
   call void @free(ptr noundef %7) #13
   ret void
 }
@@ -944,7 +948,7 @@ cleanup:                                          ; preds = %if.end34, %if.then3
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_name, i32 noundef %track, ptr noundef writeonly %out_real_ref, ptr noundef writeonly %out_oid) unnamed_addr #0 {
+define internal fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_name, i32 noundef %track, ptr nocapture noundef writeonly %out_real_ref, ptr noundef writeonly %out_oid) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %real_ref = alloca ptr, align 8
@@ -1023,28 +1027,20 @@ sw.default:                                       ; preds = %if.end11
 sw.epilog:                                        ; preds = %sw.bb18, %land.lhs.true, %do.body, %sw.bb
   %call30 = call ptr @lookup_commit_reference(ptr noundef %r, ptr noundef nonnull %oid) #13
   %tobool31.not = icmp eq ptr %call30, null
-  br i1 %tobool31.not, label %if.then32, label %if.end34
+  br i1 %tobool31.not, label %if.then32, label %if.then36
 
 if.then32:                                        ; preds = %sw.epilog
   %call33 = call fastcc ptr @_(ptr noundef nonnull @.str.42)
   call void (ptr, ...) @die(ptr noundef %call33, ptr noundef %start_name) #14
   unreachable
 
-if.end34:                                         ; preds = %sw.epilog
-  %tobool35.not = icmp eq ptr %out_real_ref, null
-  br i1 %tobool35.not, label %if.end37, label %if.then36
-
-if.then36:                                        ; preds = %if.end34
+if.then36:                                        ; preds = %sw.epilog
   %4 = load ptr, ptr %real_ref, align 8
   store ptr %4, ptr %out_real_ref, align 8
-  store ptr null, ptr %real_ref, align 8
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then36, %if.end34
   %tobool38.not = icmp eq ptr %out_oid, null
   br i1 %tobool38.not, label %do.body42, label %if.then39
 
-if.then39:                                        ; preds = %if.end37
+if.then39:                                        ; preds = %if.then36
   %oid40 = getelementptr inbounds i8, ptr %call30, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %out_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid40, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %call30, i64 36
@@ -1053,9 +1049,7 @@ if.then39:                                        ; preds = %if.end37
   store i32 %5, ptr %algo3.i, align 4
   br label %do.body42
 
-do.body42:                                        ; preds = %if.end37, %if.then39
-  %6 = load ptr, ptr %real_ref, align 8
-  call void @free(ptr noundef %6) #13
+do.body42:                                        ; preds = %if.then36, %if.then39
   ret void
 }
 
@@ -1349,9 +1343,8 @@ entry:
   store ptr null, ptr %real_orig_ref, align 8
   call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %orig_ref, i32 noundef %track, ptr noundef nonnull %real_orig_ref, ptr noundef null)
   %0 = load ptr, ptr %real_orig_ref, align 8
-  call fastcc void @setup_tracking(ptr noundef %new_ref, ptr noundef %0, i32 noundef %track, i32 noundef %quiet)
-  %1 = load ptr, ptr %real_orig_ref, align 8
-  call void @free(ptr noundef %1) #13
+  tail call fastcc void @setup_tracking(ptr noundef %new_ref, ptr noundef %0, i32 noundef %track, i32 noundef %quiet)
+  tail call void @free(ptr noundef %0) #13
   ret void
 }
 

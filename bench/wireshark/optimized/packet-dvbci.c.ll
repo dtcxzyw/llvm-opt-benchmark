@@ -2112,21 +2112,21 @@ define internal void @dissect_dvbci_payload_ca(i32 noundef %0, i32 noundef %1, p
 .preheader:                                       ; preds = %9
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %3) #14
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph153, label %.loopexit
+  br i1 %12, label %.lr.ph154, label %.loopexit
 
 13:                                               ; preds = %9
   %14 = tail call ptr @val_to_str(i32 noundef 10453041, ptr noundef nonnull @dvbci_apdu_tag, ptr noundef nonnull @.str.927) #14
   %15 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %6, ptr noundef %5, ptr noundef nonnull @ei_dvbci_bad_length, ptr noundef %2, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str.933, ptr noundef %14) #14
   br label %.loopexit
 
-.lr.ph153:                                        ; preds = %.preheader, %.lr.ph153
-  %.0108152 = phi i32 [ %18, %.lr.ph153 ], [ %3, %.preheader ]
+.lr.ph154:                                        ; preds = %.preheader, %.lr.ph154
+  %.0108153 = phi i32 [ %18, %.lr.ph154 ], [ %3, %.preheader ]
   %16 = load i32, ptr @hf_dvbci_ca_sys_id, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %16, ptr noundef %2, i32 noundef %.0108152, i32 noundef 2, i32 noundef 0) #14
-  %18 = add i32 %.0108152, 2
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %16, ptr noundef %2, i32 noundef %.0108153, i32 noundef 2, i32 noundef 0) #14
+  %18 = add i32 %.0108153, 2
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %18) #14
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph153, label %.loopexit, !llvm.loop !9
+  br i1 %20, label %.lr.ph154, label %.loopexit, !llvm.loop !9
 
 21:                                               ; preds = %7
   %22 = load i32, ptr @hf_dvbci_ca_pmt_list_mgmt, align 4
@@ -2160,75 +2160,75 @@ define internal void @dissect_dvbci_payload_ca(i32 noundef %0, i32 noundef %1, p
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %45, ptr noundef %2, i32 noundef %41, i32 noundef 1, i32 noundef 0) #14
   %47 = add i32 %3, 7
   %48 = icmp slt i32 %47, %44
-  br i1 %48, label %.lr.ph143, label %.loopexit133
+  br i1 %48, label %.lr.ph144, label %.loopexit134
 
-49:                                               ; preds = %.lr.ph143
-  %50 = add i32 %52, %.1109141
+49:                                               ; preds = %.lr.ph144
+  %50 = add i32 %52, %.1109142
   %51 = icmp slt i32 %50, %44
-  br i1 %51, label %.lr.ph143, label %.loopexit133, !llvm.loop !10
+  br i1 %51, label %.lr.ph144, label %.loopexit134, !llvm.loop !10
 
-.lr.ph143:                                        ; preds = %42, %49
-  %.1109141 = phi i32 [ %50, %49 ], [ %47, %42 ]
-  %52 = tail call fastcc i32 @dissect_ca_desc(ptr noundef %2, i32 noundef %.1109141, ptr noundef %5, ptr noundef %6)
+.lr.ph144:                                        ; preds = %42, %49
+  %.1109142 = phi i32 [ %50, %49 ], [ %47, %42 ]
+  %52 = tail call fastcc i32 @dissect_ca_desc(ptr noundef %2, i32 noundef %.1109142, ptr noundef %5, ptr noundef %6)
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %.loopexit, label %49
 
 54:                                               ; preds = %21
   %55 = tail call ptr @proto_tree_add_expert(ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @ei_dvbci_no_ca_desc_prog, ptr noundef %2, i32 noundef 0, i32 noundef 0) #14
-  br label %.loopexit133
+  br label %.loopexit134
 
-.loopexit133:                                     ; preds = %49, %42, %54
+.loopexit134:                                     ; preds = %49, %42, %54
   %.2110 = phi i32 [ %41, %54 ], [ %47, %42 ], [ %50, %49 ]
   %.1 = phi i32 [ 0, %54 ], [ 0, %42 ], [ 1, %49 ]
   %56 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.2110) #14
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph149, label %._crit_edge150
+  br i1 %57, label %.lr.ph150, label %._crit_edge151
 
-.lr.ph149:                                        ; preds = %.loopexit133, %88
-  %.2147 = phi i32 [ %spec.select, %88 ], [ %.1, %.loopexit133 ]
-  %.3111146 = phi i32 [ %.1.i, %88 ], [ %.2110, %.loopexit133 ]
+.lr.ph150:                                        ; preds = %.loopexit134, %88
+  %.2148 = phi i32 [ %spec.select, %88 ], [ %.1, %.loopexit134 ]
+  %.3111147 = phi i32 [ %.1.i, %88 ], [ %.2110, %.loopexit134 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %58 = load i32, ptr @ett_dvbci_application, align 4
-  %59 = call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %2, i32 noundef %.3111146, i32 noundef -1, i32 noundef %58, ptr noundef nonnull %8, ptr noundef nonnull @.str.937) #14
+  %59 = call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %2, i32 noundef %.3111147, i32 noundef -1, i32 noundef %58, ptr noundef nonnull %8, ptr noundef nonnull @.str.937) #14
   %60 = load i32, ptr @hf_dvbci_stream_type, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %2, i32 noundef %.3111146, i32 noundef 1, i32 noundef 0) #14
-  %62 = add i32 %.3111146, 1
+  %61 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %2, i32 noundef %.3111147, i32 noundef 1, i32 noundef 0) #14
+  %62 = add i32 %.3111147, 1
   %63 = load i32, ptr @hf_dvbci_es_pid, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %63, ptr noundef %2, i32 noundef %62, i32 noundef 2, i32 noundef 0) #14
-  %65 = add i32 %.3111146, 3
+  %65 = add i32 %.3111147, 3
   %66 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %65) #14
   %67 = and i16 %66, 4095
   %68 = load i32, ptr @hf_dvbci_es_info_len, align 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %68, ptr noundef %2, i32 noundef %65, i32 noundef 2, i32 noundef 0) #14
-  %70 = add i32 %.3111146, 5
-  %.not50.i = icmp eq i16 %67, 0
-  br i1 %.not50.i, label %83, label %71
+  %70 = add i32 %.3111147, 5
+  %.not.i = icmp eq i16 %67, 0
+  br i1 %.not.i, label %83, label %71
 
-71:                                               ; preds = %.lr.ph149
+71:                                               ; preds = %.lr.ph150
   %72 = zext nneg i16 %67 to i32
   %73 = add i32 %70, %72
   %74 = load i32, ptr @hf_dvbci_ca_pmt_cmd_id, align 4
   %75 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %74, ptr noundef %2, i32 noundef %70, i32 noundef 1, i32 noundef 0) #14
-  %76 = add i32 %.3111146, 6
+  %76 = add i32 %.3111147, 6
   %77 = icmp slt i32 %76, %73
-  br i1 %77, label %.lr.ph.split.i, label %dissect_es.exit
+  br i1 %77, label %.lr.ph.i, label %dissect_es.exit
 
-.lr.ph.split.i:                                   ; preds = %71, %80
-  %.04553.i = phi i32 [ %81, %80 ], [ %76, %71 ]
-  %78 = call fastcc i32 @dissect_ca_desc(ptr noundef %2, i32 noundef %.04553.i, ptr noundef %5, ptr noundef %59)
+.lr.ph.i:                                         ; preds = %71, %80
+  %.04552.i = phi i32 [ %81, %80 ], [ %76, %71 ]
+  %78 = call fastcc i32 @dissect_ca_desc(ptr noundef %2, i32 noundef %.04552.i, ptr noundef %5, ptr noundef %59)
   %79 = icmp slt i32 %78, 1
   br i1 %79, label %dissect_es.exit.thread, label %80
 
-dissect_es.exit.thread:                           ; preds = %.lr.ph.split.i
+dissect_es.exit.thread:                           ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.loopexit
 
-80:                                               ; preds = %.lr.ph.split.i
-  %81 = add i32 %78, %.04553.i
+80:                                               ; preds = %.lr.ph.i
+  %81 = add i32 %78, %.04552.i
   %82 = icmp slt i32 %81, %73
-  br i1 %82, label %.lr.ph.split.i, label %dissect_es.exit, !llvm.loop !11
+  br i1 %82, label %.lr.ph.i, label %dissect_es.exit, !llvm.loop !11
 
-83:                                               ; preds = %.lr.ph149
+83:                                               ; preds = %.lr.ph150
   %84 = call ptr @proto_tree_add_expert(ptr noundef %59, ptr noundef %5, ptr noundef nonnull @ei_dvbci_no_ca_desc_es, ptr noundef %2, i32 noundef 0, i32 noundef 0) #14
   br label %dissect_es.exit
 
@@ -2236,20 +2236,20 @@ dissect_es.exit:                                  ; preds = %80, %71, %83
   %.not119 = phi i1 [ true, %83 ], [ true, %71 ], [ false, %80 ]
   %.1.i = phi i32 [ %70, %83 ], [ %76, %71 ], [ %81, %80 ]
   %85 = load ptr, ptr %8, align 8
-  %86 = sub i32 %.1.i, %.3111146
+  %86 = sub i32 %.1.i, %.3111147
   call void @proto_item_set_len(ptr noundef %85, i32 noundef %86) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %87 = icmp slt i32 %86, 1
   br i1 %87, label %.loopexit, label %88
 
 88:                                               ; preds = %dissect_es.exit
-  %spec.select = select i1 %.not119, i32 %.2147, i32 1
+  %spec.select = select i1 %.not119, i32 %.2148, i32 1
   %89 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.1.i) #14
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph149, label %._crit_edge150, !llvm.loop !12
+  br i1 %90, label %.lr.ph150, label %._crit_edge151, !llvm.loop !12
 
-._crit_edge150:                                   ; preds = %88, %.loopexit133
-  %.2.lcssa = phi i32 [ %.1, %.loopexit133 ], [ %spec.select, %88 ]
+._crit_edge151:                                   ; preds = %88, %.loopexit134
+  %.2.lcssa = phi i32 [ %.1, %.loopexit134 ], [ %spec.select, %88 ]
   %91 = load ptr, ptr %26, align 8
   %.not118 = icmp eq i32 %.2.lcssa, 0
   %92 = select i1 %.not118, ptr @.str.936, ptr @.str.935
@@ -2273,8 +2273,8 @@ dissect_es.exit:                                  ; preds = %80, %71, %83
   %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %105) #14
   %107 = load i32, ptr @hf_dvbci_ca_enable_flag, align 4
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %107, ptr noundef %2, i32 noundef %105, i32 noundef 1, i32 noundef 0) #14
-  %.not.i = icmp sgt i8 %106, -1
-  br i1 %.not.i, label %dissect_ca_enable.exit, label %109
+  %.not.i121 = icmp sgt i8 %106, -1
+  br i1 %.not.i121, label %dissect_ca_enable.exit, label %109
 
 109:                                              ; preds = %93
   %110 = and i8 %106, 127
@@ -2286,45 +2286,45 @@ dissect_es.exit:                                  ; preds = %80, %71, %83
   br label %dissect_ca_enable.exit
 
 dissect_ca_enable.exit:                           ; preds = %93, %109
-  %.0.i121 = phi i32 [ 0, %93 ], [ %spec.select.i, %109 ]
+  %.0.i122 = phi i32 [ 0, %93 ], [ %spec.select.i, %109 ]
   %114 = add i32 %3, 4
   %115 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %114) #14
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %dissect_ca_enable.exit, %dissect_ca_enable.exit126
-  %.0140 = phi i32 [ %130, %dissect_ca_enable.exit126 ], [ %.0.i121, %dissect_ca_enable.exit ]
-  %.4139 = phi i32 [ %131, %dissect_ca_enable.exit126 ], [ %114, %dissect_ca_enable.exit ]
+.lr.ph:                                           ; preds = %dissect_ca_enable.exit, %dissect_ca_enable.exit127
+  %.0141 = phi i32 [ %130, %dissect_ca_enable.exit127 ], [ %.0.i122, %dissect_ca_enable.exit ]
+  %.4140 = phi i32 [ %131, %dissect_ca_enable.exit127 ], [ %114, %dissect_ca_enable.exit ]
   %117 = load i32, ptr @ett_dvbci_application, align 4
-  %118 = tail call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %2, i32 noundef %.4139, i32 noundef 3, i32 noundef %117, ptr noundef null, ptr noundef nonnull @.str.937) #14
+  %118 = tail call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %2, i32 noundef %.4140, i32 noundef 3, i32 noundef %117, ptr noundef null, ptr noundef nonnull @.str.937) #14
   %119 = load i32, ptr @hf_dvbci_es_pid, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %2, i32 noundef %.4139, i32 noundef 2, i32 noundef 0) #14
-  %121 = add i32 %.4139, 2
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %2, i32 noundef %.4140, i32 noundef 2, i32 noundef 0) #14
+  %121 = add i32 %.4140, 2
   %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %121) #14
   %123 = load i32, ptr @hf_dvbci_ca_enable_flag, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %123, ptr noundef %2, i32 noundef %121, i32 noundef 1, i32 noundef 0) #14
-  %.not.i122 = icmp sgt i8 %122, -1
-  br i1 %.not.i122, label %dissect_ca_enable.exit126, label %125
+  %.not.i123 = icmp sgt i8 %122, -1
+  br i1 %.not.i123, label %dissect_ca_enable.exit127, label %125
 
 125:                                              ; preds = %.lr.ph
   %126 = and i8 %122, 127
   %127 = load i32, ptr @hf_dvbci_ca_enable, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %127, ptr noundef %2, i32 noundef %121, i32 noundef 1, i32 noundef 0) #14
   %129 = add nsw i8 %126, -1
-  %or.cond5.i123 = icmp ult i8 %129, 3
-  %spec.select.i124 = zext i1 %or.cond5.i123 to i32
-  br label %dissect_ca_enable.exit126
+  %or.cond5.i124 = icmp ult i8 %129, 3
+  %spec.select.i125 = zext i1 %or.cond5.i124 to i32
+  br label %dissect_ca_enable.exit127
 
-dissect_ca_enable.exit126:                        ; preds = %.lr.ph, %125
-  %.0.i125 = phi i32 [ 0, %.lr.ph ], [ %spec.select.i124, %125 ]
-  %130 = or i32 %.0.i125, %.0140
-  %131 = add i32 %.4139, 3
+dissect_ca_enable.exit127:                        ; preds = %.lr.ph, %125
+  %.0.i126 = phi i32 [ 0, %.lr.ph ], [ %spec.select.i125, %125 ]
+  %130 = or i32 %.0.i126, %.0141
+  %131 = add i32 %.4140, 3
   %132 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %131) #14
   %133 = icmp sgt i32 %132, 0
   br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %dissect_ca_enable.exit126, %dissect_ca_enable.exit
-  %.0.lcssa = phi i32 [ %.0.i121, %dissect_ca_enable.exit ], [ %130, %dissect_ca_enable.exit126 ]
+._crit_edge:                                      ; preds = %dissect_ca_enable.exit127, %dissect_ca_enable.exit
+  %.0.lcssa = phi i32 [ %.0.i122, %dissect_ca_enable.exit ], [ %130, %dissect_ca_enable.exit127 ]
   %.not = icmp eq i32 %.0.lcssa, 0
   br i1 %.not, label %.loopexit, label %134
 
@@ -2333,7 +2333,7 @@ dissect_ca_enable.exit126:                        ; preds = %.lr.ph, %125
   tail call void @col_append_sep_str(ptr noundef %135, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.779) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph143, %dissect_es.exit, %.lr.ph153, %.preheader, %dissect_es.exit.thread, %7, %._crit_edge150, %._crit_edge, %134, %13
+.loopexit:                                        ; preds = %.lr.ph144, %dissect_es.exit, %.lr.ph154, %.preheader, %dissect_es.exit.thread, %7, %._crit_edge151, %._crit_edge, %134, %13
   ret void
 }
 
@@ -5474,9 +5474,9 @@ define internal fastcc void @dissect_dvbci_lpdu(ptr noundef %0, ptr noundef %1, 
   %57 = call ptr @try_val_to_str(i32 noundef %56, ptr noundef nonnull @dvbci_c_tpdu) #14
   %58 = load i32, ptr @hf_dvbci_c_tpdu_tag, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %58, ptr noundef nonnull %.049, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
-  %.not76.i.i = icmp eq ptr %57, null
+  %.not74.i.i = icmp eq ptr %57, null
   %60 = load ptr, ptr %14, align 8
-  br i1 %.not76.i.i, label %62, label %61
+  br i1 %.not74.i.i, label %62, label %61
 
 61:                                               ; preds = %55
   call void @col_append_sep_str(ptr noundef %60, i32 noundef 25, ptr noundef null, ptr noundef nonnull %57) #14
@@ -5525,15 +5525,15 @@ dissect_dvbci_tpdu_hdr.exit.thread70.i:           ; preds = %64
 
 79:                                               ; preds = %75
   %80 = add i32 %77, %76
-  %.not77.i.i = icmp eq i32 %80, %49
-  %or.cond.i.i = select i1 %53, i1 true, i1 %.not77.i.i
+  %.not75.i.i = icmp eq i32 %80, %49
+  %or.cond.i.i = select i1 %53, i1 true, i1 %.not75.i.i
   br i1 %or.cond.i.i, label %81, label %84
 
 81:                                               ; preds = %79
   %82 = icmp eq i8 %3, -1
   %83 = icmp ugt i32 %80, %49
-  %or.cond82.i.i = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond82.i.i, label %84, label %88
+  %or.cond78.i.i = select i1 %82, i1 %83, i1 false
+  br i1 %or.cond78.i.i, label %84, label %88
 
 84:                                               ; preds = %81, %79, %75
   %85 = phi ptr [ @.str.1058, %81 ], [ @.str.1058, %79 ], [ @.str.1057, %75 ]
@@ -5546,8 +5546,8 @@ dissect_dvbci_tpdu_hdr.exit.thread70.i:           ; preds = %64
   %90 = load i32, ptr @hf_dvbci_t_c_id, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %90, ptr noundef nonnull %.049, i32 noundef %76, i32 noundef 1, i32 noundef 0) #14
   %92 = zext i8 %89 to i32
-  %.not78.i.i = icmp eq i8 %89, %18
-  br i1 %.not78.i.i, label %97, label %93
+  %.not76.i.i = icmp eq i8 %89, %18
+  br i1 %.not76.i.i, label %97, label %93
 
 93:                                               ; preds = %88
   %94 = load i8, ptr %.062.i.i, align 1

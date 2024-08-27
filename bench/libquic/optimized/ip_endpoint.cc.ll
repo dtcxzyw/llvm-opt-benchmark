@@ -182,12 +182,12 @@ if.then9.i:                                       ; preds = %entry
   br i1 %cmp10.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then9.i, %if.then.i
-  %.sink = phi i64 [ 4, %if.then.i ], [ 8, %if.then9.i ]
-  %address_len.0 = phi i64 [ 4, %if.then.i ], [ 16, %if.then9.i ]
-  %sin6_addr.i = getelementptr inbounds i8, ptr %sock_addr, i64 %.sink
+  %.sink13.i = phi i64 [ 4, %if.then.i ], [ 8, %if.then9.i ]
+  %.sink.i = phi i64 [ 4, %if.then.i ], [ 16, %if.then9.i ]
+  %sin6_addr.i = getelementptr inbounds i8, ptr %sock_addr, i64 %.sink13.i
   %sin6_port.i = getelementptr inbounds i8, ptr %sock_addr, i64 2
   %1 = load i16, ptr %sin6_port.i, align 2
-  call void @_ZN3net9IPAddressC1EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull %sin6_addr.i, i64 noundef %address_len.0)
+  call void @_ZN3net9IPAddressC1EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull %sin6_addr.i, i64 noundef %.sink.i)
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 

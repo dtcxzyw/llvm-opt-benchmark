@@ -5048,7 +5048,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr nocapture noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr nocapture noundef %5, i32 noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
   %9 = load i16, ptr %5, align 2
   %10 = icmp ult i16 %9, 4
   br i1 %10, label %105, label %11
@@ -7722,7 +7722,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
@@ -7742,38 +7742,25 @@ define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr nou
   br i1 %16, label %.lr.ph.split.i.preheader, label %dissect_dfs_referral_strings.exit
 
 .lr.ph.split.i.preheader:                         ; preds = %13
-  %.not24.i = icmp eq ptr %8, null
   %17 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %7, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11)
   %18 = icmp eq ptr %17, null
-  br i1 %.not24.i, label %.lr.ph.split.i.us.preheader, label %.lr.ph.split.i.preheader8
-
-.lr.ph.split.i.us.preheader:                      ; preds = %.lr.ph.split.i.preheader
   br i1 %18, label %dissect_dfs_referral_strings.exit, label %19
 
-19:                                               ; preds = %.lr.ph.split.i.us.preheader
+19:                                               ; preds = %.lr.ph.split.i.preheader
   %20 = load i32, ptr %10, align 4
   %21 = load i32, ptr %12, align 4
   %22 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %20, i32 noundef %21, ptr noundef nonnull %17) #15
+  %23 = load i32, ptr %12, align 4
+  %24 = add i32 %23, %20
+  %25 = load i32, ptr %8, align 4
+  %26 = icmp slt i32 %25, %24
+  br i1 %26, label %27, label %dissect_dfs_referral_strings.exit
+
+27:                                               ; preds = %19
+  store i32 %24, ptr %8, align 4
   br label %dissect_dfs_referral_strings.exit
 
-.lr.ph.split.i.preheader8:                        ; preds = %.lr.ph.split.i.preheader
-  br i1 %18, label %dissect_dfs_referral_strings.exit, label %23
-
-23:                                               ; preds = %.lr.ph.split.i.preheader8
-  %24 = load i32, ptr %10, align 4
-  %25 = load i32, ptr %12, align 4
-  %26 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %24, i32 noundef %25, ptr noundef nonnull %17) #15
-  %27 = load i32, ptr %12, align 4
-  %28 = add i32 %27, %24
-  %29 = load i32, ptr %8, align 4
-  %30 = icmp slt i32 %29, %28
-  br i1 %30, label %31, label %dissect_dfs_referral_strings.exit
-
-31:                                               ; preds = %23
-  store i32 %28, ptr %8, align 4
-  br label %dissect_dfs_referral_strings.exit
-
-dissect_dfs_referral_strings.exit:                ; preds = %.lr.ph.split.i.preheader8, %31, %23, %.lr.ph.split.i.us.preheader, %19, %9, %13
+dissect_dfs_referral_strings.exit:                ; preds = %.lr.ph.split.i.preheader, %27, %19, %9, %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -7781,7 +7768,7 @@ dissect_dfs_referral_strings.exit:                ; preds = %.lr.ph.split.i.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
@@ -7795,18 +7782,15 @@ define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr no
   %16 = add i16 %7, %15
   store i16 %16, ptr %12, align 2
   %17 = icmp sgt i32 %3, 0
-  br i1 %17, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %14
-  %.not24 = icmp eq ptr %9, null
   %18 = icmp sgt i16 %16, 0
-  br i1 %18, label %.lr.ph.split, label %.loopexit
+  %or.cond = and i1 %17, %18
+  br i1 %or.cond, label %.lr.ph.split, label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %37
-  %19 = phi i16 [ %38, %37 ], [ %16, %.lr.ph ]
-  %.01825 = phi i32 [ %39, %37 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %14, %36
+  %19 = phi i16 [ %37, %36 ], [ %16, %14 ]
+  %.01824 = phi i32 [ %38, %36 ], [ 0, %14 ]
   %20 = icmp sgt i16 %19, 0
-  br i1 %20, label %21, label %37
+  br i1 %20, label %21, label %36
 
 21:                                               ; preds = %.lr.ph.split
   %22 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %8, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
@@ -7824,24 +7808,21 @@ define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr no
   %31 = trunc i32 %28 to i16
   %32 = sub i16 %30, %31
   store i16 %32, ptr %12, align 2
-  br i1 %.not24, label %37, label %33
+  %33 = load i32, ptr %9, align 4
+  %34 = icmp slt i32 %33, %29
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %24
-  %34 = load i32, ptr %9, align 4
-  %35 = icmp slt i32 %34, %29
-  br i1 %35, label %36, label %37
-
-36:                                               ; preds = %33
+35:                                               ; preds = %24
   store i32 %29, ptr %9, align 4
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.lr.ph.split, %36, %33, %24
-  %38 = phi i16 [ %19, %.lr.ph.split ], [ %32, %36 ], [ %32, %33 ], [ %32, %24 ]
-  %39 = add nuw nsw i32 %.01825, 1
-  %exitcond.not = icmp eq i32 %39, %3
+36:                                               ; preds = %.lr.ph.split, %35, %24
+  %37 = phi i16 [ %19, %.lr.ph.split ], [ %32, %35 ], [ %32, %24 ]
+  %38 = add nuw nsw i32 %.01824, 1
+  %exitcond.not = icmp eq i32 %38, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
 
-.loopexit:                                        ; preds = %21, %37, %.lr.ph, %14, %10
+.loopexit:                                        ; preds = %21, %36, %14, %10
   ret void
 }
 

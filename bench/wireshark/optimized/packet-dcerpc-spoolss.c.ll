@@ -1961,25 +1961,25 @@ dissect_DEVMODE_fields.exit:                      ; preds = %dissect_spoolss_uin
   %97 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %15, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, ptr noundef null) #5
   %98 = load i32, ptr @hf_devmode_form_name, align 4
   %99 = srem i32 %97, 2
-  %.not.i237 = icmp eq i32 %99, 0
-  %reass.sub.i238 = add i32 %97, 2
-  %100 = sub i32 %reass.sub.i238, %99
-  %.026.i239 = select i1 %.not.i237, i32 %97, i32 %100
-  %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i239) #5
+  %.not.i236 = icmp eq i32 %99, 0
+  %reass.sub.i237 = add i32 %97, 2
+  %100 = sub i32 %reass.sub.i237, %99
+  %.026.i238 = select i1 %.not.i236, i32 %97, i32 %100
+  %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i238) #5
   %102 = icmp slt i32 %101, 1
-  br i1 %102, label %dissect_spoolss_uint16uni.exit241, label %103
+  br i1 %102, label %dissect_spoolss_uint16uni.exit240, label %103
 
 103:                                              ; preds = %87
   %104 = getelementptr inbounds i8, ptr %2, i64 408
   %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %0, i32 noundef %.026.i239, i32 noundef %101, i32 noundef -2147483644) #5
+  %106 = call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %0, i32 noundef %.026.i238, i32 noundef %101, i32 noundef -2147483644) #5
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #6
   %108 = trunc i64 %107 to i32
   %109 = shl i32 %108, 1
-  %110 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %98, ptr noundef %0, i32 noundef %.026.i239, i32 noundef %109, ptr noundef %106) #5
-  br label %dissect_spoolss_uint16uni.exit241
+  %110 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %98, ptr noundef %0, i32 noundef %.026.i238, i32 noundef %109, ptr noundef %106) #5
+  br label %dissect_spoolss_uint16uni.exit240
 
-dissect_spoolss_uint16uni.exit241:                ; preds = %87, %103
+dissect_spoolss_uint16uni.exit240:                ; preds = %87, %103
   %111 = add i32 %97, 64
   %112 = load i32, ptr @hf_devmode_log_pixels, align 4
   %113 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %15, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, ptr noundef null) #5
@@ -2013,14 +2013,14 @@ dissect_spoolss_uint16uni.exit241:                ; preds = %87, %103
   %.not235 = icmp eq i16 %140, 0
   br i1 %.not235, label %145, label %141
 
-141:                                              ; preds = %dissect_spoolss_uint16uni.exit241
+141:                                              ; preds = %dissect_spoolss_uint16uni.exit240
   %142 = load i32, ptr @hf_devmode_driver_extra, align 4
   %143 = zext i16 %140 to i32
   %144 = call i32 @dissect_ndr_uint8s(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %15, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %142, i32 noundef %143, ptr noundef null) #5
   br label %145
 
-145:                                              ; preds = %141, %dissect_spoolss_uint16uni.exit241
-  %.0231 = phi i32 [ %144, %141 ], [ %139, %dissect_spoolss_uint16uni.exit241 ]
+145:                                              ; preds = %141, %dissect_spoolss_uint16uni.exit240
+  %.0231 = phi i32 [ %144, %141 ], [ %139, %dissect_spoolss_uint16uni.exit240 ]
   %146 = load ptr, ptr %8, align 8
   %147 = sub i32 %.0231, %1
   call void @proto_item_set_len(ptr noundef %146, i32 noundef %147) #5

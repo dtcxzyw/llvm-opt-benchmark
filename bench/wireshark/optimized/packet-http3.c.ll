@@ -890,8 +890,8 @@ define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, 
   %71 = call ptr @wmem_array_get_raw(ptr noundef %58) #11
   store ptr %71, ptr %54, align 8
   %72 = call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #11
-  %.not29.i.i = icmp eq ptr %72, null
-  br i1 %.not29.i.i, label %73, label %http3_find_inner_conversation.exit.i
+  %.not.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i, label %73, label %http3_find_inner_conversation.exit.i
 
 73:                                               ; preds = %51
   %74 = getelementptr inbounds i8, ptr %1, i64 80
@@ -908,8 +908,8 @@ http3_find_inner_conversation.exit.i:             ; preds = %73, %51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %79 = load i32, ptr @hf_http3_data, align 4
   %80 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %79, ptr noundef %52, i32 noundef 0, i32 noundef %53, i32 noundef 0) #11
-  %.not.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i, label %dissect_http3_data.exit, label %81
+  %.not.i9.i = icmp eq ptr %55, null
+  br i1 %.not.i9.i, label %dissect_http3_data.exit, label %81
 
 81:                                               ; preds = %http3_find_inner_conversation.exit.i
   store ptr %55, ptr %54, align 8
@@ -1141,42 +1141,42 @@ define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, p
   br i1 %38, label %read_qpack_prefixed_integer.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %37
-  %.073.i = getelementptr i8, ptr %30, i64 1
+  %.072.i = getelementptr i8, ptr %30, i64 1
   br label %.lr.ph.i
 
 39:                                               ; preds = %51
-  %40 = add nuw nsw i64 %.05276.i, 7
-  %.0.i = getelementptr i8, ptr %.078.i, i64 1
+  %40 = add nuw nsw i64 %.05275.i, 7
+  %.0.i = getelementptr i8, ptr %.077.i, i64 1
   %.not63.i = icmp eq ptr %.0.i, %33
   br i1 %.not63.i, label %read_qpack_prefixed_integer.exit, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.preheader.i
-  %.078.i = phi ptr [ %.0.i, %39 ], [ %.073.i, %.lr.ph.preheader.i ]
-  %.pn77.i = phi ptr [ %.078.i, %39 ], [ %30, %.lr.ph.preheader.i ]
-  %.05276.i = phi i64 [ %40, %39 ], [ 0, %.lr.ph.preheader.i ]
-  %.05375.i = phi i64 [ %52, %39 ], [ 63, %.lr.ph.preheader.i ]
-  %41 = load i8, ptr %.078.i, align 1
+  %.077.i = phi ptr [ %.0.i, %39 ], [ %.072.i, %.lr.ph.preheader.i ]
+  %.pn76.i = phi ptr [ %.077.i, %39 ], [ %30, %.lr.ph.preheader.i ]
+  %.05275.i = phi i64 [ %40, %39 ], [ 0, %.lr.ph.preheader.i ]
+  %.05374.i = phi i64 [ %52, %39 ], [ 63, %.lr.ph.preheader.i ]
+  %41 = load i8, ptr %.077.i, align 1
   %42 = and i8 %41, 127
   %43 = zext nneg i8 %42 to i64
-  %44 = icmp ugt i64 %.05276.i, 62
-  %45 = lshr i64 4611686018427387903, %.05276.i
+  %44 = icmp ugt i64 %.05275.i, 62
+  %45 = lshr i64 4611686018427387903, %.05275.i
   %46 = icmp ult i64 %45, %43
   %or.cond.i = select i1 %44, i1 true, i1 %46
   br i1 %or.cond.i, label %read_qpack_prefixed_integer.exit, label %47
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = shl i64 %43, %.05276.i
+  %48 = shl i64 %43, %.05275.i
   %49 = sub i64 4611686018427387903, %48
-  %50 = icmp ult i64 %49, %.05375.i
+  %50 = icmp ult i64 %49, %.05374.i
   br i1 %50, label %read_qpack_prefixed_integer.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = add i64 %48, %.05375.i
+  %52 = add i64 %48, %.05374.i
   %53 = icmp sgt i8 %41, -1
   br i1 %53, label %54, label %39
 
 54:                                               ; preds = %51
-  %55 = getelementptr i8, ptr %.pn77.i, i64 2
+  %55 = getelementptr i8, ptr %.pn76.i, i64 2
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %30 to i64
   %58 = sub i64 %56, %57
@@ -1203,42 +1203,42 @@ read_qpack_prefixed_integer.exit:                 ; preds = %39, %.lr.ph.i, %47,
   br i1 %70, label %read_qpack_prefixed_integer.exit200, label %.lr.ph.preheader.i189
 
 .lr.ph.preheader.i189:                            ; preds = %69
-  %.073.i190 = getelementptr i8, ptr %62, i64 1
+  %.072.i190 = getelementptr i8, ptr %62, i64 1
   br label %.lr.ph.i191
 
 71:                                               ; preds = %83
-  %72 = add nuw nsw i64 %.05276.i194, 7
-  %.0.i197 = getelementptr i8, ptr %.078.i192, i64 1
+  %72 = add nuw nsw i64 %.05275.i194, 7
+  %.0.i197 = getelementptr i8, ptr %.077.i192, i64 1
   %.not63.i198 = icmp eq ptr %.0.i197, %65
   br i1 %.not63.i198, label %read_qpack_prefixed_integer.exit200, label %.lr.ph.i191, !llvm.loop !8
 
 .lr.ph.i191:                                      ; preds = %71, %.lr.ph.preheader.i189
-  %.078.i192 = phi ptr [ %.0.i197, %71 ], [ %.073.i190, %.lr.ph.preheader.i189 ]
-  %.pn77.i193 = phi ptr [ %.078.i192, %71 ], [ %62, %.lr.ph.preheader.i189 ]
-  %.05276.i194 = phi i64 [ %72, %71 ], [ 0, %.lr.ph.preheader.i189 ]
-  %.05375.i195 = phi i64 [ %84, %71 ], [ 127, %.lr.ph.preheader.i189 ]
-  %73 = load i8, ptr %.078.i192, align 1
+  %.077.i192 = phi ptr [ %.0.i197, %71 ], [ %.072.i190, %.lr.ph.preheader.i189 ]
+  %.pn76.i193 = phi ptr [ %.077.i192, %71 ], [ %62, %.lr.ph.preheader.i189 ]
+  %.05275.i194 = phi i64 [ %72, %71 ], [ 0, %.lr.ph.preheader.i189 ]
+  %.05374.i195 = phi i64 [ %84, %71 ], [ 127, %.lr.ph.preheader.i189 ]
+  %73 = load i8, ptr %.077.i192, align 1
   %74 = and i8 %73, 127
   %75 = zext nneg i8 %74 to i64
-  %76 = icmp ugt i64 %.05276.i194, 62
-  %77 = lshr i64 4611686018427387903, %.05276.i194
+  %76 = icmp ugt i64 %.05275.i194, 62
+  %77 = lshr i64 4611686018427387903, %.05275.i194
   %78 = icmp ult i64 %77, %75
   %or.cond.i196 = select i1 %76, i1 true, i1 %78
   br i1 %or.cond.i196, label %read_qpack_prefixed_integer.exit200, label %79
 
 79:                                               ; preds = %.lr.ph.i191
-  %80 = shl i64 %75, %.05276.i194
+  %80 = shl i64 %75, %.05275.i194
   %81 = sub i64 4611686018427387903, %80
-  %82 = icmp ult i64 %81, %.05375.i195
+  %82 = icmp ult i64 %81, %.05374.i195
   br i1 %82, label %read_qpack_prefixed_integer.exit200, label %83
 
 83:                                               ; preds = %79
-  %84 = add i64 %80, %.05375.i195
+  %84 = add i64 %80, %.05374.i195
   %85 = icmp sgt i8 %73, -1
   br i1 %85, label %86, label %71
 
 86:                                               ; preds = %83
-  %87 = getelementptr i8, ptr %.pn77.i193, i64 2
+  %87 = getelementptr i8, ptr %.pn76.i193, i64 2
   %88 = ptrtoint ptr %87 to i64
   %89 = ptrtoint ptr %62 to i64
   %90 = sub i64 %88, %89
@@ -1307,42 +1307,42 @@ read_qpack_prefixed_integer.exit200:              ; preds = %71, %.lr.ph.i191, %
   br i1 %127, label %read_qpack_prefixed_integer.exit214, label %.lr.ph.preheader.i203
 
 .lr.ph.preheader.i203:                            ; preds = %126
-  %.073.i204 = getelementptr i8, ptr %118, i64 1
+  %.072.i204 = getelementptr i8, ptr %118, i64 1
   br label %.lr.ph.i205
 
 128:                                              ; preds = %140
-  %129 = add nuw nsw i64 %.05276.i208, 7
-  %.0.i211 = getelementptr i8, ptr %.078.i206, i64 1
+  %129 = add nuw nsw i64 %.05275.i208, 7
+  %.0.i211 = getelementptr i8, ptr %.077.i206, i64 1
   %.not63.i212 = icmp eq ptr %.0.i211, %121
   br i1 %.not63.i212, label %read_qpack_prefixed_integer.exit214, label %.lr.ph.i205, !llvm.loop !8
 
 .lr.ph.i205:                                      ; preds = %128, %.lr.ph.preheader.i203
-  %.078.i206 = phi ptr [ %.0.i211, %128 ], [ %.073.i204, %.lr.ph.preheader.i203 ]
-  %.pn77.i207 = phi ptr [ %.078.i206, %128 ], [ %118, %.lr.ph.preheader.i203 ]
-  %.05276.i208 = phi i64 [ %129, %128 ], [ 0, %.lr.ph.preheader.i203 ]
-  %.05375.i209 = phi i64 [ %141, %128 ], [ 31, %.lr.ph.preheader.i203 ]
-  %130 = load i8, ptr %.078.i206, align 1
+  %.077.i206 = phi ptr [ %.0.i211, %128 ], [ %.072.i204, %.lr.ph.preheader.i203 ]
+  %.pn76.i207 = phi ptr [ %.077.i206, %128 ], [ %118, %.lr.ph.preheader.i203 ]
+  %.05275.i208 = phi i64 [ %129, %128 ], [ 0, %.lr.ph.preheader.i203 ]
+  %.05374.i209 = phi i64 [ %141, %128 ], [ 31, %.lr.ph.preheader.i203 ]
+  %130 = load i8, ptr %.077.i206, align 1
   %131 = and i8 %130, 127
   %132 = zext nneg i8 %131 to i64
-  %133 = icmp ugt i64 %.05276.i208, 62
-  %134 = lshr i64 4611686018427387903, %.05276.i208
+  %133 = icmp ugt i64 %.05275.i208, 62
+  %134 = lshr i64 4611686018427387903, %.05275.i208
   %135 = icmp ult i64 %134, %132
   %or.cond.i210 = select i1 %133, i1 true, i1 %135
   br i1 %or.cond.i210, label %read_qpack_prefixed_integer.exit214, label %136
 
 136:                                              ; preds = %.lr.ph.i205
-  %137 = shl i64 %132, %.05276.i208
+  %137 = shl i64 %132, %.05275.i208
   %138 = sub i64 4611686018427387903, %137
-  %139 = icmp ult i64 %138, %.05375.i209
+  %139 = icmp ult i64 %138, %.05374.i209
   br i1 %139, label %read_qpack_prefixed_integer.exit214, label %140
 
 140:                                              ; preds = %136
-  %141 = add i64 %137, %.05375.i209
+  %141 = add i64 %137, %.05374.i209
   %142 = icmp sgt i8 %130, -1
   br i1 %142, label %143, label %128
 
 143:                                              ; preds = %140
-  %144 = getelementptr i8, ptr %.pn77.i207, i64 2
+  %144 = getelementptr i8, ptr %.pn76.i207, i64 2
   %145 = ptrtoint ptr %144 to i64
   %146 = ptrtoint ptr %118 to i64
   %147 = sub i64 %145, %146
@@ -1373,42 +1373,42 @@ read_qpack_prefixed_integer.exit214:              ; preds = %128, %.lr.ph.i205, 
   br i1 %163, label %read_qpack_prefixed_integer.exit228, label %.lr.ph.preheader.i217
 
 .lr.ph.preheader.i217:                            ; preds = %162
-  %.073.i218 = getelementptr i8, ptr %155, i64 1
+  %.072.i218 = getelementptr i8, ptr %155, i64 1
   br label %.lr.ph.i219
 
 164:                                              ; preds = %176
-  %165 = add nuw nsw i64 %.05276.i222, 7
-  %.0.i225 = getelementptr i8, ptr %.078.i220, i64 1
+  %165 = add nuw nsw i64 %.05275.i222, 7
+  %.0.i225 = getelementptr i8, ptr %.077.i220, i64 1
   %.not63.i226 = icmp eq ptr %.0.i225, %158
   br i1 %.not63.i226, label %read_qpack_prefixed_integer.exit228, label %.lr.ph.i219, !llvm.loop !8
 
 .lr.ph.i219:                                      ; preds = %164, %.lr.ph.preheader.i217
-  %.078.i220 = phi ptr [ %.0.i225, %164 ], [ %.073.i218, %.lr.ph.preheader.i217 ]
-  %.pn77.i221 = phi ptr [ %.078.i220, %164 ], [ %155, %.lr.ph.preheader.i217 ]
-  %.05276.i222 = phi i64 [ %165, %164 ], [ 0, %.lr.ph.preheader.i217 ]
-  %.05375.i223 = phi i64 [ %177, %164 ], [ 127, %.lr.ph.preheader.i217 ]
-  %166 = load i8, ptr %.078.i220, align 1
+  %.077.i220 = phi ptr [ %.0.i225, %164 ], [ %.072.i218, %.lr.ph.preheader.i217 ]
+  %.pn76.i221 = phi ptr [ %.077.i220, %164 ], [ %155, %.lr.ph.preheader.i217 ]
+  %.05275.i222 = phi i64 [ %165, %164 ], [ 0, %.lr.ph.preheader.i217 ]
+  %.05374.i223 = phi i64 [ %177, %164 ], [ 127, %.lr.ph.preheader.i217 ]
+  %166 = load i8, ptr %.077.i220, align 1
   %167 = and i8 %166, 127
   %168 = zext nneg i8 %167 to i64
-  %169 = icmp ugt i64 %.05276.i222, 62
-  %170 = lshr i64 4611686018427387903, %.05276.i222
+  %169 = icmp ugt i64 %.05275.i222, 62
+  %170 = lshr i64 4611686018427387903, %.05275.i222
   %171 = icmp ult i64 %170, %168
   %or.cond.i224 = select i1 %169, i1 true, i1 %171
   br i1 %or.cond.i224, label %read_qpack_prefixed_integer.exit228, label %172
 
 172:                                              ; preds = %.lr.ph.i219
-  %173 = shl i64 %168, %.05276.i222
+  %173 = shl i64 %168, %.05275.i222
   %174 = sub i64 4611686018427387903, %173
-  %175 = icmp ult i64 %174, %.05375.i223
+  %175 = icmp ult i64 %174, %.05374.i223
   br i1 %175, label %read_qpack_prefixed_integer.exit228, label %176
 
 176:                                              ; preds = %172
-  %177 = add i64 %173, %.05375.i223
+  %177 = add i64 %173, %.05374.i223
   %178 = icmp sgt i8 %166, -1
   br i1 %178, label %179, label %164
 
 179:                                              ; preds = %176
-  %180 = getelementptr i8, ptr %.pn77.i221, i64 2
+  %180 = getelementptr i8, ptr %.pn76.i221, i64 2
   %181 = ptrtoint ptr %180 to i64
   %182 = ptrtoint ptr %155 to i64
   %183 = sub i64 %181, %182
@@ -1497,42 +1497,42 @@ read_qpack_prefixed_integer.exit228:              ; preds = %164, %.lr.ph.i219, 
   br i1 %229, label %read_qpack_prefixed_integer.exit242, label %.lr.ph.preheader.i231
 
 .lr.ph.preheader.i231:                            ; preds = %228
-  %.073.i232 = getelementptr i8, ptr %220, i64 1
+  %.072.i232 = getelementptr i8, ptr %220, i64 1
   br label %.lr.ph.i233
 
 230:                                              ; preds = %242
-  %231 = add nuw nsw i64 %.05276.i236, 7
-  %.0.i239 = getelementptr i8, ptr %.078.i234, i64 1
+  %231 = add nuw nsw i64 %.05275.i236, 7
+  %.0.i239 = getelementptr i8, ptr %.077.i234, i64 1
   %.not63.i240 = icmp eq ptr %.0.i239, %223
   br i1 %.not63.i240, label %read_qpack_prefixed_integer.exit242, label %.lr.ph.i233, !llvm.loop !8
 
 .lr.ph.i233:                                      ; preds = %230, %.lr.ph.preheader.i231
-  %.078.i234 = phi ptr [ %.0.i239, %230 ], [ %.073.i232, %.lr.ph.preheader.i231 ]
-  %.pn77.i235 = phi ptr [ %.078.i234, %230 ], [ %220, %.lr.ph.preheader.i231 ]
-  %.05276.i236 = phi i64 [ %231, %230 ], [ 0, %.lr.ph.preheader.i231 ]
-  %.05375.i237 = phi i64 [ %243, %230 ], [ 31, %.lr.ph.preheader.i231 ]
-  %232 = load i8, ptr %.078.i234, align 1
+  %.077.i234 = phi ptr [ %.0.i239, %230 ], [ %.072.i232, %.lr.ph.preheader.i231 ]
+  %.pn76.i235 = phi ptr [ %.077.i234, %230 ], [ %220, %.lr.ph.preheader.i231 ]
+  %.05275.i236 = phi i64 [ %231, %230 ], [ 0, %.lr.ph.preheader.i231 ]
+  %.05374.i237 = phi i64 [ %243, %230 ], [ 31, %.lr.ph.preheader.i231 ]
+  %232 = load i8, ptr %.077.i234, align 1
   %233 = and i8 %232, 127
   %234 = zext nneg i8 %233 to i64
-  %235 = icmp ugt i64 %.05276.i236, 62
-  %236 = lshr i64 4611686018427387903, %.05276.i236
+  %235 = icmp ugt i64 %.05275.i236, 62
+  %236 = lshr i64 4611686018427387903, %.05275.i236
   %237 = icmp ult i64 %236, %234
   %or.cond.i238 = select i1 %235, i1 true, i1 %237
   br i1 %or.cond.i238, label %read_qpack_prefixed_integer.exit242, label %238
 
 238:                                              ; preds = %.lr.ph.i233
-  %239 = shl i64 %234, %.05276.i236
+  %239 = shl i64 %234, %.05275.i236
   %240 = sub i64 4611686018427387903, %239
-  %241 = icmp ult i64 %240, %.05375.i237
+  %241 = icmp ult i64 %240, %.05374.i237
   br i1 %241, label %read_qpack_prefixed_integer.exit242, label %242
 
 242:                                              ; preds = %238
-  %243 = add i64 %239, %.05375.i237
+  %243 = add i64 %239, %.05374.i237
   %244 = icmp sgt i8 %232, -1
   br i1 %244, label %245, label %230
 
 245:                                              ; preds = %242
-  %246 = getelementptr i8, ptr %.pn77.i235, i64 2
+  %246 = getelementptr i8, ptr %.pn76.i235, i64 2
   %247 = ptrtoint ptr %246 to i64
   %248 = ptrtoint ptr %220 to i64
   %249 = sub i64 %247, %248
@@ -1559,34 +1559,34 @@ read_qpack_prefixed_integer.exit242:              ; preds = %230, %.lr.ph.i233, 
   br i1 %or.cond, label %read_qpack_prefixed_integer.exit256.thread, label %.lr.ph.preheader.i245
 
 .lr.ph.preheader.i245:                            ; preds = %258
-  %.073.i246 = getelementptr i8, ptr %220, i64 1
+  %.072.i246 = getelementptr i8, ptr %220, i64 1
   br label %.lr.ph.i247
 
 260:                                              ; preds = %273
-  %261 = add i64 %270, %.05375.i251
-  %262 = add nuw nsw i64 %.05276.i250, 7
-  %.0.i253 = getelementptr i8, ptr %.078.i248, i64 1
+  %261 = add i64 %270, %.05374.i251
+  %262 = add nuw nsw i64 %.05275.i250, 7
+  %.0.i253 = getelementptr i8, ptr %.077.i248, i64 1
   %.not63.i254 = icmp eq ptr %.0.i253, %223
   br i1 %.not63.i254, label %read_qpack_prefixed_integer.exit256, label %.lr.ph.i247, !llvm.loop !8
 
 .lr.ph.i247:                                      ; preds = %260, %.lr.ph.preheader.i245
-  %.078.i248 = phi ptr [ %.0.i253, %260 ], [ %.073.i246, %.lr.ph.preheader.i245 ]
-  %.pn77.i249 = phi ptr [ %.078.i248, %260 ], [ %220, %.lr.ph.preheader.i245 ]
-  %.05276.i250 = phi i64 [ %262, %260 ], [ 0, %.lr.ph.preheader.i245 ]
-  %.05375.i251 = phi i64 [ %261, %260 ], [ 31, %.lr.ph.preheader.i245 ]
-  %263 = load i8, ptr %.078.i248, align 1
+  %.077.i248 = phi ptr [ %.0.i253, %260 ], [ %.072.i246, %.lr.ph.preheader.i245 ]
+  %.pn76.i249 = phi ptr [ %.077.i248, %260 ], [ %220, %.lr.ph.preheader.i245 ]
+  %.05275.i250 = phi i64 [ %262, %260 ], [ 0, %.lr.ph.preheader.i245 ]
+  %.05374.i251 = phi i64 [ %261, %260 ], [ 31, %.lr.ph.preheader.i245 ]
+  %263 = load i8, ptr %.077.i248, align 1
   %264 = and i8 %263, 127
   %265 = zext nneg i8 %264 to i64
-  %266 = icmp ugt i64 %.05276.i250, 62
-  %267 = lshr i64 4611686018427387903, %.05276.i250
+  %266 = icmp ugt i64 %.05275.i250, 62
+  %267 = lshr i64 4611686018427387903, %.05275.i250
   %268 = icmp ult i64 %267, %265
   %or.cond.i252 = select i1 %266, i1 true, i1 %268
   br i1 %or.cond.i252, label %read_qpack_prefixed_integer.exit256.thread26, label %269
 
 269:                                              ; preds = %.lr.ph.i247
-  %270 = shl i64 %265, %.05276.i250
+  %270 = shl i64 %265, %.05275.i250
   %271 = sub i64 4611686018427387903, %270
-  %272 = icmp ult i64 %271, %.05375.i251
+  %272 = icmp ult i64 %271, %.05374.i251
   br i1 %272, label %read_qpack_prefixed_integer.exit256.thread26, label %273
 
 273:                                              ; preds = %269
@@ -1594,7 +1594,7 @@ read_qpack_prefixed_integer.exit242:              ; preds = %230, %.lr.ph.i233, 
   br i1 %274, label %275, label %260
 
 275:                                              ; preds = %273
-  %276 = getelementptr i8, ptr %.pn77.i249, i64 2
+  %276 = getelementptr i8, ptr %.pn76.i249, i64 2
   %277 = ptrtoint ptr %276 to i64
   %278 = ptrtoint ptr %220 to i64
   %279 = sub i64 %277, %278

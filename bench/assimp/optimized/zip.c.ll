@@ -15742,10 +15742,10 @@ while.body.i:                                     ; preds = %while.cond.i, %whil
   br label %while.cond.i
 
 for.body.i:                                       ; preds = %while.cond.i, %for.inc.i
-  %ncpy.047.i = phi i64 [ %ncpy.1.i, %for.inc.i ], [ 0, %while.cond.i ]
-  %offnn.046.i = phi i64 [ %offnn.2.i, %for.inc.i ], [ 0, %while.cond.i ]
-  %offn.045.i = phi i64 [ %inc36.i, %for.inc.i ], [ 0, %while.cond.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %name.addr.0.i, i64 %offn.045.i
+  %ncpy.046.i = phi i64 [ %ncpy.1.i, %for.inc.i ], [ 0, %while.cond.i ]
+  %offnn.045.i = phi i64 [ %offnn.2.i, %for.inc.i ], [ 0, %while.cond.i ]
+  %offn.044.i = phi i64 [ %inc36.i, %for.inc.i ], [ 0, %while.cond.i ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %name.addr.0.i, i64 %offn.044.i
   %3 = load i8, ptr %arrayidx.i, align 1
   switch i8 %3, label %if.else.i [
     i8 47, label %if.then19.i
@@ -15753,11 +15753,11 @@ for.body.i:                                       ; preds = %while.cond.i, %for.
   ]
 
 if.then19.i:                                      ; preds = %for.body.i, %for.body.i
-  %cmp20.not.i = icmp eq i64 %ncpy.047.i, 0
+  %cmp20.not.i = icmp eq i64 %ncpy.046.i, 0
   br i1 %cmp20.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then19.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %m_filename, i64 %offnn.046.i
+  %arrayidx22.i = getelementptr inbounds i8, ptr %m_filename, i64 %offnn.045.i
   %4 = load i8, ptr %arrayidx22.i, align 1
   %5 = zext i8 %4 to i32
   %6 = add nsw i32 %5, -46
@@ -15773,8 +15773,8 @@ land.lhs.true.tail.i:                             ; preds = %land.lhs.true.i
 sub_135.i:                                        ; preds = %land.lhs.true.tail.i
   %9 = zext i8 %8 to i32
   %10 = add nsw i32 %9, -46
-  %.not50.i = icmp eq i32 %10, 0
-  br i1 %.not50.i, label %sub_2.i, label %land.lhs.true23.tail.i
+  %.not48.i = icmp eq i32 %10, 0
+  br i1 %.not48.i, label %sub_2.i, label %land.lhs.true23.tail.i
 
 sub_2.i:                                          ; preds = %sub_135.i
   %11 = getelementptr inbounds i8, ptr %arrayidx22.i, i64 2
@@ -15788,23 +15788,23 @@ land.lhs.true23.tail.i:                           ; preds = %sub_2.i, %sub_135.i
   br i1 %tobool26.not.i, label %for.inc.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %land.lhs.true23.tail.i
-  %add.i = add i64 %offnn.046.i, %ncpy.047.i
+  %add.i = add i64 %offnn.045.i, %ncpy.046.i
   %inc.i = add i64 %add.i, 1
   %arrayidx29.i = getelementptr inbounds i8, ptr %m_filename, i64 %add.i
   store i8 %3, ptr %arrayidx29.i, align 1
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %15 = getelementptr i8, ptr %m_filename, i64 %offnn.046.i
-  %arrayidx33.i = getelementptr i8, ptr %15, i64 %ncpy.047.i
+  %15 = getelementptr i8, ptr %m_filename, i64 %offnn.045.i
+  %arrayidx33.i = getelementptr i8, ptr %15, i64 %ncpy.046.i
   store i8 %3, ptr %arrayidx33.i, align 1
-  %inc34.i = add i64 %ncpy.047.i, 1
+  %inc34.i = add i64 %ncpy.046.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then27.i, %land.lhs.true23.tail.i, %land.lhs.true.tail.i, %if.then19.i
-  %offnn.2.i = phi i64 [ %offnn.046.i, %if.else.i ], [ %inc.i, %if.then27.i ], [ %offnn.046.i, %land.lhs.true23.tail.i ], [ %offnn.046.i, %land.lhs.true.tail.i ], [ %offnn.046.i, %if.then19.i ]
+  %offnn.2.i = phi i64 [ %offnn.045.i, %if.else.i ], [ %inc.i, %if.then27.i ], [ %offnn.045.i, %land.lhs.true23.tail.i ], [ %offnn.045.i, %land.lhs.true.tail.i ], [ %offnn.045.i, %if.then19.i ]
   %ncpy.1.i = phi i64 [ %inc34.i, %if.else.i ], [ 0, %if.then27.i ], [ 0, %land.lhs.true23.tail.i ], [ 0, %land.lhs.true.tail.i ], [ 0, %if.then19.i ]
-  %inc36.i = add nuw i64 %offn.045.i, 1
+  %inc36.i = add nuw i64 %offn.044.i, 1
   %exitcond.not.i = icmp eq i64 %inc36.i, %call25
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i
 
@@ -15815,8 +15815,8 @@ for.end.i:                                        ; preds = %for.inc.i
 lor.lhs.false39.i:                                ; preds = %for.end.i
   %arrayidx40.i = getelementptr inbounds i8, ptr %m_filename, i64 %offnn.2.i
   %16 = load i8, ptr %arrayidx40.i, align 1
-  %.not51.i = icmp eq i8 %16, 46
-  br i1 %.not51.i, label %lor.lhs.false39.tail.i, label %if.end29
+  %.not49.i = icmp eq i8 %16, 46
+  br i1 %.not49.i, label %lor.lhs.false39.tail.i, label %if.end29
 
 lor.lhs.false39.tail.i:                           ; preds = %lor.lhs.false39.i
   %17 = getelementptr inbounds i8, ptr %arrayidx40.i, i64 1

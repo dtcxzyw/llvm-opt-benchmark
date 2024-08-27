@@ -34,7 +34,7 @@ define hidden noundef i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture 
   %5 = alloca %struct.lexbor_array_obj_t, align 8
   %6 = tail call ptr @htmlNewDocNoDtD(ptr noundef null, ptr noundef null) #8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %194, label %7
+  br i1 %.not, label %196, label %7
 
 7:                                                ; preds = %4
   %8 = tail call ptr @xmlDictCreate() #8
@@ -44,31 +44,31 @@ define hidden noundef i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture 
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %12 = call i32 @lexbor_array_obj_init(ptr noundef nonnull %5, i64 noundef 128, i64 noundef 32) #8
-  %.not152.i = icmp eq ptr %11, null
-  br i1 %.not152.i, label %.preheader.i, label %.lr.ph.i
+  %.not151.i = icmp eq ptr %11, null
+  br i1 %.not151.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %7
   %13 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %5) #8
-  %.not120164.i = icmp eq ptr %13, null
-  br i1 %.not120164.i, label %.loopexit18, label %.lr.ph165.i
+  %.not120163.i = icmp eq ptr %13, null
+  br i1 %.not120163.i, label %.loopexit18, label %.lr.ph164.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %.0105153.i = phi ptr [ %19, %.lr.ph.i ], [ %11, %7 ]
+  %.0105152.i = phi ptr [ %19, %.lr.ph.i ], [ %11, %7 ]
   %14 = call ptr @lexbor_array_obj_push_wo_cls(ptr noundef nonnull %5) #8
-  store ptr %.0105153.i, ptr %14, align 8
+  store ptr %.0105152.i, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %6, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.0105153.i, i64 48
+  %18 = getelementptr inbounds i8, ptr %.0105152.i, i64 48
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
-.lr.ph165.i:                                      ; preds = %.preheader.i, %.loopexit.i
-  %20 = phi ptr [ %191, %.loopexit.i ], [ %13, %.preheader.i ]
+.lr.ph164.i:                                      ; preds = %.preheader.i, %.loopexit.i
+  %20 = phi ptr [ %193, %.loopexit.i ], [ %13, %.preheader.i ]
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -76,12 +76,12 @@ define hidden noundef i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture 
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %.loopexit.i [
     i32 1, label %26
-    i32 3, label %118
-    i32 10, label %151
-    i32 8, label %181
+    i32 3, label %120
+    i32 10, label %153
+    i32 8, label %183
   ]
 
-26:                                               ; preds = %.lr.ph165.i
+26:                                               ; preds = %.lr.ph164.i
   %27 = call ptr @lxb_dom_element_local_name(ptr noundef nonnull %21, ptr noundef null) #8
   %28 = call ptr @xmlNewDocNode(ptr noundef nonnull %6, ptr noundef null, ptr noundef %27, ptr noundef null) #8
   %29 = icmp eq ptr %28, null
@@ -120,314 +120,314 @@ define hidden noundef i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture 
   %45 = getelementptr inbounds i8, ptr %28, i64 72
   store ptr %.0106.i, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %21, i64 72
-  %.0107154.i = load ptr, ptr %46, align 8
-  %.not124155.i = icmp eq ptr %.0107154.i, null
-  br i1 %.not124155.i, label %._crit_edge.i, label %.lr.ph157.i
+  %.0107153.i = load ptr, ptr %46, align 8
+  %.not124154.i = icmp eq ptr %.0107153.i, null
+  br i1 %.not124154.i, label %._crit_edge.i, label %.lr.ph156.i
 
-.lr.ph157.i:                                      ; preds = %44, %.lr.ph157.i
-  %.0107156.i = phi ptr [ %.0107.i, %.lr.ph157.i ], [ %.0107154.i, %44 ]
+.lr.ph156.i:                                      ; preds = %44, %.lr.ph156.i
+  %.0107155.i = phi ptr [ %.0107.i, %.lr.ph156.i ], [ %.0107153.i, %44 ]
   %47 = call ptr @lexbor_array_obj_push_wo_cls(ptr noundef nonnull %5) #8
-  store ptr %.0107156.i, ptr %47, align 8
+  store ptr %.0107155.i, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   store i64 %36, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %47, i64 16
   store ptr %28, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 24
   store ptr %.0106.i, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.0107156.i, i64 48
+  %51 = getelementptr inbounds i8, ptr %.0107155.i, i64 48
   %.0107.i = load ptr, ptr %51, align 8
   %.not124.i = icmp eq ptr %.0107.i, null
-  br i1 %.not124.i, label %._crit_edge.i, label %.lr.ph157.i
+  br i1 %.not124.i, label %._crit_edge.i, label %.lr.ph156.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph157.i, %44
+._crit_edge.i:                                    ; preds = %.lr.ph156.i, %44
   %52 = getelementptr inbounds i8, ptr %21, i64 128
-  %.0109158.i = load ptr, ptr %52, align 8
-  %.not125159.i = icmp eq ptr %.0109158.i, null
-  br i1 %.not125159.i, label %.loopexit.i, label %.lr.ph163.i
+  %.0109157.i = load ptr, ptr %52, align 8
+  %.not125158.i = icmp eq ptr %.0109157.i, null
+  br i1 %.not125158.i, label %.loopexit.i, label %.lr.ph162.i
 
-.lr.ph163.i:                                      ; preds = %._crit_edge.i
+.lr.ph162.i:                                      ; preds = %._crit_edge.i
   %53 = getelementptr inbounds i8, ptr %28, i64 88
   br label %54
 
-54:                                               ; preds = %116, %.lr.ph163.i
-  %.0109161.i = phi ptr [ %.0109158.i, %.lr.ph163.i ], [ %.0109.i, %116 ]
-  %.0108160.i = phi ptr [ null, %.lr.ph163.i ], [ %74, %116 ]
-  %55 = getelementptr i8, ptr %.0109161.i, i64 8
+54:                                               ; preds = %118, %.lr.ph162.i
+  %.0109160.i = phi ptr [ %.0109157.i, %.lr.ph162.i ], [ %.0109.i, %118 ]
+  %.0108159.i = phi ptr [ null, %.lr.ph162.i ], [ %76, %118 ]
+  %55 = getelementptr i8, ptr %.0109160.i, i64 8
   %.0109.val.i = load i64, ptr %55, align 8
-  %56 = getelementptr i8, ptr %.0109161.i, i64 32
+  %56 = getelementptr i8, ptr %.0109160.i, i64 32
   %.0109.val126.i = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %.0109.val126.i, i64 208
   %.0109.val126.val.i = load ptr, ptr %57, align 8
   %58 = call ptr @lxb_dom_attr_data_by_id(ptr noundef %.0109.val126.val.i, i64 noundef %.0109.val.i) #8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %58, i64 24
-  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  %59 = icmp ult i64 %.pre.i.i, 17
-  br i1 %59, label %lxb_dom_attr_local_name.exit.i, label %60
+  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %60 = load i64, ptr %59, align 8
+  %61 = icmp ult i64 %60, 17
+  br i1 %61, label %lxb_dom_attr_local_name.exit.i, label %62
 
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %58, align 8
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %58, align 8
   br label %lxb_dom_attr_local_name.exit.i
 
-lxb_dom_attr_local_name.exit.i:                   ; preds = %60, %54
-  %.0.i.i.i = phi ptr [ %61, %60 ], [ %58, %54 ]
-  %62 = getelementptr inbounds i8, ptr %.0109161.i, i64 120
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %lxb_dom_attr_value.exit.i, label %65
+lxb_dom_attr_local_name.exit.i:                   ; preds = %62, %54
+  %.0.i.i.i = phi ptr [ %63, %62 ], [ %58, %54 ]
+  %64 = getelementptr inbounds i8, ptr %.0109160.i, i64 120
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %lxb_dom_attr_value.exit.i, label %67
 
-65:                                               ; preds = %lxb_dom_attr_local_name.exit.i
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
-  %67 = load i64, ptr %66, align 8
-  %68 = load ptr, ptr %63, align 8
+67:                                               ; preds = %lxb_dom_attr_local_name.exit.i
+  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %69 = load i64, ptr %68, align 8
+  %70 = load ptr, ptr %65, align 8
   br label %lxb_dom_attr_value.exit.i
 
-lxb_dom_attr_value.exit.i:                        ; preds = %65, %lxb_dom_attr_local_name.exit.i
-  %.0141.i = phi i64 [ %67, %65 ], [ 0, %lxb_dom_attr_local_name.exit.i ]
-  %.0.i128.i = phi ptr [ %68, %65 ], [ null, %lxb_dom_attr_local_name.exit.i ]
-  %69 = icmp ugt i64 %.pre.i.i, 2147483646
-  %70 = icmp ugt i64 %.0141.i, 2147483646
-  %71 = select i1 %69, i1 true, i1 %70
-  br i1 %71, label %.loopexit, label %72
+lxb_dom_attr_value.exit.i:                        ; preds = %67, %lxb_dom_attr_local_name.exit.i
+  %.0140.i = phi i64 [ %69, %67 ], [ 0, %lxb_dom_attr_local_name.exit.i ]
+  %.0.i127.i = phi ptr [ %70, %67 ], [ null, %lxb_dom_attr_local_name.exit.i ]
+  %71 = icmp ugt i64 %60, 2147483646
+  %72 = icmp ugt i64 %.0140.i, 2147483646
+  %73 = select i1 %71, i1 true, i1 %72
+  br i1 %73, label %.loopexit, label %74
 
-72:                                               ; preds = %lxb_dom_attr_value.exit.i
-  %73 = load ptr, ptr @xmlMalloc, align 8
-  %74 = call ptr %73(i64 noundef 96) #8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit, label %76
+74:                                               ; preds = %lxb_dom_attr_value.exit.i
+  %75 = load ptr, ptr @xmlMalloc, align 8
+  %76 = call ptr %75(i64 noundef 96) #8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %.loopexit, label %78
 
-76:                                               ; preds = %72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %74, i8 0, i64 96, i1 false)
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
-  store i32 2, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %74, i64 40
-  store ptr %28, ptr %78, align 8
-  %79 = load ptr, ptr %9, align 8
-  %80 = trunc nuw i64 %.pre.i.i to i32
-  %81 = call ptr @xmlDictLookup(ptr noundef %79, ptr noundef %.0.i.i.i, i32 noundef %80) #8
-  %82 = getelementptr inbounds i8, ptr %74, i64 16
-  store ptr %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %74, i64 64
-  store ptr %6, ptr %83, align 8
-  %84 = icmp ult i64 %.0141.i, 16
-  br i1 %84, label %85, label %lexbor_libxml2_bridge_new_text_node_fast.exit.i
+78:                                               ; preds = %74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %76, i8 0, i64 96, i1 false)
+  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  store i32 2, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %76, i64 40
+  store ptr %28, ptr %80, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = trunc nuw i64 %60 to i32
+  %83 = call ptr @xmlDictLookup(ptr noundef %81, ptr noundef %.0.i.i.i, i32 noundef %82) #8
+  %84 = getelementptr inbounds i8, ptr %76, i64 16
+  store ptr %83, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %76, i64 64
+  store ptr %6, ptr %85, align 8
+  %86 = icmp ult i64 %.0140.i, 16
+  br i1 %86, label %87, label %lexbor_libxml2_bridge_new_text_node_fast.exit.i
 
-85:                                               ; preds = %76
-  %86 = load ptr, ptr @xmlMalloc, align 8
-  %87 = call ptr %86(i64 noundef 120) #8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread143.i
+87:                                               ; preds = %78
+  %88 = load ptr, ptr @xmlMalloc, align 8
+  %89 = call ptr %88(i64 noundef 120) #8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread142.i
 
-lexbor_libxml2_bridge_new_text_node_fast.exit.thread143.i: ; preds = %85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %87, i8 0, i64 120, i1 false)
-  %89 = getelementptr inbounds i8, ptr %87, i64 16
-  store ptr @xmlStringText, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 8
-  store i32 3, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %87, i64 64
-  store ptr %6, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %87, i64 88
-  %93 = getelementptr inbounds i8, ptr %87, i64 80
-  store ptr %92, ptr %93, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 1 %.0.i128.i, i64 %.0141.i, i1 false)
-  br label %97
+lexbor_libxml2_bridge_new_text_node_fast.exit.thread142.i: ; preds = %87
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %89, i8 0, i64 120, i1 false)
+  %91 = getelementptr inbounds i8, ptr %89, i64 16
+  store ptr @xmlStringText, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  store i32 3, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %89, i64 64
+  store ptr %6, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %89, i64 88
+  %95 = getelementptr inbounds i8, ptr %89, i64 80
+  store ptr %94, ptr %95, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %.0.i127.i, i64 %.0140.i, i1 false)
+  br label %99
 
-lexbor_libxml2_bridge_new_text_node_fast.exit.i:  ; preds = %76
-  %94 = trunc nuw i64 %.0141.i to i32
-  %95 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %6, ptr noundef %.0.i128.i, i32 noundef %94) #8
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i, label %97
+lexbor_libxml2_bridge_new_text_node_fast.exit.i:  ; preds = %78
+  %96 = trunc nuw i64 %.0140.i to i32
+  %97 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %6, ptr noundef %.0.i127.i, i32 noundef %96) #8
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i, label %99
 
-lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i: ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.i, %85
-  call void @xmlFreeProp(ptr noundef nonnull %74) #8
+lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i: ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.i, %87
+  call void @xmlFreeProp(ptr noundef nonnull %76) #8
   br label %.loopexit
 
-97:                                               ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.i, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread143.i
-  %.0.i129145.i = phi ptr [ %87, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread143.i ], [ %95, %lexbor_libxml2_bridge_new_text_node_fast.exit.i ]
-  %98 = getelementptr inbounds i8, ptr %74, i64 32
-  store ptr %.0.i129145.i, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %74, i64 24
-  store ptr %.0.i129145.i, ptr %99, align 8
-  %100 = icmp eq ptr %.0108160.i, null
-  br i1 %100, label %101, label %102
+99:                                               ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.i, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread142.i
+  %.0.i128144.i = phi ptr [ %89, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread142.i ], [ %97, %lexbor_libxml2_bridge_new_text_node_fast.exit.i ]
+  %100 = getelementptr inbounds i8, ptr %76, i64 32
+  store ptr %.0.i128144.i, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %76, i64 24
+  store ptr %.0.i128144.i, ptr %101, align 8
+  %102 = icmp eq ptr %.0108159.i, null
+  br i1 %102, label %103, label %104
 
-101:                                              ; preds = %97
-  store ptr %74, ptr %53, align 8
-  br label %105
+103:                                              ; preds = %99
+  store ptr %76, ptr %53, align 8
+  br label %107
 
-102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %.0108160.i, i64 48
-  store ptr %74, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %74, i64 56
-  store ptr %.0108160.i, ptr %104, align 8
-  br label %105
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds i8, ptr %.0108159.i, i64 48
+  store ptr %76, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %76, i64 56
+  store ptr %.0108159.i, ptr %106, align 8
+  br label %107
 
-105:                                              ; preds = %102, %101
-  %106 = icmp eq i64 %.pre.i.i, 2
-  br i1 %106, label %107, label %116
+107:                                              ; preds = %104, %103
+  %108 = icmp eq i64 %60, 2
+  br i1 %108, label %109, label %118
 
-107:                                              ; preds = %105
-  %108 = load i8, ptr %.0.i.i.i, align 1
-  %109 = icmp eq i8 %108, 105
-  br i1 %109, label %110, label %116
+109:                                              ; preds = %107
+  %110 = load i8, ptr %.0.i.i.i, align 1
+  %111 = icmp eq i8 %110, 105
+  br i1 %111, label %112, label %118
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
-  %112 = load i8, ptr %111, align 1
-  %113 = icmp eq i8 %112, 100
-  br i1 %113, label %114, label %116
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %114 = load i8, ptr %113, align 1
+  %115 = icmp eq i8 %114, 100
+  br i1 %115, label %116, label %118
 
-114:                                              ; preds = %110
-  %115 = call ptr @xmlAddID(ptr noundef null, ptr noundef nonnull %6, ptr noundef %.0.i128.i, ptr noundef nonnull %74) #8
-  br label %116
+116:                                              ; preds = %112
+  %117 = call ptr @xmlAddID(ptr noundef null, ptr noundef nonnull %6, ptr noundef %.0.i127.i, ptr noundef nonnull %76) #8
+  br label %118
 
-116:                                              ; preds = %114, %110, %107, %105
-  %117 = getelementptr inbounds i8, ptr %.0109161.i, i64 136
-  %.0109.i = load ptr, ptr %117, align 8
+118:                                              ; preds = %116, %112, %109, %107
+  %119 = getelementptr inbounds i8, ptr %.0109160.i, i64 136
+  %.0109.i = load ptr, ptr %119, align 8
   %.not125.i = icmp eq ptr %.0109.i, null
   br i1 %.not125.i, label %.loopexit.i, label %54
 
-118:                                              ; preds = %.lr.ph165.i
-  %119 = getelementptr inbounds i8, ptr %21, i64 112
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp ugt i64 %120, 2147483646
-  br i1 %121, label %.loopexit, label %122
+120:                                              ; preds = %.lr.ph164.i
+  %121 = getelementptr inbounds i8, ptr %21, i64 112
+  %122 = load i64, ptr %121, align 8
+  %123 = icmp ugt i64 %122, 2147483646
+  br i1 %123, label %.loopexit, label %124
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %21, i64 104
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp ult i64 %120, 16
-  %or.cond.i.i = and i1 %2, %125
-  br i1 %or.cond.i.i, label %126, label %lexbor_libxml2_bridge_new_text_node_fast.exit131.i
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds i8, ptr %21, i64 104
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp ult i64 %122, 16
+  %or.cond.i.i = and i1 %2, %127
+  br i1 %or.cond.i.i, label %128, label %lexbor_libxml2_bridge_new_text_node_fast.exit130.i
 
-126:                                              ; preds = %122
-  %127 = load ptr, ptr @xmlMalloc, align 8
-  %128 = call ptr %127(i64 noundef 120) #8
-  %129 = icmp eq ptr %128, null
-  br i1 %129, label %.loopexit, label %lexbor_libxml2_bridge_new_text_node_fast.exit131.thread147.i
+128:                                              ; preds = %124
+  %129 = load ptr, ptr @xmlMalloc, align 8
+  %130 = call ptr %129(i64 noundef 120) #8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %.loopexit, label %lexbor_libxml2_bridge_new_text_node_fast.exit130.thread146.i
 
-lexbor_libxml2_bridge_new_text_node_fast.exit131.thread147.i: ; preds = %126
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %128, i8 0, i64 120, i1 false)
-  %130 = getelementptr inbounds i8, ptr %128, i64 16
-  store ptr @xmlStringText, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %128, i64 8
-  store i32 3, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %128, i64 64
-  store ptr %6, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %128, i64 88
-  %134 = getelementptr inbounds i8, ptr %128, i64 80
-  store ptr %133, ptr %134, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr align 1 %124, i64 %120, i1 false)
-  br label %138
+lexbor_libxml2_bridge_new_text_node_fast.exit130.thread146.i: ; preds = %128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %130, i8 0, i64 120, i1 false)
+  %132 = getelementptr inbounds i8, ptr %130, i64 16
+  store ptr @xmlStringText, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %130, i64 8
+  store i32 3, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %130, i64 64
+  store ptr %6, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %130, i64 88
+  %136 = getelementptr inbounds i8, ptr %130, i64 80
+  store ptr %135, ptr %136, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %135, ptr align 1 %126, i64 %122, i1 false)
+  br label %140
 
-lexbor_libxml2_bridge_new_text_node_fast.exit131.i: ; preds = %122
-  %135 = trunc nuw i64 %120 to i32
-  %136 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %6, ptr noundef %124, i32 noundef %135) #8
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.loopexit, label %138
+lexbor_libxml2_bridge_new_text_node_fast.exit130.i: ; preds = %124
+  %137 = trunc nuw i64 %122 to i32
+  %138 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %6, ptr noundef %126, i32 noundef %137) #8
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %.loopexit, label %140
 
-138:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit131.i, %lexbor_libxml2_bridge_new_text_node_fast.exit131.thread147.i
-  %.0.i130149.i = phi ptr [ %128, %lexbor_libxml2_bridge_new_text_node_fast.exit131.thread147.i ], [ %136, %lexbor_libxml2_bridge_new_text_node_fast.exit131.i ]
-  %139 = call ptr @xmlAddChild(ptr noundef %23, ptr noundef nonnull %.0.i130149.i) #8
-  %140 = getelementptr inbounds i8, ptr %21, i64 96
-  %141 = load i64, ptr %140, align 8
-  %142 = icmp ugt i64 %141, 65534
-  br i1 %142, label %143, label %148
+140:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit130.i, %lexbor_libxml2_bridge_new_text_node_fast.exit130.thread146.i
+  %.0.i129148.i = phi ptr [ %130, %lexbor_libxml2_bridge_new_text_node_fast.exit130.thread146.i ], [ %138, %lexbor_libxml2_bridge_new_text_node_fast.exit130.i ]
+  %141 = call ptr @xmlAddChild(ptr noundef %23, ptr noundef nonnull %.0.i129148.i) #8
+  %142 = getelementptr inbounds i8, ptr %21, i64 96
+  %143 = load i64, ptr %142, align 8
+  %144 = icmp ugt i64 %143, 65534
+  br i1 %144, label %145, label %150
 
-143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %.0.i130149.i, i64 112
-  store i16 -1, ptr %144, align 8
-  %145 = load i64, ptr %140, align 8
-  %146 = inttoptr i64 %145 to ptr
-  %147 = getelementptr inbounds i8, ptr %.0.i130149.i, i64 104
-  store ptr %146, ptr %147, align 8
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds i8, ptr %.0.i129148.i, i64 112
+  store i16 -1, ptr %146, align 8
+  %147 = load i64, ptr %142, align 8
+  %148 = inttoptr i64 %147 to ptr
+  %149 = getelementptr inbounds i8, ptr %.0.i129148.i, i64 104
+  store ptr %148, ptr %149, align 8
   br label %.loopexit.i
 
-148:                                              ; preds = %138
-  %149 = trunc nuw i64 %141 to i16
-  %150 = getelementptr inbounds i8, ptr %.0.i130149.i, i64 112
-  store i16 %149, ptr %150, align 8
+150:                                              ; preds = %140
+  %151 = trunc nuw i64 %143 to i16
+  %152 = getelementptr inbounds i8, ptr %.0.i129148.i, i64 112
+  store i16 %151, ptr %152, align 8
   br label %.loopexit.i
 
-151:                                              ; preds = %.lr.ph165.i
-  %152 = getelementptr inbounds i8, ptr %21, i64 32
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 208
+153:                                              ; preds = %.lr.ph164.i
+  %154 = getelementptr inbounds i8, ptr %21, i64 32
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %21, i64 104
-  %157 = load i64, ptr %156, align 8
-  %158 = call ptr @lxb_dom_attr_data_by_id(ptr noundef %155, i64 noundef %157) #8
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %lxb_dom_document_type_name.exit.i, label %160
+  %156 = getelementptr inbounds i8, ptr %155, i64 208
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %21, i64 104
+  %159 = load i64, ptr %158, align 8
+  %160 = call ptr @lxb_dom_attr_data_by_id(ptr noundef %157, i64 noundef %159) #8
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %lxb_dom_document_type_name.exit.i, label %162
 
-160:                                              ; preds = %151
-  %161 = load i64, ptr %156, align 8
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %lxb_dom_document_type_name.exit.i, label %163
+162:                                              ; preds = %153
+  %163 = load i64, ptr %158, align 8
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %lxb_dom_document_type_name.exit.i, label %165
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %158, i64 24
-  %165 = load i64, ptr %164, align 8
-  %166 = icmp ult i64 %165, 17
-  br i1 %166, label %lxb_dom_document_type_name.exit.i, label %167
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds i8, ptr %160, i64 24
+  %167 = load i64, ptr %166, align 8
+  %168 = icmp ult i64 %167, 17
+  br i1 %168, label %lxb_dom_document_type_name.exit.i, label %169
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr %158, align 8
+169:                                              ; preds = %165
+  %170 = load ptr, ptr %160, align 8
   br label %lxb_dom_document_type_name.exit.i
 
-lxb_dom_document_type_name.exit.i:                ; preds = %167, %163, %160, %151
-  %.0.i132.i = phi ptr [ @lxb_dom_document_type_name.lxb_empty, %151 ], [ @lxb_dom_document_type_name.lxb_empty, %160 ], [ %168, %167 ], [ %158, %163 ]
-  %169 = getelementptr inbounds i8, ptr %21, i64 120
-  %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %21, i64 112
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %21, i64 136
-  %174 = load i64, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %21, i64 128
-  %176 = load ptr, ptr %175, align 8
-  %.not121.i = icmp eq i64 %170, 0
-  %177 = select i1 %.not121.i, ptr null, ptr %172
-  %.not122.i = icmp eq i64 %174, 0
-  %178 = select i1 %.not122.i, ptr null, ptr %176
-  %179 = call ptr @xmlCreateIntSubset(ptr noundef nonnull %6, ptr noundef %.0.i132.i, ptr noundef %177, ptr noundef %178) #8
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %.loopexit, label %.loopexit.i
+lxb_dom_document_type_name.exit.i:                ; preds = %169, %165, %162, %153
+  %.0.i131.i = phi ptr [ @lxb_dom_document_type_name.lxb_empty, %153 ], [ @lxb_dom_document_type_name.lxb_empty, %162 ], [ %170, %169 ], [ %160, %165 ]
+  %171 = getelementptr inbounds i8, ptr %21, i64 120
+  %172 = load i64, ptr %171, align 8
+  %173 = getelementptr inbounds i8, ptr %21, i64 112
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds i8, ptr %21, i64 136
+  %176 = load i64, ptr %175, align 8
+  %177 = getelementptr inbounds i8, ptr %21, i64 128
+  %178 = load ptr, ptr %177, align 8
+  %.not121.i = icmp eq i64 %172, 0
+  %179 = select i1 %.not121.i, ptr null, ptr %174
+  %.not122.i = icmp eq i64 %176, 0
+  %180 = select i1 %.not122.i, ptr null, ptr %178
+  %181 = call ptr @xmlCreateIntSubset(ptr noundef nonnull %6, ptr noundef %.0.i131.i, ptr noundef %179, ptr noundef %180) #8
+  %182 = icmp eq ptr %181, null
+  br i1 %182, label %.loopexit, label %.loopexit.i
 
-181:                                              ; preds = %.lr.ph165.i
-  %182 = getelementptr inbounds i8, ptr %21, i64 104
-  %183 = load ptr, ptr %182, align 8
-  %184 = call ptr @xmlNewDocComment(ptr noundef nonnull %6, ptr noundef %183) #8
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %.loopexit, label %186
+183:                                              ; preds = %.lr.ph164.i
+  %184 = getelementptr inbounds i8, ptr %21, i64 104
+  %185 = load ptr, ptr %184, align 8
+  %186 = call ptr @xmlNewDocComment(ptr noundef nonnull %6, ptr noundef %185) #8
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %.loopexit, label %188
 
-186:                                              ; preds = %181
-  %187 = call ptr @xmlAddChild(ptr noundef %23, ptr noundef nonnull %184) #8
-  %188 = getelementptr inbounds i8, ptr %21, i64 96
-  %189 = load i64, ptr %188, align 8
-  %.04.i133.i = call i64 @llvm.umin.i64(i64 %189, i64 65535)
-  %.0.i134.i = trunc nuw i64 %.04.i133.i to i16
-  %190 = getelementptr inbounds i8, ptr %184, i64 112
-  store i16 %.0.i134.i, ptr %190, align 8
+188:                                              ; preds = %183
+  %189 = call ptr @xmlAddChild(ptr noundef %23, ptr noundef nonnull %186) #8
+  %190 = getelementptr inbounds i8, ptr %21, i64 96
+  %191 = load i64, ptr %190, align 8
+  %.04.i132.i = call i64 @llvm.umin.i64(i64 %191, i64 65535)
+  %.0.i133.i = trunc nuw i64 %.04.i132.i to i16
+  %192 = getelementptr inbounds i8, ptr %186, i64 112
+  store i16 %.0.i133.i, ptr %192, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %116, %186, %lxb_dom_document_type_name.exit.i, %148, %143, %._crit_edge.i, %.lr.ph165.i
-  %191 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %5) #8
-  %.not120.i = icmp eq ptr %191, null
-  br i1 %.not120.i, label %.loopexit18, label %.lr.ph165.i
+.loopexit.i:                                      ; preds = %118, %188, %lxb_dom_document_type_name.exit.i, %150, %145, %._crit_edge.i, %.lr.ph164.i
+  %193 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %5) #8
+  %.not120.i = icmp eq ptr %193, null
+  br i1 %.not120.i, label %.loopexit18, label %.lr.ph164.i
 
-.loopexit:                                        ; preds = %26, %118, %lexbor_libxml2_bridge_new_text_node_fast.exit131.i, %lxb_dom_document_type_name.exit.i, %181, %126, %72, %lxb_dom_attr_value.exit.i, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i
-  %.0.i.ph = phi i32 [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i ], [ 4, %72 ], [ 3, %lxb_dom_attr_value.exit.i ], [ 4, %26 ], [ 3, %118 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit131.i ], [ 4, %lxb_dom_document_type_name.exit.i ], [ 4, %181 ], [ 4, %126 ]
-  %192 = call ptr @lexbor_array_obj_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #8
+.loopexit:                                        ; preds = %26, %120, %lexbor_libxml2_bridge_new_text_node_fast.exit130.i, %lxb_dom_document_type_name.exit.i, %183, %128, %74, %lxb_dom_attr_value.exit.i, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i
+  %.0.i.ph = phi i32 [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i ], [ 4, %74 ], [ 3, %lxb_dom_attr_value.exit.i ], [ 4, %26 ], [ 3, %120 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit130.i ], [ 4, %lxb_dom_document_type_name.exit.i ], [ 4, %183 ], [ 4, %128 ]
+  %194 = call ptr @lexbor_array_obj_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @xmlFreeDoc(ptr noundef nonnull %6) #8
-  br label %194
+  br label %196
 
 .loopexit18:                                      ; preds = %.loopexit.i, %.preheader.i
-  %193 = call ptr @lexbor_array_obj_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #8
+  %195 = call ptr @lexbor_array_obj_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   store ptr %6, ptr %1, align 8
-  br label %194
+  br label %196
 
-194:                                              ; preds = %4, %.loopexit18, %.loopexit
+196:                                              ; preds = %4, %.loopexit18, %.loopexit
   %.0 = phi i32 [ %.0.i.ph, %.loopexit ], [ 0, %.loopexit18 ], [ 4, %4 ]
   ret i32 %.0
 }

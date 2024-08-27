@@ -202,37 +202,37 @@ scanArgs.exit:                                    ; preds = %51, %53
 64:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %65 = call ptr @agfstnode(ptr noundef nonnull %61) #13
-  %.not44.i.i = icmp eq ptr %65, null
-  br i1 %.not44.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not42.i.i = icmp eq ptr %65, null
+  br i1 %.not42.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %64, %76
-  %.02948.i.i = phi ptr [ %77, %76 ], [ %65, %64 ]
-  %.03147.i.i = phi i32 [ %.132.i.i, %76 ], [ 0, %64 ]
-  %.03346.i.i = phi i32 [ %.134.i.i, %76 ], [ 0, %64 ]
-  %.03545.i.i = phi i32 [ %.136.i.i, %76 ], [ 0, %64 ]
-  %66 = getelementptr i8, ptr %.02948.i.i, i64 16
+  %.02946.i.i = phi ptr [ %77, %76 ], [ %65, %64 ]
+  %.03145.i.i = phi i32 [ %.132.i.i, %76 ], [ 0, %64 ]
+  %.03344.i.i = phi i32 [ %.134.i.i, %76 ], [ 0, %64 ]
+  %.03543.i.i = phi i32 [ %.136.i.i, %76 ], [ 0, %64 ]
+  %66 = getelementptr i8, ptr %.02946.i.i, i64 16
   %.029.val.i.i = load ptr, ptr %66, align 8
   %67 = getelementptr i8, ptr %.029.val.i.i, i64 16
   %.029.val.val.i.i = load i32, ptr %67, align 8
-  %.not43.i.i = icmp eq i32 %.029.val.val.i.i, 0
-  br i1 %.not43.i.i, label %68, label %76
+  %.not41.i.i = icmp eq i32 %.029.val.val.i.i, 0
+  br i1 %.not41.i.i, label %68, label %76
 
 68:                                               ; preds = %.lr.ph.i.i
-  %69 = add nsw i32 %.03147.i.i, 1
+  %69 = add nsw i32 %.03145.i.i, 1
   store i32 0, ptr %3, align 4
-  %70 = call fastcc i32 @label(ptr noundef nonnull %.02948.i.i, i32 noundef 0, ptr noundef nonnull %3)
+  %70 = call fastcc i32 @label(ptr noundef nonnull %.02946.i.i, i32 noundef 0, ptr noundef nonnull %3)
   %71 = load i32, ptr %3, align 4
-  %72 = add nsw i32 %71, %.03346.i.i
-  %73 = add i32 %.03545.i.i, 1
+  %72 = add nsw i32 %71, %.03344.i.i
+  %73 = add i32 %.03543.i.i, 1
   %74 = sub i32 %73, %70
   %75 = add i32 %74, %71
   br label %76
 
 76:                                               ; preds = %68, %.lr.ph.i.i
-  %.136.i.i = phi i32 [ %.03545.i.i, %.lr.ph.i.i ], [ %75, %68 ]
-  %.134.i.i = phi i32 [ %.03346.i.i, %.lr.ph.i.i ], [ %72, %68 ]
-  %.132.i.i = phi i32 [ %.03147.i.i, %.lr.ph.i.i ], [ %69, %68 ]
-  %77 = call ptr @agnxtnode(ptr noundef nonnull %61, ptr noundef nonnull %.02948.i.i) #13
+  %.136.i.i = phi i32 [ %.03543.i.i, %.lr.ph.i.i ], [ %75, %68 ]
+  %.134.i.i = phi i32 [ %.03344.i.i, %.lr.ph.i.i ], [ %72, %68 ]
+  %.132.i.i = phi i32 [ %.03145.i.i, %.lr.ph.i.i ], [ %69, %68 ]
+  %77 = call ptr @agnxtnode(ptr noundef nonnull %61, ptr noundef nonnull %.02946.i.i) #13
   %.not.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
@@ -245,24 +245,24 @@ scanArgs.exit:                                    ; preds = %51, %53
   %.033.lcssa.i.i = phi i32 [ 0, %64 ], [ %.134.i.i, %._crit_edge.loopexit.i.i ]
   %.031.lcssa.i.i = phi i32 [ 0, %64 ], [ %.132.i.i, %._crit_edge.loopexit.i.i ]
   %79 = call ptr @agfstnode(ptr noundef nonnull %61) #13
-  %.not4151.i.i = icmp eq ptr %79, null
-  br i1 %.not4151.i.i, label %countComponents.exit.i, label %.lr.ph55.i.i
+  %.not4049.i.i = icmp eq ptr %79, null
+  br i1 %.not4049.i.i, label %countComponents.exit.i, label %.lr.ph53.i.i
 
-.lr.ph55.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph55.i.i
-  %.053.i.i = phi i32 [ %spec.select.i.i, %.lr.ph55.i.i ], [ 0, %._crit_edge.i.i ]
-  %.13052.i.i = phi ptr [ %83, %.lr.ph55.i.i ], [ %79, %._crit_edge.i.i ]
-  %80 = call i32 @agdegree(ptr noundef nonnull %61, ptr noundef nonnull %.13052.i.i, i32 noundef 1, i32 noundef 1) #13
-  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %.053.i.i, i32 %80)
-  %81 = getelementptr i8, ptr %.13052.i.i, i64 16
+.lr.ph53.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph53.i.i
+  %.051.i.i = phi i32 [ %spec.select.i.i, %.lr.ph53.i.i ], [ 0, %._crit_edge.i.i ]
+  %.13050.i.i = phi ptr [ %83, %.lr.ph53.i.i ], [ %79, %._crit_edge.i.i ]
+  %80 = call i32 @agdegree(ptr noundef nonnull %61, ptr noundef nonnull %.13050.i.i, i32 noundef 1, i32 noundef 1) #13
+  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %.051.i.i, i32 %80)
+  %81 = getelementptr i8, ptr %.13050.i.i, i64 16
   %.130.val.i.i = load ptr, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %.130.val.i.i, i64 16
   store i32 0, ptr %82, align 8
-  %83 = call ptr @agnxtnode(ptr noundef nonnull %61, ptr noundef nonnull %.13052.i.i) #13
-  %.not41.i.i = icmp eq ptr %83, null
-  br i1 %.not41.i.i, label %countComponents.exit.i, label %.lr.ph55.i.i
+  %83 = call ptr @agnxtnode(ptr noundef nonnull %61, ptr noundef nonnull %.13050.i.i) #13
+  %.not40.i.i = icmp eq ptr %83, null
+  br i1 %.not40.i.i, label %countComponents.exit.i, label %.lr.ph53.i.i
 
-countComponents.exit.i:                           ; preds = %.lr.ph55.i.i, %._crit_edge.i.i
-  %.0.lcssa.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %spec.select.i.i, %.lr.ph55.i.i ]
+countComponents.exit.i:                           ; preds = %.lr.ph53.i.i, %._crit_edge.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %spec.select.i.i, %.lr.ph53.i.i ]
   %84 = icmp sgt i32 %.033.lcssa.i.i, 0
   %85 = uitofp nneg i32 %.033.lcssa.i.i to float
   %86 = fdiv float %.035.lcssa.i.i, %85

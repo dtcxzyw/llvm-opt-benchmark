@@ -2544,8 +2544,8 @@ entry:
   %frombool = zext i1 %cmp to i8
   %.compoundliteral.sroa.2.0.iter.sroa_idx = getelementptr inbounds i8, ptr %iter, i64 17
   store i8 %frombool, ptr %.compoundliteral.sroa.2.0.iter.sroa_idx, align 1
-  %call33 = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef %qiov, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
-  br i1 %call33, label %for.body.lr.ph, label %for.end
+  %call29 = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef %qiov, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
+  br i1 %call29, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %type = getelementptr inbounds i8, ptr %reply, i64 6
@@ -2713,15 +2713,15 @@ if.then12:                                        ; preds = %sw.default
   %21 = inttoptr i64 %20 to ptr
   call void %21(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 122) #15
   %22 = load i32, ptr %state.i.i, align 8
-  %cmp.i.i16 = icmp eq i32 %22, 2
-  br i1 %cmp.i.i16, label %if.then.i.i17, label %nbd_channel_error.exit19
+  %cmp.i.i14 = icmp eq i32 %22, 2
+  br i1 %cmp.i.i14, label %if.then.i.i15, label %nbd_channel_error.exit17
 
-if.then.i.i17:                                    ; preds = %if.then12
+if.then.i.i15:                                    ; preds = %if.then12
   %23 = load ptr, ptr %s, align 8
-  %call.i.i18 = call i32 @qio_channel_shutdown(ptr noundef %23, i32 noundef 3, ptr noundef null) #15
-  br label %nbd_channel_error.exit19
+  %call.i.i16 = call i32 @qio_channel_shutdown(ptr noundef %23, i32 noundef 3, ptr noundef null) #15
+  br label %nbd_channel_error.exit17
 
-nbd_channel_error.exit19:                         ; preds = %if.then12, %if.then.i.i17
+nbd_channel_error.exit17:                         ; preds = %if.then12, %if.then.i.i15
   store i32 3, ptr %state.i.i, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   %24 = load i16, ptr %type, align 2
@@ -2729,32 +2729,32 @@ nbd_channel_error.exit19:                         ; preds = %if.then12, %if.then
   %call16 = call ptr @nbd_reply_type_lookup(i16 noundef zeroext %24) #15
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 1125, ptr noundef nonnull @__func__.nbd_co_receive_cmdread_reply, ptr noundef nonnull @.str.80, i32 noundef %conv14, ptr noundef %call16) #15
   %25 = load ptr, ptr %local_err, align 8
-  %tobool1.not.i22 = icmp eq ptr %25, null
-  br i1 %tobool1.not.i22, label %if.else.i28, label %if.end4.i23
+  %tobool1.not.i18 = icmp eq ptr %25, null
+  br i1 %tobool1.not.i18, label %if.else.i24, label %if.end4.i19
 
-if.else.i28:                                      ; preds = %nbd_channel_error.exit19
+if.else.i24:                                      ; preds = %nbd_channel_error.exit17
   call void @__assert_fail(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 973, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_iter_channel_error) #16
   unreachable
 
-if.end4.i23:                                      ; preds = %nbd_channel_error.exit19
+if.end4.i19:                                      ; preds = %nbd_channel_error.exit17
   %26 = load i32, ptr %iter, align 8
-  %tobool6.not.i24 = icmp eq i32 %26, 0
-  br i1 %tobool6.not.i24, label %if.then7.i26, label %if.else9.i25
+  %tobool6.not.i20 = icmp eq i32 %26, 0
+  br i1 %tobool6.not.i20, label %if.then7.i22, label %if.else9.i21
 
-if.then7.i26:                                     ; preds = %if.end4.i23
+if.then7.i22:                                     ; preds = %if.end4.i19
   store i32 -22, ptr %iter, align 8
   call void @error_propagate(ptr noundef nonnull %err.i, ptr noundef nonnull %25) #15
-  br label %nbd_iter_channel_error.exit29
+  br label %nbd_iter_channel_error.exit25
 
-if.else9.i25:                                     ; preds = %if.end4.i23
+if.else9.i21:                                     ; preds = %if.end4.i19
   call void @error_free(ptr noundef nonnull %25) #15
-  br label %nbd_iter_channel_error.exit29
+  br label %nbd_iter_channel_error.exit25
 
-nbd_iter_channel_error.exit29:                    ; preds = %if.then7.i26, %if.else9.i25
+nbd_iter_channel_error.exit25:                    ; preds = %if.then7.i22, %if.else9.i21
   store ptr null, ptr %local_err, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %nbd_parse_offset_hole_payload.exit, %sw.default, %nbd_iter_channel_error.exit29, %nbd_iter_channel_error.exit, %if.end
+sw.epilog:                                        ; preds = %nbd_parse_offset_hole_payload.exit, %sw.default, %nbd_iter_channel_error.exit25, %nbd_iter_channel_error.exit, %if.end
   %27 = load ptr, ptr %payload, align 8
   call void @g_free(ptr noundef %27) #15
   store ptr null, ptr %payload, align 8
@@ -4432,14 +4432,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %iter, i8 0, i64 24, i1 false)
-  %call61 = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef null, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
-  br i1 %call61, label %for.body.lr.ph, label %for.end
+  %call58 = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef null, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
+  br i1 %call58, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %type = getelementptr inbounds i8, ptr %reply, i64 6
-  %requests_lock.i33 = getelementptr inbounds i8, ptr %s, i64 96
-  %state.i.i34 = getelementptr inbounds i8, ptr %s, i64 144
-  %err.i45 = getelementptr inbounds i8, ptr %iter, i64 8
+  %requests_lock.i32 = getelementptr inbounds i8, ptr %s, i64 96
+  %state.i.i33 = getelementptr inbounds i8, ptr %s, i64 144
+  %err.i43 = getelementptr inbounds i8, ptr %iter, i64 8
   %mode = getelementptr inbounds i8, ptr %s, i64 32
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %length.i = getelementptr inbounds i8, ptr %reply, i64 16
@@ -4453,7 +4453,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
-  %received.062 = phi i1 [ false, %for.body.lr.ph ], [ %received.1, %sw.epilog ]
+  %received.059 = phi i1 [ false, %for.body.lr.ph ], [ %received.1, %sw.epilog ]
   %reply.val = load i32, ptr %reply, align 8
   %cmp.i = icmp eq i32 %reply.val, 1720595439
   br i1 %cmp.i, label %if.end6, label %if.else5
@@ -4512,13 +4512,13 @@ trace_nbd_extended_headers_compliance.exit:       ; preds = %if.then16, %land.lh
   br label %if.end17
 
 if.end17:                                         ; preds = %trace_nbd_extended_headers_compliance.exit, %sw.bb
-  br i1 %received.062, label %if.then19, label %if.end20
+  br i1 %received.059, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end17
   %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %12 = inttoptr i64 %11 to ptr
-  call void %12(ptr noundef nonnull %requests_lock.i33, ptr noundef nonnull @.str.7, i32 noundef 122) #15
-  %13 = load i32, ptr %state.i.i34, align 8
+  call void %12(ptr noundef nonnull %requests_lock.i32, ptr noundef nonnull @.str.7, i32 noundef 122) #15
+  %13 = load i32, ptr %state.i.i33, align 8
   %cmp.i.i = icmp eq i32 %13, 2
   br i1 %cmp.i.i, label %if.then.i.i15, label %nbd_channel_error.exit
 
@@ -4528,8 +4528,8 @@ if.then.i.i15:                                    ; preds = %if.then19
   br label %nbd_channel_error.exit
 
 nbd_channel_error.exit:                           ; preds = %if.then19, %if.then.i.i15
-  store i32 3, ptr %state.i.i34, align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i33, ptr noundef nonnull @.str.7, i32 noundef 132) #15
+  store i32 3, ptr %state.i.i33, align 8
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i32, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 1167, ptr noundef nonnull @__func__.nbd_co_receive_blockstatus_reply, ptr noundef nonnull @.str.129) #15
   %15 = load ptr, ptr %local_err, align 8
   %tobool1.not.i = icmp eq ptr %15, null
@@ -4546,7 +4546,7 @@ if.end4.i:                                        ; preds = %nbd_channel_error.e
 
 if.then7.i:                                       ; preds = %if.end4.i
   store i32 -22, ptr %iter, align 8
-  call void @error_propagate(ptr noundef nonnull %err.i45, ptr noundef nonnull %15) #15
+  call void @error_propagate(ptr noundef nonnull %err.i43, ptr noundef nonnull %15) #15
   br label %nbd_iter_channel_error.exit
 
 if.else9.i:                                       ; preds = %if.end4.i
@@ -4686,8 +4686,8 @@ if.end62.i:                                       ; preds = %if.else55.i, %if.th
   %37 = load i32, ptr %length.i, align 8
   %conv68.i = zext i32 %37 to i64
   %cmp69.i = icmp ult i64 %add2.i, %conv68.i
-  %or.cond60 = select i1 %cmp65.not.i, i1 true, i1 %cmp69.i
-  br i1 %or.cond60, label %if.then71.i, label %if.end72.i
+  %or.cond57 = select i1 %cmp65.not.i, i1 true, i1 %cmp69.i
+  br i1 %or.cond57, label %if.then71.i, label %if.end72.i
 
 if.then71.i:                                      ; preds = %if.end62.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i45.i)
@@ -4785,8 +4785,8 @@ if.then85.i:                                      ; preds = %land.lhs.true81.i
 if.then25:                                        ; preds = %if.then.i, %if.then8.i, %if.then28.i
   %53 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %54 = inttoptr i64 %53 to ptr
-  call void %54(ptr noundef nonnull %requests_lock.i33, ptr noundef nonnull @.str.7, i32 noundef 122) #15
-  %55 = load i32, ptr %state.i.i34, align 8
+  call void %54(ptr noundef nonnull %requests_lock.i32, ptr noundef nonnull @.str.7, i32 noundef 122) #15
+  %55 = load i32, ptr %state.i.i33, align 8
   %cmp.i.i20 = icmp eq i32 %55, 2
   br i1 %cmp.i.i20, label %if.then.i.i21, label %nbd_channel_error.exit23
 
@@ -4796,31 +4796,31 @@ if.then.i.i21:                                    ; preds = %if.then25
   br label %nbd_channel_error.exit23
 
 nbd_channel_error.exit23:                         ; preds = %if.then25, %if.then.i.i21
-  store i32 3, ptr %state.i.i34, align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i33, ptr noundef nonnull @.str.7, i32 noundef 132) #15
+  store i32 3, ptr %state.i.i33, align 8
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i32, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   %57 = load ptr, ptr %local_err, align 8
-  %tobool1.not.i25 = icmp eq ptr %57, null
-  br i1 %tobool1.not.i25, label %if.else.i31, label %if.end4.i26
+  %tobool1.not.i24 = icmp eq ptr %57, null
+  br i1 %tobool1.not.i24, label %if.else.i30, label %if.end4.i25
 
-if.else.i31:                                      ; preds = %nbd_channel_error.exit23
+if.else.i30:                                      ; preds = %nbd_channel_error.exit23
   call void @__assert_fail(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 973, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_iter_channel_error) #16
   unreachable
 
-if.end4.i26:                                      ; preds = %nbd_channel_error.exit23
+if.end4.i25:                                      ; preds = %nbd_channel_error.exit23
   %58 = load i32, ptr %iter, align 8
-  %tobool6.not.i27 = icmp eq i32 %58, 0
-  br i1 %tobool6.not.i27, label %if.then7.i29, label %if.else9.i28
+  %tobool6.not.i26 = icmp eq i32 %58, 0
+  br i1 %tobool6.not.i26, label %if.then7.i28, label %if.else9.i27
 
-if.then7.i29:                                     ; preds = %if.end4.i26
+if.then7.i28:                                     ; preds = %if.end4.i25
   store i32 -22, ptr %iter, align 8
-  call void @error_propagate(ptr noundef nonnull %err.i45, ptr noundef nonnull %57) #15
-  br label %nbd_iter_channel_error.exit32
+  call void @error_propagate(ptr noundef nonnull %err.i43, ptr noundef nonnull %57) #15
+  br label %nbd_iter_channel_error.exit31
 
-if.else9.i28:                                     ; preds = %if.end4.i26
+if.else9.i27:                                     ; preds = %if.end4.i25
   call void @error_free(ptr noundef nonnull %57) #15
-  br label %nbd_iter_channel_error.exit32
+  br label %nbd_iter_channel_error.exit31
 
-nbd_iter_channel_error.exit32:                    ; preds = %if.then7.i29, %if.else9.i28
+nbd_iter_channel_error.exit31:                    ; preds = %if.then7.i28, %if.else9.i27
   store ptr null, ptr %local_err, align 8
   br label %sw.epilog
 
@@ -4831,51 +4831,51 @@ sw.default:                                       ; preds = %if.end6
 if.then30:                                        ; preds = %sw.default
   %59 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %60 = inttoptr i64 %59 to ptr
-  call void %60(ptr noundef nonnull %requests_lock.i33, ptr noundef nonnull @.str.7, i32 noundef 122) #15
-  %61 = load i32, ptr %state.i.i34, align 8
-  %cmp.i.i35 = icmp eq i32 %61, 2
-  br i1 %cmp.i.i35, label %if.then.i.i36, label %nbd_channel_error.exit38
+  call void %60(ptr noundef nonnull %requests_lock.i32, ptr noundef nonnull @.str.7, i32 noundef 122) #15
+  %61 = load i32, ptr %state.i.i33, align 8
+  %cmp.i.i34 = icmp eq i32 %61, 2
+  br i1 %cmp.i.i34, label %if.then.i.i35, label %nbd_channel_error.exit37
 
-if.then.i.i36:                                    ; preds = %if.then30
+if.then.i.i35:                                    ; preds = %if.then30
   %62 = load ptr, ptr %s, align 8
-  %call.i.i37 = call i32 @qio_channel_shutdown(ptr noundef %62, i32 noundef 3, ptr noundef null) #15
-  br label %nbd_channel_error.exit38
+  %call.i.i36 = call i32 @qio_channel_shutdown(ptr noundef %62, i32 noundef 3, ptr noundef null) #15
+  br label %nbd_channel_error.exit37
 
-nbd_channel_error.exit38:                         ; preds = %if.then30, %if.then.i.i36
-  store i32 3, ptr %state.i.i34, align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i33, ptr noundef nonnull @.str.7, i32 noundef 132) #15
+nbd_channel_error.exit37:                         ; preds = %if.then30, %if.then.i.i35
+  store i32 3, ptr %state.i.i33, align 8
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i32, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   %63 = load i16, ptr %type, align 2
   %conv32 = zext i16 %63 to i32
   %call34 = call ptr @nbd_reply_type_lookup(i16 noundef zeroext %63) #15
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 1186, ptr noundef nonnull @__func__.nbd_co_receive_blockstatus_reply, ptr noundef nonnull @.str.130, i32 noundef %conv32, ptr noundef %call34) #15
   %64 = load ptr, ptr %local_err, align 8
-  %tobool1.not.i40 = icmp eq ptr %64, null
-  br i1 %tobool1.not.i40, label %if.else.i46, label %if.end4.i41
+  %tobool1.not.i38 = icmp eq ptr %64, null
+  br i1 %tobool1.not.i38, label %if.else.i44, label %if.end4.i39
 
-if.else.i46:                                      ; preds = %nbd_channel_error.exit38
+if.else.i44:                                      ; preds = %nbd_channel_error.exit37
   call void @__assert_fail(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 973, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_iter_channel_error) #16
   unreachable
 
-if.end4.i41:                                      ; preds = %nbd_channel_error.exit38
+if.end4.i39:                                      ; preds = %nbd_channel_error.exit37
   %65 = load i32, ptr %iter, align 8
-  %tobool6.not.i42 = icmp eq i32 %65, 0
-  br i1 %tobool6.not.i42, label %if.then7.i44, label %if.else9.i43
+  %tobool6.not.i40 = icmp eq i32 %65, 0
+  br i1 %tobool6.not.i40, label %if.then7.i42, label %if.else9.i41
 
-if.then7.i44:                                     ; preds = %if.end4.i41
+if.then7.i42:                                     ; preds = %if.end4.i39
   store i32 -22, ptr %iter, align 8
-  call void @error_propagate(ptr noundef nonnull %err.i45, ptr noundef nonnull %64) #15
-  br label %nbd_iter_channel_error.exit47
+  call void @error_propagate(ptr noundef nonnull %err.i43, ptr noundef nonnull %64) #15
+  br label %nbd_iter_channel_error.exit45
 
-if.else9.i43:                                     ; preds = %if.end4.i41
+if.else9.i41:                                     ; preds = %if.end4.i39
   call void @error_free(ptr noundef nonnull %64) #15
-  br label %nbd_iter_channel_error.exit47
+  br label %nbd_iter_channel_error.exit45
 
-nbd_iter_channel_error.exit47:                    ; preds = %if.then7.i44, %if.else9.i43
+nbd_iter_channel_error.exit45:                    ; preds = %if.then7.i42, %if.else9.i41
   store ptr null, ptr %local_err, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then85.i, %land.lhs.true81.i, %if.end78.i, %sw.default, %nbd_iter_channel_error.exit47, %nbd_iter_channel_error.exit32
-  %received.1 = phi i1 [ %received.062, %sw.default ], [ %received.062, %nbd_iter_channel_error.exit47 ], [ true, %nbd_iter_channel_error.exit32 ], [ true, %if.end78.i ], [ true, %land.lhs.true81.i ], [ true, %if.then85.i ]
+sw.epilog:                                        ; preds = %if.then85.i, %land.lhs.true81.i, %if.end78.i, %sw.default, %nbd_iter_channel_error.exit45, %nbd_iter_channel_error.exit31
+  %received.1 = phi i1 [ %received.059, %sw.default ], [ %received.059, %nbd_iter_channel_error.exit45 ], [ true, %nbd_iter_channel_error.exit31 ], [ true, %if.end78.i ], [ true, %land.lhs.true81.i ], [ true, %if.then85.i ]
   %66 = load ptr, ptr %payload, align 8
   call void @g_free(ptr noundef %66) #15
   store ptr null, ptr %payload, align 8
@@ -4894,33 +4894,33 @@ for.end:                                          ; preds = %sw.epilog, %if.end
 if.then40:                                        ; preds = %for.end
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 1196, ptr noundef nonnull @__func__.nbd_co_receive_blockstatus_reply, ptr noundef nonnull @.str.131) #15
   %69 = load ptr, ptr %local_err, align 8
-  %tobool1.not.i49 = icmp eq ptr %69, null
-  br i1 %tobool1.not.i49, label %if.else.i55, label %if.end4.i50
+  %tobool1.not.i46 = icmp eq ptr %69, null
+  br i1 %tobool1.not.i46, label %if.else.i52, label %if.end4.i47
 
-if.else.i55:                                      ; preds = %if.then40
+if.else.i52:                                      ; preds = %if.then40
   call void @__assert_fail(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 973, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_iter_channel_error) #16
   unreachable
 
-if.end4.i50:                                      ; preds = %if.then40
+if.end4.i47:                                      ; preds = %if.then40
   %70 = load i32, ptr %iter, align 8
-  %tobool6.not.i51 = icmp eq i32 %70, 0
-  br i1 %tobool6.not.i51, label %if.then7.i53, label %if.else9.i52
+  %tobool6.not.i48 = icmp eq i32 %70, 0
+  br i1 %tobool6.not.i48, label %if.then7.i50, label %if.else9.i49
 
-if.then7.i53:                                     ; preds = %if.end4.i50
+if.then7.i50:                                     ; preds = %if.end4.i47
   store i32 -5, ptr %iter, align 8
-  %err.i54 = getelementptr inbounds i8, ptr %iter, i64 8
-  call void @error_propagate(ptr noundef nonnull %err.i54, ptr noundef nonnull %69) #15
-  br label %nbd_iter_channel_error.exit56
+  %err.i51 = getelementptr inbounds i8, ptr %iter, i64 8
+  call void @error_propagate(ptr noundef nonnull %err.i51, ptr noundef nonnull %69) #15
+  br label %nbd_iter_channel_error.exit53
 
-if.else9.i52:                                     ; preds = %if.end4.i50
+if.else9.i49:                                     ; preds = %if.end4.i47
   call void @error_free(ptr noundef nonnull %69) #15
-  br label %nbd_iter_channel_error.exit56
+  br label %nbd_iter_channel_error.exit53
 
-nbd_iter_channel_error.exit56:                    ; preds = %if.then7.i53, %if.else9.i52
+nbd_iter_channel_error.exit53:                    ; preds = %if.then7.i50, %if.else9.i49
   store ptr null, ptr %local_err, align 8
   br label %if.end41
 
-if.end41:                                         ; preds = %nbd_iter_channel_error.exit56, %for.end
+if.end41:                                         ; preds = %nbd_iter_channel_error.exit53, %for.end
   %err = getelementptr inbounds i8, ptr %iter, i64 8
   %71 = load ptr, ptr %err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %71) #15

@@ -770,14 +770,14 @@ if.end33.i21:                                     ; preds = %sw.epilog.i
   %dst_len34.i = getelementptr inbounds i8, ptr %13, i64 4
   %35 = load i32, ptr %dst_len34.i, align 4
   %cmp35.i = icmp ugt i32 %ret.0.i, %35
-  br i1 %cmp35.i, label %if.then39.i, label %if.end44.i
+  br i1 %cmp35.i, label %land.lhs.true.i, label %if.end44.i
 
-if.then39.i:                                      ; preds = %if.end33.i21
+land.lhs.true.i:                                  ; preds = %if.end33.i21
   %36 = load ptr, ptr %local_error, align 8
   %tobool41.not.i = icmp eq ptr %36, null
   br i1 %tobool41.not.i, label %if.then42.i, label %if.then17
 
-if.then42.i:                                      ; preds = %if.then39.i
+if.then42.i:                                      ; preds = %land.lhs.true.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 529, ptr noundef nonnull @__func__.cryptodev_builtin_asym_operation, ptr noundef nonnull @.str.18) #6
   br label %if.end16
 
@@ -791,9 +791,9 @@ if.end16:                                         ; preds = %if.end44.i, %if.the
   %tobool.not = icmp eq ptr %.pr, null
   br i1 %tobool.not, label %if.end18, label %if.then17
 
-if.then17:                                        ; preds = %if.then39.i, %if.end16
-  %status.030 = phi i32 [ %status.0.ph, %if.end16 ], [ -1, %if.then39.i ]
-  %37 = phi ptr [ %.pr, %if.end16 ], [ %36, %if.then39.i ]
+if.then17:                                        ; preds = %land.lhs.true.i, %if.end16
+  %status.030 = phi i32 [ %status.0.ph, %if.end16 ], [ -1, %land.lhs.true.i ]
+  %37 = phi ptr [ %.pr, %if.end16 ], [ %36, %land.lhs.true.i ]
   call void @error_report_err(ptr noundef nonnull %37) #6
   br label %if.end18
 

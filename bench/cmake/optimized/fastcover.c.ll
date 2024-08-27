@@ -318,7 +318,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %60 = load i32, ptr @g_displayLevel, align 4
   %61 = icmp sgt i32 %60, 1
-  br i1 %61, label %62, label %.thread84
+  br i1 %61, label %62, label %.thread81
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr @stderr, align 8
@@ -328,7 +328,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   %67 = tail call i32 @fflush(ptr noundef %66)
   %.pr = load i32, ptr @g_displayLevel, align 4
   %68 = icmp sgt i32 %.pr, 1
-  br i1 %68, label %69, label %.thread84
+  br i1 %68, label %69, label %.thread81
 
 69:                                               ; preds = %62
   %70 = load ptr, ptr @stderr, align 8
@@ -336,9 +336,9 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.20, i32 noundef %16, i32 noundef %71) #12
   %73 = load ptr, ptr @stderr, align 8
   %74 = tail call i32 @fflush(ptr noundef %73)
-  br label %.thread84
+  br label %.thread81
 
-.thread84:                                        ; preds = %59, %69, %62
+.thread81:                                        ; preds = %59, %69, %62
   store ptr %1, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %75, align 8
@@ -367,158 +367,158 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   %90 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %89, ptr %90, align 8
   %91 = icmp eq ptr %89, null
-  br i1 %91, label %92, label %103
+  br i1 %91, label %92, label %104
 
-92:                                               ; preds = %.thread84
+92:                                               ; preds = %.thread81
   %93 = load i32, ptr @g_displayLevel, align 4
   %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %95, label %FASTCOVER_ctx_destroy.exit
+  br i1 %94, label %95, label %100
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr @stderr, align 8
   %97 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 36, i64 1, ptr %96) #11
   %98 = load ptr, ptr @stderr, align 8
   %99 = tail call i32 @fflush(ptr noundef %98)
-  br label %FASTCOVER_ctx_destroy.exit
+  br label %100
 
-FASTCOVER_ctx_destroy.exit:                       ; preds = %95, %92
-  %100 = getelementptr inbounds i8, ptr %0, i64 56
-  %101 = load ptr, ptr %100, align 8
-  tail call void @free(ptr noundef %101) #13
-  store ptr null, ptr %100, align 8
-  %102 = load ptr, ptr %90, align 8
+100:                                              ; preds = %95, %92
+  %101 = getelementptr inbounds i8, ptr %0, i64 56
+  %102 = load ptr, ptr %101, align 8
   tail call void @free(ptr noundef %102) #13
+  store ptr null, ptr %101, align 8
+  %103 = load ptr, ptr %90, align 8
+  tail call void @free(ptr noundef %103) #13
   store ptr null, ptr %90, align 8
   br label %FASTCOVER_computeFrequency.exit
 
-103:                                              ; preds = %.thread84
-  %.not85 = icmp eq i32 %3, 0
-  br i1 %.not85, label %._crit_edge, label %.lr.ph.preheader
+104:                                              ; preds = %.thread81
+  %.not82 = icmp eq i32 %3, 0
+  br i1 %.not82, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %103
+.lr.ph.preheader:                                 ; preds = %104
   %umax = tail call i32 @llvm.umax.i32(i32 %87, i32 2)
   %wide.trip.count = zext i32 %umax to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %104 = load ptr, ptr %90, align 8
-  %105 = add nsw i64 %indvars.iv, -1
-  %106 = getelementptr inbounds i64, ptr %104, i64 %105
-  %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i64, ptr %2, i64 %105
-  %109 = load i64, ptr %108, align 8
-  %110 = add i64 %109, %107
-  %111 = getelementptr inbounds i64, ptr %104, i64 %indvars.iv
-  store i64 %110, ptr %111, align 8
+  %105 = load ptr, ptr %90, align 8
+  %106 = add nsw i64 %indvars.iv, -1
+  %107 = getelementptr inbounds i64, ptr %105, i64 %106
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds i64, ptr %2, i64 %106
+  %110 = load i64, ptr %109, align 8
+  %111 = add i64 %110, %108
+  %112 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv
+  store i64 %111, ptr %112, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %.lr.ph, %103
-  %112 = zext nneg i32 %6 to i64
-  %113 = shl nuw i64 1, %112
-  %114 = tail call noalias ptr @calloc(i64 noundef %113, i64 noundef 4) #14
-  %115 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %114, ptr %115, align 8
-  %116 = icmp eq ptr %114, null
-  %117 = load i32, ptr @g_displayLevel, align 4
-  br i1 %116, label %118, label %127
+._crit_edge:                                      ; preds = %.lr.ph, %104
+  %113 = zext nneg i32 %6 to i64
+  %114 = shl nuw i64 1, %113
+  %115 = tail call noalias ptr @calloc(i64 noundef %114, i64 noundef 4) #14
+  %116 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %115, ptr %116, align 8
+  %117 = icmp eq ptr %115, null
+  %118 = load i32, ptr @g_displayLevel, align 4
+  br i1 %117, label %119, label %129
 
-118:                                              ; preds = %._crit_edge
-  %119 = icmp sgt i32 %117, 0
-  br i1 %119, label %120, label %FASTCOVER_ctx_destroy.exit82
+119:                                              ; preds = %._crit_edge
+  %120 = icmp sgt i32 %118, 0
+  br i1 %120, label %121, label %126
 
-120:                                              ; preds = %118
-  %121 = load ptr, ptr @stderr, align 8
-  %122 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %121) #11
-  %123 = load ptr, ptr @stderr, align 8
-  %124 = tail call i32 @fflush(ptr noundef %123)
-  %.pre88 = load ptr, ptr %115, align 8
-  br label %FASTCOVER_ctx_destroy.exit82
+121:                                              ; preds = %119
+  %122 = load ptr, ptr @stderr, align 8
+  %123 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %122) #11
+  %124 = load ptr, ptr @stderr, align 8
+  %125 = tail call i32 @fflush(ptr noundef %124)
+  %.pre85 = load ptr, ptr %116, align 8
+  br label %126
 
-FASTCOVER_ctx_destroy.exit82:                     ; preds = %120, %118
-  %125 = phi ptr [ %.pre88, %120 ], [ null, %118 ]
-  tail call void @free(ptr noundef %125) #13
-  store ptr null, ptr %115, align 8
-  %126 = load ptr, ptr %90, align 8
-  tail call void @free(ptr noundef %126) #13
+126:                                              ; preds = %121, %119
+  %127 = phi ptr [ %.pre85, %121 ], [ null, %119 ]
+  tail call void @free(ptr noundef %127) #13
+  store ptr null, ptr %116, align 8
+  %128 = load ptr, ptr %90, align 8
+  tail call void @free(ptr noundef %128) #13
   store ptr null, ptr %90, align 8
   br label %FASTCOVER_computeFrequency.exit
 
-127:                                              ; preds = %._crit_edge
-  %128 = icmp sgt i32 %117, 1
-  br i1 %128, label %129, label %134
+129:                                              ; preds = %._crit_edge
+  %130 = icmp sgt i32 %118, 1
+  br i1 %130, label %131, label %136
 
-129:                                              ; preds = %127
-  %130 = load ptr, ptr @stderr, align 8
-  %131 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %130) #11
+131:                                              ; preds = %129
   %132 = load ptr, ptr @stderr, align 8
-  %133 = tail call i32 @fflush(ptr noundef %132)
-  %.pre = load ptr, ptr %115, align 8
-  br label %134
+  %133 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %132) #11
+  %134 = load ptr, ptr @stderr, align 8
+  %135 = tail call i32 @fflush(ptr noundef %134)
+  %.pre = load ptr, ptr %116, align 8
+  br label %136
 
-134:                                              ; preds = %129, %127
-  %135 = phi ptr [ %.pre, %129 ], [ %114, %127 ]
-  %136 = load i64, ptr %79, align 8
-  %.not27.i = icmp eq i64 %136, 0
+136:                                              ; preds = %131, %129
+  %137 = phi ptr [ %.pre, %131 ], [ %115, %129 ]
+  %138 = load i64, ptr %79, align 8
+  %.not27.i = icmp eq i64 %138, 0
   br i1 %.not27.i, label %FASTCOVER_computeFrequency.exit, label %.lr.ph26.i
 
-.lr.ph26.i:                                       ; preds = %134
-  %137 = load i32, ptr %84, align 8
-  %138 = tail call i32 @llvm.umax.i32(i32 %137, i32 8)
-  %139 = getelementptr inbounds i8, ptr %0, i64 76
-  %140 = load i32, ptr %139, align 4
-  %141 = load i32, ptr %85, align 4
-  %142 = zext i32 %138 to i64
-  %143 = icmp eq i32 %137, 6
-  %144 = sub i32 64, %141
-  %145 = zext nneg i32 %144 to i64
-  %..i.i = select i1 %143, i64 -3523014627193847808, i64 -3523014627327384477
-  %146 = zext i32 %140 to i64
-  %147 = add nuw nsw i64 %146, 1
-  br label %150
+.lr.ph26.i:                                       ; preds = %136
+  %139 = load i32, ptr %84, align 8
+  %140 = tail call i32 @llvm.umax.i32(i32 %139, i32 8)
+  %141 = getelementptr inbounds i8, ptr %0, i64 76
+  %142 = load i32, ptr %141, align 4
+  %143 = load i32, ptr %85, align 4
+  %144 = zext i32 %140 to i64
+  %145 = icmp eq i32 %139, 6
+  %146 = sub i32 64, %143
+  %147 = zext nneg i32 %146 to i64
+  %..i.i = select i1 %145, i64 -3523014627193847808, i64 -3523014627327384477
+  %148 = zext i32 %142 to i64
+  %149 = add nuw nsw i64 %148, 1
+  br label %152
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
   %.pre.i = load i64, ptr %79, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %150, %.loopexit.loopexit.i
-  %148 = phi i64 [ %.pre.i, %.loopexit.loopexit.i ], [ %151, %150 ]
-  %149 = icmp ult i64 %155, %148
-  br i1 %149, label %150, label %FASTCOVER_computeFrequency.exit, !llvm.loop !7
+.loopexit.i:                                      ; preds = %152, %.loopexit.loopexit.i
+  %150 = phi i64 [ %.pre.i, %.loopexit.loopexit.i ], [ %153, %152 ]
+  %151 = icmp ult i64 %157, %150
+  br i1 %151, label %152, label %FASTCOVER_computeFrequency.exit, !llvm.loop !7
 
-150:                                              ; preds = %.loopexit.i, %.lr.ph26.i
-  %151 = phi i64 [ %136, %.lr.ph26.i ], [ %148, %.loopexit.i ]
-  %.025.i = phi i64 [ 0, %.lr.ph26.i ], [ %155, %.loopexit.i ]
-  %152 = load ptr, ptr %90, align 8
-  %153 = getelementptr inbounds i64, ptr %152, i64 %.025.i
-  %154 = load i64, ptr %153, align 8
-  %155 = add nuw i64 %.025.i, 1
-  %156 = getelementptr inbounds i64, ptr %152, i64 %155
-  %157 = load i64, ptr %156, align 8
-  %158 = add i64 %154, %142
-  %.not23.i = icmp ugt i64 %158, %157
+152:                                              ; preds = %.loopexit.i, %.lr.ph26.i
+  %153 = phi i64 [ %138, %.lr.ph26.i ], [ %150, %.loopexit.i ]
+  %.025.i = phi i64 [ 0, %.lr.ph26.i ], [ %157, %.loopexit.i ]
+  %154 = load ptr, ptr %90, align 8
+  %155 = getelementptr inbounds i64, ptr %154, i64 %.025.i
+  %156 = load i64, ptr %155, align 8
+  %157 = add nuw i64 %.025.i, 1
+  %158 = getelementptr inbounds i64, ptr %154, i64 %157
+  %159 = load i64, ptr %158, align 8
+  %160 = add i64 %156, %144
+  %.not23.i = icmp ugt i64 %160, %159
   br i1 %.not23.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %150, %.lr.ph.i
-  %.02224.i = phi i64 [ %166, %.lr.ph.i ], [ %154, %150 ]
-  %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 %.02224.i
-  %.val.i.i = load i64, ptr %160, align 1
-  %161 = mul i64 %.val.i.i, %..i.i
-  %162 = lshr i64 %161, %145
-  %163 = getelementptr inbounds i32, ptr %135, i64 %162
-  %164 = load i32, ptr %163, align 4
-  %165 = add i32 %164, 1
-  store i32 %165, ptr %163, align 4
-  %166 = add i64 %147, %.02224.i
-  %167 = add i64 %166, %142
-  %.not.i83 = icmp ugt i64 %167, %157
-  br i1 %.not.i83, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+.lr.ph.i:                                         ; preds = %152, %.lr.ph.i
+  %.02224.i = phi i64 [ %168, %.lr.ph.i ], [ %156, %152 ]
+  %161 = load ptr, ptr %0, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 %.02224.i
+  %.val.i.i = load i64, ptr %162, align 1
+  %163 = mul i64 %.val.i.i, %..i.i
+  %164 = lshr i64 %163, %147
+  %165 = getelementptr inbounds i32, ptr %137, i64 %164
+  %166 = load i32, ptr %165, align 4
+  %167 = add i32 %166, 1
+  store i32 %167, ptr %165, align 4
+  %168 = add i64 %149, %.02224.i
+  %169 = add i64 %168, %144
+  %.not.i = icmp ugt i64 %169, %159
+  br i1 %.not.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
-FASTCOVER_computeFrequency.exit:                  ; preds = %.loopexit.i, %134, %51, %54, %41, %44, %29, %32, %FASTCOVER_ctx_destroy.exit82, %FASTCOVER_ctx_destroy.exit
-  %.074 = phi i64 [ -64, %FASTCOVER_ctx_destroy.exit ], [ -64, %FASTCOVER_ctx_destroy.exit82 ], [ -72, %32 ], [ -72, %29 ], [ -72, %44 ], [ -72, %41 ], [ -72, %54 ], [ -72, %51 ], [ 0, %134 ], [ 0, %.loopexit.i ]
+FASTCOVER_computeFrequency.exit:                  ; preds = %.loopexit.i, %136, %51, %54, %41, %44, %29, %32, %126, %100
+  %.074 = phi i64 [ -64, %100 ], [ -64, %126 ], [ -72, %32 ], [ -72, %29 ], [ -72, %44 ], [ -72, %41 ], [ -72, %54 ], [ -72, %51 ], [ 0, %136 ], [ 0, %.loopexit.i ]
   ret i64 %.074
 }
 

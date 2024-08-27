@@ -72591,30 +72591,30 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, ptr %2, align 8
   %17 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not.i3.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i3.i.i.i, label %18, label %_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE4castEPKS3_NS_19return_value_policyENS_6handleE.exit.i
+  %.not.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i, label %18, label %_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE4castEPKS3_NS_19return_value_policyENS_6handleE.exit.i
 
 18:                                               ; preds = %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i
   %19 = call noundef nonnull align 8 dereferenceable(472) ptr @_ZN8pybind116detail13get_internalsEv()
   %20 = call ptr @_ZNSt10_HashtableISt10type_indexSt4pairIKS0_PN8pybind116detail9type_infoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not.i.i.i.i15.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i15.i, label %_ZN8pybind1126polymorphic_type_hook_baseIN12_GLOBAL__N_15I801CEvE3getEPKS2_RPKSt9type_info.exit.thread.i.i.i, label %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i
+  br i1 %.not.i.i.i.i15.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i, label %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i
 
 _ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i: ; preds = %18
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not2.i.i.i = icmp eq ptr %22, null
-  br i1 %.not2.i.i.i, label %_ZN8pybind1126polymorphic_type_hook_baseIN12_GLOBAL__N_15I801CEvE3getEPKS2_RPKSt9type_info.exit.thread.i.i.i, label %_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE4castEPKS3_NS_19return_value_policyENS_6handleE.exit.i
+  br i1 %.not2.i.i.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i, label %_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE4castEPKS3_NS_19return_value_policyENS_6handleE.exit.i
 
-_ZN8pybind1126polymorphic_type_hook_baseIN12_GLOBAL__N_15I801CEvE3getEPKS2_RPKSt9type_info.exit.thread.i.i.i: ; preds = %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i, %18
+_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i: ; preds = %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i, %18
   %23 = call { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN12_GLOBAL__N_15I801CE, ptr noundef nonnull @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E)
   %24 = extractvalue { ptr, ptr } %23, 0
   %25 = extractvalue { ptr, ptr } %23, 1
   br label %_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE4castEPKS3_NS_19return_value_policyENS_6handleE.exit.i
 
-_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE4castEPKS3_NS_19return_value_policyENS_6handleE.exit.i: ; preds = %_ZN8pybind1126polymorphic_type_hook_baseIN12_GLOBAL__N_15I801CEvE3getEPKS2_RPKSt9type_info.exit.thread.i.i.i, %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %24, %_ZN8pybind1126polymorphic_type_hook_baseIN12_GLOBAL__N_15I801CEvE3getEPKS2_RPKSt9type_info.exit.thread.i.i.i ], [ %11, %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i ], [ %11, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i ]
-  %.sroa.3.0.i.i.i = phi ptr [ %25, %_ZN8pybind1126polymorphic_type_hook_baseIN12_GLOBAL__N_15I801CEvE3getEPKS2_RPKSt9type_info.exit.thread.i.i.i ], [ %22, %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i ], [ %17, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i ]
+_ZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE4castEPKS3_NS_19return_value_policyENS_6handleE.exit.i: ; preds = %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i, %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %24, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i ], [ %11, %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i ], [ %11, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i ]
+  %.sroa.3.0.i.i.i = phi ptr [ %25, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i ], [ %22, %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i ], [ %17, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %26 = call ptr @_ZN8pybind116detail19type_caster_generic4castEPKvNS_19return_value_policyENS_6handleEPKNS0_9type_infoEPFPvS3_ESB_S3_(ptr noundef %.sroa.0.0.i.i.i, i8 noundef zeroext %5, ptr %.val2, ptr noundef %.sroa.3.0.i.i.i, ptr noundef nonnull @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE21make_copy_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIKS6_EEEtlPFPvPKvEEEPS7_ENUlSA_E_8__invokeESA_, ptr noundef nonnull @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_15I801CEE21make_move_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIOS6_EEEtlPFPvPKvEEEPKS6_ENUlSA_E_8__invokeESA_, ptr noundef null)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_27PN12_GLOBAL__N_15I801CEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"

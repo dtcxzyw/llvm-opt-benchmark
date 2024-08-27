@@ -289,11 +289,11 @@ if.then15:                                        ; preds = %if.then12
   %ioc = getelementptr inbounds i8, ptr %conn, i64 264
   %14 = load ptr, ptr %ioc, align 8
   %tobool16.not = icmp eq ptr %14, null
-  %.pre76 = load ptr, ptr %sioc, align 8
+  %.pre74 = load ptr, ptr %sioc, align 8
   br i1 %tobool16.not, label %if.end28, label %if.then17
 
 if.then17:                                        ; preds = %if.then15
-  tail call void @object_unref(ptr noundef %.pre76) #10
+  tail call void @object_unref(ptr noundef %.pre74) #10
   store ptr null, ptr %sioc, align 8
   %15 = load ptr, ptr %ioc, align 8
   store ptr null, ptr %ioc, align 8
@@ -310,7 +310,7 @@ if.else27:                                        ; preds = %if.end23
   unreachable
 
 if.end28:                                         ; preds = %if.then15, %if.end23
-  %17 = phi ptr [ %.pre76, %if.then15 ], [ %12, %if.end23 ]
+  %17 = phi ptr [ %.pre74, %if.then15 ], [ %12, %if.end23 ]
   store ptr null, ptr %sioc, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %17, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
   br label %return
@@ -376,11 +376,11 @@ if.then84:                                        ; preds = %if.end81
   %ioc86 = getelementptr inbounds i8, ptr %conn, i64 264
   %22 = load ptr, ptr %ioc86, align 8
   %tobool87.not = icmp eq ptr %22, null
-  %.pre77 = load ptr, ptr %sioc, align 8
+  %.pre75 = load ptr, ptr %sioc, align 8
   br i1 %tobool87.not, label %if.end99, label %if.then88
 
 if.then88:                                        ; preds = %if.then84
-  call void @object_unref(ptr noundef %.pre77) #10
+  call void @object_unref(ptr noundef %.pre75) #10
   store ptr null, ptr %sioc, align 8
   %23 = load ptr, ptr %ioc86, align 8
   store ptr null, ptr %ioc86, align 8
@@ -388,8 +388,8 @@ if.then88:                                        ; preds = %if.then84
 
 if.end94:                                         ; preds = %if.end81
   %ioc95.phi.trans.insert = getelementptr inbounds i8, ptr %conn, i64 264
-  %.pre73 = load ptr, ptr %ioc95.phi.trans.insert, align 8
-  %24 = icmp eq ptr %.pre73, null
+  %.pre71 = load ptr, ptr %ioc95.phi.trans.insert, align 8
+  %24 = icmp eq ptr %.pre71, null
   br i1 %24, label %if.end99, label %if.else98
 
 if.else98:                                        ; preds = %if.end94
@@ -397,13 +397,13 @@ if.else98:                                        ; preds = %if.end94
   unreachable
 
 if.end99:                                         ; preds = %if.then84, %if.end94
-  %25 = phi ptr [ %.pre77, %if.then84 ], [ %19, %if.end94 ]
+  %25 = phi ptr [ %.pre75, %if.then84 ], [ %19, %if.end94 ]
   store ptr null, ptr %sioc, align 8
-  %call.i48 = call ptr @object_dynamic_cast_assert(ptr noundef %25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  %call.i47 = call ptr @object_dynamic_cast_assert(ptr noundef %25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
   br label %return
 
 return:                                           ; preds = %if.then78, %if.then88, %if.end99, %if.else64, %if.then61, %if.then38, %if.else41, %if.end28, %if.then17
-  %retval.1 = phi ptr [ null, %if.then38 ], [ null, %if.else41 ], [ %call.i, %if.end28 ], [ %15, %if.then17 ], [ null, %if.then78 ], [ %23, %if.then88 ], [ %call.i48, %if.end99 ], [ null, %if.else64 ], [ null, %if.then61 ]
+  %retval.1 = phi ptr [ null, %if.then38 ], [ null, %if.else41 ], [ %call.i, %if.end28 ], [ %15, %if.then17 ], [ null, %if.then78 ], [ %23, %if.then88 ], [ %call.i47, %if.end99 ], [ null, %if.else64 ], [ null, %if.then61 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 132) #10
   ret ptr %retval.1
 }

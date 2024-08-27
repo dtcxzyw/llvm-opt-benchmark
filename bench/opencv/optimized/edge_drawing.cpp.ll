@@ -5489,13 +5489,13 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit812: ; preds = %_ZNSt6vectorIS_IN2c
   store ptr %1029, ptr %1027, align 8
   %1030 = load ptr, ptr %1029, align 8
   %.not.i.i.i.i.i.i815 = icmp eq ptr %1030, null
-  br i1 %.not.i.i.i.i.i.i815, label %1032, label %1031
+  br i1 %.not.i.i.i.i.i.i815, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE8pop_backEv.exit, label %1031
 
 1031:                                             ; preds = %._crit_edge999
   call void @_ZdlPv(ptr noundef nonnull %1030) #39
-  br label %1032
+  br label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE8pop_backEv.exit
 
-1032:                                             ; preds = %._crit_edge999, %1031
+_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE8pop_backEv.exit: ; preds = %._crit_edge999, %1031
   call void @_ZdaPv(ptr noundef nonnull %28) #39
   call void @_ZdaPv(ptr noundef nonnull %27) #39
   call void @_ZdaPv(ptr noundef nonnull %24) #39

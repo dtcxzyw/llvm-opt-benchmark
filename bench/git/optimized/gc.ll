@@ -1750,7 +1750,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call2 = tail call ptr @strvec_push(ptr noundef nonnull @repack, ptr noundef nonnull @.str.86) #20
-  br label %if.end20
+  br label %if.then22
 
 if.else:                                          ; preds = %land.lhs.true, %entry
   %1 = load i32, ptr @cruft_packs, align 4
@@ -1770,36 +1770,29 @@ if.then7:                                         ; preds = %if.then4
 if.end:                                           ; preds = %if.then7, %if.then4
   %3 = load i64, ptr @max_cruft_size, align 8
   %tobool9.not = icmp eq i64 %3, 0
-  br i1 %tobool9.not, label %if.end20, label %if.then10
+  br i1 %tobool9.not, label %if.then22, label %if.then10
 
 if.then10:                                        ; preds = %if.end
   %call11 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull @repack, ptr noundef nonnull @.str.89, i64 noundef %3) #20
-  br label %if.end20
+  br label %if.then22
 
 if.else13:                                        ; preds = %if.else
   %call14 = tail call ptr @strvec_push(ptr noundef nonnull @repack, ptr noundef nonnull @.str.90) #20
   %4 = load ptr, ptr @prune_expire, align 8
   %tobool15.not = icmp eq ptr %4, null
-  br i1 %tobool15.not, label %if.end20, label %if.then16
+  br i1 %tobool15.not, label %if.then22, label %if.then16
 
 if.then16:                                        ; preds = %if.else13
   %call17 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull @repack, ptr noundef nonnull @.str.91, ptr noundef nonnull %4) #20
-  br label %if.end20
+  br label %if.then22
 
-if.end20:                                         ; preds = %if.then10, %if.end, %if.then16, %if.else13, %if.then
-  %tobool21.not = icmp eq ptr %keep_pack, null
-  br i1 %tobool21.not, label %if.end24, label %if.then22
-
-if.then22:                                        ; preds = %if.end20
-  %call23 = tail call i32 @for_each_string_list(ptr noundef nonnull %keep_pack, ptr noundef nonnull @keep_one_pack, ptr noundef null) #20
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.then22, %if.end20
+if.then22:                                        ; preds = %if.then, %if.else13, %if.then16, %if.end, %if.then10
+  %call23 = tail call i32 @for_each_string_list(ptr noundef %keep_pack, ptr noundef nonnull @keep_one_pack, ptr noundef null) #20
   %5 = load ptr, ptr @repack_filter, align 8
   %tobool25.not = icmp eq ptr %5, null
   br i1 %tobool25.not, label %if.end30, label %land.lhs.true26
 
-land.lhs.true26:                                  ; preds = %if.end24
+land.lhs.true26:                                  ; preds = %if.then22
   %6 = load i8, ptr %5, align 1
   %tobool27.not = icmp eq i8 %6, 0
   br i1 %tobool27.not, label %if.end30, label %if.then28
@@ -1808,7 +1801,7 @@ if.then28:                                        ; preds = %land.lhs.true26
   %call29 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull @repack, ptr noundef nonnull @.str.92, ptr noundef nonnull %5) #20
   br label %if.end30
 
-if.end30:                                         ; preds = %if.then28, %land.lhs.true26, %if.end24
+if.end30:                                         ; preds = %if.then28, %land.lhs.true26, %if.then22
   %7 = load ptr, ptr @repack_filter_to, align 8
   %tobool31.not = icmp eq ptr %7, null
   br i1 %tobool31.not, label %if.end37, label %land.lhs.true32

@@ -3111,14 +3111,14 @@ if.then.i:                                        ; preds = %land.end6
 if.then.i.i.i:                                    ; preds = %if.then.i
   %not.i.i.i = sub i64 0, %call.i.i
   %and1.i.i.i = and i64 %add.i.i.i, %not.i.i.i
-  br label %_mi_align_up.exit.i.i
+  br label %mi_segment_calculate_slices.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
   %7 = urem i64 %add.i.i.i, %call.i.i
   %mul.i.i.i = sub nuw i64 %add.i.i.i, %7
-  br label %_mi_align_up.exit.i.i
+  br label %mi_segment_calculate_slices.exit.i
 
-_mi_align_up.exit.i.i:                            ; preds = %if.else.i.i.i, %if.then.i.i.i
+mi_segment_calculate_slices.exit.i:               ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ %and1.i.i.i, %if.then.i.i.i ], [ %mul.i.i.i, %if.else.i.i.i ]
   %add.i9.i.i = add i64 %retval.0.i.i.i, 65535
   %and1.i11.i.i = and i64 %add.i9.i.i, -65536
@@ -3129,11 +3129,11 @@ _mi_align_up.exit.i.i:                            ; preds = %if.else.i.i.i, %if.
   %cond.i.i = select i1 %cmp6.i.i, i64 512, i64 %8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %land.end6, %_mi_align_up.exit.i.i
-  %info_slices.0.in = phi i64 [ %add.i9.i.i, %_mi_align_up.exit.i.i ], [ %add.i9.i, %land.end6 ]
-  %segment_slices.0 = phi i64 [ %cond.i.i, %_mi_align_up.exit.i.i ], [ %cond.i, %land.end6 ]
-  %alignment.0.i = phi i64 [ %page_alignment, %_mi_align_up.exit.i.i ], [ 33554432, %land.end6 ]
-  %align_offset.0.i = phi i64 [ %and1.i.i30, %_mi_align_up.exit.i.i ], [ 0, %land.end6 ]
+if.end.i:                                         ; preds = %land.end6, %mi_segment_calculate_slices.exit.i
+  %info_slices.0.in = phi i64 [ %add.i9.i.i, %mi_segment_calculate_slices.exit.i ], [ %add.i9.i, %land.end6 ]
+  %segment_slices.0 = phi i64 [ %cond.i.i, %mi_segment_calculate_slices.exit.i ], [ %cond.i, %land.end6 ]
+  %alignment.0.i = phi i64 [ %page_alignment, %mi_segment_calculate_slices.exit.i ], [ 33554432, %land.end6 ]
+  %align_offset.0.i = phi i64 [ %and1.i.i30, %mi_segment_calculate_slices.exit.i ], [ 0, %land.end6 ]
   %info_slices.0 = lshr i64 %info_slices.0.in, 16
   %mul4.i = shl nuw i64 %segment_slices.0, 16
   %call7.i = call ptr @_mi_arena_alloc_aligned(i64 noundef %mul4.i, i64 noundef %alignment.0.i, i64 noundef %align_offset.0.i, i1 noundef zeroext %5, i1 noundef zeroext %not.eager_delayed.i, i32 noundef %req_arena_id, ptr noundef nonnull %memid.i, ptr noundef %os_tld) #13
@@ -3152,11 +3152,11 @@ if.then12.i:                                      ; preds = %if.end10.i
 
 if.else.i:                                        ; preds = %if.end10.i
   switch i64 %info_slices.0, label %if.else3.i.i [
-    i64 512, label %if.then.i26.i
+    i64 512, label %if.then.i.i33
     i64 0, label %if.then2.i.i
   ]
 
-if.then.i26.i:                                    ; preds = %if.else.i
+if.then.i.i33:                                    ; preds = %if.else.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %commit_mask.i, i8 -1, i64 64, i1 false)
   br label %mi_commit_mask_create.exit.i
 
@@ -3171,19 +3171,19 @@ if.else3.i.i:                                     ; preds = %if.else.i
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.else3.i.i
   %bitcount.addr.019.i.i = phi i64 [ %info_slices.0, %if.else3.i.i ], [ %sub14.i.i, %while.body.i.i ]
   %i.018.i.i = phi i64 [ 0, %if.else3.i.i ], [ %inc.i.i, %while.body.i.i ]
-  %cond.i28.i = call i64 @llvm.umin.i64(i64 %bitcount.addr.019.i.i, i64 64)
-  %cmp6.i29.i = icmp ugt i64 %bitcount.addr.019.i.i, 63
-  %notmask.i.i = shl nsw i64 -1, %cond.i28.i
+  %cond.i27.i = call i64 @llvm.umin.i64(i64 %bitcount.addr.019.i.i, i64 64)
+  %cmp6.i28.i = icmp ugt i64 %bitcount.addr.019.i.i, 63
+  %notmask.i.i = shl nsw i64 -1, %cond.i27.i
   %sub9.i.i = xor i64 %notmask.i.i, -1
-  %cond12.i.i = select i1 %cmp6.i29.i, i64 -1, i64 %sub9.i.i
+  %cond12.i.i = select i1 %cmp6.i28.i, i64 -1, i64 %sub9.i.i
   %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.018.i.i
   store i64 %cond12.i.i, ptr %arrayidx.i.i, align 8
-  %sub14.i.i = sub i64 %bitcount.addr.019.i.i, %cond.i28.i
+  %sub14.i.i = sub i64 %bitcount.addr.019.i.i, %cond.i27.i
   %inc.i.i = add i64 %i.018.i.i, 1
   %cmp4.not.i.i = icmp eq i64 %sub14.i.i, 0
   br i1 %cmp4.not.i.i, label %mi_commit_mask_create.exit.i, label %while.body.i.i, !llvm.loop !32
 
-mi_commit_mask_create.exit.i:                     ; preds = %while.body.i.i, %if.then2.i.i, %if.then.i26.i
+mi_commit_mask_create.exit.i:                     ; preds = %while.body.i.i, %if.then2.i.i, %if.then.i.i33
   %mul15.i = and i64 %info_slices.0.in, -65536
   %stats.i = getelementptr inbounds i8, ptr %tld, i64 896
   %10 = load ptr, ptr %stats.i, align 8
@@ -3224,35 +3224,35 @@ land.end29.i:                                     ; preds = %land.rhs26.i, %if.e
   %abandoned_next.i = getelementptr inbounds i8, ptr %call7.i, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %purge_expire.i, i8 0, i64 72, i1 false)
   store atomic i64 0, ptr %abandoned_next.i release, align 8
-  %cmp.i.i32 = icmp sgt i64 %mul4.i, -1
+  %cmp.i.i31 = icmp sgt i64 %mul4.i, -1
   %stats.i.i = getelementptr inbounds i8, ptr %tld, i64 896
   %14 = load ptr, ptr %stats.i.i, align 8
-  br i1 %cmp.i.i32, label %if.then.i33.i, label %if.else.i.i33
+  br i1 %cmp.i.i31, label %if.then.i31.i, label %if.else.i.i32
 
-if.then.i33.i:                                    ; preds = %land.end29.i
+if.then.i31.i:                                    ; preds = %land.end29.i
   call void @_mi_stat_increase(ptr noundef %14, i64 noundef 1) #13
-  br label %if.end.i30.i
+  br label %if.end.i.i
 
-if.else.i.i33:                                    ; preds = %land.end29.i
+if.else.i.i32:                                    ; preds = %land.end29.i
   call void @_mi_stat_decrease(ptr noundef %14, i64 noundef 1) #13
-  br label %if.end.i30.i
+  br label %if.end.i.i
 
-if.end.i30.i:                                     ; preds = %if.else.i.i33, %if.then.i33.i
-  %cond.i31.i = phi i64 [ -1, %if.else.i.i33 ], [ 1, %if.then.i33.i ]
+if.end.i.i:                                       ; preds = %if.else.i.i32, %if.then.i31.i
+  %cond.i29.i = phi i64 [ -1, %if.else.i.i32 ], [ 1, %if.then.i31.i ]
   %count.i.i = getelementptr inbounds i8, ptr %tld, i64 864
   %15 = load i64, ptr %count.i.i, align 8
-  %add.i32.i = add i64 %15, %cond.i31.i
-  store i64 %add.i32.i, ptr %count.i.i, align 8
+  %add.i30.i = add i64 %15, %cond.i29.i
+  store i64 %add.i30.i, ptr %count.i.i, align 8
   %peak_count.i.i = getelementptr inbounds i8, ptr %tld, i64 872
   %16 = load i64, ptr %peak_count.i.i, align 8
-  %cmp5.i.i = icmp ugt i64 %add.i32.i, %16
+  %cmp5.i.i = icmp ugt i64 %add.i30.i, %16
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end10.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i30.i
-  store i64 %add.i32.i, ptr %peak_count.i.i, align 8
+if.then7.i.i:                                     ; preds = %if.end.i.i
+  store i64 %add.i30.i, ptr %peak_count.i.i, align 8
   br label %if.end10.i.i
 
-if.end10.i.i:                                     ; preds = %if.then7.i.i, %if.end.i30.i
+if.end10.i.i:                                     ; preds = %if.then7.i.i, %if.end.i.i
   %current_size.i.i = getelementptr inbounds i8, ptr %tld, i64 880
   %17 = load i64, ptr %current_size.i.i, align 8
   %add11.i.i = add i64 %17, %mul4.i

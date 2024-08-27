@@ -5686,36 +5686,36 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
 
 23:                                               ; preds = %45, %13
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %45 ]
-  %.02840.i = phi i32 [ 0, %13 ], [ %.1.i, %45 ]
-  %.02939.i = phi i8 [ 1, %13 ], [ %.130.i, %45 ]
-  %.03138.i = phi i8 [ 0, %13 ], [ %.132.i, %45 ]
+  %.02839.i = phi i32 [ 0, %13 ], [ %.1.i, %45 ]
+  %.02938.i = phi i8 [ 1, %13 ], [ %.130.i, %45 ]
+  %.03137.i = phi i8 [ 0, %13 ], [ %.132.i, %45 ]
   %24 = getelementptr i8, ptr %16, i64 %indvars.iv.i
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = zext i8 %.02939.i to i32
+  %27 = zext i8 %.02938.i to i32
   %28 = lshr i32 %26, %27
   %29 = trunc nuw i32 %28 to i8
-  %30 = or i8 %.03138.i, %29
-  %31 = add i32 %.02840.i, 1
-  %32 = sext i32 %.02840.i to i64
+  %30 = or i8 %.03137.i, %29
+  %31 = add i32 %.02839.i, 1
+  %32 = sext i32 %.02839.i to i64
   %33 = getelementptr i8, ptr %22, i64 %32
   store i8 %30, ptr %33, align 1
   %34 = sub nsw i32 7, %27
   %35 = shl nuw nsw i32 %26, %34
   %36 = trunc i32 %35 to i8
   %37 = and i8 %36, 127
-  %38 = icmp eq i8 %.02939.i, 7
+  %38 = icmp eq i8 %.02938.i, 7
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %23
-  %40 = add i32 %.02840.i, 2
+  %40 = add i32 %.02839.i, 2
   %41 = sext i32 %31 to i64
   %42 = getelementptr i8, ptr %22, i64 %41
   store i8 %37, ptr %42, align 1
   br label %45
 
 43:                                               ; preds = %23
-  %44 = add i8 %.02939.i, 1
+  %44 = add i8 %.02938.i, 1
   br label %45
 
 45:                                               ; preds = %43, %39
@@ -5752,48 +5752,48 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   br label %64
 
 64:                                               ; preds = %86, %52
-  %indvars.iv.i39 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i46, %86 ]
-  %.02840.i40 = phi i32 [ 0, %52 ], [ %.1.i45, %86 ]
-  %.02939.i41 = phi i8 [ 1, %52 ], [ %.130.i44, %86 ]
-  %.03138.i42 = phi i8 [ 0, %52 ], [ %.132.i43, %86 ]
-  %65 = getelementptr i8, ptr %57, i64 %indvars.iv.i39
+  %indvars.iv.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i, %86 ]
+  %.02839.i.i = phi i32 [ 0, %52 ], [ %.1.i.i, %86 ]
+  %.02938.i.i = phi i8 [ 1, %52 ], [ %.130.i.i, %86 ]
+  %.03137.i.i = phi i8 [ 0, %52 ], [ %.132.i.i, %86 ]
+  %65 = getelementptr i8, ptr %57, i64 %indvars.iv.i.i
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
-  %68 = zext i8 %.02939.i41 to i32
+  %68 = zext i8 %.02938.i.i to i32
   %69 = lshr i32 %67, %68
   %70 = trunc nuw i32 %69 to i8
-  %71 = or i8 %.03138.i42, %70
-  %72 = add i32 %.02840.i40, 1
-  %73 = sext i32 %.02840.i40 to i64
+  %71 = or i8 %.03137.i.i, %70
+  %72 = add i32 %.02839.i.i, 1
+  %73 = sext i32 %.02839.i.i to i64
   %74 = getelementptr i8, ptr %63, i64 %73
   store i8 %71, ptr %74, align 1
   %75 = sub nsw i32 7, %68
   %76 = shl nuw nsw i32 %67, %75
   %77 = trunc i32 %76 to i8
   %78 = and i8 %77, 127
-  %79 = icmp eq i8 %.02939.i41, 7
+  %79 = icmp eq i8 %.02938.i.i, 7
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %64
-  %81 = add i32 %.02840.i40, 2
+  %81 = add i32 %.02839.i.i, 2
   %82 = sext i32 %72 to i64
   %83 = getelementptr i8, ptr %63, i64 %82
   store i8 %78, ptr %83, align 1
   br label %86
 
 84:                                               ; preds = %64
-  %85 = add i8 %.02939.i41, 1
+  %85 = add i8 %.02938.i.i, 1
   br label %86
 
 86:                                               ; preds = %84, %80
-  %.132.i43 = phi i8 [ 0, %80 ], [ %78, %84 ]
-  %.130.i44 = phi i8 [ 1, %80 ], [ %85, %84 ]
-  %.1.i45 = phi i32 [ %81, %80 ], [ %72, %84 ]
-  %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i39, 1
-  %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %56
-  br i1 %exitcond.not.i47, label %dissect_7bit_string.exit51, label %64, !llvm.loop !18
+  %.132.i.i = phi i8 [ 0, %80 ], [ %78, %84 ]
+  %.130.i.i = phi i8 [ 1, %80 ], [ %85, %84 ]
+  %.1.i.i = phi i32 [ %81, %80 ], [ %72, %84 ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %56
+  br i1 %exitcond.not.i.i, label %dissect_7bit_string.exit.i, label %64, !llvm.loop !18
 
-dissect_7bit_string.exit51:                       ; preds = %86
+dissect_7bit_string.exit.i:                       ; preds = %86
   %87 = add i32 %3, %50
   %88 = add i32 %87, -6
   %89 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %88) #13
@@ -5811,9 +5811,9 @@ dissect_7bit_string.exit51:                       ; preds = %86
   %99 = tail call ptr @tvb_bytes_to_str(ptr noundef %96, ptr noundef %0, i32 noundef %3, i32 noundef %98) #13
   br label %dissect_7bit_string.exit
 
-dissect_7bit_string.exit:                         ; preds = %45, %dissect_7bit_string.exit51, %48, %10, %94
-  %.052 = phi i8 [ 0, %94 ], [ 0, %10 ], [ %.132.i43, %dissect_7bit_string.exit51 ], [ 0, %48 ], [ %.132.i, %45 ]
-  %.0 = phi ptr [ %99, %94 ], [ @.str.550, %10 ], [ %93, %dissect_7bit_string.exit51 ], [ @.str.597, %48 ], [ %22, %45 ]
+dissect_7bit_string.exit:                         ; preds = %45, %dissect_7bit_string.exit.i, %48, %10, %94
+  %.039 = phi i8 [ 0, %94 ], [ 0, %10 ], [ %.132.i.i, %dissect_7bit_string.exit.i ], [ 0, %48 ], [ %.132.i, %45 ]
+  %.0 = phi ptr [ %99, %94 ], [ @.str.550, %10 ], [ %93, %dissect_7bit_string.exit.i ], [ @.str.597, %48 ], [ %22, %45 ]
   %100 = load ptr, ptr getelementptr inbounds (i8, ptr @dmp, i64 48), align 8
   %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #14
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.595, i64 noundef %101) #13
@@ -5877,7 +5877,7 @@ dissect_7bit_string.exit:                         ; preds = %45, %dissect_7bit_s
 
 proto_item_set_hidden.exit:                       ; preds = %133, %134, %137
   %141 = load i8, ptr getelementptr inbounds (i8, ptr @dmp, i64 41), align 1
-  %.not38 = icmp eq i8 %.052, 0
+  %.not38 = icmp eq i8 %.039, 0
   br i1 %.not38, label %144, label %142
 
 142:                                              ; preds = %proto_item_set_hidden.exit
@@ -6364,36 +6364,36 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
 
 40:                                               ; preds = %62, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %62 ]
-  %.02840.i = phi i32 [ 0, %30 ], [ %.1.i, %62 ]
-  %.02939.i = phi i8 [ 1, %30 ], [ %.130.i, %62 ]
-  %.03138.i = phi i8 [ 0, %30 ], [ %.132.i, %62 ]
+  %.02839.i = phi i32 [ 0, %30 ], [ %.1.i, %62 ]
+  %.02938.i = phi i8 [ 1, %30 ], [ %.130.i, %62 ]
+  %.03137.i = phi i8 [ 0, %30 ], [ %.132.i, %62 ]
   %41 = getelementptr i8, ptr %33, i64 %indvars.iv.i
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
-  %44 = zext i8 %.02939.i to i32
+  %44 = zext i8 %.02938.i to i32
   %45 = lshr i32 %43, %44
   %46 = trunc nuw i32 %45 to i8
-  %47 = or i8 %.03138.i, %46
-  %48 = add i32 %.02840.i, 1
-  %49 = sext i32 %.02840.i to i64
+  %47 = or i8 %.03137.i, %46
+  %48 = add i32 %.02839.i, 1
+  %49 = sext i32 %.02839.i to i64
   %50 = getelementptr i8, ptr %39, i64 %49
   store i8 %47, ptr %50, align 1
   %51 = sub nsw i32 7, %44
   %52 = shl nuw nsw i32 %43, %51
   %53 = trunc i32 %52 to i8
   %54 = and i8 %53, 127
-  %55 = icmp eq i8 %.02939.i, 7
+  %55 = icmp eq i8 %.02938.i, 7
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %40
-  %57 = add i32 %.02840.i, 2
+  %57 = add i32 %.02839.i, 2
   %58 = sext i32 %48 to i64
   %59 = getelementptr i8, ptr %39, i64 %58
   store i8 %54, ptr %59, align 1
   br label %62
 
 60:                                               ; preds = %40
-  %61 = add i8 %.02939.i, 1
+  %61 = add i8 %.02938.i, 1
   br label %62
 
 62:                                               ; preds = %60, %56
@@ -6438,7 +6438,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %spec.select.i = select i1 %or.cond7.i, i32 %82, i32 %78
   %83 = call ptr @wmem_packet_scope() #13
   %84 = icmp eq i32 %10, 6
-  br i1 %84, label %dissect_7bit_string.exit88, label %85
+  br i1 %84, label %dissect_7bit_string.exit.i, label %85
 
 85:                                               ; preds = %77
   %86 = call ptr @wmem_packet_scope() #13
@@ -6453,49 +6453,49 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   br label %95
 
 95:                                               ; preds = %117, %85
-  %indvars.iv.i76 = phi i64 [ 0, %85 ], [ %indvars.iv.next.i83, %117 ]
-  %.02840.i77 = phi i32 [ 0, %85 ], [ %.1.i82, %117 ]
-  %.02939.i78 = phi i8 [ 1, %85 ], [ %.130.i81, %117 ]
-  %.03138.i79 = phi i8 [ 0, %85 ], [ %.132.i80, %117 ]
-  %96 = getelementptr i8, ptr %88, i64 %indvars.iv.i76
+  %indvars.iv.i.i = phi i64 [ 0, %85 ], [ %indvars.iv.next.i.i, %117 ]
+  %.02839.i.i = phi i32 [ 0, %85 ], [ %.1.i.i, %117 ]
+  %.02938.i.i = phi i8 [ 1, %85 ], [ %.130.i.i, %117 ]
+  %.03137.i.i = phi i8 [ 0, %85 ], [ %.132.i.i, %117 ]
+  %96 = getelementptr i8, ptr %88, i64 %indvars.iv.i.i
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
-  %99 = zext i8 %.02939.i78 to i32
+  %99 = zext i8 %.02938.i.i to i32
   %100 = lshr i32 %98, %99
   %101 = trunc nuw i32 %100 to i8
-  %102 = or i8 %.03138.i79, %101
-  %103 = add i32 %.02840.i77, 1
-  %104 = sext i32 %.02840.i77 to i64
+  %102 = or i8 %.03137.i.i, %101
+  %103 = add i32 %.02839.i.i, 1
+  %104 = sext i32 %.02839.i.i to i64
   %105 = getelementptr i8, ptr %94, i64 %104
   store i8 %102, ptr %105, align 1
   %106 = sub nsw i32 7, %99
   %107 = shl nuw nsw i32 %98, %106
   %108 = trunc i32 %107 to i8
   %109 = and i8 %108, 127
-  %110 = icmp eq i8 %.02939.i78, 7
+  %110 = icmp eq i8 %.02938.i.i, 7
   br i1 %110, label %111, label %115
 
 111:                                              ; preds = %95
-  %112 = add i32 %.02840.i77, 2
+  %112 = add i32 %.02839.i.i, 2
   %113 = sext i32 %103 to i64
   %114 = getelementptr i8, ptr %94, i64 %113
   store i8 %109, ptr %114, align 1
   br label %117
 
 115:                                              ; preds = %95
-  %116 = add i8 %.02939.i78, 1
+  %116 = add i8 %.02938.i.i, 1
   br label %117
 
 117:                                              ; preds = %115, %111
-  %.132.i80 = phi i8 [ 0, %111 ], [ %109, %115 ]
-  %.130.i81 = phi i8 [ 1, %111 ], [ %116, %115 ]
-  %.1.i82 = phi i32 [ %112, %111 ], [ %103, %115 ]
-  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i76, 1
-  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %87
-  br i1 %exitcond.not.i84, label %dissect_7bit_string.exit88, label %95, !llvm.loop !18
+  %.132.i.i = phi i8 [ 0, %111 ], [ %109, %115 ]
+  %.130.i.i = phi i8 [ 1, %111 ], [ %116, %115 ]
+  %.1.i.i = phi i32 [ %112, %111 ], [ %103, %115 ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %87
+  br i1 %exitcond.not.i.i, label %dissect_7bit_string.exit.i, label %95, !llvm.loop !18
 
-dissect_7bit_string.exit88:                       ; preds = %117, %77
-  %.1 = phi i8 [ 0, %77 ], [ %.132.i80, %117 ]
+dissect_7bit_string.exit.i:                       ; preds = %117, %77
+  %.1 = phi i8 [ 0, %77 ], [ %.132.i.i, %117 ]
   %118 = phi ptr [ @.str.550, %77 ], [ %94, %117 ]
   %119 = select i1 %or.cond7.i, i32 5, i32 %79
   %120 = getelementptr inbounds i8, ptr %75, i64 20
@@ -6514,9 +6514,9 @@ dissect_7bit_string.exit88:                       ; preds = %117, %77
   %133 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %83, ptr noundef nonnull @.str.649, ptr noundef nonnull %118, i32 noundef %119, i32 noundef %spec.select.i, i32 noundef %122, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131, i32 noundef %132) #13
   br label %dissect_thales_ipm_id.exit
 
-dissect_thales_ipm_id.exit:                       ; preds = %65, %68, %dissect_7bit_string.exit88
-  %.2 = phi i8 [ 0, %68 ], [ %.1, %dissect_7bit_string.exit88 ], [ 0, %65 ]
-  %.0.i = phi ptr [ @.str.648, %68 ], [ %133, %dissect_7bit_string.exit88 ], [ @.str.597, %65 ]
+dissect_thales_ipm_id.exit:                       ; preds = %65, %68, %dissect_7bit_string.exit.i
+  %.2 = phi i8 [ 0, %68 ], [ %.1, %dissect_7bit_string.exit.i ], [ 0, %65 ]
+  %.0.i = phi ptr [ @.str.648, %68 ], [ %133, %dissect_7bit_string.exit.i ], [ @.str.597, %65 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %dissect_7bit_string.exit
 
@@ -6527,7 +6527,7 @@ dissect_thales_ipm_id.exit:                       ; preds = %65, %68, %dissect_7
   br label %dissect_7bit_string.exit
 
 dissect_7bit_string.exit:                         ; preds = %62, %28, %dissect_thales_ipm_id.exit, %134
-  %.089 = phi i8 [ %.2, %dissect_thales_ipm_id.exit ], [ 0, %134 ], [ 0, %28 ], [ %.132.i, %62 ]
+  %.076 = phi i8 [ %.2, %dissect_thales_ipm_id.exit ], [ 0, %134 ], [ 0, %28 ], [ %.132.i, %62 ]
   %.072 = phi ptr [ %.0.i, %dissect_thales_ipm_id.exit ], [ %137, %134 ], [ @.str.550, %28 ], [ %39, %62 ]
   %138 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.072) #14
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.595, i64 noundef %138) #13
@@ -6584,7 +6584,7 @@ dissect_7bit_string.exit:                         ; preds = %62, %28, %dissect_t
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %164, %165, %168
-  %.not75 = icmp eq i8 %.089, 0
+  %.not75 = icmp eq i8 %.076, 0
   br i1 %.not75, label %174, label %172
 
 172:                                              ; preds = %proto_item_set_hidden.exit

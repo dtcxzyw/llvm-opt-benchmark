@@ -691,22 +691,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4meta8sanitizeEP21hb_sanit
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
   %51 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %50, i32 12)
-  %52 = extractvalue { i32, i1 } %51, 0
-  %53 = extractvalue { i32, i1 } %51, 1
-  br i1 %53, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %54
+  %52 = extractvalue { i32, i1 } %51, 1
+  %53 = extractvalue { i32, i1 } %51, 0
+  br i1 %52, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %54
 
 54:                                               ; preds = %32
   %55 = load ptr, ptr %12, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %56, %6
   %58 = trunc i64 %57 to i32
-  %.not20.i = icmp ugt i32 %52, %58
+  %.not20.i = icmp ugt i32 %53, %58
   br i1 %.not20.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
 
 _ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %54
   %59 = getelementptr inbounds i8, ptr %1, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = sub i32 %60, %52
+  %61 = sub i32 %60, %53
   store i32 %61, ptr %59, align 4
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread

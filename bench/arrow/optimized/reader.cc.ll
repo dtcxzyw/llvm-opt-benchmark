@@ -87524,7 +87524,7 @@ ehcleanup:                                        ; preds = %lpad12, %_ZNSt10uni
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_114ReadDictionaryERKNS_6BufferERKNS1_14IpcReadContextEPNS1_14DictionaryKindEPNS_2io16RandomAccessFileE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %context, ptr noundef writeonly %kind, ptr noundef %file) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_114ReadDictionaryERKNS_6BufferERKNS1_14IpcReadContextEPNS1_14DictionaryKindEPNS_2io16RandomAccessFileE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %context, ptr nocapture noundef writeonly %kind, ptr noundef %file) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %verifier.i.i = alloca %"class.arrow_vendored_private::flatbuffers::Verifier", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -88054,7 +88054,7 @@ lpad84.body:                                      ; preds = %lpad.i, %lpad84
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83) #32
   br label %ehcleanup218
 
-lpad94:                                           ; preds = %if.end189, %if.end186, %if.then157, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit
+lpad94:                                           ; preds = %if.end189, %if.then185, %if.then157, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup216
@@ -88269,17 +88269,10 @@ invoke.cont181:                                   ; preds = %_ZNK22arrow_vendore
   %add.ptr.i.i397 = getelementptr inbounds i8, ptr %add.ptr4.i.i.i.i, i64 %idx.ext.i.i396
   %97 = load i8, ptr %add.ptr.i.i397, align 1
   %.not = icmp eq i8 %97, 0
-  br i1 %.not, label %if.end189, label %if.then183
+  br i1 %.not, label %if.end189, label %if.then185
 
-if.then183:                                       ; preds = %invoke.cont181
-  %cmp184.not = icmp eq ptr %kind, null
-  br i1 %cmp184.not, label %if.end186, label %if.then185
-
-if.then185:                                       ; preds = %if.then183
+if.then185:                                       ; preds = %invoke.cont181
   store i32 1, ptr %kind, align 4
-  br label %if.end186
-
-if.end186:                                        ; preds = %if.then185, %if.then183
   %98 = load ptr, ptr %context, align 8
   invoke void @_ZN5arrow3ipc14DictionaryMemo18AddDictionaryDeltaElRKSt10shared_ptrINS_9ArrayDataEE(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %98, i64 noundef %cond.i.i191, ptr noundef nonnull align 8 dereferenceable(16) %dict_data)
           to label %cleanup215 unwind label %lpad94
@@ -88292,7 +88285,7 @@ if.end189:                                        ; preds = %if.end180, %_ZNK22a
 invoke.cont192:                                   ; preds = %if.end189
   %100 = load ptr, ptr %ref.tmp190, align 8
   %cmp.i.i398 = icmp eq ptr %100, null
-  br i1 %cmp.i.i398, label %invoke.cont207, label %if.then200
+  br i1 %cmp.i.i398, label %if.then210, label %if.then200
 
 if.then200:                                       ; preds = %invoke.cont192
   invoke void @_ZN5arrow6StatusC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp190)
@@ -88304,23 +88297,16 @@ lpad194:                                          ; preds = %if.then200
   call void @_ZN5arrow6ResultIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp190) #32
   br label %ehcleanup216
 
-invoke.cont207:                                   ; preds = %invoke.cont192
-  %cmp209.not = icmp eq ptr %kind, null
-  br i1 %cmp209.not, label %if.end212, label %if.then210
-
-if.then210:                                       ; preds = %invoke.cont207
+if.then210:                                       ; preds = %invoke.cont192
   %storage_.i.i399 = getelementptr inbounds i8, ptr %ref.tmp190, i64 8
   %102 = load i8, ptr %storage_.i.i399, align 8
   %tobool.i.i = trunc i8 %102 to i1
   %cond = select i1 %tobool.i.i, i32 0, i32 2
   store i32 %cond, ptr %kind, align 4
-  br label %if.end212
-
-if.end212:                                        ; preds = %if.then210, %invoke.cont207
   store ptr null, ptr %agg.result, align 8, !alias.scope !1921
   br label %cleanup213
 
-cleanup213:                                       ; preds = %if.then200, %if.end212
+cleanup213:                                       ; preds = %if.then200, %if.then210
   call void @_ZN5arrow6ResultIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp190) #32
   br label %cleanup215
 
@@ -88328,7 +88314,7 @@ cleanup215.critedge42:                            ; preds = %invoke.cont134
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dict_fields) #32
   br label %cleanup215
 
-cleanup215:                                       ; preds = %cleanup176, %_ZN5arrow6StatusD2Ev.exit303, %if.end186, %cleanup215.critedge42, %cleanup213
+cleanup215:                                       ; preds = %cleanup176, %_ZN5arrow6StatusD2Ev.exit303, %if.then185, %cleanup215.critedge42, %cleanup213
   call void @_ZN5arrow5FieldD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %dummy_field) #32
   %103 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i401 = icmp eq ptr %103, null

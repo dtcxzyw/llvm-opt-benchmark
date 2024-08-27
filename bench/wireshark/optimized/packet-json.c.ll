@@ -1891,17 +1891,17 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
   %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #8
   %15 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %14) #7
-  %.not167.i = icmp eq i64 %14, 0
-  br i1 %.not167.i, label %json_string_unescape.exit, label %.lr.ph162.i
+  %.not166.i = icmp eq i64 %14, 0
+  br i1 %.not166.i, label %json_string_unescape.exit, label %.lr.ph161.i
 
-.lr.ph162.i:                                      ; preds = %13, %.loopexit.i
-  %.0121161.i = phi i64 [ %.2.i, %.loopexit.i ], [ 0, %13 ]
-  %16 = getelementptr i8, ptr %11, i64 %.0121161.i
+.lr.ph161.i:                                      ; preds = %13, %.loopexit.i
+  %.0121160.i = phi i64 [ %.2.i, %.loopexit.i ], [ 0, %13 ]
+  %16 = getelementptr i8, ptr %11, i64 %.0121160.i
   %17 = load i8, ptr %16, align 1
   %.not.i = icmp eq i8 %17, 92
   br i1 %.not.i, label %30, label %18
 
-18:                                               ; preds = %.lr.ph162.i
+18:                                               ; preds = %.lr.ph161.i
   %19 = zext i8 %17 to i64
   %20 = getelementptr [256 x i32], ptr @ws_utf8_seqlen, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
@@ -1909,24 +1909,24 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
   br i1 %22, label %json_string_unescape.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %18
-  %23 = icmp ult i64 %.0121161.i, %14
+  %23 = icmp ult i64 %.0121160.i, %14
   br i1 %23, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.1152.i = phi i64 [ %26, %.lr.ph.i ], [ %.0121161.i, %.preheader.i ]
-  %.0124151.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %24 = getelementptr i8, ptr %11, i64 %.1152.i
+  %.1151.i = phi i64 [ %26, %.lr.ph.i ], [ %.0121160.i, %.preheader.i ]
+  %.0124150.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %24 = getelementptr i8, ptr %11, i64 %.1151.i
   %25 = load i8, ptr %24, align 1
-  %26 = add nuw i64 %.1152.i, 1
+  %26 = add nuw i64 %.1151.i, 1
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %25) #7
-  %27 = add nuw nsw i32 %.0124151.i, 1
+  %27 = add nuw nsw i32 %.0124150.i, 1
   %28 = icmp slt i32 %27, %21
   %29 = icmp ult i64 %26, %14
-  %or.cond144.i = select i1 %28, i1 %29, i1 false
-  br i1 %or.cond144.i, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !7
+  %or.cond143.i = select i1 %28, i1 %29, i1 false
+  br i1 %or.cond143.i, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !7
 
-30:                                               ; preds = %.lr.ph162.i
-  %31 = add nuw i64 %.0121161.i, 1
+30:                                               ; preds = %.lr.ph161.i
+  %31 = add nuw i64 %.0121160.i, 1
   %32 = icmp ult i64 %31, %14
   br i1 %32, label %33, label %json_string_unescape.exit
 
@@ -1946,63 +1946,63 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
   ]
 
 36:                                               ; preds = %33, %33, %33
-  %37 = add nuw i64 %.0121161.i, 2
+  %37 = add nuw i64 %.0121160.i, 2
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %35) #7
   br label %.loopexit.i
 
 38:                                               ; preds = %33
-  %39 = add nuw i64 %.0121161.i, 2
+  %39 = add nuw i64 %.0121160.i, 2
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext 8) #7
   br label %.loopexit.i
 
 40:                                               ; preds = %33
-  %41 = add nuw i64 %.0121161.i, 2
+  %41 = add nuw i64 %.0121160.i, 2
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext 12) #7
   br label %.loopexit.i
 
 42:                                               ; preds = %33
-  %43 = add nuw i64 %.0121161.i, 2
+  %43 = add nuw i64 %.0121160.i, 2
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext 10) #7
   br label %.loopexit.i
 
 44:                                               ; preds = %33
-  %45 = add nuw i64 %.0121161.i, 2
+  %45 = add nuw i64 %.0121160.i, 2
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext 13) #7
   br label %.loopexit.i
 
 46:                                               ; preds = %33
-  %47 = add nuw i64 %.0121161.i, 2
+  %47 = add nuw i64 %.0121160.i, 2
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext 9) #7
   br label %.loopexit.i
 
 48:                                               ; preds = %33
-  %49 = add nuw i64 %.0121161.i, 2
+  %49 = add nuw i64 %.0121160.i, 2
   br label %50
 
 50:                                               ; preds = %57, %48
-  %.3155.i = phi i64 [ %49, %48 ], [ %54, %57 ]
-  %.0125154.i = phi i32 [ 0, %48 ], [ %59, %57 ]
-  %.0127153.i = phi i32 [ 0, %48 ], [ %60, %57 ]
-  %exitcond.not.i = icmp eq i64 %.3155.i, %14
+  %.3154.i = phi i64 [ %49, %48 ], [ %54, %57 ]
+  %.0125153.i = phi i32 [ 0, %48 ], [ %59, %57 ]
+  %.0127152.i = phi i32 [ 0, %48 ], [ %60, %57 ]
+  %exitcond.not.i = icmp eq i64 %.3154.i, %14
   br i1 %exitcond.not.i, label %61, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr i8, ptr %11, i64 %.3155.i
+  %52 = getelementptr i8, ptr %11, i64 %.3154.i
   %53 = load i8, ptr %52, align 1
-  %54 = add i64 %.3155.i, 1
+  %54 = add i64 %.3154.i, 1
   %55 = call i32 @ws_xton(i8 noundef signext %53) #7
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %51
-  %58 = shl i32 %.0125154.i, 4
+  %58 = shl i32 %.0125153.i, 4
   %59 = or i32 %55, %58
-  %60 = add nuw nsw i32 %.0127153.i, 1
-  %exitcond169.not.i = icmp eq i32 %60, 4
-  br i1 %exitcond169.not.i, label %61, label %50, !llvm.loop !8
+  %60 = add nuw nsw i32 %.0127152.i, 1
+  %exitcond168.not.i = icmp eq i32 %60, 4
+  br i1 %exitcond168.not.i, label %61, label %50, !llvm.loop !8
 
 61:                                               ; preds = %57, %51, %50
-  %.0125.lcssa.i = phi i32 [ %.0125154.i, %51 ], [ %.0125154.i, %50 ], [ %59, %57 ]
+  %.0125.lcssa.i = phi i32 [ %.0125153.i, %51 ], [ %.0125153.i, %50 ], [ %59, %57 ]
   %.0128.i = phi i32 [ 0, %51 ], [ 0, %50 ], [ 1, %57 ]
   %.4.i = phi i64 [ %54, %51 ], [ %14, %50 ], [ %54, %57 ]
   %62 = and i32 %.0125.lcssa.i, -1024
@@ -2034,30 +2034,30 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
   br i1 %75, label %.preheader, label %.thread.i
 
 .preheader:                                       ; preds = %72, %83
-  %.5158.i = phi i64 [ %80, %83 ], [ %76, %72 ]
-  %.0122157.i = phi i32 [ %87, %83 ], [ 0, %72 ]
-  %.0123156.i = phi i16 [ %86, %83 ], [ 0, %72 ]
-  %exitcond170.not.i = icmp eq i64 %.5158.i, %14
-  br i1 %exitcond170.not.i, label %88, label %77
+  %.5157.i = phi i64 [ %80, %83 ], [ %76, %72 ]
+  %.0122156.i = phi i32 [ %87, %83 ], [ 0, %72 ]
+  %.0123155.i = phi i16 [ %86, %83 ], [ 0, %72 ]
+  %exitcond169.not.i = icmp eq i64 %.5157.i, %14
+  br i1 %exitcond169.not.i, label %88, label %77
 
 77:                                               ; preds = %.preheader
-  %78 = getelementptr i8, ptr %11, i64 %.5158.i
+  %78 = getelementptr i8, ptr %11, i64 %.5157.i
   %79 = load i8, ptr %78, align 1
-  %80 = add i64 %.5158.i, 1
+  %80 = add i64 %.5157.i, 1
   %81 = call i32 @ws_xton(i8 noundef signext %79) #7
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %88, label %83
 
 83:                                               ; preds = %77
-  %84 = shl i16 %.0123156.i, 4
+  %84 = shl i16 %.0123155.i, 4
   %85 = trunc i32 %81 to i16
   %86 = or i16 %84, %85
-  %87 = add nuw nsw i32 %.0122157.i, 1
-  %exitcond171.not.i = icmp eq i32 %87, 4
-  br i1 %exitcond171.not.i, label %88, label %.preheader, !llvm.loop !9
+  %87 = add nuw nsw i32 %.0122156.i, 1
+  %exitcond170.not.i = icmp eq i32 %87, 4
+  br i1 %exitcond170.not.i, label %88, label %.preheader, !llvm.loop !9
 
 88:                                               ; preds = %83, %77, %.preheader
-  %.0123.lcssa.i = phi i16 [ %.0123156.i, %77 ], [ %.0123156.i, %.preheader ], [ %86, %83 ]
+  %.0123.lcssa.i = phi i16 [ %.0123155.i, %77 ], [ %.0123155.i, %.preheader ], [ %86, %83 ]
   %.1129.i = phi i32 [ 0, %77 ], [ 0, %.preheader ], [ %.0128.i, %83 ]
   %.6.i = phi i64 [ %80, %77 ], [ %14, %.preheader ], [ %80, %83 ]
   %89 = and i16 %.0123.lcssa.i, -1024
@@ -2091,23 +2091,23 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
 100:                                              ; preds = %98
   %101 = call i32 @g_unichar_to_utf8(i32 noundef %.1126.i, ptr noundef nonnull %4) #7
   %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph160.preheader.i, label %.loopexit.i
+  br i1 %102, label %.lr.ph159.preheader.i, label %.loopexit.i
 
-.lr.ph160.preheader.i:                            ; preds = %100
+.lr.ph159.preheader.i:                            ; preds = %100
   %wide.trip.count.i = zext nneg i32 %101 to i64
-  br label %.lr.ph160.i
+  br label %.lr.ph159.i
 
-.lr.ph160.i:                                      ; preds = %.lr.ph160.i, %.lr.ph160.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph160.preheader.i ], [ %indvars.iv.next.i, %.lr.ph160.i ]
+.lr.ph159.i:                                      ; preds = %.lr.ph159.i, %.lr.ph159.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph159.preheader.i ], [ %indvars.iv.next.i, %.lr.ph159.i ]
   %103 = getelementptr [6 x i8], ptr %4, i64 0, i64 %indvars.iv.i
   %104 = load i8, ptr %103, align 1
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %104) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond173.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond173.not.i, label %.loopexit.i, label %.lr.ph160.i, !llvm.loop !10
+  %exitcond172.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond172.not.i, label %.loopexit.i, label %.lr.ph159.i, !llvm.loop !10
 
 .thread.i:                                        ; preds = %95, %88, %72, %65, %61
-  %.7149.i = phi i64 [ %.7.i, %95 ], [ %.6.i, %88 ], [ %.4.i, %61 ], [ %76, %72 ], [ %69, %65 ]
+  %.7148.i = phi i64 [ %.7.i, %95 ], [ %.6.i, %88 ], [ %.4.i, %61 ], [ %76, %72 ], [ %69, %65 ]
   call void @wmem_strbuf_append_unichar(ptr noundef %15, i32 noundef 65533) #7
   br label %.loopexit.i
 
@@ -2115,10 +2115,10 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, i32 noundef 392) #10
   unreachable
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph160.i, %.thread.i, %100, %98, %96, %46, %44, %42, %40, %38, %36, %.preheader.i
-  %.2.i = phi i64 [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %.7.i, %98 ], [ %.7.i, %96 ], [ %.7149.i, %.thread.i ], [ %.7.i, %100 ], [ %.0121161.i, %.preheader.i ], [ %.7.i, %.lr.ph160.i ], [ %26, %.lr.ph.i ]
+.loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph159.i, %.thread.i, %100, %98, %96, %46, %44, %42, %40, %38, %36, %.preheader.i
+  %.2.i = phi i64 [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %.7.i, %98 ], [ %.7.i, %96 ], [ %.7148.i, %.thread.i ], [ %.7.i, %100 ], [ %.0121160.i, %.preheader.i ], [ %.7.i, %.lr.ph159.i ], [ %26, %.lr.ph.i ]
   %106 = icmp ult i64 %.2.i, %14
-  br i1 %106, label %.lr.ph162.i, label %json_string_unescape.exit
+  br i1 %106, label %.lr.ph161.i, label %json_string_unescape.exit
 
 json_string_unescape.exit:                        ; preds = %18, %30, %63, %70, %.loopexit.i, %13
   %107 = call i64 @wmem_strbuf_get_len(ptr noundef %15) #7

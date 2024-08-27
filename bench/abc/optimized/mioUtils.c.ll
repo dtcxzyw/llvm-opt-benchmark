@@ -677,20 +677,20 @@ define noalias noundef ptr @Mio_PinDup(ptr nocapture noundef readonly %0) local_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %8, label %Abc_UtilStrsav.exit
+  br i1 %.not, label %9, label %4
 
-Abc_UtilStrsav.exit:                              ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #32
-  %5 = add i64 %4, 1
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #31
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %3) #30
-  br label %8
+4:                                                ; preds = %1
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #32
+  %6 = add i64 %5, 1
+  %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #31
+  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %3) #30
+  br label %9
 
-8:                                                ; preds = %1, %Abc_UtilStrsav.exit
-  %9 = phi ptr [ %6, %Abc_UtilStrsav.exit ], [ null, %1 ]
-  store ptr %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr null, ptr %10, align 8
+9:                                                ; preds = %1, %4
+  %10 = phi ptr [ %7, %4 ], [ null, %1 ]
+  store ptr %10, ptr %2, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr null, ptr %11, align 8
   ret ptr %2
 }
 
@@ -5355,37 +5355,37 @@ define void @Mio_LibraryShortNames(ptr noundef %0) local_unnamed_addr #0 {
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %.09.i = phi i32 [ %3, %1 ], [ %7, %.lr.ph.i ]
   %8 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #30
-  %.not58 = icmp eq ptr %8, null
-  br i1 %.not58, label %._crit_edge62, label %.lr.ph61
+  %.not53 = icmp eq ptr %8, null
+  br i1 %.not53, label %._crit_edge57, label %.lr.ph56
 
-.lr.ph61:                                         ; preds = %Abc_Base10Log.exit
+.lr.ph56:                                         ; preds = %Abc_Base10Log.exit
   %9 = and i32 %.09.i, 255
   %nul = getelementptr inbounds i8, ptr %2, i64 1
   br label %10
 
-10:                                               ; preds = %.lr.ph61, %42
-  %.060 = phi ptr [ %8, %.lr.ph61 ], [ %47, %42 ]
-  %.03759 = phi i32 [ 0, %.lr.ph61 ], [ %14, %42 ]
-  %11 = load ptr, ptr %.060, align 8
+10:                                               ; preds = %.lr.ph56, %42
+  %.055 = phi ptr [ %8, %.lr.ph56 ], [ %47, %42 ]
+  %.03754 = phi i32 [ 0, %.lr.ph56 ], [ %14, %42 ]
+  %11 = load ptr, ptr %.055, align 8
   %.not45 = icmp eq ptr %11, null
   br i1 %.not45, label %13, label %12
 
 12:                                               ; preds = %10
   call void @free(ptr noundef nonnull %11) #30
-  store ptr null, ptr %.060, align 8
+  store ptr null, ptr %.055, align 8
   br label %13
 
 13:                                               ; preds = %10, %12
-  %14 = add nuw nsw i32 %.03759, 1
+  %14 = add nuw nsw i32 %.03754, 1
   %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %9, i32 noundef %14) #30
   %16 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
   %17 = add i64 %16, 1
-  %18 = call noalias ptr @malloc(i64 noundef %17) #31
+  %18 = call noalias noundef ptr @malloc(i64 noundef %17) #31
   %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %2) #30
-  store ptr %18, ptr %.060, align 8
-  %20 = getelementptr inbounds i8, ptr %.060, i64 16
+  store ptr %18, ptr %.055, align 8
+  %20 = getelementptr inbounds i8, ptr %.055, i64 16
   %21 = load ptr, ptr %20, align 8
-  call void @Mio_LibraryShortFormula(ptr noundef nonnull %.060, ptr noundef %21, ptr noundef nonnull %2)
+  call void @Mio_LibraryShortFormula(ptr noundef nonnull %.055, ptr noundef %21, ptr noundef nonnull %2)
   %22 = load ptr, ptr %20, align 8
   %.not46 = icmp eq ptr %22, null
   br i1 %.not46, label %24, label %23
@@ -5398,41 +5398,41 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 24:                                               ; preds = %13, %23
   %25 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
   %26 = add i64 %25, 1
-  %27 = call noalias ptr @malloc(i64 noundef %26) #31
+  %27 = call noalias noundef ptr @malloc(i64 noundef %26) #31
   %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %2) #30
   store ptr %27, ptr %20, align 8
-  %29 = call ptr @Mio_GateReadPins(ptr noundef nonnull %.060) #30
-  %.not4755 = icmp eq ptr %29, null
-  br i1 %.not4755, label %._crit_edge, label %.lr.ph
+  %29 = call ptr @Mio_GateReadPins(ptr noundef nonnull %.055) #30
+  %.not4750 = icmp eq ptr %29, null
+  br i1 %.not4750, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %32
-  %.03657 = phi i8 [ %37, %32 ], [ 0, %24 ]
-  %.03856 = phi ptr [ %38, %32 ], [ %29, %24 ]
-  %30 = load ptr, ptr %.03856, align 8
+  %.03652 = phi i8 [ %37, %32 ], [ 0, %24 ]
+  %.03851 = phi ptr [ %38, %32 ], [ %29, %24 ]
+  %30 = load ptr, ptr %.03851, align 8
   %.not49 = icmp eq ptr %30, null
   br i1 %.not49, label %32, label %31
 
 31:                                               ; preds = %.lr.ph
   call void @free(ptr noundef nonnull %30) #30
-  store ptr null, ptr %.03856, align 8
+  store ptr null, ptr %.03851, align 8
   br label %32
 
 32:                                               ; preds = %.lr.ph, %31
-  %char = add i8 %.03657, 97
+  %char = add i8 %.03652, 97
   store i8 %char, ptr %2, align 16
   store i8 0, ptr %nul, align 1
   %33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
   %34 = add i64 %33, 1
-  %35 = call noalias ptr @malloc(i64 noundef %34) #31
+  %35 = call noalias noundef ptr @malloc(i64 noundef %34) #31
   %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %2) #30
-  store ptr %35, ptr %.03856, align 8
-  %37 = add i8 %.03657, 1
-  %38 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.03856) #30
+  store ptr %35, ptr %.03851, align 8
+  %37 = add i8 %.03652, 1
+  %38 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.03851) #30
   %.not47 = icmp eq ptr %38, null
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %32, %24
-  %39 = getelementptr inbounds i8, ptr %.060, i64 32
+  %39 = getelementptr inbounds i8, ptr %.055, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not48 = icmp eq ptr %40, null
   br i1 %.not48, label %42, label %41
@@ -5446,14 +5446,14 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   store i16 122, ptr %2, align 16
   %43 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
   %44 = add i64 %43, 1
-  %45 = call noalias ptr @malloc(i64 noundef %44) #31
+  %45 = call noalias noundef ptr @malloc(i64 noundef %44) #31
   %46 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull readonly dereferenceable(1) %2) #30
   store ptr %45, ptr %39, align 8
-  %47 = call ptr @Mio_GateReadNext(ptr noundef nonnull %.060) #30
+  %47 = call ptr @Mio_GateReadNext(ptr noundef nonnull %.055) #30
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %._crit_edge62, label %10, !llvm.loop !96
+  br i1 %.not, label %._crit_edge57, label %10, !llvm.loop !96
 
-._crit_edge62:                                    ; preds = %42, %Abc_Base10Log.exit
+._crit_edge57:                                    ; preds = %42, %Abc_Base10Log.exit
   call void @Mio_LibraryHashGates(ptr noundef %0)
   %48 = load ptr, ptr %0, align 8
   %49 = call i32 @Mio_LibraryReadGateNum(ptr noundef nonnull %0) #30
@@ -5462,17 +5462,17 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %.not44 = icmp eq ptr %51, null
   br i1 %.not44, label %53, label %52
 
-52:                                               ; preds = %._crit_edge62
+52:                                               ; preds = %._crit_edge57
   call void @free(ptr noundef nonnull %51) #30
   store ptr null, ptr %0, align 8
   br label %53
 
-53:                                               ; preds = %._crit_edge62, %52
+53:                                               ; preds = %._crit_edge57, %52
   %54 = call i32 @Mio_LibraryReadGateNum(ptr noundef nonnull %0) #30
   %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.69, i32 noundef %54) #30
   %56 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
   %57 = add i64 %56, 1
-  %58 = call noalias ptr @malloc(i64 noundef %57) #31
+  %58 = call noalias noundef ptr @malloc(i64 noundef %57) #31
   %59 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) %2) #30
   store ptr %58, ptr %0, align 8
   ret void

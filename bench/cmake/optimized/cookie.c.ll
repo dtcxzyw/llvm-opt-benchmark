@@ -1999,7 +1999,7 @@ define internal fastcc void @remove_expired(ptr nocapture noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cookiehash(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i64 0, 63) i64 @cookiehash(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cookie_hash_domain.exit, label %2
 
@@ -2031,8 +2031,8 @@ define internal fastcc i64 @cookiehash(ptr noundef %0) unnamed_addr #0 {
 get_top_domain.exit:                              ; preds = %4, %7, %12
   %.017.i = phi ptr [ %13, %12 ], [ null, %7 ], [ null, %4 ]
   %.0.i = phi i64 [ %15, %12 ], [ %5, %7 ], [ %5, %4 ]
-  %.not24.i = icmp eq ptr %.017.i, null
-  %16 = select i1 %.not24.i, ptr %0, ptr %.017.i
+  %.not23.i = icmp eq ptr %.017.i, null
+  %16 = select i1 %.not23.i, ptr %0, ptr %.017.i
   %17 = getelementptr inbounds i8, ptr %16, i64 %.0.i
   %18 = icmp sgt i64 %.0.i, 0
   br i1 %18, label %.lr.ph.i, label %cookie_hash_domain.exit

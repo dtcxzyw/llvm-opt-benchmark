@@ -935,8 +935,8 @@ opal_thread_add_fetch_32.exit47:                  ; preds = %33, %39
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #10
   %57 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %24, ptr noundef nonnull %53, i64 noundef %56, ptr noundef nonnull %3) #9
   %58 = load ptr, ptr %3, align 8
-  %.not21.i = icmp eq ptr %58, null
-  br i1 %.not21.i, label %opal_infosubscribe_inform_subscribers.exit.thread, label %59
+  %.not.i48 = icmp eq ptr %58, null
+  br i1 %.not.i48, label %opal_infosubscribe_inform_subscribers.exit.thread, label %59
 
 opal_infosubscribe_inform_subscribers.exit.thread: ; preds = %opal_thread_add_fetch_32.exit47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -944,29 +944,29 @@ opal_infosubscribe_inform_subscribers.exit.thread: ; preds = %opal_thread_add_fe
 
 59:                                               ; preds = %opal_thread_add_fetch_32.exit47
   %60 = getelementptr inbounds i8, ptr %58, i64 32
-  %.01723.i = load volatile ptr, ptr %60, align 8
+  %.01722.i = load volatile ptr, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %58, i64 16
-  %.not2224.i = icmp eq ptr %.01723.i, %61
-  br i1 %.not2224.i, label %opal_infosubscribe_inform_subscribers.exit.thread63, label %.lr.ph.split.i
+  %.not2123.i = icmp eq ptr %.01722.i, %61
+  br i1 %.not2123.i, label %opal_infosubscribe_inform_subscribers.exit.thread63, label %.lr.ph.i
 
 opal_infosubscribe_inform_subscribers.exit.thread63: ; preds = %59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %68
 
-.lr.ph.split.i:                                   ; preds = %59, %.lr.ph.split.i
-  %.01726.i = phi ptr [ %.017.i, %.lr.ph.split.i ], [ %.01723.i, %59 ]
-  %.125.i = phi ptr [ %64, %.lr.ph.split.i ], [ %55, %59 ]
-  %62 = getelementptr inbounds i8, ptr %.01726.i, i64 48
+.lr.ph.i:                                         ; preds = %59, %.lr.ph.i
+  %.01725.i = phi ptr [ %.017.i, %.lr.ph.i ], [ %.01722.i, %59 ]
+  %.124.i = phi ptr [ %64, %.lr.ph.i ], [ %55, %59 ]
+  %62 = getelementptr inbounds i8, ptr %.01725.i, i64 48
   %63 = load ptr, ptr %62, align 8
-  %64 = call ptr %63(ptr noundef %0, ptr noundef nonnull %53, ptr noundef %.125.i) #9
-  %65 = getelementptr inbounds i8, ptr %.01726.i, i64 16
+  %64 = call ptr %63(ptr noundef %0, ptr noundef nonnull %53, ptr noundef %.124.i) #9
+  %65 = getelementptr inbounds i8, ptr %.01725.i, i64 16
   %.017.i = load volatile ptr, ptr %65, align 8
   %66 = load ptr, ptr %3, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %.not22.i = icmp eq ptr %.017.i, %67
-  br i1 %.not22.i, label %opal_infosubscribe_inform_subscribers.exit, label %.lr.ph.split.i, !llvm.loop !15
+  %.not21.i = icmp eq ptr %.017.i, %67
+  br i1 %.not21.i, label %opal_infosubscribe_inform_subscribers.exit, label %.lr.ph.i, !llvm.loop !15
 
-opal_infosubscribe_inform_subscribers.exit:       ; preds = %.lr.ph.split.i
+opal_infosubscribe_inform_subscribers.exit:       ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not43 = icmp eq ptr %64, null
   br i1 %.not43, label %78, label %68

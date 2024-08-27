@@ -3333,17 +3333,17 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
   br i1 %exitcond158.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !58
 
 ._crit_edge120:                                   ; preds = %.lr.ph119
-  br i1 %109, label %Abc_TtMinBase.exit.thread, label %.lr.ph.i
+  br i1 %109, label %Abc_TtMinBase.exit.thread, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge120
+.lr.ph.preheader.i:                               ; preds = %._crit_edge120
   %wide.trip.count.i = zext nneg i32 %62 to i64
-  br label %.lr.ph.split.i
+  br label %.lr.ph.i
 
-.lr.ph.split.i:                                   ; preds = %167, %.lr.ph.i
-  %134 = phi i64 [ %.5.i, %.lr.ph.i ], [ %168, %167 ]
-  %.val.i = phi i64 [ %.5.i, %.lr.ph.i ], [ %.val39.i, %167 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %167 ]
-  %.030.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i102, %167 ]
+.lr.ph.i:                                         ; preds = %167, %.lr.ph.preheader.i
+  %134 = phi i64 [ %.5.i, %.lr.ph.preheader.i ], [ %168, %167 ]
+  %.val.i = phi i64 [ %.5.i, %.lr.ph.preheader.i ], [ %.val32.i, %167 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %167 ]
+  %.029.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i102, %167 ]
   %135 = trunc nuw nsw i64 %indvars.iv.i to i32
   %136 = shl nuw nsw i32 1, %135
   %137 = zext nneg i32 %136 to i64
@@ -3352,51 +3352,51 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
   %140 = load i64, ptr %139, align 8
   %141 = xor i64 %138, %.val.i
   %142 = and i64 %141, %140
-  %.not27.i = icmp eq i64 %142, 0
-  br i1 %.not27.i, label %167, label %143
+  %.not26.i = icmp eq i64 %142, 0
+  br i1 %.not26.i, label %167, label %143
 
-143:                                              ; preds = %.lr.ph.split.i
-  %144 = sext i32 %.030.i to i64
+143:                                              ; preds = %.lr.ph.i
+  %144 = sext i32 %.029.i to i64
   %145 = icmp sgt i64 %indvars.iv.i, %144
-  br i1 %145, label %146, label %Abc_TtSwapVars.exit.i
+  br i1 %145, label %Abc_TtSwapVars.exit.i, label %164
 
-146:                                              ; preds = %143
-  %147 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
-  %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds i32, ptr %7, i64 %144
-  store i32 %148, ptr %149, align 4
-  %150 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %144, i64 %indvars.iv.i
-  %.neg.i.i.i = shl nsw i32 -1, %.030.i
-  %151 = add nsw i32 %136, %.neg.i.i.i
-  %152 = load i64, ptr %150, align 8
-  %153 = and i64 %152, %134
-  %154 = getelementptr inbounds i8, ptr %150, i64 8
-  %155 = load i64, ptr %154, align 8
-  %156 = and i64 %155, %134
-  %157 = zext i32 %151 to i64
-  %158 = shl i64 %156, %157
-  %159 = or i64 %158, %153
-  %160 = getelementptr inbounds i8, ptr %150, i64 16
-  %161 = load i64, ptr %160, align 8
-  %162 = and i64 %161, %134
-  %163 = lshr i64 %162, %157
-  %164 = or i64 %159, %163
-  store i64 %164, ptr %8, align 8
-  br label %Abc_TtSwapVars.exit.i
+Abc_TtSwapVars.exit.i:                            ; preds = %143
+  %146 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
+  %147 = load i32, ptr %146, align 4
+  %148 = getelementptr inbounds i32, ptr %7, i64 %144
+  store i32 %147, ptr %148, align 4
+  %149 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %144, i64 %indvars.iv.i
+  %.neg.i.i.i = shl nsw i32 -1, %.029.i
+  %150 = add nsw i32 %.neg.i.i.i, %136
+  %151 = load i64, ptr %149, align 8
+  %152 = and i64 %151, %134
+  %153 = getelementptr inbounds i8, ptr %149, i64 8
+  %154 = load i64, ptr %153, align 8
+  %155 = and i64 %154, %134
+  %156 = zext i32 %150 to i64
+  %157 = shl i64 %155, %156
+  %158 = or i64 %157, %152
+  %159 = getelementptr inbounds i8, ptr %149, i64 16
+  %160 = load i64, ptr %159, align 8
+  %161 = and i64 %160, %134
+  %162 = lshr i64 %161, %156
+  %163 = or i64 %158, %162
+  store i64 %163, ptr %8, align 8
+  br label %164
 
-Abc_TtSwapVars.exit.i:                            ; preds = %146, %143
-  %165 = phi i64 [ %164, %146 ], [ %134, %143 ]
-  %.val38.i = phi i64 [ %164, %146 ], [ %.val.i, %143 ]
-  %166 = add nsw i32 %.030.i, 1
+164:                                              ; preds = %Abc_TtSwapVars.exit.i, %143
+  %165 = phi i64 [ %163, %Abc_TtSwapVars.exit.i ], [ %134, %143 ]
+  %.val31.i = phi i64 [ %163, %Abc_TtSwapVars.exit.i ], [ %.val.i, %143 ]
+  %166 = add nsw i32 %.029.i, 1
   br label %167
 
-167:                                              ; preds = %Abc_TtSwapVars.exit.i, %.lr.ph.split.i
-  %168 = phi i64 [ %165, %Abc_TtSwapVars.exit.i ], [ %134, %.lr.ph.split.i ]
-  %.val39.i = phi i64 [ %.val38.i, %Abc_TtSwapVars.exit.i ], [ %.val.i, %.lr.ph.split.i ]
-  %.1.i102 = phi i32 [ %166, %Abc_TtSwapVars.exit.i ], [ %.030.i, %.lr.ph.split.i ]
+167:                                              ; preds = %164, %.lr.ph.i
+  %168 = phi i64 [ %165, %164 ], [ %134, %.lr.ph.i ]
+  %.val32.i = phi i64 [ %.val31.i, %164 ], [ %.val.i, %.lr.ph.i ]
+  %.1.i102 = phi i32 [ %166, %164 ], [ %.029.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_TtMinBase.exit, label %.lr.ph.split.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %Abc_TtMinBase.exit, label %.lr.ph.i, !llvm.loop !59
 
 Abc_TtMinBase.exit:                               ; preds = %167
   %169 = icmp eq i32 %.1.i102, 0

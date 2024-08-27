@@ -19941,8 +19941,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph.split ]
   %copy_len.07 = phi i32 [ %add3, %for.body ], [ 0, %for.body.lr.ph.split ]
-  %nlb6.i16.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %0, i64 %indvars.iv, i32 2
-  %nlb.0.in.in = load i16, ptr %nlb6.i16.i, align 1
+  %nlb6.i13.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %0, i64 %indvars.iv, i32 2
+  %nlb.0.in.in = load i16, ptr %nlb6.i13.i, align 1
   %nlb.0.in = zext i16 %nlb.0.in.in to i32
   %add = add i32 %copy_len.07, 2
   %add3 = add i32 %add, %nlb.0.in
@@ -19998,15 +19998,15 @@ if.end5:                                          ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %if.end5
-  %idxprom.i.i = sext i32 %3 to i64
-  %slba1.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %5, i64 %idxprom.i.i, i32 1
-  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %5, i64 %idxprom.i.i, i32 2
+  %.pre.i.i = sext i32 %3 to i64
+  %slba1.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %5, i64 %.pre.i.i, i32 1
+  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %5, i64 %.pre.i.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.bb1.i:                                         ; preds = %if.end5
-  %idxprom.i10.i = sext i32 %3 to i64
-  %slba1.i11.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %5, i64 %idxprom.i10.i, i32 1
-  %nlb6.i16.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %5, i64 %idxprom.i10.i, i32 2
+  %.pre.i9.i = sext i32 %3 to i64
+  %slba1.i11.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %5, i64 %.pre.i9.i, i32 1
+  %nlb6.i13.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %5, i64 %.pre.i9.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %if.end5
@@ -20015,7 +20015,7 @@ sw.default.i:                                     ; preds = %if.end5
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
   %slba.0.in = phi ptr [ %slba1.i11.i, %sw.bb1.i ], [ %slba1.i.i, %sw.bb.i ]
-  %nlb.0.in.in.in = phi ptr [ %nlb6.i16.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
+  %nlb.0.in.in.in = phi ptr [ %nlb6.i13.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
   %nlb.0.in.in = load i16, ptr %nlb.0.in.in.in, align 1
   %nlb.0.in = zext i16 %nlb.0.in.in to i32
   %nlb.0 = add nuw nsw i32 %nlb.0.in, 1
@@ -20179,10 +20179,10 @@ nvme_zone_idx.exit.i.i:                           ; preds = %cond.false.i.i.i, %
 nvme_get_zone_by_slba.exit.i:                     ; preds = %nvme_zone_idx.exit.i.i
   %zone_array.i.i = getelementptr inbounds i8, ptr %1, i64 8536
   %29 = load ptr, ptr %zone_array.i.i, align 8
-  %idxprom.i.i33 = and i64 %cond.i.i.i, 4294967295
-  %arrayidx.i.i = getelementptr %struct.NvmeZone, ptr %29, i64 %idxprom.i.i33
-  %tobool.not.i34 = icmp eq ptr %arrayidx.i.i, null
-  br i1 %tobool.not.i34, label %if.else.i, label %if.end.i
+  %idxprom.i.i = and i64 %cond.i.i.i, 4294967295
+  %arrayidx.i.i = getelementptr %struct.NvmeZone, ptr %29, i64 %idxprom.i.i
+  %tobool.not.i33 = icmp eq ptr %arrayidx.i.i, null
+  br i1 %tobool.not.i33, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %nvme_get_zone_by_slba.exit.i, %nvme_zone_idx.exit.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 1883, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_read) #20
@@ -20198,9 +20198,9 @@ if.end.i:                                         ; preds = %nvme_get_zone_by_sl
   br i1 %tobool3.not.i, label %if.else5.i, label %invalid
 
 if.else5.i:                                       ; preds = %if.end.i
-  %add.i.i37 = add i64 %call.val.i, %ns.val.i
-  %cmp.i38 = icmp ugt i64 %add.i, %add.i.i37
-  br i1 %cmp.i38, label %if.then10.i, label %if.end30
+  %add.i.i36 = add i64 %call.val.i, %ns.val.i
+  %cmp.i37 = icmp ugt i64 %add.i, %add.i.i36
+  br i1 %cmp.i37, label %if.then10.i, label %if.end30
 
 if.then10.i:                                      ; preds = %if.else5.i
   %cross_zone_read.i = getelementptr inbounds i8, ptr %1, i64 8706
@@ -20232,9 +20232,9 @@ if.end30:                                         ; preds = %do.cond.i, %if.else
   %blkconf = getelementptr inbounds i8, ptr %1, i64 160
   %35 = load ptr, ptr %blkconf, align 8
   %.val = load i8, ptr %7, align 2
-  %sh_prom.i39 = zext nneg i8 %.val to i64
-  %shl.i40 = shl i64 %slba.0, %sh_prom.i39
-  %call34 = tail call ptr @blk_aio_preadv(ptr noundef %35, i64 noundef %shl.i40, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_in_cb, ptr noundef %iocb) #19
+  %sh_prom.i38 = zext nneg i8 %.val to i64
+  %shl.i39 = shl i64 %slba.0, %sh_prom.i38
+  %call34 = tail call ptr @blk_aio_preadv(ptr noundef %35, i64 noundef %shl.i39, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_in_cb, ptr noundef %iocb) #19
   %aiocb = getelementptr inbounds i8, ptr %iocb, i64 40
   store ptr %call34, ptr %aiocb, align 8
   br label %return
@@ -20246,28 +20246,28 @@ invalid:                                          ; preds = %do.body.i, %if.then
   store i32 -1, ptr %ret, align 8
   %.pre = load ptr, ptr %req1, align 8
   %ns2.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre62 = load ptr, ptr %ns2.i.phi.trans.insert, align 8
+  %.pre61 = load ptr, ptr %ns2.i.phi.trans.insert, align 8
   br label %done
 
 done:                                             ; preds = %if.end, %entry, %invalid
-  %36 = phi ptr [ %1, %if.end ], [ %1, %entry ], [ %.pre62, %invalid ]
+  %36 = phi ptr [ %1, %if.end ], [ %1, %entry ], [ %.pre61, %invalid ]
   %37 = phi ptr [ %0, %if.end ], [ %0, %entry ], [ %.pre, %invalid ]
   %blkconf.i = getelementptr inbounds i8, ptr %36, i64 160
   %38 = load ptr, ptr %blkconf.i, align 8
-  %call.i41 = call ptr @blk_get_stats(ptr noundef %38) #19
+  %call.i40 = call ptr @blk_get_stats(ptr noundef %38) #19
   %idx.i = getelementptr inbounds i8, ptr %iocb, i64 80
   %39 = load i32, ptr %idx.i, align 8
   %nr.i = getelementptr inbounds i8, ptr %iocb, i64 76
   %40 = load i32, ptr %nr.i, align 4
   %cmp.not.i = icmp eq i32 %39, %40
-  br i1 %cmp.not.i, label %if.end.i43, label %if.then.i42
+  br i1 %cmp.not.i, label %if.end.i42, label %if.then.i41
 
-if.then.i42:                                      ; preds = %done
+if.then.i41:                                      ; preds = %done
   %cqe.i = getelementptr inbounds i8, ptr %37, i64 40
   store i32 %39, ptr %cqe.i, align 8
-  br label %if.end.i43
+  br label %if.end.i42
 
-if.end.i43:                                       ; preds = %if.then.i42, %done
+if.end.i42:                                       ; preds = %if.then.i41, %done
   %iov.i = getelementptr inbounds i8, ptr %iocb, i64 96
   call void @qemu_iovec_destroy(ptr noundef nonnull %iov.i) #19
   %bounce.i = getelementptr inbounds i8, ptr %iocb, i64 88
@@ -20277,19 +20277,19 @@ if.end.i43:                                       ; preds = %if.then.i42, %done
   %cmp5.i = icmp slt i32 %42, 0
   %acct.i = getelementptr inbounds i8, ptr %iocb, i64 136
   %write.i = getelementptr inbounds i8, ptr %iocb, i64 160
-  br i1 %cmp5.i, label %if.then6.i, label %if.else.i44
+  br i1 %cmp5.i, label %if.then6.i, label %if.else.i43
 
-if.then6.i:                                       ; preds = %if.end.i43
-  call void @block_acct_failed(ptr noundef %call.i41, ptr noundef nonnull %acct.i) #19
-  call void @block_acct_failed(ptr noundef %call.i41, ptr noundef nonnull %write.i) #19
+if.then6.i:                                       ; preds = %if.end.i42
+  call void @block_acct_failed(ptr noundef %call.i40, ptr noundef nonnull %acct.i) #19
+  call void @block_acct_failed(ptr noundef %call.i40, ptr noundef nonnull %write.i) #19
   br label %nvme_copy_done.exit
 
-if.else.i44:                                      ; preds = %if.end.i43
-  call void @block_acct_done(ptr noundef %call.i41, ptr noundef nonnull %acct.i) #19
-  call void @block_acct_done(ptr noundef %call.i41, ptr noundef nonnull %write.i) #19
+if.else.i43:                                      ; preds = %if.end.i42
+  call void @block_acct_done(ptr noundef %call.i40, ptr noundef nonnull %acct.i) #19
+  call void @block_acct_done(ptr noundef %call.i40, ptr noundef nonnull %write.i) #19
   br label %nvme_copy_done.exit
 
-nvme_copy_done.exit:                              ; preds = %if.then6.i, %if.else.i44
+nvme_copy_done.exit:                              ; preds = %if.then6.i, %if.else.i43
   %cb.i = getelementptr inbounds i8, ptr %iocb, i64 16
   %43 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %iocb, i64 24
@@ -20361,15 +20361,15 @@ if.end:                                           ; preds = %lor.lhs.false5
   ]
 
 sw.bb.i:                                          ; preds = %if.end
-  %idxprom.i.i = sext i32 %5 to i64
-  %slba1.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %4, i64 %idxprom.i.i, i32 1
-  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %4, i64 %idxprom.i.i, i32 2
+  %.pre.i.i = sext i32 %5 to i64
+  %slba1.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %4, i64 %.pre.i.i, i32 1
+  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %4, i64 %.pre.i.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.bb1.i:                                         ; preds = %if.end
-  %idxprom.i10.i = sext i32 %5 to i64
-  %slba1.i11.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %4, i64 %idxprom.i10.i, i32 1
-  %nlb6.i16.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %4, i64 %idxprom.i10.i, i32 2
+  %.pre.i9.i = sext i32 %5 to i64
+  %slba1.i11.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %4, i64 %.pre.i9.i, i32 1
+  %nlb6.i13.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %4, i64 %.pre.i9.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %if.end
@@ -20378,7 +20378,7 @@ sw.default.i:                                     ; preds = %if.end
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
   %slba.0.in = phi ptr [ %slba1.i11.i, %sw.bb1.i ], [ %slba1.i.i, %sw.bb.i ]
-  %nlb.0.in.in.in = phi ptr [ %nlb6.i16.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
+  %nlb.0.in.in.in = phi ptr [ %nlb6.i13.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
   %nlb.0.in.in = load i16, ptr %nlb.0.in.in.in, align 1
   %nlb.0.in = zext i16 %nlb.0.in.in to i64
   %nlb.0 = add nuw nsw i64 %nlb.0.in, 1
@@ -20450,23 +20450,23 @@ if.end7:                                          ; preds = %if.else
   ]
 
 sw.bb.i:                                          ; preds = %if.end7
-  %idxprom.i.i = sext i32 %4 to i64
-  %slba1.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %idxprom.i.i, i32 1
-  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %idxprom.i.i, i32 2
-  %apptag13.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %idxprom.i.i, i32 5
-  %appmask20.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %idxprom.i.i, i32 6
-  %reftag27.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %idxprom.i.i, i32 4
+  %.pre.i.i = sext i32 %4 to i64
+  %slba1.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %.pre.i.i, i32 1
+  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %.pre.i.i, i32 2
+  %apptag13.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %.pre.i.i, i32 5
+  %appmask20.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %.pre.i.i, i32 6
+  %reftag27.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %3, i64 %.pre.i.i, i32 4
   %6 = load i32, ptr %reftag27.i.i, align 1
   %conv29.i.i = zext i32 %6 to i64
   br label %nvme_copy_source_range_parse.exit
 
 sw.bb1.i:                                         ; preds = %if.end7
-  %idxprom.i10.i = sext i32 %4 to i64
-  %slba1.i11.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %idxprom.i10.i, i32 1
-  %nlb6.i16.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %idxprom.i10.i, i32 2
-  %apptag13.i23.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %idxprom.i10.i, i32 5
-  %appmask20.i28.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %idxprom.i10.i, i32 6
-  %sr.i.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %idxprom.i10.i, i32 4
+  %.pre.i9.i = sext i32 %4 to i64
+  %slba1.i11.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %.pre.i9.i, i32 1
+  %nlb6.i13.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %.pre.i9.i, i32 2
+  %apptag13.i18.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %.pre.i9.i, i32 5
+  %appmask20.i22.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %.pre.i9.i, i32 6
+  %sr.i.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %3, i64 %.pre.i9.i, i32 4
   %arrayidx27.i.i = getelementptr i8, ptr %sr.i.i, i64 4
   %7 = load i8, ptr %arrayidx27.i.i, align 1
   %conv28.i.i = zext i8 %7 to i64
@@ -20502,10 +20502,10 @@ sw.default.i:                                     ; preds = %if.end7
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
-  %nlb.0.in.in.in = phi ptr [ %nlb6.i16.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
+  %nlb.0.in.in.in = phi ptr [ %nlb6.i13.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
   %slba.0.in = phi ptr [ %slba1.i11.i, %sw.bb1.i ], [ %slba1.i.i, %sw.bb.i ]
-  %apptag.0.in = phi ptr [ %apptag13.i23.i, %sw.bb1.i ], [ %apptag13.i.i, %sw.bb.i ]
-  %appmask.0.in = phi ptr [ %appmask20.i28.i, %sw.bb1.i ], [ %appmask20.i.i, %sw.bb.i ]
+  %apptag.0.in = phi ptr [ %apptag13.i18.i, %sw.bb1.i ], [ %apptag13.i.i, %sw.bb.i ]
+  %appmask.0.in = phi ptr [ %appmask20.i22.i, %sw.bb1.i ], [ %appmask20.i.i, %sw.bb.i ]
   %or62.i.sink.i = phi i64 [ %or62.i.i, %sw.bb1.i ], [ %conv29.i.i, %sw.bb.i ]
   %appmask.0 = load i16, ptr %appmask.0.in, align 1
   %apptag.0 = load i16, ptr %apptag.0.in, align 1
@@ -20769,13 +20769,13 @@ if.end:                                           ; preds = %lor.lhs.false5
   ]
 
 sw.bb.i:                                          ; preds = %if.end
-  %idxprom4.i.i = sext i32 %5 to i64
-  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %4, i64 %idxprom4.i.i, i32 2
+  %.pre.i.i = sext i32 %5 to i64
+  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %4, i64 %.pre.i.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.bb1.i:                                         ; preds = %if.end
-  %idxprom4.i15.i = sext i32 %5 to i64
-  %nlb6.i16.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %4, i64 %idxprom4.i15.i, i32 2
+  %.pre.i9.i = sext i32 %5 to i64
+  %nlb6.i13.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %4, i64 %.pre.i9.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %if.end
@@ -20783,7 +20783,7 @@ sw.default.i:                                     ; preds = %if.end
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
-  %nlb.0.in.in.in = phi ptr [ %nlb6.i16.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
+  %nlb.0.in.in.in = phi ptr [ %nlb6.i13.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
   %nlb.0.in.in = load i16, ptr %nlb.0.in.in.in, align 1
   %nlb.0.in = zext i16 %nlb.0.in.in to i64
   %nlb.0 = add nuw nsw i64 %nlb.0.in, 1
@@ -20842,13 +20842,13 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %idxprom4.i.i = sext i32 %3 to i64
-  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %2, i64 %idxprom4.i.i, i32 2
+  %.pre.i.i = sext i32 %3 to i64
+  %nlb6.i.i = getelementptr %struct.NvmeCopySourceRangeFormat0, ptr %2, i64 %.pre.i.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %idxprom4.i15.i = sext i32 %3 to i64
-  %nlb6.i16.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %2, i64 %idxprom4.i15.i, i32 2
+  %.pre.i9.i = sext i32 %3 to i64
+  %nlb6.i13.i = getelementptr %struct.NvmeCopySourceRangeFormat1, ptr %2, i64 %.pre.i9.i, i32 2
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -20856,7 +20856,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
-  %nlb.0.in.in.in = phi ptr [ %nlb6.i16.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
+  %nlb.0.in.in.in = phi ptr [ %nlb6.i13.i, %sw.bb1.i ], [ %nlb6.i.i, %sw.bb.i ]
   %nlb.0.in.in = load i16, ptr %nlb.0.in.in.in, align 1
   %nlb.0.in = zext i16 %nlb.0.in.in to i32
   %nlb.0 = add nuw nsw i32 %nlb.0.in, 1

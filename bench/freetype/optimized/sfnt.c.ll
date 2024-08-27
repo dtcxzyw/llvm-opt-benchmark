@@ -13508,7 +13508,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %.0340.i = phi i8 [ 0, %211 ], [ 1, %214 ]
   %217 = load ptr, ptr %6, align 8
   %218 = getelementptr inbounds i8, ptr %3, i64 8
-  %219 = call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %217, ptr noundef nonnull %218, i8 noundef zeroext %.0340.i)
+  %219 = tail call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %217, ptr noundef nonnull %218, i8 noundef zeroext %.0340.i)
   %.not391.i = icmp eq i8 %219, 0
   br i1 %.not391.i, label %read_paint.exit, label %220
 
@@ -13692,7 +13692,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %.1341.i = phi i8 [ 0, %360 ], [ 1, %362 ]
   %365 = load ptr, ptr %6, align 8
   %366 = getelementptr inbounds i8, ptr %3, i64 8
-  %367 = call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %365, ptr noundef nonnull %366, i8 noundef zeroext %.1341.i)
+  %367 = tail call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %365, ptr noundef nonnull %366, i8 noundef zeroext %.1341.i)
   %.not389.i = icmp eq i8 %367, 0
   br i1 %.not389.i, label %read_paint.exit, label %368
 
@@ -13886,7 +13886,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %.2.i = phi i8 [ 0, %512 ], [ 1, %514 ]
   %516 = load ptr, ptr %6, align 8
   %517 = getelementptr inbounds i8, ptr %3, i64 8
-  %518 = call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %516, ptr noundef nonnull %517, i8 noundef zeroext %.2.i)
+  %518 = tail call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %516, ptr noundef nonnull %517, i8 noundef zeroext %.2.i)
   %.not387.i = icmp eq i8 %518, 0
   br i1 %.not387.i, label %read_paint.exit, label %519
 
@@ -14498,7 +14498,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
 
 1001:                                             ; preds = %966
   %1002 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1002, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1002, i8 0, i64 16, i1 false)
   br label %1003
 
 1003:                                             ; preds = %1001, %978
@@ -14751,7 +14751,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
 
 1171:                                             ; preds = %1126
   %1172 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1172, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1172, i8 0, i64 16, i1 false)
   br label %1173
 
 1173:                                             ; preds = %1171, %1148
@@ -14922,7 +14922,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
 
 1295:                                             ; preds = %1239
   %1296 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1296, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1296, i8 0, i64 16, i1 false)
   br label %1297
 
 1297:                                             ; preds = %1295, %1272
@@ -21918,65 +21918,61 @@ declare void @FT_Vector_Transform(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @FT_Matrix_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @get_child_table_pointer(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3) unnamed_addr #4 {
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %42, label %5
+define internal fastcc zeroext range(i8 0, 2) i8 @get_child_table_pointer(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #4 {
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ult ptr %5, %7
+  br i1 %8, label %41, label %9
 
-5:                                                ; preds = %4
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp ult ptr %6, %8
-  br i1 %9, label %42, label %10
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
+  %15 = getelementptr inbounds i8, ptr %14, i64 -4
+  %16 = icmp ugt ptr %5, %15
+  br i1 %16, label %41, label %17
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 -4
-  %17 = icmp ugt ptr %6, %16
-  br i1 %17, label %42, label %18
+17:                                               ; preds = %9
+  %18 = getelementptr inbounds i8, ptr %5, i64 3
+  store ptr %18, ptr %2, align 8
+  %19 = load i8, ptr %5, align 1
+  %20 = zext i8 %19 to i32
+  %21 = shl nuw nsw i32 %20, 16
+  %22 = getelementptr inbounds i8, ptr %5, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = shl nuw nsw i32 %24, 8
+  %26 = or disjoint i32 %25, %21
+  %27 = getelementptr inbounds i8, ptr %5, i64 2
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %30 = or disjoint i32 %26, %29
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %41, label %31
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %6, i64 3
-  store ptr %19, ptr %2, align 8
-  %20 = load i8, ptr %6, align 1
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 16
-  %23 = getelementptr inbounds i8, ptr %6, i64 1
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 %25, 8
-  %27 = or disjoint i32 %26, %22
-  %28 = getelementptr inbounds i8, ptr %6, i64 2
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = or disjoint i32 %27, %30
-  %.not24 = icmp eq i32 %31, 0
-  br i1 %.not24, label %42, label %32
+31:                                               ; preds = %17
+  %32 = zext nneg i32 %30 to i64
+  %33 = getelementptr inbounds i8, ptr %1, i64 %32
+  %34 = load ptr, ptr %6, align 8
+  %35 = icmp ult ptr %33, %34
+  br i1 %35, label %41, label %36
 
-32:                                               ; preds = %18
-  %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 %33
-  %35 = load ptr, ptr %7, align 8
-  %36 = icmp ult ptr %34, %35
-  br i1 %36, label %42, label %37
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %10, align 8
+  %38 = load i64, ptr %12, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 %38
+  %.not24 = icmp ult ptr %33, %39
+  br i1 %.not24, label %40, label %41
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %11, align 8
-  %39 = load i64, ptr %13, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  %.not25 = icmp ult ptr %34, %40
-  br i1 %.not25, label %41, label %42
+40:                                               ; preds = %36
+  store ptr %33, ptr %3, align 8
+  br label %41
 
-41:                                               ; preds = %37
-  store ptr %34, ptr %3, align 8
-  br label %42
-
-42:                                               ; preds = %32, %37, %18, %5, %10, %4, %41
-  %.0 = phi i8 [ 1, %41 ], [ 0, %4 ], [ 0, %10 ], [ 0, %5 ], [ 0, %18 ], [ 0, %37 ], [ 0, %32 ]
+41:                                               ; preds = %31, %36, %17, %4, %9, %40
+  %.0 = phi i8 [ 1, %40 ], [ 0, %9 ], [ 0, %4 ], [ 0, %17 ], [ 0, %36 ], [ 0, %31 ]
   ret i8 %.0
 }
 

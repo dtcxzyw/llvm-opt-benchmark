@@ -4919,9 +4919,9 @@ scrub_shadow_regions.exit:                        ; preds = %for.inc69.i, %for.c
 
 if.then:                                          ; preds = %scrub_shadow_regions.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offset.i20)
-  %i.024.i = add i32 %rm_idx.0.lcssa.i, -1
-  %cmp25.i = icmp sgt i32 %i.024.i, -1
-  br i1 %cmp25.i, label %for.body.lr.ph.i22, label %send_remove_regions.exit
+  %i.023.i = add i32 %rm_idx.0.lcssa.i, -1
+  %cmp24.i = icmp sgt i32 %i.023.i, -1
+  br i1 %cmp24.i, label %for.body.lr.ph.i22, label %send_remove_regions.exit
 
 for.body.lr.ph.i22:                               ; preds = %if.then
   %43 = load ptr, ptr %opaque, align 8
@@ -4933,12 +4933,12 @@ for.body.lr.ph.i22:                               ; preds = %if.then
   %payload.i.i = getelementptr inbounds i8, ptr %msg_reply.i.i, i64 12
   %shadow_regions.i23 = getelementptr inbounds i8, ptr %43, i64 4224
   %num_shadow_regions.i24 = getelementptr inbounds i8, ptr %43, i64 4220
-  %44 = zext nneg i32 %i.024.i to i64
+  %44 = zext nneg i32 %i.023.i to i64
   br i1 %reply_supported, label %for.body.us.i, label %for.body.i25
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i22, %if.end14.us.i
-  %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %if.end14.us.i ], [ %44, %for.body.lr.ph.i22 ]
-  %arrayidx.us.i = getelementptr %struct.scrub_regions, ptr %rem_reg, i64 %indvars.iv36.i
+  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %if.end14.us.i ], [ %44, %for.body.lr.ph.i22 ]
+  %arrayidx.us.i = getelementptr %struct.scrub_regions, ptr %rem_reg, i64 %indvars.iv35.i
   %45 = load ptr, ptr %arrayidx.us.i, align 16
   %reg_idx.us.i = getelementptr inbounds i8, ptr %arrayidx.us.i, i64 8
   %46 = load i32, ptr %reg_idx.us.i, align 8
@@ -4975,16 +4975,16 @@ if.end.us.i:                                      ; preds = %vhost_user_fill_msg
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i.i)
   %55 = load i32, ptr %flags.i.i, align 1
   %and.i.us.i = and i32 %55, 8
-  %cmp.i19.us.i = icmp eq i32 %and.i.us.i, 0
-  br i1 %cmp.i19.us.i, label %process_message_reply.exit.us.i, label %if.end.i.us.i
+  %cmp.i.us.i = icmp eq i32 %and.i.us.i, 0
+  br i1 %cmp.i.us.i, label %process_message_reply.exit.us.i, label %if.end.i.us.i
 
 if.end.i.us.i:                                    ; preds = %if.end.us.i
   %dev.val.i.us.i = load ptr, ptr %opaque, align 8
   %56 = getelementptr i8, ptr %dev.val.i.us.i, i64 8
   %dev.val.val.i.us.i = load ptr, ptr %56, align 8
   %dev.val.val.val.i.us.i = load ptr, ptr %dev.val.val.i.us.i, align 8
-  %call.i20.us.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.us.i, ptr noundef nonnull %msg_reply.i.i)
-  %cmp1.i.us.i = icmp slt i32 %call.i20.us.i, 0
+  %call.i19.us.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.us.i, ptr noundef nonnull %msg_reply.i.i)
+  %cmp1.i.us.i = icmp slt i32 %call.i19.us.i, 0
   br i1 %cmp1.i.us.i, label %process_message_reply.exit.thread.i, label %if.end3.i.us.i
 
 if.end3.i.us.i:                                   ; preds = %if.end.i.us.i
@@ -5017,8 +5017,8 @@ if.end14.us.i:                                    ; preds = %process_message_rep
   %62 = load i32, ptr %num_shadow_regions.i24, align 4
   %dec.us.i = add i32 %62, -1
   store i32 %dec.us.i, ptr %num_shadow_regions.i24, align 4
-  %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, -1
-  %cmp.us.i = icmp sgt i64 %indvars.iv36.i, 0
+  %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, -1
+  %cmp.us.i = icmp sgt i64 %indvars.iv35.i, 0
   br i1 %cmp.us.i, label %for.body.us.i, label %send_remove_regions.exit, !llvm.loop !16
 
 for.body.i25:                                     ; preds = %for.body.lr.ph.i22, %if.end14.i
@@ -5061,7 +5061,7 @@ if.then8.i.i:                                     ; preds = %if.end3.i.us.i
   br label %process_message_reply.exit.thread.i
 
 process_message_reply.exit.thread.i:              ; preds = %if.end13.i.us.i, %if.end.i.us.i, %if.then8.i.i
-  %retval.0.i.ph.i = phi i32 [ -71, %if.then8.i.i ], [ %call.i20.us.i, %if.end.i.us.i ], [ -5, %if.end13.i.us.i ]
+  %retval.0.i.ph.i = phi i32 [ -71, %if.then8.i.i ], [ %call.i19.us.i, %if.end.i.us.i ], [ -5, %if.end13.i.us.i ]
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg_reply.i.i)
   br label %send_remove_regions.exit.thread
 
@@ -5101,8 +5101,8 @@ if.then10:                                        ; preds = %if.end8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fd.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offset.i40)
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i)
-  %cmp86.i = icmp sgt i32 %add_idx.0.lcssa.i, 0
-  br i1 %cmp86.i, label %for.body.lr.ph.i43, label %send_add_regions.exit
+  %cmp85.i = icmp sgt i32 %add_idx.0.lcssa.i, 0
+  br i1 %cmp85.i, label %for.body.lr.ph.i43, label %send_add_regions.exit
 
 for.body.lr.ph.i43:                               ; preds = %if.then10
   %76 = load ptr, ptr %opaque, align 8
@@ -5252,12 +5252,12 @@ if.then39.i:                                      ; preds = %if.end34.i
 
 if.end44.i:                                       ; preds = %if.end34.i
   %108 = load ptr, ptr %mem41.i, align 8
-  %regions.i67 = getelementptr inbounds i8, ptr %108, i64 8
+  %regions.i68 = getelementptr inbounds i8, ptr %108, i64 8
   %idxprom45.i = sext i32 %78 to i64
-  %arrayidx46.i = getelementptr [0 x %struct.vhost_memory_region], ptr %regions.i67, i64 0, i64 %idxprom45.i
+  %arrayidx46.i = getelementptr [0 x %struct.vhost_memory_region], ptr %regions.i68, i64 0, i64 %idxprom45.i
   %109 = load i64, ptr %arrayidx46.i, align 8
   %cmp48.i = icmp eq i64 %104, %109
-  br i1 %cmp48.i, label %if.then49.i, label %if.else.i68
+  br i1 %cmp48.i, label %if.then49.i, label %if.else.i69
 
 if.then49.i:                                      ; preds = %if.end44.i
   %110 = load i64, ptr %userspace_addr52.i, align 4
@@ -5299,7 +5299,7 @@ trace_vhost_user_set_mem_table_postcopy.exit.i:   ; preds = %if.else.i.i65.i, %i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i56.i)
   br label %if.end86.i
 
-if.else.i68:                                      ; preds = %if.end44.i
+if.else.i69:                                      ; preds = %if.end44.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.send_add_regions, i64 noundef %104, i64 noundef %109) #14
   br label %send_add_regions.exit.thread
 
@@ -5310,35 +5310,35 @@ if.then69.i:                                      ; preds = %if.else67.i
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i.i39)
   %118 = load i32, ptr %flags.i.i44, align 1
   %and.i.i = and i32 %118, 8
-  %cmp.i70.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i70.i, label %process_message_reply.exit.i, label %if.end.i.i
+  %cmp.i.i64 = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i.i64, label %process_message_reply.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then69.i
   %dev.val.i.i = load ptr, ptr %opaque, align 8
   %119 = getelementptr i8, ptr %dev.val.i.i, i64 8
   %dev.val.val.i.i = load ptr, ptr %119, align 8
   %dev.val.val.val.i.i = load ptr, ptr %dev.val.val.i.i, align 8
-  %call.i71.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.i, ptr noundef nonnull %msg_reply.i.i39)
-  %cmp1.i.i = icmp slt i32 %call.i71.i, 0
-  br i1 %cmp1.i.i, label %process_message_reply.exit.thread.i65, label %if.end3.i.i
+  %call.i70.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.i, ptr noundef nonnull %msg_reply.i.i39)
+  %cmp1.i.i = icmp slt i32 %call.i70.i, 0
+  br i1 %cmp1.i.i, label %process_message_reply.exit.thread.i66, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %120 = load i32, ptr %msg_reply.i.i39, align 4
   %121 = load i32, ptr %msg, align 1
   %cmp7.not.i.i = icmp eq i32 %120, %121
-  br i1 %cmp7.not.i.i, label %if.end13.i.i, label %if.then8.i.i64
+  br i1 %cmp7.not.i.i, label %if.end13.i.i, label %if.then8.i.i65
 
-if.then8.i.i64:                                   ; preds = %if.end3.i.i
+if.then8.i.i65:                                   ; preds = %if.end3.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef %121, i32 noundef %120) #14
-  br label %process_message_reply.exit.thread.i65
+  br label %process_message_reply.exit.thread.i66
 
 if.end13.i.i:                                     ; preds = %if.end3.i.i
   %122 = load i64, ptr %payload.i.i45, align 4
   %tobool.not.i.i = icmp eq i64 %122, 0
-  br i1 %tobool.not.i.i, label %process_message_reply.exit.i, label %process_message_reply.exit.thread.i65
+  br i1 %tobool.not.i.i, label %process_message_reply.exit.i, label %process_message_reply.exit.thread.i66
 
-process_message_reply.exit.thread.i65:            ; preds = %if.end13.i.i, %if.end.i.i, %if.then8.i.i64
-  %retval.0.i.ph.i66 = phi i32 [ -71, %if.then8.i.i64 ], [ %call.i71.i, %if.end.i.i ], [ -5, %if.end13.i.i ]
+process_message_reply.exit.thread.i66:            ; preds = %if.end13.i.i, %if.end.i.i, %if.then8.i.i65
+  %retval.0.i.ph.i67 = phi i32 [ -71, %if.then8.i.i65 ], [ %call.i70.i, %if.end.i.i ], [ -5, %if.end13.i.i ]
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg_reply.i.i39)
   br label %send_add_regions.exit.thread
 
@@ -5378,8 +5378,8 @@ if.end86.i:                                       ; preds = %if.then78.i, %if.el
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i
   br i1 %exitcond.not.i, label %send_add_regions.exit, label %for.body.i49, !llvm.loop !17
 
-send_add_regions.exit.thread:                     ; preds = %vhost_user_fill_msg_region.exit.i62, %if.then20.i, %if.then31.i, %if.then39.i, %if.else.i68, %process_message_reply.exit.thread.i65
-  %retval.0.i42.ph = phi i32 [ %retval.0.i.ph.i66, %process_message_reply.exit.thread.i65 ], [ -71, %if.else.i68 ], [ -71, %if.then39.i ], [ -71, %if.then31.i ], [ %call15.i, %vhost_user_fill_msg_region.exit.i62 ], [ %call21.i, %if.then20.i ]
+send_add_regions.exit.thread:                     ; preds = %vhost_user_fill_msg_region.exit.i62, %if.then20.i, %if.then31.i, %if.then39.i, %if.else.i69, %process_message_reply.exit.thread.i66
+  %retval.0.i42.ph = phi i32 [ %retval.0.i.ph.i67, %process_message_reply.exit.thread.i66 ], [ -71, %if.else.i69 ], [ -71, %if.then39.i ], [ -71, %if.then31.i ], [ %call15.i, %vhost_user_fill_msg_region.exit.i62 ], [ %call21.i, %if.then20.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i40)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg_reply.i)
@@ -5586,8 +5586,8 @@ if.then12:                                        ; preds = %if.then
   br label %return
 
 if.end14:                                         ; preds = %if.then
-  %cmp.i.not = icmp eq ptr %add.ptr, null
-  br i1 %cmp.i.not, label %if.else.i, label %vhost_user_fill_msg_region.exit
+  %cmp.not.i = icmp eq ptr %add.ptr, null
+  br i1 %cmp.not.i, label %if.else.i, label %vhost_user_fill_msg_region.exit
 
 if.else.i:                                        ; preds = %if.end14
   call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.2, i32 noundef 498, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_user_fill_msg_region) #16

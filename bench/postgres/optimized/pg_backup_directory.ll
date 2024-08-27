@@ -1075,50 +1075,46 @@ declare ptr @InitCompressFileHandle(ptr noundef byval(%struct.pg_compress_specif
 define internal fastcc void @_PrintFileData(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %23, label %4
+  %4 = tail call ptr @InitDiscoverCompressFileHandle(ptr noundef %1, ptr noundef nonnull @.str.8) #14
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %6
 
-4:                                                ; preds = %2
-  %5 = tail call ptr @InitDiscoverCompressFileHandle(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #14
-  %.not15 = icmp eq ptr %5, null
-  br i1 %.not15, label %6, label %7
-
-6:                                                ; preds = %4
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #14
+5:                                                ; preds = %2
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %1) #14
   tail call void @exit_nicely(i32 noundef 1) #15
   unreachable
 
-7:                                                ; preds = %4
-  %8 = tail call ptr @pg_malloc(i64 noundef 4096) #14
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = call zeroext i1 %10(ptr noundef %8, i64 noundef 4096, ptr noundef nonnull %3, ptr noundef nonnull %5) #14
-  %12 = load i64, ptr %3, align 8
-  %13 = icmp ne i64 %12, 0
-  %14 = select i1 %11, i1 %13, i1 false
-  br i1 %14, label %.lr.ph, label %._crit_edge
+6:                                                ; preds = %2
+  %7 = tail call ptr @pg_malloc(i64 noundef 4096) #14
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = call zeroext i1 %9(ptr noundef %7, i64 noundef 4096, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
+  %11 = load i64, ptr %3, align 8
+  %12 = icmp ne i64 %11, 0
+  %13 = select i1 %10, i1 %12, i1 false
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7, %.lr.ph
-  %15 = phi i64 [ %18, %.lr.ph ], [ %12, %7 ]
-  call void @ahwrite(ptr noundef %8, i64 noundef 1, i64 noundef %15, ptr noundef %0) #14
-  %16 = load ptr, ptr %9, align 8
-  %17 = call zeroext i1 %16(ptr noundef %8, i64 noundef 4096, ptr noundef nonnull %3, ptr noundef nonnull %5) #14
-  %18 = load i64, ptr %3, align 8
-  %19 = icmp ne i64 %18, 0
-  %20 = select i1 %17, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %14 = phi i64 [ %17, %.lr.ph ], [ %11, %6 ]
+  call void @ahwrite(ptr noundef %7, i64 noundef 1, i64 noundef %14, ptr noundef %0) #14
+  %15 = load ptr, ptr %8, align 8
+  %16 = call zeroext i1 %15(ptr noundef %7, i64 noundef 4096, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
+  %17 = load i64, ptr %3, align 8
+  %18 = icmp ne i64 %17, 0
+  %19 = select i1 %16, i1 %18, i1 false
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %7
-  call void @free(ptr noundef %8) #14
-  %21 = call zeroext i1 @EndCompressFileHandle(ptr noundef nonnull %5) #14
-  br i1 %21, label %23, label %22
+._crit_edge:                                      ; preds = %.lr.ph, %6
+  call void @free(ptr noundef %7) #14
+  %20 = call zeroext i1 @EndCompressFileHandle(ptr noundef nonnull %4) #14
+  br i1 %20, label %22, label %21
 
-22:                                               ; preds = %._crit_edge
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #14
+21:                                               ; preds = %._crit_edge
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %1) #14
   call void @exit_nicely(i32 noundef 1) #15
   unreachable
 
-23:                                               ; preds = %2, %._crit_edge
+22:                                               ; preds = %._crit_edge
   ret void
 }
 

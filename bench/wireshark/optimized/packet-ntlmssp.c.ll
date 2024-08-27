@@ -541,8 +541,8 @@ define hidden i32 @get_md4pass_list(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %._crit_edge
   %22 = add i32 %.035.lcssa, 1
   %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #13
-  %.not15.i = icmp eq i64 %23, 0
-  br i1 %.not15.i, label %ansi_to_unicode.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %ansi_to_unicode.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %.014.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %21 ]
@@ -707,8 +707,8 @@ define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, p
 40:                                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %11, i8 0, i64 768, i1 false)
   %41 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %37) #13
-  %.not15.i.i = icmp eq i64 %41, 0
-  br i1 %.not15.i.i, label %ansi_to_unicode.exit.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %41, 0
+  br i1 %.not.i.i, label %ansi_to_unicode.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
   %.014.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %40 ]
@@ -761,8 +761,8 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %40
 
 66:                                               ; preds = %._crit_edge.i
   %67 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %63) #13
-  %.not15.i89.i = icmp eq i64 %67, 0
-  br i1 %.not15.i89.i, label %ansi_to_unicode.exit93.i, label %.lr.ph.i90.i
+  %.not.i89.i = icmp eq i64 %67, 0
+  br i1 %.not.i89.i, label %ansi_to_unicode.exit93.i, label %.lr.ph.i90.i
 
 .lr.ph.i90.i:                                     ; preds = %66, %.lr.ph.i90.i
   %.014.i91.i = phi i64 [ %74, %.lr.ph.i90.i ], [ 0, %66 ]
@@ -1067,8 +1067,8 @@ define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
   %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %28) #13
-  %.not15.i = icmp eq i64 %30, 0
-  br i1 %.not15.i, label %ansi_to_unicode.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %30, 0
+  br i1 %.not.i, label %ansi_to_unicode.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.014.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %9 ]
@@ -1231,8 +1231,8 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 -4774451407313060419, ptr %10, align 16
-  %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %95, label %92
+  %.not.i106 = icmp eq i32 %41, 0
+  br i1 %.not.i106, label %95, label %92
 
 92:                                               ; preds = %91
   call void @crypt_des_ecb(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %10) #12

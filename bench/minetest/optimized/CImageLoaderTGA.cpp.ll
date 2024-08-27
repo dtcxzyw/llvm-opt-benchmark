@@ -687,7 +687,7 @@ if.then100:                                       ; preds = %sw.bb96
   %39 = and i8 %38, 32
   %cmp116 = icmp eq i8 %39, 0
   call void @_ZN3irr5video15CColorConverter18convert8BitTo24BitEPKhPhiiS3_ib(ptr noundef %data.0, ptr noundef %35, i32 noundef %conv112, i32 noundef %conv114, ptr noundef null, i32 noundef 0, i1 noundef zeroext %cmp116) #13
-  br label %sw.epilog231
+  br label %delete.notnull233
 
 if.else118:                                       ; preds = %sw.bb96
   %ColorMapEntrySize119 = getelementptr inbounds i8, ptr %header, i64 7
@@ -714,7 +714,7 @@ sw.bb121:                                         ; preds = %if.else118
   %47 = and i8 %46, 32
   %cmp140 = icmp eq i8 %47, 0
   call void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef %data.0, ptr noundef %43, i32 noundef %conv134, i32 noundef %conv136, ptr noundef %palette.0, i32 noundef 0, i1 noundef zeroext %cmp140) #13
-  br label %sw.epilog231
+  br label %delete.notnull233
 
 sw.default:                                       ; preds = %if.else118
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp143) #13
@@ -732,7 +732,7 @@ sw.default:                                       ; preds = %if.else118
   %54 = and i8 %53, 32
   %cmp160 = icmp eq i8 %54, 0
   call void @_ZN3irr5video15CColorConverter18convert8BitTo32BitEPKhPhiiS3_ib(ptr noundef %data.0, ptr noundef %50, i32 noundef %conv154, i32 noundef %conv156, ptr noundef %palette.0, i32 noundef 0, i1 noundef zeroext %cmp160) #13
-  br label %sw.epilog231
+  br label %delete.notnull233
 
 sw.bb164:                                         ; preds = %if.end93
   %call165 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
@@ -753,7 +753,7 @@ sw.bb164:                                         ; preds = %if.end93
   %61 = and i8 %60, 32
   %cmp183 = icmp eq i8 %61, 0
   call void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef %data.0, ptr noundef %57, i32 noundef %conv177, i32 noundef %conv179, i32 noundef 0, i1 noundef zeroext %cmp183) #13
-  br label %sw.epilog231
+  br label %delete.notnull233
 
 sw.bb185:                                         ; preds = %if.end93
   %call186 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
@@ -774,7 +774,7 @@ sw.bb185:                                         ; preds = %if.end93
   %68 = and i8 %67, 32
   %cmp204 = icmp eq i8 %68, 0
   call void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef %data.0, ptr noundef %64, i32 noundef %conv198, i32 noundef %conv200, i32 noundef 0, i1 noundef zeroext %cmp204, i1 noundef zeroext true) #13
-  br label %sw.epilog231
+  br label %delete.notnull233
 
 sw.bb206:                                         ; preds = %if.end93
   %call207 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
@@ -795,7 +795,7 @@ sw.bb206:                                         ; preds = %if.end93
   %75 = and i8 %74, 32
   %cmp225 = icmp eq i8 %75, 0
   call void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef %data.0, ptr noundef %71, i32 noundef %conv219, i32 noundef %conv221, i32 noundef 0, i1 noundef zeroext %cmp225) #13
-  br label %sw.epilog231
+  br label %delete.notnull233
 
 sw.default227:                                    ; preds = %if.end93
   %vtable228 = load ptr, ptr %file, align 8, !tbaa !18
@@ -803,27 +803,20 @@ sw.default227:                                    ; preds = %if.end93
   %76 = load ptr, ptr %vfn229, align 8
   %call230 = call noundef nonnull align 8 dereferenceable(32) ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %file) #13
   call void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(32) %call230, i32 noundef 3) #13
-  br label %sw.epilog231
+  br label %delete.notnull233
 
-sw.epilog231:                                     ; preds = %sw.default227, %sw.bb206, %sw.bb185, %sw.bb164, %sw.default, %sw.bb121, %if.then100
+delete.notnull233:                                ; preds = %if.then100, %sw.bb121, %sw.default, %sw.bb164, %sw.bb185, %sw.bb206, %sw.default227
   %image.0 = phi ptr [ null, %sw.default227 ], [ %call207, %sw.bb206 ], [ %call186, %sw.bb185 ], [ %call165, %sw.bb164 ], [ %call101, %if.then100 ], [ %call122, %sw.bb121 ], [ %call122, %sw.default ]
-  %isnull232 = icmp eq ptr %data.0, null
-  br i1 %isnull232, label %delete.end234, label %delete.notnull233
-
-delete.notnull233:                                ; preds = %sw.epilog231
   call void @_ZdaPv(ptr noundef nonnull %data.0) #14
-  br label %delete.end234
-
-delete.end234:                                    ; preds = %delete.notnull233, %sw.epilog231
   %isnull235 = icmp eq ptr %palette.0, null
   br i1 %isnull235, label %cleanup238, label %delete.notnull236
 
-delete.notnull236:                                ; preds = %delete.end234
+delete.notnull236:                                ; preds = %delete.notnull233
   call void @_ZdaPv(ptr noundef nonnull %palette.0) #14
   br label %cleanup238
 
-cleanup238:                                       ; preds = %delete.notnull236, %delete.end234, %delete.notnull90, %if.else85, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ null, %delete.notnull90 ], [ null, %if.else85 ], [ %image.0, %delete.notnull236 ], [ %image.0, %delete.end234 ]
+cleanup238:                                       ; preds = %delete.notnull236, %delete.notnull233, %delete.notnull90, %if.else85, %if.then
+  %retval.1 = phi ptr [ null, %if.then ], [ null, %delete.notnull90 ], [ null, %if.else85 ], [ %image.0, %delete.notnull236 ], [ %image.0, %delete.notnull233 ]
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %header) #13
   ret ptr %retval.1
 }

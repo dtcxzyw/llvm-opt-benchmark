@@ -1352,7 +1352,7 @@ _ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %101
   %109 = add nsw i32 %108, -1
   store i32 %109, ptr %107, align 8
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %146, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit31
+  br i1 %110, label %145, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit31
 
 _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i, %.noexc23
   %111 = phi ptr [ %93, %.noexc23 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
@@ -1403,27 +1403,27 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %133, %_ZNK5Ipopt14C
   %139 = add nsw i32 %138, -1
   store i32 %139, ptr %137, align 8
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %145
+  br i1 %140, label %141, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
 141:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
   %142 = load ptr, ptr %76, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
   tail call void %144(ptr noundef nonnull align 8 dereferenceable(205) %76) #20
-  br label %145
+  br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
-145:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %141
+_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %141
   tail call void @_ZdaPv(ptr noundef nonnull %12) #17
   ret void
 
-146:                                              ; preds = %105
-  %147 = load ptr, ptr %76, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
-  %149 = load ptr, ptr %148, align 8
-  tail call void %149(ptr noundef nonnull align 8 dereferenceable(205) %76) #20
+145:                                              ; preds = %105
+  %146 = load ptr, ptr %76, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %148 = load ptr, ptr %147, align 8
+  tail call void %148(ptr noundef nonnull align 8 dereferenceable(205) %76) #20
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit31
 
-_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit31:       ; preds = %105, %146
+_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit31:       ; preds = %105, %145
   resume { ptr, i32 } %106
 }
 

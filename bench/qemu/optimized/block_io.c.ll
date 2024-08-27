@@ -2326,7 +2326,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare zeroext i1 @bdrv_co_is_inserted(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef %qiov, ptr nocapture noundef %qiov_offset, ptr nocapture noundef %offset, ptr nocapture noundef %bytes, i1 noundef zeroext %write, ptr noundef %pad, ptr noundef writeonly %padded, ptr noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef %qiov, ptr nocapture noundef %qiov_offset, ptr nocapture noundef %offset, ptr nocapture noundef %bytes, i1 noundef zeroext %write, ptr noundef %pad, ptr noundef writeonly %padded, ptr nocapture noundef %flags) unnamed_addr #0 {
 entry:
   %sliced_niov = alloca i32, align 4
   %sliced_head = alloca i64, align 8
@@ -2545,24 +2545,20 @@ if.end14:                                         ; preds = %if.end75.i
   store ptr %local_qiov.i, ptr %qiov, align 8
   store i64 0, ptr %qiov_offset, align 8
   %tobool17.not = icmp eq ptr %padded, null
-  br i1 %tobool17.not, label %if.end19, label %if.then18
+  br i1 %tobool17.not, label %if.then21, label %if.then18
 
 if.then18:                                        ; preds = %if.end14
   store i8 1, ptr %padded, align 1
-  br label %if.end19
+  br label %if.then21
 
-if.end19:                                         ; preds = %if.then18, %if.end14
-  %tobool20.not = icmp eq ptr %flags, null
-  br i1 %tobool20.not, label %return, label %if.then21
-
-if.then21:                                        ; preds = %if.end19
+if.then21:                                        ; preds = %if.end14, %if.then18
   %37 = load i32, ptr %flags, align 4
   %and = and i32 %37, -9
   store i32 %and, ptr %flags, align 4
   br label %return
 
-return:                                           ; preds = %if.end19, %if.then21, %if.then2, %if.then4, %entry, %bdrv_padding_finalize.exit
-  %retval.0 = phi i32 [ -22, %bdrv_padding_finalize.exit ], [ %retval.0.i, %entry ], [ 0, %if.then4 ], [ 0, %if.then2 ], [ 0, %if.then21 ], [ 0, %if.end19 ]
+return:                                           ; preds = %if.then2, %if.then4, %entry, %if.then21, %bdrv_padding_finalize.exit
+  %retval.0 = phi i32 [ -22, %bdrv_padding_finalize.exit ], [ 0, %if.then21 ], [ %retval.0.i, %entry ], [ 0, %if.then4 ], [ 0, %if.then2 ]
   ret i32 %retval.0
 }
 
@@ -3122,9 +3118,11 @@ if.then.i.i19:                                    ; preds = %if.end51
   store i8 1, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 4
   %.pre.pre = load i64, ptr %offset.addr, align 8
   %.pre27.pre = load i64, ptr %bytes.addr, align 8
+  %.pre28.pre = load i32, ptr %flags.addr, align 4
   br label %bdrv_make_request_serialising.exit
 
 bdrv_make_request_serialising.exit:               ; preds = %if.end51, %if.then.i.i19
+  %.pre28 = phi i32 [ %15, %if.end51 ], [ %.pre28.pre, %if.then.i.i19 ]
   %.pre27 = phi i64 [ %11, %if.end51 ], [ %.pre27.pre, %if.then.i.i19 ]
   %.pre = phi i64 [ %10, %if.end51 ], [ %.pre.pre, %if.then.i.i19 ]
   %add.i.i = add nsw i64 %conv, -1
@@ -3145,7 +3143,6 @@ bdrv_make_request_serialising.exit:               ; preds = %if.end51, %if.then.
   %reqs_lock4.i = getelementptr inbounds i8, ptr %27, i64 16992
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %reqs_lock4.i, ptr noundef nonnull @.str.1, i32 noundef 838) #15
   %call52 = call i32 @bdrv_padding_rmw_read(ptr noundef nonnull %child, ptr noundef nonnull %req, ptr noundef nonnull %pad, i1 noundef zeroext false)
-  %.pre28 = load i32, ptr %flags.addr, align 4
   br label %if.end53
 
 if.end53:                                         ; preds = %bdrv_make_request_serialising.exit, %if.end44

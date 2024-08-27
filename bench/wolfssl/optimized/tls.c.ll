@@ -1958,7 +1958,7 @@ return:                                           ; preds = %if.else, %while.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_SupportedCurve_Parse(ptr nocapture noundef readonly %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %isRequest, ptr noundef %extensions) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @TLSX_SupportedCurve_Parse(ptr nocapture noundef readonly %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %isRequest, ptr noundef %extensions) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i8 %isRequest, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
@@ -2084,7 +2084,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_UseSupportedCurve(ptr noundef %extensions, i16 noundef zeroext %name, ptr nocapture readnone %heap) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @TLSX_UseSupportedCurve(ptr noundef %extensions, i16 noundef zeroext %name, ptr nocapture readnone %heap) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %extensions, null
   br i1 %cmp, label %return, label %if.end
@@ -2297,7 +2297,7 @@ return:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @TLSX_PopulateSupportedGroups(ptr nocapture noundef readonly %ssl, ptr noundef %extensions) unnamed_addr #0 {
+define internal fastcc i32 @TLSX_PopulateSupportedGroups(ptr nocapture noundef readonly %ssl, ptr noundef %extensions) unnamed_addr #0 {
 entry:
   %numGroups = getelementptr inbounds i8, ptr %ssl, i64 1080
   %0 = load i8, ptr %numGroups, align 8

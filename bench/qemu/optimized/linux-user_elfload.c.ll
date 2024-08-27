@@ -896,10 +896,9 @@ load_elf_vdso.exit:                               ; preds = %for.body.i
   %call30.i = call i64 @memcpy_to_target(i64 noundef %sub28.i, ptr noundef nonnull %k_rand_bytes.i, i64 noundef 16) #20
   %auxv_len.i = getelementptr inbounds i8, ptr %info, i64 112
   store i64 288, ptr %auxv_len.i, align 8
-  %add44.i = add i32 %36, 2
-  %add45.i = add i32 %add44.i, %37
-  %add46.i = shl i32 %add45.i, 3
-  %mul48.i = add i32 %add46.i, 296
+  %add44.i = add i32 %37, %36
+  %add47.i = shl i32 %add44.i, 3
+  %mul48.i = add i32 %add47.i, 312
   %conv49.i = sext i32 %mul48.i to i64
   %sub50.i = sub i64 %sub28.i, %conv49.i
   %div51269.i = and i64 %sub50.i, -16
@@ -1368,9 +1367,9 @@ if.end662.i:                                      ; preds = %do.body658.i, %if.e
 
 for.body.preheader.i:                             ; preds = %if.end662.i
   %53 = load i64, ptr %arg_strings, align 8
-  br label %for.body.i59
+  br label %for.body.i58
 
-for.body.i59:                                     ; preds = %if.end675.i, %for.body.preheader.i
+for.body.i58:                                     ; preds = %if.end675.i, %for.body.preheader.i
   %p.addr.0273.i = phi i64 [ %add680.i, %if.end675.i ], [ %53, %for.body.preheader.i ]
   %u_argv.0272.i = phi i64 [ %add677.i, %if.end675.i ], [ %add53.i, %for.body.preheader.i ]
   %i.0271.i = phi i32 [ %inc.i, %if.end675.i ], [ 0, %for.body.preheader.i ]
@@ -1378,18 +1377,18 @@ for.body.i59:                                     ; preds = %if.end675.i, %for.b
   %tobool670.not.i = icmp eq ptr %call669.i, null
   br i1 %tobool670.not.i, label %if.end675.i, label %do.body672.i
 
-do.body672.i:                                     ; preds = %for.body.i59
+do.body672.i:                                     ; preds = %for.body.i58
   store i64 %p.addr.0273.i, ptr %call669.i, align 1
   br label %if.end675.i
 
-if.end675.i:                                      ; preds = %do.body672.i, %for.body.i59
+if.end675.i:                                      ; preds = %do.body672.i, %for.body.i58
   %add677.i = add i64 %u_argv.0272.i, 8
   %call678.i = call i64 @target_strlen(i64 noundef %p.addr.0273.i) #20
   %add679.i = add i64 %p.addr.0273.i, 1
   %add680.i = add i64 %add679.i, %call678.i
   %inc.i = add nuw nsw i32 %i.0271.i, 1
-  %exitcond.not.i60 = icmp eq i32 %inc.i, %36
-  br i1 %exitcond.not.i60, label %for.end.i, label %for.body.i59, !llvm.loop !10
+  %exitcond.not.i59 = icmp eq i32 %inc.i, %36
+  br i1 %exitcond.not.i59, label %for.end.i, label %for.body.i58, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end675.i, %if.end662.i
   %u_argv.0.lcssa.i = phi i64 [ %add53.i, %if.end662.i ], [ %add677.i, %if.end675.i ]

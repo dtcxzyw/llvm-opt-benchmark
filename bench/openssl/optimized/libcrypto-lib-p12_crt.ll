@@ -112,8 +112,8 @@ if.then47:                                        ; preds = %if.then41
   br i1 %cmp1.i, label %if.end52, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then47
-  %3 = load ptr, ptr %bags, align 8
-  %call3.i = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %3, ptr noundef nonnull %call39) #3
+  %bags.val = load ptr, ptr %bags, align 8
+  %call3.i = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %bags.val, ptr noundef nonnull %call39) #3
   %cmp4.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.i, label %if.end52, label %if.end6.i
 
@@ -123,58 +123,58 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.end52:                                         ; preds = %if.end6.i, %if.end.i, %if.then47, %if.then41, %if.end27
   %name.addr.0 = phi ptr [ %name, %if.end27 ], [ %name.addr.1, %if.then41 ], [ %name.addr.1, %if.then47 ], [ %name.addr.1, %if.end.i ], [ %name.addr.1, %if.end6.i ]
-  %call54106 = call i32 @OPENSSL_sk_num(ptr noundef %ca) #3
-  %cmp55107 = icmp sgt i32 %call54106, 0
-  br i1 %cmp55107, label %for.body.lr.ph, label %for.end
+  %call54108 = call i32 @OPENSSL_sk_num(ptr noundef %ca) #3
+  %cmp55109 = icmp sgt i32 %call54108, 0
+  br i1 %cmp55109, label %for.body.lr.ph, label %for.end
 
 if.end52.thread:                                  ; preds = %if.end38
-  %call54106116 = call i32 @OPENSSL_sk_num(ptr noundef %ca) #3
-  %cmp55107117 = icmp sgt i32 %call54106116, 0
-  br i1 %cmp55107117, label %for.body.us.preheader, label %for.end
+  %call54108118 = call i32 @OPENSSL_sk_num(ptr noundef %ca) #3
+  %cmp55109119 = icmp sgt i32 %call54108118, 0
+  br i1 %cmp55109119, label %for.body.us.preheader, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end52
   %cmp62.not = icmp eq ptr %cb, null
   br i1 %cmp62.not, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %if.end52.thread, %for.body.lr.ph
-  %name.addr.0119122 = phi ptr [ %name.addr.0, %for.body.lr.ph ], [ %name.addr.1, %if.end52.thread ]
+  %name.addr.0121124 = phi ptr [ %name.addr.0, %for.body.lr.ph ], [ %name.addr.1, %if.end52.thread ]
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %if.end61.us
-  %i.0108.us = phi i32 [ %inc.us, %if.end61.us ], [ 0, %for.body.us.preheader ]
-  %call57.us = call ptr @OPENSSL_sk_value(ptr noundef %ca, i32 noundef %i.0108.us) #3
+  %i.0110.us = phi i32 [ %inc.us, %if.end61.us ], [ 0, %for.body.us.preheader ]
+  %call57.us = call ptr @OPENSSL_sk_value(ptr noundef %ca, i32 noundef %i.0110.us) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %namelen.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %keyidlen.i)
   store i32 -1, ptr %namelen.i, align 4
   store i32 -1, ptr %keyidlen.i, align 4
   %call.i.us = call ptr @X509_alias_get0(ptr noundef %call57.us, ptr noundef nonnull %namelen.i) #3
   %call1.i.us = call ptr @X509_keyid_get0(ptr noundef %call57.us, ptr noundef nonnull %keyidlen.i) #3
-  %4 = load i32, ptr %namelen.i, align 4
-  %5 = load i32, ptr %keyidlen.i, align 4
-  %call2.i.us = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %bags, ptr noundef %call57.us, ptr noundef %call.i.us, i32 noundef %4, ptr noundef %call1.i.us, i32 noundef %5)
+  %3 = load i32, ptr %namelen.i, align 4
+  %4 = load i32, ptr %keyidlen.i, align 4
+  %call2.i.us = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %bags, ptr noundef %call57.us, ptr noundef %call.i.us, i32 noundef %3, ptr noundef %call1.i.us, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %namelen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %keyidlen.i)
   %cmp59.us = icmp eq ptr %call2.i.us, null
   br i1 %cmp59.us, label %err, label %if.end61.us
 
 if.end61.us:                                      ; preds = %for.body.us
-  %inc.us = add nuw nsw i32 %i.0108.us, 1
+  %inc.us = add nuw nsw i32 %i.0110.us, 1
   %call54.us = call i32 @OPENSSL_sk_num(ptr noundef %ca) #3
   %cmp55.us = icmp slt i32 %inc.us, %call54.us
   br i1 %cmp55.us, label %for.body.us, label %for.end, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0108 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %call57 = call ptr @OPENSSL_sk_value(ptr noundef %ca, i32 noundef %i.0108) #3
+  %i.0110 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %call57 = call ptr @OPENSSL_sk_value(ptr noundef %ca, i32 noundef %i.0110) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %namelen.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %keyidlen.i)
   store i32 -1, ptr %namelen.i, align 4
   store i32 -1, ptr %keyidlen.i, align 4
   %call.i = call ptr @X509_alias_get0(ptr noundef %call57, ptr noundef nonnull %namelen.i) #3
   %call1.i = call ptr @X509_keyid_get0(ptr noundef %call57, ptr noundef nonnull %keyidlen.i) #3
-  %6 = load i32, ptr %namelen.i, align 4
-  %7 = load i32, ptr %keyidlen.i, align 4
-  %call2.i = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %bags, ptr noundef %call57, ptr noundef %call.i, i32 noundef %6, ptr noundef %call1.i, i32 noundef %7)
+  %5 = load i32, ptr %namelen.i, align 4
+  %6 = load i32, ptr %keyidlen.i, align 4
+  %call2.i = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %bags, ptr noundef %call57, ptr noundef %call.i, i32 noundef %5, ptr noundef %call1.i, i32 noundef %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %namelen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %keyidlen.i)
   %cmp59 = icmp eq ptr %call2.i, null
@@ -184,7 +184,7 @@ if.end61:                                         ; preds = %for.body
   %call64 = call i32 %cb(ptr noundef nonnull %call2.i, ptr noundef %cbarg) #3
   switch i32 %call64, label %for.inc [
     i32 -1, label %if.then66
-    i32 0, label %if.end.i67
+    i32 0, label %if.end.i69
   ]
 
 if.then66:                                        ; preds = %if.end61
@@ -193,45 +193,45 @@ if.then66:                                        ; preds = %if.end61
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef 115, ptr noundef null) #3
   br label %err
 
-if.end.i67:                                       ; preds = %if.end61
-  %8 = load ptr, ptr %bags, align 8
-  %call3.i68 = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %8, ptr noundef nonnull %call2.i) #3
-  %cmp4.i69 = icmp eq ptr %call3.i68, null
-  br i1 %cmp4.i69, label %for.inc, label %if.end6.i70
+if.end.i69:                                       ; preds = %if.end61
+  %bags.val66 = load ptr, ptr %bags, align 8
+  %call3.i70 = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %bags.val66, ptr noundef nonnull %call2.i) #3
+  %cmp4.i71 = icmp eq ptr %call3.i70, null
+  br i1 %cmp4.i71, label %for.inc, label %if.end6.i72
 
-if.end6.i70:                                      ; preds = %if.end.i67
-  call void @PKCS12_SAFEBAG_free(ptr noundef nonnull %call3.i68) #3
+if.end6.i72:                                      ; preds = %if.end.i69
+  call void @PKCS12_SAFEBAG_free(ptr noundef nonnull %call3.i70) #3
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end6.i70, %if.end.i67, %if.end61
-  %inc = add nuw nsw i32 %i.0108, 1
+for.inc:                                          ; preds = %if.end6.i72, %if.end.i69, %if.end61
+  %inc = add nuw nsw i32 %i.0110, 1
   %call54 = call i32 @OPENSSL_sk_num(ptr noundef %ca) #3
   %cmp55 = icmp slt i32 %inc, %call54
   br i1 %cmp55, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end61.us, %if.end52.thread, %if.end52
-  %name.addr.0118 = phi ptr [ %name.addr.1, %if.end52.thread ], [ %name.addr.0, %if.end52 ], [ %name.addr.0119122, %if.end61.us ], [ %name.addr.0, %for.inc ]
-  %9 = load ptr, ptr %bags, align 8
-  %tobool74.not = icmp eq ptr %9, null
+  %name.addr.0120 = phi ptr [ %name.addr.1, %if.end52.thread ], [ %name.addr.0, %if.end52 ], [ %name.addr.0121124, %if.end61.us ], [ %name.addr.0, %for.inc ]
+  %7 = load ptr, ptr %bags, align 8
+  %tobool74.not = icmp eq ptr %7, null
   br i1 %tobool74.not, label %if.end79, label %land.lhs.true75
 
 land.lhs.true75:                                  ; preds = %for.end
-  %call76 = call i32 @PKCS12_add_safe_ex(ptr noundef nonnull %safes, ptr noundef nonnull %9, i32 noundef %spec.store.select, i32 noundef %spec.store.select1, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq)
+  %call76 = call i32 @PKCS12_add_safe_ex(ptr noundef nonnull %safes, ptr noundef nonnull %7, i32 noundef %spec.store.select, i32 noundef %spec.store.select1, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq)
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %err, label %land.lhs.true75.if.end79_crit_edge
 
 land.lhs.true75.if.end79_crit_edge:               ; preds = %land.lhs.true75
-  %.pre111 = load ptr, ptr %bags, align 8
+  %.pre113 = load ptr, ptr %bags, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %land.lhs.true75.if.end79_crit_edge, %for.end
-  %10 = phi ptr [ %.pre111, %land.lhs.true75.if.end79_crit_edge ], [ null, %for.end ]
-  call void @OPENSSL_sk_pop_free(ptr noundef %10, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
+  %8 = phi ptr [ %.pre113, %land.lhs.true75.if.end79_crit_edge ], [ null, %for.end ]
+  call void @OPENSSL_sk_pop_free(ptr noundef %8, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   store ptr null, ptr %bags, align 8
   br i1 %tobool15, label %if.then83, label %if.end79.if.end127_crit_edge
 
 if.end79.if.end127_crit_edge:                     ; preds = %if.end79
-  %.pre113 = load ptr, ptr %safes, align 8
+  %.pre115 = load ptr, ptr %safes, align 8
   br label %if.end127
 
 if.then83:                                        ; preds = %if.end79
@@ -240,45 +240,45 @@ if.then83:                                        ; preds = %if.end79
   br i1 %tobool85.not, label %err, label %if.end87
 
 if.end87:                                         ; preds = %if.then83
-  %call.i73 = call i32 @EVP_PKEY_get_attr_by_NID(ptr noundef nonnull %pkey, i32 noundef 417, i32 noundef -1) #3
-  %cmp.i = icmp slt i32 %call.i73, 0
+  %call.i75 = call i32 @EVP_PKEY_get_attr_by_NID(ptr noundef nonnull %pkey, i32 noundef 417, i32 noundef -1) #3
+  %cmp.i = icmp slt i32 %call.i75, 0
   br i1 %cmp.i, label %if.end91, label %copy_bag_attr.exit
 
 copy_bag_attr.exit:                               ; preds = %if.end87
   %attrib.i = getelementptr inbounds i8, ptr %call84, i64 16
-  %call1.i75 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i73) #3
-  %call2.i76 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i, ptr noundef %call1.i75) #3
-  %cmp3.i.not = icmp eq ptr %call2.i76, null
+  %call1.i77 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i75) #3
+  %call2.i78 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i, ptr noundef %call1.i77) #3
+  %cmp3.i.not = icmp eq ptr %call2.i78, null
   br i1 %cmp3.i.not, label %err, label %if.end91
 
 if.end91:                                         ; preds = %if.end87, %copy_bag_attr.exit
-  %call.i78 = call i32 @EVP_PKEY_get_attr_by_NID(ptr noundef nonnull %pkey, i32 noundef 856, i32 noundef -1) #3
-  %cmp.i79 = icmp slt i32 %call.i78, 0
-  br i1 %cmp.i79, label %if.end95, label %copy_bag_attr.exit87
+  %call.i80 = call i32 @EVP_PKEY_get_attr_by_NID(ptr noundef nonnull %pkey, i32 noundef 856, i32 noundef -1) #3
+  %cmp.i81 = icmp slt i32 %call.i80, 0
+  br i1 %cmp.i81, label %if.end95, label %copy_bag_attr.exit89
 
-copy_bag_attr.exit87:                             ; preds = %if.end91
-  %attrib.i81 = getelementptr inbounds i8, ptr %call84, i64 16
-  %call1.i82 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i78) #3
-  %call2.i83 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i81, ptr noundef %call1.i82) #3
-  %cmp3.i84.not = icmp eq ptr %call2.i83, null
-  br i1 %cmp3.i84.not, label %err, label %if.end95
+copy_bag_attr.exit89:                             ; preds = %if.end91
+  %attrib.i83 = getelementptr inbounds i8, ptr %call84, i64 16
+  %call1.i84 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i80) #3
+  %call2.i85 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i83, ptr noundef %call1.i84) #3
+  %cmp3.i86.not = icmp eq ptr %call2.i85, null
+  br i1 %cmp3.i86.not, label %err, label %if.end95
 
-if.end95:                                         ; preds = %if.end91, %copy_bag_attr.exit87
-  %tobool96.not = icmp eq ptr %name.addr.0118, null
+if.end95:                                         ; preds = %if.end91, %copy_bag_attr.exit89
+  %tobool96.not = icmp eq ptr %name.addr.0120, null
   br i1 %tobool96.not, label %if.end101, label %land.lhs.true97
 
 land.lhs.true97:                                  ; preds = %if.end95
-  %call98 = call i32 @PKCS12_add_friendlyname_utf8(ptr noundef nonnull %call84, ptr noundef nonnull %name.addr.0118, i32 noundef -1) #3
+  %call98 = call i32 @PKCS12_add_friendlyname_utf8(ptr noundef nonnull %call84, ptr noundef nonnull %name.addr.0120, i32 noundef -1) #3
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %err, label %if.end101
 
 if.end101:                                        ; preds = %land.lhs.true97, %if.end95
-  %11 = load i32, ptr %keyidlen, align 4
-  %tobool102.not = icmp eq i32 %11, 0
+  %9 = load i32, ptr %keyidlen, align 4
+  %tobool102.not = icmp eq i32 %9, 0
   br i1 %tobool102.not, label %if.end108, label %land.lhs.true103
 
 land.lhs.true103:                                 ; preds = %if.end101
-  %call105 = call i32 @PKCS12_add_localkeyid(ptr noundef nonnull %call84, ptr noundef nonnull %keyid, i32 noundef %11) #3
+  %call105 = call i32 @PKCS12_add_localkeyid(ptr noundef nonnull %call84, ptr noundef nonnull %keyid, i32 noundef %9) #3
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %err, label %if.end108
 
@@ -300,45 +300,46 @@ if.then113:                                       ; preds = %if.then110
   br label %err
 
 if.then116:                                       ; preds = %if.then110
-  call fastcc void @pkcs12_remove_bag(ptr noundef nonnull %bags, ptr noundef nonnull %call84)
+  %bags.val67 = load ptr, ptr %bags, align 8
+  call fastcc void @pkcs12_remove_bag(ptr %bags.val67, ptr noundef nonnull %call84)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then110, %if.end108, %if.then116
   %.pr = load ptr, ptr %bags, align 8
   %tobool122.not = icmp eq ptr %.pr, null
-  %.pre114 = load ptr, ptr %safes, align 8
+  %.pre116 = load ptr, ptr %safes, align 8
   br i1 %tobool122.not, label %if.end127, label %land.lhs.true123
 
 land.lhs.true123:                                 ; preds = %if.end121
-  %cmp.not.i = icmp eq ptr %.pre114, null
-  br i1 %cmp.not.i, label %if.then.i, label %if.end3.i92
+  %cmp.not.i = icmp eq ptr %.pre116, null
+  br i1 %cmp.not.i, label %if.then.i, label %if.end3.i94
 
 if.then.i:                                        ; preds = %land.lhs.true123
-  %call.i95 = call ptr @OPENSSL_sk_new_null() #3
-  store ptr %call.i95, ptr %safes, align 8
-  %cmp1.i96 = icmp eq ptr %call.i95, null
-  br i1 %cmp1.i96, label %err, label %if.end3.i92
+  %call.i97 = call ptr @OPENSSL_sk_new_null() #3
+  store ptr %call.i97, ptr %safes, align 8
+  %cmp1.i98 = icmp eq ptr %call.i97, null
+  br i1 %cmp1.i98, label %err, label %if.end3.i94
 
-if.end3.i92:                                      ; preds = %if.then.i, %land.lhs.true123
-  %12 = phi ptr [ %call.i95, %if.then.i ], [ %.pre114, %land.lhs.true123 ]
+if.end3.i94:                                      ; preds = %if.then.i, %land.lhs.true123
+  %10 = phi ptr [ %call.i97, %if.then.i ], [ %.pre116, %land.lhs.true123 ]
   %call9.i = call ptr @PKCS12_pack_p7data(ptr noundef nonnull %.pr) #3
   %cmp12.i = icmp eq ptr %call9.i, null
   br i1 %cmp12.i, label %err.i, label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.end3.i92
-  %call17.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %12, ptr noundef nonnull %call9.i) #3
-  %tobool.not.i93 = icmp eq i32 %call17.i, 0
-  br i1 %tobool.not.i93, label %err.i, label %if.end14.i.if.end127_crit_edge
+if.end14.i:                                       ; preds = %if.end3.i94
+  %call17.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %10, ptr noundef nonnull %call9.i) #3
+  %tobool.not.i95 = icmp eq i32 %call17.i, 0
+  br i1 %tobool.not.i95, label %err.i, label %if.end14.i.if.end127_crit_edge
 
 if.end14.i.if.end127_crit_edge:                   ; preds = %if.end14.i
-  %.pre112 = load ptr, ptr %bags, align 8
+  %.pre114 = load ptr, ptr %bags, align 8
   br label %if.end127
 
-err.i:                                            ; preds = %if.end14.i, %if.end3.i92
+err.i:                                            ; preds = %if.end14.i, %if.end3.i94
   br i1 %cmp.not.i, label %if.then21.i, label %if.end23.i
 
 if.then21.i:                                      ; preds = %err.i
-  call void @OPENSSL_sk_free(ptr noundef nonnull %12) #3
+  call void @OPENSSL_sk_free(ptr noundef nonnull %10) #3
   store ptr null, ptr %safes, align 8
   br label %if.end23.i
 
@@ -347,45 +348,45 @@ if.end23.i:                                       ; preds = %if.then21.i, %err.i
   br label %err
 
 if.end127:                                        ; preds = %if.end79.if.end127_crit_edge, %if.end14.i.if.end127_crit_edge, %if.end121
-  %13 = phi ptr [ %12, %if.end14.i.if.end127_crit_edge ], [ %.pre113, %if.end79.if.end127_crit_edge ], [ %.pre114, %if.end121 ]
-  %14 = phi ptr [ %.pre112, %if.end14.i.if.end127_crit_edge ], [ null, %if.end79.if.end127_crit_edge ], [ null, %if.end121 ]
-  call void @OPENSSL_sk_pop_free(ptr noundef %14, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
+  %11 = phi ptr [ %10, %if.end14.i.if.end127_crit_edge ], [ %.pre115, %if.end79.if.end127_crit_edge ], [ %.pre116, %if.end121 ]
+  %12 = phi ptr [ %.pre114, %if.end14.i.if.end127_crit_edge ], [ null, %if.end79.if.end127_crit_edge ], [ null, %if.end121 ]
+  call void @OPENSSL_sk_pop_free(ptr noundef %12, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   store ptr null, ptr %bags, align 8
-  %call.i89 = call ptr @PKCS12_init_ex(i32 noundef 21, ptr noundef %ctx, ptr noundef %propq) #3
-  %cmp1.i90 = icmp eq ptr %call.i89, null
-  br i1 %cmp1.i90, label %err, label %if.end3.i
+  %call.i91 = call ptr @PKCS12_init_ex(i32 noundef 21, ptr noundef %ctx, ptr noundef %propq) #3
+  %cmp1.i92 = icmp eq ptr %call.i91, null
+  br i1 %cmp1.i92, label %err, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end127
-  %call4.i = call i32 @PKCS12_pack_authsafes(ptr noundef nonnull %call.i89, ptr noundef %13) #3
+  %call4.i = call i32 @PKCS12_pack_authsafes(ptr noundef nonnull %call.i91, ptr noundef %11) #3
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.then5.i, label %if.end133
 
 if.then5.i:                                       ; preds = %if.end3.i
-  call void @PKCS12_free(ptr noundef nonnull %call.i89) #3
+  call void @PKCS12_free(ptr noundef nonnull %call.i91) #3
   br label %err
 
 if.end133:                                        ; preds = %if.end3.i
-  call void @OPENSSL_sk_pop_free(ptr noundef %13, ptr noundef nonnull @PKCS7_free) #3
+  call void @OPENSSL_sk_pop_free(ptr noundef %11, ptr noundef nonnull @PKCS7_free) #3
   store ptr null, ptr %safes, align 8
   %cmp136.not = icmp eq i32 %spec.store.select5, -1
   br i1 %cmp136.not, label %return, label %land.lhs.true137
 
 land.lhs.true137:                                 ; preds = %if.end133
-  %call138 = call i32 @PKCS12_set_mac(ptr noundef nonnull %call.i89, ptr noundef %pass, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef %spec.store.select5, ptr noundef null) #3
+  %call138 = call i32 @PKCS12_set_mac(ptr noundef nonnull %call.i91, ptr noundef %pass, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef %spec.store.select5, ptr noundef null) #3
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %err, label %return
 
-err:                                              ; preds = %for.body, %for.body.us, %if.end127, %if.then5.i, %if.then.i, %if.end23.i, %land.lhs.true137, %land.lhs.true103, %land.lhs.true97, %copy_bag_attr.exit87, %copy_bag_attr.exit, %if.then83, %land.lhs.true75, %if.then113, %if.then66, %if.then44
-  %p12.0 = phi ptr [ null, %if.then44 ], [ null, %if.then66 ], [ null, %if.then113 ], [ %call.i89, %land.lhs.true137 ], [ null, %land.lhs.true103 ], [ null, %land.lhs.true97 ], [ null, %copy_bag_attr.exit87 ], [ null, %copy_bag_attr.exit ], [ null, %if.then83 ], [ null, %land.lhs.true75 ], [ null, %if.end23.i ], [ null, %if.then.i ], [ null, %if.then5.i ], [ null, %if.end127 ], [ null, %for.body.us ], [ null, %for.body ]
+err:                                              ; preds = %for.body, %for.body.us, %if.end127, %if.then5.i, %if.then.i, %if.end23.i, %land.lhs.true137, %land.lhs.true103, %land.lhs.true97, %copy_bag_attr.exit89, %copy_bag_attr.exit, %if.then83, %land.lhs.true75, %if.then113, %if.then66, %if.then44
+  %p12.0 = phi ptr [ null, %if.then44 ], [ null, %if.then66 ], [ null, %if.then113 ], [ %call.i91, %land.lhs.true137 ], [ null, %land.lhs.true103 ], [ null, %land.lhs.true97 ], [ null, %copy_bag_attr.exit89 ], [ null, %copy_bag_attr.exit ], [ null, %if.then83 ], [ null, %land.lhs.true75 ], [ null, %if.end23.i ], [ null, %if.then.i ], [ null, %if.then5.i ], [ null, %if.end127 ], [ null, %for.body.us ], [ null, %for.body ]
   call void @PKCS12_free(ptr noundef %p12.0) #3
-  %15 = load ptr, ptr %safes, align 8
-  call void @OPENSSL_sk_pop_free(ptr noundef %15, ptr noundef nonnull @PKCS7_free) #3
-  %16 = load ptr, ptr %bags, align 8
-  call void @OPENSSL_sk_pop_free(ptr noundef %16, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
+  %13 = load ptr, ptr %safes, align 8
+  call void @OPENSSL_sk_pop_free(ptr noundef %13, ptr noundef nonnull @PKCS7_free) #3
+  %14 = load ptr, ptr %bags, align 8
+  call void @OPENSSL_sk_pop_free(ptr noundef %14, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   br label %return
 
 return:                                           ; preds = %if.end133, %land.lhs.true137, %if.end21, %if.then18, %err, %if.then13
-  %retval.0 = phi ptr [ null, %if.then13 ], [ null, %err ], [ null, %if.then18 ], [ null, %if.end21 ], [ %call.i89, %land.lhs.true137 ], [ %call.i89, %if.end133 ]
+  %retval.0 = phi ptr [ null, %if.then13 ], [ null, %err ], [ null, %if.then18 ], [ null, %if.end21 ], [ %call.i91, %land.lhs.true137 ], [ %call.i91, %if.end133 ]
   ret ptr %retval.0
 }
 
@@ -475,16 +476,13 @@ return:                                           ; preds = %if.end6.i.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pkcs12_remove_bag(ptr noundef readonly %pbags, ptr noundef %bag) unnamed_addr #0 {
+define internal fastcc void @pkcs12_remove_bag(ptr %pbags.0.val, ptr noundef %bag) unnamed_addr #0 {
 entry:
-  %cmp = icmp eq ptr %pbags, null
   %cmp1 = icmp eq ptr %bag, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+  br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %pbags, align 8
-  %call3 = tail call ptr @OPENSSL_sk_delete_ptr(ptr noundef %0, ptr noundef nonnull %bag) #3
+  %call3 = tail call ptr @OPENSSL_sk_delete_ptr(ptr noundef %pbags.0.val, ptr noundef nonnull %bag) #3
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %return, label %if.end6
 

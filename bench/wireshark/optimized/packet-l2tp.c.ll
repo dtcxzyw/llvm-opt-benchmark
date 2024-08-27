@@ -1746,7 +1746,7 @@ define internal fastcc void @process_l2tpv3_control(ptr noundef %0, ptr noundef 
   %22 = and i32 %9, 2048
   %.not = icmp eq i32 %22, 0
   %spec.select.v = select i1 %.not, i32 4, i32 8
-  %spec.select = add nuw nsw i32 %.0106118, %spec.select.v
+  %spec.select = add i32 %.0106118, %spec.select.v
   %23 = add i32 %spec.select, 2
   %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %23) #8
   %25 = add i32 %spec.select, 4

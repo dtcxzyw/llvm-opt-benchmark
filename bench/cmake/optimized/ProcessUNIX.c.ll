@@ -1587,13 +1587,13 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   %10 = alloca i32, align 4
   %11 = alloca [2 x i32], align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %388, label %12
+  br i1 %.not, label %386, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 1292
   %14 = load volatile i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 3
-  br i1 %15, label %388, label %16
+  br i1 %15, label %386, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1605,7 +1605,7 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   %21 = getelementptr inbounds i8, ptr %0, i64 1300
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %21, ptr noundef nonnull align 1 dereferenceable(11) @.str.5, i64 11, i1 false) #25
   store volatile i32 1, ptr %13, align 4
-  br label %388
+  br label %386
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1727,7 +1727,7 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
 84:                                               ; preds = %22, %._crit_edge.i, %49, %80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %28, ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false) #25
   store volatile i32 1, ptr %13, align 4
-  br label %388
+  br label %386
 
 kwsysProcessInitialize.exit:                      ; preds = %80
   %85 = getelementptr inbounds i8, ptr %0, i64 2408
@@ -1741,7 +1741,7 @@ kwsysProcessInitialize.exit:                      ; preds = %80
 
 91:                                               ; preds = %kwsysProcessInitialize.exit
   tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 .preheader145:                                    ; preds = %kwsysProcessInitialize.exit, %95
   %92 = load ptr, ptr %78, align 8
@@ -1757,7 +1757,7 @@ kwsysProcessInitialize.exit:                      ; preds = %80
 
 .critedge:                                        ; preds = %95
   tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 .critedge138:                                     ; preds = %.preheader145, %._crit_edge82.i
   %99 = getelementptr inbounds i8, ptr %0, i64 1096
@@ -1933,7 +1933,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 186:                                              ; preds = %kwsysProcessesAdd.exit, %.critedge138
   %187 = getelementptr inbounds i8, ptr %0, i64 2344
@@ -1950,7 +1950,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 193:                                              ; preds = %189
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 194:                                              ; preds = %189
   %195 = call i32 (i32, i32, ...) @fcntl(i32 noundef %190, i32 noundef 2, i32 noundef 1) #25
@@ -1959,7 +1959,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 197:                                              ; preds = %194
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 198:                                              ; preds = %186
   %199 = getelementptr inbounds i8, ptr %0, i64 2368
@@ -1994,7 +1994,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 216:                                              ; preds = %211, %208
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 217:                                              ; preds = %203
   store i32 -1, ptr %207, align 8
@@ -2007,7 +2007,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 221:                                              ; preds = %218
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 222:                                              ; preds = %218
   %223 = load i32, ptr %7, align 4
@@ -2029,7 +2029,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 234:                                              ; preds = %230, %222
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 235:                                              ; preds = %230
   %236 = load i32, ptr %7, align 4
@@ -2039,7 +2039,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 238:                                              ; preds = %235
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 239:                                              ; preds = %235
   %240 = getelementptr inbounds i8, ptr %0, i64 2352
@@ -2054,7 +2054,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 244:                                              ; preds = %242
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 245:                                              ; preds = %239
   %246 = getelementptr inbounds i8, ptr %0, i64 2372
@@ -2081,7 +2081,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 256:                                              ; preds = %253
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 257:                                              ; preds = %248, %253, %249, %242
   %258 = call i32 @pipe(ptr noundef nonnull %8) #25
@@ -2090,7 +2090,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 260:                                              ; preds = %257
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 261:                                              ; preds = %257
   %262 = load i32, ptr %8, align 4
@@ -2112,7 +2112,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 273:                                              ; preds = %269, %261
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 274:                                              ; preds = %269
   %275 = load i32, ptr %8, align 4
@@ -2122,7 +2122,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 277:                                              ; preds = %274
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 278:                                              ; preds = %274
   %279 = getelementptr inbounds i8, ptr %0, i64 2360
@@ -2137,7 +2137,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 283:                                              ; preds = %281
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 284:                                              ; preds = %278
   %285 = getelementptr inbounds i8, ptr %0, i64 2376
@@ -2164,7 +2164,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 295:                                              ; preds = %292
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 296:                                              ; preds = %287, %292, %288, %281
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -2181,7 +2181,6 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %302, i8 -1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 -1, i64 20, i1 false)
   %303 = load i32, ptr %226, align 8
-  store i32 %303, ptr %10, align 4
   %304 = load volatile i32, ptr %17, align 8
   %305 = icmp sgt i32 %304, 0
   br i1 %305, label %.lr.ph, label %.preheader144.preheader
@@ -2196,185 +2195,184 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   %309 = getelementptr inbounds i8, ptr %9, i64 8
   br label %314
 
-310:                                              ; preds = %364
-  %311 = add nuw nsw i32 %.0146, 1
+310:                                              ; preds = %363
+  %311 = add nuw nsw i32 %.0152, 1
   %312 = load volatile i32, ptr %17, align 8
   %313 = icmp slt i32 %311, %312
   br i1 %313, label %314, label %.preheader144.preheader, !llvm.loop !20
 
 314:                                              ; preds = %.lr.ph, %310
-  %.0146 = phi i32 [ 0, %.lr.ph ], [ %311, %310 ]
-  %315 = load i32, ptr %10, align 4
+  %.0152 = phi i32 [ 0, %.lr.ph ], [ %311, %310 ]
+  %315 = phi i32 [ %303, %.lr.ph ], [ %345, %310 ]
   store i32 %315, ptr %9, align 4
   %316 = load volatile i32, ptr %17, align 8
   %317 = add nsw i32 %316, -1
-  %318 = icmp eq i32 %.0146, %317
-  br i1 %318, label %346, label %319
+  %318 = icmp eq i32 %.0152, %317
+  br i1 %318, label %344, label %319
 
 319:                                              ; preds = %314
   store i64 -1, ptr %11, align 8
   %320 = call i32 @pipe(ptr noundef nonnull %11) #25
   %321 = icmp slt i32 %320, 0
-  br i1 %321, label %322, label %327
+  br i1 %321, label %322, label %326
 
 322:                                              ; preds = %319
-  %323 = load i32, ptr %10, align 4
-  %324 = load i32, ptr %226, align 8
-  %.not130 = icmp eq i32 %323, %324
-  br i1 %.not130, label %326, label %325
+  store i32 %315, ptr %10, align 4
+  %323 = load i32, ptr %226, align 8
+  %.not130 = icmp eq i32 %315, %323
+  br i1 %.not130, label %325, label %324
 
-325:                                              ; preds = %322
+324:                                              ; preds = %322
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %10)
-  br label %326
+  br label %325
 
-326:                                              ; preds = %325, %322
+325:                                              ; preds = %324, %322
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
-327:                                              ; preds = %319
-  %328 = load i32, ptr %11, align 8
-  %329 = call i32 (i32, i32, ...) @fcntl(i32 noundef %328, i32 noundef 2, i32 noundef 1) #25
-  %330 = icmp slt i32 %329, 0
-  br i1 %330, label %335, label %331
+326:                                              ; preds = %319
+  %327 = load i32, ptr %11, align 8
+  %328 = call i32 (i32, i32, ...) @fcntl(i32 noundef %327, i32 noundef 2, i32 noundef 1) #25
+  %329 = icmp slt i32 %328, 0
+  br i1 %329, label %334, label %330
 
-331:                                              ; preds = %327
-  %332 = load i32, ptr %306, align 4
-  %333 = call i32 (i32, i32, ...) @fcntl(i32 noundef %332, i32 noundef 2, i32 noundef 1) #25
-  %334 = icmp slt i32 %333, 0
-  br i1 %334, label %335, label %344
+330:                                              ; preds = %326
+  %331 = load i32, ptr %306, align 4
+  %332 = call i32 (i32, i32, ...) @fcntl(i32 noundef %331, i32 noundef 2, i32 noundef 1) #25
+  %333 = icmp slt i32 %332, 0
+  br i1 %333, label %334, label %342
 
-335:                                              ; preds = %331, %327
-  %336 = load i32, ptr %11, align 8
-  %337 = call i32 @close(i32 noundef %336) #25
-  %338 = load i32, ptr %306, align 4
-  %339 = call i32 @close(i32 noundef %338) #25
-  %340 = load i32, ptr %10, align 4
-  %341 = load i32, ptr %226, align 8
-  %.not129 = icmp eq i32 %340, %341
-  br i1 %.not129, label %343, label %342
+334:                                              ; preds = %330, %326
+  store i32 %315, ptr %10, align 4
+  %335 = load i32, ptr %11, align 8
+  %336 = call i32 @close(i32 noundef %335) #25
+  %337 = load i32, ptr %306, align 4
+  %338 = call i32 @close(i32 noundef %337) #25
+  %339 = load i32, ptr %226, align 8
+  %.not129 = icmp eq i32 %315, %339
+  br i1 %.not129, label %341, label %340
 
-342:                                              ; preds = %335
+340:                                              ; preds = %334
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %10)
-  br label %343
+  br label %341
 
-343:                                              ; preds = %342, %335
+341:                                              ; preds = %340, %334
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
-344:                                              ; preds = %331
-  %345 = load i32, ptr %11, align 8
-  br label %346
+342:                                              ; preds = %330
+  %343 = load i32, ptr %11, align 8
+  br label %344
 
-346:                                              ; preds = %314, %344
-  %.sink149 = phi i32 [ %345, %344 ], [ -1, %314 ]
-  %.sink = phi ptr [ %306, %344 ], [ %227, %314 ]
-  store i32 %.sink149, ptr %10, align 4
-  %347 = load i32, ptr %.sink, align 4
-  store i32 %347, ptr %307, align 4
-  %348 = load i32, ptr %308, align 4
-  %.not131 = icmp eq i32 %348, 0
+344:                                              ; preds = %314, %342
+  %.sink = phi ptr [ %306, %342 ], [ %227, %314 ]
+  %345 = phi i32 [ %343, %342 ], [ -1, %314 ]
+  %346 = load i32, ptr %.sink, align 4
+  store i32 %346, ptr %307, align 4
+  %347 = load i32, ptr %308, align 4
+  %.not131 = icmp eq i32 %347, 0
   %. = select i1 %.not131, ptr %266, ptr %227
-  %349 = load i32, ptr %., align 4
-  store i32 %349, ptr %309, align 4
-  %350 = call fastcc i32 @kwsysProcessCreate(ptr noundef nonnull %0, i32 noundef %.0146, ptr noundef nonnull %9)
-  %351 = load i32, ptr %9, align 4
-  %352 = load i32, ptr %226, align 8
-  %.not132 = icmp eq i32 %351, %352
-  br i1 %.not132, label %354, label %353
+  %348 = load i32, ptr %., align 4
+  store i32 %348, ptr %309, align 4
+  %349 = call fastcc i32 @kwsysProcessCreate(ptr noundef nonnull %0, i32 noundef %.0152, ptr noundef nonnull %9)
+  %350 = load i32, ptr %9, align 4
+  %351 = load i32, ptr %226, align 8
+  %.not132 = icmp eq i32 %350, %351
+  br i1 %.not132, label %353, label %352
 
-353:                                              ; preds = %346
+352:                                              ; preds = %344
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %9)
-  br label %354
+  br label %353
 
-354:                                              ; preds = %353, %346
-  %355 = load i32, ptr %307, align 4
-  %356 = load i32, ptr %227, align 4
-  %.not133 = icmp eq i32 %355, %356
-  br i1 %.not133, label %358, label %357
+353:                                              ; preds = %352, %344
+  %354 = load i32, ptr %307, align 4
+  %355 = load i32, ptr %227, align 4
+  %.not133 = icmp eq i32 %354, %355
+  br i1 %.not133, label %357, label %356
 
-357:                                              ; preds = %354
+356:                                              ; preds = %353
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %307)
-  br label %358
+  br label %357
 
-358:                                              ; preds = %357, %354
-  %359 = load i32, ptr %309, align 4
-  %360 = load i32, ptr %266, align 8
-  %.not134 = icmp eq i32 %359, %360
-  br i1 %.not134, label %364, label %361
+357:                                              ; preds = %356, %353
+  %358 = load i32, ptr %309, align 4
+  %359 = load i32, ptr %266, align 8
+  %.not134 = icmp eq i32 %358, %359
+  br i1 %.not134, label %363, label %360
 
-361:                                              ; preds = %358
-  %362 = load i32, ptr %308, align 4
-  %.not135 = icmp eq i32 %362, 0
-  br i1 %.not135, label %363, label %364
+360:                                              ; preds = %357
+  %361 = load i32, ptr %308, align 4
+  %.not135 = icmp eq i32 %361, 0
+  br i1 %.not135, label %362, label %363
 
-363:                                              ; preds = %361
+362:                                              ; preds = %360
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %309)
-  br label %364
+  br label %363
 
-364:                                              ; preds = %363, %361, %358
-  %.not136 = icmp eq i32 %350, 0
-  br i1 %.not136, label %365, label %310
+363:                                              ; preds = %362, %360, %357
+  %.not136 = icmp eq i32 %349, 0
+  br i1 %.not136, label %364, label %310
 
-365:                                              ; preds = %364
-  %366 = getelementptr inbounds i8, ptr %9, i64 12
+364:                                              ; preds = %363
+  store i32 %345, ptr %10, align 4
+  %365 = getelementptr inbounds i8, ptr %9, i64 12
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %365)
+  %366 = getelementptr inbounds i8, ptr %9, i64 16
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %366)
-  %367 = getelementptr inbounds i8, ptr %9, i64 16
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %367)
-  %368 = load i32, ptr %10, align 4
-  %369 = load i32, ptr %226, align 8
-  %.not137 = icmp eq i32 %368, %369
-  br i1 %.not137, label %371, label %370
+  %367 = load i32, ptr %226, align 8
+  %.not137 = icmp eq i32 %345, %367
+  br i1 %.not137, label %369, label %368
 
-370:                                              ; preds = %365
+368:                                              ; preds = %364
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %10)
-  br label %371
+  br label %369
 
-371:                                              ; preds = %370, %365
+369:                                              ; preds = %368, %364
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
-  br label %388
+  br label %386
 
 .preheader144:                                    ; preds = %.preheader144.preheader, %.preheader144
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader144 ], [ 0, %.preheader144.preheader ]
-  %372 = getelementptr inbounds [3 x i32], ptr %226, i64 0, i64 %indvars.iv
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %372)
+  %370 = getelementptr inbounds [3 x i32], ptr %226, i64 0, i64 %indvars.iv
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %370)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %373, label %.preheader144, !llvm.loop !21
+  br i1 %exitcond.not, label %371, label %.preheader144, !llvm.loop !21
 
-373:                                              ; preds = %.preheader144
-  %374 = getelementptr inbounds i8, ptr %0, i64 2408
-  %375 = load ptr, ptr %374, align 8
-  %.not128 = icmp eq ptr %375, null
-  br i1 %.not128, label %384, label %.preheader
+371:                                              ; preds = %.preheader144
+  %372 = getelementptr inbounds i8, ptr %0, i64 2408
+  %373 = load ptr, ptr %372, align 8
+  %.not128 = icmp eq ptr %373, null
+  br i1 %.not128, label %382, label %.preheader
 
-.preheader:                                       ; preds = %373, %379
-  %376 = load ptr, ptr %374, align 8
-  %377 = call i32 @chdir(ptr noundef %376) #25
-  %378 = icmp slt i32 %377, 0
-  br i1 %378, label %379, label %.critedge2
+.preheader:                                       ; preds = %371, %377
+  %374 = load ptr, ptr %372, align 8
+  %375 = call i32 @chdir(ptr noundef %374) #25
+  %376 = icmp slt i32 %375, 0
+  br i1 %376, label %377, label %.critedge2
 
-379:                                              ; preds = %.preheader
-  %380 = tail call ptr @__errno_location() #28
-  %381 = load i32, ptr %380, align 4
-  %382 = icmp eq i32 %381, 4
-  br i1 %382, label %.preheader, label %.critedge2, !llvm.loop !22
+377:                                              ; preds = %.preheader
+  %378 = tail call ptr @__errno_location() #28
+  %379 = load i32, ptr %378, align 4
+  %380 = icmp eq i32 %379, 4
+  br i1 %380, label %.preheader, label %.critedge2, !llvm.loop !22
 
-.critedge2:                                       ; preds = %.preheader, %379
-  %383 = load ptr, ptr %374, align 8
-  call void @free(ptr noundef %383) #25
-  store ptr null, ptr %374, align 8
-  br label %384
+.critedge2:                                       ; preds = %.preheader, %377
+  %381 = load ptr, ptr %372, align 8
+  call void @free(ptr noundef %381) #25
+  store ptr null, ptr %372, align 8
+  br label %382
 
-384:                                              ; preds = %.critedge2, %373
-  %385 = getelementptr inbounds i8, ptr %0, i64 1156
-  store i32 3, ptr %385, align 4
+382:                                              ; preds = %.critedge2, %371
+  %383 = getelementptr inbounds i8, ptr %0, i64 1156
+  store i32 3, ptr %383, align 4
   store volatile i32 3, ptr %13, align 4
-  %386 = load i32, ptr %99, align 8
-  %387 = getelementptr inbounds i8, ptr %0, i64 1100
-  store i32 %386, ptr %387, align 4
-  br label %388
+  %384 = load i32, ptr %99, align 8
+  %385 = getelementptr inbounds i8, ptr %0, i64 1100
+  store i32 %384, ptr %385, align 4
+  br label %386
 
-388:                                              ; preds = %1, %12, %384, %371, %343, %326, %295, %283, %277, %273, %260, %256, %244, %238, %234, %221, %216, %197, %193, %185, %.critedge, %91, %84, %20
+386:                                              ; preds = %1, %12, %382, %369, %341, %325, %295, %283, %277, %273, %260, %256, %244, %238, %234, %221, %216, %197, %193, %185, %.critedge, %91, %84, %20
   ret void
 }
 
@@ -2730,130 +2728,118 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetNonBlocking(i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %kwsysProcessCleanupDescriptor.exit, label %3
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+  %3 = load i32, ptr %0, align 4
+  %4 = icmp sgt i32 %3, 2
+  br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
 
-3:                                                ; preds = %2
-  %4 = load i32, ptr %0, align 4
-  %5 = icmp sgt i32 %4, 2
-  br i1 %5, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
+.preheader.i:                                     ; preds = %2, %8
+  %5 = load i32, ptr %0, align 4
+  %6 = tail call i32 @close(i32 noundef %5) #25
+  %7 = icmp slt i32 %6, 0
+  br i1 %7, label %8, label %.critedge.i
 
-.preheader.i:                                     ; preds = %3, %9
-  %6 = load i32, ptr %0, align 4
-  %7 = tail call i32 @close(i32 noundef %6) #25
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %.critedge.i
+8:                                                ; preds = %.preheader.i
+  %9 = tail call ptr @__errno_location() #28
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 4
+  br i1 %11, label %.preheader.i, label %.critedge.i, !llvm.loop !31
 
-9:                                                ; preds = %.preheader.i
-  %10 = tail call ptr @__errno_location() #28
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, 4
-  br i1 %12, label %.preheader.i, label %.critedge.i, !llvm.loop !31
-
-.critedge.i:                                      ; preds = %9, %.preheader.i
+.critedge.i:                                      ; preds = %8, %.preheader.i
   store i32 -1, ptr %0, align 4
   br label %kwsysProcessCleanupDescriptor.exit
 
-kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %3, %.critedge.i
-  %13 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 577, i32 noundef 438) #25
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %21, label %15
+kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
+  %12 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 577, i32 noundef 438) #25
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %20, label %14
 
-15:                                               ; preds = %kwsysProcessCleanupDescriptor.exit
-  %16 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %13, i32 noundef 2, i32 noundef 1) #25
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %20
+14:                                               ; preds = %kwsysProcessCleanupDescriptor.exit
+  %15 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %12, i32 noundef 2, i32 noundef 1) #25
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %15
-  %19 = tail call i32 @close(i32 noundef %13) #25
-  br label %21
+17:                                               ; preds = %14
+  %18 = tail call i32 @close(i32 noundef %12) #25
+  br label %20
 
-20:                                               ; preds = %15
-  store i32 %13, ptr %0, align 4
-  br label %21
+19:                                               ; preds = %14
+  store i32 %12, ptr %0, align 4
+  br label %20
 
-21:                                               ; preds = %kwsysProcessCleanupDescriptor.exit, %20, %18
-  %.0 = phi i32 [ 0, %18 ], [ 1, %20 ], [ 0, %kwsysProcessCleanupDescriptor.exit ]
+20:                                               ; preds = %kwsysProcessCleanupDescriptor.exit, %19, %17
+  %.0 = phi i32 [ 0, %17 ], [ 1, %19 ], [ 0, %kwsysProcessCleanupDescriptor.exit ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %0) unnamed_addr #3 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %12, label %2
+define internal fastcc void @kwsysProcessCleanupDescriptor(ptr nocapture noundef %0) unnamed_addr #3 {
+  %2 = load i32, ptr %0, align 4
+  %3 = icmp sgt i32 %2, 2
+  br i1 %3, label %.preheader, label %11
 
-2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 4
-  %4 = icmp sgt i32 %3, 2
-  br i1 %4, label %.preheader, label %12
+.preheader:                                       ; preds = %1, %7
+  %4 = load i32, ptr %0, align 4
+  %5 = tail call i32 @close(i32 noundef %4) #25
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %.critedge
 
-.preheader:                                       ; preds = %2, %8
-  %5 = load i32, ptr %0, align 4
-  %6 = tail call i32 @close(i32 noundef %5) #25
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %.critedge
+7:                                                ; preds = %.preheader
+  %8 = tail call ptr @__errno_location() #28
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, 4
+  br i1 %10, label %.preheader, label %.critedge, !llvm.loop !31
 
-8:                                                ; preds = %.preheader
-  %9 = tail call ptr @__errno_location() #28
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, 4
-  br i1 %11, label %.preheader, label %.critedge, !llvm.loop !31
-
-.critedge:                                        ; preds = %.preheader, %8
+.critedge:                                        ; preds = %.preheader, %7
   store i32 -1, ptr %0, align 4
-  br label %12
+  br label %11
 
-12:                                               ; preds = %.critedge, %2, %1
+11:                                               ; preds = %.critedge, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %kwsysProcessCleanupDescriptor.exit, label %3
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+  %3 = load i32, ptr %0, align 4
+  %4 = icmp sgt i32 %3, 2
+  br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
 
-3:                                                ; preds = %2
-  %4 = load i32, ptr %0, align 4
-  %5 = icmp sgt i32 %4, 2
-  br i1 %5, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
+.preheader.i:                                     ; preds = %2, %8
+  %5 = load i32, ptr %0, align 4
+  %6 = tail call i32 @close(i32 noundef %5) #25
+  %7 = icmp slt i32 %6, 0
+  br i1 %7, label %8, label %.critedge.i
 
-.preheader.i:                                     ; preds = %3, %9
-  %6 = load i32, ptr %0, align 4
-  %7 = tail call i32 @close(i32 noundef %6) #25
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %.critedge.i
+8:                                                ; preds = %.preheader.i
+  %9 = tail call ptr @__errno_location() #28
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 4
+  br i1 %11, label %.preheader.i, label %.critedge.i, !llvm.loop !31
 
-9:                                                ; preds = %.preheader.i
-  %10 = tail call ptr @__errno_location() #28
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, 4
-  br i1 %12, label %.preheader.i, label %.critedge.i, !llvm.loop !31
-
-.critedge.i:                                      ; preds = %9, %.preheader.i
+.critedge.i:                                      ; preds = %8, %.preheader.i
   store i32 -1, ptr %0, align 4
   br label %kwsysProcessCleanupDescriptor.exit
 
-kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %3, %.critedge.i
-  %13 = load i32, ptr %1, align 4
-  %14 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %13, i32 noundef 2, i32 noundef 1) #25
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %23, label %16
+kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
+  %12 = load i32, ptr %1, align 4
+  %13 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %12, i32 noundef 2, i32 noundef 1) #25
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %22, label %15
 
-16:                                               ; preds = %kwsysProcessCleanupDescriptor.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %18, i32 noundef 2, i32 noundef 1) #25
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %23, label %21
+15:                                               ; preds = %kwsysProcessCleanupDescriptor.exit
+  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %17, i32 noundef 2, i32 noundef 1) #25
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %22, label %20
 
-21:                                               ; preds = %16
-  %22 = load i32, ptr %17, align 4
-  store i32 %22, ptr %0, align 4
-  br label %23
+20:                                               ; preds = %15
+  %21 = load i32, ptr %16, align 4
+  store i32 %21, ptr %0, align 4
+  br label %22
 
-23:                                               ; preds = %kwsysProcessCleanupDescriptor.exit, %16, %21
-  %.0 = phi i32 [ 1, %21 ], [ 0, %16 ], [ 0, %kwsysProcessCleanupDescriptor.exit ]
+22:                                               ; preds = %kwsysProcessCleanupDescriptor.exit, %15, %20
+  %.0 = phi i32 [ 1, %20 ], [ 0, %15 ], [ 0, %kwsysProcessCleanupDescriptor.exit ]
   ret i32 %.0
 }
 
@@ -3197,82 +3183,82 @@ kwsysProcessFork.exit:                            ; preds = %130, %136, %.crited
   %169 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #25
   %170 = load i32, ptr %13, align 4
   %171 = icmp sgt i32 %170, 2
-  br i1 %171, label %.preheader.i89, label %kwsysProcessCleanupDescriptor.exit91
+  br i1 %171, label %.preheader.i88, label %kwsysProcessCleanupDescriptor.exit90
 
-.preheader.i89:                                   ; preds = %168, %175
+.preheader.i88:                                   ; preds = %168, %175
   %172 = load i32, ptr %13, align 4
   %173 = call i32 @close(i32 noundef %172) #25
   %174 = icmp slt i32 %173, 0
-  br i1 %174, label %175, label %.critedge.i90
+  br i1 %174, label %175, label %.critedge.i89
 
-175:                                              ; preds = %.preheader.i89
+175:                                              ; preds = %.preheader.i88
   %176 = tail call ptr @__errno_location() #28
   %177 = load i32, ptr %176, align 4
   %178 = icmp eq i32 %177, 4
-  br i1 %178, label %.preheader.i89, label %.critedge.i90, !llvm.loop !31
+  br i1 %178, label %.preheader.i88, label %.critedge.i89, !llvm.loop !31
 
-.critedge.i90:                                    ; preds = %175, %.preheader.i89
+.critedge.i89:                                    ; preds = %175, %.preheader.i88
   store i32 -1, ptr %13, align 4
-  br label %kwsysProcessCleanupDescriptor.exit91
+  br label %kwsysProcessCleanupDescriptor.exit90
 
-kwsysProcessCleanupDescriptor.exit91:             ; preds = %168, %.critedge.i90
+kwsysProcessCleanupDescriptor.exit90:             ; preds = %168, %.critedge.i89
   %179 = load i32, ptr %40, align 4
   %180 = icmp sgt i32 %179, 2
-  br i1 %180, label %.preheader.i93, label %kwsysProcessCleanupDescriptor.exit95
+  br i1 %180, label %.preheader.i91, label %kwsysProcessCleanupDescriptor.exit93
 
-.preheader.i93:                                   ; preds = %kwsysProcessCleanupDescriptor.exit91, %184
+.preheader.i91:                                   ; preds = %kwsysProcessCleanupDescriptor.exit90, %184
   %181 = load i32, ptr %40, align 4
   %182 = call i32 @close(i32 noundef %181) #25
   %183 = icmp slt i32 %182, 0
-  br i1 %183, label %184, label %.critedge.i94
+  br i1 %183, label %184, label %.critedge.i92
 
-184:                                              ; preds = %.preheader.i93
+184:                                              ; preds = %.preheader.i91
   %185 = tail call ptr @__errno_location() #28
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, 4
-  br i1 %187, label %.preheader.i93, label %.critedge.i94, !llvm.loop !31
+  br i1 %187, label %.preheader.i91, label %.critedge.i92, !llvm.loop !31
 
-.critedge.i94:                                    ; preds = %184, %.preheader.i93
+.critedge.i92:                                    ; preds = %184, %.preheader.i91
   store i32 -1, ptr %40, align 4
-  br label %kwsysProcessCleanupDescriptor.exit95
+  br label %kwsysProcessCleanupDescriptor.exit93
 
-kwsysProcessCleanupDescriptor.exit95:             ; preds = %kwsysProcessCleanupDescriptor.exit91, %.critedge.i94
+kwsysProcessCleanupDescriptor.exit93:             ; preds = %kwsysProcessCleanupDescriptor.exit90, %.critedge.i92
   %188 = load i32, ptr %11, align 4
   %189 = icmp sgt i32 %188, 2
-  br i1 %189, label %.preheader.i97, label %kwsysProcessCleanupDescriptor.exit99
+  br i1 %189, label %.preheader.i94, label %kwsysProcessCleanupDescriptor.exit96
 
-.preheader.i97:                                   ; preds = %kwsysProcessCleanupDescriptor.exit95, %193
+.preheader.i94:                                   ; preds = %kwsysProcessCleanupDescriptor.exit93, %193
   %190 = load i32, ptr %11, align 4
   %191 = call i32 @close(i32 noundef %190) #25
   %192 = icmp slt i32 %191, 0
-  br i1 %192, label %193, label %.critedge.i98
+  br i1 %192, label %193, label %.critedge.i95
 
-193:                                              ; preds = %.preheader.i97
+193:                                              ; preds = %.preheader.i94
   %194 = tail call ptr @__errno_location() #28
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, 4
-  br i1 %196, label %.preheader.i97, label %.critedge.i98, !llvm.loop !31
+  br i1 %196, label %.preheader.i94, label %.critedge.i95, !llvm.loop !31
 
-.critedge.i98:                                    ; preds = %193, %.preheader.i97
+.critedge.i95:                                    ; preds = %193, %.preheader.i94
   store i32 -1, ptr %11, align 4
-  br label %kwsysProcessCleanupDescriptor.exit99
+  br label %kwsysProcessCleanupDescriptor.exit96
 
-kwsysProcessCleanupDescriptor.exit99:             ; preds = %kwsysProcessCleanupDescriptor.exit95, %.critedge.i98
+kwsysProcessCleanupDescriptor.exit96:             ; preds = %kwsysProcessCleanupDescriptor.exit93, %.critedge.i95
   %197 = load i32, ptr %45, align 4
   %198 = icmp sgt i32 %197, 2
-  br i1 %198, label %.preheader.i101, label %kwsysProcessCleanupDescriptor.exit61
+  br i1 %198, label %.preheader.i97, label %kwsysProcessCleanupDescriptor.exit61
 
-.preheader.i101:                                  ; preds = %kwsysProcessCleanupDescriptor.exit99, %202
+.preheader.i97:                                   ; preds = %kwsysProcessCleanupDescriptor.exit96, %202
   %199 = load i32, ptr %45, align 4
   %200 = call i32 @close(i32 noundef %199) #25
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %202, label %kwsysProcessCleanupDescriptor.exit61
 
-202:                                              ; preds = %.preheader.i101
+202:                                              ; preds = %.preheader.i97
   %203 = tail call ptr @__errno_location() #28
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %204, 4
-  br i1 %205, label %.preheader.i101, label %kwsysProcessCleanupDescriptor.exit61, !llvm.loop !31
+  br i1 %205, label %.preheader.i97, label %kwsysProcessCleanupDescriptor.exit61, !llvm.loop !31
 
 206:                                              ; preds = %kwsysProcessFork.exit
   %207 = load volatile ptr, ptr %160, align 8
@@ -3399,55 +3385,55 @@ kwsysProcessCleanupDescriptor.exit99:             ; preds = %kwsysProcessCleanup
 292:                                              ; preds = %206
   %293 = load i32, ptr %40, align 4
   %294 = icmp sgt i32 %293, 2
-  br i1 %294, label %.preheader.i105, label %kwsysProcessCleanupDescriptor.exit107
+  br i1 %294, label %.preheader.i100, label %kwsysProcessCleanupDescriptor.exit102
 
-.preheader.i105:                                  ; preds = %292, %298
+.preheader.i100:                                  ; preds = %292, %298
   %295 = load i32, ptr %40, align 4
   %296 = call i32 @close(i32 noundef %295) #25
   %297 = icmp slt i32 %296, 0
-  br i1 %297, label %298, label %.critedge.i106
+  br i1 %297, label %298, label %.critedge.i101
 
-298:                                              ; preds = %.preheader.i105
+298:                                              ; preds = %.preheader.i100
   %299 = tail call ptr @__errno_location() #28
   %300 = load i32, ptr %299, align 4
   %301 = icmp eq i32 %300, 4
-  br i1 %301, label %.preheader.i105, label %.critedge.i106, !llvm.loop !31
+  br i1 %301, label %.preheader.i100, label %.critedge.i101, !llvm.loop !31
 
-.critedge.i106:                                   ; preds = %298, %.preheader.i105
+.critedge.i101:                                   ; preds = %298, %.preheader.i100
   store i32 -1, ptr %40, align 4
-  br label %kwsysProcessCleanupDescriptor.exit107
+  br label %kwsysProcessCleanupDescriptor.exit102
 
-kwsysProcessCleanupDescriptor.exit107:            ; preds = %292, %.critedge.i106
+kwsysProcessCleanupDescriptor.exit102:            ; preds = %292, %.critedge.i101
   %302 = load i32, ptr %45, align 4
   %303 = icmp sgt i32 %302, 2
-  br i1 %303, label %.preheader.i109, label %kwsysProcessCleanupDescriptor.exit111.preheader
+  br i1 %303, label %.preheader.i103, label %kwsysProcessCleanupDescriptor.exit105.preheader
 
-.preheader.i109:                                  ; preds = %kwsysProcessCleanupDescriptor.exit107, %307
+.preheader.i103:                                  ; preds = %kwsysProcessCleanupDescriptor.exit102, %307
   %304 = load i32, ptr %45, align 4
   %305 = call i32 @close(i32 noundef %304) #25
   %306 = icmp slt i32 %305, 0
-  br i1 %306, label %307, label %.critedge.i110
+  br i1 %306, label %307, label %.critedge.i104
 
-307:                                              ; preds = %.preheader.i109
+307:                                              ; preds = %.preheader.i103
   %308 = tail call ptr @__errno_location() #28
   %309 = load i32, ptr %308, align 4
   %310 = icmp eq i32 %309, 4
-  br i1 %310, label %.preheader.i109, label %.critedge.i110, !llvm.loop !31
+  br i1 %310, label %.preheader.i103, label %.critedge.i104, !llvm.loop !31
 
-.critedge.i110:                                   ; preds = %307, %.preheader.i109
+.critedge.i104:                                   ; preds = %307, %.preheader.i103
   store i32 -1, ptr %45, align 4
-  br label %kwsysProcessCleanupDescriptor.exit111.preheader
+  br label %kwsysProcessCleanupDescriptor.exit105.preheader
 
-kwsysProcessCleanupDescriptor.exit111.preheader:  ; preds = %kwsysProcessCleanupDescriptor.exit107, %.critedge.i110
-  br label %kwsysProcessCleanupDescriptor.exit111
+kwsysProcessCleanupDescriptor.exit105.preheader:  ; preds = %kwsysProcessCleanupDescriptor.exit102, %.critedge.i104
+  br label %kwsysProcessCleanupDescriptor.exit105
 
-kwsysProcessCleanupDescriptor.exit111:            ; preds = %kwsysProcessCleanupDescriptor.exit111.preheader, %kwsysProcessCleanupDescriptor.exit111
+kwsysProcessCleanupDescriptor.exit105:            ; preds = %kwsysProcessCleanupDescriptor.exit105.preheader, %kwsysProcessCleanupDescriptor.exit105
   %311 = load i32, ptr %11, align 4
   %312 = call i64 @read(i32 noundef %311, ptr noundef nonnull %12, i64 noundef 1) #25
   %313 = icmp sgt i64 %312, 0
-  br i1 %313, label %kwsysProcessCleanupDescriptor.exit111, label %314, !llvm.loop !37
+  br i1 %313, label %kwsysProcessCleanupDescriptor.exit105, label %314, !llvm.loop !37
 
-314:                                              ; preds = %kwsysProcessCleanupDescriptor.exit111
+314:                                              ; preds = %kwsysProcessCleanupDescriptor.exit105
   %315 = icmp slt i64 %312, 0
   br i1 %315, label %316, label %336
 
@@ -3455,72 +3441,72 @@ kwsysProcessCleanupDescriptor.exit111:            ; preds = %kwsysProcessCleanup
   %317 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #25
   %318 = load i32, ptr %13, align 4
   %319 = icmp sgt i32 %318, 2
-  br i1 %319, label %.preheader.i113, label %kwsysProcessCleanupDescriptor.exit115
+  br i1 %319, label %.preheader.i106, label %kwsysProcessCleanupDescriptor.exit108
 
-.preheader.i113:                                  ; preds = %316, %323
+.preheader.i106:                                  ; preds = %316, %323
   %320 = load i32, ptr %13, align 4
   %321 = call i32 @close(i32 noundef %320) #25
   %322 = icmp slt i32 %321, 0
-  br i1 %322, label %323, label %.critedge.i114
+  br i1 %322, label %323, label %.critedge.i107
 
-323:                                              ; preds = %.preheader.i113
+323:                                              ; preds = %.preheader.i106
   %324 = tail call ptr @__errno_location() #28
   %325 = load i32, ptr %324, align 4
   %326 = icmp eq i32 %325, 4
-  br i1 %326, label %.preheader.i113, label %.critedge.i114, !llvm.loop !31
+  br i1 %326, label %.preheader.i106, label %.critedge.i107, !llvm.loop !31
 
-.critedge.i114:                                   ; preds = %323, %.preheader.i113
+.critedge.i107:                                   ; preds = %323, %.preheader.i106
   store i32 -1, ptr %13, align 4
-  br label %kwsysProcessCleanupDescriptor.exit115
+  br label %kwsysProcessCleanupDescriptor.exit108
 
-kwsysProcessCleanupDescriptor.exit115:            ; preds = %316, %.critedge.i114
+kwsysProcessCleanupDescriptor.exit108:            ; preds = %316, %.critedge.i107
   %327 = load i32, ptr %11, align 4
   %328 = icmp sgt i32 %327, 2
-  br i1 %328, label %.preheader.i117, label %kwsysProcessCleanupDescriptor.exit61
+  br i1 %328, label %.preheader.i109, label %kwsysProcessCleanupDescriptor.exit61
 
-.preheader.i117:                                  ; preds = %kwsysProcessCleanupDescriptor.exit115, %332
+.preheader.i109:                                  ; preds = %kwsysProcessCleanupDescriptor.exit108, %332
   %329 = load i32, ptr %11, align 4
   %330 = call i32 @close(i32 noundef %329) #25
   %331 = icmp slt i32 %330, 0
   br i1 %331, label %332, label %kwsysProcessCleanupDescriptor.exit61
 
-332:                                              ; preds = %.preheader.i117
+332:                                              ; preds = %.preheader.i109
   %333 = tail call ptr @__errno_location() #28
   %334 = load i32, ptr %333, align 4
   %335 = icmp eq i32 %334, 4
-  br i1 %335, label %.preheader.i117, label %kwsysProcessCleanupDescriptor.exit61, !llvm.loop !31
+  br i1 %335, label %.preheader.i109, label %kwsysProcessCleanupDescriptor.exit61, !llvm.loop !31
 
 336:                                              ; preds = %314
   %337 = load i32, ptr %11, align 4
   %338 = icmp sgt i32 %337, 2
-  br i1 %338, label %.preheader.i121, label %kwsysProcessCleanupDescriptor.exit123
+  br i1 %338, label %.preheader.i112, label %kwsysProcessCleanupDescriptor.exit114
 
-.preheader.i121:                                  ; preds = %336, %342
+.preheader.i112:                                  ; preds = %336, %342
   %339 = load i32, ptr %11, align 4
   %340 = call i32 @close(i32 noundef %339) #25
   %341 = icmp slt i32 %340, 0
-  br i1 %341, label %342, label %.critedge.i122
+  br i1 %341, label %342, label %.critedge.i113
 
-342:                                              ; preds = %.preheader.i121
+342:                                              ; preds = %.preheader.i112
   %343 = tail call ptr @__errno_location() #28
   %344 = load i32, ptr %343, align 4
   %345 = icmp eq i32 %344, 4
-  br i1 %345, label %.preheader.i121, label %.critedge.i122, !llvm.loop !31
+  br i1 %345, label %.preheader.i112, label %.critedge.i113, !llvm.loop !31
 
-.critedge.i122:                                   ; preds = %342, %.preheader.i121
+.critedge.i113:                                   ; preds = %342, %.preheader.i112
   store i32 -1, ptr %11, align 4
-  br label %kwsysProcessCleanupDescriptor.exit123
+  br label %kwsysProcessCleanupDescriptor.exit114
 
-kwsysProcessCleanupDescriptor.exit123:            ; preds = %336, %.critedge.i122
+kwsysProcessCleanupDescriptor.exit114:            ; preds = %336, %.critedge.i113
   %346 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #25
   %347 = icmp slt i32 %346, 0
   br i1 %347, label %348, label %349
 
-348:                                              ; preds = %kwsysProcessCleanupDescriptor.exit123
+348:                                              ; preds = %kwsysProcessCleanupDescriptor.exit114
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %13)
   br label %kwsysProcessCleanupDescriptor.exit61
 
-349:                                              ; preds = %kwsysProcessCleanupDescriptor.exit123
+349:                                              ; preds = %kwsysProcessCleanupDescriptor.exit114
   %350 = getelementptr inbounds i8, ptr %0, i64 1288
   %351 = load i32, ptr %350, align 8
   %352 = add nsw i32 %351, 1
@@ -3529,9 +3515,9 @@ kwsysProcessCleanupDescriptor.exit123:            ; preds = %336, %.critedge.i12
   br label %.preheader
 
 .preheader:                                       ; preds = %349, %.critedge
-  %.049129 = phi i64 [ 0, %349 ], [ %spec.select, %.critedge ]
-  %354 = getelementptr inbounds i8, ptr %353, i64 %.049129
-  %355 = sub nuw nsw i64 1024, %.049129
+  %.049119 = phi i64 [ 0, %349 ], [ %spec.select, %.critedge ]
+  %354 = getelementptr inbounds i8, ptr %353, i64 %.049119
+  %355 = sub nuw nsw i64 1024, %.049119
   br label %356
 
 356:                                              ; preds = %.preheader, %360
@@ -3547,41 +3533,41 @@ kwsysProcessCleanupDescriptor.exit123:            ; preds = %336, %.critedge.i12
   br i1 %363, label %356, label %.loopexit, !llvm.loop !38
 
 .critedge:                                        ; preds = %356
-  %spec.select = add nuw nsw i64 %358, %.049129
+  %spec.select = add nuw nsw i64 %358, %.049119
   %364 = icmp ult i64 %spec.select, 1024
   %365 = icmp ne i64 %358, 0
   %366 = and i1 %364, %365
   br i1 %366, label %.preheader, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.critedge, %360
-  %spec.select132 = phi i64 [ %.049129, %360 ], [ %spec.select, %.critedge ]
+  %spec.select122 = phi i64 [ %.049119, %360 ], [ %spec.select, %.critedge ]
   %367 = load i32, ptr %13, align 4
   %368 = icmp sgt i32 %367, 2
-  br i1 %368, label %.preheader.i125, label %kwsysProcessCleanupDescriptor.exit127
+  br i1 %368, label %.preheader.i115, label %kwsysProcessCleanupDescriptor.exit117
 
-.preheader.i125:                                  ; preds = %.loopexit, %372
+.preheader.i115:                                  ; preds = %.loopexit, %372
   %369 = load i32, ptr %13, align 4
   %370 = call i32 @close(i32 noundef %369) #25
   %371 = icmp slt i32 %370, 0
-  br i1 %371, label %372, label %.critedge.i126
+  br i1 %371, label %372, label %.critedge.i116
 
-372:                                              ; preds = %.preheader.i125
+372:                                              ; preds = %.preheader.i115
   %373 = tail call ptr @__errno_location() #28
   %374 = load i32, ptr %373, align 4
   %375 = icmp eq i32 %374, 4
-  br i1 %375, label %.preheader.i125, label %.critedge.i126, !llvm.loop !31
+  br i1 %375, label %.preheader.i115, label %.critedge.i116, !llvm.loop !31
 
-.critedge.i126:                                   ; preds = %372, %.preheader.i125
+.critedge.i116:                                   ; preds = %372, %.preheader.i115
   store i32 -1, ptr %13, align 4
-  br label %kwsysProcessCleanupDescriptor.exit127
+  br label %kwsysProcessCleanupDescriptor.exit117
 
-kwsysProcessCleanupDescriptor.exit127:            ; preds = %.loopexit, %.critedge.i126
-  %376 = icmp eq i64 %spec.select132, 0
+kwsysProcessCleanupDescriptor.exit117:            ; preds = %.loopexit, %.critedge.i116
+  %376 = icmp eq i64 %spec.select122, 0
   %. = zext i1 %376 to i32
   br label %kwsysProcessCleanupDescriptor.exit61
 
-kwsysProcessCleanupDescriptor.exit61:             ; preds = %.preheader.i117, %332, %.preheader.i101, %202, %.preheader.i83, %126, %.preheader.i71, %83, %kwsysProcessCleanupDescriptor.exit115, %kwsysProcessCleanupDescriptor.exit99, %kwsysProcessCleanupDescriptor.exit82, %kwsysProcessCleanupDescriptor.exit70, %.critedge.i60, %kwsysProcessCleanupDescriptor.exit, %kwsysProcessCleanupDescriptor.exit127, %3, %348
-  %.050 = phi i32 [ 0, %348 ], [ 0, %3 ], [ %., %kwsysProcessCleanupDescriptor.exit127 ], [ 0, %kwsysProcessCleanupDescriptor.exit ], [ 0, %.critedge.i60 ], [ 0, %kwsysProcessCleanupDescriptor.exit70 ], [ 0, %kwsysProcessCleanupDescriptor.exit82 ], [ 0, %kwsysProcessCleanupDescriptor.exit99 ], [ 0, %kwsysProcessCleanupDescriptor.exit115 ], [ 0, %83 ], [ 0, %.preheader.i71 ], [ 0, %126 ], [ 0, %.preheader.i83 ], [ 0, %202 ], [ 0, %.preheader.i101 ], [ 0, %332 ], [ 0, %.preheader.i117 ]
+kwsysProcessCleanupDescriptor.exit61:             ; preds = %.preheader.i109, %332, %.preheader.i97, %202, %.preheader.i83, %126, %.preheader.i71, %83, %kwsysProcessCleanupDescriptor.exit108, %kwsysProcessCleanupDescriptor.exit96, %kwsysProcessCleanupDescriptor.exit82, %kwsysProcessCleanupDescriptor.exit70, %.critedge.i60, %kwsysProcessCleanupDescriptor.exit, %kwsysProcessCleanupDescriptor.exit117, %3, %348
+  %.050 = phi i32 [ 0, %348 ], [ 0, %3 ], [ %., %kwsysProcessCleanupDescriptor.exit117 ], [ 0, %kwsysProcessCleanupDescriptor.exit ], [ 0, %.critedge.i60 ], [ 0, %kwsysProcessCleanupDescriptor.exit70 ], [ 0, %kwsysProcessCleanupDescriptor.exit82 ], [ 0, %kwsysProcessCleanupDescriptor.exit96 ], [ 0, %kwsysProcessCleanupDescriptor.exit108 ], [ 0, %83 ], [ 0, %.preheader.i71 ], [ 0, %126 ], [ 0, %.preheader.i83 ], [ 0, %202 ], [ 0, %.preheader.i97 ], [ 0, %332 ], [ 0, %.preheader.i109 ]
   ret i32 %.050
 }
 
@@ -3882,8 +3868,8 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %81, %75, %.split
   ]
 
 .critedge.i:                                      ; preds = %125
-  %.not93.i = icmp eq i64 %127, 0
-  br i1 %.not93.i, label %.loopexit, label %132
+  %.not92.i = icmp eq i64 %127, 0
+  br i1 %.not92.i, label %.loopexit, label %132
 
 132:                                              ; preds = %.critedge.i
   %133 = icmp eq i64 %indvars.iv.i, 2
@@ -4014,25 +4000,25 @@ kwsysProcessDestroy.exit.i:                       ; preds = %._crit_edge.i.i, %1
 .loopexit:                                        ; preds = %129, %.critedge.i
   %187 = load i32, ptr %110, align 4
   %188 = icmp sgt i32 %187, 2
-  br i1 %188, label %.preheader.i88.i, label %kwsysProcessCleanupDescriptor.exit.i
+  br i1 %188, label %.preheader.i87.i, label %kwsysProcessCleanupDescriptor.exit.i
 
-.preheader.i88.i:                                 ; preds = %.loopexit, %192
+.preheader.i87.i:                                 ; preds = %.loopexit, %192
   %189 = load i32, ptr %110, align 4
   %190 = call i32 @close(i32 noundef %189) #25
   %191 = icmp slt i32 %190, 0
-  br i1 %191, label %192, label %.critedge.i89.i
+  br i1 %191, label %192, label %.critedge.i88.i
 
-192:                                              ; preds = %.preheader.i88.i
+192:                                              ; preds = %.preheader.i87.i
   %193 = tail call ptr @__errno_location() #28
   %194 = load i32, ptr %193, align 4
   %195 = icmp eq i32 %194, 4
-  br i1 %195, label %.preheader.i88.i, label %.critedge.i89.i, !llvm.loop !31
+  br i1 %195, label %.preheader.i87.i, label %.critedge.i88.i, !llvm.loop !31
 
-.critedge.i89.i:                                  ; preds = %192, %.preheader.i88.i
+.critedge.i88.i:                                  ; preds = %192, %.preheader.i87.i
   store i32 -1, ptr %110, align 4
   br label %kwsysProcessCleanupDescriptor.exit.i
 
-kwsysProcessCleanupDescriptor.exit.i:             ; preds = %.critedge.i89.i, %.loopexit
+kwsysProcessCleanupDescriptor.exit.i:             ; preds = %.critedge.i88.i, %.loopexit
   %196 = load i32, ptr %82, align 4
   %197 = add nsw i32 %196, -1
   store i32 %197, ptr %82, align 4
@@ -4091,9 +4077,9 @@ kwsysProcessGetTimeoutLeft.exit.i.preheader:      ; preds = %.thread24.i.i, %199
   br label %kwsysProcessWaitForPipe.exit.thread
 
 kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTimeoutLeft.exit.i.preheader, %227
-  %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %227 ], [ 0, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
-  %.075106.i = phi i32 [ %.176.i, %227 ], [ -1, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
-  %214 = getelementptr inbounds [3 x i32], ptr %85, i64 0, i64 %indvars.iv119.i
+  %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %227 ], [ 0, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
+  %.075105.i = phi i32 [ %.176.i, %227 ], [ -1, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
+  %214 = getelementptr inbounds [3 x i32], ptr %85, i64 0, i64 %indvars.iv118.i
   %215 = load i32, ptr %214, align 4
   %216 = icmp sgt i32 %215, -1
   br i1 %216, label %217, label %227
@@ -4109,14 +4095,14 @@ kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTime
   %225 = or i64 %224, %220
   store i64 %225, ptr %223, align 8
   %226 = load i32, ptr %214, align 4
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %226, i32 %.075106.i)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %226, i32 %.075105.i)
   br label %227
 
 227:                                              ; preds = %217, %kwsysProcessGetTimeoutLeft.exit.i
-  %.176.i = phi i32 [ %.075106.i, %kwsysProcessGetTimeoutLeft.exit.i ], [ %spec.select.i, %217 ]
-  %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
-  %exitcond122.not.i = icmp eq i64 %indvars.iv.next120.i, 3
-  br i1 %exitcond122.not.i, label %228, label %kwsysProcessGetTimeoutLeft.exit.i, !llvm.loop !45
+  %.176.i = phi i32 [ %.075105.i, %kwsysProcessGetTimeoutLeft.exit.i ], [ %spec.select.i, %217 ]
+  %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
+  %exitcond121.not.i = icmp eq i64 %indvars.iv.next119.i, 3
+  br i1 %exitcond121.not.i, label %228, label %kwsysProcessGetTimeoutLeft.exit.i, !llvm.loop !45
 
 228:                                              ; preds = %227
   %229 = icmp slt i32 %.176.i, 0

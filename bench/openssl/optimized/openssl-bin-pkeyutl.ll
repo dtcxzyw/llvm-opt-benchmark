@@ -943,7 +943,7 @@ declare i32 @app_RAND_load() local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @init_ctx(ptr noundef %kdfalg, ptr nocapture noundef writeonly %pkeysize, ptr noundef %keyfile, i32 noundef %keyform, i32 noundef %key_type, ptr noundef %passinarg, i32 noundef %pkey_op, ptr noundef %e, i32 noundef %engine_impl, i32 noundef %rawin, ptr noundef writeonly %ppkey, ptr noundef %mctx, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc ptr @init_ctx(ptr noundef %kdfalg, ptr nocapture noundef writeonly %pkeysize, ptr noundef %keyfile, i32 noundef %keyform, i32 noundef %key_type, ptr noundef %passinarg, i32 noundef %pkey_op, ptr noundef %e, i32 noundef %engine_impl, i32 noundef %rawin, ptr nocapture noundef writeonly %ppkey, ptr noundef %mctx, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %passin = alloca ptr, align 8
   store ptr null, ptr %passin, align 8
@@ -1045,27 +1045,20 @@ if.end43:                                         ; preds = %if.else40
 
 if.then46:                                        ; preds = %if.end43
   %call47 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %pkey.0, ptr noundef nonnull %spec.select) #5
-  br label %if.end50
+  br label %if.then52
 
 if.else48:                                        ; preds = %if.end43
   %call49 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %libctx, ptr noundef nonnull %pkey.0, ptr noundef %propq) #5
-  br label %if.end50
+  br label %if.then52
 
-if.end50:                                         ; preds = %if.else48, %if.then46
+if.then52:                                        ; preds = %if.then46, %if.else48
   %ctx.2 = phi ptr [ %call47, %if.then46 ], [ %call49, %if.else48 ]
-  %cmp51.not = icmp eq ptr %ppkey, null
-  br i1 %cmp51.not, label %if.end53, label %if.then52
-
-if.then52:                                        ; preds = %if.end50
   store ptr %pkey.0, ptr %ppkey, align 8
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.then52, %if.end50
   call void @EVP_PKEY_free(ptr noundef nonnull %pkey.0) #5
   br label %if.end54
 
-if.end54:                                         ; preds = %if.then36, %if.else, %if.end53
-  %ctx.1 = phi ptr [ %call37, %if.then36 ], [ %call38, %if.else ], [ %ctx.2, %if.end53 ]
+if.end54:                                         ; preds = %if.then36, %if.else, %if.then52
+  %ctx.1 = phi ptr [ %call37, %if.then36 ], [ %call38, %if.else ], [ %ctx.2, %if.then52 ]
   %cmp55 = icmp eq ptr %ctx.1, null
   br i1 %cmp55, label %end, label %if.end57
 

@@ -324,10 +324,10 @@ if.end41:                                         ; preds = %if.then38, %if.end3
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %call42
   %sub43 = sub i64 %dictBufferCapacity, %call42
   %call45 = call i64 @ZDICT_finalizeDictionary(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %add.ptr, i64 noundef %sub43, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %zParams) #23
-  %cmp.i26 = icmp ult i64 %call45, -119
+  %cmp.i24 = icmp ult i64 %call45, -119
   %31 = load i32, ptr @g_displayLevel, align 4
   %cmp49 = icmp sgt i32 %31, 1
-  %or.cond = select i1 %cmp.i26, i1 %cmp49, i1 false
+  %or.cond = select i1 %cmp.i24, i1 %cmp49, i1 false
   br i1 %or.cond, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end41
@@ -339,48 +339,48 @@ if.then50:                                        ; preds = %if.end41
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then50, %if.end41
-  %suffix.i30 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %34 = load ptr, ptr %suffix.i30, align 8
-  %tobool1.not.i31 = icmp eq ptr %34, null
-  br i1 %tobool1.not.i31, label %if.end5.i33, label %if.then2.i32
+  %suffix.i26 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %34 = load ptr, ptr %suffix.i26, align 8
+  %tobool1.not.i27 = icmp eq ptr %34, null
+  br i1 %tobool1.not.i27, label %if.end5.i29, label %if.then2.i28
 
-if.then2.i32:                                     ; preds = %if.end54
+if.then2.i28:                                     ; preds = %if.end54
   call void @free(ptr noundef nonnull %34) #23
-  store ptr null, ptr %suffix.i30, align 8
-  br label %if.end5.i33
+  store ptr null, ptr %suffix.i26, align 8
+  br label %if.end5.i29
 
-if.end5.i33:                                      ; preds = %if.then2.i32, %if.end54
+if.end5.i29:                                      ; preds = %if.then2.i28, %if.end54
   %35 = load ptr, ptr %freqs, align 8
-  %tobool6.not.i35 = icmp eq ptr %35, null
-  br i1 %tobool6.not.i35, label %if.end10.i37, label %if.then7.i36
+  %tobool6.not.i31 = icmp eq ptr %35, null
+  br i1 %tobool6.not.i31, label %if.end10.i33, label %if.then7.i32
 
-if.then7.i36:                                     ; preds = %if.end5.i33
+if.then7.i32:                                     ; preds = %if.end5.i29
   call void @free(ptr noundef nonnull %35) #23
   store ptr null, ptr %freqs, align 8
-  br label %if.end10.i37
+  br label %if.end10.i33
 
-if.end10.i37:                                     ; preds = %if.then7.i36, %if.end5.i33
-  %dmerAt.i38 = getelementptr inbounds i8, ptr %ctx, i64 72
-  %36 = load ptr, ptr %dmerAt.i38, align 8
-  %tobool11.not.i39 = icmp eq ptr %36, null
-  br i1 %tobool11.not.i39, label %if.end15.i41, label %if.then12.i40
+if.end10.i33:                                     ; preds = %if.then7.i32, %if.end5.i29
+  %dmerAt.i34 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %36 = load ptr, ptr %dmerAt.i34, align 8
+  %tobool11.not.i35 = icmp eq ptr %36, null
+  br i1 %tobool11.not.i35, label %if.end15.i37, label %if.then12.i36
 
-if.then12.i40:                                    ; preds = %if.end10.i37
+if.then12.i36:                                    ; preds = %if.end10.i33
   call void @free(ptr noundef nonnull %36) #23
-  store ptr null, ptr %dmerAt.i38, align 8
-  br label %if.end15.i41
+  store ptr null, ptr %dmerAt.i34, align 8
+  br label %if.end15.i37
 
-if.end15.i41:                                     ; preds = %if.then12.i40, %if.end10.i37
-  %offsets.i42 = getelementptr inbounds i8, ptr %ctx, i64 8
-  %37 = load ptr, ptr %offsets.i42, align 8
-  %tobool16.not.i43 = icmp eq ptr %37, null
-  br i1 %tobool16.not.i43, label %COVER_map_destroy.exit, label %if.then17.i44
+if.end15.i37:                                     ; preds = %if.then12.i36, %if.end10.i33
+  %offsets.i38 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %37 = load ptr, ptr %offsets.i38, align 8
+  %tobool16.not.i39 = icmp eq ptr %37, null
+  br i1 %tobool16.not.i39, label %COVER_map_destroy.exit, label %if.then17.i40
 
-if.then17.i44:                                    ; preds = %if.end15.i41
+if.then17.i40:                                    ; preds = %if.end15.i37
   call void @free(ptr noundef nonnull %37) #23
   br label %COVER_map_destroy.exit
 
-COVER_map_destroy.exit:                           ; preds = %if.end15.i41, %if.then17.i44
+COVER_map_destroy.exit:                           ; preds = %if.end15.i37, %if.then17.i40
   call void @free(ptr noundef nonnull %call5.i) #23
   br label %return
 
@@ -581,7 +581,7 @@ lor.lhs.false103:                                 ; preds = %if.end74
 if.then109:                                       ; preds = %lor.lhs.false103, %if.end74
   %18 = load i32, ptr @g_displayLevel, align 4
   %cmp110 = icmp sgt i32 %18, 0
-  br i1 %cmp110, label %if.then112, label %if.end.i
+  br i1 %cmp110, label %if.then112, label %if.end115
 
 if.then112:                                       ; preds = %if.then109
   %19 = load ptr, ptr @stderr, align 8
@@ -589,19 +589,19 @@ if.then112:                                       ; preds = %if.then109
   %21 = load ptr, ptr @stderr, align 8
   %call114 = tail call i32 @fflush(ptr noundef %21)
   %.pre115 = load ptr, ptr %suffix, align 8
-  br label %if.end.i
+  br label %if.end115
 
-if.end.i:                                         ; preds = %if.then109, %if.then112
-  %22 = phi ptr [ %call94, %if.then109 ], [ %.pre115, %if.then112 ]
+if.end115:                                        ; preds = %if.then112, %if.then109
+  %22 = phi ptr [ %.pre115, %if.then112 ], [ %call94, %if.then109 ]
   %tobool1.not.i = icmp eq ptr %22, null
   br i1 %tobool1.not.i, label %if.end5.i, label %if.then2.i
 
-if.then2.i:                                       ; preds = %if.end.i
+if.then2.i:                                       ; preds = %if.end115
   tail call void @free(ptr noundef nonnull %22) #23
   store ptr null, ptr %suffix, align 8
   br label %if.end5.i
 
-if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
+if.end5.i:                                        ; preds = %if.then2.i, %if.end115
   %freqs.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %23 = load ptr, ptr %freqs.i, align 8
   %tobool6.not.i = icmp eq ptr %23, null

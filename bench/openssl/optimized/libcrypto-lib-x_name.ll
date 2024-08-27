@@ -384,7 +384,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_name_ex_d2i(ptr nocapture noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture readnone %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #1 {
+define internal range(i32 -2147483648, 2) i32 @x509_name_ex_d2i(ptr nocapture noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture readnone %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #1 {
 entry:
   %p = alloca ptr, align 8
   %intname = alloca %union.anon, align 8

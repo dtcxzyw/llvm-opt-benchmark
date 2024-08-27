@@ -81,14 +81,14 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN18cmHexFileConverter17Determine
   br label %_ZL11ChompStrlenPKc.exit
 
 _ZL11ChompStrlenPKc.exit:                         ; preds = %21, %26
-  %.013.i = phi i32 [ %22, %26 ], [ %.0.i, %21 ]
-  %27 = icmp ult i32 %.013.i, %.015
-  %28 = icmp ugt i32 %.013.i, %.014
+  %.1.i = phi i32 [ %22, %26 ], [ %.0.i, %21 ]
+  %27 = icmp ult i32 %.1.i, %.015
+  %28 = icmp ugt i32 %.1.i, %.014
   %or.cond = or i1 %27, %28
   br i1 %or.cond, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZL11ChompStrlenPKc.exit
-  %wide.trip.count = zext nneg i32 %.013.i to i64
+  %wide.trip.count = zext nneg i32 %.1.i to i64
   br label %.lr.ph
 
 29:                                               ; preds = %.lr.ph
@@ -194,10 +194,10 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread70: ; preds = %42, %42, 
   br label %_ZL11ChompStrlenPKc.exit.i.us
 
 _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %38, %33
-  %.013.i.i.us = phi i32 [ %34, %38 ], [ %.0.i.i.us, %33 ]
-  %39 = add i32 %.013.i.i.us, -10
+  %.1.i.i.us = phi i32 [ %34, %38 ], [ %.0.i.i.us, %33 ]
+  %39 = add i32 %.1.i.i.us, -10
   %or.cond.i.us = icmp ult i32 %39, 517
-  %40 = and i32 %.013.i.i.us, 1
+  %40 = and i32 %.1.i.i.us, 1
   %.not.i.us = icmp eq i32 %40, 0
   %or.cond21.i.us = and i1 %or.cond.i.us, %.not.i.us
   %41 = load i8, ptr %9, align 16
@@ -225,7 +225,7 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %38, %33
 
 46:                                               ; preds = %45, %44, %42
   %.0.i.us = phi i32 [ 10, %45 ], [ 12, %44 ], [ 8, %42 ]
-  %47 = add nsw i32 %.013.i.i.us, -2
+  %47 = add nsw i32 %.1.i.i.us, -2
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -321,10 +321,10 @@ _ZL19ConvertIntelHexLinePKcP8_IO_FILE.exit.us.thread78: ; preds = %86, %86, %86,
   br label %_ZL11ChompStrlenPKc.exit.i29.us
 
 _ZL11ChompStrlenPKc.exit.i29.us:                  ; preds = %80, %75
-  %.013.i.i30.us = phi i32 [ %76, %80 ], [ %.0.i.i28.us, %75 ]
-  %81 = add i32 %.013.i.i30.us, -11
+  %.1.i.i30.us = phi i32 [ %76, %80 ], [ %.0.i.i28.us, %75 ]
+  %81 = add i32 %.1.i.i30.us, -11
   %or.cond.i31.us = icmp ult i32 %81, 513
-  %82 = and i32 %.013.i.i30.us, 1
+  %82 = and i32 %.1.i.i30.us, 1
   %83 = icmp ne i32 %82, 0
   %or.cond21.i32.not51.us = and i1 %or.cond.i31.us, %83
   %84 = load i8, ptr %9, align 16
@@ -347,7 +347,7 @@ _ZL11ChompStrlenPKc.exit.i29.us:                  ; preds = %80, %75
   ]
 
 88:                                               ; preds = %86, %86
-  %89 = add nsw i32 %.013.i.i30.us, -2
+  %89 = add nsw i32 %.1.i.i30.us, -2
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)

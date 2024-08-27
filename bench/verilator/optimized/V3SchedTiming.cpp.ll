@@ -6544,7 +6544,7 @@ define internal void @_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor5
   %38 = load i8, ptr %37, align 1
   %39 = and i8 %38, 2
   %.not141 = icmp eq i8 %39, 0
-  br i1 %.not141, label %298, label %40
+  br i1 %.not141, label %295, label %40
 
 40:                                               ; preds = %32, %36
   %41 = getelementptr inbounds i8, ptr %1, i64 152
@@ -7198,8 +7198,8 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetli
   %222 = icmp eq i64 %indvars.iv.next.i.i.i, 0
   br i1 %222, label %224, label %220, !llvm.loop !41
 
-.loopexit.i.loopexit.i.i:                         ; preds = %291, %_ZNKSt6vectorIP7AstNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.sroa.0.5.ph.i.i = phi ptr [ %.sroa.0.2.i.i, %_ZNKSt6vectorIP7AstNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.0.4.i.i, %291 ]
+.loopexit.i.loopexit.i.i:                         ; preds = %290, %_ZNKSt6vectorIP7AstNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %.sroa.0.5.ph.i.i = phi ptr [ %.sroa.0.2.i.i, %_ZNKSt6vectorIP7AstNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.0.4.i.i, %290 ]
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i.i
@@ -7237,15 +7237,15 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetli
   %227 = getelementptr inbounds i8, ptr %218, i64 232
   br label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %291, %.preheader.preheader.i.i.i
-  %.sroa.0.2.i.i = phi ptr [ %218, %.preheader.preheader.i.i.i ], [ %.sroa.0.4.i.i, %291 ]
-  %.sroa.12.0.i.i = phi ptr [ %226, %.preheader.preheader.i.i.i ], [ %.sroa.12.2.i.i, %291 ]
-  %.sroa.20.0.i.i = phi ptr [ %226, %.preheader.preheader.i.i.i ], [ %.sroa.20.2.i.i, %291 ]
-  %.045.i.i.i = phi ptr [ %219, %.preheader.preheader.i.i.i ], [ %.146.i.i.i, %291 ]
-  %.044.i.i.i = phi ptr [ %227, %.preheader.preheader.i.i.i ], [ %.1.i.i.i, %291 ]
+.preheader.i.i.i:                                 ; preds = %290, %.preheader.preheader.i.i.i
+  %.sroa.0.2.i.i = phi ptr [ %218, %.preheader.preheader.i.i.i ], [ %.sroa.0.4.i.i, %290 ]
+  %.sroa.12.0.i.i = phi ptr [ %226, %.preheader.preheader.i.i.i ], [ %.sroa.12.2.i.i, %290 ]
+  %.sroa.20.0.i.i = phi ptr [ %226, %.preheader.preheader.i.i.i ], [ %.sroa.20.2.i.i, %290 ]
+  %.045.i.i.i = phi ptr [ %219, %.preheader.preheader.i.i.i ], [ %.146.i.i.i, %290 ]
+  %.044.i.i.i = phi ptr [ %227, %.preheader.preheader.i.i.i ], [ %.1.i.i.i, %290 ]
   %228 = load ptr, ptr %3, align 8
   %229 = icmp ugt ptr %228, %.045.i.i.i
-  br i1 %229, label %230, label %292
+  br i1 %229, label %230, label %291
 
 230:                                              ; preds = %.preheader.i.i.i
   %231 = getelementptr inbounds i8, ptr %228, i64 -8
@@ -7258,7 +7258,7 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetli
   %236 = getelementptr inbounds i8, ptr %234, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %236, i32 0, i32 3, i32 1)
   %.not14.i.i.i = icmp ult ptr %231, %.044.i.i.i
-  br i1 %.not14.i.i.i, label %285, label %237
+  br i1 %.not14.i.i.i, label %284, label %237
 
 237:                                              ; preds = %230
   %238 = ptrtoint ptr %.sroa.12.0.i.i to i64
@@ -7267,7 +7267,7 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetli
   %241 = ashr exact i64 %240, 3
   %242 = ashr exact i64 %240, 2
   %243 = icmp ugt i64 %242, %241
-  br i1 %243, label %244, label %275
+  br i1 %243, label %244, label %274
 
 244:                                              ; preds = %237
   %245 = sub nuw nsw i64 %242, %241
@@ -7329,115 +7329,101 @@ _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i.i.i: ; preds = 
 
 _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit32.i.i.i: ; preds = %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i.i.i, %.noexc2.i.i
   %270 = icmp sgt i64 %240, 0
-  br i1 %270, label %271, label %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
+  br i1 %270, label %271, label %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i
 
 271:                                              ; preds = %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit32.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %264, ptr align 8 %.sroa.0.2.i.i, i64 %240, i1 false)
-  br label %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
-
-_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i: ; preds = %271, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit32.i.i.i
-  %.not.i34.i.i.i = icmp eq ptr %.sroa.0.2.i.i, null
-  br i1 %.not.i34.i.i.i, label %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i, label %272
-
-272:                                              ; preds = %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.i.i) #23
   br label %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i
 
-_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i: ; preds = %272, %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
-  %273 = getelementptr inbounds ptr, ptr %265, i64 %245
-  %274 = getelementptr inbounds ptr, ptr %264, i64 %262
+_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i: ; preds = %271, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit32.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.i.i) #23
+  %272 = getelementptr inbounds ptr, ptr %265, i64 %245
+  %273 = getelementptr inbounds ptr, ptr %264, i64 %262
   br label %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i
 
-275:                                              ; preds = %237
-  %276 = icmp ult i64 %242, %241
-  %277 = getelementptr inbounds ptr, ptr %.sroa.0.2.i.i, i64 %242
-  %spec.select.i.i = select i1 %276, ptr %277, ptr %.sroa.12.0.i.i
+274:                                              ; preds = %237
+  %275 = icmp ult i64 %242, %241
+  %276 = getelementptr inbounds ptr, ptr %.sroa.0.2.i.i, i64 %242
+  %spec.select.i.i = select i1 %275, ptr %276, ptr %.sroa.12.0.i.i
   br label %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i
 
-_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i: ; preds = %275, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %252
-  %.sroa.0.3.i.i = phi ptr [ %264, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i ], [ %.sroa.0.2.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.sroa.0.2.i.i, %252 ], [ %.sroa.0.2.i.i, %275 ]
-  %.sroa.12.1.i.i = phi ptr [ %273, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i ], [ %257, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %253, %252 ], [ %spec.select.i.i, %275 ]
-  %.sroa.20.1.i.i = phi ptr [ %274, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i ], [ %.sroa.20.0.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.sroa.20.0.i.i, %252 ], [ %.sroa.20.0.i.i, %275 ]
-  %278 = ptrtoint ptr %231 to i64
-  %279 = ptrtoint ptr %.045.i.i.i to i64
-  %280 = sub i64 %278, %279
-  %281 = getelementptr inbounds i8, ptr %.sroa.0.3.i.i, i64 16
-  %282 = getelementptr inbounds i8, ptr %281, i64 %280
-  store ptr %282, ptr %3, align 8
-  %283 = getelementptr inbounds ptr, ptr %281, i64 %242
-  %284 = getelementptr inbounds i8, ptr %283, i64 -40
-  br label %285
+_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i: ; preds = %274, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %252
+  %.sroa.0.3.i.i = phi ptr [ %264, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i ], [ %.sroa.0.2.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.sroa.0.2.i.i, %252 ], [ %.sroa.0.2.i.i, %274 ]
+  %.sroa.12.1.i.i = phi ptr [ %272, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i ], [ %257, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %253, %252 ], [ %spec.select.i.i, %274 ]
+  %.sroa.20.1.i.i = phi ptr [ %273, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i ], [ %.sroa.20.0.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.sroa.20.0.i.i, %252 ], [ %.sroa.20.0.i.i, %274 ]
+  %277 = ptrtoint ptr %231 to i64
+  %278 = ptrtoint ptr %.045.i.i.i to i64
+  %279 = sub i64 %277, %278
+  %280 = getelementptr inbounds i8, ptr %.sroa.0.3.i.i, i64 16
+  %281 = getelementptr inbounds i8, ptr %280, i64 %279
+  store ptr %281, ptr %3, align 8
+  %282 = getelementptr inbounds ptr, ptr %280, i64 %242
+  %283 = getelementptr inbounds i8, ptr %282, i64 -40
+  br label %284
 
-285:                                              ; preds = %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i, %230
+284:                                              ; preds = %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i, %230
   %.sroa.0.4.i.i = phi ptr [ %.sroa.0.2.i.i, %230 ], [ %.sroa.0.3.i.i, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
   %.sroa.12.2.i.i = phi ptr [ %.sroa.12.0.i.i, %230 ], [ %.sroa.12.1.i.i, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
   %.sroa.20.2.i.i = phi ptr [ %.sroa.20.0.i.i, %230 ], [ %.sroa.20.1.i.i, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
-  %286 = phi ptr [ %231, %230 ], [ %282, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
-  %.146.i.i.i = phi ptr [ %.045.i.i.i, %230 ], [ %281, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.044.i.i.i, %230 ], [ %284, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
-  %287 = getelementptr inbounds i8, ptr %232, i64 8
-  %288 = load ptr, ptr %287, align 8
-  %.not15.i.i.i = icmp eq ptr %288, null
-  br i1 %.not15.i.i.i, label %291, label %289
+  %285 = phi ptr [ %231, %230 ], [ %281, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
+  %.146.i.i.i = phi ptr [ %.045.i.i.i, %230 ], [ %280, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.044.i.i.i, %230 ], [ %283, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i ]
+  %286 = getelementptr inbounds i8, ptr %232, i64 8
+  %287 = load ptr, ptr %286, align 8
+  %.not15.i.i.i = icmp eq ptr %287, null
+  br i1 %.not15.i.i.i, label %290, label %288
 
-289:                                              ; preds = %285
-  %290 = getelementptr inbounds i8, ptr %286, i64 8
-  store ptr %290, ptr %3, align 8
-  store ptr %288, ptr %286, align 8
-  br label %291
+288:                                              ; preds = %284
+  %289 = getelementptr inbounds i8, ptr %285, i64 8
+  store ptr %289, ptr %3, align 8
+  store ptr %287, ptr %285, align 8
+  br label %290
 
-291:                                              ; preds = %289, %285
+290:                                              ; preds = %288, %284
   invoke fastcc void @_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCallEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESL_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %232)
           to label %.preheader.i.i.i unwind label %.loopexit.i.loopexit.i.i, !llvm.loop !42
 
-292:                                              ; preds = %.preheader.i.i.i
-  %.not.i.i.i20.i.i.i = icmp eq ptr %.sroa.0.2.i.i, null
-  br i1 %.not.i.i.i20.i.i.i, label %294, label %293
-
-293:                                              ; preds = %292
+291:                                              ; preds = %.preheader.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.i.i) #23
-  br label %294
-
-294:                                              ; preds = %293, %292
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   invoke void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser2InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser2InUse10s_userBusyE)
-          to label %_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCall.exit unwind label %295
+          to label %_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCall.exit unwind label %292
 
-295:                                              ; preds = %294
-  %296 = landingpad { ptr, i32 }
+292:                                              ; preds = %291
+  %293 = landingpad { ptr, i32 }
           catch ptr null
-  %297 = extractvalue { ptr, i32 } %296, 0
-  call void @__clang_call_terminate(ptr %297) #27
+  %294 = extractvalue { ptr, i32 } %293, 0
+  call void @__clang_call_terminate(ptr %294) #27
   unreachable
 
 .body.i:                                          ; preds = %223, %.loopexit.i.i.i
   call void @_ZN12VNUser2InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
   br label %common.resume
 
-_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCall.exit: ; preds = %294
+_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCall.exit: ; preds = %291
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %305
+  br label %302
 
-298:                                              ; preds = %36
-  %299 = getelementptr inbounds i8, ptr %1, i64 32
-  %300 = load ptr, ptr %299, align 8
-  %.not59 = icmp eq ptr %300, null
-  br i1 %.not59, label %303, label %301
+295:                                              ; preds = %36
+  %296 = getelementptr inbounds i8, ptr %1, i64 32
+  %297 = load ptr, ptr %296, align 8
+  %.not59 = icmp eq ptr %297, null
+  br i1 %.not59, label %300, label %298
 
-301:                                              ; preds = %298
-  %302 = tail call noundef ptr @_ZN7AstNode20unlinkFrBackWithNextEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %300, ptr noundef null)
-  tail call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %302)
-  br label %305
+298:                                              ; preds = %295
+  %299 = tail call noundef ptr @_ZN7AstNode20unlinkFrBackWithNextEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %297, ptr noundef null)
+  tail call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %299)
+  br label %302
 
-303:                                              ; preds = %298
-  %304 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef null)
-  br label %305
+300:                                              ; preds = %295
+  %301 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef null)
+  br label %302
 
-305:                                              ; preds = %301, %303, %_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCall.exit
+302:                                              ; preds = %298, %300, %_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFuncP8AstCCall.exit
   call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %1)
   ret void
 }

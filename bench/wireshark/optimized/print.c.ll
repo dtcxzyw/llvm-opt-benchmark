@@ -1184,7 +1184,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %127, %134, %proto_i
   br label %.thread
 
 .thread:                                          ; preds = %233, %248, %244
-  %.not160193 = phi i1 [ false, %248 ], [ true, %244 ], [ true, %233 ]
+  %.not160191 = phi i1 [ false, %248 ], [ true, %244 ], [ true, %233 ]
   %.0 = phi ptr [ %249, %248 ], [ null, %244 ], [ null, %233 ]
   %250 = load i32, ptr %1, align 8
   %251 = add i32 %250, 1
@@ -1193,7 +1193,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %127, %134, %proto_i
   %252 = load i32, ptr %1, align 8
   %253 = add i32 %252, -1
   store i32 %253, ptr %1, align 8
-  br i1 %.not160193, label %275, label %254
+  br i1 %.not160191, label %275, label %254
 
 254:                                              ; preds = %.thread
   store ptr %.0, ptr %234, align 8
@@ -1203,17 +1203,17 @@ proto_item_is_hidden.exit.thread:                 ; preds = %127, %134, %proto_i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %256 = load i32, ptr %1, align 8
   %257 = load ptr, ptr %21, align 8
-  %.b.i173 = load i1, ptr @print_indent.inited, align 4
-  br i1 %.b.i173, label %258, label %.preheader.preheader.i174
+  %.b.i172 = load i1, ptr @print_indent.inited, align 4
+  br i1 %.b.i172, label %258, label %.preheader.preheader.i173
 
-.preheader.preheader.i174:                        ; preds = %255
+.preheader.preheader.i173:                        ; preds = %255
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
   store i1 true, ptr @print_indent.inited, align 4
   br label %258
 
-258:                                              ; preds = %.preheader.preheader.i174, %255
+258:                                              ; preds = %.preheader.preheader.i173, %255
   %259 = icmp eq ptr %257, null
-  br i1 %259, label %print_indent.exit175, label %260
+  br i1 %259, label %print_indent.exit174, label %260
 
 260:                                              ; preds = %258
   %261 = shl i32 %256, 1
@@ -1224,9 +1224,9 @@ proto_item_is_hidden.exit.thread:                 ; preds = %127, %134, %proto_i
   store i8 0, ptr %265, align 1
   %266 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %257)
   store i8 32, ptr %265, align 1
-  br label %print_indent.exit175
+  br label %print_indent.exit174
 
-print_indent.exit175:                             ; preds = %258, %260
+print_indent.exit174:                             ; preds = %258, %260
   %267 = load ptr, ptr %21, align 8
   %268 = call i64 @fwrite(ptr nonnull @.str.78, i64 30, i64 1, ptr %267)
   %269 = load ptr, ptr %21, align 8
@@ -1238,7 +1238,7 @@ print_indent.exit175:                             ; preds = %258, %260
   %274 = call i64 @fwrite(ptr nonnull @.str.79, i64 5, i64 1, ptr %273)
   br label %275
 
-275:                                              ; preds = %print_indent.exit175, %254, %.thread, %231
+275:                                              ; preds = %print_indent.exit174, %254, %.thread, %231
   br i1 %20, label %276, label %279
 
 276:                                              ; preds = %275
@@ -1255,17 +1255,17 @@ print_indent.exit175:                             ; preds = %258, %260
 281:                                              ; preds = %279
   %282 = load i32, ptr %1, align 8
   %283 = load ptr, ptr %21, align 8
-  %.b.i176 = load i1, ptr @print_indent.inited, align 4
-  br i1 %.b.i176, label %284, label %.preheader.preheader.i177
+  %.b.i175 = load i1, ptr @print_indent.inited, align 4
+  br i1 %.b.i175, label %284, label %.preheader.preheader.i176
 
-.preheader.preheader.i177:                        ; preds = %281
+.preheader.preheader.i176:                        ; preds = %281
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
   store i1 true, ptr @print_indent.inited, align 4
   br label %284
 
-284:                                              ; preds = %.preheader.preheader.i177, %281
+284:                                              ; preds = %.preheader.preheader.i176, %281
   %285 = icmp eq ptr %283, null
-  br i1 %285, label %print_indent.exit178, label %286
+  br i1 %285, label %print_indent.exit177, label %286
 
 286:                                              ; preds = %284
   %287 = shl i32 %282, 1
@@ -1276,9 +1276,9 @@ print_indent.exit175:                             ; preds = %258, %260
   store i8 0, ptr %291, align 1
   %292 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %283)
   store i8 32, ptr %291, align 1
-  br label %print_indent.exit178
+  br label %print_indent.exit177
 
-print_indent.exit178:                             ; preds = %284, %286
+print_indent.exit177:                             ; preds = %284, %286
   %293 = load ptr, ptr %6, align 8
   %294 = getelementptr inbounds i8, ptr %293, i64 48
   %295 = load i32, ptr %294, align 8
@@ -1289,7 +1289,7 @@ print_indent.exit178:                             ; preds = %284, %286
   %or.cond167 = select i1 %.not163, i1 true, i1 %.not164
   br i1 %or.cond167, label %307, label %298
 
-298:                                              ; preds = %print_indent.exit178
+298:                                              ; preds = %print_indent.exit177
   %299 = getelementptr inbounds i8, ptr %293, i64 16
   %300 = load i32, ptr %299, align 8
   %301 = icmp eq i32 %300, 1
@@ -1304,7 +1304,7 @@ print_indent.exit178:                             ; preds = %284, %286
   %306 = call i64 @fwrite(ptr nonnull @.str.81, i64 9, i64 1, ptr %302)
   br label %310
 
-307:                                              ; preds = %print_indent.exit178
+307:                                              ; preds = %print_indent.exit177
   %308 = load ptr, ptr %21, align 8
   %309 = call i64 @fwrite(ptr nonnull @.str.81, i64 9, i64 1, ptr %308)
   br label %310
@@ -1315,17 +1315,17 @@ print_indent.exit178:                             ; preds = %284, %286
 311:                                              ; preds = %310
   %312 = load i32, ptr %1, align 8
   %313 = load ptr, ptr %21, align 8
-  %.b.i179 = load i1, ptr @print_indent.inited, align 4
-  br i1 %.b.i179, label %314, label %.preheader.preheader.i180
+  %.b.i178 = load i1, ptr @print_indent.inited, align 4
+  br i1 %.b.i178, label %314, label %.preheader.preheader.i179
 
-.preheader.preheader.i180:                        ; preds = %311
+.preheader.preheader.i179:                        ; preds = %311
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
   store i1 true, ptr @print_indent.inited, align 4
   br label %314
 
-314:                                              ; preds = %.preheader.preheader.i180, %311
+314:                                              ; preds = %.preheader.preheader.i179, %311
   %315 = icmp eq ptr %313, null
-  br i1 %315, label %print_indent.exit181, label %316
+  br i1 %315, label %print_indent.exit180, label %316
 
 316:                                              ; preds = %314
   %317 = shl i32 %312, 1
@@ -1336,14 +1336,14 @@ print_indent.exit178:                             ; preds = %284, %286
   store i8 0, ptr %321, align 1
   %322 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %313)
   store i8 32, ptr %321, align 1
-  br label %print_indent.exit181
+  br label %print_indent.exit180
 
-print_indent.exit181:                             ; preds = %314, %316
+print_indent.exit180:                             ; preds = %314, %316
   %323 = load ptr, ptr %21, align 8
   %324 = call i64 @fwrite(ptr nonnull @.str.80, i64 9, i64 1, ptr %323)
   br label %325
 
-325:                                              ; preds = %print_indent.exit181, %310
+325:                                              ; preds = %print_indent.exit180, %310
   ret void
 }
 
@@ -2458,8 +2458,8 @@ ek_write_name.exit:                               ; preds = %85, %93
   br label %105
 
 105:                                              ; preds = %103, %223
-  %.047103 = phi ptr [ %0, %103 ], [ %225, %223 ]
-  %106 = load ptr, ptr %.047103, align 8
+  %.04797 = phi ptr [ %0, %103 ], [ %225, %223 ]
+  %106 = load ptr, ptr %.04797, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 32
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
@@ -2482,7 +2482,7 @@ ek_write_name.exit:                               ; preds = %85, %93
 
 .thread.i:                                        ; preds = %114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %.thread45.i
+  br label %.thread37.i
 
 118:                                              ; preds = %114
   %119 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %113, ptr noundef nonnull %116, ptr noundef null, ptr noundef nonnull %8) #18
@@ -2492,7 +2492,7 @@ ek_write_name.exit:                               ; preds = %85, %93
 120:                                              ; preds = %118
   %char0.i = load i8, ptr %116, align 1
   %.not23.i = icmp eq i8 %char0.i, 0
-  br i1 %.not23.i, label %.thread45.i, label %121
+  br i1 %.not23.i, label %.thread37.i, label %121
 
 121:                                              ; preds = %120
   %122 = call noalias ptr @g_strdup(ptr noundef nonnull %116) #18
@@ -2516,7 +2516,7 @@ ek_write_name.exit:                               ; preds = %85, %93
   %129 = add i32 %.0.i, 1
   br label %123, !llvm.loop !23
 
-.thread45.i:                                      ; preds = %120, %.thread.i
+.thread37.i:                                      ; preds = %120, %.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   br label %132
 
@@ -2530,10 +2530,10 @@ ek_check_protocolfilter.exit:                     ; preds = %130
   call void @g_free(ptr noundef nonnull %122) #18
   br label %ek_check_protocolfilter.exit.thread
 
-132:                                              ; preds = %130, %.thread45.i
-  %.01943.i.ph = phi ptr [ null, %.thread45.i ], [ %122, %130 ]
+132:                                              ; preds = %130, %.thread37.i
+  %.01934.i.ph = phi ptr [ null, %.thread37.i ], [ %122, %130 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @g_free(ptr noundef %.01943.i.ph) #18
+  call void @g_free(ptr noundef %.01934.i.ph) #18
   %133 = load ptr, ptr %97, align 8
   call void @json_dumper_begin_object(ptr noundef %133) #18
   %134 = load ptr, ptr %97, align 8
@@ -2560,8 +2560,8 @@ ek_check_protocolfilter.exit.thread:              ; preds = %118, %ek_check_prot
 145:                                              ; preds = %ek_check_protocolfilter.exit.thread
   %146 = getelementptr inbounds i8, ptr %108, i64 32
   %147 = load ptr, ptr %146, align 8
-  %.not.i61 = icmp eq ptr %147, null
-  br i1 %.not.i61, label %150, label %148
+  %.not.i60 = icmp eq ptr %147, null
+  br i1 %.not.i60, label %150, label %148
 
 148:                                              ; preds = %145
   %149 = load ptr, ptr %97, align 8
@@ -2669,34 +2669,34 @@ ek_write_field_value.exit:                        ; preds = %148, %156, %158, %1
   %192 = load ptr, ptr %191, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %193 = icmp eq ptr %192, null
-  br i1 %193, label %.thread.i75, label %194
+  br i1 %193, label %.thread.i72, label %194
 
-.thread.i75:                                      ; preds = %189
+.thread.i72:                                      ; preds = %189
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %.thread45.i72
+  br label %.thread37.i69
 
 194:                                              ; preds = %189
   %195 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %188, ptr noundef nonnull %192, ptr noundef null, ptr noundef nonnull %4) #18
-  br i1 %195, label %ek_check_protocolfilter.exit77.thread, label %197
+  br i1 %195, label %ek_check_protocolfilter.exit73.thread, label %197
 
-ek_check_protocolfilter.exit77.thread:            ; preds = %194
+ek_check_protocolfilter.exit73.thread:            ; preds = %194
   %196 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %210
 
 197:                                              ; preds = %194
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %char0.i63 = load i8, ptr %192, align 1
-  %.not23.i64 = icmp eq i8 %char0.i63, 0
-  br i1 %.not23.i64, label %.thread45.i72, label %198
+  %char0.i61 = load i8, ptr %192, align 1
+  %.not23.i62 = icmp eq i8 %char0.i61, 0
+  br i1 %.not23.i62, label %.thread37.i69, label %198
 
 198:                                              ; preds = %197
   %199 = call noalias ptr @g_strdup(ptr noundef nonnull %192) #18
   br label %200
 
 200:                                              ; preds = %205, %198
-  %.0.i65 = phi i32 [ 0, %198 ], [ %206, %205 ]
-  %201 = sext i32 %.0.i65 to i64
+  %.0.i63 = phi i32 [ 0, %198 ], [ %206, %205 ]
+  %201 = sext i32 %.0.i63 to i64
   %202 = getelementptr i8, ptr %199, i64 %201
   %203 = load i8, ptr %202, align 1
   switch i8 %203, label %205 [
@@ -2709,28 +2709,28 @@ ek_check_protocolfilter.exit77.thread:            ; preds = %194
   br label %205
 
 205:                                              ; preds = %204, %200
-  %206 = add i32 %.0.i65, 1
+  %206 = add i32 %.0.i63, 1
   br label %200, !llvm.loop !23
 
-.thread45.i72:                                    ; preds = %197, %.thread.i75
+.thread37.i69:                                    ; preds = %197, %.thread.i72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   br label %214
 
 207:                                              ; preds = %200
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %208 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %188, ptr noundef nonnull %199, ptr noundef null, ptr noundef nonnull %3) #18
-  br i1 %208, label %ek_check_protocolfilter.exit77, label %214
+  br i1 %208, label %ek_check_protocolfilter.exit73, label %214
 
-ek_check_protocolfilter.exit77:                   ; preds = %207
+ek_check_protocolfilter.exit73:                   ; preds = %207
   %209 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @g_free(ptr noundef nonnull %199) #18
   br label %210
 
-210:                                              ; preds = %ek_check_protocolfilter.exit77, %ek_check_protocolfilter.exit77.thread
-  %.793.in.in = phi ptr [ %196, %ek_check_protocolfilter.exit77.thread ], [ %209, %ek_check_protocolfilter.exit77 ]
-  %.793.in = ptrtoint ptr %.793.in.in to i64
-  %211 = and i64 %.793.in, 1
+210:                                              ; preds = %ek_check_protocolfilter.exit73, %ek_check_protocolfilter.exit73.thread
+  %.788.in.in = phi ptr [ %196, %ek_check_protocolfilter.exit73.thread ], [ %209, %ek_check_protocolfilter.exit73 ]
+  %.788.in = ptrtoint ptr %.788.in.in to i64
+  %211 = and i64 %.788.in, 1
   %.not55 = icmp eq i64 %211, 0
   br i1 %.not55, label %.thread, label %212
 
@@ -2745,10 +2745,10 @@ ek_check_protocolfilter.exit77:                   ; preds = %207
   store ptr %213, ptr %104, align 8
   br label %221
 
-214:                                              ; preds = %207, %.thread45.i72
-  %.01943.i67.ph = phi ptr [ null, %.thread45.i72 ], [ %199, %207 ]
+214:                                              ; preds = %207, %.thread37.i69
+  %.01934.i65.ph = phi ptr [ null, %.thread37.i69 ], [ %199, %207 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @g_free(ptr noundef %.01943.i67.ph) #18
+  call void @g_free(ptr noundef %.01934.i65.ph) #18
   %215 = load ptr, ptr %97, align 8
   call void @json_dumper_set_member_name(ptr noundef %215, ptr noundef nonnull @.str.94) #18
   %216 = load ptr, ptr %97, align 8
@@ -2768,7 +2768,7 @@ ek_check_protocolfilter.exit77:                   ; preds = %207
   br label %223
 
 223:                                              ; preds = %132, %ek_write_field_value.exit, %221
-  %224 = getelementptr inbounds i8, ptr %.047103, i64 8
+  %224 = getelementptr inbounds i8, ptr %.04797, i64 8
   %225 = load ptr, ptr %224, align 8
   %.not51 = icmp eq ptr %225, null
   br i1 %.not51, label %226, label %105, !llvm.loop !24
@@ -4432,8 +4432,8 @@ define internal fastcc void @write_json_proto_node_list(ptr noundef readonly %0,
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @json_dumper_begin_object(ptr noundef %7) #18
-  %.not91 = icmp eq ptr %0, null
-  br i1 %.not91, label %._crit_edge, label %.lr.ph
+  %.not90 = icmp eq ptr %0, null
+  br i1 %.not90, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4443,8 +4443,8 @@ define internal fastcc void @write_json_proto_node_list(ptr noundef readonly %0,
   br label %12
 
 12:                                               ; preds = %.lr.ph, %181
-  %.05892 = phi ptr [ %0, %.lr.ph ], [ %183, %181 ]
-  %13 = load ptr, ptr %.05892, align 8
+  %.05891 = phi ptr [ %0, %.lr.ph ], [ %183, %181 ]
+  %13 = load ptr, ptr %.05891, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 32
   %.val = load ptr, ptr %15, align 8
@@ -4493,13 +4493,13 @@ check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.spl
   %.not61 = phi i1 [ false, %.sink.split.i ], [ true, %27 ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.pre = load ptr, ptr %15, align 8
-  %.pre93 = load ptr, ptr %.pre, align 8
+  %.pre92 = load ptr, ptr %.pre, align 8
   br label %34
 
 34:                                               ; preds = %check_protocolfilter.exit, %proto_node_to_json_key.exit
-  %35 = phi ptr [ %16, %proto_node_to_json_key.exit ], [ %.pre93, %check_protocolfilter.exit ]
+  %35 = phi ptr [ %16, %proto_node_to_json_key.exit ], [ %.pre92, %check_protocolfilter.exit ]
   %36 = phi ptr [ %.val, %proto_node_to_json_key.exit ], [ %.pre, %check_protocolfilter.exit ]
-  %.089 = phi i32 [ 0, %proto_node_to_json_key.exit ], [ %.1, %check_protocolfilter.exit ]
+  %.088 = phi i32 [ 0, %proto_node_to_json_key.exit ], [ %.1, %check_protocolfilter.exit ]
   %37 = phi i1 [ false, %proto_node_to_json_key.exit ], [ %.not61, %check_protocolfilter.exit ]
   %38 = getelementptr inbounds i8, ptr %36, i64 48
   %39 = load ptr, ptr %38, align 8
@@ -4512,14 +4512,14 @@ check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.spl
   %.058.i = phi ptr [ %47, %45 ], [ %13, %34 ]
   %43 = load ptr, ptr %.058.i, align 8
   %44 = load ptr, ptr %43, align 8
-  %.not6.i69.not = icmp ne ptr %44, null
-  br i1 %.not6.i69.not, label %any_has_children.exit, label %45
+  %.not6.i68.not = icmp ne ptr %44, null
+  br i1 %.not6.i68.not, label %any_has_children.exit, label %45
 
 45:                                               ; preds = %.lr.ph.i
   %46 = getelementptr inbounds i8, ptr %.058.i, i64 8
   %47 = load ptr, ptr %46, align 8
-  %.not.i71 = icmp eq ptr %47, null
-  br i1 %.not.i71, label %any_has_children.exit, label %.lr.ph.i, !llvm.loop !42
+  %.not.i70 = icmp eq ptr %47, null
+  br i1 %.not.i70, label %any_has_children.exit, label %.lr.ph.i, !llvm.loop !42
 
 any_has_children.exit:                            ; preds = %.lr.ph.i, %45
   %48 = icmp ne ptr %42, null
@@ -4531,11 +4531,11 @@ any_has_children.exit:                            ; preds = %.lr.ph.i, %45
   call void @wmem_free(ptr noundef null, ptr noundef %42) #18
   %54 = load i32, ptr %9, align 8
   %.not62 = icmp eq i32 %54, 0
-  %.pre95 = load i32, ptr %10, align 4
+  %.pre94 = load i32, ptr %10, align 4
   br i1 %.not62, label %62, label %55
 
 55:                                               ; preds = %any_has_children.exit
-  %.not63 = icmp eq i32 %.pre95, 0
+  %.not63 = icmp eq i32 %.pre94, 0
   br i1 %.not63, label %60, label %56
 
 56:                                               ; preds = %55
@@ -4550,11 +4550,11 @@ any_has_children.exit:                            ; preds = %.lr.ph.i, %45
 
 61:                                               ; preds = %56, %60
   call fastcc void @write_json_proto_node(ptr noundef nonnull %13, ptr noundef nonnull @.str.87, ptr noundef nonnull @write_json_proto_node_hex_dump, ptr noundef nonnull %1)
-  %.pre94 = load i32, ptr %10, align 4
+  %.pre93 = load i32, ptr %10, align 4
   br label %62
 
 62:                                               ; preds = %61, %56, %any_has_children.exit
-  %63 = phi i32 [ %.pre94, %61 ], [ 1, %56 ], [ %.pre95, %any_has_children.exit ]
+  %63 = phi i32 [ %.pre93, %61 ], [ 1, %56 ], [ %.pre94, %any_has_children.exit ]
   %64 = icmp ne i32 %63, 0
   %or.cond4 = select i1 %64, i1 %48, i1 false
   br i1 %or.cond4, label %65, label %write_json_proto_node.exit
@@ -4638,7 +4638,7 @@ proto_node_to_json_key.exit.i:                    ; preds = %75, %72
   br label %write_json_proto_node.exit
 
 write_json_proto_node.exit:                       ; preds = %60, %._crit_edge.i.i, %83, %62
-  br i1 %.not6.i69.not, label %108, label %174
+  br i1 %.not6.i68.not, label %108, label %174
 
 108:                                              ; preds = %write_json_proto_node.exit
   %109 = select i1 %48, ptr @.str.88, ptr @.str.60
@@ -4649,7 +4649,7 @@ write_json_proto_node.exit:                       ; preds = %60, %._crit_edge.i.
   br label %181
 
 110:                                              ; preds = %108
-  %111 = and i32 %.089, 1
+  %111 = and i32 %.088, 1
   %.not64 = icmp eq i32 %111, 0
   br i1 %.not64, label %114, label %112
 
@@ -4662,38 +4662,38 @@ write_json_proto_node.exit:                       ; preds = %60, %._crit_edge.i.
   %.0 = phi ptr [ %113, %112 ], [ null, %110 ]
   %115 = load ptr, ptr %13, align 8
   %116 = getelementptr i8, ptr %115, i64 32
-  %.val.i72 = load ptr, ptr %116, align 8
-  %117 = load ptr, ptr %.val.i72, align 8
+  %.val.i71 = load ptr, ptr %116, align 8
+  %117 = load ptr, ptr %.val.i71, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 48
   %119 = load i32, ptr %118, align 8
   %120 = load i32, ptr @hf_text_only, align 4
-  %.not.i.i73 = icmp eq i32 %119, %120
-  br i1 %.not.i.i73, label %124, label %121
+  %.not.i.i72 = icmp eq i32 %119, %120
+  br i1 %.not.i.i72, label %124, label %121
 
 121:                                              ; preds = %114
   %122 = getelementptr inbounds i8, ptr %117, i64 8
   %123 = load ptr, ptr %122, align 8
-  br label %proto_node_to_json_key.exit.i74
+  br label %proto_node_to_json_key.exit.i73
 
 124:                                              ; preds = %114
-  %125 = getelementptr inbounds i8, ptr %.val.i72, i64 32
+  %125 = getelementptr inbounds i8, ptr %.val.i71, i64 32
   %126 = load ptr, ptr %125, align 8
-  %.not6.i.i81 = icmp eq ptr %126, null
-  %.str.60..i.i82 = select i1 %.not6.i.i81, ptr @.str.60, ptr %126
-  br label %proto_node_to_json_key.exit.i74
+  %.not6.i.i80 = icmp eq ptr %126, null
+  %.str.60..i.i81 = select i1 %.not6.i.i80, ptr @.str.60, ptr %126
+  br label %proto_node_to_json_key.exit.i73
 
-proto_node_to_json_key.exit.i74:                  ; preds = %124, %121
-  %.0.i.i75 = phi ptr [ %123, %121 ], [ %.str.60..i.i82, %124 ]
-  %127 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.89, ptr noundef %.0.i.i75, ptr noundef nonnull %109) #18
+proto_node_to_json_key.exit.i73:                  ; preds = %124, %121
+  %.0.i.i74 = phi ptr [ %123, %121 ], [ %.str.60..i.i81, %124 ]
+  %127 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.89, ptr noundef %.0.i.i74, ptr noundef nonnull %109) #18
   %128 = load ptr, ptr %6, align 8
   call void @json_dumper_set_member_name(ptr noundef %128, ptr noundef %127) #18
   call void @g_free(ptr noundef %127) #18
   %129 = getelementptr inbounds i8, ptr %13, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %132, label %.lr.ph.preheader.i.i76
+  br i1 %131, label %132, label %.lr.ph.preheader.i.i75
 
-132:                                              ; preds = %proto_node_to_json_key.exit.i74
+132:                                              ; preds = %proto_node_to_json_key.exit.i73
   %133 = load ptr, ptr %13, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
@@ -4707,45 +4707,45 @@ proto_node_to_json_key.exit.i74:                  ; preds = %124, %121
   %140 = getelementptr inbounds i8, ptr %139, i64 16
   %141 = load i32, ptr %140, align 8
   %142 = icmp eq i32 %141, 1
-  br i1 %142, label %143, label %write_json_proto_node_no_value.exit87
+  br i1 %142, label %143, label %write_json_proto_node_no_value.exit86
 
 143:                                              ; preds = %136
   %144 = getelementptr inbounds i8, ptr %138, i64 32
   %145 = load ptr, ptr %144, align 8
-  %.not.i86 = icmp eq ptr %145, null
-  br i1 %.not.i86, label %146, label %write_json_proto_node_no_value.exit87
+  %.not.i85 = icmp eq ptr %145, null
+  br i1 %.not.i85, label %146, label %write_json_proto_node_no_value.exit86
 
 146:                                              ; preds = %143
   call void @proto_item_fill_label(ptr noundef nonnull %138, ptr noundef nonnull %3) #18
-  br label %write_json_proto_node_no_value.exit87
+  br label %write_json_proto_node_no_value.exit86
 
-write_json_proto_node_no_value.exit87:            ; preds = %136, %143, %146
-  %.sink98 = phi ptr [ %3, %146 ], [ %145, %143 ], [ @.str.60, %136 ]
+write_json_proto_node_no_value.exit86:            ; preds = %136, %143, %146
+  %.sink97 = phi ptr [ %3, %146 ], [ %145, %143 ], [ @.str.60, %136 ]
   %147 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %147, ptr noundef nonnull %.sink98) #18
+  call void @json_dumper_value_string(ptr noundef %147, ptr noundef nonnull %.sink97) #18
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %3)
-  br label %write_json_proto_node.exit83
+  br label %write_json_proto_node.exit82
 
 148:                                              ; preds = %132
   %149 = load ptr, ptr %11, align 8
   %150 = call ptr %149(ptr noundef nonnull %133) #18
   call fastcc void @write_json_proto_node_list(ptr noundef %150, ptr noundef nonnull %1)
   call void @g_slist_free_full(ptr noundef %150, ptr noundef nonnull @g_slist_free) #18
-  br label %write_json_proto_node.exit83
+  br label %write_json_proto_node.exit82
 
-.lr.ph.preheader.i.i76:                           ; preds = %proto_node_to_json_key.exit.i74
+.lr.ph.preheader.i.i75:                           ; preds = %proto_node_to_json_key.exit.i73
   %151 = load ptr, ptr %6, align 8
   call void @json_dumper_begin_array(ptr noundef %151) #18
-  br label %.lr.ph.i.i77
+  br label %.lr.ph.i.i76
 
-.lr.ph.i.i77:                                     ; preds = %write_json_proto_node_dynamic.exit, %.lr.ph.preheader.i.i76
-  %.013.i.i78 = phi ptr [ %171, %write_json_proto_node_dynamic.exit ], [ %13, %.lr.ph.preheader.i.i76 ]
-  %152 = load ptr, ptr %.013.i.i78, align 8
+.lr.ph.i.i76:                                     ; preds = %write_json_proto_node_dynamic.exit, %.lr.ph.preheader.i.i75
+  %.013.i.i77 = phi ptr [ %171, %write_json_proto_node_dynamic.exit ], [ %13, %.lr.ph.preheader.i.i75 ]
+  %152 = load ptr, ptr %.013.i.i77, align 8
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %155, label %167
 
-155:                                              ; preds = %.lr.ph.i.i77
+155:                                              ; preds = %.lr.ph.i.i76
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
   %156 = getelementptr inbounds i8, ptr %152, i64 32
   %157 = load ptr, ptr %156, align 8
@@ -4758,21 +4758,21 @@ write_json_proto_node_no_value.exit87:            ; preds = %136, %143, %146
 162:                                              ; preds = %155
   %163 = getelementptr inbounds i8, ptr %157, i64 32
   %164 = load ptr, ptr %163, align 8
-  %.not.i85 = icmp eq ptr %164, null
-  br i1 %.not.i85, label %165, label %write_json_proto_node_no_value.exit
+  %.not.i84 = icmp eq ptr %164, null
+  br i1 %.not.i84, label %165, label %write_json_proto_node_no_value.exit
 
 165:                                              ; preds = %162
   call void @proto_item_fill_label(ptr noundef nonnull %157, ptr noundef nonnull %4) #18
   br label %write_json_proto_node_no_value.exit
 
 write_json_proto_node_no_value.exit:              ; preds = %155, %162, %165
-  %.sink99 = phi ptr [ %4, %165 ], [ %164, %162 ], [ @.str.60, %155 ]
+  %.sink98 = phi ptr [ %4, %165 ], [ %164, %162 ], [ @.str.60, %155 ]
   %166 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %166, ptr noundef nonnull %.sink99) #18
+  call void @json_dumper_value_string(ptr noundef %166, ptr noundef nonnull %.sink98) #18
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4)
   br label %write_json_proto_node_dynamic.exit
 
-167:                                              ; preds = %.lr.ph.i.i77
+167:                                              ; preds = %.lr.ph.i.i76
   %168 = load ptr, ptr %11, align 8
   %169 = call ptr %168(ptr noundef nonnull %152) #18
   call fastcc void @write_json_proto_node_list(ptr noundef %169, ptr noundef nonnull %1)
@@ -4780,25 +4780,25 @@ write_json_proto_node_no_value.exit:              ; preds = %155, %162, %165
   br label %write_json_proto_node_dynamic.exit
 
 write_json_proto_node_dynamic.exit:               ; preds = %write_json_proto_node_no_value.exit, %167
-  %170 = getelementptr inbounds i8, ptr %.013.i.i78, i64 8
+  %170 = getelementptr inbounds i8, ptr %.013.i.i77, i64 8
   %171 = load ptr, ptr %170, align 8
-  %.not.i10.i79 = icmp eq ptr %171, null
-  br i1 %.not.i10.i79, label %._crit_edge.i.i80, label %.lr.ph.i.i77, !llvm.loop !43
+  %.not.i10.i78 = icmp eq ptr %171, null
+  br i1 %.not.i10.i78, label %._crit_edge.i.i79, label %.lr.ph.i.i76, !llvm.loop !43
 
-._crit_edge.i.i80:                                ; preds = %write_json_proto_node_dynamic.exit
+._crit_edge.i.i79:                                ; preds = %write_json_proto_node_dynamic.exit
   %172 = load ptr, ptr %6, align 8
   call void @json_dumper_end_array(ptr noundef %172) #18
-  br label %write_json_proto_node.exit83
+  br label %write_json_proto_node.exit82
 
-write_json_proto_node.exit83:                     ; preds = %148, %write_json_proto_node_no_value.exit87, %._crit_edge.i.i80
+write_json_proto_node.exit82:                     ; preds = %148, %write_json_proto_node_no_value.exit86, %._crit_edge.i.i79
   br i1 %.not64, label %174, label %173
 
-173:                                              ; preds = %write_json_proto_node.exit83
+173:                                              ; preds = %write_json_proto_node.exit82
   store ptr %.0, ptr %8, align 8
   br label %174
 
-174:                                              ; preds = %173, %write_json_proto_node.exit83, %write_json_proto_node.exit
-  %or.cond7 = or i1 %48, %.not6.i69.not
+174:                                              ; preds = %173, %write_json_proto_node.exit82, %write_json_proto_node.exit
+  %or.cond7 = or i1 %48, %.not6.i68.not
   br i1 %or.cond7, label %181, label %175
 
 175:                                              ; preds = %174
@@ -4817,7 +4817,7 @@ write_json_proto_node.exit83:                     ; preds = %148, %write_json_pr
   br label %181
 
 181:                                              ; preds = %.thread, %180, %177, %174
-  %182 = getelementptr inbounds i8, ptr %.05892, i64 8
+  %182 = getelementptr inbounds i8, ptr %.05891, i64 8
   %183 = load ptr, ptr %182, align 8
   %.not = icmp eq ptr %183, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !44
@@ -5204,23 +5204,23 @@ declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal fastcc void @ek_fill_attr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %.02646 = load ptr, ptr %0, align 8
-  %.not47 = icmp eq ptr %.02646, null
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  %.02645 = load ptr, ptr %0, align 8
+  %.not46 = icmp eq ptr %.02645, null
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %52
-  %.02648 = phi ptr [ %.02646, %.lr.ph ], [ %.026, %52 ]
-  %8 = getelementptr inbounds i8, ptr %.02648, i64 32
+  %.02647 = phi ptr [ %.02645, %.lr.ph ], [ %.026, %52 ]
+  %8 = getelementptr inbounds i8, ptr %.02647, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %12) #18
-  %14 = call ptr @g_slist_append(ptr noundef %13, ptr noundef nonnull %.02648) #18
+  %14 = call ptr @g_slist_append(ptr noundef %13, ptr noundef nonnull %.02647) #18
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -5233,7 +5233,7 @@ define internal fastcc void @ek_fill_attr(ptr nocapture noundef readonly %0, ptr
   br i1 %.not27, label %52, label %23
 
 23:                                               ; preds = %7
-  %24 = load ptr, ptr %.02648, align 8
+  %24 = load ptr, ptr %.02647, align 8
   %.not28 = icmp eq ptr %24, null
   br i1 %.not28, label %52, label %25
 
@@ -5251,7 +5251,7 @@ define internal fastcc void @ek_fill_attr(ptr nocapture noundef readonly %0, ptr
 
 .thread.i:                                        ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.thread45.i
+  br label %.thread37.i
 
 31:                                               ; preds = %27
   %32 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef null, ptr noundef nonnull %5) #18
@@ -5266,7 +5266,7 @@ ek_check_protocolfilter.exit.thread:              ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %char0.i = load i8, ptr %29, align 1
   %.not23.i = icmp eq i8 %char0.i, 0
-  br i1 %.not23.i, label %.thread45.i, label %35
+  br i1 %.not23.i, label %.thread37.i, label %35
 
 35:                                               ; preds = %34
   %36 = call noalias ptr @g_strdup(ptr noundef nonnull %29) #18
@@ -5290,7 +5290,7 @@ ek_check_protocolfilter.exit.thread:              ; preds = %31
   %43 = add i32 %.0.i, 1
   br label %37, !llvm.loop !23
 
-.thread45.i:                                      ; preds = %34, %.thread.i
+.thread37.i:                                      ; preds = %34, %.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   br label %ek_check_protocolfilter.exit.thread39
 
@@ -5299,10 +5299,10 @@ ek_check_protocolfilter.exit.thread:              ; preds = %31
   %45 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %26, ptr noundef nonnull %36, ptr noundef null, ptr noundef nonnull %4) #18
   br i1 %45, label %ek_check_protocolfilter.exit, label %ek_check_protocolfilter.exit.thread39
 
-ek_check_protocolfilter.exit.thread39:            ; preds = %44, %.thread45.i
-  %.01943.i.ph = phi ptr [ null, %.thread45.i ], [ %36, %44 ]
+ek_check_protocolfilter.exit.thread39:            ; preds = %44, %.thread37.i
+  %.01934.i.ph = phi ptr [ null, %.thread37.i ], [ %36, %44 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @g_free(ptr noundef %.01943.i.ph) #18
+  call void @g_free(ptr noundef %.01934.i.ph) #18
   br label %52
 
 ek_check_protocolfilter.exit:                     ; preds = %44
@@ -5319,22 +5319,22 @@ ek_check_protocolfilter.exit:                     ; preds = %44
   br i1 %.not31, label %.thread, label %49
 
 .thread:                                          ; preds = %47
-  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02648, ptr noundef %1, ptr noundef %2)
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02647, ptr noundef %1, ptr noundef %2)
   br label %52
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %6, align 8
   store ptr null, ptr %6, align 8
-  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02648, ptr noundef %1, ptr noundef %2)
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02647, ptr noundef %1, ptr noundef %2)
   store ptr %50, ptr %6, align 8
   br label %52
 
 51:                                               ; preds = %25
-  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02648, ptr noundef %1, ptr noundef nonnull %2)
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02647, ptr noundef %1, ptr noundef nonnull %2)
   br label %52
 
 52:                                               ; preds = %.thread, %ek_check_protocolfilter.exit.thread39, %7, %23, %51, %49
-  %53 = getelementptr inbounds i8, ptr %.02648, i64 16
+  %53 = getelementptr inbounds i8, ptr %.02647, i64 16
   %.026 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %.026, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !46

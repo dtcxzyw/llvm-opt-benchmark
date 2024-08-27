@@ -69,17 +69,17 @@ entry:
   %parameters17.sroa.0.0.copyload = load i32, ptr %parameters, align 8
   %parameters17.sroa.4.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 4
   %parameters17.sroa.4.0.copyload = load i32, ptr %parameters17.sroa.4.0.parameters.sroa_idx, align 4
-  %parameters17.sroa.525.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 12
-  %parameters17.sroa.525.0.copyload = load i32, ptr %parameters17.sroa.525.0.parameters.sroa_idx, align 4
+  %parameters17.sroa.524.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 12
+  %parameters17.sroa.524.0.copyload = load i32, ptr %parameters17.sroa.524.0.parameters.sroa_idx, align 4
   %parameters17.sroa.6.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 16
   %parameters17.sroa.6.0.copyload = load i32, ptr %parameters17.sroa.6.0.parameters.sroa_idx, align 8
-  %parameters17.sroa.827.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 36
-  %parameters17.sroa.827.0.copyload = load i32, ptr %parameters17.sroa.827.0.parameters.sroa_idx, align 4
+  %parameters17.sroa.826.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 36
+  %parameters17.sroa.826.0.copyload = load i32, ptr %parameters17.sroa.826.0.parameters.sroa_idx, align 4
   store i32 %parameters17.sroa.0.0.copyload, ptr %coverParams, align 8
   %d2.i = getelementptr inbounds i8, ptr %coverParams, i64 4
   store i32 %parameters17.sroa.4.0.copyload, ptr %d2.i, align 4
   %steps3.i = getelementptr inbounds i8, ptr %coverParams, i64 8
-  store i32 %parameters17.sroa.525.0.copyload, ptr %steps3.i, align 8
+  store i32 %parameters17.sroa.524.0.copyload, ptr %steps3.i, align 8
   %nbThreads4.i = getelementptr inbounds i8, ptr %coverParams, i64 12
   store i32 %parameters17.sroa.6.0.copyload, ptr %nbThreads4.i, align 4
   %splitPoint5.i = getelementptr inbounds i8, ptr %coverParams, i64 16
@@ -88,7 +88,7 @@ entry:
   %4 = getelementptr inbounds i8, ptr %parameters, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %zParams.i, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %shrinkDict7.i = getelementptr inbounds i8, ptr %coverParams, i64 24
-  store i32 %parameters17.sroa.827.0.copyload, ptr %shrinkDict7.i, align 8
+  store i32 %parameters17.sroa.826.0.copyload, ptr %shrinkDict7.i, align 8
   %cmp.i = icmp eq i32 %parameters17.sroa.4.0.copyload, 0
   %cmp1.i = icmp eq i32 %parameters17.sroa.0.0.copyload, 0
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
@@ -109,8 +109,8 @@ if.end7.i:                                        ; preds = %if.end.i, %if.end.i
   %or.cond2.i = icmp ult i32 %5, -31
   %or.cond9.i = or i1 %or.cond2.i, %or.cond8.i
   %or.cond4.i = icmp ugt i32 %2, 10
-  %or.cond30 = select i1 %or.cond9.i, i1 true, i1 %or.cond4.i
-  br i1 %or.cond30, label %if.then, label %if.end16
+  %or.cond29 = select i1 %or.cond9.i, i1 true, i1 %or.cond4.i
+  br i1 %or.cond29, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %if.end7.i, %if.end.i, %entry
   %cmp12 = icmp sgt i32 %0, 0
@@ -267,7 +267,7 @@ cond.true17:                                      ; preds = %entry
   br label %cond.end20
 
 cond.end20:                                       ; preds = %entry, %cond.true17
-  %cond1467 = phi i64 [ %call11, %cond.true17 ], [ %call, %entry ]
+  %cond1464 = phi i64 [ %call11, %cond.true17 ], [ %call, %entry ]
   %cond21 = phi i64 [ %call18, %cond.true17 ], [ %call, %entry ]
   %0 = tail call i32 @llvm.umax.i32(i32 %d, i32 8)
   %cond29 = zext i32 %0 to i64
@@ -330,7 +330,7 @@ if.end60:                                         ; preds = %if.end50
 
 if.end67:                                         ; preds = %if.end60
   %11 = load ptr, ptr @stderr, align 8
-  %conv64 = trunc i64 %cond1467 to i32
+  %conv64 = trunc i64 %cond1464 to i32
   %call65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.19, i32 noundef %cond, i32 noundef %conv64) #11
   %12 = load ptr, ptr @stderr, align 8
   %call66 = tail call i32 @fflush(ptr noundef %12)
@@ -359,7 +359,7 @@ if.end74:                                         ; preds = %if.end60, %if.then7
   %conv81 = zext i32 %cond7 to i64
   %nbTestSamples82 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %conv81, ptr %nbTestSamples82, align 8
-  %reass.sub = sub i64 %cond1467, %cond29
+  %reass.sub = sub i64 %cond1464, %cond29
   %add = add i64 %reass.sub, 1
   %nbDmers = getelementptr inbounds i8, ptr %ctx, i64 48
   store i64 %add, ptr %nbDmers, align 8
@@ -380,16 +380,16 @@ if.end74:                                         ; preds = %if.end60, %if.then7
 if.then101:                                       ; preds = %if.end74
   %15 = load i32, ptr @g_displayLevel, align 4
   %cmp102 = icmp sgt i32 %15, 0
-  br i1 %cmp102, label %if.then104, label %FASTCOVER_ctx_destroy.exit
+  br i1 %cmp102, label %if.then104, label %if.end107
 
 if.then104:                                       ; preds = %if.then101
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 36, i64 1, ptr %16) #11
   %18 = load ptr, ptr @stderr, align 8
   %call106 = tail call i32 @fflush(ptr noundef %18)
-  br label %FASTCOVER_ctx_destroy.exit
+  br label %if.end107
 
-FASTCOVER_ctx_destroy.exit:                       ; preds = %if.then104, %if.then101
+if.end107:                                        ; preds = %if.then104, %if.then101
   %freqs.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %19 = load ptr, ptr %freqs.i, align 8
   tail call void @free(ptr noundef %19) #12
@@ -400,8 +400,8 @@ FASTCOVER_ctx_destroy.exit:                       ; preds = %if.then104, %if.the
   br label %return
 
 if.end108:                                        ; preds = %if.end74
-  %cmp110.not70 = icmp eq i32 %nbSamples, 0
-  br i1 %cmp110.not70, label %for.end, label %for.body.preheader
+  %cmp110.not67 = icmp eq i32 %nbSamples, 0
+  br i1 %cmp110.not67, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end108
   %umax = tail call i32 @llvm.umax.i32(i32 %add95, i32 2)
@@ -435,18 +435,18 @@ for.end:                                          ; preds = %for.body, %if.end10
 
 if.then126:                                       ; preds = %for.end
   %cmp127 = icmp sgt i32 %25, 0
-  br i1 %cmp127, label %if.then129, label %FASTCOVER_ctx_destroy.exit64
+  br i1 %cmp127, label %if.then129, label %if.end132
 
 if.then129:                                       ; preds = %if.then126
   %26 = load ptr, ptr @stderr, align 8
   %27 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %26) #11
   %28 = load ptr, ptr @stderr, align 8
   %call131 = tail call i32 @fflush(ptr noundef %28)
-  %.pre74 = load ptr, ptr %freqs, align 8
-  br label %FASTCOVER_ctx_destroy.exit64
+  %.pre71 = load ptr, ptr %freqs, align 8
+  br label %if.end132
 
-FASTCOVER_ctx_destroy.exit64:                     ; preds = %if.then129, %if.then126
-  %29 = phi ptr [ %.pre74, %if.then129 ], [ null, %if.then126 ]
+if.end132:                                        ; preds = %if.then129, %if.then126
+  %29 = phi ptr [ %.pre71, %if.then129 ], [ null, %if.then126 ]
   tail call void @free(ptr noundef %29) #12
   store ptr null, ptr %freqs, align 8
   %30 = load ptr, ptr %offsets, align 8
@@ -525,8 +525,8 @@ while.body.i:                                     ; preds = %for.body.i, %while.
   %cmp8.not.i = icmp ugt i64 %add7.i, %43
   br i1 %cmp8.not.i, label %for.cond.loopexit.loopexit.i, label %while.body.i, !llvm.loop !7
 
-return:                                           ; preds = %for.cond.loopexit.i, %if.end139, %if.then53, %if.then56, %if.then43, %if.then46, %if.then, %if.then36, %FASTCOVER_ctx_destroy.exit64, %FASTCOVER_ctx_destroy.exit
-  %retval.0 = phi i64 [ -64, %FASTCOVER_ctx_destroy.exit ], [ -64, %FASTCOVER_ctx_destroy.exit64 ], [ -72, %if.then36 ], [ -72, %if.then ], [ -72, %if.then46 ], [ -72, %if.then43 ], [ -72, %if.then56 ], [ -72, %if.then53 ], [ 0, %if.end139 ], [ 0, %for.cond.loopexit.i ]
+return:                                           ; preds = %for.cond.loopexit.i, %if.end139, %if.then53, %if.then56, %if.then43, %if.then46, %if.then, %if.then36, %if.end132, %if.end107
+  %retval.0 = phi i64 [ -64, %if.end107 ], [ -64, %if.end132 ], [ -72, %if.then36 ], [ -72, %if.then ], [ -72, %if.then46 ], [ -72, %if.then43 ], [ -72, %if.then56 ], [ -72, %if.then53 ], [ 0, %if.end139 ], [ 0, %for.cond.loopexit.i ]
   ret i64 %retval.0
 }
 
@@ -822,8 +822,8 @@ entry:
   %cond42 = tail call i32 @llvm.umax.i32(i32 %div, i32 1)
   %div46.lhs.trunc = trunc nuw nsw i32 %sub to i16
   %div46.rhs.trunc = trunc nuw nsw i32 %cond42 to i16
-  %div46154 = udiv i16 %div46.lhs.trunc, %div46.rhs.trunc
-  %narrow = add nuw nsw i16 %div46154, 1
+  %div46153 = udiv i16 %div46.lhs.trunc, %div46.rhs.trunc
+  %narrow = add nuw nsw i16 %div46153, 1
   %add47 = zext nneg i16 %narrow to i32
   %5 = zext i1 %cmp4 to i32
   %mul = shl nuw nsw i32 %add47, %5
@@ -926,7 +926,7 @@ if.end111:                                        ; preds = %if.then107, %if.end
   %pool.0 = phi ptr [ %call108, %if.then107 ], [ null, %if.end105 ]
   call void @COVER_best_init(ptr noundef nonnull %best) #12
   %parameters107.sroa.6.0.copyload = load i32, ptr %nbThreads1, align 1
-  %parameters107.sroa.8131.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 36
+  %parameters107.sroa.8130.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 36
   %23 = getelementptr inbounds i8, ptr %parameters, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2, ptr noundef nonnull align 1 dereferenceable(12) %23, i64 12, i1 false)
   %idxprom = zext nneg i32 %cond61 to i64
@@ -945,8 +945,8 @@ if.then121:                                       ; preds = %if.end111
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then121, %if.end111
-  %cmp125.not141 = icmp ugt i32 %cond9, %cond16
-  br i1 %cmp125.not141, label %for.end221, label %for.body.preheader
+  %cmp125.not140 = icmp ugt i32 %cond9, %cond16
+  br i1 %cmp125.not140, label %for.end221, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end124
   %cmp127 = icmp sgt i32 %8, 2
@@ -954,25 +954,25 @@ for.body.preheader:                               ; preds = %if.end124
   %f186 = getelementptr inbounds i8, ptr %ctx, i64 68
   %tobool197.not = icmp eq ptr %pool.0, null
   %cmp208 = icmp ugt i32 %8, 3
-  %freqs.i114 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %offsets.i115 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %freqs.i113 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %offsets.i114 = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond147.for.end_crit_edge
-  %iteration.0144 = phi i32 [ %iteration.2, %for.cond147.for.end_crit_edge ], [ 1, %for.body.preheader ]
-  %d62.0143 = phi i32 [ %add220, %for.cond147.for.end_crit_edge ], [ %cond9, %for.body.preheader ]
-  %tobool144.not142 = phi i1 [ false, %for.cond147.for.end_crit_edge ], [ true, %for.body.preheader ]
+  %iteration.0143 = phi i32 [ %iteration.2, %for.cond147.for.end_crit_edge ], [ 1, %for.body.preheader ]
+  %d62.0142 = phi i32 [ %add220, %for.cond147.for.end_crit_edge ], [ %cond9, %for.body.preheader ]
+  %tobool144.not141 = phi i1 [ false, %for.cond147.for.end_crit_edge ], [ true, %for.body.preheader ]
   br i1 %cmp127, label %if.then129, label %if.end132
 
 if.then129:                                       ; preds = %for.body
   %26 = load ptr, ptr @stderr, align 8
-  %call130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.10, i32 noundef %d62.0143) #11
+  %call130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.10, i32 noundef %d62.0142) #11
   %27 = load ptr, ptr @stderr, align 8
   %call131 = call i32 @fflush(ptr noundef %27)
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then129, %for.body
-  %call133 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d62.0143, double noundef %cond, i32 noundef %cond54, i64 %accelParams.sroa.0.0.copyload)
+  %call133 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d62.0142, double noundef %cond, i32 noundef %cond54, i64 %accelParams.sroa.0.0.copyload)
   %cmp.i = icmp ult i64 %call133, -119
   br i1 %cmp.i, label %if.end143, label %if.then136
 
@@ -993,7 +993,7 @@ if.end142:                                        ; preds = %if.then139, %if.the
   br label %return
 
 if.end143:                                        ; preds = %if.end132
-  br i1 %tobool144.not142, label %if.then145, label %if.end146
+  br i1 %tobool144.not141, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %if.end143
   %31 = load i64, ptr %nbDmers, align 8
@@ -1001,18 +1001,18 @@ if.then145:                                       ; preds = %if.end143
   br label %if.end146
 
 if.end146:                                        ; preds = %if.then145, %if.end143
-  %cmp.i110 = icmp eq i32 %d62.0143, 0
+  %cmp.i110 = icmp eq i32 %d62.0142, 0
   br label %for.body150
 
 for.body150:                                      ; preds = %if.end146, %for.inc
-  %iteration.1140 = phi i32 [ %iteration.0144, %if.end146 ], [ %iteration.2, %for.inc ]
-  %k63.0138 = phi i32 [ %cond22, %if.end146 ], [ %add218, %for.inc ]
+  %iteration.1139 = phi i32 [ %iteration.0143, %if.end146 ], [ %iteration.2, %for.inc ]
+  %k63.0137 = phi i32 [ %cond22, %if.end146 ], [ %add218, %for.inc ]
   %call151 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #14
   br i1 %cmp127, label %if.then154, label %if.end157
 
 if.then154:                                       ; preds = %for.body150
   %32 = load ptr, ptr @stderr, align 8
-  %call155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.11, i32 noundef %k63.0138) #11
+  %call155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.11, i32 noundef %k63.0137) #11
   %33 = load ptr, ptr @stderr, align 8
   %call156 = call i32 @fflush(ptr noundef %33)
   br label %if.end157
@@ -1034,12 +1034,12 @@ if.then162:                                       ; preds = %if.then159
 
 if.end165:                                        ; preds = %if.then162, %if.then159
   call void @COVER_best_destroy(ptr noundef nonnull %best) #12
-  %37 = load ptr, ptr %freqs.i114, align 8
+  %37 = load ptr, ptr %freqs.i113, align 8
   call void @free(ptr noundef %37) #12
-  store ptr null, ptr %freqs.i114, align 8
-  %38 = load ptr, ptr %offsets.i115, align 8
+  store ptr null, ptr %freqs.i113, align 8
+  %38 = load ptr, ptr %offsets.i114, align 8
   call void @free(ptr noundef %38) #12
-  store ptr null, ptr %offsets.i115, align 8
+  store ptr null, ptr %offsets.i114, align 8
   call void @POOL_free(ptr noundef %pool.0) #12
   br label %return
 
@@ -1062,8 +1062,8 @@ if.end166:                                        ; preds = %if.end157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2.0.coverParams.sroa.8.0.parameters170.sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2, i64 12, i1 false)
   %coverParams.sroa.9.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 68
   store i32 0, ptr %coverParams.sroa.9.0.parameters170.sroa_idx, align 4
-  store i32 %k63.0138, ptr %parameters170, align 8
-  store i32 %d62.0143, ptr %coverParams.sroa.3.0.parameters170.sroa_idx, align 4
+  store i32 %k63.0137, ptr %parameters170, align 8
+  store i32 %d62.0142, ptr %coverParams.sroa.3.0.parameters170.sroa_idx, align 4
   store double %cond, ptr %coverParams.sroa.6.0.parameters170.sroa_idx, align 8
   store i32 %cond35, ptr %coverParams.sroa.4.0.parameters170.sroa_idx, align 8
   store i32 0, ptr %coverParams.sroa.7.0.parameters170.sroa_idx, align 8
@@ -1071,20 +1071,20 @@ if.end166:                                        ; preds = %if.end157
   %notificationLevel183 = getelementptr inbounds i8, ptr %call151, i64 60
   store i32 %39, ptr %notificationLevel183, align 4
   %40 = load i32, ptr %f186, align 4
-  %cmp1.i = icmp eq i32 %k63.0138, 0
+  %cmp1.i = icmp eq i32 %k63.0137, 0
   %or.cond.i = or i1 %cmp1.i, %cmp.i110
   br i1 %or.cond.i, label %if.then189, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end166
-  switch i32 %d62.0143, label %if.then189 [
+  switch i32 %d62.0142, label %if.then189 [
     i32 8, label %if.end7.i
     i32 6, label %if.end7.i
   ]
 
 if.end7.i:                                        ; preds = %if.end.i, %if.end.i
-  %conv.i111 = zext i32 %k63.0138 to i64
+  %conv.i111 = zext i32 %k63.0137 to i64
   %cmp9.i = icmp ult i64 %dictBufferCapacity, %conv.i111
-  %cmp15.i = icmp ugt i32 %d62.0143, %k63.0138
+  %cmp15.i = icmp ugt i32 %d62.0142, %k63.0137
   %or.cond8.i = or i1 %cmp9.i, %cmp15.i
   %41 = add i32 %40, -32
   %or.cond2.i = icmp ult i32 %41, -31
@@ -1133,7 +1133,7 @@ if.then210:                                       ; preds = %if.then202
   %call211 = call i64 @clock() #12
   store i64 %call211, ptr @g_time, align 8
   %46 = load ptr, ptr @stderr, align 8
-  %mul212 = mul i32 %iteration.1140, 100
+  %mul212 = mul i32 %iteration.1139, 100
   %div213 = udiv i32 %mul212, %mul
   %call214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.13, i32 noundef %div213) #11
   %47 = load ptr, ptr @stderr, align 8
@@ -1141,24 +1141,24 @@ if.then210:                                       ; preds = %if.then202
   br label %if.end217
 
 if.end217:                                        ; preds = %if.then210, %if.then202, %if.end199
-  %inc = add i32 %iteration.1140, 1
+  %inc = add i32 %iteration.1139, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end217, %if.end195
-  %iteration.2 = phi i32 [ %inc, %if.end217 ], [ %iteration.1140, %if.end195 ]
-  %add218 = add i32 %k63.0138, %cond42
+  %iteration.2 = phi i32 [ %inc, %if.end217 ], [ %iteration.1139, %if.end195 ]
+  %add218 = add i32 %k63.0137, %cond42
   %cmp148.not = icmp ugt i32 %add218, %cond29
   br i1 %cmp148.not, label %for.cond147.for.end_crit_edge, label %for.body150, !llvm.loop !12
 
 for.cond147.for.end_crit_edge:                    ; preds = %for.inc
   call void @COVER_best_wait(ptr noundef nonnull %best) #12
-  %48 = load ptr, ptr %freqs.i114, align 8
+  %48 = load ptr, ptr %freqs.i113, align 8
   call void @free(ptr noundef %48) #12
-  store ptr null, ptr %freqs.i114, align 8
-  %49 = load ptr, ptr %offsets.i115, align 8
+  store ptr null, ptr %freqs.i113, align 8
+  %49 = load ptr, ptr %offsets.i114, align 8
   call void @free(ptr noundef %49) #12
-  store ptr null, ptr %offsets.i115, align 8
-  %add220 = add i32 %d62.0143, 2
+  store ptr null, ptr %offsets.i114, align 8
+  %add220 = add i32 %d62.0142, 2
   %cmp125.not = icmp ugt i32 %add220, %cond16
   br i1 %cmp125.not, label %for.end221, label %for.body, !llvm.loop !13
 
@@ -1175,8 +1175,8 @@ if.then224:                                       ; preds = %for.end221
 if.end227:                                        ; preds = %if.then224, %for.end221
   %compressedSize = getelementptr inbounds i8, ptr %best, i64 160
   %52 = load i64, ptr %compressedSize, align 8
-  %cmp.i116 = icmp ult i64 %52, -119
-  br i1 %cmp.i116, label %if.end234, label %if.then231
+  %cmp.i115 = icmp ult i64 %52, -119
+  br i1 %cmp.i115, label %if.end234, label %if.then231
 
 if.then231:                                       ; preds = %if.end227
   call void @COVER_best_destroy(ptr noundef nonnull %best) #12
@@ -1187,28 +1187,28 @@ if.end234:                                        ; preds = %if.end227
   %dictSize228 = getelementptr inbounds i8, ptr %best, i64 104
   %53 = load i64, ptr %dictSize228, align 8
   %parameters235 = getelementptr inbounds i8, ptr %best, i64 112
-  %parameters235118.sroa.0.0.copyload = load i32, ptr %parameters235, align 8
-  %parameters235118.sroa.4.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 116
-  %parameters235118.sroa.4.0.copyload = load i32, ptr %parameters235118.sroa.4.0.parameters235.sroa_idx, align 4
-  %parameters235118.sroa.5.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 120
-  %parameters235118.sroa.5.0.copyload = load i32, ptr %parameters235118.sroa.5.0.parameters235.sroa_idx, align 8
-  %parameters235118.sroa.6.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 124
-  %parameters235118.sroa.6.0.copyload = load i32, ptr %parameters235118.sroa.6.0.parameters235.sroa_idx, align 4
-  %parameters235118.sroa.7.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 128
-  %parameters235118.sroa.7.0.copyload = load double, ptr %parameters235118.sroa.7.0.parameters235.sroa_idx, align 8
-  %parameters235118.sroa.8.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 136
-  %parameters235118.sroa.8.0.copyload = load i32, ptr %parameters235118.sroa.8.0.parameters235.sroa_idx, align 8
-  store i32 %parameters235118.sroa.0.0.copyload, ptr %parameters, align 8
-  store i32 %parameters235118.sroa.4.0.copyload, ptr %d, align 4
-  store i32 %parameters235118.sroa.5.0.copyload, ptr %steps, align 4
-  store i32 %parameters235118.sroa.6.0.copyload, ptr %nbThreads1, align 8
-  store double %parameters235118.sroa.7.0.copyload, ptr %splitPoint2, align 8
+  %parameters235117.sroa.0.0.copyload = load i32, ptr %parameters235, align 8
+  %parameters235117.sroa.4.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 116
+  %parameters235117.sroa.4.0.copyload = load i32, ptr %parameters235117.sroa.4.0.parameters235.sroa_idx, align 4
+  %parameters235117.sroa.5.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 120
+  %parameters235117.sroa.5.0.copyload = load i32, ptr %parameters235117.sroa.5.0.parameters235.sroa_idx, align 8
+  %parameters235117.sroa.6.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 124
+  %parameters235117.sroa.6.0.copyload = load i32, ptr %parameters235117.sroa.6.0.parameters235.sroa_idx, align 4
+  %parameters235117.sroa.7.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 128
+  %parameters235117.sroa.7.0.copyload = load double, ptr %parameters235117.sroa.7.0.parameters235.sroa_idx, align 8
+  %parameters235117.sroa.8.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 136
+  %parameters235117.sroa.8.0.copyload = load i32, ptr %parameters235117.sroa.8.0.parameters235.sroa_idx, align 8
+  store i32 %parameters235117.sroa.0.0.copyload, ptr %parameters, align 8
+  store i32 %parameters235117.sroa.4.0.copyload, ptr %d, align 4
+  store i32 %parameters235117.sroa.5.0.copyload, ptr %steps, align 4
+  store i32 %parameters235117.sroa.6.0.copyload, ptr %nbThreads1, align 8
+  store double %parameters235117.sroa.7.0.copyload, ptr %splitPoint2, align 8
   store i32 %cond54, ptr %f48, align 8
   store i32 %cond61, ptr %accel55, align 8
-  %zParams.i127 = getelementptr inbounds i8, ptr %parameters, i64 44
+  %zParams.i126 = getelementptr inbounds i8, ptr %parameters, i64 44
   %54 = getelementptr inbounds i8, ptr %best, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %zParams.i127, ptr noundef nonnull align 8 dereferenceable(12) %54, i64 12, i1 false)
-  store i32 %parameters235118.sroa.8.0.copyload, ptr %parameters107.sroa.8131.0.parameters.sroa_idx, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %zParams.i126, ptr noundef nonnull align 8 dereferenceable(12) %54, i64 12, i1 false)
+  store i32 %parameters235117.sroa.8.0.copyload, ptr %parameters107.sroa.8130.0.parameters.sroa_idx, align 4
   %dict = getelementptr inbounds i8, ptr %best, i64 96
   %55 = load ptr, ptr %dict, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dictBuffer, ptr align 1 %55, i64 %53, i1 false)

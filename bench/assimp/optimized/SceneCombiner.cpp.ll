@@ -1655,10 +1655,8 @@ for.body199:                                      ; preds = %for.body199.lr.ph, 
   br i1 %cmp202.not, label %if.else215, label %if.then203
 
 if.then203:                                       ; preds = %for.body199
-  %cmp.i371 = icmp eq ptr %pip.11378, null
   %cmp1.i372 = icmp eq ptr %110, null
-  %or.cond.i373 = or i1 %cmp.i371, %cmp1.i372
-  br i1 %or.cond.i373, label %if.end221, label %if.end.i374
+  br i1 %cmp1.i372, label %if.end221, label %if.end.i374
 
 if.end.i374:                                      ; preds = %if.then203
   %call.i375377 = invoke noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #18

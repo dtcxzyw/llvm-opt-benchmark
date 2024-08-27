@@ -49172,23 +49172,23 @@ if.end11.i:                                       ; preds = %if.end6.i
   %arrayidx.i = getelementptr inbounds i8, ptr %val.coerce1, i64 10
   %17 = load i8, ptr %arrayidx.i, align 1
   switch i8 %17, label %if.then [
-    i8 32, label %if.end23.i
-    i8 84, label %if.end23.i
+    i8 32, label %if.then24.i
+    i8 84, label %if.then24.i
   ]
 
-if.end23.i:                                       ; preds = %if.end11.i, %if.end11.i
+if.then24.i:                                      ; preds = %if.end11.i, %if.end11.i
   store i64 0, ptr %zone_offset.i, align 8
   %18 = getelementptr i8, ptr %val.coerce1, i64 %val.coerce0
-  %arrayidx26129.i = getelementptr i8, ptr %18, i64 -1
-  %19 = load i8, ptr %arrayidx26129.i, align 1
-  %cmp28130.i = icmp eq i8 %19, 90
-  br i1 %cmp28130.i, label %if.then31.i, label %if.else.i
+  %arrayidx26.i = getelementptr i8, ptr %18, i64 -1
+  %19 = load i8, ptr %arrayidx26.i, align 1
+  %cmp28.i = icmp eq i8 %19, 90
+  br i1 %cmp28.i, label %if.then31.i, label %if.else.i
 
-if.then31.i:                                      ; preds = %if.end23.i
-  %dec131.i = add i64 %val.coerce0, -1
+if.then31.i:                                      ; preds = %if.then24.i
+  %dec.i = add i64 %val.coerce0, -1
   br label %if.end130.i
 
-if.else.i:                                        ; preds = %if.end23.i
+if.else.i:                                        ; preds = %if.then24.i
   %sub33.i = add i64 %val.coerce0, -3
   %arrayidx34.i = getelementptr inbounds i8, ptr %val.coerce1, i64 %sub33.i
   %20 = load i8, ptr %arrayidx34.i, align 1
@@ -49276,9 +49276,9 @@ if.then120.i:                                     ; preds = %if.end116.i
   store i64 %mul.i69.i, ptr %zone_offset.i, align 8
   br label %if.end130.i
 
-if.end130.i:                                      ; preds = %if.end116.i, %if.then120.i, %if.end80.i, %if.then84.i, %land.lhs.true101.i, %if.else91.i, %if.end50.i, %if.then31.i
-  %zone_offset_present.0 = phi i8 [ 1, %if.then31.i ], [ 0, %if.else91.i ], [ 0, %land.lhs.true101.i ], [ 1, %if.end50.i ], [ 1, %if.then84.i ], [ 1, %if.end80.i ], [ 1, %if.then120.i ], [ 1, %if.end116.i ]
-  %length.addr.0.i = phi i64 [ %dec131.i, %if.then31.i ], [ %val.coerce0, %if.else91.i ], [ %val.coerce0, %land.lhs.true101.i ], [ %sub33.i, %if.end50.i ], [ %sub61.i, %if.then84.i ], [ %sub61.i, %if.end80.i ], [ %sub92.i, %if.then120.i ], [ %sub92.i, %if.end116.i ]
+if.end130.i:                                      ; preds = %if.then31.i, %if.end50.i, %if.end80.i, %if.then84.i, %if.end116.i, %if.then120.i, %land.lhs.true101.i, %if.else91.i
+  %zone_offset_present.0 = phi i8 [ 0, %if.else91.i ], [ 0, %land.lhs.true101.i ], [ 1, %if.then120.i ], [ 1, %if.end116.i ], [ 1, %if.then84.i ], [ 1, %if.end80.i ], [ 1, %if.end50.i ], [ 1, %if.then31.i ]
+  %length.addr.0.i = phi i64 [ %val.coerce0, %if.else91.i ], [ %val.coerce0, %land.lhs.true101.i ], [ %sub92.i, %if.then120.i ], [ %sub92.i, %if.end116.i ], [ %sub61.i, %if.then84.i ], [ %sub61.i, %if.end80.i ], [ %sub33.i, %if.end50.i ], [ %dec.i, %if.then31.i ]
   switch i64 %length.addr.0.i, label %if.then [
     i64 13, label %sw.bb.i
     i64 16, label %sw.bb139.i
@@ -49398,9 +49398,9 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit30.i.i: ; preds = %if.end.i22.i.i
 
 sw.epilog.thread.i:                               ; preds = %sw.bb139.sw.epilog.thread_crit_edge.i, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit84.i
   %36 = phi i64 [ %.pre.i, %sw.bb139.sw.epilog.thread_crit_edge.i ], [ %mul.i.i.i82.i, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit84.i ]
-  %add.i136.i = add nsw i64 %36, %mul.i.i.i.i
+  %add.i132.i = add nsw i64 %36, %mul.i.i.i.i
   %37 = load i64, ptr %zone_offset.i, align 8
-  %add.i106137.i = add nsw i64 %add.i136.i, %37
+  %add.i106133.i = add nsw i64 %add.i132.i, %37
   br label %if.then160.i
 
 sw.epilog.i:                                      ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit30.i.i
@@ -49418,7 +49418,7 @@ sw.epilog.i:                                      ; preds = %_ZN5arrow8internal1
   br i1 %cmp159.i, label %if.then160.i, label %if.end163.i
 
 if.then160.i:                                     ; preds = %sw.epilog.i, %sw.epilog.thread.i
-  %add.i106139.i = phi i64 [ %add.i106137.i, %sw.epilog.thread.i ], [ %add.i106.i, %sw.epilog.i ]
+  %add.i106135.i = phi i64 [ %add.i106133.i, %sw.epilog.thread.i ], [ %add.i106.i, %sw.epilog.i ]
   switch i32 %3, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit [
     i32 3, label %sw.bb6.i.i112.i
     i32 1, label %sw.bb1.i.i110.i
@@ -49426,15 +49426,15 @@ if.then160.i:                                     ; preds = %sw.epilog.i, %sw.ep
   ]
 
 sw.bb1.i.i110.i:                                  ; preds = %if.then160.i
-  %mul.i.i.i.i.i111.i = mul nsw i64 %add.i106139.i, 1000
+  %mul.i.i.i.i.i111.i = mul nsw i64 %add.i106135.i, 1000
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
 sw.bb2.i.i107.i:                                  ; preds = %if.then160.i
-  %mul.i.i.i7.i.i108.i = mul nsw i64 %add.i106139.i, 1000000
+  %mul.i.i.i7.i.i108.i = mul nsw i64 %add.i106135.i, 1000000
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
 sw.bb6.i.i112.i:                                  ; preds = %if.then160.i
-  %mul.i.i.i8.i.i113.i = mul nsw i64 %add.i106139.i, 1000000000
+  %mul.i.i.i8.i.i113.i = mul nsw i64 %add.i106135.i, 1000000000
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
 if.end163.i:                                      ; preds = %sw.epilog.i
@@ -49477,7 +49477,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit122.i: ; preds = %sw.b
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
 _ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit: ; preds = %if.then160.i, %sw.bb1.i.i110.i, %sw.bb2.i.i107.i, %sw.bb6.i.i112.i, %if.then8.i, %sw.bb1.i.i.i, %sw.bb2.i.i.i, %sw.bb6.i.i.i, %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit122.i
-  %result.0 = phi i64 [ %add.i, %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit122.i ], [ %mul.i.i.i7.i.i.i, %sw.bb2.i.i.i ], [ %mul.i.i.i.i.i.i, %sw.bb1.i.i.i ], [ %mul.i.i.i8.i.i.i, %sw.bb6.i.i.i ], [ %mul.i.i.i.i, %if.then8.i ], [ %mul.i.i.i7.i.i108.i, %sw.bb2.i.i107.i ], [ %mul.i.i.i.i.i111.i, %sw.bb1.i.i110.i ], [ %mul.i.i.i8.i.i113.i, %sw.bb6.i.i112.i ], [ %add.i106139.i, %if.then160.i ]
+  %result.0 = phi i64 [ %add.i, %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit122.i ], [ %mul.i.i.i7.i.i.i, %sw.bb2.i.i.i ], [ %mul.i.i.i.i.i.i, %sw.bb1.i.i.i ], [ %mul.i.i.i8.i.i.i, %sw.bb6.i.i.i ], [ %mul.i.i.i.i, %if.then8.i ], [ %mul.i.i.i7.i.i108.i, %sw.bb2.i.i107.i ], [ %mul.i.i.i.i.i111.i, %sw.bb1.i.i110.i ], [ %mul.i.i.i8.i.i113.i, %sw.bb6.i.i112.i ], [ %add.i106135.i, %if.then160.i ]
   %zone_offset_present.1 = phi i8 [ %zone_offset_present.0, %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit122.i ], [ 0, %sw.bb2.i.i.i ], [ 0, %sw.bb1.i.i.i ], [ 0, %sw.bb6.i.i.i ], [ 0, %if.then8.i ], [ %zone_offset_present.0, %sw.bb2.i.i107.i ], [ %zone_offset_present.0, %sw.bb1.i.i110.i ], [ %zone_offset_present.0, %sw.bb6.i.i112.i ], [ %zone_offset_present.0, %if.then160.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %zone_offset.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %seconds_since_midnight.i)

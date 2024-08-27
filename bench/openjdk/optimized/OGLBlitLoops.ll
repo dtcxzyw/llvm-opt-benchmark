@@ -889,96 +889,88 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %11, label %8
+define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = load i8, ptr %8, align 4
+  %.not = icmp eq i8 %9, 0
+  %10 = load ptr, ptr @j2d_glBindTexture, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 112
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 100
+  %14 = load i32, ptr %13, align 4
+  tail call void %10(i32 noundef %12, i32 noundef %14) #6
+  br i1 %.not, label %15, label %18
 
-8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
-  %10 = load i8, ptr %9, align 4
-  %.not36 = icmp ne i8 %10, 0
-  br label %11
+15:                                               ; preds = %7
+  %16 = load ptr, ptr @j2d_glPixelTransferf, align 8
+  tail call void %16(i32 noundef 3356, float noundef 0.000000e+00) #6
+  %17 = load ptr, ptr @j2d_glPixelTransferf, align 8
+  tail call void %17(i32 noundef 3357, float noundef 1.000000e+00) #6
+  br label %18
 
-11:                                               ; preds = %8, %7
-  %.not37 = phi i1 [ true, %7 ], [ %.not36, %8 ]
-  %12 = load ptr, ptr @j2d_glBindTexture, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 112
-  %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 100
-  %16 = load i32, ptr %15, align 4
-  tail call void %12(i32 noundef %14, i32 noundef %16) #6
-  br i1 %.not37, label %20, label %17
+18:                                               ; preds = %15, %7
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = load i32, ptr %21, align 4
+  %23 = srem i32 %20, %22
+  %.not36 = icmp eq i32 %23, 0
+  br i1 %.not36, label %44, label %24
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %18(i32 noundef 3356, float noundef 0.000000e+00) #6
-  %19 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %19(i32 noundef 3357, float noundef 1.000000e+00) #6
-  br label %20
+24:                                               ; preds = %18
+  %25 = sub nsw i32 %5, %3
+  %26 = sub nsw i32 %6, %4
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph, label %.loopexit
 
-20:                                               ; preds = %17, %11
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
-  %24 = load i32, ptr %23, align 4
-  %25 = srem i32 %22, %24
-  %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %46, label %26
+.lr.ph:                                           ; preds = %24
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 4
+  br label %31
 
-26:                                               ; preds = %20
-  %27 = sub nsw i32 %5, %3
-  %28 = sub nsw i32 %6, %4
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph, label %.loopexit
+31:                                               ; preds = %.lr.ph, %31
+  %.038 = phi ptr [ %29, %.lr.ph ], [ %41, %31 ]
+  %.03437 = phi i32 [ %26, %.lr.ph ], [ %42, %31 ]
+  %32 = load ptr, ptr @j2d_glTexSubImage2D, align 8
+  %33 = load i32, ptr %11, align 8
+  %34 = sub nsw i32 %6, %.03437
+  %35 = load i32, ptr %1, align 4
+  %36 = load i32, ptr %30, align 4
+  tail call void %32(i32 noundef %33, i32 noundef 0, i32 noundef %3, i32 noundef %34, i32 noundef %25, i32 noundef 1, i32 noundef %35, i32 noundef %36, ptr noundef %.038) #6
+  %37 = ptrtoint ptr %.038 to i64
+  %38 = load i32, ptr %19, align 8
+  %39 = sext i32 %38 to i64
+  %40 = add nsw i64 %39, %37
+  %41 = inttoptr i64 %40 to ptr
+  %42 = add nsw i32 %.03437, -1
+  %43 = icmp ugt i32 %.03437, 1
+  br i1 %43, label %31, label %.loopexit, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
-  br label %33
-
-33:                                               ; preds = %.lr.ph, %33
-  %.040 = phi ptr [ %31, %.lr.ph ], [ %43, %33 ]
-  %.03439 = phi i32 [ %28, %.lr.ph ], [ %44, %33 ]
-  %34 = load ptr, ptr @j2d_glTexSubImage2D, align 8
-  %35 = load i32, ptr %13, align 8
-  %36 = sub nsw i32 %6, %.03439
-  %37 = load i32, ptr %1, align 4
-  %38 = load i32, ptr %32, align 4
-  tail call void %34(i32 noundef %35, i32 noundef 0, i32 noundef %3, i32 noundef %36, i32 noundef %27, i32 noundef 1, i32 noundef %37, i32 noundef %38, ptr noundef %.040) #6
-  %39 = ptrtoint ptr %.040 to i64
-  %40 = load i32, ptr %21, align 8
-  %41 = sext i32 %40 to i64
-  %42 = add nsw i64 %41, %39
-  %43 = inttoptr i64 %42 to ptr
-  %44 = add nsw i32 %.03439, -1
-  %45 = icmp ugt i32 %.03439, 1
-  br i1 %45, label %33, label %.loopexit, !llvm.loop !10
-
-46:                                               ; preds = %20
-  %47 = load ptr, ptr @j2d_glTexSubImage2D, align 8
-  %48 = load i32, ptr %13, align 8
-  %49 = sub nsw i32 %5, %3
-  %50 = sub nsw i32 %6, %4
-  %51 = load i32, ptr %1, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
-  %55 = load ptr, ptr %54, align 8
-  tail call void %47(i32 noundef %48, i32 noundef 0, i32 noundef %3, i32 noundef %4, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %53, ptr noundef %55) #6
+44:                                               ; preds = %18
+  %45 = load ptr, ptr @j2d_glTexSubImage2D, align 8
+  %46 = load i32, ptr %11, align 8
+  %47 = sub nsw i32 %5, %3
+  %48 = sub nsw i32 %6, %4
+  %49 = load i32, ptr %1, align 4
+  %50 = getelementptr inbounds i8, ptr %1, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8
+  tail call void %45(i32 noundef %46, i32 noundef 0, i32 noundef %3, i32 noundef %4, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %51, ptr noundef %53) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %26, %46
-  br i1 %.not37, label %59, label %56
+.loopexit:                                        ; preds = %31, %24, %44
+  br i1 %.not, label %54, label %57
 
-56:                                               ; preds = %.loopexit
-  %57 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %57(i32 noundef 3356, float noundef 1.000000e+00) #6
-  %58 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %58(i32 noundef 3357, float noundef 0.000000e+00) #6
-  br label %59
+54:                                               ; preds = %.loopexit
+  %55 = load ptr, ptr @j2d_glPixelTransferf, align 8
+  tail call void %55(i32 noundef 3356, float noundef 1.000000e+00) #6
+  %56 = load ptr, ptr @j2d_glPixelTransferf, align 8
+  tail call void %56(i32 noundef 3357, float noundef 0.000000e+00) #6
+  br label %57
 
-59:                                               ; preds = %56, %.loopexit
+57:                                               ; preds = %54, %.loopexit
   ret void
 }
 

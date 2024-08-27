@@ -9179,12 +9179,12 @@ define internal fastcc i32 @dissect_nt_acl(ptr noundef %0, i32 noundef %1, ptr n
   %62 = load i32, ptr @ett_nt_ace_flags, align 4
   %63 = call ptr @proto_tree_add_bitmask(ptr noundef %54, ptr noundef %0, i32 noundef %59, i32 noundef %61, i32 noundef %62, ptr noundef nonnull @dissect_nt_v2_ace_flags.ace_flags, i32 noundef 0) #7
   %64 = zext i8 %60 to i32
-  %.not44.i.i = icmp sgt i8 %60, -1
-  br i1 %.not44.i.i, label %67, label %65
+  %.not.i.i = icmp sgt i8 %60, -1
+  br i1 %.not.i.i, label %67, label %65
 
 65:                                               ; preds = %52
-  %.not45.i.i = icmp eq ptr %63, null
-  br i1 %.not45.i.i, label %.thread61.i.i, label %66
+  %.not44.i.i = icmp eq ptr %63, null
+  br i1 %.not44.i.i, label %.thread60.i.i, label %66
 
 66:                                               ; preds = %65
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %63, ptr noundef nonnull @.str.7137, ptr noundef nonnull @.str.7136) #7
@@ -9193,68 +9193,68 @@ define internal fastcc i32 @dissect_nt_acl(ptr noundef %0, i32 noundef %1, ptr n
 67:                                               ; preds = %66, %52
   %.0.i.i = phi ptr [ @.str.7136, %52 ], [ @.str.7138, %66 ]
   %68 = and i32 %64, 64
-  %.not46.i.i = icmp eq i32 %68, 0
-  br i1 %.not46.i.i, label %.thread61.i.i, label %69
+  %.not45.i.i = icmp eq i32 %68, 0
+  br i1 %.not45.i.i, label %.thread60.i.i, label %69
 
 69:                                               ; preds = %67
-  %.not47.i.i = icmp eq ptr %63, null
-  br i1 %.not47.i.i, label %.thread61.i.i, label %70
+  %.not46.i.i = icmp eq ptr %63, null
+  br i1 %.not46.i.i, label %.thread60.i.i, label %70
 
 70:                                               ; preds = %69
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %63, ptr noundef nonnull @.str.7139, ptr noundef nonnull %.0.i.i) #7
-  br label %.thread61.i.i
+  br label %.thread60.i.i
 
-.thread61.i.i:                                    ; preds = %70, %69, %67, %65
+.thread60.i.i:                                    ; preds = %70, %69, %67, %65
   %.1.i.i = phi ptr [ %.0.i.i, %67 ], [ @.str.7138, %70 ], [ @.str.7138, %69 ], [ @.str.7138, %65 ]
   %71 = and i32 %64, 16
-  %.not48.i.i = icmp eq i32 %71, 0
-  br i1 %.not48.i.i, label %74, label %72
+  %.not47.i.i = icmp eq i32 %71, 0
+  br i1 %.not47.i.i, label %74, label %72
 
-72:                                               ; preds = %.thread61.i.i
-  %.not49.i.i = icmp eq ptr %63, null
-  br i1 %.not49.i.i, label %.thread68.i.i, label %73
+72:                                               ; preds = %.thread60.i.i
+  %.not48.i.i = icmp eq ptr %63, null
+  br i1 %.not48.i.i, label %.thread67.i.i, label %73
 
 73:                                               ; preds = %72
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %63, ptr noundef nonnull @.str.7140, ptr noundef nonnull %.1.i.i) #7
   br label %74
 
-74:                                               ; preds = %73, %.thread61.i.i
-  %.2.i.i = phi ptr [ %.1.i.i, %.thread61.i.i ], [ @.str.7138, %73 ]
+74:                                               ; preds = %73, %.thread60.i.i
+  %.2.i.i = phi ptr [ %.1.i.i, %.thread60.i.i ], [ @.str.7138, %73 ]
   %75 = and i32 %64, 8
-  %.not50.i.i = icmp eq i32 %75, 0
-  br i1 %.not50.i.i, label %.thread68.i.i, label %76
+  %.not49.i.i = icmp eq i32 %75, 0
+  br i1 %.not49.i.i, label %.thread67.i.i, label %76
 
 76:                                               ; preds = %74
-  %.not51.i.i = icmp eq ptr %63, null
-  br i1 %.not51.i.i, label %.thread68.i.i, label %77
+  %.not50.i.i = icmp eq ptr %63, null
+  br i1 %.not50.i.i, label %.thread67.i.i, label %77
 
 77:                                               ; preds = %76
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %63, ptr noundef nonnull @.str.7141, ptr noundef %.2.i.i) #7
-  br label %.thread68.i.i
+  br label %.thread67.i.i
 
-.thread68.i.i:                                    ; preds = %77, %76, %74, %72
+.thread67.i.i:                                    ; preds = %77, %76, %74, %72
   %.3.i.i = phi ptr [ %.2.i.i, %74 ], [ @.str.7138, %77 ], [ @.str.7138, %76 ], [ @.str.7138, %72 ]
   %78 = and i32 %64, 4
-  %.not52.i.i = icmp eq i32 %78, 0
-  br i1 %.not52.i.i, label %81, label %79
+  %.not51.i.i = icmp eq i32 %78, 0
+  br i1 %.not51.i.i, label %81, label %79
 
-79:                                               ; preds = %.thread68.i.i
-  %.not53.i.i = icmp eq ptr %63, null
-  br i1 %.not53.i.i, label %dissect_nt_v2_ace_flags.exit.i, label %80
+79:                                               ; preds = %.thread67.i.i
+  %.not52.i.i = icmp eq ptr %63, null
+  br i1 %.not52.i.i, label %dissect_nt_v2_ace_flags.exit.i, label %80
 
 80:                                               ; preds = %79
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %63, ptr noundef nonnull @.str.7142, ptr noundef %.3.i.i) #7
   br label %81
 
-81:                                               ; preds = %80, %.thread68.i.i
-  %.4.i.i = phi ptr [ %.3.i.i, %.thread68.i.i ], [ @.str.7138, %80 ]
+81:                                               ; preds = %80, %.thread67.i.i
+  %.4.i.i = phi ptr [ %.3.i.i, %.thread67.i.i ], [ @.str.7138, %80 ]
   %82 = and i32 %64, 2
-  %.not54.i.i = icmp eq i32 %82, 0
-  br i1 %.not54.i.i, label %85, label %83
+  %.not53.i.i = icmp eq i32 %82, 0
+  br i1 %.not53.i.i, label %85, label %83
 
 83:                                               ; preds = %81
-  %.not55.i.i = icmp eq ptr %63, null
-  br i1 %.not55.i.i, label %dissect_nt_v2_ace_flags.exit.i, label %84
+  %.not54.i.i = icmp eq ptr %63, null
+  br i1 %.not54.i.i, label %dissect_nt_v2_ace_flags.exit.i, label %84
 
 84:                                               ; preds = %83
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %63, ptr noundef nonnull @.str.7143, ptr noundef %.4.i.i) #7
@@ -9263,9 +9263,9 @@ define internal fastcc i32 @dissect_nt_acl(ptr noundef %0, i32 noundef %1, ptr n
 85:                                               ; preds = %84, %81
   %.5.i.i = phi ptr [ %.4.i.i, %81 ], [ @.str.7138, %84 ]
   %86 = and i32 %64, 1
-  %.not56.i.i = icmp eq i32 %86, 0
-  %.not57.i.i = icmp eq ptr %63, null
-  %or.cond.i.i = select i1 %.not56.i.i, i1 true, i1 %.not57.i.i
+  %.not55.i.i = icmp eq i32 %86, 0
+  %.not56.i.i = icmp eq ptr %63, null
+  %or.cond.i.i = select i1 %.not55.i.i, i1 true, i1 %.not56.i.i
   br i1 %or.cond.i.i, label %dissect_nt_v2_ace_flags.exit.i, label %87
 
 87:                                               ; preds = %85
@@ -9313,8 +9313,8 @@ dissect_nt_v2_ace_flags.exit.i:                   ; preds = %87, %85, %83, %79
   %106 = load i32, ptr @ett_nt_ace_object_flags, align 4
   %107 = call ptr @proto_tree_add_bitmask(ptr noundef %103, ptr noundef %0, i32 noundef %100, i32 noundef %105, i32 noundef %106, ptr noundef nonnull @dissect_nt_ace_object.ace_flags, i32 noundef -2147483648) #7
   %108 = and i32 %104, 1
-  %.not.i.i = icmp eq i32 %108, 0
-  br i1 %.not.i.i, label %116, label %109
+  %.not.i63.i = icmp eq i32 %108, 0
+  br i1 %.not.i63.i, label %116, label %109
 
 109:                                              ; preds = %101
   %.not33.i.i = icmp eq ptr %107, null
@@ -9334,20 +9334,20 @@ dissect_nt_v2_ace_flags.exit.i:                   ; preds = %87, %85, %83, %79
   br label %116
 
 116:                                              ; preds = %115, %101
-  %.0.i63.i = phi ptr [ @.str.7136, %101 ], [ @.str.7138, %115 ]
+  %.0.i64.i = phi ptr [ @.str.7136, %101 ], [ @.str.7138, %115 ]
   %117 = and i32 %104, 2
   %.not34.i.i = icmp eq i32 %117, 0
   %.not35.i.i = icmp eq ptr %107, null
-  %or.cond.i64.i = select i1 %.not34.i.i, i1 true, i1 %.not35.i.i
-  br i1 %or.cond.i64.i, label %119, label %118
+  %or.cond.i65.i = select i1 %.not34.i.i, i1 true, i1 %.not35.i.i
+  br i1 %or.cond.i65.i, label %119, label %118
 
 118:                                              ; preds = %116
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %107, ptr noundef nonnull @.str.7147, ptr noundef nonnull %.0.i63.i) #7
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %107, ptr noundef nonnull @.str.7147, ptr noundef nonnull %.0.i64.i) #7
   br label %119
 
 119:                                              ; preds = %118, %116
   %120 = add i32 %100, 4
-  br i1 %.not.i.i, label %125, label %121
+  br i1 %.not.i63.i, label %125, label %121
 
 121:                                              ; preds = %119
   %122 = load i32, ptr @hf_nt_ace_guid, align 4
@@ -9366,15 +9366,15 @@ dissect_nt_v2_ace_flags.exit.i:                   ; preds = %87, %85, %83, %79
   br label %dissect_nt_ace_object.exit.i
 
 dissect_nt_ace_object.exit.i:                     ; preds = %126, %125, %121, %.thread41.i.i
-  %.1.i65.i = phi i32 [ %129, %126 ], [ %120, %125 ], [ %124, %121 ], [ %114, %.thread41.i.i ]
+  %.1.i66.i = phi i32 [ %129, %126 ], [ %120, %125 ], [ %124, %121 ], [ %114, %.thread41.i.i ]
   %130 = load ptr, ptr %9, align 8
-  %131 = sub i32 %.1.i65.i, %100
+  %131 = sub i32 %.1.i66.i, %100
   call void @proto_item_set_len(ptr noundef %130, i32 noundef %131) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %132
 
 132:                                              ; preds = %dissect_nt_ace_object.exit.i, %98
-  %.1.i = phi i32 [ %100, %98 ], [ %.1.i65.i, %dissect_nt_ace_object.exit.i ]
+  %.1.i = phi i32 [ %100, %98 ], [ %.1.i66.i, %dissect_nt_ace_object.exit.i ]
   %133 = call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %.1.i, ptr noundef %54, ptr noundef nonnull @.str.6519, ptr noundef nonnull %11, i32 noundef -1)
   %134 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %134, null
@@ -9480,24 +9480,24 @@ dissect_nt_ace_object.exit.i:                     ; preds = %126, %125, %121, %.
   %200 = load i32, ptr @ett_nt_ace_sra_values, align 4
   %201 = call ptr @proto_tree_add_subtree(ptr noundef %166, ptr noundef %0, i32 noundef %197, i32 noundef %199, i32 noundef %200, ptr noundef null, ptr noundef nonnull @.str.7153) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef nonnull @.str.7154) #7
-  br label %.lr.ph.i66.i
+  br label %.lr.ph.i67.i
 
 202:                                              ; preds = %161
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef nonnull @.str.7154) #7
   %.not90.i.i = icmp eq i32 %189, 0
-  br i1 %.not90.i.i, label %dissect_nt_ace_system_resource_attribute.exit.i, label %.lr.ph.i66.i
+  br i1 %.not90.i.i, label %dissect_nt_ace_system_resource_attribute.exit.i, label %.lr.ph.i67.i
 
-.lr.ph.i66.i:                                     ; preds = %202, %.thread.i.i
+.lr.ph.i67.i:                                     ; preds = %202, %.thread.i.i
   %.08595.i.i = phi ptr [ %196, %.thread.i.i ], [ %166, %202 ]
   %.08694.i.i = phi ptr [ %201, %.thread.i.i ], [ %166, %202 ]
   %.not.i.i.i = icmp eq ptr %164, null
   br label %203
 
-203:                                              ; preds = %dissect_nt_ace_system_resource_attribute_value.exit.i.i, %.lr.ph.i66.i
-  %.089.i.i = phi i32 [ 0, %.lr.ph.i66.i ], [ %244, %dissect_nt_ace_system_resource_attribute_value.exit.i.i ]
-  %.08488.i.i = phi i32 [ %192, %.lr.ph.i66.i ], [ %243, %dissect_nt_ace_system_resource_attribute_value.exit.i.i ]
-  %.not.i67.i = icmp eq i32 %.089.i.i, 0
-  br i1 %.not.i67.i, label %205, label %204
+203:                                              ; preds = %dissect_nt_ace_system_resource_attribute_value.exit.i.i, %.lr.ph.i67.i
+  %.089.i.i = phi i32 [ 0, %.lr.ph.i67.i ], [ %244, %dissect_nt_ace_system_resource_attribute_value.exit.i.i ]
+  %.08488.i.i = phi i32 [ %192, %.lr.ph.i67.i ], [ %243, %dissect_nt_ace_system_resource_attribute_value.exit.i.i ]
+  %.not.i68.i = icmp eq i32 %.089.i.i, 0
+  br i1 %.not.i68.i, label %205, label %204
 
 204:                                              ; preds = %203
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef nonnull @.str.7138) #7

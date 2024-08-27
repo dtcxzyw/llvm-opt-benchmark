@@ -769,8 +769,8 @@ define dso_local i64 @pg_xact_status(ptr nocapture noundef %0) local_unnamed_add
   %7 = trunc i64 %3 to i32
   %8 = tail call i64 @ReadNextFullTransactionId() #11
   %9 = trunc i64 %8 to i32
-  %.not26.i = icmp eq i32 %7, 0
-  br i1 %.not26.i, label %TransactionIdInRecentPast.exit.thread9, label %10
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %TransactionIdInRecentPast.exit.thread9, label %10
 
 10:                                               ; preds = %1
   %11 = icmp ugt i32 %7, 2
@@ -792,10 +792,10 @@ TransactionIdInRecentPast.exit:                   ; preds = %12
   %18 = load ptr, ptr @TransamVariables, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 64
   %20 = load i32, ptr %19, align 8
-  %.not27.i = icmp ugt i32 %20, %9
+  %.not26.i = icmp ugt i32 %20, %9
   %21 = and i64 %8, -4294967296
   %22 = add i64 %21, -4294967296
-  %.sink.i = select i1 %.not27.i, i64 %22, i64 %21
+  %.sink.i = select i1 %.not26.i, i64 %22, i64 %21
   %23 = zext i32 %20 to i64
   %24 = or disjoint i64 %.sink.i, %23
   %.not = icmp ult i64 %3, %24

@@ -27014,7 +27014,7 @@ define internal fastcc noundef ptr @last_expr_node(ptr noundef readonly %0) unna
 define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.0.val, i32 %.8.val, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
-  br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %5
+  br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread4, label %5
 
 5:                                                ; preds = %3
   store i32 %.8.val, ptr %4, align 16
@@ -27024,7 +27024,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %8 = getelementptr inbounds [1344 x i16], ptr @yypact, i64 0, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = icmp eq i16 %9, -1095
-  br i1 %10, label %.loopexit.i.i.thread, label %11
+  br i1 %10, label %.thread.i.i, label %11
 
 11:                                               ; preds = %5
   %12 = sext i16 %9 to i32
@@ -27034,17 +27034,17 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %16 = sub nsw i32 16026, %12
   %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 163)
   %18 = icmp slt i32 %15, %17
-  br i1 %18, label %.lr.ph.i.i, label %.loopexit.i.i.thread
+  br i1 %18, label %.lr.ph.preheader.i.i, label %.thread.i.i
 
-.lr.ph.i.i:                                       ; preds = %11
+.lr.ph.preheader.i.i:                             ; preds = %11
   %19 = sext i32 %15 to i64
   %20 = sext i16 %9 to i64
   %21 = sext i32 %17 to i64
-  br label %.lr.ph.split.i.i
+  br label %.lr.ph.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %39
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %39 ], [ %19, %.lr.ph.i.i ]
-  %.13.i.i = phi i32 [ %.035.i.fr.i, %39 ], [ 0, %.lr.ph.i.i ]
+.lr.ph.i.i:                                       ; preds = %39, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %19, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %39 ]
+  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.fr.i, %39 ]
   %22 = add nsw i64 %indvars.iv.i.i, %20
   %23 = getelementptr inbounds [16026 x i16], ptr @yycheck, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
@@ -27055,44 +27055,44 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %or.cond.i.i = and i1 %28, %27
   br i1 %or.cond.i.i, label %29, label %39
 
-29:                                               ; preds = %.lr.ph.split.i.i
+29:                                               ; preds = %.lr.ph.i.i
   %30 = getelementptr inbounds [16026 x i16], ptr @yytable, i64 0, i64 %22
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, -785
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %29
-  %34 = icmp eq i32 %.13.i.i, 4
-  br i1 %34, label %yy_syntax_error_arguments.exit.thread6, label %35
+  %34 = icmp eq i32 %.14.i.i, 4
+  br i1 %34, label %yy_syntax_error_arguments.exit.thread4, label %35
 
 35:                                               ; preds = %33
-  %36 = add nsw i32 %.13.i.i, 1
-  %37 = sext i32 %.13.i.i to i64
+  %36 = add nsw i32 %.14.i.i, 1
+  %37 = sext i32 %.14.i.i to i64
   %38 = getelementptr inbounds i32, ptr %6, i64 %37
   store i32 %25, ptr %38, align 4
   br label %39
 
-39:                                               ; preds = %35, %29, %.lr.ph.split.i.i
-  %.2.i.i = phi i32 [ %.13.i.i, %29 ], [ %36, %35 ], [ %.13.i.i, %.lr.ph.split.i.i ]
-  %.035.i.fr.i = freeze i32 %.2.i.i
+39:                                               ; preds = %35, %29, %.lr.ph.i.i
+  %.2.i.i = phi i32 [ %.14.i.i, %29 ], [ %36, %35 ], [ %.14.i.i, %.lr.ph.i.i ]
+  %.2.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %exitcond24.not.i = icmp eq i64 %indvars.iv.next.i.i, %21
-  br i1 %exitcond24.not.i, label %.loopexit.i.i, label %.lr.ph.split.i.i, !llvm.loop !37
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %21
+  br i1 %exitcond.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !37
 
-.loopexit.i.i:                                    ; preds = %39
-  switch i32 %.035.i.fr.i, label %yy_syntax_error_arguments.exit [
-    i32 0, label %.loopexit.i.i.thread
-    i32 -2, label %yy_syntax_error_arguments.exit.thread8
+._crit_edge.i.i:                                  ; preds = %39
+  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit [
+    i32 0, label %.thread.i.i
+    i32 -2, label %yy_syntax_error_arguments.exit.thread6
   ]
 
-.loopexit.i.i.thread:                             ; preds = %.loopexit.i.i, %11, %5
+.thread.i.i:                                      ; preds = %._crit_edge.i.i, %11, %5
   store i32 -2, ptr %6, align 4
-  br label %yy_syntax_error_arguments.exit.thread6
+  br label %yy_syntax_error_arguments.exit.thread4
 
-yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
-  %40 = add nsw i32 %.035.i.fr.i, 1
-  switch i32 %.035.i.fr.i, label %yy_syntax_error_arguments.exit.thread6 [
-    i32 -3, label %yy_syntax_error_arguments.exit.thread8
+yy_syntax_error_arguments.exit:                   ; preds = %._crit_edge.i.i
+  %40 = add nsw i32 %.2.i.fr.i, 1
+  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit.thread4 [
+    i32 -3, label %yy_syntax_error_arguments.exit.thread6
     i32 4, label %44
     i32 3, label %43
     i32 1, label %41
@@ -27100,30 +27100,30 @@ yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
   ]
 
 41:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread6
+  br label %yy_syntax_error_arguments.exit.thread4
 
 42:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread6
+  br label %yy_syntax_error_arguments.exit.thread4
 
 43:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread6
+  br label %yy_syntax_error_arguments.exit.thread4
 
 44:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread6
+  br label %yy_syntax_error_arguments.exit.thread4
 
-yy_syntax_error_arguments.exit.thread6:           ; preds = %33, %.loopexit.i.i.thread, %3, %yy_syntax_error_arguments.exit, %44, %43, %42, %41
-  %.0.i5 = phi i32 [ 4, %43 ], [ 3, %42 ], [ 2, %41 ], [ 5, %44 ], [ %40, %yy_syntax_error_arguments.exit ], [ 0, %3 ], [ 1, %.loopexit.i.i.thread ], [ 1, %33 ]
-  %.042 = phi ptr [ @.str.543, %43 ], [ @.str.542, %42 ], [ @.str.541, %41 ], [ @.str.544, %44 ], [ @.str.62, %yy_syntax_error_arguments.exit ], [ @.str.62, %3 ], [ @.str.540, %.loopexit.i.i.thread ], [ @.str.540, %33 ]
+yy_syntax_error_arguments.exit.thread4:           ; preds = %33, %.thread.i.i, %3, %yy_syntax_error_arguments.exit, %44, %43, %42, %41
+  %.0.i3 = phi i32 [ 4, %43 ], [ 3, %42 ], [ 2, %41 ], [ 5, %44 ], [ %40, %yy_syntax_error_arguments.exit ], [ 0, %3 ], [ 1, %.thread.i.i ], [ 1, %33 ]
+  %.042 = phi ptr [ @.str.543, %43 ], [ @.str.542, %42 ], [ @.str.541, %41 ], [ @.str.544, %44 ], [ @.str.62, %yy_syntax_error_arguments.exit ], [ @.str.62, %3 ], [ @.str.540, %.thread.i.i ], [ @.str.540, %33 ]
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #25
-  %46 = shl nsw i32 %.0.i5, 1
+  %46 = shl nsw i32 %.0.i3, 1
   %47 = sext i32 %46 to i64
   %reass.sub = sub i64 %45, %47
   %48 = add i64 %reass.sub, 1
-  %49 = icmp sgt i32 %.0.i5, 0
+  %49 = icmp sgt i32 %.0.i3, 0
   br i1 %49, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %yy_syntax_error_arguments.exit.thread6
-  %wide.trip.count = zext nneg i32 %.0.i5 to i64
+.lr.ph.preheader:                                 ; preds = %yy_syntax_error_arguments.exit.thread4
+  %wide.trip.count = zext nneg i32 %.0.i3 to i64
   br label %.lr.ph
 
 50:                                               ; preds = %.lr.ph
@@ -27133,19 +27133,19 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %33, %.loopexit.i.i.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %.04412 = phi i64 [ %48, %.lr.ph.preheader ], [ %57, %50 ]
+  %.04410 = phi i64 [ %48, %.lr.ph.preheader ], [ %57, %50 ]
   %51 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @rb_yytnamerr(ptr noundef %2, ptr noundef null, ptr noundef %55) #24
-  %57 = add i64 %56, %.04412
-  %.not49 = icmp sgt i64 %.04412, %57
-  br i1 %.not49, label %yy_syntax_error_arguments.exit.thread8, label %50
+  %57 = add i64 %56, %.04410
+  %.not49 = icmp sgt i64 %.04410, %57
+  br i1 %.not49, label %yy_syntax_error_arguments.exit.thread6, label %50
 
-._crit_edge:                                      ; preds = %50, %yy_syntax_error_arguments.exit.thread6
-  %.044.lcssa = phi i64 [ %48, %yy_syntax_error_arguments.exit.thread6 ], [ %57, %50 ]
+._crit_edge:                                      ; preds = %50, %yy_syntax_error_arguments.exit.thread4
+  %.044.lcssa = phi i64 [ %48, %yy_syntax_error_arguments.exit.thread4 ], [ %57, %50 ]
   %58 = load i64, ptr %0, align 8
   %59 = icmp slt i64 %58, %.044.lcssa
   br i1 %59, label %60, label %62
@@ -27155,7 +27155,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %33, %.loopexit.i.i.
   %.not48 = icmp sgt i64 %.044.lcssa, %61
   %spec.store.select = select i1 %.not48, i64 9223372036854775807, i64 %61
   store i64 %spec.store.select, ptr %0, align 8
-  br label %yy_syntax_error_arguments.exit.thread8
+  br label %yy_syntax_error_arguments.exit.thread6
 
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %1, align 8
@@ -27168,7 +27168,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %33, %.loopexit.i.i.
   %65 = load i8, ptr %.143, align 1
   store i8 %65, ptr %.038, align 1
   switch i8 %65, label %80 [
-    i8 0, label %yy_syntax_error_arguments.exit.thread8
+    i8 0, label %yy_syntax_error_arguments.exit.thread6
     i8 37, label %66
   ]
 
@@ -27176,7 +27176,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %33, %.loopexit.i.i.
   %67 = getelementptr inbounds i8, ptr %.143, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 115
-  %70 = icmp slt i32 %.0, %.0.i5
+  %70 = icmp slt i32 %.0, %.0.i3
   %or.cond = select i1 %69, i1 %70, i1 false
   br i1 %or.cond, label %71, label %80
 
@@ -27192,15 +27192,15 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %33, %.loopexit.i.i.
   br label %80
 
 80:                                               ; preds = %66, %64, %71
-  %.sink19 = phi i64 [ %79, %71 ], [ 1, %64 ], [ 1, %66 ]
+  %.sink17 = phi i64 [ %79, %71 ], [ 1, %64 ], [ 1, %66 ]
   %.sink = phi i64 [ 2, %71 ], [ 1, %64 ], [ 1, %66 ]
   %.1 = phi i32 [ %72, %71 ], [ %.0, %64 ], [ %.0, %66 ]
-  %81 = getelementptr inbounds i8, ptr %.038, i64 %.sink19
+  %81 = getelementptr inbounds i8, ptr %.038, i64 %.sink17
   %82 = getelementptr inbounds i8, ptr %.143, i64 %.sink
   br label %64, !llvm.loop !39
 
-yy_syntax_error_arguments.exit.thread8:           ; preds = %.lr.ph, %64, %.loopexit.i.i, %60, %yy_syntax_error_arguments.exit
-  %.040 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %60 ], [ %.035.i.fr.i, %.loopexit.i.i ], [ 0, %64 ], [ -2, %.lr.ph ]
+yy_syntax_error_arguments.exit.thread6:           ; preds = %.lr.ph, %64, %._crit_edge.i.i, %60, %yy_syntax_error_arguments.exit
+  %.040 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %60 ], [ %.2.i.fr.i, %._crit_edge.i.i ], [ 0, %64 ], [ -2, %.lr.ph ]
   ret i32 %.040
 }
 
@@ -28020,6619 +28020,6615 @@ define i64 @ripper_value(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %2190, label %4
+  switch i32 %0, label %2189 [
+    i32 3, label %4
+    i32 4, label %7
+    i32 5, label %10
+    i32 6, label %13
+    i32 7, label %16
+    i32 8, label %19
+    i32 9, label %22
+    i32 10, label %25
+    i32 11, label %28
+    i32 12, label %31
+    i32 13, label %34
+    i32 14, label %37
+    i32 15, label %40
+    i32 16, label %43
+    i32 17, label %46
+    i32 18, label %49
+    i32 19, label %52
+    i32 20, label %55
+    i32 21, label %58
+    i32 22, label %61
+    i32 23, label %64
+    i32 24, label %67
+    i32 25, label %70
+    i32 26, label %73
+    i32 27, label %76
+    i32 28, label %79
+    i32 29, label %82
+    i32 30, label %85
+    i32 31, label %88
+    i32 32, label %91
+    i32 33, label %94
+    i32 34, label %97
+    i32 35, label %100
+    i32 36, label %103
+    i32 37, label %106
+    i32 38, label %109
+    i32 39, label %112
+    i32 40, label %115
+    i32 41, label %118
+    i32 42, label %121
+    i32 43, label %124
+    i32 44, label %127
+    i32 45, label %130
+    i32 46, label %133
+    i32 47, label %136
+    i32 48, label %139
+    i32 49, label %142
+    i32 50, label %145
+    i32 51, label %148
+    i32 52, label %151
+    i32 53, label %154
+    i32 54, label %157
+    i32 55, label %160
+    i32 56, label %163
+    i32 57, label %166
+    i32 58, label %169
+    i32 59, label %172
+    i32 60, label %189
+    i32 61, label %206
+    i32 62, label %223
+    i32 63, label %240
+    i32 64, label %257
+    i32 65, label %261
+    i32 66, label %266
+    i32 69, label %283
+    i32 70, label %286
+    i32 72, label %289
+    i32 73, label %292
+    i32 74, label %295
+    i32 75, label %298
+    i32 97, label %301
+    i32 98, label %304
+    i32 100, label %307
+    i32 167, label %310
+    i32 168, label %321
+    i32 169, label %332
+    i32 170, label %343
+    i32 171, label %354
+    i32 174, label %365
+    i32 176, label %376
+    i32 177, label %387
+    i32 178, label %398
+    i32 180, label %409
+    i32 183, label %420
+    i32 184, label %431
+    i32 185, label %442
+    i32 187, label %453
+    i32 188, label %464
+    i32 191, label %475
+    i32 192, label %478
+    i32 194, label %489
+    i32 195, label %500
+    i32 198, label %511
+    i32 199, label %522
+    i32 200, label %533
+    i32 201, label %544
+    i32 202, label %555
+    i32 203, label %566
+    i32 204, label %577
+    i32 205, label %588
+    i32 206, label %599
+    i32 207, label %610
+    i32 208, label %621
+    i32 209, label %632
+    i32 210, label %643
+    i32 211, label %654
+    i32 212, label %665
+    i32 213, label %668
+    i32 214, label %679
+    i32 215, label %682
+    i32 216, label %693
+    i32 218, label %704
+    i32 219, label %707
+    i32 220, label %710
+    i32 221, label %721
+    i32 222, label %732
+    i32 223, label %735
+    i32 227, label %746
+    i32 228, label %757
+    i32 229, label %768
+    i32 230, label %779
+    i32 231, label %790
+    i32 232, label %801
+    i32 233, label %812
+    i32 235, label %823
+    i32 236, label %834
+    i32 237, label %845
+    i32 238, label %856
+    i32 239, label %867
+    i32 240, label %878
+    i32 241, label %889
+    i32 242, label %900
+    i32 252, label %911
+    i32 256, label %922
+    i32 257, label %933
+    i32 259, label %944
+    i32 262, label %955
+    i32 275, label %966
+    i32 276, label %977
+    i32 277, label %988
+    i32 278, label %999
+    i32 279, label %1010
+    i32 280, label %1021
+    i32 281, label %1032
+    i32 282, label %1043
+    i32 285, label %1046
+    i32 286, label %1057
+    i32 287, label %1068
+    i32 288, label %1071
+    i32 289, label %1082
+    i32 290, label %1093
+    i32 291, label %1104
+    i32 292, label %1107
+    i32 293, label %1110
+    i32 295, label %1113
+    i32 296, label %1124
+    i32 299, label %1127
+    i32 300, label %1138
+    i32 301, label %1149
+    i32 303, label %1160
+    i32 304, label %1171
+    i32 305, label %1182
+    i32 306, label %1193
+    i32 308, label %1204
+    i32 310, label %1215
+    i32 311, label %1226
+    i32 312, label %1237
+    i32 313, label %1248
+    i32 318, label %1259
+    i32 319, label %1270
+    i32 320, label %1281
+    i32 321, label %1292
+    i32 322, label %1303
+    i32 323, label %1314
+    i32 324, label %1325
+    i32 327, label %1336
+    i32 329, label %1347
+    i32 330, label %1358
+    i32 331, label %1369
+    i32 332, label %1380
+    i32 333, label %1391
+    i32 334, label %1402
+    i32 335, label %1413
+    i32 336, label %1424
+    i32 337, label %1435
+    i32 338, label %1446
+    i32 339, label %1457
+    i32 340, label %1460
+    i32 341, label %1463
+    i32 342, label %1466
+    i32 343, label %1469
+    i32 344, label %1480
+    i32 345, label %1491
+    i32 346, label %1502
+    i32 347, label %1513
+    i32 348, label %1524
+    i32 349, label %1535
+    i32 350, label %1546
+    i32 351, label %1557
+    i32 352, label %1568
+    i32 353, label %1579
+    i32 354, label %1590
+    i32 355, label %1601
+    i32 356, label %1612
+    i32 357, label %1623
+    i32 358, label %1634
+    i32 360, label %1645
+    i32 361, label %1656
+    i32 362, label %1667
+    i32 363, label %1678
+    i32 364, label %1689
+    i32 365, label %1700
+    i32 366, label %1711
+    i32 367, label %1722
+    i32 368, label %1733
+    i32 369, label %1744
+    i32 370, label %1755
+    i32 371, label %1766
+    i32 372, label %1777
+    i32 378, label %1788
+    i32 379, label %1799
+    i32 380, label %1810
+    i32 381, label %1821
+    i32 382, label %1824
+    i32 383, label %1835
+    i32 384, label %1846
+    i32 385, label %1857
+    i32 386, label %1860
+    i32 387, label %1863
+    i32 388, label %1866
+    i32 389, label %1877
+    i32 390, label %1888
+    i32 392, label %1899
+    i32 393, label %1910
+    i32 394, label %1921
+    i32 395, label %1932
+    i32 397, label %1943
+    i32 398, label %1954
+    i32 399, label %1965
+    i32 400, label %1976
+    i32 401, label %1979
+    i32 402, label %1982
+    i32 403, label %1985
+    i32 404, label %1988
+    i32 405, label %1999
+    i32 406, label %2010
+    i32 407, label %2013
+    i32 408, label %2024
+    i32 409, label %2035
+    i32 410, label %2046
+    i32 412, label %2057
+    i32 413, label %2060
+    i32 414, label %2063
+    i32 415, label %2074
+    i32 416, label %2085
+    i32 417, label %2096
+    i32 419, label %2107
+    i32 421, label %2110
+    i32 422, label %2113
+    i32 423, label %2116
+    i32 425, label %2127
+    i32 426, label %2138
+    i32 427, label %2149
+    i32 428, label %2160
+    i32 429, label %2163
+    i32 430, label %2166
+    i32 431, label %2169
+    i32 432, label %2172
+    i32 433, label %2175
+    i32 440, label %2178
+  ]
 
 4:                                                ; preds = %3
-  switch i32 %0, label %2190 [
-    i32 3, label %5
-    i32 4, label %8
-    i32 5, label %11
-    i32 6, label %14
-    i32 7, label %17
-    i32 8, label %20
-    i32 9, label %23
-    i32 10, label %26
-    i32 11, label %29
-    i32 12, label %32
-    i32 13, label %35
-    i32 14, label %38
-    i32 15, label %41
-    i32 16, label %44
-    i32 17, label %47
-    i32 18, label %50
-    i32 19, label %53
-    i32 20, label %56
-    i32 21, label %59
-    i32 22, label %62
-    i32 23, label %65
-    i32 24, label %68
-    i32 25, label %71
-    i32 26, label %74
-    i32 27, label %77
-    i32 28, label %80
-    i32 29, label %83
-    i32 30, label %86
-    i32 31, label %89
-    i32 32, label %92
-    i32 33, label %95
-    i32 34, label %98
-    i32 35, label %101
-    i32 36, label %104
-    i32 37, label %107
-    i32 38, label %110
-    i32 39, label %113
-    i32 40, label %116
-    i32 41, label %119
-    i32 42, label %122
-    i32 43, label %125
-    i32 44, label %128
-    i32 45, label %131
-    i32 46, label %134
-    i32 47, label %137
-    i32 48, label %140
-    i32 49, label %143
-    i32 50, label %146
-    i32 51, label %149
-    i32 52, label %152
-    i32 53, label %155
-    i32 54, label %158
-    i32 55, label %161
-    i32 56, label %164
-    i32 57, label %167
-    i32 58, label %170
-    i32 59, label %173
-    i32 60, label %190
-    i32 61, label %207
-    i32 62, label %224
-    i32 63, label %241
-    i32 64, label %258
-    i32 65, label %262
-    i32 66, label %267
-    i32 69, label %284
-    i32 70, label %287
-    i32 72, label %290
-    i32 73, label %293
-    i32 74, label %296
-    i32 75, label %299
-    i32 97, label %302
-    i32 98, label %305
-    i32 100, label %308
-    i32 167, label %311
-    i32 168, label %322
-    i32 169, label %333
-    i32 170, label %344
-    i32 171, label %355
-    i32 174, label %366
-    i32 176, label %377
-    i32 177, label %388
-    i32 178, label %399
-    i32 180, label %410
-    i32 183, label %421
-    i32 184, label %432
-    i32 185, label %443
-    i32 187, label %454
-    i32 188, label %465
-    i32 191, label %476
-    i32 192, label %479
-    i32 194, label %490
-    i32 195, label %501
-    i32 198, label %512
-    i32 199, label %523
-    i32 200, label %534
-    i32 201, label %545
-    i32 202, label %556
-    i32 203, label %567
-    i32 204, label %578
-    i32 205, label %589
-    i32 206, label %600
-    i32 207, label %611
-    i32 208, label %622
-    i32 209, label %633
-    i32 210, label %644
-    i32 211, label %655
-    i32 212, label %666
-    i32 213, label %669
-    i32 214, label %680
-    i32 215, label %683
-    i32 216, label %694
-    i32 218, label %705
-    i32 219, label %708
-    i32 220, label %711
-    i32 221, label %722
-    i32 222, label %733
-    i32 223, label %736
-    i32 227, label %747
-    i32 228, label %758
-    i32 229, label %769
-    i32 230, label %780
-    i32 231, label %791
-    i32 232, label %802
-    i32 233, label %813
-    i32 235, label %824
-    i32 236, label %835
-    i32 237, label %846
-    i32 238, label %857
-    i32 239, label %868
-    i32 240, label %879
-    i32 241, label %890
-    i32 242, label %901
-    i32 252, label %912
-    i32 256, label %923
-    i32 257, label %934
-    i32 259, label %945
-    i32 262, label %956
-    i32 275, label %967
-    i32 276, label %978
-    i32 277, label %989
-    i32 278, label %1000
-    i32 279, label %1011
-    i32 280, label %1022
-    i32 281, label %1033
-    i32 282, label %1044
-    i32 285, label %1047
-    i32 286, label %1058
-    i32 287, label %1069
-    i32 288, label %1072
-    i32 289, label %1083
-    i32 290, label %1094
-    i32 291, label %1105
-    i32 292, label %1108
-    i32 293, label %1111
-    i32 295, label %1114
-    i32 296, label %1125
-    i32 299, label %1128
-    i32 300, label %1139
-    i32 301, label %1150
-    i32 303, label %1161
-    i32 304, label %1172
-    i32 305, label %1183
-    i32 306, label %1194
-    i32 308, label %1205
-    i32 310, label %1216
-    i32 311, label %1227
-    i32 312, label %1238
-    i32 313, label %1249
-    i32 318, label %1260
-    i32 319, label %1271
-    i32 320, label %1282
-    i32 321, label %1293
-    i32 322, label %1304
-    i32 323, label %1315
-    i32 324, label %1326
-    i32 327, label %1337
-    i32 329, label %1348
-    i32 330, label %1359
-    i32 331, label %1370
-    i32 332, label %1381
-    i32 333, label %1392
-    i32 334, label %1403
-    i32 335, label %1414
-    i32 336, label %1425
-    i32 337, label %1436
-    i32 338, label %1447
-    i32 339, label %1458
-    i32 340, label %1461
-    i32 341, label %1464
-    i32 342, label %1467
-    i32 343, label %1470
-    i32 344, label %1481
-    i32 345, label %1492
-    i32 346, label %1503
-    i32 347, label %1514
-    i32 348, label %1525
-    i32 349, label %1536
-    i32 350, label %1547
-    i32 351, label %1558
-    i32 352, label %1569
-    i32 353, label %1580
-    i32 354, label %1591
-    i32 355, label %1602
-    i32 356, label %1613
-    i32 357, label %1624
-    i32 358, label %1635
-    i32 360, label %1646
-    i32 361, label %1657
-    i32 362, label %1668
-    i32 363, label %1679
-    i32 364, label %1690
-    i32 365, label %1701
-    i32 366, label %1712
-    i32 367, label %1723
-    i32 368, label %1734
-    i32 369, label %1745
-    i32 370, label %1756
-    i32 371, label %1767
-    i32 372, label %1778
-    i32 378, label %1789
-    i32 379, label %1800
-    i32 380, label %1811
-    i32 381, label %1822
-    i32 382, label %1825
-    i32 383, label %1836
-    i32 384, label %1847
-    i32 385, label %1858
-    i32 386, label %1861
-    i32 387, label %1864
-    i32 388, label %1867
-    i32 389, label %1878
-    i32 390, label %1889
-    i32 392, label %1900
-    i32 393, label %1911
-    i32 394, label %1922
-    i32 395, label %1933
-    i32 397, label %1944
-    i32 398, label %1955
-    i32 399, label %1966
-    i32 400, label %1977
-    i32 401, label %1980
-    i32 402, label %1983
-    i32 403, label %1986
-    i32 404, label %1989
-    i32 405, label %2000
-    i32 406, label %2011
-    i32 407, label %2014
-    i32 408, label %2025
-    i32 409, label %2036
-    i32 410, label %2047
-    i32 412, label %2058
-    i32 413, label %2061
-    i32 414, label %2064
-    i32 415, label %2075
-    i32 416, label %2086
-    i32 417, label %2097
-    i32 419, label %2108
-    i32 421, label %2111
-    i32 422, label %2114
-    i32 423, label %2117
-    i32 425, label %2128
-    i32 426, label %2139
-    i32 427, label %2150
-    i32 428, label %2161
-    i32 429, label %2164
-    i32 430, label %2167
-    i32 431, label %2170
-    i32 432, label %2173
-    i32 433, label %2176
-    i32 440, label %2179
+  %5 = load i64, ptr %1, align 8
+  %6 = tail call i64 @rb_id2str(i64 noundef %5) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %6) #24
+  br label %2189
+
+7:                                                ; preds = %3
+  %8 = load i64, ptr %1, align 8
+  %9 = tail call i64 @rb_id2str(i64 noundef %8) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %9) #24
+  br label %2189
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %1, align 8
+  %12 = tail call i64 @rb_id2str(i64 noundef %11) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %12) #24
+  br label %2189
+
+13:                                               ; preds = %3
+  %14 = load i64, ptr %1, align 8
+  %15 = tail call i64 @rb_id2str(i64 noundef %14) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %15) #24
+  br label %2189
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %1, align 8
+  %18 = tail call i64 @rb_id2str(i64 noundef %17) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %18) #24
+  br label %2189
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %1, align 8
+  %21 = tail call i64 @rb_id2str(i64 noundef %20) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %21) #24
+  br label %2189
+
+22:                                               ; preds = %3
+  %23 = load i64, ptr %1, align 8
+  %24 = tail call i64 @rb_id2str(i64 noundef %23) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %24) #24
+  br label %2189
+
+25:                                               ; preds = %3
+  %26 = load i64, ptr %1, align 8
+  %27 = tail call i64 @rb_id2str(i64 noundef %26) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %27) #24
+  br label %2189
+
+28:                                               ; preds = %3
+  %29 = load i64, ptr %1, align 8
+  %30 = tail call i64 @rb_id2str(i64 noundef %29) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %30) #24
+  br label %2189
+
+31:                                               ; preds = %3
+  %32 = load i64, ptr %1, align 8
+  %33 = tail call i64 @rb_id2str(i64 noundef %32) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %33) #24
+  br label %2189
+
+34:                                               ; preds = %3
+  %35 = load i64, ptr %1, align 8
+  %36 = tail call i64 @rb_id2str(i64 noundef %35) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %36) #24
+  br label %2189
+
+37:                                               ; preds = %3
+  %38 = load i64, ptr %1, align 8
+  %39 = tail call i64 @rb_id2str(i64 noundef %38) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %39) #24
+  br label %2189
+
+40:                                               ; preds = %3
+  %41 = load i64, ptr %1, align 8
+  %42 = tail call i64 @rb_id2str(i64 noundef %41) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %42) #24
+  br label %2189
+
+43:                                               ; preds = %3
+  %44 = load i64, ptr %1, align 8
+  %45 = tail call i64 @rb_id2str(i64 noundef %44) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %45) #24
+  br label %2189
+
+46:                                               ; preds = %3
+  %47 = load i64, ptr %1, align 8
+  %48 = tail call i64 @rb_id2str(i64 noundef %47) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %48) #24
+  br label %2189
+
+49:                                               ; preds = %3
+  %50 = load i64, ptr %1, align 8
+  %51 = tail call i64 @rb_id2str(i64 noundef %50) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %51) #24
+  br label %2189
+
+52:                                               ; preds = %3
+  %53 = load i64, ptr %1, align 8
+  %54 = tail call i64 @rb_id2str(i64 noundef %53) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %54) #24
+  br label %2189
+
+55:                                               ; preds = %3
+  %56 = load i64, ptr %1, align 8
+  %57 = tail call i64 @rb_id2str(i64 noundef %56) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %57) #24
+  br label %2189
+
+58:                                               ; preds = %3
+  %59 = load i64, ptr %1, align 8
+  %60 = tail call i64 @rb_id2str(i64 noundef %59) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %60) #24
+  br label %2189
+
+61:                                               ; preds = %3
+  %62 = load i64, ptr %1, align 8
+  %63 = tail call i64 @rb_id2str(i64 noundef %62) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %63) #24
+  br label %2189
+
+64:                                               ; preds = %3
+  %65 = load i64, ptr %1, align 8
+  %66 = tail call i64 @rb_id2str(i64 noundef %65) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %66) #24
+  br label %2189
+
+67:                                               ; preds = %3
+  %68 = load i64, ptr %1, align 8
+  %69 = tail call i64 @rb_id2str(i64 noundef %68) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %69) #24
+  br label %2189
+
+70:                                               ; preds = %3
+  %71 = load i64, ptr %1, align 8
+  %72 = tail call i64 @rb_id2str(i64 noundef %71) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %72) #24
+  br label %2189
+
+73:                                               ; preds = %3
+  %74 = load i64, ptr %1, align 8
+  %75 = tail call i64 @rb_id2str(i64 noundef %74) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %75) #24
+  br label %2189
+
+76:                                               ; preds = %3
+  %77 = load i64, ptr %1, align 8
+  %78 = tail call i64 @rb_id2str(i64 noundef %77) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %78) #24
+  br label %2189
+
+79:                                               ; preds = %3
+  %80 = load i64, ptr %1, align 8
+  %81 = tail call i64 @rb_id2str(i64 noundef %80) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %81) #24
+  br label %2189
+
+82:                                               ; preds = %3
+  %83 = load i64, ptr %1, align 8
+  %84 = tail call i64 @rb_id2str(i64 noundef %83) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %84) #24
+  br label %2189
+
+85:                                               ; preds = %3
+  %86 = load i64, ptr %1, align 8
+  %87 = tail call i64 @rb_id2str(i64 noundef %86) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %87) #24
+  br label %2189
+
+88:                                               ; preds = %3
+  %89 = load i64, ptr %1, align 8
+  %90 = tail call i64 @rb_id2str(i64 noundef %89) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %90) #24
+  br label %2189
+
+91:                                               ; preds = %3
+  %92 = load i64, ptr %1, align 8
+  %93 = tail call i64 @rb_id2str(i64 noundef %92) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %93) #24
+  br label %2189
+
+94:                                               ; preds = %3
+  %95 = load i64, ptr %1, align 8
+  %96 = tail call i64 @rb_id2str(i64 noundef %95) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %96) #24
+  br label %2189
+
+97:                                               ; preds = %3
+  %98 = load i64, ptr %1, align 8
+  %99 = tail call i64 @rb_id2str(i64 noundef %98) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %99) #24
+  br label %2189
+
+100:                                              ; preds = %3
+  %101 = load i64, ptr %1, align 8
+  %102 = tail call i64 @rb_id2str(i64 noundef %101) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %102) #24
+  br label %2189
+
+103:                                              ; preds = %3
+  %104 = load i64, ptr %1, align 8
+  %105 = tail call i64 @rb_id2str(i64 noundef %104) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %105) #24
+  br label %2189
+
+106:                                              ; preds = %3
+  %107 = load i64, ptr %1, align 8
+  %108 = tail call i64 @rb_id2str(i64 noundef %107) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %108) #24
+  br label %2189
+
+109:                                              ; preds = %3
+  %110 = load i64, ptr %1, align 8
+  %111 = tail call i64 @rb_id2str(i64 noundef %110) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %111) #24
+  br label %2189
+
+112:                                              ; preds = %3
+  %113 = load i64, ptr %1, align 8
+  %114 = tail call i64 @rb_id2str(i64 noundef %113) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %114) #24
+  br label %2189
+
+115:                                              ; preds = %3
+  %116 = load i64, ptr %1, align 8
+  %117 = tail call i64 @rb_id2str(i64 noundef %116) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %117) #24
+  br label %2189
+
+118:                                              ; preds = %3
+  %119 = load i64, ptr %1, align 8
+  %120 = tail call i64 @rb_id2str(i64 noundef %119) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %120) #24
+  br label %2189
+
+121:                                              ; preds = %3
+  %122 = load i64, ptr %1, align 8
+  %123 = tail call i64 @rb_id2str(i64 noundef %122) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %123) #24
+  br label %2189
+
+124:                                              ; preds = %3
+  %125 = load i64, ptr %1, align 8
+  %126 = tail call i64 @rb_id2str(i64 noundef %125) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %126) #24
+  br label %2189
+
+127:                                              ; preds = %3
+  %128 = load i64, ptr %1, align 8
+  %129 = tail call i64 @rb_id2str(i64 noundef %128) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %129) #24
+  br label %2189
+
+130:                                              ; preds = %3
+  %131 = load i64, ptr %1, align 8
+  %132 = tail call i64 @rb_id2str(i64 noundef %131) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %132) #24
+  br label %2189
+
+133:                                              ; preds = %3
+  %134 = load i64, ptr %1, align 8
+  %135 = tail call i64 @rb_id2str(i64 noundef %134) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %135) #24
+  br label %2189
+
+136:                                              ; preds = %3
+  %137 = load i64, ptr %1, align 8
+  %138 = tail call i64 @rb_id2str(i64 noundef %137) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %138) #24
+  br label %2189
+
+139:                                              ; preds = %3
+  %140 = load i64, ptr %1, align 8
+  %141 = tail call i64 @rb_id2str(i64 noundef %140) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %141) #24
+  br label %2189
+
+142:                                              ; preds = %3
+  %143 = load i64, ptr %1, align 8
+  %144 = tail call i64 @rb_id2str(i64 noundef %143) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %144) #24
+  br label %2189
+
+145:                                              ; preds = %3
+  %146 = load i64, ptr %1, align 8
+  %147 = tail call i64 @rb_id2str(i64 noundef %146) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %147) #24
+  br label %2189
+
+148:                                              ; preds = %3
+  %149 = load i64, ptr %1, align 8
+  %150 = tail call i64 @rb_id2str(i64 noundef %149) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %150) #24
+  br label %2189
+
+151:                                              ; preds = %3
+  %152 = load i64, ptr %1, align 8
+  %153 = tail call i64 @rb_id2str(i64 noundef %152) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %153) #24
+  br label %2189
+
+154:                                              ; preds = %3
+  %155 = load i64, ptr %1, align 8
+  %156 = tail call i64 @rb_id2str(i64 noundef %155) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %156) #24
+  br label %2189
+
+157:                                              ; preds = %3
+  %158 = load i64, ptr %1, align 8
+  %159 = tail call i64 @rb_id2str(i64 noundef %158) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %159) #24
+  br label %2189
+
+160:                                              ; preds = %3
+  %161 = load i64, ptr %1, align 8
+  %162 = tail call i64 @rb_id2str(i64 noundef %161) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %162) #24
+  br label %2189
+
+163:                                              ; preds = %3
+  %164 = load i64, ptr %1, align 8
+  %165 = tail call i64 @rb_id2str(i64 noundef %164) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %165) #24
+  br label %2189
+
+166:                                              ; preds = %3
+  %167 = load i64, ptr %1, align 8
+  %168 = tail call i64 @rb_id2str(i64 noundef %167) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %168) #24
+  br label %2189
+
+169:                                              ; preds = %3
+  %170 = load i64, ptr %1, align 8
+  %171 = tail call i64 @rb_id2str(i64 noundef %170) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %171) #24
+  br label %2189
+
+172:                                              ; preds = %3
+  %173 = load ptr, ptr %1, align 8
+  %174 = load i64, ptr %173, align 8
+  %175 = trunc i64 %174 to i32
+  %176 = lshr i32 %175, 8
+  %177 = and i32 %176, 127
+  switch i32 %177, label %2189 [
+    i32 60, label %178
+    i32 61, label %180
+    i32 62, label %182
+    i32 63, label %184
+    i32 59, label %186
   ]
 
-5:                                                ; preds = %4
-  %6 = load i64, ptr %1, align 8
-  %7 = tail call i64 @rb_id2str(i64 noundef %6) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %7) #24
-  br label %2190
+178:                                              ; preds = %172
+  %179 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %173) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %179) #24
+  br label %2189
 
-8:                                                ; preds = %4
-  %9 = load i64, ptr %1, align 8
-  %10 = tail call i64 @rb_id2str(i64 noundef %9) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %10) #24
-  br label %2190
+180:                                              ; preds = %172
+  %181 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %173) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %181) #24
+  br label %2189
 
-11:                                               ; preds = %4
-  %12 = load i64, ptr %1, align 8
-  %13 = tail call i64 @rb_id2str(i64 noundef %12) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %13) #24
-  br label %2190
+182:                                              ; preds = %172
+  %183 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %173) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %183) #24
+  br label %2189
 
-14:                                               ; preds = %4
-  %15 = load i64, ptr %1, align 8
-  %16 = tail call i64 @rb_id2str(i64 noundef %15) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %16) #24
-  br label %2190
+184:                                              ; preds = %172
+  %185 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %173) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %185) #24
+  br label %2189
 
-17:                                               ; preds = %4
-  %18 = load i64, ptr %1, align 8
-  %19 = tail call i64 @rb_id2str(i64 noundef %18) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %19) #24
-  br label %2190
+186:                                              ; preds = %172
+  %187 = getelementptr inbounds i8, ptr %173, i64 32
+  %188 = load i64, ptr %187, align 8
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %188) #24
+  br label %2189
 
-20:                                               ; preds = %4
-  %21 = load i64, ptr %1, align 8
-  %22 = tail call i64 @rb_id2str(i64 noundef %21) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %22) #24
-  br label %2190
-
-23:                                               ; preds = %4
-  %24 = load i64, ptr %1, align 8
-  %25 = tail call i64 @rb_id2str(i64 noundef %24) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %25) #24
-  br label %2190
-
-26:                                               ; preds = %4
-  %27 = load i64, ptr %1, align 8
-  %28 = tail call i64 @rb_id2str(i64 noundef %27) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %28) #24
-  br label %2190
-
-29:                                               ; preds = %4
-  %30 = load i64, ptr %1, align 8
-  %31 = tail call i64 @rb_id2str(i64 noundef %30) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %31) #24
-  br label %2190
-
-32:                                               ; preds = %4
-  %33 = load i64, ptr %1, align 8
-  %34 = tail call i64 @rb_id2str(i64 noundef %33) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %34) #24
-  br label %2190
-
-35:                                               ; preds = %4
-  %36 = load i64, ptr %1, align 8
-  %37 = tail call i64 @rb_id2str(i64 noundef %36) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %37) #24
-  br label %2190
-
-38:                                               ; preds = %4
-  %39 = load i64, ptr %1, align 8
-  %40 = tail call i64 @rb_id2str(i64 noundef %39) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %40) #24
-  br label %2190
-
-41:                                               ; preds = %4
-  %42 = load i64, ptr %1, align 8
-  %43 = tail call i64 @rb_id2str(i64 noundef %42) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %43) #24
-  br label %2190
-
-44:                                               ; preds = %4
-  %45 = load i64, ptr %1, align 8
-  %46 = tail call i64 @rb_id2str(i64 noundef %45) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %46) #24
-  br label %2190
-
-47:                                               ; preds = %4
-  %48 = load i64, ptr %1, align 8
-  %49 = tail call i64 @rb_id2str(i64 noundef %48) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %49) #24
-  br label %2190
-
-50:                                               ; preds = %4
-  %51 = load i64, ptr %1, align 8
-  %52 = tail call i64 @rb_id2str(i64 noundef %51) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %52) #24
-  br label %2190
-
-53:                                               ; preds = %4
-  %54 = load i64, ptr %1, align 8
-  %55 = tail call i64 @rb_id2str(i64 noundef %54) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %55) #24
-  br label %2190
-
-56:                                               ; preds = %4
-  %57 = load i64, ptr %1, align 8
-  %58 = tail call i64 @rb_id2str(i64 noundef %57) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %58) #24
-  br label %2190
-
-59:                                               ; preds = %4
-  %60 = load i64, ptr %1, align 8
-  %61 = tail call i64 @rb_id2str(i64 noundef %60) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %61) #24
-  br label %2190
-
-62:                                               ; preds = %4
-  %63 = load i64, ptr %1, align 8
-  %64 = tail call i64 @rb_id2str(i64 noundef %63) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %64) #24
-  br label %2190
-
-65:                                               ; preds = %4
-  %66 = load i64, ptr %1, align 8
-  %67 = tail call i64 @rb_id2str(i64 noundef %66) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %67) #24
-  br label %2190
-
-68:                                               ; preds = %4
-  %69 = load i64, ptr %1, align 8
-  %70 = tail call i64 @rb_id2str(i64 noundef %69) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %70) #24
-  br label %2190
-
-71:                                               ; preds = %4
-  %72 = load i64, ptr %1, align 8
-  %73 = tail call i64 @rb_id2str(i64 noundef %72) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %73) #24
-  br label %2190
-
-74:                                               ; preds = %4
-  %75 = load i64, ptr %1, align 8
-  %76 = tail call i64 @rb_id2str(i64 noundef %75) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %76) #24
-  br label %2190
-
-77:                                               ; preds = %4
-  %78 = load i64, ptr %1, align 8
-  %79 = tail call i64 @rb_id2str(i64 noundef %78) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %79) #24
-  br label %2190
-
-80:                                               ; preds = %4
-  %81 = load i64, ptr %1, align 8
-  %82 = tail call i64 @rb_id2str(i64 noundef %81) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %82) #24
-  br label %2190
-
-83:                                               ; preds = %4
-  %84 = load i64, ptr %1, align 8
-  %85 = tail call i64 @rb_id2str(i64 noundef %84) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %85) #24
-  br label %2190
-
-86:                                               ; preds = %4
-  %87 = load i64, ptr %1, align 8
-  %88 = tail call i64 @rb_id2str(i64 noundef %87) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %88) #24
-  br label %2190
-
-89:                                               ; preds = %4
-  %90 = load i64, ptr %1, align 8
-  %91 = tail call i64 @rb_id2str(i64 noundef %90) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %91) #24
-  br label %2190
-
-92:                                               ; preds = %4
-  %93 = load i64, ptr %1, align 8
-  %94 = tail call i64 @rb_id2str(i64 noundef %93) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %94) #24
-  br label %2190
-
-95:                                               ; preds = %4
-  %96 = load i64, ptr %1, align 8
-  %97 = tail call i64 @rb_id2str(i64 noundef %96) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %97) #24
-  br label %2190
-
-98:                                               ; preds = %4
-  %99 = load i64, ptr %1, align 8
-  %100 = tail call i64 @rb_id2str(i64 noundef %99) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %100) #24
-  br label %2190
-
-101:                                              ; preds = %4
-  %102 = load i64, ptr %1, align 8
-  %103 = tail call i64 @rb_id2str(i64 noundef %102) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %103) #24
-  br label %2190
-
-104:                                              ; preds = %4
-  %105 = load i64, ptr %1, align 8
-  %106 = tail call i64 @rb_id2str(i64 noundef %105) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %106) #24
-  br label %2190
-
-107:                                              ; preds = %4
-  %108 = load i64, ptr %1, align 8
-  %109 = tail call i64 @rb_id2str(i64 noundef %108) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %109) #24
-  br label %2190
-
-110:                                              ; preds = %4
-  %111 = load i64, ptr %1, align 8
-  %112 = tail call i64 @rb_id2str(i64 noundef %111) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %112) #24
-  br label %2190
-
-113:                                              ; preds = %4
-  %114 = load i64, ptr %1, align 8
-  %115 = tail call i64 @rb_id2str(i64 noundef %114) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %115) #24
-  br label %2190
-
-116:                                              ; preds = %4
-  %117 = load i64, ptr %1, align 8
-  %118 = tail call i64 @rb_id2str(i64 noundef %117) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %118) #24
-  br label %2190
-
-119:                                              ; preds = %4
-  %120 = load i64, ptr %1, align 8
-  %121 = tail call i64 @rb_id2str(i64 noundef %120) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %121) #24
-  br label %2190
-
-122:                                              ; preds = %4
-  %123 = load i64, ptr %1, align 8
-  %124 = tail call i64 @rb_id2str(i64 noundef %123) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %124) #24
-  br label %2190
-
-125:                                              ; preds = %4
-  %126 = load i64, ptr %1, align 8
-  %127 = tail call i64 @rb_id2str(i64 noundef %126) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %127) #24
-  br label %2190
-
-128:                                              ; preds = %4
-  %129 = load i64, ptr %1, align 8
-  %130 = tail call i64 @rb_id2str(i64 noundef %129) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %130) #24
-  br label %2190
-
-131:                                              ; preds = %4
-  %132 = load i64, ptr %1, align 8
-  %133 = tail call i64 @rb_id2str(i64 noundef %132) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %133) #24
-  br label %2190
-
-134:                                              ; preds = %4
-  %135 = load i64, ptr %1, align 8
-  %136 = tail call i64 @rb_id2str(i64 noundef %135) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %136) #24
-  br label %2190
-
-137:                                              ; preds = %4
-  %138 = load i64, ptr %1, align 8
-  %139 = tail call i64 @rb_id2str(i64 noundef %138) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %139) #24
-  br label %2190
-
-140:                                              ; preds = %4
-  %141 = load i64, ptr %1, align 8
-  %142 = tail call i64 @rb_id2str(i64 noundef %141) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %142) #24
-  br label %2190
-
-143:                                              ; preds = %4
-  %144 = load i64, ptr %1, align 8
-  %145 = tail call i64 @rb_id2str(i64 noundef %144) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %145) #24
-  br label %2190
-
-146:                                              ; preds = %4
-  %147 = load i64, ptr %1, align 8
-  %148 = tail call i64 @rb_id2str(i64 noundef %147) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %148) #24
-  br label %2190
-
-149:                                              ; preds = %4
-  %150 = load i64, ptr %1, align 8
-  %151 = tail call i64 @rb_id2str(i64 noundef %150) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %151) #24
-  br label %2190
-
-152:                                              ; preds = %4
-  %153 = load i64, ptr %1, align 8
-  %154 = tail call i64 @rb_id2str(i64 noundef %153) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %154) #24
-  br label %2190
-
-155:                                              ; preds = %4
-  %156 = load i64, ptr %1, align 8
-  %157 = tail call i64 @rb_id2str(i64 noundef %156) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %157) #24
-  br label %2190
-
-158:                                              ; preds = %4
-  %159 = load i64, ptr %1, align 8
-  %160 = tail call i64 @rb_id2str(i64 noundef %159) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %160) #24
-  br label %2190
-
-161:                                              ; preds = %4
-  %162 = load i64, ptr %1, align 8
-  %163 = tail call i64 @rb_id2str(i64 noundef %162) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %163) #24
-  br label %2190
-
-164:                                              ; preds = %4
-  %165 = load i64, ptr %1, align 8
-  %166 = tail call i64 @rb_id2str(i64 noundef %165) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %166) #24
-  br label %2190
-
-167:                                              ; preds = %4
-  %168 = load i64, ptr %1, align 8
-  %169 = tail call i64 @rb_id2str(i64 noundef %168) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %169) #24
-  br label %2190
-
-170:                                              ; preds = %4
-  %171 = load i64, ptr %1, align 8
-  %172 = tail call i64 @rb_id2str(i64 noundef %171) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %172) #24
-  br label %2190
-
-173:                                              ; preds = %4
-  %174 = load ptr, ptr %1, align 8
-  %175 = load i64, ptr %174, align 8
-  %176 = trunc i64 %175 to i32
-  %177 = lshr i32 %176, 8
-  %178 = and i32 %177, 127
-  switch i32 %178, label %2190 [
-    i32 60, label %179
-    i32 61, label %181
-    i32 62, label %183
-    i32 63, label %185
-    i32 59, label %187
+189:                                              ; preds = %3
+  %190 = load ptr, ptr %1, align 8
+  %191 = load i64, ptr %190, align 8
+  %192 = trunc i64 %191 to i32
+  %193 = lshr i32 %192, 8
+  %194 = and i32 %193, 127
+  switch i32 %194, label %2189 [
+    i32 60, label %195
+    i32 61, label %197
+    i32 62, label %199
+    i32 63, label %201
+    i32 59, label %203
   ]
 
-179:                                              ; preds = %173
-  %180 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %174) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %180) #24
-  br label %2190
+195:                                              ; preds = %189
+  %196 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %190) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %196) #24
+  br label %2189
 
-181:                                              ; preds = %173
-  %182 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %174) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %182) #24
-  br label %2190
+197:                                              ; preds = %189
+  %198 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %190) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %198) #24
+  br label %2189
 
-183:                                              ; preds = %173
-  %184 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %174) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %184) #24
-  br label %2190
+199:                                              ; preds = %189
+  %200 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %190) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %200) #24
+  br label %2189
 
-185:                                              ; preds = %173
-  %186 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %174) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %186) #24
-  br label %2190
+201:                                              ; preds = %189
+  %202 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %190) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %202) #24
+  br label %2189
 
-187:                                              ; preds = %173
-  %188 = getelementptr inbounds i8, ptr %174, i64 32
-  %189 = load i64, ptr %188, align 8
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %189) #24
-  br label %2190
+203:                                              ; preds = %189
+  %204 = getelementptr inbounds i8, ptr %190, i64 32
+  %205 = load i64, ptr %204, align 8
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %205) #24
+  br label %2189
 
-190:                                              ; preds = %4
-  %191 = load ptr, ptr %1, align 8
-  %192 = load i64, ptr %191, align 8
-  %193 = trunc i64 %192 to i32
-  %194 = lshr i32 %193, 8
-  %195 = and i32 %194, 127
-  switch i32 %195, label %2190 [
-    i32 60, label %196
-    i32 61, label %198
-    i32 62, label %200
-    i32 63, label %202
-    i32 59, label %204
+206:                                              ; preds = %3
+  %207 = load ptr, ptr %1, align 8
+  %208 = load i64, ptr %207, align 8
+  %209 = trunc i64 %208 to i32
+  %210 = lshr i32 %209, 8
+  %211 = and i32 %210, 127
+  switch i32 %211, label %2189 [
+    i32 60, label %212
+    i32 61, label %214
+    i32 62, label %216
+    i32 63, label %218
+    i32 59, label %220
   ]
 
-196:                                              ; preds = %190
-  %197 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %191) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %197) #24
-  br label %2190
+212:                                              ; preds = %206
+  %213 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %207) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %213) #24
+  br label %2189
 
-198:                                              ; preds = %190
-  %199 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %191) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %199) #24
-  br label %2190
+214:                                              ; preds = %206
+  %215 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %207) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %215) #24
+  br label %2189
 
-200:                                              ; preds = %190
-  %201 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %191) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %201) #24
-  br label %2190
+216:                                              ; preds = %206
+  %217 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %207) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %217) #24
+  br label %2189
 
-202:                                              ; preds = %190
-  %203 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %191) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %203) #24
-  br label %2190
+218:                                              ; preds = %206
+  %219 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %207) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %219) #24
+  br label %2189
 
-204:                                              ; preds = %190
-  %205 = getelementptr inbounds i8, ptr %191, i64 32
-  %206 = load i64, ptr %205, align 8
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %206) #24
-  br label %2190
+220:                                              ; preds = %206
+  %221 = getelementptr inbounds i8, ptr %207, i64 32
+  %222 = load i64, ptr %221, align 8
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %222) #24
+  br label %2189
 
-207:                                              ; preds = %4
-  %208 = load ptr, ptr %1, align 8
-  %209 = load i64, ptr %208, align 8
-  %210 = trunc i64 %209 to i32
-  %211 = lshr i32 %210, 8
-  %212 = and i32 %211, 127
-  switch i32 %212, label %2190 [
-    i32 60, label %213
-    i32 61, label %215
-    i32 62, label %217
-    i32 63, label %219
-    i32 59, label %221
+223:                                              ; preds = %3
+  %224 = load ptr, ptr %1, align 8
+  %225 = load i64, ptr %224, align 8
+  %226 = trunc i64 %225 to i32
+  %227 = lshr i32 %226, 8
+  %228 = and i32 %227, 127
+  switch i32 %228, label %2189 [
+    i32 60, label %229
+    i32 61, label %231
+    i32 62, label %233
+    i32 63, label %235
+    i32 59, label %237
   ]
 
-213:                                              ; preds = %207
-  %214 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %208) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %214) #24
-  br label %2190
+229:                                              ; preds = %223
+  %230 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %224) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %230) #24
+  br label %2189
 
-215:                                              ; preds = %207
-  %216 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %208) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %216) #24
-  br label %2190
+231:                                              ; preds = %223
+  %232 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %224) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %232) #24
+  br label %2189
 
-217:                                              ; preds = %207
-  %218 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %208) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %218) #24
-  br label %2190
+233:                                              ; preds = %223
+  %234 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %224) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %234) #24
+  br label %2189
 
-219:                                              ; preds = %207
-  %220 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %208) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %220) #24
-  br label %2190
+235:                                              ; preds = %223
+  %236 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %224) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %236) #24
+  br label %2189
 
-221:                                              ; preds = %207
-  %222 = getelementptr inbounds i8, ptr %208, i64 32
-  %223 = load i64, ptr %222, align 8
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %223) #24
-  br label %2190
+237:                                              ; preds = %223
+  %238 = getelementptr inbounds i8, ptr %224, i64 32
+  %239 = load i64, ptr %238, align 8
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %239) #24
+  br label %2189
 
-224:                                              ; preds = %4
-  %225 = load ptr, ptr %1, align 8
-  %226 = load i64, ptr %225, align 8
-  %227 = trunc i64 %226 to i32
-  %228 = lshr i32 %227, 8
-  %229 = and i32 %228, 127
-  switch i32 %229, label %2190 [
-    i32 60, label %230
-    i32 61, label %232
-    i32 62, label %234
-    i32 63, label %236
-    i32 59, label %238
+240:                                              ; preds = %3
+  %241 = load ptr, ptr %1, align 8
+  %242 = load i64, ptr %241, align 8
+  %243 = trunc i64 %242 to i32
+  %244 = lshr i32 %243, 8
+  %245 = and i32 %244, 127
+  switch i32 %245, label %2189 [
+    i32 60, label %246
+    i32 61, label %248
+    i32 62, label %250
+    i32 63, label %252
+    i32 59, label %254
   ]
 
-230:                                              ; preds = %224
-  %231 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %225) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %231) #24
-  br label %2190
+246:                                              ; preds = %240
+  %247 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %241) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %247) #24
+  br label %2189
 
-232:                                              ; preds = %224
-  %233 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %225) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %233) #24
-  br label %2190
+248:                                              ; preds = %240
+  %249 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %241) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %249) #24
+  br label %2189
 
-234:                                              ; preds = %224
-  %235 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %225) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %235) #24
-  br label %2190
+250:                                              ; preds = %240
+  %251 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %241) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %251) #24
+  br label %2189
 
-236:                                              ; preds = %224
-  %237 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %225) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %237) #24
-  br label %2190
+252:                                              ; preds = %240
+  %253 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %241) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %253) #24
+  br label %2189
 
-238:                                              ; preds = %224
-  %239 = getelementptr inbounds i8, ptr %225, i64 32
-  %240 = load i64, ptr %239, align 8
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %240) #24
-  br label %2190
+254:                                              ; preds = %240
+  %255 = getelementptr inbounds i8, ptr %241, i64 32
+  %256 = load i64, ptr %255, align 8
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %256) #24
+  br label %2189
 
-241:                                              ; preds = %4
-  %242 = load ptr, ptr %1, align 8
-  %243 = load i64, ptr %242, align 8
-  %244 = trunc i64 %243 to i32
-  %245 = lshr i32 %244, 8
-  %246 = and i32 %245, 127
-  switch i32 %246, label %2190 [
-    i32 60, label %247
-    i32 61, label %249
-    i32 62, label %251
-    i32 63, label %253
-    i32 59, label %255
+257:                                              ; preds = %3
+  %258 = load ptr, ptr %1, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 32
+  %260 = load i64, ptr %259, align 8
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.519, i64 noundef %260) #24
+  br label %2189
+
+261:                                              ; preds = %3
+  %262 = load ptr, ptr %1, align 8
+  %263 = getelementptr inbounds i8, ptr %262, i64 32
+  %264 = load i64, ptr %263, align 8
+  %265 = trunc i64 %264 to i32
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.520, i32 noundef %265) #24
+  br label %2189
+
+266:                                              ; preds = %3
+  %267 = load ptr, ptr %1, align 8
+  %268 = load i64, ptr %267, align 8
+  %269 = trunc i64 %268 to i32
+  %270 = lshr i32 %269, 8
+  %271 = and i32 %270, 127
+  switch i32 %271, label %2189 [
+    i32 60, label %272
+    i32 61, label %274
+    i32 62, label %276
+    i32 63, label %278
+    i32 59, label %280
   ]
 
-247:                                              ; preds = %241
-  %248 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %242) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %248) #24
-  br label %2190
+272:                                              ; preds = %266
+  %273 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %267) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %273) #24
+  br label %2189
 
-249:                                              ; preds = %241
-  %250 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %242) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %250) #24
-  br label %2190
+274:                                              ; preds = %266
+  %275 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %267) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %275) #24
+  br label %2189
 
-251:                                              ; preds = %241
-  %252 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %242) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %252) #24
-  br label %2190
+276:                                              ; preds = %266
+  %277 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %267) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %277) #24
+  br label %2189
 
-253:                                              ; preds = %241
-  %254 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %242) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %254) #24
-  br label %2190
+278:                                              ; preds = %266
+  %279 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %267) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %279) #24
+  br label %2189
 
-255:                                              ; preds = %241
-  %256 = getelementptr inbounds i8, ptr %242, i64 32
-  %257 = load i64, ptr %256, align 8
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %257) #24
-  br label %2190
+280:                                              ; preds = %266
+  %281 = getelementptr inbounds i8, ptr %267, i64 32
+  %282 = load i64, ptr %281, align 8
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %282) #24
+  br label %2189
 
-258:                                              ; preds = %4
-  %259 = load ptr, ptr %1, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 32
-  %261 = load i64, ptr %260, align 8
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.519, i64 noundef %261) #24
-  br label %2190
+283:                                              ; preds = %3
+  %284 = load i64, ptr %1, align 8
+  %285 = tail call i64 @rb_id2str(i64 noundef %284) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %285) #24
+  br label %2189
 
-262:                                              ; preds = %4
-  %263 = load ptr, ptr %1, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 32
-  %265 = load i64, ptr %264, align 8
-  %266 = trunc i64 %265 to i32
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.520, i32 noundef %266) #24
-  br label %2190
+286:                                              ; preds = %3
+  %287 = load i64, ptr %1, align 8
+  %288 = tail call i64 @rb_id2str(i64 noundef %287) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %288) #24
+  br label %2189
 
-267:                                              ; preds = %4
-  %268 = load ptr, ptr %1, align 8
-  %269 = load i64, ptr %268, align 8
-  %270 = trunc i64 %269 to i32
-  %271 = lshr i32 %270, 8
-  %272 = and i32 %271, 127
-  switch i32 %272, label %2190 [
-    i32 60, label %273
-    i32 61, label %275
-    i32 62, label %277
-    i32 63, label %279
-    i32 59, label %281
+289:                                              ; preds = %3
+  %290 = load i64, ptr %1, align 8
+  %291 = tail call i64 @rb_id2str(i64 noundef %290) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %291) #24
+  br label %2189
+
+292:                                              ; preds = %3
+  %293 = load i64, ptr %1, align 8
+  %294 = tail call i64 @rb_id2str(i64 noundef %293) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %294) #24
+  br label %2189
+
+295:                                              ; preds = %3
+  %296 = load i64, ptr %1, align 8
+  %297 = tail call i64 @rb_id2str(i64 noundef %296) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %297) #24
+  br label %2189
+
+298:                                              ; preds = %3
+  %299 = load i64, ptr %1, align 8
+  %300 = tail call i64 @rb_id2str(i64 noundef %299) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %300) #24
+  br label %2189
+
+301:                                              ; preds = %3
+  %302 = load i64, ptr %1, align 8
+  %303 = tail call i64 @rb_id2str(i64 noundef %302) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %303) #24
+  br label %2189
+
+304:                                              ; preds = %3
+  %305 = load i64, ptr %1, align 8
+  %306 = tail call i64 @rb_id2str(i64 noundef %305) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %306) #24
+  br label %2189
+
+307:                                              ; preds = %3
+  %308 = load i64, ptr %1, align 8
+  %309 = tail call i64 @rb_id2str(i64 noundef %308) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %309) #24
+  br label %2189
+
+310:                                              ; preds = %3
+  %311 = load ptr, ptr %1, align 8
+  %magicptr = ptrtoint ptr %311 to i64
+  switch i64 %magicptr, label %313 [
+    i64 -1, label %312
+    i64 0, label %2189
   ]
 
-273:                                              ; preds = %267
-  %274 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %268) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %274) #24
-  br label %2190
-
-275:                                              ; preds = %267
-  %276 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %268) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %276) #24
-  br label %2190
-
-277:                                              ; preds = %267
-  %278 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %268) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %278) #24
-  br label %2190
-
-279:                                              ; preds = %267
-  %280 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %268) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %280) #24
-  br label %2190
-
-281:                                              ; preds = %267
-  %282 = getelementptr inbounds i8, ptr %268, i64 32
-  %283 = load i64, ptr %282, align 8
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.518, i64 noundef %283) #24
-  br label %2190
-
-284:                                              ; preds = %4
-  %285 = load i64, ptr %1, align 8
-  %286 = tail call i64 @rb_id2str(i64 noundef %285) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %286) #24
-  br label %2190
-
-287:                                              ; preds = %4
-  %288 = load i64, ptr %1, align 8
-  %289 = tail call i64 @rb_id2str(i64 noundef %288) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %289) #24
-  br label %2190
-
-290:                                              ; preds = %4
-  %291 = load i64, ptr %1, align 8
-  %292 = tail call i64 @rb_id2str(i64 noundef %291) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %292) #24
-  br label %2190
-
-293:                                              ; preds = %4
-  %294 = load i64, ptr %1, align 8
-  %295 = tail call i64 @rb_id2str(i64 noundef %294) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %295) #24
-  br label %2190
-
-296:                                              ; preds = %4
-  %297 = load i64, ptr %1, align 8
-  %298 = tail call i64 @rb_id2str(i64 noundef %297) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %298) #24
-  br label %2190
-
-299:                                              ; preds = %4
-  %300 = load i64, ptr %1, align 8
-  %301 = tail call i64 @rb_id2str(i64 noundef %300) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %301) #24
-  br label %2190
-
-302:                                              ; preds = %4
-  %303 = load i64, ptr %1, align 8
-  %304 = tail call i64 @rb_id2str(i64 noundef %303) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %304) #24
-  br label %2190
-
-305:                                              ; preds = %4
-  %306 = load i64, ptr %1, align 8
-  %307 = tail call i64 @rb_id2str(i64 noundef %306) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %307) #24
-  br label %2190
-
-308:                                              ; preds = %4
-  %309 = load i64, ptr %1, align 8
-  %310 = tail call i64 @rb_id2str(i64 noundef %309) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %310) #24
-  br label %2190
-
-311:                                              ; preds = %4
-  %312 = load ptr, ptr %1, align 8
-  %magicptr = ptrtoint ptr %312 to i64
-  switch i64 %magicptr, label %314 [
-    i64 -1, label %313
-    i64 0, label %2190
-  ]
-
-313:                                              ; preds = %311
+312:                                              ; preds = %310
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-314:                                              ; preds = %311
-  %315 = load i64, ptr %312, align 8
-  %316 = trunc i64 %315 to i32
-  %317 = lshr i32 %316, 8
-  %318 = and i32 %317, 127
-  switch i32 %318, label %320 [
+313:                                              ; preds = %310
+  %314 = load i64, ptr %311, align 8
+  %315 = trunc i64 %314 to i32
+  %316 = lshr i32 %315, 8
+  %317 = and i32 %316, 127
+  switch i32 %317, label %319 [
     i32 114, label %parser_node_name.exit
-    i32 115, label %319
+    i32 115, label %318
   ]
 
-319:                                              ; preds = %314
+318:                                              ; preds = %313
   br label %parser_node_name.exit
 
-320:                                              ; preds = %314
-  %321 = tail call ptr @ruby_node_name(i32 noundef %318) #24
+319:                                              ; preds = %313
+  %320 = tail call ptr @ruby_node_name(i32 noundef %317) #24
   br label %parser_node_name.exit
 
-parser_node_name.exit:                            ; preds = %314, %319, %320
-  %.0.i = phi ptr [ %321, %320 ], [ @.str.524, %319 ], [ @.str.523, %314 ]
+parser_node_name.exit:                            ; preds = %313, %318, %319
+  %.0.i = phi ptr [ %320, %319 ], [ @.str.524, %318 ], [ @.str.523, %313 ]
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i) #24
-  br label %2190
+  br label %2189
 
-322:                                              ; preds = %4
-  %323 = load ptr, ptr %1, align 8
-  %magicptr1401 = ptrtoint ptr %323 to i64
-  switch i64 %magicptr1401, label %325 [
-    i64 -1, label %324
-    i64 0, label %2190
+321:                                              ; preds = %3
+  %322 = load ptr, ptr %1, align 8
+  %magicptr1400 = ptrtoint ptr %322 to i64
+  switch i64 %magicptr1400, label %324 [
+    i64 -1, label %323
+    i64 0, label %2189
   ]
 
-324:                                              ; preds = %322
+323:                                              ; preds = %321
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-325:                                              ; preds = %322
-  %326 = load i64, ptr %323, align 8
-  %327 = trunc i64 %326 to i32
-  %328 = lshr i32 %327, 8
-  %329 = and i32 %328, 127
-  switch i32 %329, label %331 [
-    i32 114, label %parser_node_name.exit1562
-    i32 115, label %330
+324:                                              ; preds = %321
+  %325 = load i64, ptr %322, align 8
+  %326 = trunc i64 %325 to i32
+  %327 = lshr i32 %326, 8
+  %328 = and i32 %327, 127
+  switch i32 %328, label %330 [
+    i32 114, label %parser_node_name.exit1561
+    i32 115, label %329
   ]
 
-330:                                              ; preds = %325
-  br label %parser_node_name.exit1562
+329:                                              ; preds = %324
+  br label %parser_node_name.exit1561
 
-331:                                              ; preds = %325
-  %332 = tail call ptr @ruby_node_name(i32 noundef %329) #24
-  br label %parser_node_name.exit1562
+330:                                              ; preds = %324
+  %331 = tail call ptr @ruby_node_name(i32 noundef %328) #24
+  br label %parser_node_name.exit1561
 
-parser_node_name.exit1562:                        ; preds = %325, %330, %331
-  %.0.i1561 = phi ptr [ %332, %331 ], [ @.str.524, %330 ], [ @.str.523, %325 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1561) #24
-  br label %2190
+parser_node_name.exit1561:                        ; preds = %324, %329, %330
+  %.0.i1560 = phi ptr [ %331, %330 ], [ @.str.524, %329 ], [ @.str.523, %324 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1560) #24
+  br label %2189
 
-333:                                              ; preds = %4
-  %334 = load ptr, ptr %1, align 8
-  %magicptr1402 = ptrtoint ptr %334 to i64
-  switch i64 %magicptr1402, label %336 [
-    i64 -1, label %335
-    i64 0, label %2190
+332:                                              ; preds = %3
+  %333 = load ptr, ptr %1, align 8
+  %magicptr1401 = ptrtoint ptr %333 to i64
+  switch i64 %magicptr1401, label %335 [
+    i64 -1, label %334
+    i64 0, label %2189
   ]
 
-335:                                              ; preds = %333
+334:                                              ; preds = %332
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-336:                                              ; preds = %333
-  %337 = load i64, ptr %334, align 8
-  %338 = trunc i64 %337 to i32
-  %339 = lshr i32 %338, 8
-  %340 = and i32 %339, 127
-  switch i32 %340, label %342 [
-    i32 114, label %parser_node_name.exit1564
-    i32 115, label %341
+335:                                              ; preds = %332
+  %336 = load i64, ptr %333, align 8
+  %337 = trunc i64 %336 to i32
+  %338 = lshr i32 %337, 8
+  %339 = and i32 %338, 127
+  switch i32 %339, label %341 [
+    i32 114, label %parser_node_name.exit1563
+    i32 115, label %340
   ]
 
-341:                                              ; preds = %336
-  br label %parser_node_name.exit1564
+340:                                              ; preds = %335
+  br label %parser_node_name.exit1563
 
-342:                                              ; preds = %336
-  %343 = tail call ptr @ruby_node_name(i32 noundef %340) #24
-  br label %parser_node_name.exit1564
+341:                                              ; preds = %335
+  %342 = tail call ptr @ruby_node_name(i32 noundef %339) #24
+  br label %parser_node_name.exit1563
 
-parser_node_name.exit1564:                        ; preds = %336, %341, %342
-  %.0.i1563 = phi ptr [ %343, %342 ], [ @.str.524, %341 ], [ @.str.523, %336 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1563) #24
-  br label %2190
+parser_node_name.exit1563:                        ; preds = %335, %340, %341
+  %.0.i1562 = phi ptr [ %342, %341 ], [ @.str.524, %340 ], [ @.str.523, %335 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1562) #24
+  br label %2189
 
-344:                                              ; preds = %4
-  %345 = load ptr, ptr %1, align 8
-  %magicptr1403 = ptrtoint ptr %345 to i64
-  switch i64 %magicptr1403, label %347 [
-    i64 -1, label %346
-    i64 0, label %2190
+343:                                              ; preds = %3
+  %344 = load ptr, ptr %1, align 8
+  %magicptr1402 = ptrtoint ptr %344 to i64
+  switch i64 %magicptr1402, label %346 [
+    i64 -1, label %345
+    i64 0, label %2189
   ]
 
-346:                                              ; preds = %344
+345:                                              ; preds = %343
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-347:                                              ; preds = %344
-  %348 = load i64, ptr %345, align 8
-  %349 = trunc i64 %348 to i32
-  %350 = lshr i32 %349, 8
-  %351 = and i32 %350, 127
-  switch i32 %351, label %353 [
-    i32 114, label %parser_node_name.exit1566
-    i32 115, label %352
+346:                                              ; preds = %343
+  %347 = load i64, ptr %344, align 8
+  %348 = trunc i64 %347 to i32
+  %349 = lshr i32 %348, 8
+  %350 = and i32 %349, 127
+  switch i32 %350, label %352 [
+    i32 114, label %parser_node_name.exit1565
+    i32 115, label %351
   ]
 
-352:                                              ; preds = %347
-  br label %parser_node_name.exit1566
+351:                                              ; preds = %346
+  br label %parser_node_name.exit1565
 
-353:                                              ; preds = %347
-  %354 = tail call ptr @ruby_node_name(i32 noundef %351) #24
-  br label %parser_node_name.exit1566
+352:                                              ; preds = %346
+  %353 = tail call ptr @ruby_node_name(i32 noundef %350) #24
+  br label %parser_node_name.exit1565
 
-parser_node_name.exit1566:                        ; preds = %347, %352, %353
-  %.0.i1565 = phi ptr [ %354, %353 ], [ @.str.524, %352 ], [ @.str.523, %347 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1565) #24
-  br label %2190
+parser_node_name.exit1565:                        ; preds = %346, %351, %352
+  %.0.i1564 = phi ptr [ %353, %352 ], [ @.str.524, %351 ], [ @.str.523, %346 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1564) #24
+  br label %2189
 
-355:                                              ; preds = %4
-  %356 = load ptr, ptr %1, align 8
-  %magicptr1404 = ptrtoint ptr %356 to i64
-  switch i64 %magicptr1404, label %358 [
-    i64 -1, label %357
-    i64 0, label %2190
+354:                                              ; preds = %3
+  %355 = load ptr, ptr %1, align 8
+  %magicptr1403 = ptrtoint ptr %355 to i64
+  switch i64 %magicptr1403, label %357 [
+    i64 -1, label %356
+    i64 0, label %2189
   ]
 
-357:                                              ; preds = %355
+356:                                              ; preds = %354
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-358:                                              ; preds = %355
-  %359 = load i64, ptr %356, align 8
-  %360 = trunc i64 %359 to i32
-  %361 = lshr i32 %360, 8
-  %362 = and i32 %361, 127
-  switch i32 %362, label %364 [
-    i32 114, label %parser_node_name.exit1568
-    i32 115, label %363
+357:                                              ; preds = %354
+  %358 = load i64, ptr %355, align 8
+  %359 = trunc i64 %358 to i32
+  %360 = lshr i32 %359, 8
+  %361 = and i32 %360, 127
+  switch i32 %361, label %363 [
+    i32 114, label %parser_node_name.exit1567
+    i32 115, label %362
   ]
 
-363:                                              ; preds = %358
-  br label %parser_node_name.exit1568
+362:                                              ; preds = %357
+  br label %parser_node_name.exit1567
 
-364:                                              ; preds = %358
-  %365 = tail call ptr @ruby_node_name(i32 noundef %362) #24
-  br label %parser_node_name.exit1568
+363:                                              ; preds = %357
+  %364 = tail call ptr @ruby_node_name(i32 noundef %361) #24
+  br label %parser_node_name.exit1567
 
-parser_node_name.exit1568:                        ; preds = %358, %363, %364
-  %.0.i1567 = phi ptr [ %365, %364 ], [ @.str.524, %363 ], [ @.str.523, %358 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1567) #24
-  br label %2190
+parser_node_name.exit1567:                        ; preds = %357, %362, %363
+  %.0.i1566 = phi ptr [ %364, %363 ], [ @.str.524, %362 ], [ @.str.523, %357 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1566) #24
+  br label %2189
 
-366:                                              ; preds = %4
-  %367 = load ptr, ptr %1, align 8
-  %magicptr1405 = ptrtoint ptr %367 to i64
-  switch i64 %magicptr1405, label %369 [
-    i64 -1, label %368
-    i64 0, label %2190
+365:                                              ; preds = %3
+  %366 = load ptr, ptr %1, align 8
+  %magicptr1404 = ptrtoint ptr %366 to i64
+  switch i64 %magicptr1404, label %368 [
+    i64 -1, label %367
+    i64 0, label %2189
   ]
 
-368:                                              ; preds = %366
+367:                                              ; preds = %365
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-369:                                              ; preds = %366
-  %370 = load i64, ptr %367, align 8
-  %371 = trunc i64 %370 to i32
-  %372 = lshr i32 %371, 8
-  %373 = and i32 %372, 127
-  switch i32 %373, label %375 [
-    i32 114, label %parser_node_name.exit1570
-    i32 115, label %374
+368:                                              ; preds = %365
+  %369 = load i64, ptr %366, align 8
+  %370 = trunc i64 %369 to i32
+  %371 = lshr i32 %370, 8
+  %372 = and i32 %371, 127
+  switch i32 %372, label %374 [
+    i32 114, label %parser_node_name.exit1569
+    i32 115, label %373
   ]
 
-374:                                              ; preds = %369
-  br label %parser_node_name.exit1570
+373:                                              ; preds = %368
+  br label %parser_node_name.exit1569
 
-375:                                              ; preds = %369
-  %376 = tail call ptr @ruby_node_name(i32 noundef %373) #24
-  br label %parser_node_name.exit1570
+374:                                              ; preds = %368
+  %375 = tail call ptr @ruby_node_name(i32 noundef %372) #24
+  br label %parser_node_name.exit1569
 
-parser_node_name.exit1570:                        ; preds = %369, %374, %375
-  %.0.i1569 = phi ptr [ %376, %375 ], [ @.str.524, %374 ], [ @.str.523, %369 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1569) #24
-  br label %2190
+parser_node_name.exit1569:                        ; preds = %368, %373, %374
+  %.0.i1568 = phi ptr [ %375, %374 ], [ @.str.524, %373 ], [ @.str.523, %368 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1568) #24
+  br label %2189
 
-377:                                              ; preds = %4
-  %378 = load ptr, ptr %1, align 8
-  %magicptr1406 = ptrtoint ptr %378 to i64
-  switch i64 %magicptr1406, label %380 [
-    i64 -1, label %379
-    i64 0, label %2190
+376:                                              ; preds = %3
+  %377 = load ptr, ptr %1, align 8
+  %magicptr1405 = ptrtoint ptr %377 to i64
+  switch i64 %magicptr1405, label %379 [
+    i64 -1, label %378
+    i64 0, label %2189
   ]
 
-379:                                              ; preds = %377
+378:                                              ; preds = %376
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-380:                                              ; preds = %377
-  %381 = load i64, ptr %378, align 8
-  %382 = trunc i64 %381 to i32
-  %383 = lshr i32 %382, 8
-  %384 = and i32 %383, 127
-  switch i32 %384, label %386 [
-    i32 114, label %parser_node_name.exit1572
-    i32 115, label %385
+379:                                              ; preds = %376
+  %380 = load i64, ptr %377, align 8
+  %381 = trunc i64 %380 to i32
+  %382 = lshr i32 %381, 8
+  %383 = and i32 %382, 127
+  switch i32 %383, label %385 [
+    i32 114, label %parser_node_name.exit1571
+    i32 115, label %384
   ]
 
-385:                                              ; preds = %380
-  br label %parser_node_name.exit1572
+384:                                              ; preds = %379
+  br label %parser_node_name.exit1571
 
-386:                                              ; preds = %380
-  %387 = tail call ptr @ruby_node_name(i32 noundef %384) #24
-  br label %parser_node_name.exit1572
+385:                                              ; preds = %379
+  %386 = tail call ptr @ruby_node_name(i32 noundef %383) #24
+  br label %parser_node_name.exit1571
 
-parser_node_name.exit1572:                        ; preds = %380, %385, %386
-  %.0.i1571 = phi ptr [ %387, %386 ], [ @.str.524, %385 ], [ @.str.523, %380 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1571) #24
-  br label %2190
+parser_node_name.exit1571:                        ; preds = %379, %384, %385
+  %.0.i1570 = phi ptr [ %386, %385 ], [ @.str.524, %384 ], [ @.str.523, %379 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1570) #24
+  br label %2189
 
-388:                                              ; preds = %4
-  %389 = load ptr, ptr %1, align 8
-  %magicptr1407 = ptrtoint ptr %389 to i64
-  switch i64 %magicptr1407, label %391 [
-    i64 -1, label %390
-    i64 0, label %2190
+387:                                              ; preds = %3
+  %388 = load ptr, ptr %1, align 8
+  %magicptr1406 = ptrtoint ptr %388 to i64
+  switch i64 %magicptr1406, label %390 [
+    i64 -1, label %389
+    i64 0, label %2189
   ]
 
-390:                                              ; preds = %388
+389:                                              ; preds = %387
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-391:                                              ; preds = %388
-  %392 = load i64, ptr %389, align 8
-  %393 = trunc i64 %392 to i32
-  %394 = lshr i32 %393, 8
-  %395 = and i32 %394, 127
-  switch i32 %395, label %397 [
-    i32 114, label %parser_node_name.exit1574
-    i32 115, label %396
+390:                                              ; preds = %387
+  %391 = load i64, ptr %388, align 8
+  %392 = trunc i64 %391 to i32
+  %393 = lshr i32 %392, 8
+  %394 = and i32 %393, 127
+  switch i32 %394, label %396 [
+    i32 114, label %parser_node_name.exit1573
+    i32 115, label %395
   ]
 
-396:                                              ; preds = %391
-  br label %parser_node_name.exit1574
+395:                                              ; preds = %390
+  br label %parser_node_name.exit1573
 
-397:                                              ; preds = %391
-  %398 = tail call ptr @ruby_node_name(i32 noundef %395) #24
-  br label %parser_node_name.exit1574
+396:                                              ; preds = %390
+  %397 = tail call ptr @ruby_node_name(i32 noundef %394) #24
+  br label %parser_node_name.exit1573
 
-parser_node_name.exit1574:                        ; preds = %391, %396, %397
-  %.0.i1573 = phi ptr [ %398, %397 ], [ @.str.524, %396 ], [ @.str.523, %391 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1573) #24
-  br label %2190
+parser_node_name.exit1573:                        ; preds = %390, %395, %396
+  %.0.i1572 = phi ptr [ %397, %396 ], [ @.str.524, %395 ], [ @.str.523, %390 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1572) #24
+  br label %2189
 
-399:                                              ; preds = %4
-  %400 = load ptr, ptr %1, align 8
-  %magicptr1408 = ptrtoint ptr %400 to i64
-  switch i64 %magicptr1408, label %402 [
-    i64 -1, label %401
-    i64 0, label %2190
+398:                                              ; preds = %3
+  %399 = load ptr, ptr %1, align 8
+  %magicptr1407 = ptrtoint ptr %399 to i64
+  switch i64 %magicptr1407, label %401 [
+    i64 -1, label %400
+    i64 0, label %2189
   ]
 
-401:                                              ; preds = %399
+400:                                              ; preds = %398
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-402:                                              ; preds = %399
-  %403 = load i64, ptr %400, align 8
-  %404 = trunc i64 %403 to i32
-  %405 = lshr i32 %404, 8
-  %406 = and i32 %405, 127
-  switch i32 %406, label %408 [
-    i32 114, label %parser_node_name.exit1576
-    i32 115, label %407
+401:                                              ; preds = %398
+  %402 = load i64, ptr %399, align 8
+  %403 = trunc i64 %402 to i32
+  %404 = lshr i32 %403, 8
+  %405 = and i32 %404, 127
+  switch i32 %405, label %407 [
+    i32 114, label %parser_node_name.exit1575
+    i32 115, label %406
   ]
 
-407:                                              ; preds = %402
-  br label %parser_node_name.exit1576
+406:                                              ; preds = %401
+  br label %parser_node_name.exit1575
 
-408:                                              ; preds = %402
-  %409 = tail call ptr @ruby_node_name(i32 noundef %406) #24
-  br label %parser_node_name.exit1576
+407:                                              ; preds = %401
+  %408 = tail call ptr @ruby_node_name(i32 noundef %405) #24
+  br label %parser_node_name.exit1575
 
-parser_node_name.exit1576:                        ; preds = %402, %407, %408
-  %.0.i1575 = phi ptr [ %409, %408 ], [ @.str.524, %407 ], [ @.str.523, %402 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1575) #24
-  br label %2190
+parser_node_name.exit1575:                        ; preds = %401, %406, %407
+  %.0.i1574 = phi ptr [ %408, %407 ], [ @.str.524, %406 ], [ @.str.523, %401 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1574) #24
+  br label %2189
 
-410:                                              ; preds = %4
-  %411 = load ptr, ptr %1, align 8
-  %magicptr1409 = ptrtoint ptr %411 to i64
-  switch i64 %magicptr1409, label %413 [
-    i64 -1, label %412
-    i64 0, label %2190
+409:                                              ; preds = %3
+  %410 = load ptr, ptr %1, align 8
+  %magicptr1408 = ptrtoint ptr %410 to i64
+  switch i64 %magicptr1408, label %412 [
+    i64 -1, label %411
+    i64 0, label %2189
   ]
 
-412:                                              ; preds = %410
+411:                                              ; preds = %409
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-413:                                              ; preds = %410
-  %414 = load i64, ptr %411, align 8
-  %415 = trunc i64 %414 to i32
-  %416 = lshr i32 %415, 8
-  %417 = and i32 %416, 127
-  switch i32 %417, label %419 [
-    i32 114, label %parser_node_name.exit1578
-    i32 115, label %418
+412:                                              ; preds = %409
+  %413 = load i64, ptr %410, align 8
+  %414 = trunc i64 %413 to i32
+  %415 = lshr i32 %414, 8
+  %416 = and i32 %415, 127
+  switch i32 %416, label %418 [
+    i32 114, label %parser_node_name.exit1577
+    i32 115, label %417
   ]
 
-418:                                              ; preds = %413
-  br label %parser_node_name.exit1578
+417:                                              ; preds = %412
+  br label %parser_node_name.exit1577
 
-419:                                              ; preds = %413
-  %420 = tail call ptr @ruby_node_name(i32 noundef %417) #24
-  br label %parser_node_name.exit1578
+418:                                              ; preds = %412
+  %419 = tail call ptr @ruby_node_name(i32 noundef %416) #24
+  br label %parser_node_name.exit1577
 
-parser_node_name.exit1578:                        ; preds = %413, %418, %419
-  %.0.i1577 = phi ptr [ %420, %419 ], [ @.str.524, %418 ], [ @.str.523, %413 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1577) #24
-  br label %2190
+parser_node_name.exit1577:                        ; preds = %412, %417, %418
+  %.0.i1576 = phi ptr [ %419, %418 ], [ @.str.524, %417 ], [ @.str.523, %412 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1576) #24
+  br label %2189
 
-421:                                              ; preds = %4
-  %422 = load ptr, ptr %1, align 8
-  %magicptr1410 = ptrtoint ptr %422 to i64
-  switch i64 %magicptr1410, label %424 [
-    i64 -1, label %423
-    i64 0, label %2190
+420:                                              ; preds = %3
+  %421 = load ptr, ptr %1, align 8
+  %magicptr1409 = ptrtoint ptr %421 to i64
+  switch i64 %magicptr1409, label %423 [
+    i64 -1, label %422
+    i64 0, label %2189
   ]
 
-423:                                              ; preds = %421
+422:                                              ; preds = %420
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-424:                                              ; preds = %421
-  %425 = load i64, ptr %422, align 8
-  %426 = trunc i64 %425 to i32
-  %427 = lshr i32 %426, 8
-  %428 = and i32 %427, 127
-  switch i32 %428, label %430 [
-    i32 114, label %parser_node_name.exit1580
-    i32 115, label %429
+423:                                              ; preds = %420
+  %424 = load i64, ptr %421, align 8
+  %425 = trunc i64 %424 to i32
+  %426 = lshr i32 %425, 8
+  %427 = and i32 %426, 127
+  switch i32 %427, label %429 [
+    i32 114, label %parser_node_name.exit1579
+    i32 115, label %428
   ]
 
-429:                                              ; preds = %424
-  br label %parser_node_name.exit1580
+428:                                              ; preds = %423
+  br label %parser_node_name.exit1579
 
-430:                                              ; preds = %424
-  %431 = tail call ptr @ruby_node_name(i32 noundef %428) #24
-  br label %parser_node_name.exit1580
+429:                                              ; preds = %423
+  %430 = tail call ptr @ruby_node_name(i32 noundef %427) #24
+  br label %parser_node_name.exit1579
 
-parser_node_name.exit1580:                        ; preds = %424, %429, %430
-  %.0.i1579 = phi ptr [ %431, %430 ], [ @.str.524, %429 ], [ @.str.523, %424 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1579) #24
-  br label %2190
+parser_node_name.exit1579:                        ; preds = %423, %428, %429
+  %.0.i1578 = phi ptr [ %430, %429 ], [ @.str.524, %428 ], [ @.str.523, %423 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1578) #24
+  br label %2189
 
-432:                                              ; preds = %4
-  %433 = load ptr, ptr %1, align 8
-  %magicptr1411 = ptrtoint ptr %433 to i64
-  switch i64 %magicptr1411, label %435 [
-    i64 -1, label %434
-    i64 0, label %2190
+431:                                              ; preds = %3
+  %432 = load ptr, ptr %1, align 8
+  %magicptr1410 = ptrtoint ptr %432 to i64
+  switch i64 %magicptr1410, label %434 [
+    i64 -1, label %433
+    i64 0, label %2189
   ]
 
-434:                                              ; preds = %432
+433:                                              ; preds = %431
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-435:                                              ; preds = %432
-  %436 = load i64, ptr %433, align 8
-  %437 = trunc i64 %436 to i32
-  %438 = lshr i32 %437, 8
-  %439 = and i32 %438, 127
-  switch i32 %439, label %441 [
-    i32 114, label %parser_node_name.exit1582
-    i32 115, label %440
+434:                                              ; preds = %431
+  %435 = load i64, ptr %432, align 8
+  %436 = trunc i64 %435 to i32
+  %437 = lshr i32 %436, 8
+  %438 = and i32 %437, 127
+  switch i32 %438, label %440 [
+    i32 114, label %parser_node_name.exit1581
+    i32 115, label %439
   ]
 
-440:                                              ; preds = %435
-  br label %parser_node_name.exit1582
+439:                                              ; preds = %434
+  br label %parser_node_name.exit1581
 
-441:                                              ; preds = %435
-  %442 = tail call ptr @ruby_node_name(i32 noundef %439) #24
-  br label %parser_node_name.exit1582
+440:                                              ; preds = %434
+  %441 = tail call ptr @ruby_node_name(i32 noundef %438) #24
+  br label %parser_node_name.exit1581
 
-parser_node_name.exit1582:                        ; preds = %435, %440, %441
-  %.0.i1581 = phi ptr [ %442, %441 ], [ @.str.524, %440 ], [ @.str.523, %435 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1581) #24
-  br label %2190
+parser_node_name.exit1581:                        ; preds = %434, %439, %440
+  %.0.i1580 = phi ptr [ %441, %440 ], [ @.str.524, %439 ], [ @.str.523, %434 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1580) #24
+  br label %2189
 
-443:                                              ; preds = %4
-  %444 = load ptr, ptr %1, align 8
-  %magicptr1412 = ptrtoint ptr %444 to i64
-  switch i64 %magicptr1412, label %446 [
-    i64 -1, label %445
-    i64 0, label %2190
+442:                                              ; preds = %3
+  %443 = load ptr, ptr %1, align 8
+  %magicptr1411 = ptrtoint ptr %443 to i64
+  switch i64 %magicptr1411, label %445 [
+    i64 -1, label %444
+    i64 0, label %2189
   ]
 
-445:                                              ; preds = %443
+444:                                              ; preds = %442
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-446:                                              ; preds = %443
-  %447 = load i64, ptr %444, align 8
-  %448 = trunc i64 %447 to i32
-  %449 = lshr i32 %448, 8
-  %450 = and i32 %449, 127
-  switch i32 %450, label %452 [
-    i32 114, label %parser_node_name.exit1584
-    i32 115, label %451
+445:                                              ; preds = %442
+  %446 = load i64, ptr %443, align 8
+  %447 = trunc i64 %446 to i32
+  %448 = lshr i32 %447, 8
+  %449 = and i32 %448, 127
+  switch i32 %449, label %451 [
+    i32 114, label %parser_node_name.exit1583
+    i32 115, label %450
   ]
 
-451:                                              ; preds = %446
-  br label %parser_node_name.exit1584
+450:                                              ; preds = %445
+  br label %parser_node_name.exit1583
 
-452:                                              ; preds = %446
-  %453 = tail call ptr @ruby_node_name(i32 noundef %450) #24
-  br label %parser_node_name.exit1584
+451:                                              ; preds = %445
+  %452 = tail call ptr @ruby_node_name(i32 noundef %449) #24
+  br label %parser_node_name.exit1583
 
-parser_node_name.exit1584:                        ; preds = %446, %451, %452
-  %.0.i1583 = phi ptr [ %453, %452 ], [ @.str.524, %451 ], [ @.str.523, %446 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1583) #24
-  br label %2190
+parser_node_name.exit1583:                        ; preds = %445, %450, %451
+  %.0.i1582 = phi ptr [ %452, %451 ], [ @.str.524, %450 ], [ @.str.523, %445 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1582) #24
+  br label %2189
 
-454:                                              ; preds = %4
-  %455 = load ptr, ptr %1, align 8
-  %magicptr1413 = ptrtoint ptr %455 to i64
-  switch i64 %magicptr1413, label %457 [
-    i64 -1, label %456
-    i64 0, label %2190
+453:                                              ; preds = %3
+  %454 = load ptr, ptr %1, align 8
+  %magicptr1412 = ptrtoint ptr %454 to i64
+  switch i64 %magicptr1412, label %456 [
+    i64 -1, label %455
+    i64 0, label %2189
   ]
 
-456:                                              ; preds = %454
+455:                                              ; preds = %453
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-457:                                              ; preds = %454
-  %458 = load i64, ptr %455, align 8
-  %459 = trunc i64 %458 to i32
-  %460 = lshr i32 %459, 8
-  %461 = and i32 %460, 127
-  switch i32 %461, label %463 [
-    i32 114, label %parser_node_name.exit1586
-    i32 115, label %462
+456:                                              ; preds = %453
+  %457 = load i64, ptr %454, align 8
+  %458 = trunc i64 %457 to i32
+  %459 = lshr i32 %458, 8
+  %460 = and i32 %459, 127
+  switch i32 %460, label %462 [
+    i32 114, label %parser_node_name.exit1585
+    i32 115, label %461
   ]
 
-462:                                              ; preds = %457
-  br label %parser_node_name.exit1586
+461:                                              ; preds = %456
+  br label %parser_node_name.exit1585
 
-463:                                              ; preds = %457
-  %464 = tail call ptr @ruby_node_name(i32 noundef %461) #24
-  br label %parser_node_name.exit1586
+462:                                              ; preds = %456
+  %463 = tail call ptr @ruby_node_name(i32 noundef %460) #24
+  br label %parser_node_name.exit1585
 
-parser_node_name.exit1586:                        ; preds = %457, %462, %463
-  %.0.i1585 = phi ptr [ %464, %463 ], [ @.str.524, %462 ], [ @.str.523, %457 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1585) #24
-  br label %2190
+parser_node_name.exit1585:                        ; preds = %456, %461, %462
+  %.0.i1584 = phi ptr [ %463, %462 ], [ @.str.524, %461 ], [ @.str.523, %456 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1584) #24
+  br label %2189
 
-465:                                              ; preds = %4
-  %466 = load ptr, ptr %1, align 8
-  %magicptr1414 = ptrtoint ptr %466 to i64
-  switch i64 %magicptr1414, label %468 [
-    i64 -1, label %467
-    i64 0, label %2190
+464:                                              ; preds = %3
+  %465 = load ptr, ptr %1, align 8
+  %magicptr1413 = ptrtoint ptr %465 to i64
+  switch i64 %magicptr1413, label %467 [
+    i64 -1, label %466
+    i64 0, label %2189
   ]
 
-467:                                              ; preds = %465
+466:                                              ; preds = %464
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-468:                                              ; preds = %465
-  %469 = load i64, ptr %466, align 8
-  %470 = trunc i64 %469 to i32
-  %471 = lshr i32 %470, 8
-  %472 = and i32 %471, 127
-  switch i32 %472, label %474 [
-    i32 114, label %parser_node_name.exit1588
-    i32 115, label %473
+467:                                              ; preds = %464
+  %468 = load i64, ptr %465, align 8
+  %469 = trunc i64 %468 to i32
+  %470 = lshr i32 %469, 8
+  %471 = and i32 %470, 127
+  switch i32 %471, label %473 [
+    i32 114, label %parser_node_name.exit1587
+    i32 115, label %472
   ]
 
-473:                                              ; preds = %468
-  br label %parser_node_name.exit1588
+472:                                              ; preds = %467
+  br label %parser_node_name.exit1587
 
-474:                                              ; preds = %468
-  %475 = tail call ptr @ruby_node_name(i32 noundef %472) #24
-  br label %parser_node_name.exit1588
+473:                                              ; preds = %467
+  %474 = tail call ptr @ruby_node_name(i32 noundef %471) #24
+  br label %parser_node_name.exit1587
 
-parser_node_name.exit1588:                        ; preds = %468, %473, %474
-  %.0.i1587 = phi ptr [ %475, %474 ], [ @.str.524, %473 ], [ @.str.523, %468 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1587) #24
-  br label %2190
+parser_node_name.exit1587:                        ; preds = %467, %472, %473
+  %.0.i1586 = phi ptr [ %474, %473 ], [ @.str.524, %472 ], [ @.str.523, %467 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1586) #24
+  br label %2189
 
-476:                                              ; preds = %4
-  %477 = load i64, ptr %1, align 8
-  %478 = tail call i64 @rb_id2str(i64 noundef %477) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %478) #24
-  br label %2190
+475:                                              ; preds = %3
+  %476 = load i64, ptr %1, align 8
+  %477 = tail call i64 @rb_id2str(i64 noundef %476) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %477) #24
+  br label %2189
 
-479:                                              ; preds = %4
-  %480 = load ptr, ptr %1, align 8
-  %magicptr1415 = ptrtoint ptr %480 to i64
-  switch i64 %magicptr1415, label %482 [
-    i64 -1, label %481
-    i64 0, label %2190
+478:                                              ; preds = %3
+  %479 = load ptr, ptr %1, align 8
+  %magicptr1414 = ptrtoint ptr %479 to i64
+  switch i64 %magicptr1414, label %481 [
+    i64 -1, label %480
+    i64 0, label %2189
   ]
 
-481:                                              ; preds = %479
+480:                                              ; preds = %478
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-482:                                              ; preds = %479
-  %483 = load i64, ptr %480, align 8
-  %484 = trunc i64 %483 to i32
-  %485 = lshr i32 %484, 8
-  %486 = and i32 %485, 127
-  switch i32 %486, label %488 [
-    i32 114, label %parser_node_name.exit1590
-    i32 115, label %487
+481:                                              ; preds = %478
+  %482 = load i64, ptr %479, align 8
+  %483 = trunc i64 %482 to i32
+  %484 = lshr i32 %483, 8
+  %485 = and i32 %484, 127
+  switch i32 %485, label %487 [
+    i32 114, label %parser_node_name.exit1589
+    i32 115, label %486
   ]
 
-487:                                              ; preds = %482
-  br label %parser_node_name.exit1590
+486:                                              ; preds = %481
+  br label %parser_node_name.exit1589
 
-488:                                              ; preds = %482
-  %489 = tail call ptr @ruby_node_name(i32 noundef %486) #24
-  br label %parser_node_name.exit1590
+487:                                              ; preds = %481
+  %488 = tail call ptr @ruby_node_name(i32 noundef %485) #24
+  br label %parser_node_name.exit1589
 
-parser_node_name.exit1590:                        ; preds = %482, %487, %488
-  %.0.i1589 = phi ptr [ %489, %488 ], [ @.str.524, %487 ], [ @.str.523, %482 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1589) #24
-  br label %2190
+parser_node_name.exit1589:                        ; preds = %481, %486, %487
+  %.0.i1588 = phi ptr [ %488, %487 ], [ @.str.524, %486 ], [ @.str.523, %481 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1588) #24
+  br label %2189
 
-490:                                              ; preds = %4
-  %491 = load ptr, ptr %1, align 8
-  %magicptr1416 = ptrtoint ptr %491 to i64
-  switch i64 %magicptr1416, label %493 [
-    i64 -1, label %492
-    i64 0, label %2190
+489:                                              ; preds = %3
+  %490 = load ptr, ptr %1, align 8
+  %magicptr1415 = ptrtoint ptr %490 to i64
+  switch i64 %magicptr1415, label %492 [
+    i64 -1, label %491
+    i64 0, label %2189
   ]
 
-492:                                              ; preds = %490
+491:                                              ; preds = %489
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-493:                                              ; preds = %490
-  %494 = load i64, ptr %491, align 8
-  %495 = trunc i64 %494 to i32
-  %496 = lshr i32 %495, 8
-  %497 = and i32 %496, 127
-  switch i32 %497, label %499 [
-    i32 114, label %parser_node_name.exit1592
-    i32 115, label %498
+492:                                              ; preds = %489
+  %493 = load i64, ptr %490, align 8
+  %494 = trunc i64 %493 to i32
+  %495 = lshr i32 %494, 8
+  %496 = and i32 %495, 127
+  switch i32 %496, label %498 [
+    i32 114, label %parser_node_name.exit1591
+    i32 115, label %497
   ]
 
-498:                                              ; preds = %493
-  br label %parser_node_name.exit1592
+497:                                              ; preds = %492
+  br label %parser_node_name.exit1591
 
-499:                                              ; preds = %493
-  %500 = tail call ptr @ruby_node_name(i32 noundef %497) #24
-  br label %parser_node_name.exit1592
+498:                                              ; preds = %492
+  %499 = tail call ptr @ruby_node_name(i32 noundef %496) #24
+  br label %parser_node_name.exit1591
 
-parser_node_name.exit1592:                        ; preds = %493, %498, %499
-  %.0.i1591 = phi ptr [ %500, %499 ], [ @.str.524, %498 ], [ @.str.523, %493 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1591) #24
-  br label %2190
+parser_node_name.exit1591:                        ; preds = %492, %497, %498
+  %.0.i1590 = phi ptr [ %499, %498 ], [ @.str.524, %497 ], [ @.str.523, %492 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1590) #24
+  br label %2189
 
-501:                                              ; preds = %4
-  %502 = load ptr, ptr %1, align 8
-  %magicptr1417 = ptrtoint ptr %502 to i64
-  switch i64 %magicptr1417, label %504 [
-    i64 -1, label %503
-    i64 0, label %2190
+500:                                              ; preds = %3
+  %501 = load ptr, ptr %1, align 8
+  %magicptr1416 = ptrtoint ptr %501 to i64
+  switch i64 %magicptr1416, label %503 [
+    i64 -1, label %502
+    i64 0, label %2189
   ]
 
-503:                                              ; preds = %501
+502:                                              ; preds = %500
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-504:                                              ; preds = %501
-  %505 = load i64, ptr %502, align 8
-  %506 = trunc i64 %505 to i32
-  %507 = lshr i32 %506, 8
-  %508 = and i32 %507, 127
-  switch i32 %508, label %510 [
-    i32 114, label %parser_node_name.exit1594
-    i32 115, label %509
+503:                                              ; preds = %500
+  %504 = load i64, ptr %501, align 8
+  %505 = trunc i64 %504 to i32
+  %506 = lshr i32 %505, 8
+  %507 = and i32 %506, 127
+  switch i32 %507, label %509 [
+    i32 114, label %parser_node_name.exit1593
+    i32 115, label %508
   ]
 
-509:                                              ; preds = %504
-  br label %parser_node_name.exit1594
+508:                                              ; preds = %503
+  br label %parser_node_name.exit1593
 
-510:                                              ; preds = %504
-  %511 = tail call ptr @ruby_node_name(i32 noundef %508) #24
-  br label %parser_node_name.exit1594
+509:                                              ; preds = %503
+  %510 = tail call ptr @ruby_node_name(i32 noundef %507) #24
+  br label %parser_node_name.exit1593
 
-parser_node_name.exit1594:                        ; preds = %504, %509, %510
-  %.0.i1593 = phi ptr [ %511, %510 ], [ @.str.524, %509 ], [ @.str.523, %504 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1593) #24
-  br label %2190
+parser_node_name.exit1593:                        ; preds = %503, %508, %509
+  %.0.i1592 = phi ptr [ %510, %509 ], [ @.str.524, %508 ], [ @.str.523, %503 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1592) #24
+  br label %2189
 
-512:                                              ; preds = %4
-  %513 = load ptr, ptr %1, align 8
-  %magicptr1418 = ptrtoint ptr %513 to i64
-  switch i64 %magicptr1418, label %515 [
-    i64 -1, label %514
-    i64 0, label %2190
+511:                                              ; preds = %3
+  %512 = load ptr, ptr %1, align 8
+  %magicptr1417 = ptrtoint ptr %512 to i64
+  switch i64 %magicptr1417, label %514 [
+    i64 -1, label %513
+    i64 0, label %2189
   ]
 
-514:                                              ; preds = %512
+513:                                              ; preds = %511
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-515:                                              ; preds = %512
-  %516 = load i64, ptr %513, align 8
-  %517 = trunc i64 %516 to i32
-  %518 = lshr i32 %517, 8
-  %519 = and i32 %518, 127
-  switch i32 %519, label %521 [
-    i32 114, label %parser_node_name.exit1596
-    i32 115, label %520
+514:                                              ; preds = %511
+  %515 = load i64, ptr %512, align 8
+  %516 = trunc i64 %515 to i32
+  %517 = lshr i32 %516, 8
+  %518 = and i32 %517, 127
+  switch i32 %518, label %520 [
+    i32 114, label %parser_node_name.exit1595
+    i32 115, label %519
   ]
 
-520:                                              ; preds = %515
-  br label %parser_node_name.exit1596
+519:                                              ; preds = %514
+  br label %parser_node_name.exit1595
 
-521:                                              ; preds = %515
-  %522 = tail call ptr @ruby_node_name(i32 noundef %519) #24
-  br label %parser_node_name.exit1596
+520:                                              ; preds = %514
+  %521 = tail call ptr @ruby_node_name(i32 noundef %518) #24
+  br label %parser_node_name.exit1595
 
-parser_node_name.exit1596:                        ; preds = %515, %520, %521
-  %.0.i1595 = phi ptr [ %522, %521 ], [ @.str.524, %520 ], [ @.str.523, %515 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1595) #24
-  br label %2190
+parser_node_name.exit1595:                        ; preds = %514, %519, %520
+  %.0.i1594 = phi ptr [ %521, %520 ], [ @.str.524, %519 ], [ @.str.523, %514 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1594) #24
+  br label %2189
 
-523:                                              ; preds = %4
-  %524 = load ptr, ptr %1, align 8
-  %magicptr1419 = ptrtoint ptr %524 to i64
-  switch i64 %magicptr1419, label %526 [
-    i64 -1, label %525
-    i64 0, label %2190
+522:                                              ; preds = %3
+  %523 = load ptr, ptr %1, align 8
+  %magicptr1418 = ptrtoint ptr %523 to i64
+  switch i64 %magicptr1418, label %525 [
+    i64 -1, label %524
+    i64 0, label %2189
   ]
 
-525:                                              ; preds = %523
+524:                                              ; preds = %522
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-526:                                              ; preds = %523
-  %527 = load i64, ptr %524, align 8
-  %528 = trunc i64 %527 to i32
-  %529 = lshr i32 %528, 8
-  %530 = and i32 %529, 127
-  switch i32 %530, label %532 [
-    i32 114, label %parser_node_name.exit1598
-    i32 115, label %531
+525:                                              ; preds = %522
+  %526 = load i64, ptr %523, align 8
+  %527 = trunc i64 %526 to i32
+  %528 = lshr i32 %527, 8
+  %529 = and i32 %528, 127
+  switch i32 %529, label %531 [
+    i32 114, label %parser_node_name.exit1597
+    i32 115, label %530
   ]
 
-531:                                              ; preds = %526
-  br label %parser_node_name.exit1598
+530:                                              ; preds = %525
+  br label %parser_node_name.exit1597
 
-532:                                              ; preds = %526
-  %533 = tail call ptr @ruby_node_name(i32 noundef %530) #24
-  br label %parser_node_name.exit1598
+531:                                              ; preds = %525
+  %532 = tail call ptr @ruby_node_name(i32 noundef %529) #24
+  br label %parser_node_name.exit1597
 
-parser_node_name.exit1598:                        ; preds = %526, %531, %532
-  %.0.i1597 = phi ptr [ %533, %532 ], [ @.str.524, %531 ], [ @.str.523, %526 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1597) #24
-  br label %2190
+parser_node_name.exit1597:                        ; preds = %525, %530, %531
+  %.0.i1596 = phi ptr [ %532, %531 ], [ @.str.524, %530 ], [ @.str.523, %525 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1596) #24
+  br label %2189
 
-534:                                              ; preds = %4
-  %535 = load ptr, ptr %1, align 8
-  %magicptr1420 = ptrtoint ptr %535 to i64
-  switch i64 %magicptr1420, label %537 [
-    i64 -1, label %536
-    i64 0, label %2190
+533:                                              ; preds = %3
+  %534 = load ptr, ptr %1, align 8
+  %magicptr1419 = ptrtoint ptr %534 to i64
+  switch i64 %magicptr1419, label %536 [
+    i64 -1, label %535
+    i64 0, label %2189
   ]
 
-536:                                              ; preds = %534
+535:                                              ; preds = %533
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-537:                                              ; preds = %534
-  %538 = load i64, ptr %535, align 8
-  %539 = trunc i64 %538 to i32
-  %540 = lshr i32 %539, 8
-  %541 = and i32 %540, 127
-  switch i32 %541, label %543 [
-    i32 114, label %parser_node_name.exit1600
-    i32 115, label %542
+536:                                              ; preds = %533
+  %537 = load i64, ptr %534, align 8
+  %538 = trunc i64 %537 to i32
+  %539 = lshr i32 %538, 8
+  %540 = and i32 %539, 127
+  switch i32 %540, label %542 [
+    i32 114, label %parser_node_name.exit1599
+    i32 115, label %541
   ]
 
-542:                                              ; preds = %537
-  br label %parser_node_name.exit1600
+541:                                              ; preds = %536
+  br label %parser_node_name.exit1599
 
-543:                                              ; preds = %537
-  %544 = tail call ptr @ruby_node_name(i32 noundef %541) #24
-  br label %parser_node_name.exit1600
+542:                                              ; preds = %536
+  %543 = tail call ptr @ruby_node_name(i32 noundef %540) #24
+  br label %parser_node_name.exit1599
 
-parser_node_name.exit1600:                        ; preds = %537, %542, %543
-  %.0.i1599 = phi ptr [ %544, %543 ], [ @.str.524, %542 ], [ @.str.523, %537 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1599) #24
-  br label %2190
+parser_node_name.exit1599:                        ; preds = %536, %541, %542
+  %.0.i1598 = phi ptr [ %543, %542 ], [ @.str.524, %541 ], [ @.str.523, %536 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1598) #24
+  br label %2189
 
-545:                                              ; preds = %4
-  %546 = load ptr, ptr %1, align 8
-  %magicptr1421 = ptrtoint ptr %546 to i64
-  switch i64 %magicptr1421, label %548 [
-    i64 -1, label %547
-    i64 0, label %2190
+544:                                              ; preds = %3
+  %545 = load ptr, ptr %1, align 8
+  %magicptr1420 = ptrtoint ptr %545 to i64
+  switch i64 %magicptr1420, label %547 [
+    i64 -1, label %546
+    i64 0, label %2189
   ]
 
-547:                                              ; preds = %545
+546:                                              ; preds = %544
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-548:                                              ; preds = %545
-  %549 = load i64, ptr %546, align 8
-  %550 = trunc i64 %549 to i32
-  %551 = lshr i32 %550, 8
-  %552 = and i32 %551, 127
-  switch i32 %552, label %554 [
-    i32 114, label %parser_node_name.exit1602
-    i32 115, label %553
+547:                                              ; preds = %544
+  %548 = load i64, ptr %545, align 8
+  %549 = trunc i64 %548 to i32
+  %550 = lshr i32 %549, 8
+  %551 = and i32 %550, 127
+  switch i32 %551, label %553 [
+    i32 114, label %parser_node_name.exit1601
+    i32 115, label %552
   ]
 
-553:                                              ; preds = %548
-  br label %parser_node_name.exit1602
+552:                                              ; preds = %547
+  br label %parser_node_name.exit1601
 
-554:                                              ; preds = %548
-  %555 = tail call ptr @ruby_node_name(i32 noundef %552) #24
-  br label %parser_node_name.exit1602
+553:                                              ; preds = %547
+  %554 = tail call ptr @ruby_node_name(i32 noundef %551) #24
+  br label %parser_node_name.exit1601
 
-parser_node_name.exit1602:                        ; preds = %548, %553, %554
-  %.0.i1601 = phi ptr [ %555, %554 ], [ @.str.524, %553 ], [ @.str.523, %548 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1601) #24
-  br label %2190
+parser_node_name.exit1601:                        ; preds = %547, %552, %553
+  %.0.i1600 = phi ptr [ %554, %553 ], [ @.str.524, %552 ], [ @.str.523, %547 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1600) #24
+  br label %2189
 
-556:                                              ; preds = %4
-  %557 = load ptr, ptr %1, align 8
-  %magicptr1422 = ptrtoint ptr %557 to i64
-  switch i64 %magicptr1422, label %559 [
-    i64 -1, label %558
-    i64 0, label %2190
+555:                                              ; preds = %3
+  %556 = load ptr, ptr %1, align 8
+  %magicptr1421 = ptrtoint ptr %556 to i64
+  switch i64 %magicptr1421, label %558 [
+    i64 -1, label %557
+    i64 0, label %2189
   ]
 
-558:                                              ; preds = %556
+557:                                              ; preds = %555
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-559:                                              ; preds = %556
-  %560 = load i64, ptr %557, align 8
-  %561 = trunc i64 %560 to i32
-  %562 = lshr i32 %561, 8
-  %563 = and i32 %562, 127
-  switch i32 %563, label %565 [
-    i32 114, label %parser_node_name.exit1604
-    i32 115, label %564
+558:                                              ; preds = %555
+  %559 = load i64, ptr %556, align 8
+  %560 = trunc i64 %559 to i32
+  %561 = lshr i32 %560, 8
+  %562 = and i32 %561, 127
+  switch i32 %562, label %564 [
+    i32 114, label %parser_node_name.exit1603
+    i32 115, label %563
   ]
 
-564:                                              ; preds = %559
-  br label %parser_node_name.exit1604
+563:                                              ; preds = %558
+  br label %parser_node_name.exit1603
 
-565:                                              ; preds = %559
-  %566 = tail call ptr @ruby_node_name(i32 noundef %563) #24
-  br label %parser_node_name.exit1604
+564:                                              ; preds = %558
+  %565 = tail call ptr @ruby_node_name(i32 noundef %562) #24
+  br label %parser_node_name.exit1603
 
-parser_node_name.exit1604:                        ; preds = %559, %564, %565
-  %.0.i1603 = phi ptr [ %566, %565 ], [ @.str.524, %564 ], [ @.str.523, %559 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1603) #24
-  br label %2190
+parser_node_name.exit1603:                        ; preds = %558, %563, %564
+  %.0.i1602 = phi ptr [ %565, %564 ], [ @.str.524, %563 ], [ @.str.523, %558 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1602) #24
+  br label %2189
 
-567:                                              ; preds = %4
-  %568 = load ptr, ptr %1, align 8
-  %magicptr1423 = ptrtoint ptr %568 to i64
-  switch i64 %magicptr1423, label %570 [
-    i64 -1, label %569
-    i64 0, label %2190
+566:                                              ; preds = %3
+  %567 = load ptr, ptr %1, align 8
+  %magicptr1422 = ptrtoint ptr %567 to i64
+  switch i64 %magicptr1422, label %569 [
+    i64 -1, label %568
+    i64 0, label %2189
   ]
 
-569:                                              ; preds = %567
+568:                                              ; preds = %566
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-570:                                              ; preds = %567
-  %571 = load i64, ptr %568, align 8
-  %572 = trunc i64 %571 to i32
-  %573 = lshr i32 %572, 8
-  %574 = and i32 %573, 127
-  switch i32 %574, label %576 [
-    i32 114, label %parser_node_name.exit1606
-    i32 115, label %575
+569:                                              ; preds = %566
+  %570 = load i64, ptr %567, align 8
+  %571 = trunc i64 %570 to i32
+  %572 = lshr i32 %571, 8
+  %573 = and i32 %572, 127
+  switch i32 %573, label %575 [
+    i32 114, label %parser_node_name.exit1605
+    i32 115, label %574
   ]
 
-575:                                              ; preds = %570
-  br label %parser_node_name.exit1606
+574:                                              ; preds = %569
+  br label %parser_node_name.exit1605
 
-576:                                              ; preds = %570
-  %577 = tail call ptr @ruby_node_name(i32 noundef %574) #24
-  br label %parser_node_name.exit1606
+575:                                              ; preds = %569
+  %576 = tail call ptr @ruby_node_name(i32 noundef %573) #24
+  br label %parser_node_name.exit1605
 
-parser_node_name.exit1606:                        ; preds = %570, %575, %576
-  %.0.i1605 = phi ptr [ %577, %576 ], [ @.str.524, %575 ], [ @.str.523, %570 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1605) #24
-  br label %2190
+parser_node_name.exit1605:                        ; preds = %569, %574, %575
+  %.0.i1604 = phi ptr [ %576, %575 ], [ @.str.524, %574 ], [ @.str.523, %569 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1604) #24
+  br label %2189
 
-578:                                              ; preds = %4
-  %579 = load ptr, ptr %1, align 8
-  %magicptr1424 = ptrtoint ptr %579 to i64
-  switch i64 %magicptr1424, label %581 [
-    i64 -1, label %580
-    i64 0, label %2190
+577:                                              ; preds = %3
+  %578 = load ptr, ptr %1, align 8
+  %magicptr1423 = ptrtoint ptr %578 to i64
+  switch i64 %magicptr1423, label %580 [
+    i64 -1, label %579
+    i64 0, label %2189
   ]
 
-580:                                              ; preds = %578
+579:                                              ; preds = %577
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-581:                                              ; preds = %578
-  %582 = load i64, ptr %579, align 8
-  %583 = trunc i64 %582 to i32
-  %584 = lshr i32 %583, 8
-  %585 = and i32 %584, 127
-  switch i32 %585, label %587 [
-    i32 114, label %parser_node_name.exit1608
-    i32 115, label %586
+580:                                              ; preds = %577
+  %581 = load i64, ptr %578, align 8
+  %582 = trunc i64 %581 to i32
+  %583 = lshr i32 %582, 8
+  %584 = and i32 %583, 127
+  switch i32 %584, label %586 [
+    i32 114, label %parser_node_name.exit1607
+    i32 115, label %585
   ]
 
-586:                                              ; preds = %581
-  br label %parser_node_name.exit1608
+585:                                              ; preds = %580
+  br label %parser_node_name.exit1607
 
-587:                                              ; preds = %581
-  %588 = tail call ptr @ruby_node_name(i32 noundef %585) #24
-  br label %parser_node_name.exit1608
+586:                                              ; preds = %580
+  %587 = tail call ptr @ruby_node_name(i32 noundef %584) #24
+  br label %parser_node_name.exit1607
 
-parser_node_name.exit1608:                        ; preds = %581, %586, %587
-  %.0.i1607 = phi ptr [ %588, %587 ], [ @.str.524, %586 ], [ @.str.523, %581 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1607) #24
-  br label %2190
+parser_node_name.exit1607:                        ; preds = %580, %585, %586
+  %.0.i1606 = phi ptr [ %587, %586 ], [ @.str.524, %585 ], [ @.str.523, %580 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1606) #24
+  br label %2189
 
-589:                                              ; preds = %4
-  %590 = load ptr, ptr %1, align 8
-  %magicptr1425 = ptrtoint ptr %590 to i64
-  switch i64 %magicptr1425, label %592 [
-    i64 -1, label %591
-    i64 0, label %2190
+588:                                              ; preds = %3
+  %589 = load ptr, ptr %1, align 8
+  %magicptr1424 = ptrtoint ptr %589 to i64
+  switch i64 %magicptr1424, label %591 [
+    i64 -1, label %590
+    i64 0, label %2189
   ]
 
-591:                                              ; preds = %589
+590:                                              ; preds = %588
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-592:                                              ; preds = %589
-  %593 = load i64, ptr %590, align 8
-  %594 = trunc i64 %593 to i32
-  %595 = lshr i32 %594, 8
-  %596 = and i32 %595, 127
-  switch i32 %596, label %598 [
-    i32 114, label %parser_node_name.exit1610
-    i32 115, label %597
+591:                                              ; preds = %588
+  %592 = load i64, ptr %589, align 8
+  %593 = trunc i64 %592 to i32
+  %594 = lshr i32 %593, 8
+  %595 = and i32 %594, 127
+  switch i32 %595, label %597 [
+    i32 114, label %parser_node_name.exit1609
+    i32 115, label %596
   ]
 
-597:                                              ; preds = %592
-  br label %parser_node_name.exit1610
+596:                                              ; preds = %591
+  br label %parser_node_name.exit1609
 
-598:                                              ; preds = %592
-  %599 = tail call ptr @ruby_node_name(i32 noundef %596) #24
-  br label %parser_node_name.exit1610
+597:                                              ; preds = %591
+  %598 = tail call ptr @ruby_node_name(i32 noundef %595) #24
+  br label %parser_node_name.exit1609
 
-parser_node_name.exit1610:                        ; preds = %592, %597, %598
-  %.0.i1609 = phi ptr [ %599, %598 ], [ @.str.524, %597 ], [ @.str.523, %592 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1609) #24
-  br label %2190
+parser_node_name.exit1609:                        ; preds = %591, %596, %597
+  %.0.i1608 = phi ptr [ %598, %597 ], [ @.str.524, %596 ], [ @.str.523, %591 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1608) #24
+  br label %2189
 
-600:                                              ; preds = %4
-  %601 = load ptr, ptr %1, align 8
-  %magicptr1426 = ptrtoint ptr %601 to i64
-  switch i64 %magicptr1426, label %603 [
-    i64 -1, label %602
-    i64 0, label %2190
+599:                                              ; preds = %3
+  %600 = load ptr, ptr %1, align 8
+  %magicptr1425 = ptrtoint ptr %600 to i64
+  switch i64 %magicptr1425, label %602 [
+    i64 -1, label %601
+    i64 0, label %2189
   ]
 
-602:                                              ; preds = %600
+601:                                              ; preds = %599
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-603:                                              ; preds = %600
-  %604 = load i64, ptr %601, align 8
-  %605 = trunc i64 %604 to i32
-  %606 = lshr i32 %605, 8
-  %607 = and i32 %606, 127
-  switch i32 %607, label %609 [
-    i32 114, label %parser_node_name.exit1612
-    i32 115, label %608
+602:                                              ; preds = %599
+  %603 = load i64, ptr %600, align 8
+  %604 = trunc i64 %603 to i32
+  %605 = lshr i32 %604, 8
+  %606 = and i32 %605, 127
+  switch i32 %606, label %608 [
+    i32 114, label %parser_node_name.exit1611
+    i32 115, label %607
   ]
 
-608:                                              ; preds = %603
-  br label %parser_node_name.exit1612
+607:                                              ; preds = %602
+  br label %parser_node_name.exit1611
 
-609:                                              ; preds = %603
-  %610 = tail call ptr @ruby_node_name(i32 noundef %607) #24
-  br label %parser_node_name.exit1612
+608:                                              ; preds = %602
+  %609 = tail call ptr @ruby_node_name(i32 noundef %606) #24
+  br label %parser_node_name.exit1611
 
-parser_node_name.exit1612:                        ; preds = %603, %608, %609
-  %.0.i1611 = phi ptr [ %610, %609 ], [ @.str.524, %608 ], [ @.str.523, %603 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1611) #24
-  br label %2190
+parser_node_name.exit1611:                        ; preds = %602, %607, %608
+  %.0.i1610 = phi ptr [ %609, %608 ], [ @.str.524, %607 ], [ @.str.523, %602 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1610) #24
+  br label %2189
 
-611:                                              ; preds = %4
-  %612 = load ptr, ptr %1, align 8
-  %magicptr1427 = ptrtoint ptr %612 to i64
-  switch i64 %magicptr1427, label %614 [
-    i64 -1, label %613
-    i64 0, label %2190
+610:                                              ; preds = %3
+  %611 = load ptr, ptr %1, align 8
+  %magicptr1426 = ptrtoint ptr %611 to i64
+  switch i64 %magicptr1426, label %613 [
+    i64 -1, label %612
+    i64 0, label %2189
   ]
 
-613:                                              ; preds = %611
+612:                                              ; preds = %610
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-614:                                              ; preds = %611
-  %615 = load i64, ptr %612, align 8
-  %616 = trunc i64 %615 to i32
-  %617 = lshr i32 %616, 8
-  %618 = and i32 %617, 127
-  switch i32 %618, label %620 [
-    i32 114, label %parser_node_name.exit1614
-    i32 115, label %619
+613:                                              ; preds = %610
+  %614 = load i64, ptr %611, align 8
+  %615 = trunc i64 %614 to i32
+  %616 = lshr i32 %615, 8
+  %617 = and i32 %616, 127
+  switch i32 %617, label %619 [
+    i32 114, label %parser_node_name.exit1613
+    i32 115, label %618
   ]
 
-619:                                              ; preds = %614
-  br label %parser_node_name.exit1614
+618:                                              ; preds = %613
+  br label %parser_node_name.exit1613
 
-620:                                              ; preds = %614
-  %621 = tail call ptr @ruby_node_name(i32 noundef %618) #24
-  br label %parser_node_name.exit1614
+619:                                              ; preds = %613
+  %620 = tail call ptr @ruby_node_name(i32 noundef %617) #24
+  br label %parser_node_name.exit1613
 
-parser_node_name.exit1614:                        ; preds = %614, %619, %620
-  %.0.i1613 = phi ptr [ %621, %620 ], [ @.str.524, %619 ], [ @.str.523, %614 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1613) #24
-  br label %2190
+parser_node_name.exit1613:                        ; preds = %613, %618, %619
+  %.0.i1612 = phi ptr [ %620, %619 ], [ @.str.524, %618 ], [ @.str.523, %613 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1612) #24
+  br label %2189
 
-622:                                              ; preds = %4
-  %623 = load ptr, ptr %1, align 8
-  %magicptr1428 = ptrtoint ptr %623 to i64
-  switch i64 %magicptr1428, label %625 [
-    i64 -1, label %624
-    i64 0, label %2190
+621:                                              ; preds = %3
+  %622 = load ptr, ptr %1, align 8
+  %magicptr1427 = ptrtoint ptr %622 to i64
+  switch i64 %magicptr1427, label %624 [
+    i64 -1, label %623
+    i64 0, label %2189
   ]
 
-624:                                              ; preds = %622
+623:                                              ; preds = %621
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-625:                                              ; preds = %622
-  %626 = load i64, ptr %623, align 8
-  %627 = trunc i64 %626 to i32
-  %628 = lshr i32 %627, 8
-  %629 = and i32 %628, 127
-  switch i32 %629, label %631 [
-    i32 114, label %parser_node_name.exit1616
-    i32 115, label %630
+624:                                              ; preds = %621
+  %625 = load i64, ptr %622, align 8
+  %626 = trunc i64 %625 to i32
+  %627 = lshr i32 %626, 8
+  %628 = and i32 %627, 127
+  switch i32 %628, label %630 [
+    i32 114, label %parser_node_name.exit1615
+    i32 115, label %629
   ]
 
-630:                                              ; preds = %625
-  br label %parser_node_name.exit1616
+629:                                              ; preds = %624
+  br label %parser_node_name.exit1615
 
-631:                                              ; preds = %625
-  %632 = tail call ptr @ruby_node_name(i32 noundef %629) #24
-  br label %parser_node_name.exit1616
+630:                                              ; preds = %624
+  %631 = tail call ptr @ruby_node_name(i32 noundef %628) #24
+  br label %parser_node_name.exit1615
 
-parser_node_name.exit1616:                        ; preds = %625, %630, %631
-  %.0.i1615 = phi ptr [ %632, %631 ], [ @.str.524, %630 ], [ @.str.523, %625 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1615) #24
-  br label %2190
+parser_node_name.exit1615:                        ; preds = %624, %629, %630
+  %.0.i1614 = phi ptr [ %631, %630 ], [ @.str.524, %629 ], [ @.str.523, %624 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1614) #24
+  br label %2189
 
-633:                                              ; preds = %4
-  %634 = load ptr, ptr %1, align 8
-  %magicptr1429 = ptrtoint ptr %634 to i64
-  switch i64 %magicptr1429, label %636 [
-    i64 -1, label %635
-    i64 0, label %2190
+632:                                              ; preds = %3
+  %633 = load ptr, ptr %1, align 8
+  %magicptr1428 = ptrtoint ptr %633 to i64
+  switch i64 %magicptr1428, label %635 [
+    i64 -1, label %634
+    i64 0, label %2189
   ]
 
-635:                                              ; preds = %633
+634:                                              ; preds = %632
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-636:                                              ; preds = %633
-  %637 = load i64, ptr %634, align 8
-  %638 = trunc i64 %637 to i32
-  %639 = lshr i32 %638, 8
-  %640 = and i32 %639, 127
-  switch i32 %640, label %642 [
-    i32 114, label %parser_node_name.exit1618
-    i32 115, label %641
+635:                                              ; preds = %632
+  %636 = load i64, ptr %633, align 8
+  %637 = trunc i64 %636 to i32
+  %638 = lshr i32 %637, 8
+  %639 = and i32 %638, 127
+  switch i32 %639, label %641 [
+    i32 114, label %parser_node_name.exit1617
+    i32 115, label %640
   ]
 
-641:                                              ; preds = %636
-  br label %parser_node_name.exit1618
+640:                                              ; preds = %635
+  br label %parser_node_name.exit1617
 
-642:                                              ; preds = %636
-  %643 = tail call ptr @ruby_node_name(i32 noundef %640) #24
-  br label %parser_node_name.exit1618
+641:                                              ; preds = %635
+  %642 = tail call ptr @ruby_node_name(i32 noundef %639) #24
+  br label %parser_node_name.exit1617
 
-parser_node_name.exit1618:                        ; preds = %636, %641, %642
-  %.0.i1617 = phi ptr [ %643, %642 ], [ @.str.524, %641 ], [ @.str.523, %636 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1617) #24
-  br label %2190
+parser_node_name.exit1617:                        ; preds = %635, %640, %641
+  %.0.i1616 = phi ptr [ %642, %641 ], [ @.str.524, %640 ], [ @.str.523, %635 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1616) #24
+  br label %2189
 
-644:                                              ; preds = %4
-  %645 = load ptr, ptr %1, align 8
-  %magicptr1430 = ptrtoint ptr %645 to i64
-  switch i64 %magicptr1430, label %647 [
-    i64 -1, label %646
-    i64 0, label %2190
+643:                                              ; preds = %3
+  %644 = load ptr, ptr %1, align 8
+  %magicptr1429 = ptrtoint ptr %644 to i64
+  switch i64 %magicptr1429, label %646 [
+    i64 -1, label %645
+    i64 0, label %2189
   ]
 
-646:                                              ; preds = %644
+645:                                              ; preds = %643
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-647:                                              ; preds = %644
-  %648 = load i64, ptr %645, align 8
-  %649 = trunc i64 %648 to i32
-  %650 = lshr i32 %649, 8
-  %651 = and i32 %650, 127
-  switch i32 %651, label %653 [
-    i32 114, label %parser_node_name.exit1620
-    i32 115, label %652
+646:                                              ; preds = %643
+  %647 = load i64, ptr %644, align 8
+  %648 = trunc i64 %647 to i32
+  %649 = lshr i32 %648, 8
+  %650 = and i32 %649, 127
+  switch i32 %650, label %652 [
+    i32 114, label %parser_node_name.exit1619
+    i32 115, label %651
   ]
 
-652:                                              ; preds = %647
-  br label %parser_node_name.exit1620
+651:                                              ; preds = %646
+  br label %parser_node_name.exit1619
 
-653:                                              ; preds = %647
-  %654 = tail call ptr @ruby_node_name(i32 noundef %651) #24
-  br label %parser_node_name.exit1620
+652:                                              ; preds = %646
+  %653 = tail call ptr @ruby_node_name(i32 noundef %650) #24
+  br label %parser_node_name.exit1619
 
-parser_node_name.exit1620:                        ; preds = %647, %652, %653
-  %.0.i1619 = phi ptr [ %654, %653 ], [ @.str.524, %652 ], [ @.str.523, %647 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1619) #24
-  br label %2190
+parser_node_name.exit1619:                        ; preds = %646, %651, %652
+  %.0.i1618 = phi ptr [ %653, %652 ], [ @.str.524, %651 ], [ @.str.523, %646 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1618) #24
+  br label %2189
 
-655:                                              ; preds = %4
-  %656 = load ptr, ptr %1, align 8
-  %magicptr1431 = ptrtoint ptr %656 to i64
-  switch i64 %magicptr1431, label %658 [
-    i64 -1, label %657
-    i64 0, label %2190
+654:                                              ; preds = %3
+  %655 = load ptr, ptr %1, align 8
+  %magicptr1430 = ptrtoint ptr %655 to i64
+  switch i64 %magicptr1430, label %657 [
+    i64 -1, label %656
+    i64 0, label %2189
   ]
 
-657:                                              ; preds = %655
+656:                                              ; preds = %654
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-658:                                              ; preds = %655
-  %659 = load i64, ptr %656, align 8
-  %660 = trunc i64 %659 to i32
-  %661 = lshr i32 %660, 8
-  %662 = and i32 %661, 127
-  switch i32 %662, label %664 [
-    i32 114, label %parser_node_name.exit1622
-    i32 115, label %663
+657:                                              ; preds = %654
+  %658 = load i64, ptr %655, align 8
+  %659 = trunc i64 %658 to i32
+  %660 = lshr i32 %659, 8
+  %661 = and i32 %660, 127
+  switch i32 %661, label %663 [
+    i32 114, label %parser_node_name.exit1621
+    i32 115, label %662
   ]
 
-663:                                              ; preds = %658
-  br label %parser_node_name.exit1622
+662:                                              ; preds = %657
+  br label %parser_node_name.exit1621
 
-664:                                              ; preds = %658
-  %665 = tail call ptr @ruby_node_name(i32 noundef %662) #24
-  br label %parser_node_name.exit1622
+663:                                              ; preds = %657
+  %664 = tail call ptr @ruby_node_name(i32 noundef %661) #24
+  br label %parser_node_name.exit1621
 
-parser_node_name.exit1622:                        ; preds = %658, %663, %664
-  %.0.i1621 = phi ptr [ %665, %664 ], [ @.str.524, %663 ], [ @.str.523, %658 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1621) #24
-  br label %2190
+parser_node_name.exit1621:                        ; preds = %657, %662, %663
+  %.0.i1620 = phi ptr [ %664, %663 ], [ @.str.524, %662 ], [ @.str.523, %657 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1620) #24
+  br label %2189
 
-666:                                              ; preds = %4
-  %667 = load i64, ptr %1, align 8
-  %668 = tail call i64 @rb_id2str(i64 noundef %667) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %668) #24
-  br label %2190
+665:                                              ; preds = %3
+  %666 = load i64, ptr %1, align 8
+  %667 = tail call i64 @rb_id2str(i64 noundef %666) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %667) #24
+  br label %2189
 
-669:                                              ; preds = %4
-  %670 = load ptr, ptr %1, align 8
-  %magicptr1432 = ptrtoint ptr %670 to i64
-  switch i64 %magicptr1432, label %672 [
-    i64 -1, label %671
-    i64 0, label %2190
+668:                                              ; preds = %3
+  %669 = load ptr, ptr %1, align 8
+  %magicptr1431 = ptrtoint ptr %669 to i64
+  switch i64 %magicptr1431, label %671 [
+    i64 -1, label %670
+    i64 0, label %2189
   ]
 
-671:                                              ; preds = %669
+670:                                              ; preds = %668
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-672:                                              ; preds = %669
-  %673 = load i64, ptr %670, align 8
-  %674 = trunc i64 %673 to i32
-  %675 = lshr i32 %674, 8
-  %676 = and i32 %675, 127
-  switch i32 %676, label %678 [
-    i32 114, label %parser_node_name.exit1624
-    i32 115, label %677
+671:                                              ; preds = %668
+  %672 = load i64, ptr %669, align 8
+  %673 = trunc i64 %672 to i32
+  %674 = lshr i32 %673, 8
+  %675 = and i32 %674, 127
+  switch i32 %675, label %677 [
+    i32 114, label %parser_node_name.exit1623
+    i32 115, label %676
   ]
 
-677:                                              ; preds = %672
-  br label %parser_node_name.exit1624
+676:                                              ; preds = %671
+  br label %parser_node_name.exit1623
 
-678:                                              ; preds = %672
-  %679 = tail call ptr @ruby_node_name(i32 noundef %676) #24
-  br label %parser_node_name.exit1624
+677:                                              ; preds = %671
+  %678 = tail call ptr @ruby_node_name(i32 noundef %675) #24
+  br label %parser_node_name.exit1623
 
-parser_node_name.exit1624:                        ; preds = %672, %677, %678
-  %.0.i1623 = phi ptr [ %679, %678 ], [ @.str.524, %677 ], [ @.str.523, %672 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1623) #24
-  br label %2190
+parser_node_name.exit1623:                        ; preds = %671, %676, %677
+  %.0.i1622 = phi ptr [ %678, %677 ], [ @.str.524, %676 ], [ @.str.523, %671 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1622) #24
+  br label %2189
 
-680:                                              ; preds = %4
-  %681 = load i64, ptr %1, align 8
-  %682 = tail call i64 @rb_id2str(i64 noundef %681) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %682) #24
-  br label %2190
+679:                                              ; preds = %3
+  %680 = load i64, ptr %1, align 8
+  %681 = tail call i64 @rb_id2str(i64 noundef %680) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %681) #24
+  br label %2189
 
-683:                                              ; preds = %4
-  %684 = load ptr, ptr %1, align 8
-  %magicptr1433 = ptrtoint ptr %684 to i64
-  switch i64 %magicptr1433, label %686 [
-    i64 -1, label %685
-    i64 0, label %2190
+682:                                              ; preds = %3
+  %683 = load ptr, ptr %1, align 8
+  %magicptr1432 = ptrtoint ptr %683 to i64
+  switch i64 %magicptr1432, label %685 [
+    i64 -1, label %684
+    i64 0, label %2189
   ]
 
-685:                                              ; preds = %683
+684:                                              ; preds = %682
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-686:                                              ; preds = %683
-  %687 = load i64, ptr %684, align 8
-  %688 = trunc i64 %687 to i32
-  %689 = lshr i32 %688, 8
-  %690 = and i32 %689, 127
-  switch i32 %690, label %692 [
-    i32 114, label %parser_node_name.exit1626
-    i32 115, label %691
+685:                                              ; preds = %682
+  %686 = load i64, ptr %683, align 8
+  %687 = trunc i64 %686 to i32
+  %688 = lshr i32 %687, 8
+  %689 = and i32 %688, 127
+  switch i32 %689, label %691 [
+    i32 114, label %parser_node_name.exit1625
+    i32 115, label %690
   ]
 
-691:                                              ; preds = %686
-  br label %parser_node_name.exit1626
+690:                                              ; preds = %685
+  br label %parser_node_name.exit1625
 
-692:                                              ; preds = %686
-  %693 = tail call ptr @ruby_node_name(i32 noundef %690) #24
-  br label %parser_node_name.exit1626
+691:                                              ; preds = %685
+  %692 = tail call ptr @ruby_node_name(i32 noundef %689) #24
+  br label %parser_node_name.exit1625
 
-parser_node_name.exit1626:                        ; preds = %686, %691, %692
-  %.0.i1625 = phi ptr [ %693, %692 ], [ @.str.524, %691 ], [ @.str.523, %686 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1625) #24
-  br label %2190
+parser_node_name.exit1625:                        ; preds = %685, %690, %691
+  %.0.i1624 = phi ptr [ %692, %691 ], [ @.str.524, %690 ], [ @.str.523, %685 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1624) #24
+  br label %2189
 
-694:                                              ; preds = %4
-  %695 = load ptr, ptr %1, align 8
-  %magicptr1434 = ptrtoint ptr %695 to i64
-  switch i64 %magicptr1434, label %697 [
-    i64 -1, label %696
-    i64 0, label %2190
+693:                                              ; preds = %3
+  %694 = load ptr, ptr %1, align 8
+  %magicptr1433 = ptrtoint ptr %694 to i64
+  switch i64 %magicptr1433, label %696 [
+    i64 -1, label %695
+    i64 0, label %2189
   ]
 
-696:                                              ; preds = %694
+695:                                              ; preds = %693
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-697:                                              ; preds = %694
-  %698 = load i64, ptr %695, align 8
-  %699 = trunc i64 %698 to i32
-  %700 = lshr i32 %699, 8
-  %701 = and i32 %700, 127
-  switch i32 %701, label %703 [
-    i32 114, label %parser_node_name.exit1628
-    i32 115, label %702
+696:                                              ; preds = %693
+  %697 = load i64, ptr %694, align 8
+  %698 = trunc i64 %697 to i32
+  %699 = lshr i32 %698, 8
+  %700 = and i32 %699, 127
+  switch i32 %700, label %702 [
+    i32 114, label %parser_node_name.exit1627
+    i32 115, label %701
   ]
 
-702:                                              ; preds = %697
-  br label %parser_node_name.exit1628
+701:                                              ; preds = %696
+  br label %parser_node_name.exit1627
 
-703:                                              ; preds = %697
-  %704 = tail call ptr @ruby_node_name(i32 noundef %701) #24
-  br label %parser_node_name.exit1628
+702:                                              ; preds = %696
+  %703 = tail call ptr @ruby_node_name(i32 noundef %700) #24
+  br label %parser_node_name.exit1627
 
-parser_node_name.exit1628:                        ; preds = %697, %702, %703
-  %.0.i1627 = phi ptr [ %704, %703 ], [ @.str.524, %702 ], [ @.str.523, %697 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1627) #24
-  br label %2190
+parser_node_name.exit1627:                        ; preds = %696, %701, %702
+  %.0.i1626 = phi ptr [ %703, %702 ], [ @.str.524, %701 ], [ @.str.523, %696 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1626) #24
+  br label %2189
 
-705:                                              ; preds = %4
-  %706 = load i64, ptr %1, align 8
-  %707 = tail call i64 @rb_id2str(i64 noundef %706) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %707) #24
-  br label %2190
+704:                                              ; preds = %3
+  %705 = load i64, ptr %1, align 8
+  %706 = tail call i64 @rb_id2str(i64 noundef %705) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %706) #24
+  br label %2189
 
-708:                                              ; preds = %4
-  %709 = load i64, ptr %1, align 8
-  %710 = tail call i64 @rb_id2str(i64 noundef %709) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %710) #24
-  br label %2190
+707:                                              ; preds = %3
+  %708 = load i64, ptr %1, align 8
+  %709 = tail call i64 @rb_id2str(i64 noundef %708) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %709) #24
+  br label %2189
 
-711:                                              ; preds = %4
-  %712 = load ptr, ptr %1, align 8
-  %magicptr1435 = ptrtoint ptr %712 to i64
-  switch i64 %magicptr1435, label %714 [
-    i64 -1, label %713
-    i64 0, label %2190
+710:                                              ; preds = %3
+  %711 = load ptr, ptr %1, align 8
+  %magicptr1434 = ptrtoint ptr %711 to i64
+  switch i64 %magicptr1434, label %713 [
+    i64 -1, label %712
+    i64 0, label %2189
   ]
 
-713:                                              ; preds = %711
+712:                                              ; preds = %710
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-714:                                              ; preds = %711
-  %715 = load i64, ptr %712, align 8
-  %716 = trunc i64 %715 to i32
-  %717 = lshr i32 %716, 8
-  %718 = and i32 %717, 127
-  switch i32 %718, label %720 [
-    i32 114, label %parser_node_name.exit1630
-    i32 115, label %719
+713:                                              ; preds = %710
+  %714 = load i64, ptr %711, align 8
+  %715 = trunc i64 %714 to i32
+  %716 = lshr i32 %715, 8
+  %717 = and i32 %716, 127
+  switch i32 %717, label %719 [
+    i32 114, label %parser_node_name.exit1629
+    i32 115, label %718
   ]
 
-719:                                              ; preds = %714
-  br label %parser_node_name.exit1630
+718:                                              ; preds = %713
+  br label %parser_node_name.exit1629
 
-720:                                              ; preds = %714
-  %721 = tail call ptr @ruby_node_name(i32 noundef %718) #24
-  br label %parser_node_name.exit1630
+719:                                              ; preds = %713
+  %720 = tail call ptr @ruby_node_name(i32 noundef %717) #24
+  br label %parser_node_name.exit1629
 
-parser_node_name.exit1630:                        ; preds = %714, %719, %720
-  %.0.i1629 = phi ptr [ %721, %720 ], [ @.str.524, %719 ], [ @.str.523, %714 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1629) #24
-  br label %2190
+parser_node_name.exit1629:                        ; preds = %713, %718, %719
+  %.0.i1628 = phi ptr [ %720, %719 ], [ @.str.524, %718 ], [ @.str.523, %713 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1628) #24
+  br label %2189
 
-722:                                              ; preds = %4
-  %723 = load ptr, ptr %1, align 8
-  %magicptr1436 = ptrtoint ptr %723 to i64
-  switch i64 %magicptr1436, label %725 [
-    i64 -1, label %724
-    i64 0, label %2190
+721:                                              ; preds = %3
+  %722 = load ptr, ptr %1, align 8
+  %magicptr1435 = ptrtoint ptr %722 to i64
+  switch i64 %magicptr1435, label %724 [
+    i64 -1, label %723
+    i64 0, label %2189
   ]
 
-724:                                              ; preds = %722
+723:                                              ; preds = %721
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-725:                                              ; preds = %722
-  %726 = load i64, ptr %723, align 8
-  %727 = trunc i64 %726 to i32
-  %728 = lshr i32 %727, 8
-  %729 = and i32 %728, 127
-  switch i32 %729, label %731 [
-    i32 114, label %parser_node_name.exit1632
-    i32 115, label %730
+724:                                              ; preds = %721
+  %725 = load i64, ptr %722, align 8
+  %726 = trunc i64 %725 to i32
+  %727 = lshr i32 %726, 8
+  %728 = and i32 %727, 127
+  switch i32 %728, label %730 [
+    i32 114, label %parser_node_name.exit1631
+    i32 115, label %729
   ]
 
-730:                                              ; preds = %725
-  br label %parser_node_name.exit1632
+729:                                              ; preds = %724
+  br label %parser_node_name.exit1631
 
-731:                                              ; preds = %725
-  %732 = tail call ptr @ruby_node_name(i32 noundef %729) #24
-  br label %parser_node_name.exit1632
+730:                                              ; preds = %724
+  %731 = tail call ptr @ruby_node_name(i32 noundef %728) #24
+  br label %parser_node_name.exit1631
 
-parser_node_name.exit1632:                        ; preds = %725, %730, %731
-  %.0.i1631 = phi ptr [ %732, %731 ], [ @.str.524, %730 ], [ @.str.523, %725 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1631) #24
-  br label %2190
+parser_node_name.exit1631:                        ; preds = %724, %729, %730
+  %.0.i1630 = phi ptr [ %731, %730 ], [ @.str.524, %729 ], [ @.str.523, %724 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1630) #24
+  br label %2189
 
-733:                                              ; preds = %4
-  %734 = load i64, ptr %1, align 8
-  %735 = tail call i64 @rb_id2str(i64 noundef %734) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %735) #24
-  br label %2190
+732:                                              ; preds = %3
+  %733 = load i64, ptr %1, align 8
+  %734 = tail call i64 @rb_id2str(i64 noundef %733) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %734) #24
+  br label %2189
 
-736:                                              ; preds = %4
-  %737 = load ptr, ptr %1, align 8
-  %magicptr1437 = ptrtoint ptr %737 to i64
-  switch i64 %magicptr1437, label %739 [
-    i64 -1, label %738
-    i64 0, label %2190
+735:                                              ; preds = %3
+  %736 = load ptr, ptr %1, align 8
+  %magicptr1436 = ptrtoint ptr %736 to i64
+  switch i64 %magicptr1436, label %738 [
+    i64 -1, label %737
+    i64 0, label %2189
   ]
 
-738:                                              ; preds = %736
+737:                                              ; preds = %735
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-739:                                              ; preds = %736
-  %740 = load i64, ptr %737, align 8
-  %741 = trunc i64 %740 to i32
-  %742 = lshr i32 %741, 8
-  %743 = and i32 %742, 127
-  switch i32 %743, label %745 [
-    i32 114, label %parser_node_name.exit1634
-    i32 115, label %744
+738:                                              ; preds = %735
+  %739 = load i64, ptr %736, align 8
+  %740 = trunc i64 %739 to i32
+  %741 = lshr i32 %740, 8
+  %742 = and i32 %741, 127
+  switch i32 %742, label %744 [
+    i32 114, label %parser_node_name.exit1633
+    i32 115, label %743
   ]
 
-744:                                              ; preds = %739
-  br label %parser_node_name.exit1634
+743:                                              ; preds = %738
+  br label %parser_node_name.exit1633
 
-745:                                              ; preds = %739
-  %746 = tail call ptr @ruby_node_name(i32 noundef %743) #24
-  br label %parser_node_name.exit1634
+744:                                              ; preds = %738
+  %745 = tail call ptr @ruby_node_name(i32 noundef %742) #24
+  br label %parser_node_name.exit1633
 
-parser_node_name.exit1634:                        ; preds = %739, %744, %745
-  %.0.i1633 = phi ptr [ %746, %745 ], [ @.str.524, %744 ], [ @.str.523, %739 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1633) #24
-  br label %2190
+parser_node_name.exit1633:                        ; preds = %738, %743, %744
+  %.0.i1632 = phi ptr [ %745, %744 ], [ @.str.524, %743 ], [ @.str.523, %738 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1632) #24
+  br label %2189
 
-747:                                              ; preds = %4
-  %748 = load ptr, ptr %1, align 8
-  %magicptr1438 = ptrtoint ptr %748 to i64
-  switch i64 %magicptr1438, label %750 [
-    i64 -1, label %749
-    i64 0, label %2190
+746:                                              ; preds = %3
+  %747 = load ptr, ptr %1, align 8
+  %magicptr1437 = ptrtoint ptr %747 to i64
+  switch i64 %magicptr1437, label %749 [
+    i64 -1, label %748
+    i64 0, label %2189
   ]
 
-749:                                              ; preds = %747
+748:                                              ; preds = %746
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-750:                                              ; preds = %747
-  %751 = load i64, ptr %748, align 8
-  %752 = trunc i64 %751 to i32
-  %753 = lshr i32 %752, 8
-  %754 = and i32 %753, 127
-  switch i32 %754, label %756 [
-    i32 114, label %parser_node_name.exit1636
-    i32 115, label %755
+749:                                              ; preds = %746
+  %750 = load i64, ptr %747, align 8
+  %751 = trunc i64 %750 to i32
+  %752 = lshr i32 %751, 8
+  %753 = and i32 %752, 127
+  switch i32 %753, label %755 [
+    i32 114, label %parser_node_name.exit1635
+    i32 115, label %754
   ]
 
-755:                                              ; preds = %750
-  br label %parser_node_name.exit1636
+754:                                              ; preds = %749
+  br label %parser_node_name.exit1635
 
-756:                                              ; preds = %750
-  %757 = tail call ptr @ruby_node_name(i32 noundef %754) #24
-  br label %parser_node_name.exit1636
+755:                                              ; preds = %749
+  %756 = tail call ptr @ruby_node_name(i32 noundef %753) #24
+  br label %parser_node_name.exit1635
 
-parser_node_name.exit1636:                        ; preds = %750, %755, %756
-  %.0.i1635 = phi ptr [ %757, %756 ], [ @.str.524, %755 ], [ @.str.523, %750 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1635) #24
-  br label %2190
+parser_node_name.exit1635:                        ; preds = %749, %754, %755
+  %.0.i1634 = phi ptr [ %756, %755 ], [ @.str.524, %754 ], [ @.str.523, %749 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1634) #24
+  br label %2189
 
-758:                                              ; preds = %4
-  %759 = load ptr, ptr %1, align 8
-  %magicptr1439 = ptrtoint ptr %759 to i64
-  switch i64 %magicptr1439, label %761 [
-    i64 -1, label %760
-    i64 0, label %2190
+757:                                              ; preds = %3
+  %758 = load ptr, ptr %1, align 8
+  %magicptr1438 = ptrtoint ptr %758 to i64
+  switch i64 %magicptr1438, label %760 [
+    i64 -1, label %759
+    i64 0, label %2189
   ]
 
-760:                                              ; preds = %758
+759:                                              ; preds = %757
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-761:                                              ; preds = %758
-  %762 = load i64, ptr %759, align 8
-  %763 = trunc i64 %762 to i32
-  %764 = lshr i32 %763, 8
-  %765 = and i32 %764, 127
-  switch i32 %765, label %767 [
-    i32 114, label %parser_node_name.exit1638
-    i32 115, label %766
+760:                                              ; preds = %757
+  %761 = load i64, ptr %758, align 8
+  %762 = trunc i64 %761 to i32
+  %763 = lshr i32 %762, 8
+  %764 = and i32 %763, 127
+  switch i32 %764, label %766 [
+    i32 114, label %parser_node_name.exit1637
+    i32 115, label %765
   ]
 
-766:                                              ; preds = %761
-  br label %parser_node_name.exit1638
+765:                                              ; preds = %760
+  br label %parser_node_name.exit1637
 
-767:                                              ; preds = %761
-  %768 = tail call ptr @ruby_node_name(i32 noundef %765) #24
-  br label %parser_node_name.exit1638
+766:                                              ; preds = %760
+  %767 = tail call ptr @ruby_node_name(i32 noundef %764) #24
+  br label %parser_node_name.exit1637
 
-parser_node_name.exit1638:                        ; preds = %761, %766, %767
-  %.0.i1637 = phi ptr [ %768, %767 ], [ @.str.524, %766 ], [ @.str.523, %761 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1637) #24
-  br label %2190
+parser_node_name.exit1637:                        ; preds = %760, %765, %766
+  %.0.i1636 = phi ptr [ %767, %766 ], [ @.str.524, %765 ], [ @.str.523, %760 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1636) #24
+  br label %2189
 
-769:                                              ; preds = %4
-  %770 = load ptr, ptr %1, align 8
-  %magicptr1440 = ptrtoint ptr %770 to i64
-  switch i64 %magicptr1440, label %772 [
-    i64 -1, label %771
-    i64 0, label %2190
+768:                                              ; preds = %3
+  %769 = load ptr, ptr %1, align 8
+  %magicptr1439 = ptrtoint ptr %769 to i64
+  switch i64 %magicptr1439, label %771 [
+    i64 -1, label %770
+    i64 0, label %2189
   ]
 
-771:                                              ; preds = %769
+770:                                              ; preds = %768
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-772:                                              ; preds = %769
-  %773 = load i64, ptr %770, align 8
-  %774 = trunc i64 %773 to i32
-  %775 = lshr i32 %774, 8
-  %776 = and i32 %775, 127
-  switch i32 %776, label %778 [
-    i32 114, label %parser_node_name.exit1640
-    i32 115, label %777
+771:                                              ; preds = %768
+  %772 = load i64, ptr %769, align 8
+  %773 = trunc i64 %772 to i32
+  %774 = lshr i32 %773, 8
+  %775 = and i32 %774, 127
+  switch i32 %775, label %777 [
+    i32 114, label %parser_node_name.exit1639
+    i32 115, label %776
   ]
 
-777:                                              ; preds = %772
-  br label %parser_node_name.exit1640
+776:                                              ; preds = %771
+  br label %parser_node_name.exit1639
 
-778:                                              ; preds = %772
-  %779 = tail call ptr @ruby_node_name(i32 noundef %776) #24
-  br label %parser_node_name.exit1640
+777:                                              ; preds = %771
+  %778 = tail call ptr @ruby_node_name(i32 noundef %775) #24
+  br label %parser_node_name.exit1639
 
-parser_node_name.exit1640:                        ; preds = %772, %777, %778
-  %.0.i1639 = phi ptr [ %779, %778 ], [ @.str.524, %777 ], [ @.str.523, %772 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1639) #24
-  br label %2190
+parser_node_name.exit1639:                        ; preds = %771, %776, %777
+  %.0.i1638 = phi ptr [ %778, %777 ], [ @.str.524, %776 ], [ @.str.523, %771 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1638) #24
+  br label %2189
 
-780:                                              ; preds = %4
-  %781 = load ptr, ptr %1, align 8
-  %magicptr1441 = ptrtoint ptr %781 to i64
-  switch i64 %magicptr1441, label %783 [
-    i64 -1, label %782
-    i64 0, label %2190
+779:                                              ; preds = %3
+  %780 = load ptr, ptr %1, align 8
+  %magicptr1440 = ptrtoint ptr %780 to i64
+  switch i64 %magicptr1440, label %782 [
+    i64 -1, label %781
+    i64 0, label %2189
   ]
 
-782:                                              ; preds = %780
+781:                                              ; preds = %779
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-783:                                              ; preds = %780
-  %784 = load i64, ptr %781, align 8
-  %785 = trunc i64 %784 to i32
-  %786 = lshr i32 %785, 8
-  %787 = and i32 %786, 127
-  switch i32 %787, label %789 [
-    i32 114, label %parser_node_name.exit1642
-    i32 115, label %788
+782:                                              ; preds = %779
+  %783 = load i64, ptr %780, align 8
+  %784 = trunc i64 %783 to i32
+  %785 = lshr i32 %784, 8
+  %786 = and i32 %785, 127
+  switch i32 %786, label %788 [
+    i32 114, label %parser_node_name.exit1641
+    i32 115, label %787
   ]
 
-788:                                              ; preds = %783
-  br label %parser_node_name.exit1642
+787:                                              ; preds = %782
+  br label %parser_node_name.exit1641
 
-789:                                              ; preds = %783
-  %790 = tail call ptr @ruby_node_name(i32 noundef %787) #24
-  br label %parser_node_name.exit1642
+788:                                              ; preds = %782
+  %789 = tail call ptr @ruby_node_name(i32 noundef %786) #24
+  br label %parser_node_name.exit1641
 
-parser_node_name.exit1642:                        ; preds = %783, %788, %789
-  %.0.i1641 = phi ptr [ %790, %789 ], [ @.str.524, %788 ], [ @.str.523, %783 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1641) #24
-  br label %2190
+parser_node_name.exit1641:                        ; preds = %782, %787, %788
+  %.0.i1640 = phi ptr [ %789, %788 ], [ @.str.524, %787 ], [ @.str.523, %782 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1640) #24
+  br label %2189
 
-791:                                              ; preds = %4
-  %792 = load ptr, ptr %1, align 8
-  %magicptr1442 = ptrtoint ptr %792 to i64
-  switch i64 %magicptr1442, label %794 [
-    i64 -1, label %793
-    i64 0, label %2190
+790:                                              ; preds = %3
+  %791 = load ptr, ptr %1, align 8
+  %magicptr1441 = ptrtoint ptr %791 to i64
+  switch i64 %magicptr1441, label %793 [
+    i64 -1, label %792
+    i64 0, label %2189
   ]
 
-793:                                              ; preds = %791
+792:                                              ; preds = %790
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-794:                                              ; preds = %791
-  %795 = load i64, ptr %792, align 8
-  %796 = trunc i64 %795 to i32
-  %797 = lshr i32 %796, 8
-  %798 = and i32 %797, 127
-  switch i32 %798, label %800 [
-    i32 114, label %parser_node_name.exit1644
-    i32 115, label %799
+793:                                              ; preds = %790
+  %794 = load i64, ptr %791, align 8
+  %795 = trunc i64 %794 to i32
+  %796 = lshr i32 %795, 8
+  %797 = and i32 %796, 127
+  switch i32 %797, label %799 [
+    i32 114, label %parser_node_name.exit1643
+    i32 115, label %798
   ]
 
-799:                                              ; preds = %794
-  br label %parser_node_name.exit1644
+798:                                              ; preds = %793
+  br label %parser_node_name.exit1643
 
-800:                                              ; preds = %794
-  %801 = tail call ptr @ruby_node_name(i32 noundef %798) #24
-  br label %parser_node_name.exit1644
+799:                                              ; preds = %793
+  %800 = tail call ptr @ruby_node_name(i32 noundef %797) #24
+  br label %parser_node_name.exit1643
 
-parser_node_name.exit1644:                        ; preds = %794, %799, %800
-  %.0.i1643 = phi ptr [ %801, %800 ], [ @.str.524, %799 ], [ @.str.523, %794 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1643) #24
-  br label %2190
+parser_node_name.exit1643:                        ; preds = %793, %798, %799
+  %.0.i1642 = phi ptr [ %800, %799 ], [ @.str.524, %798 ], [ @.str.523, %793 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1642) #24
+  br label %2189
 
-802:                                              ; preds = %4
-  %803 = load ptr, ptr %1, align 8
-  %magicptr1443 = ptrtoint ptr %803 to i64
-  switch i64 %magicptr1443, label %805 [
-    i64 -1, label %804
-    i64 0, label %2190
+801:                                              ; preds = %3
+  %802 = load ptr, ptr %1, align 8
+  %magicptr1442 = ptrtoint ptr %802 to i64
+  switch i64 %magicptr1442, label %804 [
+    i64 -1, label %803
+    i64 0, label %2189
   ]
 
-804:                                              ; preds = %802
+803:                                              ; preds = %801
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-805:                                              ; preds = %802
-  %806 = load i64, ptr %803, align 8
-  %807 = trunc i64 %806 to i32
-  %808 = lshr i32 %807, 8
-  %809 = and i32 %808, 127
-  switch i32 %809, label %811 [
-    i32 114, label %parser_node_name.exit1646
-    i32 115, label %810
+804:                                              ; preds = %801
+  %805 = load i64, ptr %802, align 8
+  %806 = trunc i64 %805 to i32
+  %807 = lshr i32 %806, 8
+  %808 = and i32 %807, 127
+  switch i32 %808, label %810 [
+    i32 114, label %parser_node_name.exit1645
+    i32 115, label %809
   ]
 
-810:                                              ; preds = %805
-  br label %parser_node_name.exit1646
+809:                                              ; preds = %804
+  br label %parser_node_name.exit1645
 
-811:                                              ; preds = %805
-  %812 = tail call ptr @ruby_node_name(i32 noundef %809) #24
-  br label %parser_node_name.exit1646
+810:                                              ; preds = %804
+  %811 = tail call ptr @ruby_node_name(i32 noundef %808) #24
+  br label %parser_node_name.exit1645
 
-parser_node_name.exit1646:                        ; preds = %805, %810, %811
-  %.0.i1645 = phi ptr [ %812, %811 ], [ @.str.524, %810 ], [ @.str.523, %805 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1645) #24
-  br label %2190
+parser_node_name.exit1645:                        ; preds = %804, %809, %810
+  %.0.i1644 = phi ptr [ %811, %810 ], [ @.str.524, %809 ], [ @.str.523, %804 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1644) #24
+  br label %2189
 
-813:                                              ; preds = %4
-  %814 = load ptr, ptr %1, align 8
-  %magicptr1444 = ptrtoint ptr %814 to i64
-  switch i64 %magicptr1444, label %816 [
-    i64 -1, label %815
-    i64 0, label %2190
+812:                                              ; preds = %3
+  %813 = load ptr, ptr %1, align 8
+  %magicptr1443 = ptrtoint ptr %813 to i64
+  switch i64 %magicptr1443, label %815 [
+    i64 -1, label %814
+    i64 0, label %2189
   ]
 
-815:                                              ; preds = %813
+814:                                              ; preds = %812
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-816:                                              ; preds = %813
-  %817 = load i64, ptr %814, align 8
-  %818 = trunc i64 %817 to i32
-  %819 = lshr i32 %818, 8
-  %820 = and i32 %819, 127
-  switch i32 %820, label %822 [
-    i32 114, label %parser_node_name.exit1648
-    i32 115, label %821
+815:                                              ; preds = %812
+  %816 = load i64, ptr %813, align 8
+  %817 = trunc i64 %816 to i32
+  %818 = lshr i32 %817, 8
+  %819 = and i32 %818, 127
+  switch i32 %819, label %821 [
+    i32 114, label %parser_node_name.exit1647
+    i32 115, label %820
   ]
 
-821:                                              ; preds = %816
-  br label %parser_node_name.exit1648
+820:                                              ; preds = %815
+  br label %parser_node_name.exit1647
 
-822:                                              ; preds = %816
-  %823 = tail call ptr @ruby_node_name(i32 noundef %820) #24
-  br label %parser_node_name.exit1648
+821:                                              ; preds = %815
+  %822 = tail call ptr @ruby_node_name(i32 noundef %819) #24
+  br label %parser_node_name.exit1647
 
-parser_node_name.exit1648:                        ; preds = %816, %821, %822
-  %.0.i1647 = phi ptr [ %823, %822 ], [ @.str.524, %821 ], [ @.str.523, %816 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1647) #24
-  br label %2190
+parser_node_name.exit1647:                        ; preds = %815, %820, %821
+  %.0.i1646 = phi ptr [ %822, %821 ], [ @.str.524, %820 ], [ @.str.523, %815 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1646) #24
+  br label %2189
 
-824:                                              ; preds = %4
-  %825 = load ptr, ptr %1, align 8
-  %magicptr1445 = ptrtoint ptr %825 to i64
-  switch i64 %magicptr1445, label %827 [
-    i64 -1, label %826
-    i64 0, label %2190
+823:                                              ; preds = %3
+  %824 = load ptr, ptr %1, align 8
+  %magicptr1444 = ptrtoint ptr %824 to i64
+  switch i64 %magicptr1444, label %826 [
+    i64 -1, label %825
+    i64 0, label %2189
   ]
 
-826:                                              ; preds = %824
+825:                                              ; preds = %823
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-827:                                              ; preds = %824
-  %828 = load i64, ptr %825, align 8
-  %829 = trunc i64 %828 to i32
-  %830 = lshr i32 %829, 8
-  %831 = and i32 %830, 127
-  switch i32 %831, label %833 [
-    i32 114, label %parser_node_name.exit1650
-    i32 115, label %832
+826:                                              ; preds = %823
+  %827 = load i64, ptr %824, align 8
+  %828 = trunc i64 %827 to i32
+  %829 = lshr i32 %828, 8
+  %830 = and i32 %829, 127
+  switch i32 %830, label %832 [
+    i32 114, label %parser_node_name.exit1649
+    i32 115, label %831
   ]
 
-832:                                              ; preds = %827
-  br label %parser_node_name.exit1650
+831:                                              ; preds = %826
+  br label %parser_node_name.exit1649
 
-833:                                              ; preds = %827
-  %834 = tail call ptr @ruby_node_name(i32 noundef %831) #24
-  br label %parser_node_name.exit1650
+832:                                              ; preds = %826
+  %833 = tail call ptr @ruby_node_name(i32 noundef %830) #24
+  br label %parser_node_name.exit1649
 
-parser_node_name.exit1650:                        ; preds = %827, %832, %833
-  %.0.i1649 = phi ptr [ %834, %833 ], [ @.str.524, %832 ], [ @.str.523, %827 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1649) #24
-  br label %2190
+parser_node_name.exit1649:                        ; preds = %826, %831, %832
+  %.0.i1648 = phi ptr [ %833, %832 ], [ @.str.524, %831 ], [ @.str.523, %826 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1648) #24
+  br label %2189
 
-835:                                              ; preds = %4
-  %836 = load ptr, ptr %1, align 8
-  %magicptr1446 = ptrtoint ptr %836 to i64
-  switch i64 %magicptr1446, label %838 [
-    i64 -1, label %837
-    i64 0, label %2190
+834:                                              ; preds = %3
+  %835 = load ptr, ptr %1, align 8
+  %magicptr1445 = ptrtoint ptr %835 to i64
+  switch i64 %magicptr1445, label %837 [
+    i64 -1, label %836
+    i64 0, label %2189
   ]
 
-837:                                              ; preds = %835
+836:                                              ; preds = %834
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-838:                                              ; preds = %835
-  %839 = load i64, ptr %836, align 8
-  %840 = trunc i64 %839 to i32
-  %841 = lshr i32 %840, 8
-  %842 = and i32 %841, 127
-  switch i32 %842, label %844 [
-    i32 114, label %parser_node_name.exit1652
-    i32 115, label %843
+837:                                              ; preds = %834
+  %838 = load i64, ptr %835, align 8
+  %839 = trunc i64 %838 to i32
+  %840 = lshr i32 %839, 8
+  %841 = and i32 %840, 127
+  switch i32 %841, label %843 [
+    i32 114, label %parser_node_name.exit1651
+    i32 115, label %842
   ]
 
-843:                                              ; preds = %838
-  br label %parser_node_name.exit1652
+842:                                              ; preds = %837
+  br label %parser_node_name.exit1651
 
-844:                                              ; preds = %838
-  %845 = tail call ptr @ruby_node_name(i32 noundef %842) #24
-  br label %parser_node_name.exit1652
+843:                                              ; preds = %837
+  %844 = tail call ptr @ruby_node_name(i32 noundef %841) #24
+  br label %parser_node_name.exit1651
 
-parser_node_name.exit1652:                        ; preds = %838, %843, %844
-  %.0.i1651 = phi ptr [ %845, %844 ], [ @.str.524, %843 ], [ @.str.523, %838 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1651) #24
-  br label %2190
+parser_node_name.exit1651:                        ; preds = %837, %842, %843
+  %.0.i1650 = phi ptr [ %844, %843 ], [ @.str.524, %842 ], [ @.str.523, %837 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1650) #24
+  br label %2189
 
-846:                                              ; preds = %4
-  %847 = load ptr, ptr %1, align 8
-  %magicptr1447 = ptrtoint ptr %847 to i64
-  switch i64 %magicptr1447, label %849 [
-    i64 -1, label %848
-    i64 0, label %2190
+845:                                              ; preds = %3
+  %846 = load ptr, ptr %1, align 8
+  %magicptr1446 = ptrtoint ptr %846 to i64
+  switch i64 %magicptr1446, label %848 [
+    i64 -1, label %847
+    i64 0, label %2189
   ]
 
-848:                                              ; preds = %846
+847:                                              ; preds = %845
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-849:                                              ; preds = %846
-  %850 = load i64, ptr %847, align 8
-  %851 = trunc i64 %850 to i32
-  %852 = lshr i32 %851, 8
-  %853 = and i32 %852, 127
-  switch i32 %853, label %855 [
-    i32 114, label %parser_node_name.exit1654
-    i32 115, label %854
+848:                                              ; preds = %845
+  %849 = load i64, ptr %846, align 8
+  %850 = trunc i64 %849 to i32
+  %851 = lshr i32 %850, 8
+  %852 = and i32 %851, 127
+  switch i32 %852, label %854 [
+    i32 114, label %parser_node_name.exit1653
+    i32 115, label %853
   ]
 
-854:                                              ; preds = %849
-  br label %parser_node_name.exit1654
+853:                                              ; preds = %848
+  br label %parser_node_name.exit1653
 
-855:                                              ; preds = %849
-  %856 = tail call ptr @ruby_node_name(i32 noundef %853) #24
-  br label %parser_node_name.exit1654
+854:                                              ; preds = %848
+  %855 = tail call ptr @ruby_node_name(i32 noundef %852) #24
+  br label %parser_node_name.exit1653
 
-parser_node_name.exit1654:                        ; preds = %849, %854, %855
-  %.0.i1653 = phi ptr [ %856, %855 ], [ @.str.524, %854 ], [ @.str.523, %849 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1653) #24
-  br label %2190
+parser_node_name.exit1653:                        ; preds = %848, %853, %854
+  %.0.i1652 = phi ptr [ %855, %854 ], [ @.str.524, %853 ], [ @.str.523, %848 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1652) #24
+  br label %2189
 
-857:                                              ; preds = %4
-  %858 = load ptr, ptr %1, align 8
-  %magicptr1448 = ptrtoint ptr %858 to i64
-  switch i64 %magicptr1448, label %860 [
-    i64 -1, label %859
-    i64 0, label %2190
+856:                                              ; preds = %3
+  %857 = load ptr, ptr %1, align 8
+  %magicptr1447 = ptrtoint ptr %857 to i64
+  switch i64 %magicptr1447, label %859 [
+    i64 -1, label %858
+    i64 0, label %2189
   ]
 
-859:                                              ; preds = %857
+858:                                              ; preds = %856
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-860:                                              ; preds = %857
-  %861 = load i64, ptr %858, align 8
-  %862 = trunc i64 %861 to i32
-  %863 = lshr i32 %862, 8
-  %864 = and i32 %863, 127
-  switch i32 %864, label %866 [
-    i32 114, label %parser_node_name.exit1656
-    i32 115, label %865
+859:                                              ; preds = %856
+  %860 = load i64, ptr %857, align 8
+  %861 = trunc i64 %860 to i32
+  %862 = lshr i32 %861, 8
+  %863 = and i32 %862, 127
+  switch i32 %863, label %865 [
+    i32 114, label %parser_node_name.exit1655
+    i32 115, label %864
   ]
 
-865:                                              ; preds = %860
-  br label %parser_node_name.exit1656
+864:                                              ; preds = %859
+  br label %parser_node_name.exit1655
 
-866:                                              ; preds = %860
-  %867 = tail call ptr @ruby_node_name(i32 noundef %864) #24
-  br label %parser_node_name.exit1656
+865:                                              ; preds = %859
+  %866 = tail call ptr @ruby_node_name(i32 noundef %863) #24
+  br label %parser_node_name.exit1655
 
-parser_node_name.exit1656:                        ; preds = %860, %865, %866
-  %.0.i1655 = phi ptr [ %867, %866 ], [ @.str.524, %865 ], [ @.str.523, %860 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1655) #24
-  br label %2190
+parser_node_name.exit1655:                        ; preds = %859, %864, %865
+  %.0.i1654 = phi ptr [ %866, %865 ], [ @.str.524, %864 ], [ @.str.523, %859 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1654) #24
+  br label %2189
 
-868:                                              ; preds = %4
-  %869 = load ptr, ptr %1, align 8
-  %magicptr1449 = ptrtoint ptr %869 to i64
-  switch i64 %magicptr1449, label %871 [
-    i64 -1, label %870
-    i64 0, label %2190
+867:                                              ; preds = %3
+  %868 = load ptr, ptr %1, align 8
+  %magicptr1448 = ptrtoint ptr %868 to i64
+  switch i64 %magicptr1448, label %870 [
+    i64 -1, label %869
+    i64 0, label %2189
   ]
 
-870:                                              ; preds = %868
+869:                                              ; preds = %867
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-871:                                              ; preds = %868
-  %872 = load i64, ptr %869, align 8
-  %873 = trunc i64 %872 to i32
-  %874 = lshr i32 %873, 8
-  %875 = and i32 %874, 127
-  switch i32 %875, label %877 [
-    i32 114, label %parser_node_name.exit1658
-    i32 115, label %876
+870:                                              ; preds = %867
+  %871 = load i64, ptr %868, align 8
+  %872 = trunc i64 %871 to i32
+  %873 = lshr i32 %872, 8
+  %874 = and i32 %873, 127
+  switch i32 %874, label %876 [
+    i32 114, label %parser_node_name.exit1657
+    i32 115, label %875
   ]
 
-876:                                              ; preds = %871
-  br label %parser_node_name.exit1658
+875:                                              ; preds = %870
+  br label %parser_node_name.exit1657
 
-877:                                              ; preds = %871
-  %878 = tail call ptr @ruby_node_name(i32 noundef %875) #24
-  br label %parser_node_name.exit1658
+876:                                              ; preds = %870
+  %877 = tail call ptr @ruby_node_name(i32 noundef %874) #24
+  br label %parser_node_name.exit1657
 
-parser_node_name.exit1658:                        ; preds = %871, %876, %877
-  %.0.i1657 = phi ptr [ %878, %877 ], [ @.str.524, %876 ], [ @.str.523, %871 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1657) #24
-  br label %2190
+parser_node_name.exit1657:                        ; preds = %870, %875, %876
+  %.0.i1656 = phi ptr [ %877, %876 ], [ @.str.524, %875 ], [ @.str.523, %870 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1656) #24
+  br label %2189
 
-879:                                              ; preds = %4
-  %880 = load ptr, ptr %1, align 8
-  %magicptr1450 = ptrtoint ptr %880 to i64
-  switch i64 %magicptr1450, label %882 [
-    i64 -1, label %881
-    i64 0, label %2190
+878:                                              ; preds = %3
+  %879 = load ptr, ptr %1, align 8
+  %magicptr1449 = ptrtoint ptr %879 to i64
+  switch i64 %magicptr1449, label %881 [
+    i64 -1, label %880
+    i64 0, label %2189
   ]
 
-881:                                              ; preds = %879
+880:                                              ; preds = %878
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-882:                                              ; preds = %879
-  %883 = load i64, ptr %880, align 8
-  %884 = trunc i64 %883 to i32
-  %885 = lshr i32 %884, 8
-  %886 = and i32 %885, 127
-  switch i32 %886, label %888 [
-    i32 114, label %parser_node_name.exit1660
-    i32 115, label %887
+881:                                              ; preds = %878
+  %882 = load i64, ptr %879, align 8
+  %883 = trunc i64 %882 to i32
+  %884 = lshr i32 %883, 8
+  %885 = and i32 %884, 127
+  switch i32 %885, label %887 [
+    i32 114, label %parser_node_name.exit1659
+    i32 115, label %886
   ]
 
-887:                                              ; preds = %882
-  br label %parser_node_name.exit1660
+886:                                              ; preds = %881
+  br label %parser_node_name.exit1659
 
-888:                                              ; preds = %882
-  %889 = tail call ptr @ruby_node_name(i32 noundef %886) #24
-  br label %parser_node_name.exit1660
+887:                                              ; preds = %881
+  %888 = tail call ptr @ruby_node_name(i32 noundef %885) #24
+  br label %parser_node_name.exit1659
 
-parser_node_name.exit1660:                        ; preds = %882, %887, %888
-  %.0.i1659 = phi ptr [ %889, %888 ], [ @.str.524, %887 ], [ @.str.523, %882 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1659) #24
-  br label %2190
+parser_node_name.exit1659:                        ; preds = %881, %886, %887
+  %.0.i1658 = phi ptr [ %888, %887 ], [ @.str.524, %886 ], [ @.str.523, %881 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1658) #24
+  br label %2189
 
-890:                                              ; preds = %4
-  %891 = load ptr, ptr %1, align 8
-  %magicptr1451 = ptrtoint ptr %891 to i64
-  switch i64 %magicptr1451, label %893 [
-    i64 -1, label %892
-    i64 0, label %2190
+889:                                              ; preds = %3
+  %890 = load ptr, ptr %1, align 8
+  %magicptr1450 = ptrtoint ptr %890 to i64
+  switch i64 %magicptr1450, label %892 [
+    i64 -1, label %891
+    i64 0, label %2189
   ]
 
-892:                                              ; preds = %890
+891:                                              ; preds = %889
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-893:                                              ; preds = %890
-  %894 = load i64, ptr %891, align 8
-  %895 = trunc i64 %894 to i32
-  %896 = lshr i32 %895, 8
-  %897 = and i32 %896, 127
-  switch i32 %897, label %899 [
-    i32 114, label %parser_node_name.exit1662
-    i32 115, label %898
+892:                                              ; preds = %889
+  %893 = load i64, ptr %890, align 8
+  %894 = trunc i64 %893 to i32
+  %895 = lshr i32 %894, 8
+  %896 = and i32 %895, 127
+  switch i32 %896, label %898 [
+    i32 114, label %parser_node_name.exit1661
+    i32 115, label %897
   ]
 
-898:                                              ; preds = %893
-  br label %parser_node_name.exit1662
+897:                                              ; preds = %892
+  br label %parser_node_name.exit1661
 
-899:                                              ; preds = %893
-  %900 = tail call ptr @ruby_node_name(i32 noundef %897) #24
-  br label %parser_node_name.exit1662
+898:                                              ; preds = %892
+  %899 = tail call ptr @ruby_node_name(i32 noundef %896) #24
+  br label %parser_node_name.exit1661
 
-parser_node_name.exit1662:                        ; preds = %893, %898, %899
-  %.0.i1661 = phi ptr [ %900, %899 ], [ @.str.524, %898 ], [ @.str.523, %893 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1661) #24
-  br label %2190
+parser_node_name.exit1661:                        ; preds = %892, %897, %898
+  %.0.i1660 = phi ptr [ %899, %898 ], [ @.str.524, %897 ], [ @.str.523, %892 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1660) #24
+  br label %2189
 
-901:                                              ; preds = %4
-  %902 = load ptr, ptr %1, align 8
-  %magicptr1452 = ptrtoint ptr %902 to i64
-  switch i64 %magicptr1452, label %904 [
-    i64 -1, label %903
-    i64 0, label %2190
+900:                                              ; preds = %3
+  %901 = load ptr, ptr %1, align 8
+  %magicptr1451 = ptrtoint ptr %901 to i64
+  switch i64 %magicptr1451, label %903 [
+    i64 -1, label %902
+    i64 0, label %2189
   ]
 
-903:                                              ; preds = %901
+902:                                              ; preds = %900
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-904:                                              ; preds = %901
-  %905 = load i64, ptr %902, align 8
-  %906 = trunc i64 %905 to i32
-  %907 = lshr i32 %906, 8
-  %908 = and i32 %907, 127
-  switch i32 %908, label %910 [
-    i32 114, label %parser_node_name.exit1664
-    i32 115, label %909
+903:                                              ; preds = %900
+  %904 = load i64, ptr %901, align 8
+  %905 = trunc i64 %904 to i32
+  %906 = lshr i32 %905, 8
+  %907 = and i32 %906, 127
+  switch i32 %907, label %909 [
+    i32 114, label %parser_node_name.exit1663
+    i32 115, label %908
   ]
 
-909:                                              ; preds = %904
-  br label %parser_node_name.exit1664
+908:                                              ; preds = %903
+  br label %parser_node_name.exit1663
 
-910:                                              ; preds = %904
-  %911 = tail call ptr @ruby_node_name(i32 noundef %908) #24
-  br label %parser_node_name.exit1664
+909:                                              ; preds = %903
+  %910 = tail call ptr @ruby_node_name(i32 noundef %907) #24
+  br label %parser_node_name.exit1663
 
-parser_node_name.exit1664:                        ; preds = %904, %909, %910
-  %.0.i1663 = phi ptr [ %911, %910 ], [ @.str.524, %909 ], [ @.str.523, %904 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1663) #24
-  br label %2190
+parser_node_name.exit1663:                        ; preds = %903, %908, %909
+  %.0.i1662 = phi ptr [ %910, %909 ], [ @.str.524, %908 ], [ @.str.523, %903 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1662) #24
+  br label %2189
 
-912:                                              ; preds = %4
-  %913 = load ptr, ptr %1, align 8
-  %magicptr1453 = ptrtoint ptr %913 to i64
-  switch i64 %magicptr1453, label %915 [
-    i64 -1, label %914
-    i64 0, label %2190
+911:                                              ; preds = %3
+  %912 = load ptr, ptr %1, align 8
+  %magicptr1452 = ptrtoint ptr %912 to i64
+  switch i64 %magicptr1452, label %914 [
+    i64 -1, label %913
+    i64 0, label %2189
   ]
 
-914:                                              ; preds = %912
+913:                                              ; preds = %911
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-915:                                              ; preds = %912
-  %916 = load i64, ptr %913, align 8
-  %917 = trunc i64 %916 to i32
-  %918 = lshr i32 %917, 8
-  %919 = and i32 %918, 127
-  switch i32 %919, label %921 [
-    i32 114, label %parser_node_name.exit1666
-    i32 115, label %920
+914:                                              ; preds = %911
+  %915 = load i64, ptr %912, align 8
+  %916 = trunc i64 %915 to i32
+  %917 = lshr i32 %916, 8
+  %918 = and i32 %917, 127
+  switch i32 %918, label %920 [
+    i32 114, label %parser_node_name.exit1665
+    i32 115, label %919
   ]
 
-920:                                              ; preds = %915
-  br label %parser_node_name.exit1666
+919:                                              ; preds = %914
+  br label %parser_node_name.exit1665
 
-921:                                              ; preds = %915
-  %922 = tail call ptr @ruby_node_name(i32 noundef %919) #24
-  br label %parser_node_name.exit1666
+920:                                              ; preds = %914
+  %921 = tail call ptr @ruby_node_name(i32 noundef %918) #24
+  br label %parser_node_name.exit1665
 
-parser_node_name.exit1666:                        ; preds = %915, %920, %921
-  %.0.i1665 = phi ptr [ %922, %921 ], [ @.str.524, %920 ], [ @.str.523, %915 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1665) #24
-  br label %2190
+parser_node_name.exit1665:                        ; preds = %914, %919, %920
+  %.0.i1664 = phi ptr [ %921, %920 ], [ @.str.524, %919 ], [ @.str.523, %914 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1664) #24
+  br label %2189
 
-923:                                              ; preds = %4
-  %924 = load ptr, ptr %1, align 8
-  %magicptr1454 = ptrtoint ptr %924 to i64
-  switch i64 %magicptr1454, label %926 [
-    i64 -1, label %925
-    i64 0, label %2190
+922:                                              ; preds = %3
+  %923 = load ptr, ptr %1, align 8
+  %magicptr1453 = ptrtoint ptr %923 to i64
+  switch i64 %magicptr1453, label %925 [
+    i64 -1, label %924
+    i64 0, label %2189
   ]
 
-925:                                              ; preds = %923
+924:                                              ; preds = %922
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-926:                                              ; preds = %923
-  %927 = load i64, ptr %924, align 8
-  %928 = trunc i64 %927 to i32
-  %929 = lshr i32 %928, 8
-  %930 = and i32 %929, 127
-  switch i32 %930, label %932 [
-    i32 114, label %parser_node_name.exit1668
-    i32 115, label %931
+925:                                              ; preds = %922
+  %926 = load i64, ptr %923, align 8
+  %927 = trunc i64 %926 to i32
+  %928 = lshr i32 %927, 8
+  %929 = and i32 %928, 127
+  switch i32 %929, label %931 [
+    i32 114, label %parser_node_name.exit1667
+    i32 115, label %930
   ]
 
-931:                                              ; preds = %926
-  br label %parser_node_name.exit1668
+930:                                              ; preds = %925
+  br label %parser_node_name.exit1667
 
-932:                                              ; preds = %926
-  %933 = tail call ptr @ruby_node_name(i32 noundef %930) #24
-  br label %parser_node_name.exit1668
+931:                                              ; preds = %925
+  %932 = tail call ptr @ruby_node_name(i32 noundef %929) #24
+  br label %parser_node_name.exit1667
 
-parser_node_name.exit1668:                        ; preds = %926, %931, %932
-  %.0.i1667 = phi ptr [ %933, %932 ], [ @.str.524, %931 ], [ @.str.523, %926 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1667) #24
-  br label %2190
+parser_node_name.exit1667:                        ; preds = %925, %930, %931
+  %.0.i1666 = phi ptr [ %932, %931 ], [ @.str.524, %930 ], [ @.str.523, %925 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1666) #24
+  br label %2189
 
-934:                                              ; preds = %4
-  %935 = load ptr, ptr %1, align 8
-  %magicptr1455 = ptrtoint ptr %935 to i64
-  switch i64 %magicptr1455, label %937 [
-    i64 -1, label %936
-    i64 0, label %2190
+933:                                              ; preds = %3
+  %934 = load ptr, ptr %1, align 8
+  %magicptr1454 = ptrtoint ptr %934 to i64
+  switch i64 %magicptr1454, label %936 [
+    i64 -1, label %935
+    i64 0, label %2189
   ]
 
-936:                                              ; preds = %934
+935:                                              ; preds = %933
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-937:                                              ; preds = %934
-  %938 = load i64, ptr %935, align 8
-  %939 = trunc i64 %938 to i32
-  %940 = lshr i32 %939, 8
-  %941 = and i32 %940, 127
-  switch i32 %941, label %943 [
-    i32 114, label %parser_node_name.exit1670
-    i32 115, label %942
+936:                                              ; preds = %933
+  %937 = load i64, ptr %934, align 8
+  %938 = trunc i64 %937 to i32
+  %939 = lshr i32 %938, 8
+  %940 = and i32 %939, 127
+  switch i32 %940, label %942 [
+    i32 114, label %parser_node_name.exit1669
+    i32 115, label %941
   ]
 
-942:                                              ; preds = %937
-  br label %parser_node_name.exit1670
+941:                                              ; preds = %936
+  br label %parser_node_name.exit1669
 
-943:                                              ; preds = %937
-  %944 = tail call ptr @ruby_node_name(i32 noundef %941) #24
-  br label %parser_node_name.exit1670
+942:                                              ; preds = %936
+  %943 = tail call ptr @ruby_node_name(i32 noundef %940) #24
+  br label %parser_node_name.exit1669
 
-parser_node_name.exit1670:                        ; preds = %937, %942, %943
-  %.0.i1669 = phi ptr [ %944, %943 ], [ @.str.524, %942 ], [ @.str.523, %937 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1669) #24
-  br label %2190
+parser_node_name.exit1669:                        ; preds = %936, %941, %942
+  %.0.i1668 = phi ptr [ %943, %942 ], [ @.str.524, %941 ], [ @.str.523, %936 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1668) #24
+  br label %2189
 
-945:                                              ; preds = %4
-  %946 = load ptr, ptr %1, align 8
-  %magicptr1456 = ptrtoint ptr %946 to i64
-  switch i64 %magicptr1456, label %948 [
-    i64 -1, label %947
-    i64 0, label %2190
+944:                                              ; preds = %3
+  %945 = load ptr, ptr %1, align 8
+  %magicptr1455 = ptrtoint ptr %945 to i64
+  switch i64 %magicptr1455, label %947 [
+    i64 -1, label %946
+    i64 0, label %2189
   ]
 
-947:                                              ; preds = %945
+946:                                              ; preds = %944
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-948:                                              ; preds = %945
-  %949 = load i64, ptr %946, align 8
-  %950 = trunc i64 %949 to i32
-  %951 = lshr i32 %950, 8
-  %952 = and i32 %951, 127
-  switch i32 %952, label %954 [
-    i32 114, label %parser_node_name.exit1672
-    i32 115, label %953
+947:                                              ; preds = %944
+  %948 = load i64, ptr %945, align 8
+  %949 = trunc i64 %948 to i32
+  %950 = lshr i32 %949, 8
+  %951 = and i32 %950, 127
+  switch i32 %951, label %953 [
+    i32 114, label %parser_node_name.exit1671
+    i32 115, label %952
   ]
 
-953:                                              ; preds = %948
-  br label %parser_node_name.exit1672
+952:                                              ; preds = %947
+  br label %parser_node_name.exit1671
 
-954:                                              ; preds = %948
-  %955 = tail call ptr @ruby_node_name(i32 noundef %952) #24
-  br label %parser_node_name.exit1672
+953:                                              ; preds = %947
+  %954 = tail call ptr @ruby_node_name(i32 noundef %951) #24
+  br label %parser_node_name.exit1671
 
-parser_node_name.exit1672:                        ; preds = %948, %953, %954
-  %.0.i1671 = phi ptr [ %955, %954 ], [ @.str.524, %953 ], [ @.str.523, %948 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1671) #24
-  br label %2190
+parser_node_name.exit1671:                        ; preds = %947, %952, %953
+  %.0.i1670 = phi ptr [ %954, %953 ], [ @.str.524, %952 ], [ @.str.523, %947 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1670) #24
+  br label %2189
 
-956:                                              ; preds = %4
-  %957 = load ptr, ptr %1, align 8
-  %magicptr1457 = ptrtoint ptr %957 to i64
-  switch i64 %magicptr1457, label %959 [
-    i64 -1, label %958
-    i64 0, label %2190
+955:                                              ; preds = %3
+  %956 = load ptr, ptr %1, align 8
+  %magicptr1456 = ptrtoint ptr %956 to i64
+  switch i64 %magicptr1456, label %958 [
+    i64 -1, label %957
+    i64 0, label %2189
   ]
 
-958:                                              ; preds = %956
+957:                                              ; preds = %955
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-959:                                              ; preds = %956
-  %960 = load i64, ptr %957, align 8
-  %961 = trunc i64 %960 to i32
-  %962 = lshr i32 %961, 8
-  %963 = and i32 %962, 127
-  switch i32 %963, label %965 [
-    i32 114, label %parser_node_name.exit1674
-    i32 115, label %964
+958:                                              ; preds = %955
+  %959 = load i64, ptr %956, align 8
+  %960 = trunc i64 %959 to i32
+  %961 = lshr i32 %960, 8
+  %962 = and i32 %961, 127
+  switch i32 %962, label %964 [
+    i32 114, label %parser_node_name.exit1673
+    i32 115, label %963
   ]
 
-964:                                              ; preds = %959
-  br label %parser_node_name.exit1674
+963:                                              ; preds = %958
+  br label %parser_node_name.exit1673
 
-965:                                              ; preds = %959
-  %966 = tail call ptr @ruby_node_name(i32 noundef %963) #24
-  br label %parser_node_name.exit1674
+964:                                              ; preds = %958
+  %965 = tail call ptr @ruby_node_name(i32 noundef %962) #24
+  br label %parser_node_name.exit1673
 
-parser_node_name.exit1674:                        ; preds = %959, %964, %965
-  %.0.i1673 = phi ptr [ %966, %965 ], [ @.str.524, %964 ], [ @.str.523, %959 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1673) #24
-  br label %2190
+parser_node_name.exit1673:                        ; preds = %958, %963, %964
+  %.0.i1672 = phi ptr [ %965, %964 ], [ @.str.524, %963 ], [ @.str.523, %958 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1672) #24
+  br label %2189
 
-967:                                              ; preds = %4
-  %968 = load ptr, ptr %1, align 8
-  %magicptr1458 = ptrtoint ptr %968 to i64
-  switch i64 %magicptr1458, label %970 [
-    i64 -1, label %969
-    i64 0, label %2190
+966:                                              ; preds = %3
+  %967 = load ptr, ptr %1, align 8
+  %magicptr1457 = ptrtoint ptr %967 to i64
+  switch i64 %magicptr1457, label %969 [
+    i64 -1, label %968
+    i64 0, label %2189
   ]
 
-969:                                              ; preds = %967
+968:                                              ; preds = %966
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-970:                                              ; preds = %967
-  %971 = load i64, ptr %968, align 8
-  %972 = trunc i64 %971 to i32
-  %973 = lshr i32 %972, 8
-  %974 = and i32 %973, 127
-  switch i32 %974, label %976 [
-    i32 114, label %parser_node_name.exit1676
-    i32 115, label %975
+969:                                              ; preds = %966
+  %970 = load i64, ptr %967, align 8
+  %971 = trunc i64 %970 to i32
+  %972 = lshr i32 %971, 8
+  %973 = and i32 %972, 127
+  switch i32 %973, label %975 [
+    i32 114, label %parser_node_name.exit1675
+    i32 115, label %974
   ]
 
-975:                                              ; preds = %970
-  br label %parser_node_name.exit1676
+974:                                              ; preds = %969
+  br label %parser_node_name.exit1675
 
-976:                                              ; preds = %970
-  %977 = tail call ptr @ruby_node_name(i32 noundef %974) #24
-  br label %parser_node_name.exit1676
+975:                                              ; preds = %969
+  %976 = tail call ptr @ruby_node_name(i32 noundef %973) #24
+  br label %parser_node_name.exit1675
 
-parser_node_name.exit1676:                        ; preds = %970, %975, %976
-  %.0.i1675 = phi ptr [ %977, %976 ], [ @.str.524, %975 ], [ @.str.523, %970 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1675) #24
-  br label %2190
+parser_node_name.exit1675:                        ; preds = %969, %974, %975
+  %.0.i1674 = phi ptr [ %976, %975 ], [ @.str.524, %974 ], [ @.str.523, %969 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1674) #24
+  br label %2189
 
-978:                                              ; preds = %4
-  %979 = load ptr, ptr %1, align 8
-  %magicptr1459 = ptrtoint ptr %979 to i64
-  switch i64 %magicptr1459, label %981 [
-    i64 -1, label %980
-    i64 0, label %2190
+977:                                              ; preds = %3
+  %978 = load ptr, ptr %1, align 8
+  %magicptr1458 = ptrtoint ptr %978 to i64
+  switch i64 %magicptr1458, label %980 [
+    i64 -1, label %979
+    i64 0, label %2189
   ]
 
-980:                                              ; preds = %978
+979:                                              ; preds = %977
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-981:                                              ; preds = %978
-  %982 = load i64, ptr %979, align 8
-  %983 = trunc i64 %982 to i32
-  %984 = lshr i32 %983, 8
-  %985 = and i32 %984, 127
-  switch i32 %985, label %987 [
-    i32 114, label %parser_node_name.exit1678
-    i32 115, label %986
+980:                                              ; preds = %977
+  %981 = load i64, ptr %978, align 8
+  %982 = trunc i64 %981 to i32
+  %983 = lshr i32 %982, 8
+  %984 = and i32 %983, 127
+  switch i32 %984, label %986 [
+    i32 114, label %parser_node_name.exit1677
+    i32 115, label %985
   ]
 
-986:                                              ; preds = %981
-  br label %parser_node_name.exit1678
+985:                                              ; preds = %980
+  br label %parser_node_name.exit1677
 
-987:                                              ; preds = %981
-  %988 = tail call ptr @ruby_node_name(i32 noundef %985) #24
-  br label %parser_node_name.exit1678
+986:                                              ; preds = %980
+  %987 = tail call ptr @ruby_node_name(i32 noundef %984) #24
+  br label %parser_node_name.exit1677
 
-parser_node_name.exit1678:                        ; preds = %981, %986, %987
-  %.0.i1677 = phi ptr [ %988, %987 ], [ @.str.524, %986 ], [ @.str.523, %981 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1677) #24
-  br label %2190
+parser_node_name.exit1677:                        ; preds = %980, %985, %986
+  %.0.i1676 = phi ptr [ %987, %986 ], [ @.str.524, %985 ], [ @.str.523, %980 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1676) #24
+  br label %2189
 
-989:                                              ; preds = %4
-  %990 = load ptr, ptr %1, align 8
-  %magicptr1460 = ptrtoint ptr %990 to i64
-  switch i64 %magicptr1460, label %992 [
-    i64 -1, label %991
-    i64 0, label %2190
+988:                                              ; preds = %3
+  %989 = load ptr, ptr %1, align 8
+  %magicptr1459 = ptrtoint ptr %989 to i64
+  switch i64 %magicptr1459, label %991 [
+    i64 -1, label %990
+    i64 0, label %2189
   ]
 
-991:                                              ; preds = %989
+990:                                              ; preds = %988
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-992:                                              ; preds = %989
-  %993 = load i64, ptr %990, align 8
-  %994 = trunc i64 %993 to i32
-  %995 = lshr i32 %994, 8
-  %996 = and i32 %995, 127
-  switch i32 %996, label %998 [
-    i32 114, label %parser_node_name.exit1680
-    i32 115, label %997
+991:                                              ; preds = %988
+  %992 = load i64, ptr %989, align 8
+  %993 = trunc i64 %992 to i32
+  %994 = lshr i32 %993, 8
+  %995 = and i32 %994, 127
+  switch i32 %995, label %997 [
+    i32 114, label %parser_node_name.exit1679
+    i32 115, label %996
   ]
 
-997:                                              ; preds = %992
-  br label %parser_node_name.exit1680
+996:                                              ; preds = %991
+  br label %parser_node_name.exit1679
 
-998:                                              ; preds = %992
-  %999 = tail call ptr @ruby_node_name(i32 noundef %996) #24
-  br label %parser_node_name.exit1680
+997:                                              ; preds = %991
+  %998 = tail call ptr @ruby_node_name(i32 noundef %995) #24
+  br label %parser_node_name.exit1679
 
-parser_node_name.exit1680:                        ; preds = %992, %997, %998
-  %.0.i1679 = phi ptr [ %999, %998 ], [ @.str.524, %997 ], [ @.str.523, %992 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1679) #24
-  br label %2190
+parser_node_name.exit1679:                        ; preds = %991, %996, %997
+  %.0.i1678 = phi ptr [ %998, %997 ], [ @.str.524, %996 ], [ @.str.523, %991 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1678) #24
+  br label %2189
 
-1000:                                             ; preds = %4
-  %1001 = load ptr, ptr %1, align 8
-  %magicptr1461 = ptrtoint ptr %1001 to i64
-  switch i64 %magicptr1461, label %1003 [
-    i64 -1, label %1002
-    i64 0, label %2190
+999:                                              ; preds = %3
+  %1000 = load ptr, ptr %1, align 8
+  %magicptr1460 = ptrtoint ptr %1000 to i64
+  switch i64 %magicptr1460, label %1002 [
+    i64 -1, label %1001
+    i64 0, label %2189
   ]
 
-1002:                                             ; preds = %1000
+1001:                                             ; preds = %999
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1003:                                             ; preds = %1000
-  %1004 = load i64, ptr %1001, align 8
-  %1005 = trunc i64 %1004 to i32
-  %1006 = lshr i32 %1005, 8
-  %1007 = and i32 %1006, 127
-  switch i32 %1007, label %1009 [
-    i32 114, label %parser_node_name.exit1682
-    i32 115, label %1008
+1002:                                             ; preds = %999
+  %1003 = load i64, ptr %1000, align 8
+  %1004 = trunc i64 %1003 to i32
+  %1005 = lshr i32 %1004, 8
+  %1006 = and i32 %1005, 127
+  switch i32 %1006, label %1008 [
+    i32 114, label %parser_node_name.exit1681
+    i32 115, label %1007
   ]
 
-1008:                                             ; preds = %1003
-  br label %parser_node_name.exit1682
+1007:                                             ; preds = %1002
+  br label %parser_node_name.exit1681
 
-1009:                                             ; preds = %1003
-  %1010 = tail call ptr @ruby_node_name(i32 noundef %1007) #24
-  br label %parser_node_name.exit1682
+1008:                                             ; preds = %1002
+  %1009 = tail call ptr @ruby_node_name(i32 noundef %1006) #24
+  br label %parser_node_name.exit1681
 
-parser_node_name.exit1682:                        ; preds = %1003, %1008, %1009
-  %.0.i1681 = phi ptr [ %1010, %1009 ], [ @.str.524, %1008 ], [ @.str.523, %1003 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1681) #24
-  br label %2190
+parser_node_name.exit1681:                        ; preds = %1002, %1007, %1008
+  %.0.i1680 = phi ptr [ %1009, %1008 ], [ @.str.524, %1007 ], [ @.str.523, %1002 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1680) #24
+  br label %2189
 
-1011:                                             ; preds = %4
-  %1012 = load ptr, ptr %1, align 8
-  %magicptr1462 = ptrtoint ptr %1012 to i64
-  switch i64 %magicptr1462, label %1014 [
-    i64 -1, label %1013
-    i64 0, label %2190
+1010:                                             ; preds = %3
+  %1011 = load ptr, ptr %1, align 8
+  %magicptr1461 = ptrtoint ptr %1011 to i64
+  switch i64 %magicptr1461, label %1013 [
+    i64 -1, label %1012
+    i64 0, label %2189
   ]
 
-1013:                                             ; preds = %1011
+1012:                                             ; preds = %1010
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1014:                                             ; preds = %1011
-  %1015 = load i64, ptr %1012, align 8
-  %1016 = trunc i64 %1015 to i32
-  %1017 = lshr i32 %1016, 8
-  %1018 = and i32 %1017, 127
-  switch i32 %1018, label %1020 [
-    i32 114, label %parser_node_name.exit1684
-    i32 115, label %1019
+1013:                                             ; preds = %1010
+  %1014 = load i64, ptr %1011, align 8
+  %1015 = trunc i64 %1014 to i32
+  %1016 = lshr i32 %1015, 8
+  %1017 = and i32 %1016, 127
+  switch i32 %1017, label %1019 [
+    i32 114, label %parser_node_name.exit1683
+    i32 115, label %1018
   ]
 
-1019:                                             ; preds = %1014
-  br label %parser_node_name.exit1684
+1018:                                             ; preds = %1013
+  br label %parser_node_name.exit1683
 
-1020:                                             ; preds = %1014
-  %1021 = tail call ptr @ruby_node_name(i32 noundef %1018) #24
-  br label %parser_node_name.exit1684
+1019:                                             ; preds = %1013
+  %1020 = tail call ptr @ruby_node_name(i32 noundef %1017) #24
+  br label %parser_node_name.exit1683
 
-parser_node_name.exit1684:                        ; preds = %1014, %1019, %1020
-  %.0.i1683 = phi ptr [ %1021, %1020 ], [ @.str.524, %1019 ], [ @.str.523, %1014 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1683) #24
-  br label %2190
+parser_node_name.exit1683:                        ; preds = %1013, %1018, %1019
+  %.0.i1682 = phi ptr [ %1020, %1019 ], [ @.str.524, %1018 ], [ @.str.523, %1013 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1682) #24
+  br label %2189
 
-1022:                                             ; preds = %4
-  %1023 = load ptr, ptr %1, align 8
-  %magicptr1463 = ptrtoint ptr %1023 to i64
-  switch i64 %magicptr1463, label %1025 [
-    i64 -1, label %1024
-    i64 0, label %2190
+1021:                                             ; preds = %3
+  %1022 = load ptr, ptr %1, align 8
+  %magicptr1462 = ptrtoint ptr %1022 to i64
+  switch i64 %magicptr1462, label %1024 [
+    i64 -1, label %1023
+    i64 0, label %2189
   ]
 
-1024:                                             ; preds = %1022
+1023:                                             ; preds = %1021
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1025:                                             ; preds = %1022
-  %1026 = load i64, ptr %1023, align 8
-  %1027 = trunc i64 %1026 to i32
-  %1028 = lshr i32 %1027, 8
-  %1029 = and i32 %1028, 127
-  switch i32 %1029, label %1031 [
-    i32 114, label %parser_node_name.exit1686
-    i32 115, label %1030
+1024:                                             ; preds = %1021
+  %1025 = load i64, ptr %1022, align 8
+  %1026 = trunc i64 %1025 to i32
+  %1027 = lshr i32 %1026, 8
+  %1028 = and i32 %1027, 127
+  switch i32 %1028, label %1030 [
+    i32 114, label %parser_node_name.exit1685
+    i32 115, label %1029
   ]
 
-1030:                                             ; preds = %1025
-  br label %parser_node_name.exit1686
+1029:                                             ; preds = %1024
+  br label %parser_node_name.exit1685
 
-1031:                                             ; preds = %1025
-  %1032 = tail call ptr @ruby_node_name(i32 noundef %1029) #24
-  br label %parser_node_name.exit1686
+1030:                                             ; preds = %1024
+  %1031 = tail call ptr @ruby_node_name(i32 noundef %1028) #24
+  br label %parser_node_name.exit1685
 
-parser_node_name.exit1686:                        ; preds = %1025, %1030, %1031
-  %.0.i1685 = phi ptr [ %1032, %1031 ], [ @.str.524, %1030 ], [ @.str.523, %1025 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1685) #24
-  br label %2190
+parser_node_name.exit1685:                        ; preds = %1024, %1029, %1030
+  %.0.i1684 = phi ptr [ %1031, %1030 ], [ @.str.524, %1029 ], [ @.str.523, %1024 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1684) #24
+  br label %2189
 
-1033:                                             ; preds = %4
-  %1034 = load ptr, ptr %1, align 8
-  %magicptr1464 = ptrtoint ptr %1034 to i64
-  switch i64 %magicptr1464, label %1036 [
-    i64 -1, label %1035
-    i64 0, label %2190
+1032:                                             ; preds = %3
+  %1033 = load ptr, ptr %1, align 8
+  %magicptr1463 = ptrtoint ptr %1033 to i64
+  switch i64 %magicptr1463, label %1035 [
+    i64 -1, label %1034
+    i64 0, label %2189
   ]
 
-1035:                                             ; preds = %1033
+1034:                                             ; preds = %1032
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1036:                                             ; preds = %1033
-  %1037 = load i64, ptr %1034, align 8
-  %1038 = trunc i64 %1037 to i32
-  %1039 = lshr i32 %1038, 8
-  %1040 = and i32 %1039, 127
-  switch i32 %1040, label %1042 [
-    i32 114, label %parser_node_name.exit1688
-    i32 115, label %1041
+1035:                                             ; preds = %1032
+  %1036 = load i64, ptr %1033, align 8
+  %1037 = trunc i64 %1036 to i32
+  %1038 = lshr i32 %1037, 8
+  %1039 = and i32 %1038, 127
+  switch i32 %1039, label %1041 [
+    i32 114, label %parser_node_name.exit1687
+    i32 115, label %1040
   ]
 
-1041:                                             ; preds = %1036
-  br label %parser_node_name.exit1688
+1040:                                             ; preds = %1035
+  br label %parser_node_name.exit1687
 
-1042:                                             ; preds = %1036
-  %1043 = tail call ptr @ruby_node_name(i32 noundef %1040) #24
-  br label %parser_node_name.exit1688
+1041:                                             ; preds = %1035
+  %1042 = tail call ptr @ruby_node_name(i32 noundef %1039) #24
+  br label %parser_node_name.exit1687
 
-parser_node_name.exit1688:                        ; preds = %1036, %1041, %1042
-  %.0.i1687 = phi ptr [ %1043, %1042 ], [ @.str.524, %1041 ], [ @.str.523, %1036 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1687) #24
-  br label %2190
+parser_node_name.exit1687:                        ; preds = %1035, %1040, %1041
+  %.0.i1686 = phi ptr [ %1042, %1041 ], [ @.str.524, %1040 ], [ @.str.523, %1035 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1686) #24
+  br label %2189
 
-1044:                                             ; preds = %4
-  %1045 = load i64, ptr %1, align 8
-  %1046 = tail call i64 @rb_id2str(i64 noundef %1045) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1046) #24
-  br label %2190
+1043:                                             ; preds = %3
+  %1044 = load i64, ptr %1, align 8
+  %1045 = tail call i64 @rb_id2str(i64 noundef %1044) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1045) #24
+  br label %2189
 
-1047:                                             ; preds = %4
-  %1048 = load ptr, ptr %1, align 8
-  %magicptr1465 = ptrtoint ptr %1048 to i64
-  switch i64 %magicptr1465, label %1050 [
-    i64 -1, label %1049
-    i64 0, label %2190
+1046:                                             ; preds = %3
+  %1047 = load ptr, ptr %1, align 8
+  %magicptr1464 = ptrtoint ptr %1047 to i64
+  switch i64 %magicptr1464, label %1049 [
+    i64 -1, label %1048
+    i64 0, label %2189
   ]
 
-1049:                                             ; preds = %1047
+1048:                                             ; preds = %1046
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1050:                                             ; preds = %1047
-  %1051 = load i64, ptr %1048, align 8
-  %1052 = trunc i64 %1051 to i32
-  %1053 = lshr i32 %1052, 8
-  %1054 = and i32 %1053, 127
-  switch i32 %1054, label %1056 [
-    i32 114, label %parser_node_name.exit1690
-    i32 115, label %1055
+1049:                                             ; preds = %1046
+  %1050 = load i64, ptr %1047, align 8
+  %1051 = trunc i64 %1050 to i32
+  %1052 = lshr i32 %1051, 8
+  %1053 = and i32 %1052, 127
+  switch i32 %1053, label %1055 [
+    i32 114, label %parser_node_name.exit1689
+    i32 115, label %1054
   ]
 
-1055:                                             ; preds = %1050
-  br label %parser_node_name.exit1690
+1054:                                             ; preds = %1049
+  br label %parser_node_name.exit1689
 
-1056:                                             ; preds = %1050
-  %1057 = tail call ptr @ruby_node_name(i32 noundef %1054) #24
-  br label %parser_node_name.exit1690
+1055:                                             ; preds = %1049
+  %1056 = tail call ptr @ruby_node_name(i32 noundef %1053) #24
+  br label %parser_node_name.exit1689
 
-parser_node_name.exit1690:                        ; preds = %1050, %1055, %1056
-  %.0.i1689 = phi ptr [ %1057, %1056 ], [ @.str.524, %1055 ], [ @.str.523, %1050 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1689) #24
-  br label %2190
+parser_node_name.exit1689:                        ; preds = %1049, %1054, %1055
+  %.0.i1688 = phi ptr [ %1056, %1055 ], [ @.str.524, %1054 ], [ @.str.523, %1049 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1688) #24
+  br label %2189
 
-1058:                                             ; preds = %4
-  %1059 = load ptr, ptr %1, align 8
-  %magicptr1466 = ptrtoint ptr %1059 to i64
-  switch i64 %magicptr1466, label %1061 [
-    i64 -1, label %1060
-    i64 0, label %2190
+1057:                                             ; preds = %3
+  %1058 = load ptr, ptr %1, align 8
+  %magicptr1465 = ptrtoint ptr %1058 to i64
+  switch i64 %magicptr1465, label %1060 [
+    i64 -1, label %1059
+    i64 0, label %2189
   ]
 
-1060:                                             ; preds = %1058
+1059:                                             ; preds = %1057
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1061:                                             ; preds = %1058
-  %1062 = load i64, ptr %1059, align 8
-  %1063 = trunc i64 %1062 to i32
-  %1064 = lshr i32 %1063, 8
-  %1065 = and i32 %1064, 127
-  switch i32 %1065, label %1067 [
-    i32 114, label %parser_node_name.exit1692
-    i32 115, label %1066
+1060:                                             ; preds = %1057
+  %1061 = load i64, ptr %1058, align 8
+  %1062 = trunc i64 %1061 to i32
+  %1063 = lshr i32 %1062, 8
+  %1064 = and i32 %1063, 127
+  switch i32 %1064, label %1066 [
+    i32 114, label %parser_node_name.exit1691
+    i32 115, label %1065
   ]
 
-1066:                                             ; preds = %1061
-  br label %parser_node_name.exit1692
+1065:                                             ; preds = %1060
+  br label %parser_node_name.exit1691
 
-1067:                                             ; preds = %1061
-  %1068 = tail call ptr @ruby_node_name(i32 noundef %1065) #24
-  br label %parser_node_name.exit1692
+1066:                                             ; preds = %1060
+  %1067 = tail call ptr @ruby_node_name(i32 noundef %1064) #24
+  br label %parser_node_name.exit1691
 
-parser_node_name.exit1692:                        ; preds = %1061, %1066, %1067
-  %.0.i1691 = phi ptr [ %1068, %1067 ], [ @.str.524, %1066 ], [ @.str.523, %1061 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1691) #24
-  br label %2190
+parser_node_name.exit1691:                        ; preds = %1060, %1065, %1066
+  %.0.i1690 = phi ptr [ %1067, %1066 ], [ @.str.524, %1065 ], [ @.str.523, %1060 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1690) #24
+  br label %2189
 
-1069:                                             ; preds = %4
-  %1070 = load i64, ptr %1, align 8
-  %1071 = tail call i64 @rb_id2str(i64 noundef %1070) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1071) #24
-  br label %2190
+1068:                                             ; preds = %3
+  %1069 = load i64, ptr %1, align 8
+  %1070 = tail call i64 @rb_id2str(i64 noundef %1069) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1070) #24
+  br label %2189
 
-1072:                                             ; preds = %4
-  %1073 = load ptr, ptr %1, align 8
-  %magicptr1467 = ptrtoint ptr %1073 to i64
-  switch i64 %magicptr1467, label %1075 [
-    i64 -1, label %1074
-    i64 0, label %2190
+1071:                                             ; preds = %3
+  %1072 = load ptr, ptr %1, align 8
+  %magicptr1466 = ptrtoint ptr %1072 to i64
+  switch i64 %magicptr1466, label %1074 [
+    i64 -1, label %1073
+    i64 0, label %2189
   ]
 
-1074:                                             ; preds = %1072
+1073:                                             ; preds = %1071
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1075:                                             ; preds = %1072
-  %1076 = load i64, ptr %1073, align 8
-  %1077 = trunc i64 %1076 to i32
-  %1078 = lshr i32 %1077, 8
-  %1079 = and i32 %1078, 127
-  switch i32 %1079, label %1081 [
-    i32 114, label %parser_node_name.exit1694
-    i32 115, label %1080
+1074:                                             ; preds = %1071
+  %1075 = load i64, ptr %1072, align 8
+  %1076 = trunc i64 %1075 to i32
+  %1077 = lshr i32 %1076, 8
+  %1078 = and i32 %1077, 127
+  switch i32 %1078, label %1080 [
+    i32 114, label %parser_node_name.exit1693
+    i32 115, label %1079
   ]
 
-1080:                                             ; preds = %1075
-  br label %parser_node_name.exit1694
+1079:                                             ; preds = %1074
+  br label %parser_node_name.exit1693
 
-1081:                                             ; preds = %1075
-  %1082 = tail call ptr @ruby_node_name(i32 noundef %1079) #24
-  br label %parser_node_name.exit1694
+1080:                                             ; preds = %1074
+  %1081 = tail call ptr @ruby_node_name(i32 noundef %1078) #24
+  br label %parser_node_name.exit1693
 
-parser_node_name.exit1694:                        ; preds = %1075, %1080, %1081
-  %.0.i1693 = phi ptr [ %1082, %1081 ], [ @.str.524, %1080 ], [ @.str.523, %1075 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1693) #24
-  br label %2190
+parser_node_name.exit1693:                        ; preds = %1074, %1079, %1080
+  %.0.i1692 = phi ptr [ %1081, %1080 ], [ @.str.524, %1079 ], [ @.str.523, %1074 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1692) #24
+  br label %2189
 
-1083:                                             ; preds = %4
-  %1084 = load ptr, ptr %1, align 8
-  %magicptr1468 = ptrtoint ptr %1084 to i64
-  switch i64 %magicptr1468, label %1086 [
-    i64 -1, label %1085
-    i64 0, label %2190
+1082:                                             ; preds = %3
+  %1083 = load ptr, ptr %1, align 8
+  %magicptr1467 = ptrtoint ptr %1083 to i64
+  switch i64 %magicptr1467, label %1085 [
+    i64 -1, label %1084
+    i64 0, label %2189
   ]
 
-1085:                                             ; preds = %1083
+1084:                                             ; preds = %1082
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1086:                                             ; preds = %1083
-  %1087 = load i64, ptr %1084, align 8
-  %1088 = trunc i64 %1087 to i32
-  %1089 = lshr i32 %1088, 8
-  %1090 = and i32 %1089, 127
-  switch i32 %1090, label %1092 [
-    i32 114, label %parser_node_name.exit1696
-    i32 115, label %1091
+1085:                                             ; preds = %1082
+  %1086 = load i64, ptr %1083, align 8
+  %1087 = trunc i64 %1086 to i32
+  %1088 = lshr i32 %1087, 8
+  %1089 = and i32 %1088, 127
+  switch i32 %1089, label %1091 [
+    i32 114, label %parser_node_name.exit1695
+    i32 115, label %1090
   ]
 
-1091:                                             ; preds = %1086
-  br label %parser_node_name.exit1696
+1090:                                             ; preds = %1085
+  br label %parser_node_name.exit1695
 
-1092:                                             ; preds = %1086
-  %1093 = tail call ptr @ruby_node_name(i32 noundef %1090) #24
-  br label %parser_node_name.exit1696
+1091:                                             ; preds = %1085
+  %1092 = tail call ptr @ruby_node_name(i32 noundef %1089) #24
+  br label %parser_node_name.exit1695
 
-parser_node_name.exit1696:                        ; preds = %1086, %1091, %1092
-  %.0.i1695 = phi ptr [ %1093, %1092 ], [ @.str.524, %1091 ], [ @.str.523, %1086 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1695) #24
-  br label %2190
+parser_node_name.exit1695:                        ; preds = %1085, %1090, %1091
+  %.0.i1694 = phi ptr [ %1092, %1091 ], [ @.str.524, %1090 ], [ @.str.523, %1085 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1694) #24
+  br label %2189
 
-1094:                                             ; preds = %4
-  %1095 = load ptr, ptr %1, align 8
-  %magicptr1469 = ptrtoint ptr %1095 to i64
-  switch i64 %magicptr1469, label %1097 [
-    i64 -1, label %1096
-    i64 0, label %2190
+1093:                                             ; preds = %3
+  %1094 = load ptr, ptr %1, align 8
+  %magicptr1468 = ptrtoint ptr %1094 to i64
+  switch i64 %magicptr1468, label %1096 [
+    i64 -1, label %1095
+    i64 0, label %2189
   ]
 
-1096:                                             ; preds = %1094
+1095:                                             ; preds = %1093
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1097:                                             ; preds = %1094
-  %1098 = load i64, ptr %1095, align 8
-  %1099 = trunc i64 %1098 to i32
-  %1100 = lshr i32 %1099, 8
-  %1101 = and i32 %1100, 127
-  switch i32 %1101, label %1103 [
-    i32 114, label %parser_node_name.exit1698
-    i32 115, label %1102
+1096:                                             ; preds = %1093
+  %1097 = load i64, ptr %1094, align 8
+  %1098 = trunc i64 %1097 to i32
+  %1099 = lshr i32 %1098, 8
+  %1100 = and i32 %1099, 127
+  switch i32 %1100, label %1102 [
+    i32 114, label %parser_node_name.exit1697
+    i32 115, label %1101
   ]
 
-1102:                                             ; preds = %1097
-  br label %parser_node_name.exit1698
+1101:                                             ; preds = %1096
+  br label %parser_node_name.exit1697
 
-1103:                                             ; preds = %1097
-  %1104 = tail call ptr @ruby_node_name(i32 noundef %1101) #24
-  br label %parser_node_name.exit1698
+1102:                                             ; preds = %1096
+  %1103 = tail call ptr @ruby_node_name(i32 noundef %1100) #24
+  br label %parser_node_name.exit1697
 
-parser_node_name.exit1698:                        ; preds = %1097, %1102, %1103
-  %.0.i1697 = phi ptr [ %1104, %1103 ], [ @.str.524, %1102 ], [ @.str.523, %1097 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1697) #24
-  br label %2190
+parser_node_name.exit1697:                        ; preds = %1096, %1101, %1102
+  %.0.i1696 = phi ptr [ %1103, %1102 ], [ @.str.524, %1101 ], [ @.str.523, %1096 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1696) #24
+  br label %2189
 
-1105:                                             ; preds = %4
-  %1106 = load i64, ptr %1, align 8
-  %1107 = tail call i64 @rb_id2str(i64 noundef %1106) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1107) #24
-  br label %2190
+1104:                                             ; preds = %3
+  %1105 = load i64, ptr %1, align 8
+  %1106 = tail call i64 @rb_id2str(i64 noundef %1105) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1106) #24
+  br label %2189
 
-1108:                                             ; preds = %4
-  %1109 = load i64, ptr %1, align 8
-  %1110 = tail call i64 @rb_id2str(i64 noundef %1109) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1110) #24
-  br label %2190
+1107:                                             ; preds = %3
+  %1108 = load i64, ptr %1, align 8
+  %1109 = tail call i64 @rb_id2str(i64 noundef %1108) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1109) #24
+  br label %2189
 
-1111:                                             ; preds = %4
-  %1112 = load i64, ptr %1, align 8
-  %1113 = tail call i64 @rb_id2str(i64 noundef %1112) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1113) #24
-  br label %2190
+1110:                                             ; preds = %3
+  %1111 = load i64, ptr %1, align 8
+  %1112 = tail call i64 @rb_id2str(i64 noundef %1111) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1112) #24
+  br label %2189
 
-1114:                                             ; preds = %4
-  %1115 = load ptr, ptr %1, align 8
-  %magicptr1470 = ptrtoint ptr %1115 to i64
-  switch i64 %magicptr1470, label %1117 [
-    i64 -1, label %1116
-    i64 0, label %2190
+1113:                                             ; preds = %3
+  %1114 = load ptr, ptr %1, align 8
+  %magicptr1469 = ptrtoint ptr %1114 to i64
+  switch i64 %magicptr1469, label %1116 [
+    i64 -1, label %1115
+    i64 0, label %2189
   ]
 
-1116:                                             ; preds = %1114
+1115:                                             ; preds = %1113
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1117:                                             ; preds = %1114
-  %1118 = load i64, ptr %1115, align 8
-  %1119 = trunc i64 %1118 to i32
-  %1120 = lshr i32 %1119, 8
-  %1121 = and i32 %1120, 127
-  switch i32 %1121, label %1123 [
-    i32 114, label %parser_node_name.exit1700
-    i32 115, label %1122
+1116:                                             ; preds = %1113
+  %1117 = load i64, ptr %1114, align 8
+  %1118 = trunc i64 %1117 to i32
+  %1119 = lshr i32 %1118, 8
+  %1120 = and i32 %1119, 127
+  switch i32 %1120, label %1122 [
+    i32 114, label %parser_node_name.exit1699
+    i32 115, label %1121
   ]
 
-1122:                                             ; preds = %1117
-  br label %parser_node_name.exit1700
+1121:                                             ; preds = %1116
+  br label %parser_node_name.exit1699
 
-1123:                                             ; preds = %1117
-  %1124 = tail call ptr @ruby_node_name(i32 noundef %1121) #24
-  br label %parser_node_name.exit1700
+1122:                                             ; preds = %1116
+  %1123 = tail call ptr @ruby_node_name(i32 noundef %1120) #24
+  br label %parser_node_name.exit1699
 
-parser_node_name.exit1700:                        ; preds = %1117, %1122, %1123
-  %.0.i1699 = phi ptr [ %1124, %1123 ], [ @.str.524, %1122 ], [ @.str.523, %1117 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1699) #24
-  br label %2190
+parser_node_name.exit1699:                        ; preds = %1116, %1121, %1122
+  %.0.i1698 = phi ptr [ %1123, %1122 ], [ @.str.524, %1121 ], [ @.str.523, %1116 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1698) #24
+  br label %2189
 
-1125:                                             ; preds = %4
-  %1126 = load i64, ptr %1, align 8
-  %1127 = tail call i64 @rb_id2str(i64 noundef %1126) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1127) #24
-  br label %2190
+1124:                                             ; preds = %3
+  %1125 = load i64, ptr %1, align 8
+  %1126 = tail call i64 @rb_id2str(i64 noundef %1125) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1126) #24
+  br label %2189
 
-1128:                                             ; preds = %4
-  %1129 = load ptr, ptr %1, align 8
-  %magicptr1471 = ptrtoint ptr %1129 to i64
-  switch i64 %magicptr1471, label %1131 [
-    i64 -1, label %1130
-    i64 0, label %2190
+1127:                                             ; preds = %3
+  %1128 = load ptr, ptr %1, align 8
+  %magicptr1470 = ptrtoint ptr %1128 to i64
+  switch i64 %magicptr1470, label %1130 [
+    i64 -1, label %1129
+    i64 0, label %2189
   ]
 
-1130:                                             ; preds = %1128
+1129:                                             ; preds = %1127
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1131:                                             ; preds = %1128
-  %1132 = load i64, ptr %1129, align 8
-  %1133 = trunc i64 %1132 to i32
-  %1134 = lshr i32 %1133, 8
-  %1135 = and i32 %1134, 127
-  switch i32 %1135, label %1137 [
-    i32 114, label %parser_node_name.exit1702
-    i32 115, label %1136
+1130:                                             ; preds = %1127
+  %1131 = load i64, ptr %1128, align 8
+  %1132 = trunc i64 %1131 to i32
+  %1133 = lshr i32 %1132, 8
+  %1134 = and i32 %1133, 127
+  switch i32 %1134, label %1136 [
+    i32 114, label %parser_node_name.exit1701
+    i32 115, label %1135
   ]
 
-1136:                                             ; preds = %1131
-  br label %parser_node_name.exit1702
+1135:                                             ; preds = %1130
+  br label %parser_node_name.exit1701
 
-1137:                                             ; preds = %1131
-  %1138 = tail call ptr @ruby_node_name(i32 noundef %1135) #24
-  br label %parser_node_name.exit1702
+1136:                                             ; preds = %1130
+  %1137 = tail call ptr @ruby_node_name(i32 noundef %1134) #24
+  br label %parser_node_name.exit1701
 
-parser_node_name.exit1702:                        ; preds = %1131, %1136, %1137
-  %.0.i1701 = phi ptr [ %1138, %1137 ], [ @.str.524, %1136 ], [ @.str.523, %1131 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1701) #24
-  br label %2190
+parser_node_name.exit1701:                        ; preds = %1130, %1135, %1136
+  %.0.i1700 = phi ptr [ %1137, %1136 ], [ @.str.524, %1135 ], [ @.str.523, %1130 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1700) #24
+  br label %2189
 
-1139:                                             ; preds = %4
-  %1140 = load ptr, ptr %1, align 8
-  %magicptr1472 = ptrtoint ptr %1140 to i64
-  switch i64 %magicptr1472, label %1142 [
-    i64 -1, label %1141
-    i64 0, label %2190
+1138:                                             ; preds = %3
+  %1139 = load ptr, ptr %1, align 8
+  %magicptr1471 = ptrtoint ptr %1139 to i64
+  switch i64 %magicptr1471, label %1141 [
+    i64 -1, label %1140
+    i64 0, label %2189
   ]
 
-1141:                                             ; preds = %1139
+1140:                                             ; preds = %1138
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1142:                                             ; preds = %1139
-  %1143 = load i64, ptr %1140, align 8
-  %1144 = trunc i64 %1143 to i32
-  %1145 = lshr i32 %1144, 8
-  %1146 = and i32 %1145, 127
-  switch i32 %1146, label %1148 [
-    i32 114, label %parser_node_name.exit1704
-    i32 115, label %1147
+1141:                                             ; preds = %1138
+  %1142 = load i64, ptr %1139, align 8
+  %1143 = trunc i64 %1142 to i32
+  %1144 = lshr i32 %1143, 8
+  %1145 = and i32 %1144, 127
+  switch i32 %1145, label %1147 [
+    i32 114, label %parser_node_name.exit1703
+    i32 115, label %1146
   ]
 
-1147:                                             ; preds = %1142
-  br label %parser_node_name.exit1704
+1146:                                             ; preds = %1141
+  br label %parser_node_name.exit1703
 
-1148:                                             ; preds = %1142
-  %1149 = tail call ptr @ruby_node_name(i32 noundef %1146) #24
-  br label %parser_node_name.exit1704
+1147:                                             ; preds = %1141
+  %1148 = tail call ptr @ruby_node_name(i32 noundef %1145) #24
+  br label %parser_node_name.exit1703
 
-parser_node_name.exit1704:                        ; preds = %1142, %1147, %1148
-  %.0.i1703 = phi ptr [ %1149, %1148 ], [ @.str.524, %1147 ], [ @.str.523, %1142 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1703) #24
-  br label %2190
+parser_node_name.exit1703:                        ; preds = %1141, %1146, %1147
+  %.0.i1702 = phi ptr [ %1148, %1147 ], [ @.str.524, %1146 ], [ @.str.523, %1141 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1702) #24
+  br label %2189
 
-1150:                                             ; preds = %4
-  %1151 = load ptr, ptr %1, align 8
-  %magicptr1473 = ptrtoint ptr %1151 to i64
-  switch i64 %magicptr1473, label %1153 [
-    i64 -1, label %1152
-    i64 0, label %2190
+1149:                                             ; preds = %3
+  %1150 = load ptr, ptr %1, align 8
+  %magicptr1472 = ptrtoint ptr %1150 to i64
+  switch i64 %magicptr1472, label %1152 [
+    i64 -1, label %1151
+    i64 0, label %2189
   ]
 
-1152:                                             ; preds = %1150
+1151:                                             ; preds = %1149
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1153:                                             ; preds = %1150
-  %1154 = load i64, ptr %1151, align 8
-  %1155 = trunc i64 %1154 to i32
-  %1156 = lshr i32 %1155, 8
-  %1157 = and i32 %1156, 127
-  switch i32 %1157, label %1159 [
-    i32 114, label %parser_node_name.exit1706
-    i32 115, label %1158
+1152:                                             ; preds = %1149
+  %1153 = load i64, ptr %1150, align 8
+  %1154 = trunc i64 %1153 to i32
+  %1155 = lshr i32 %1154, 8
+  %1156 = and i32 %1155, 127
+  switch i32 %1156, label %1158 [
+    i32 114, label %parser_node_name.exit1705
+    i32 115, label %1157
   ]
 
-1158:                                             ; preds = %1153
-  br label %parser_node_name.exit1706
+1157:                                             ; preds = %1152
+  br label %parser_node_name.exit1705
 
-1159:                                             ; preds = %1153
-  %1160 = tail call ptr @ruby_node_name(i32 noundef %1157) #24
-  br label %parser_node_name.exit1706
+1158:                                             ; preds = %1152
+  %1159 = tail call ptr @ruby_node_name(i32 noundef %1156) #24
+  br label %parser_node_name.exit1705
 
-parser_node_name.exit1706:                        ; preds = %1153, %1158, %1159
-  %.0.i1705 = phi ptr [ %1160, %1159 ], [ @.str.524, %1158 ], [ @.str.523, %1153 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1705) #24
-  br label %2190
+parser_node_name.exit1705:                        ; preds = %1152, %1157, %1158
+  %.0.i1704 = phi ptr [ %1159, %1158 ], [ @.str.524, %1157 ], [ @.str.523, %1152 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1704) #24
+  br label %2189
 
-1161:                                             ; preds = %4
-  %1162 = load ptr, ptr %1, align 8
-  %magicptr1474 = ptrtoint ptr %1162 to i64
-  switch i64 %magicptr1474, label %1164 [
-    i64 -1, label %1163
-    i64 0, label %2190
+1160:                                             ; preds = %3
+  %1161 = load ptr, ptr %1, align 8
+  %magicptr1473 = ptrtoint ptr %1161 to i64
+  switch i64 %magicptr1473, label %1163 [
+    i64 -1, label %1162
+    i64 0, label %2189
   ]
 
-1163:                                             ; preds = %1161
+1162:                                             ; preds = %1160
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1164:                                             ; preds = %1161
-  %1165 = load i64, ptr %1162, align 8
-  %1166 = trunc i64 %1165 to i32
-  %1167 = lshr i32 %1166, 8
-  %1168 = and i32 %1167, 127
-  switch i32 %1168, label %1170 [
-    i32 114, label %parser_node_name.exit1708
-    i32 115, label %1169
+1163:                                             ; preds = %1160
+  %1164 = load i64, ptr %1161, align 8
+  %1165 = trunc i64 %1164 to i32
+  %1166 = lshr i32 %1165, 8
+  %1167 = and i32 %1166, 127
+  switch i32 %1167, label %1169 [
+    i32 114, label %parser_node_name.exit1707
+    i32 115, label %1168
   ]
 
-1169:                                             ; preds = %1164
-  br label %parser_node_name.exit1708
+1168:                                             ; preds = %1163
+  br label %parser_node_name.exit1707
 
-1170:                                             ; preds = %1164
-  %1171 = tail call ptr @ruby_node_name(i32 noundef %1168) #24
-  br label %parser_node_name.exit1708
+1169:                                             ; preds = %1163
+  %1170 = tail call ptr @ruby_node_name(i32 noundef %1167) #24
+  br label %parser_node_name.exit1707
 
-parser_node_name.exit1708:                        ; preds = %1164, %1169, %1170
-  %.0.i1707 = phi ptr [ %1171, %1170 ], [ @.str.524, %1169 ], [ @.str.523, %1164 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1707) #24
-  br label %2190
+parser_node_name.exit1707:                        ; preds = %1163, %1168, %1169
+  %.0.i1706 = phi ptr [ %1170, %1169 ], [ @.str.524, %1168 ], [ @.str.523, %1163 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1706) #24
+  br label %2189
 
-1172:                                             ; preds = %4
-  %1173 = load ptr, ptr %1, align 8
-  %magicptr1475 = ptrtoint ptr %1173 to i64
-  switch i64 %magicptr1475, label %1175 [
-    i64 -1, label %1174
-    i64 0, label %2190
+1171:                                             ; preds = %3
+  %1172 = load ptr, ptr %1, align 8
+  %magicptr1474 = ptrtoint ptr %1172 to i64
+  switch i64 %magicptr1474, label %1174 [
+    i64 -1, label %1173
+    i64 0, label %2189
   ]
 
-1174:                                             ; preds = %1172
+1173:                                             ; preds = %1171
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1175:                                             ; preds = %1172
-  %1176 = load i64, ptr %1173, align 8
-  %1177 = trunc i64 %1176 to i32
-  %1178 = lshr i32 %1177, 8
-  %1179 = and i32 %1178, 127
-  switch i32 %1179, label %1181 [
-    i32 114, label %parser_node_name.exit1710
-    i32 115, label %1180
+1174:                                             ; preds = %1171
+  %1175 = load i64, ptr %1172, align 8
+  %1176 = trunc i64 %1175 to i32
+  %1177 = lshr i32 %1176, 8
+  %1178 = and i32 %1177, 127
+  switch i32 %1178, label %1180 [
+    i32 114, label %parser_node_name.exit1709
+    i32 115, label %1179
   ]
 
-1180:                                             ; preds = %1175
-  br label %parser_node_name.exit1710
+1179:                                             ; preds = %1174
+  br label %parser_node_name.exit1709
 
-1181:                                             ; preds = %1175
-  %1182 = tail call ptr @ruby_node_name(i32 noundef %1179) #24
-  br label %parser_node_name.exit1710
+1180:                                             ; preds = %1174
+  %1181 = tail call ptr @ruby_node_name(i32 noundef %1178) #24
+  br label %parser_node_name.exit1709
 
-parser_node_name.exit1710:                        ; preds = %1175, %1180, %1181
-  %.0.i1709 = phi ptr [ %1182, %1181 ], [ @.str.524, %1180 ], [ @.str.523, %1175 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1709) #24
-  br label %2190
+parser_node_name.exit1709:                        ; preds = %1174, %1179, %1180
+  %.0.i1708 = phi ptr [ %1181, %1180 ], [ @.str.524, %1179 ], [ @.str.523, %1174 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1708) #24
+  br label %2189
 
-1183:                                             ; preds = %4
-  %1184 = load ptr, ptr %1, align 8
-  %magicptr1476 = ptrtoint ptr %1184 to i64
-  switch i64 %magicptr1476, label %1186 [
-    i64 -1, label %1185
-    i64 0, label %2190
+1182:                                             ; preds = %3
+  %1183 = load ptr, ptr %1, align 8
+  %magicptr1475 = ptrtoint ptr %1183 to i64
+  switch i64 %magicptr1475, label %1185 [
+    i64 -1, label %1184
+    i64 0, label %2189
   ]
 
-1185:                                             ; preds = %1183
+1184:                                             ; preds = %1182
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1186:                                             ; preds = %1183
-  %1187 = load i64, ptr %1184, align 8
-  %1188 = trunc i64 %1187 to i32
-  %1189 = lshr i32 %1188, 8
-  %1190 = and i32 %1189, 127
-  switch i32 %1190, label %1192 [
-    i32 114, label %parser_node_name.exit1712
-    i32 115, label %1191
+1185:                                             ; preds = %1182
+  %1186 = load i64, ptr %1183, align 8
+  %1187 = trunc i64 %1186 to i32
+  %1188 = lshr i32 %1187, 8
+  %1189 = and i32 %1188, 127
+  switch i32 %1189, label %1191 [
+    i32 114, label %parser_node_name.exit1711
+    i32 115, label %1190
   ]
 
-1191:                                             ; preds = %1186
-  br label %parser_node_name.exit1712
+1190:                                             ; preds = %1185
+  br label %parser_node_name.exit1711
 
-1192:                                             ; preds = %1186
-  %1193 = tail call ptr @ruby_node_name(i32 noundef %1190) #24
-  br label %parser_node_name.exit1712
+1191:                                             ; preds = %1185
+  %1192 = tail call ptr @ruby_node_name(i32 noundef %1189) #24
+  br label %parser_node_name.exit1711
 
-parser_node_name.exit1712:                        ; preds = %1186, %1191, %1192
-  %.0.i1711 = phi ptr [ %1193, %1192 ], [ @.str.524, %1191 ], [ @.str.523, %1186 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1711) #24
-  br label %2190
+parser_node_name.exit1711:                        ; preds = %1185, %1190, %1191
+  %.0.i1710 = phi ptr [ %1192, %1191 ], [ @.str.524, %1190 ], [ @.str.523, %1185 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1710) #24
+  br label %2189
 
-1194:                                             ; preds = %4
-  %1195 = load ptr, ptr %1, align 8
-  %magicptr1477 = ptrtoint ptr %1195 to i64
-  switch i64 %magicptr1477, label %1197 [
-    i64 -1, label %1196
-    i64 0, label %2190
+1193:                                             ; preds = %3
+  %1194 = load ptr, ptr %1, align 8
+  %magicptr1476 = ptrtoint ptr %1194 to i64
+  switch i64 %magicptr1476, label %1196 [
+    i64 -1, label %1195
+    i64 0, label %2189
   ]
 
-1196:                                             ; preds = %1194
+1195:                                             ; preds = %1193
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1197:                                             ; preds = %1194
-  %1198 = load i64, ptr %1195, align 8
-  %1199 = trunc i64 %1198 to i32
-  %1200 = lshr i32 %1199, 8
-  %1201 = and i32 %1200, 127
-  switch i32 %1201, label %1203 [
-    i32 114, label %parser_node_name.exit1714
-    i32 115, label %1202
+1196:                                             ; preds = %1193
+  %1197 = load i64, ptr %1194, align 8
+  %1198 = trunc i64 %1197 to i32
+  %1199 = lshr i32 %1198, 8
+  %1200 = and i32 %1199, 127
+  switch i32 %1200, label %1202 [
+    i32 114, label %parser_node_name.exit1713
+    i32 115, label %1201
   ]
 
-1202:                                             ; preds = %1197
-  br label %parser_node_name.exit1714
+1201:                                             ; preds = %1196
+  br label %parser_node_name.exit1713
 
-1203:                                             ; preds = %1197
-  %1204 = tail call ptr @ruby_node_name(i32 noundef %1201) #24
-  br label %parser_node_name.exit1714
+1202:                                             ; preds = %1196
+  %1203 = tail call ptr @ruby_node_name(i32 noundef %1200) #24
+  br label %parser_node_name.exit1713
 
-parser_node_name.exit1714:                        ; preds = %1197, %1202, %1203
-  %.0.i1713 = phi ptr [ %1204, %1203 ], [ @.str.524, %1202 ], [ @.str.523, %1197 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1713) #24
-  br label %2190
+parser_node_name.exit1713:                        ; preds = %1196, %1201, %1202
+  %.0.i1712 = phi ptr [ %1203, %1202 ], [ @.str.524, %1201 ], [ @.str.523, %1196 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1712) #24
+  br label %2189
 
-1205:                                             ; preds = %4
-  %1206 = load ptr, ptr %1, align 8
-  %magicptr1478 = ptrtoint ptr %1206 to i64
-  switch i64 %magicptr1478, label %1208 [
-    i64 -1, label %1207
-    i64 0, label %2190
+1204:                                             ; preds = %3
+  %1205 = load ptr, ptr %1, align 8
+  %magicptr1477 = ptrtoint ptr %1205 to i64
+  switch i64 %magicptr1477, label %1207 [
+    i64 -1, label %1206
+    i64 0, label %2189
   ]
 
-1207:                                             ; preds = %1205
+1206:                                             ; preds = %1204
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1208:                                             ; preds = %1205
-  %1209 = load i64, ptr %1206, align 8
-  %1210 = trunc i64 %1209 to i32
-  %1211 = lshr i32 %1210, 8
-  %1212 = and i32 %1211, 127
-  switch i32 %1212, label %1214 [
-    i32 114, label %parser_node_name.exit1716
-    i32 115, label %1213
+1207:                                             ; preds = %1204
+  %1208 = load i64, ptr %1205, align 8
+  %1209 = trunc i64 %1208 to i32
+  %1210 = lshr i32 %1209, 8
+  %1211 = and i32 %1210, 127
+  switch i32 %1211, label %1213 [
+    i32 114, label %parser_node_name.exit1715
+    i32 115, label %1212
   ]
 
-1213:                                             ; preds = %1208
-  br label %parser_node_name.exit1716
+1212:                                             ; preds = %1207
+  br label %parser_node_name.exit1715
 
-1214:                                             ; preds = %1208
-  %1215 = tail call ptr @ruby_node_name(i32 noundef %1212) #24
-  br label %parser_node_name.exit1716
+1213:                                             ; preds = %1207
+  %1214 = tail call ptr @ruby_node_name(i32 noundef %1211) #24
+  br label %parser_node_name.exit1715
 
-parser_node_name.exit1716:                        ; preds = %1208, %1213, %1214
-  %.0.i1715 = phi ptr [ %1215, %1214 ], [ @.str.524, %1213 ], [ @.str.523, %1208 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1715) #24
-  br label %2190
+parser_node_name.exit1715:                        ; preds = %1207, %1212, %1213
+  %.0.i1714 = phi ptr [ %1214, %1213 ], [ @.str.524, %1212 ], [ @.str.523, %1207 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1714) #24
+  br label %2189
 
-1216:                                             ; preds = %4
-  %1217 = load ptr, ptr %1, align 8
-  %magicptr1479 = ptrtoint ptr %1217 to i64
-  switch i64 %magicptr1479, label %1219 [
-    i64 -1, label %1218
-    i64 0, label %2190
+1215:                                             ; preds = %3
+  %1216 = load ptr, ptr %1, align 8
+  %magicptr1478 = ptrtoint ptr %1216 to i64
+  switch i64 %magicptr1478, label %1218 [
+    i64 -1, label %1217
+    i64 0, label %2189
   ]
 
-1218:                                             ; preds = %1216
+1217:                                             ; preds = %1215
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1219:                                             ; preds = %1216
-  %1220 = load i64, ptr %1217, align 8
-  %1221 = trunc i64 %1220 to i32
-  %1222 = lshr i32 %1221, 8
-  %1223 = and i32 %1222, 127
-  switch i32 %1223, label %1225 [
-    i32 114, label %parser_node_name.exit1718
-    i32 115, label %1224
+1218:                                             ; preds = %1215
+  %1219 = load i64, ptr %1216, align 8
+  %1220 = trunc i64 %1219 to i32
+  %1221 = lshr i32 %1220, 8
+  %1222 = and i32 %1221, 127
+  switch i32 %1222, label %1224 [
+    i32 114, label %parser_node_name.exit1717
+    i32 115, label %1223
   ]
 
-1224:                                             ; preds = %1219
-  br label %parser_node_name.exit1718
+1223:                                             ; preds = %1218
+  br label %parser_node_name.exit1717
 
-1225:                                             ; preds = %1219
-  %1226 = tail call ptr @ruby_node_name(i32 noundef %1223) #24
-  br label %parser_node_name.exit1718
+1224:                                             ; preds = %1218
+  %1225 = tail call ptr @ruby_node_name(i32 noundef %1222) #24
+  br label %parser_node_name.exit1717
 
-parser_node_name.exit1718:                        ; preds = %1219, %1224, %1225
-  %.0.i1717 = phi ptr [ %1226, %1225 ], [ @.str.524, %1224 ], [ @.str.523, %1219 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1717) #24
-  br label %2190
+parser_node_name.exit1717:                        ; preds = %1218, %1223, %1224
+  %.0.i1716 = phi ptr [ %1225, %1224 ], [ @.str.524, %1223 ], [ @.str.523, %1218 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1716) #24
+  br label %2189
 
-1227:                                             ; preds = %4
-  %1228 = load ptr, ptr %1, align 8
-  %magicptr1480 = ptrtoint ptr %1228 to i64
-  switch i64 %magicptr1480, label %1230 [
-    i64 -1, label %1229
-    i64 0, label %2190
+1226:                                             ; preds = %3
+  %1227 = load ptr, ptr %1, align 8
+  %magicptr1479 = ptrtoint ptr %1227 to i64
+  switch i64 %magicptr1479, label %1229 [
+    i64 -1, label %1228
+    i64 0, label %2189
   ]
 
-1229:                                             ; preds = %1227
+1228:                                             ; preds = %1226
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1230:                                             ; preds = %1227
-  %1231 = load i64, ptr %1228, align 8
-  %1232 = trunc i64 %1231 to i32
-  %1233 = lshr i32 %1232, 8
-  %1234 = and i32 %1233, 127
-  switch i32 %1234, label %1236 [
-    i32 114, label %parser_node_name.exit1720
-    i32 115, label %1235
+1229:                                             ; preds = %1226
+  %1230 = load i64, ptr %1227, align 8
+  %1231 = trunc i64 %1230 to i32
+  %1232 = lshr i32 %1231, 8
+  %1233 = and i32 %1232, 127
+  switch i32 %1233, label %1235 [
+    i32 114, label %parser_node_name.exit1719
+    i32 115, label %1234
   ]
 
-1235:                                             ; preds = %1230
-  br label %parser_node_name.exit1720
+1234:                                             ; preds = %1229
+  br label %parser_node_name.exit1719
 
-1236:                                             ; preds = %1230
-  %1237 = tail call ptr @ruby_node_name(i32 noundef %1234) #24
-  br label %parser_node_name.exit1720
+1235:                                             ; preds = %1229
+  %1236 = tail call ptr @ruby_node_name(i32 noundef %1233) #24
+  br label %parser_node_name.exit1719
 
-parser_node_name.exit1720:                        ; preds = %1230, %1235, %1236
-  %.0.i1719 = phi ptr [ %1237, %1236 ], [ @.str.524, %1235 ], [ @.str.523, %1230 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1719) #24
-  br label %2190
+parser_node_name.exit1719:                        ; preds = %1229, %1234, %1235
+  %.0.i1718 = phi ptr [ %1236, %1235 ], [ @.str.524, %1234 ], [ @.str.523, %1229 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1718) #24
+  br label %2189
 
-1238:                                             ; preds = %4
-  %1239 = load ptr, ptr %1, align 8
-  %magicptr1481 = ptrtoint ptr %1239 to i64
-  switch i64 %magicptr1481, label %1241 [
-    i64 -1, label %1240
-    i64 0, label %2190
+1237:                                             ; preds = %3
+  %1238 = load ptr, ptr %1, align 8
+  %magicptr1480 = ptrtoint ptr %1238 to i64
+  switch i64 %magicptr1480, label %1240 [
+    i64 -1, label %1239
+    i64 0, label %2189
   ]
 
-1240:                                             ; preds = %1238
+1239:                                             ; preds = %1237
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1241:                                             ; preds = %1238
-  %1242 = load i64, ptr %1239, align 8
-  %1243 = trunc i64 %1242 to i32
-  %1244 = lshr i32 %1243, 8
-  %1245 = and i32 %1244, 127
-  switch i32 %1245, label %1247 [
-    i32 114, label %parser_node_name.exit1722
-    i32 115, label %1246
+1240:                                             ; preds = %1237
+  %1241 = load i64, ptr %1238, align 8
+  %1242 = trunc i64 %1241 to i32
+  %1243 = lshr i32 %1242, 8
+  %1244 = and i32 %1243, 127
+  switch i32 %1244, label %1246 [
+    i32 114, label %parser_node_name.exit1721
+    i32 115, label %1245
   ]
 
-1246:                                             ; preds = %1241
-  br label %parser_node_name.exit1722
+1245:                                             ; preds = %1240
+  br label %parser_node_name.exit1721
 
-1247:                                             ; preds = %1241
-  %1248 = tail call ptr @ruby_node_name(i32 noundef %1245) #24
-  br label %parser_node_name.exit1722
+1246:                                             ; preds = %1240
+  %1247 = tail call ptr @ruby_node_name(i32 noundef %1244) #24
+  br label %parser_node_name.exit1721
 
-parser_node_name.exit1722:                        ; preds = %1241, %1246, %1247
-  %.0.i1721 = phi ptr [ %1248, %1247 ], [ @.str.524, %1246 ], [ @.str.523, %1241 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1721) #24
-  br label %2190
+parser_node_name.exit1721:                        ; preds = %1240, %1245, %1246
+  %.0.i1720 = phi ptr [ %1247, %1246 ], [ @.str.524, %1245 ], [ @.str.523, %1240 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1720) #24
+  br label %2189
 
-1249:                                             ; preds = %4
-  %1250 = load ptr, ptr %1, align 8
-  %magicptr1482 = ptrtoint ptr %1250 to i64
-  switch i64 %magicptr1482, label %1252 [
-    i64 -1, label %1251
-    i64 0, label %2190
+1248:                                             ; preds = %3
+  %1249 = load ptr, ptr %1, align 8
+  %magicptr1481 = ptrtoint ptr %1249 to i64
+  switch i64 %magicptr1481, label %1251 [
+    i64 -1, label %1250
+    i64 0, label %2189
   ]
 
-1251:                                             ; preds = %1249
+1250:                                             ; preds = %1248
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1252:                                             ; preds = %1249
-  %1253 = load i64, ptr %1250, align 8
-  %1254 = trunc i64 %1253 to i32
-  %1255 = lshr i32 %1254, 8
-  %1256 = and i32 %1255, 127
-  switch i32 %1256, label %1258 [
-    i32 114, label %parser_node_name.exit1724
-    i32 115, label %1257
+1251:                                             ; preds = %1248
+  %1252 = load i64, ptr %1249, align 8
+  %1253 = trunc i64 %1252 to i32
+  %1254 = lshr i32 %1253, 8
+  %1255 = and i32 %1254, 127
+  switch i32 %1255, label %1257 [
+    i32 114, label %parser_node_name.exit1723
+    i32 115, label %1256
   ]
 
-1257:                                             ; preds = %1252
-  br label %parser_node_name.exit1724
+1256:                                             ; preds = %1251
+  br label %parser_node_name.exit1723
 
-1258:                                             ; preds = %1252
-  %1259 = tail call ptr @ruby_node_name(i32 noundef %1256) #24
-  br label %parser_node_name.exit1724
+1257:                                             ; preds = %1251
+  %1258 = tail call ptr @ruby_node_name(i32 noundef %1255) #24
+  br label %parser_node_name.exit1723
 
-parser_node_name.exit1724:                        ; preds = %1252, %1257, %1258
-  %.0.i1723 = phi ptr [ %1259, %1258 ], [ @.str.524, %1257 ], [ @.str.523, %1252 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1723) #24
-  br label %2190
+parser_node_name.exit1723:                        ; preds = %1251, %1256, %1257
+  %.0.i1722 = phi ptr [ %1258, %1257 ], [ @.str.524, %1256 ], [ @.str.523, %1251 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1722) #24
+  br label %2189
 
-1260:                                             ; preds = %4
-  %1261 = load ptr, ptr %1, align 8
-  %magicptr1483 = ptrtoint ptr %1261 to i64
-  switch i64 %magicptr1483, label %1263 [
-    i64 -1, label %1262
-    i64 0, label %2190
+1259:                                             ; preds = %3
+  %1260 = load ptr, ptr %1, align 8
+  %magicptr1482 = ptrtoint ptr %1260 to i64
+  switch i64 %magicptr1482, label %1262 [
+    i64 -1, label %1261
+    i64 0, label %2189
   ]
 
-1262:                                             ; preds = %1260
+1261:                                             ; preds = %1259
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1263:                                             ; preds = %1260
-  %1264 = load i64, ptr %1261, align 8
-  %1265 = trunc i64 %1264 to i32
-  %1266 = lshr i32 %1265, 8
-  %1267 = and i32 %1266, 127
-  switch i32 %1267, label %1269 [
-    i32 114, label %parser_node_name.exit1726
-    i32 115, label %1268
+1262:                                             ; preds = %1259
+  %1263 = load i64, ptr %1260, align 8
+  %1264 = trunc i64 %1263 to i32
+  %1265 = lshr i32 %1264, 8
+  %1266 = and i32 %1265, 127
+  switch i32 %1266, label %1268 [
+    i32 114, label %parser_node_name.exit1725
+    i32 115, label %1267
   ]
 
-1268:                                             ; preds = %1263
-  br label %parser_node_name.exit1726
+1267:                                             ; preds = %1262
+  br label %parser_node_name.exit1725
 
-1269:                                             ; preds = %1263
-  %1270 = tail call ptr @ruby_node_name(i32 noundef %1267) #24
-  br label %parser_node_name.exit1726
+1268:                                             ; preds = %1262
+  %1269 = tail call ptr @ruby_node_name(i32 noundef %1266) #24
+  br label %parser_node_name.exit1725
 
-parser_node_name.exit1726:                        ; preds = %1263, %1268, %1269
-  %.0.i1725 = phi ptr [ %1270, %1269 ], [ @.str.524, %1268 ], [ @.str.523, %1263 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1725) #24
-  br label %2190
+parser_node_name.exit1725:                        ; preds = %1262, %1267, %1268
+  %.0.i1724 = phi ptr [ %1269, %1268 ], [ @.str.524, %1267 ], [ @.str.523, %1262 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1724) #24
+  br label %2189
 
-1271:                                             ; preds = %4
-  %1272 = load ptr, ptr %1, align 8
-  %magicptr1484 = ptrtoint ptr %1272 to i64
-  switch i64 %magicptr1484, label %1274 [
-    i64 -1, label %1273
-    i64 0, label %2190
+1270:                                             ; preds = %3
+  %1271 = load ptr, ptr %1, align 8
+  %magicptr1483 = ptrtoint ptr %1271 to i64
+  switch i64 %magicptr1483, label %1273 [
+    i64 -1, label %1272
+    i64 0, label %2189
   ]
 
-1273:                                             ; preds = %1271
+1272:                                             ; preds = %1270
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1274:                                             ; preds = %1271
-  %1275 = load i64, ptr %1272, align 8
-  %1276 = trunc i64 %1275 to i32
-  %1277 = lshr i32 %1276, 8
-  %1278 = and i32 %1277, 127
-  switch i32 %1278, label %1280 [
-    i32 114, label %parser_node_name.exit1728
-    i32 115, label %1279
+1273:                                             ; preds = %1270
+  %1274 = load i64, ptr %1271, align 8
+  %1275 = trunc i64 %1274 to i32
+  %1276 = lshr i32 %1275, 8
+  %1277 = and i32 %1276, 127
+  switch i32 %1277, label %1279 [
+    i32 114, label %parser_node_name.exit1727
+    i32 115, label %1278
   ]
 
-1279:                                             ; preds = %1274
-  br label %parser_node_name.exit1728
+1278:                                             ; preds = %1273
+  br label %parser_node_name.exit1727
 
-1280:                                             ; preds = %1274
-  %1281 = tail call ptr @ruby_node_name(i32 noundef %1278) #24
-  br label %parser_node_name.exit1728
+1279:                                             ; preds = %1273
+  %1280 = tail call ptr @ruby_node_name(i32 noundef %1277) #24
+  br label %parser_node_name.exit1727
 
-parser_node_name.exit1728:                        ; preds = %1274, %1279, %1280
-  %.0.i1727 = phi ptr [ %1281, %1280 ], [ @.str.524, %1279 ], [ @.str.523, %1274 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1727) #24
-  br label %2190
+parser_node_name.exit1727:                        ; preds = %1273, %1278, %1279
+  %.0.i1726 = phi ptr [ %1280, %1279 ], [ @.str.524, %1278 ], [ @.str.523, %1273 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1726) #24
+  br label %2189
 
-1282:                                             ; preds = %4
-  %1283 = load ptr, ptr %1, align 8
-  %magicptr1485 = ptrtoint ptr %1283 to i64
-  switch i64 %magicptr1485, label %1285 [
-    i64 -1, label %1284
-    i64 0, label %2190
+1281:                                             ; preds = %3
+  %1282 = load ptr, ptr %1, align 8
+  %magicptr1484 = ptrtoint ptr %1282 to i64
+  switch i64 %magicptr1484, label %1284 [
+    i64 -1, label %1283
+    i64 0, label %2189
   ]
 
-1284:                                             ; preds = %1282
+1283:                                             ; preds = %1281
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1285:                                             ; preds = %1282
-  %1286 = load i64, ptr %1283, align 8
-  %1287 = trunc i64 %1286 to i32
-  %1288 = lshr i32 %1287, 8
-  %1289 = and i32 %1288, 127
-  switch i32 %1289, label %1291 [
-    i32 114, label %parser_node_name.exit1730
-    i32 115, label %1290
+1284:                                             ; preds = %1281
+  %1285 = load i64, ptr %1282, align 8
+  %1286 = trunc i64 %1285 to i32
+  %1287 = lshr i32 %1286, 8
+  %1288 = and i32 %1287, 127
+  switch i32 %1288, label %1290 [
+    i32 114, label %parser_node_name.exit1729
+    i32 115, label %1289
   ]
 
-1290:                                             ; preds = %1285
-  br label %parser_node_name.exit1730
+1289:                                             ; preds = %1284
+  br label %parser_node_name.exit1729
 
-1291:                                             ; preds = %1285
-  %1292 = tail call ptr @ruby_node_name(i32 noundef %1289) #24
-  br label %parser_node_name.exit1730
+1290:                                             ; preds = %1284
+  %1291 = tail call ptr @ruby_node_name(i32 noundef %1288) #24
+  br label %parser_node_name.exit1729
 
-parser_node_name.exit1730:                        ; preds = %1285, %1290, %1291
-  %.0.i1729 = phi ptr [ %1292, %1291 ], [ @.str.524, %1290 ], [ @.str.523, %1285 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1729) #24
-  br label %2190
+parser_node_name.exit1729:                        ; preds = %1284, %1289, %1290
+  %.0.i1728 = phi ptr [ %1291, %1290 ], [ @.str.524, %1289 ], [ @.str.523, %1284 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1728) #24
+  br label %2189
 
-1293:                                             ; preds = %4
-  %1294 = load ptr, ptr %1, align 8
-  %magicptr1486 = ptrtoint ptr %1294 to i64
-  switch i64 %magicptr1486, label %1296 [
-    i64 -1, label %1295
-    i64 0, label %2190
+1292:                                             ; preds = %3
+  %1293 = load ptr, ptr %1, align 8
+  %magicptr1485 = ptrtoint ptr %1293 to i64
+  switch i64 %magicptr1485, label %1295 [
+    i64 -1, label %1294
+    i64 0, label %2189
   ]
 
-1295:                                             ; preds = %1293
+1294:                                             ; preds = %1292
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1296:                                             ; preds = %1293
-  %1297 = load i64, ptr %1294, align 8
-  %1298 = trunc i64 %1297 to i32
-  %1299 = lshr i32 %1298, 8
-  %1300 = and i32 %1299, 127
-  switch i32 %1300, label %1302 [
-    i32 114, label %parser_node_name.exit1732
-    i32 115, label %1301
+1295:                                             ; preds = %1292
+  %1296 = load i64, ptr %1293, align 8
+  %1297 = trunc i64 %1296 to i32
+  %1298 = lshr i32 %1297, 8
+  %1299 = and i32 %1298, 127
+  switch i32 %1299, label %1301 [
+    i32 114, label %parser_node_name.exit1731
+    i32 115, label %1300
   ]
 
-1301:                                             ; preds = %1296
-  br label %parser_node_name.exit1732
+1300:                                             ; preds = %1295
+  br label %parser_node_name.exit1731
 
-1302:                                             ; preds = %1296
-  %1303 = tail call ptr @ruby_node_name(i32 noundef %1300) #24
-  br label %parser_node_name.exit1732
+1301:                                             ; preds = %1295
+  %1302 = tail call ptr @ruby_node_name(i32 noundef %1299) #24
+  br label %parser_node_name.exit1731
 
-parser_node_name.exit1732:                        ; preds = %1296, %1301, %1302
-  %.0.i1731 = phi ptr [ %1303, %1302 ], [ @.str.524, %1301 ], [ @.str.523, %1296 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1731) #24
-  br label %2190
+parser_node_name.exit1731:                        ; preds = %1295, %1300, %1301
+  %.0.i1730 = phi ptr [ %1302, %1301 ], [ @.str.524, %1300 ], [ @.str.523, %1295 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1730) #24
+  br label %2189
 
-1304:                                             ; preds = %4
-  %1305 = load ptr, ptr %1, align 8
-  %magicptr1487 = ptrtoint ptr %1305 to i64
-  switch i64 %magicptr1487, label %1307 [
-    i64 -1, label %1306
-    i64 0, label %2190
+1303:                                             ; preds = %3
+  %1304 = load ptr, ptr %1, align 8
+  %magicptr1486 = ptrtoint ptr %1304 to i64
+  switch i64 %magicptr1486, label %1306 [
+    i64 -1, label %1305
+    i64 0, label %2189
   ]
 
-1306:                                             ; preds = %1304
+1305:                                             ; preds = %1303
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1307:                                             ; preds = %1304
-  %1308 = load i64, ptr %1305, align 8
-  %1309 = trunc i64 %1308 to i32
-  %1310 = lshr i32 %1309, 8
-  %1311 = and i32 %1310, 127
-  switch i32 %1311, label %1313 [
-    i32 114, label %parser_node_name.exit1734
-    i32 115, label %1312
+1306:                                             ; preds = %1303
+  %1307 = load i64, ptr %1304, align 8
+  %1308 = trunc i64 %1307 to i32
+  %1309 = lshr i32 %1308, 8
+  %1310 = and i32 %1309, 127
+  switch i32 %1310, label %1312 [
+    i32 114, label %parser_node_name.exit1733
+    i32 115, label %1311
   ]
 
-1312:                                             ; preds = %1307
-  br label %parser_node_name.exit1734
+1311:                                             ; preds = %1306
+  br label %parser_node_name.exit1733
 
-1313:                                             ; preds = %1307
-  %1314 = tail call ptr @ruby_node_name(i32 noundef %1311) #24
-  br label %parser_node_name.exit1734
+1312:                                             ; preds = %1306
+  %1313 = tail call ptr @ruby_node_name(i32 noundef %1310) #24
+  br label %parser_node_name.exit1733
 
-parser_node_name.exit1734:                        ; preds = %1307, %1312, %1313
-  %.0.i1733 = phi ptr [ %1314, %1313 ], [ @.str.524, %1312 ], [ @.str.523, %1307 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1733) #24
-  br label %2190
+parser_node_name.exit1733:                        ; preds = %1306, %1311, %1312
+  %.0.i1732 = phi ptr [ %1313, %1312 ], [ @.str.524, %1311 ], [ @.str.523, %1306 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1732) #24
+  br label %2189
 
-1315:                                             ; preds = %4
-  %1316 = load ptr, ptr %1, align 8
-  %magicptr1488 = ptrtoint ptr %1316 to i64
-  switch i64 %magicptr1488, label %1318 [
-    i64 -1, label %1317
-    i64 0, label %2190
+1314:                                             ; preds = %3
+  %1315 = load ptr, ptr %1, align 8
+  %magicptr1487 = ptrtoint ptr %1315 to i64
+  switch i64 %magicptr1487, label %1317 [
+    i64 -1, label %1316
+    i64 0, label %2189
   ]
 
-1317:                                             ; preds = %1315
+1316:                                             ; preds = %1314
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1318:                                             ; preds = %1315
-  %1319 = load i64, ptr %1316, align 8
-  %1320 = trunc i64 %1319 to i32
-  %1321 = lshr i32 %1320, 8
-  %1322 = and i32 %1321, 127
-  switch i32 %1322, label %1324 [
-    i32 114, label %parser_node_name.exit1736
-    i32 115, label %1323
+1317:                                             ; preds = %1314
+  %1318 = load i64, ptr %1315, align 8
+  %1319 = trunc i64 %1318 to i32
+  %1320 = lshr i32 %1319, 8
+  %1321 = and i32 %1320, 127
+  switch i32 %1321, label %1323 [
+    i32 114, label %parser_node_name.exit1735
+    i32 115, label %1322
   ]
 
-1323:                                             ; preds = %1318
-  br label %parser_node_name.exit1736
+1322:                                             ; preds = %1317
+  br label %parser_node_name.exit1735
 
-1324:                                             ; preds = %1318
-  %1325 = tail call ptr @ruby_node_name(i32 noundef %1322) #24
-  br label %parser_node_name.exit1736
+1323:                                             ; preds = %1317
+  %1324 = tail call ptr @ruby_node_name(i32 noundef %1321) #24
+  br label %parser_node_name.exit1735
 
-parser_node_name.exit1736:                        ; preds = %1318, %1323, %1324
-  %.0.i1735 = phi ptr [ %1325, %1324 ], [ @.str.524, %1323 ], [ @.str.523, %1318 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1735) #24
-  br label %2190
+parser_node_name.exit1735:                        ; preds = %1317, %1322, %1323
+  %.0.i1734 = phi ptr [ %1324, %1323 ], [ @.str.524, %1322 ], [ @.str.523, %1317 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1734) #24
+  br label %2189
 
-1326:                                             ; preds = %4
-  %1327 = load ptr, ptr %1, align 8
-  %magicptr1489 = ptrtoint ptr %1327 to i64
-  switch i64 %magicptr1489, label %1329 [
-    i64 -1, label %1328
-    i64 0, label %2190
+1325:                                             ; preds = %3
+  %1326 = load ptr, ptr %1, align 8
+  %magicptr1488 = ptrtoint ptr %1326 to i64
+  switch i64 %magicptr1488, label %1328 [
+    i64 -1, label %1327
+    i64 0, label %2189
   ]
 
-1328:                                             ; preds = %1326
+1327:                                             ; preds = %1325
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1329:                                             ; preds = %1326
-  %1330 = load i64, ptr %1327, align 8
-  %1331 = trunc i64 %1330 to i32
-  %1332 = lshr i32 %1331, 8
-  %1333 = and i32 %1332, 127
-  switch i32 %1333, label %1335 [
-    i32 114, label %parser_node_name.exit1738
-    i32 115, label %1334
+1328:                                             ; preds = %1325
+  %1329 = load i64, ptr %1326, align 8
+  %1330 = trunc i64 %1329 to i32
+  %1331 = lshr i32 %1330, 8
+  %1332 = and i32 %1331, 127
+  switch i32 %1332, label %1334 [
+    i32 114, label %parser_node_name.exit1737
+    i32 115, label %1333
   ]
 
-1334:                                             ; preds = %1329
-  br label %parser_node_name.exit1738
+1333:                                             ; preds = %1328
+  br label %parser_node_name.exit1737
 
-1335:                                             ; preds = %1329
-  %1336 = tail call ptr @ruby_node_name(i32 noundef %1333) #24
-  br label %parser_node_name.exit1738
+1334:                                             ; preds = %1328
+  %1335 = tail call ptr @ruby_node_name(i32 noundef %1332) #24
+  br label %parser_node_name.exit1737
 
-parser_node_name.exit1738:                        ; preds = %1329, %1334, %1335
-  %.0.i1737 = phi ptr [ %1336, %1335 ], [ @.str.524, %1334 ], [ @.str.523, %1329 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1737) #24
-  br label %2190
+parser_node_name.exit1737:                        ; preds = %1328, %1333, %1334
+  %.0.i1736 = phi ptr [ %1335, %1334 ], [ @.str.524, %1333 ], [ @.str.523, %1328 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1736) #24
+  br label %2189
 
-1337:                                             ; preds = %4
-  %1338 = load ptr, ptr %1, align 8
-  %magicptr1490 = ptrtoint ptr %1338 to i64
-  switch i64 %magicptr1490, label %1340 [
-    i64 -1, label %1339
-    i64 0, label %2190
+1336:                                             ; preds = %3
+  %1337 = load ptr, ptr %1, align 8
+  %magicptr1489 = ptrtoint ptr %1337 to i64
+  switch i64 %magicptr1489, label %1339 [
+    i64 -1, label %1338
+    i64 0, label %2189
   ]
 
-1339:                                             ; preds = %1337
+1338:                                             ; preds = %1336
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1340:                                             ; preds = %1337
-  %1341 = load i64, ptr %1338, align 8
-  %1342 = trunc i64 %1341 to i32
-  %1343 = lshr i32 %1342, 8
-  %1344 = and i32 %1343, 127
-  switch i32 %1344, label %1346 [
-    i32 114, label %parser_node_name.exit1740
-    i32 115, label %1345
+1339:                                             ; preds = %1336
+  %1340 = load i64, ptr %1337, align 8
+  %1341 = trunc i64 %1340 to i32
+  %1342 = lshr i32 %1341, 8
+  %1343 = and i32 %1342, 127
+  switch i32 %1343, label %1345 [
+    i32 114, label %parser_node_name.exit1739
+    i32 115, label %1344
   ]
 
-1345:                                             ; preds = %1340
-  br label %parser_node_name.exit1740
+1344:                                             ; preds = %1339
+  br label %parser_node_name.exit1739
 
-1346:                                             ; preds = %1340
-  %1347 = tail call ptr @ruby_node_name(i32 noundef %1344) #24
-  br label %parser_node_name.exit1740
+1345:                                             ; preds = %1339
+  %1346 = tail call ptr @ruby_node_name(i32 noundef %1343) #24
+  br label %parser_node_name.exit1739
 
-parser_node_name.exit1740:                        ; preds = %1340, %1345, %1346
-  %.0.i1739 = phi ptr [ %1347, %1346 ], [ @.str.524, %1345 ], [ @.str.523, %1340 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1739) #24
-  br label %2190
+parser_node_name.exit1739:                        ; preds = %1339, %1344, %1345
+  %.0.i1738 = phi ptr [ %1346, %1345 ], [ @.str.524, %1344 ], [ @.str.523, %1339 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1738) #24
+  br label %2189
 
-1348:                                             ; preds = %4
-  %1349 = load ptr, ptr %1, align 8
-  %magicptr1491 = ptrtoint ptr %1349 to i64
-  switch i64 %magicptr1491, label %1351 [
-    i64 -1, label %1350
-    i64 0, label %2190
+1347:                                             ; preds = %3
+  %1348 = load ptr, ptr %1, align 8
+  %magicptr1490 = ptrtoint ptr %1348 to i64
+  switch i64 %magicptr1490, label %1350 [
+    i64 -1, label %1349
+    i64 0, label %2189
   ]
 
-1350:                                             ; preds = %1348
+1349:                                             ; preds = %1347
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1351:                                             ; preds = %1348
-  %1352 = load i64, ptr %1349, align 8
-  %1353 = trunc i64 %1352 to i32
-  %1354 = lshr i32 %1353, 8
-  %1355 = and i32 %1354, 127
-  switch i32 %1355, label %1357 [
-    i32 114, label %parser_node_name.exit1742
-    i32 115, label %1356
+1350:                                             ; preds = %1347
+  %1351 = load i64, ptr %1348, align 8
+  %1352 = trunc i64 %1351 to i32
+  %1353 = lshr i32 %1352, 8
+  %1354 = and i32 %1353, 127
+  switch i32 %1354, label %1356 [
+    i32 114, label %parser_node_name.exit1741
+    i32 115, label %1355
   ]
 
-1356:                                             ; preds = %1351
-  br label %parser_node_name.exit1742
+1355:                                             ; preds = %1350
+  br label %parser_node_name.exit1741
 
-1357:                                             ; preds = %1351
-  %1358 = tail call ptr @ruby_node_name(i32 noundef %1355) #24
-  br label %parser_node_name.exit1742
+1356:                                             ; preds = %1350
+  %1357 = tail call ptr @ruby_node_name(i32 noundef %1354) #24
+  br label %parser_node_name.exit1741
 
-parser_node_name.exit1742:                        ; preds = %1351, %1356, %1357
-  %.0.i1741 = phi ptr [ %1358, %1357 ], [ @.str.524, %1356 ], [ @.str.523, %1351 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1741) #24
-  br label %2190
+parser_node_name.exit1741:                        ; preds = %1350, %1355, %1356
+  %.0.i1740 = phi ptr [ %1357, %1356 ], [ @.str.524, %1355 ], [ @.str.523, %1350 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1740) #24
+  br label %2189
 
-1359:                                             ; preds = %4
-  %1360 = load ptr, ptr %1, align 8
-  %magicptr1492 = ptrtoint ptr %1360 to i64
-  switch i64 %magicptr1492, label %1362 [
-    i64 -1, label %1361
-    i64 0, label %2190
+1358:                                             ; preds = %3
+  %1359 = load ptr, ptr %1, align 8
+  %magicptr1491 = ptrtoint ptr %1359 to i64
+  switch i64 %magicptr1491, label %1361 [
+    i64 -1, label %1360
+    i64 0, label %2189
   ]
 
-1361:                                             ; preds = %1359
+1360:                                             ; preds = %1358
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1362:                                             ; preds = %1359
-  %1363 = load i64, ptr %1360, align 8
-  %1364 = trunc i64 %1363 to i32
-  %1365 = lshr i32 %1364, 8
-  %1366 = and i32 %1365, 127
-  switch i32 %1366, label %1368 [
-    i32 114, label %parser_node_name.exit1744
-    i32 115, label %1367
+1361:                                             ; preds = %1358
+  %1362 = load i64, ptr %1359, align 8
+  %1363 = trunc i64 %1362 to i32
+  %1364 = lshr i32 %1363, 8
+  %1365 = and i32 %1364, 127
+  switch i32 %1365, label %1367 [
+    i32 114, label %parser_node_name.exit1743
+    i32 115, label %1366
   ]
 
-1367:                                             ; preds = %1362
-  br label %parser_node_name.exit1744
+1366:                                             ; preds = %1361
+  br label %parser_node_name.exit1743
 
-1368:                                             ; preds = %1362
-  %1369 = tail call ptr @ruby_node_name(i32 noundef %1366) #24
-  br label %parser_node_name.exit1744
+1367:                                             ; preds = %1361
+  %1368 = tail call ptr @ruby_node_name(i32 noundef %1365) #24
+  br label %parser_node_name.exit1743
 
-parser_node_name.exit1744:                        ; preds = %1362, %1367, %1368
-  %.0.i1743 = phi ptr [ %1369, %1368 ], [ @.str.524, %1367 ], [ @.str.523, %1362 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1743) #24
-  br label %2190
+parser_node_name.exit1743:                        ; preds = %1361, %1366, %1367
+  %.0.i1742 = phi ptr [ %1368, %1367 ], [ @.str.524, %1366 ], [ @.str.523, %1361 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1742) #24
+  br label %2189
 
-1370:                                             ; preds = %4
-  %1371 = load ptr, ptr %1, align 8
-  %magicptr1493 = ptrtoint ptr %1371 to i64
-  switch i64 %magicptr1493, label %1373 [
-    i64 -1, label %1372
-    i64 0, label %2190
+1369:                                             ; preds = %3
+  %1370 = load ptr, ptr %1, align 8
+  %magicptr1492 = ptrtoint ptr %1370 to i64
+  switch i64 %magicptr1492, label %1372 [
+    i64 -1, label %1371
+    i64 0, label %2189
   ]
 
-1372:                                             ; preds = %1370
+1371:                                             ; preds = %1369
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1373:                                             ; preds = %1370
-  %1374 = load i64, ptr %1371, align 8
-  %1375 = trunc i64 %1374 to i32
-  %1376 = lshr i32 %1375, 8
-  %1377 = and i32 %1376, 127
-  switch i32 %1377, label %1379 [
-    i32 114, label %parser_node_name.exit1746
-    i32 115, label %1378
+1372:                                             ; preds = %1369
+  %1373 = load i64, ptr %1370, align 8
+  %1374 = trunc i64 %1373 to i32
+  %1375 = lshr i32 %1374, 8
+  %1376 = and i32 %1375, 127
+  switch i32 %1376, label %1378 [
+    i32 114, label %parser_node_name.exit1745
+    i32 115, label %1377
   ]
 
-1378:                                             ; preds = %1373
-  br label %parser_node_name.exit1746
+1377:                                             ; preds = %1372
+  br label %parser_node_name.exit1745
 
-1379:                                             ; preds = %1373
-  %1380 = tail call ptr @ruby_node_name(i32 noundef %1377) #24
-  br label %parser_node_name.exit1746
+1378:                                             ; preds = %1372
+  %1379 = tail call ptr @ruby_node_name(i32 noundef %1376) #24
+  br label %parser_node_name.exit1745
 
-parser_node_name.exit1746:                        ; preds = %1373, %1378, %1379
-  %.0.i1745 = phi ptr [ %1380, %1379 ], [ @.str.524, %1378 ], [ @.str.523, %1373 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1745) #24
-  br label %2190
+parser_node_name.exit1745:                        ; preds = %1372, %1377, %1378
+  %.0.i1744 = phi ptr [ %1379, %1378 ], [ @.str.524, %1377 ], [ @.str.523, %1372 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1744) #24
+  br label %2189
 
-1381:                                             ; preds = %4
-  %1382 = load ptr, ptr %1, align 8
-  %magicptr1494 = ptrtoint ptr %1382 to i64
-  switch i64 %magicptr1494, label %1384 [
-    i64 -1, label %1383
-    i64 0, label %2190
+1380:                                             ; preds = %3
+  %1381 = load ptr, ptr %1, align 8
+  %magicptr1493 = ptrtoint ptr %1381 to i64
+  switch i64 %magicptr1493, label %1383 [
+    i64 -1, label %1382
+    i64 0, label %2189
   ]
 
-1383:                                             ; preds = %1381
+1382:                                             ; preds = %1380
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1384:                                             ; preds = %1381
-  %1385 = load i64, ptr %1382, align 8
-  %1386 = trunc i64 %1385 to i32
-  %1387 = lshr i32 %1386, 8
-  %1388 = and i32 %1387, 127
-  switch i32 %1388, label %1390 [
-    i32 114, label %parser_node_name.exit1748
-    i32 115, label %1389
+1383:                                             ; preds = %1380
+  %1384 = load i64, ptr %1381, align 8
+  %1385 = trunc i64 %1384 to i32
+  %1386 = lshr i32 %1385, 8
+  %1387 = and i32 %1386, 127
+  switch i32 %1387, label %1389 [
+    i32 114, label %parser_node_name.exit1747
+    i32 115, label %1388
   ]
 
-1389:                                             ; preds = %1384
-  br label %parser_node_name.exit1748
+1388:                                             ; preds = %1383
+  br label %parser_node_name.exit1747
 
-1390:                                             ; preds = %1384
-  %1391 = tail call ptr @ruby_node_name(i32 noundef %1388) #24
-  br label %parser_node_name.exit1748
+1389:                                             ; preds = %1383
+  %1390 = tail call ptr @ruby_node_name(i32 noundef %1387) #24
+  br label %parser_node_name.exit1747
 
-parser_node_name.exit1748:                        ; preds = %1384, %1389, %1390
-  %.0.i1747 = phi ptr [ %1391, %1390 ], [ @.str.524, %1389 ], [ @.str.523, %1384 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1747) #24
-  br label %2190
+parser_node_name.exit1747:                        ; preds = %1383, %1388, %1389
+  %.0.i1746 = phi ptr [ %1390, %1389 ], [ @.str.524, %1388 ], [ @.str.523, %1383 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1746) #24
+  br label %2189
 
-1392:                                             ; preds = %4
-  %1393 = load ptr, ptr %1, align 8
-  %magicptr1495 = ptrtoint ptr %1393 to i64
-  switch i64 %magicptr1495, label %1395 [
-    i64 -1, label %1394
-    i64 0, label %2190
+1391:                                             ; preds = %3
+  %1392 = load ptr, ptr %1, align 8
+  %magicptr1494 = ptrtoint ptr %1392 to i64
+  switch i64 %magicptr1494, label %1394 [
+    i64 -1, label %1393
+    i64 0, label %2189
   ]
 
-1394:                                             ; preds = %1392
+1393:                                             ; preds = %1391
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1395:                                             ; preds = %1392
-  %1396 = load i64, ptr %1393, align 8
-  %1397 = trunc i64 %1396 to i32
-  %1398 = lshr i32 %1397, 8
-  %1399 = and i32 %1398, 127
-  switch i32 %1399, label %1401 [
-    i32 114, label %parser_node_name.exit1750
-    i32 115, label %1400
+1394:                                             ; preds = %1391
+  %1395 = load i64, ptr %1392, align 8
+  %1396 = trunc i64 %1395 to i32
+  %1397 = lshr i32 %1396, 8
+  %1398 = and i32 %1397, 127
+  switch i32 %1398, label %1400 [
+    i32 114, label %parser_node_name.exit1749
+    i32 115, label %1399
   ]
 
-1400:                                             ; preds = %1395
-  br label %parser_node_name.exit1750
+1399:                                             ; preds = %1394
+  br label %parser_node_name.exit1749
 
-1401:                                             ; preds = %1395
-  %1402 = tail call ptr @ruby_node_name(i32 noundef %1399) #24
-  br label %parser_node_name.exit1750
+1400:                                             ; preds = %1394
+  %1401 = tail call ptr @ruby_node_name(i32 noundef %1398) #24
+  br label %parser_node_name.exit1749
 
-parser_node_name.exit1750:                        ; preds = %1395, %1400, %1401
-  %.0.i1749 = phi ptr [ %1402, %1401 ], [ @.str.524, %1400 ], [ @.str.523, %1395 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1749) #24
-  br label %2190
+parser_node_name.exit1749:                        ; preds = %1394, %1399, %1400
+  %.0.i1748 = phi ptr [ %1401, %1400 ], [ @.str.524, %1399 ], [ @.str.523, %1394 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1748) #24
+  br label %2189
 
-1403:                                             ; preds = %4
-  %1404 = load ptr, ptr %1, align 8
-  %magicptr1496 = ptrtoint ptr %1404 to i64
-  switch i64 %magicptr1496, label %1406 [
-    i64 -1, label %1405
-    i64 0, label %2190
+1402:                                             ; preds = %3
+  %1403 = load ptr, ptr %1, align 8
+  %magicptr1495 = ptrtoint ptr %1403 to i64
+  switch i64 %magicptr1495, label %1405 [
+    i64 -1, label %1404
+    i64 0, label %2189
   ]
 
-1405:                                             ; preds = %1403
+1404:                                             ; preds = %1402
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1406:                                             ; preds = %1403
-  %1407 = load i64, ptr %1404, align 8
-  %1408 = trunc i64 %1407 to i32
-  %1409 = lshr i32 %1408, 8
-  %1410 = and i32 %1409, 127
-  switch i32 %1410, label %1412 [
-    i32 114, label %parser_node_name.exit1752
-    i32 115, label %1411
+1405:                                             ; preds = %1402
+  %1406 = load i64, ptr %1403, align 8
+  %1407 = trunc i64 %1406 to i32
+  %1408 = lshr i32 %1407, 8
+  %1409 = and i32 %1408, 127
+  switch i32 %1409, label %1411 [
+    i32 114, label %parser_node_name.exit1751
+    i32 115, label %1410
   ]
 
-1411:                                             ; preds = %1406
-  br label %parser_node_name.exit1752
+1410:                                             ; preds = %1405
+  br label %parser_node_name.exit1751
 
-1412:                                             ; preds = %1406
-  %1413 = tail call ptr @ruby_node_name(i32 noundef %1410) #24
-  br label %parser_node_name.exit1752
+1411:                                             ; preds = %1405
+  %1412 = tail call ptr @ruby_node_name(i32 noundef %1409) #24
+  br label %parser_node_name.exit1751
 
-parser_node_name.exit1752:                        ; preds = %1406, %1411, %1412
-  %.0.i1751 = phi ptr [ %1413, %1412 ], [ @.str.524, %1411 ], [ @.str.523, %1406 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1751) #24
-  br label %2190
+parser_node_name.exit1751:                        ; preds = %1405, %1410, %1411
+  %.0.i1750 = phi ptr [ %1412, %1411 ], [ @.str.524, %1410 ], [ @.str.523, %1405 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1750) #24
+  br label %2189
 
-1414:                                             ; preds = %4
-  %1415 = load ptr, ptr %1, align 8
-  %magicptr1497 = ptrtoint ptr %1415 to i64
-  switch i64 %magicptr1497, label %1417 [
-    i64 -1, label %1416
-    i64 0, label %2190
+1413:                                             ; preds = %3
+  %1414 = load ptr, ptr %1, align 8
+  %magicptr1496 = ptrtoint ptr %1414 to i64
+  switch i64 %magicptr1496, label %1416 [
+    i64 -1, label %1415
+    i64 0, label %2189
   ]
 
-1416:                                             ; preds = %1414
+1415:                                             ; preds = %1413
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1417:                                             ; preds = %1414
-  %1418 = load i64, ptr %1415, align 8
-  %1419 = trunc i64 %1418 to i32
-  %1420 = lshr i32 %1419, 8
-  %1421 = and i32 %1420, 127
-  switch i32 %1421, label %1423 [
-    i32 114, label %parser_node_name.exit1754
-    i32 115, label %1422
+1416:                                             ; preds = %1413
+  %1417 = load i64, ptr %1414, align 8
+  %1418 = trunc i64 %1417 to i32
+  %1419 = lshr i32 %1418, 8
+  %1420 = and i32 %1419, 127
+  switch i32 %1420, label %1422 [
+    i32 114, label %parser_node_name.exit1753
+    i32 115, label %1421
   ]
 
-1422:                                             ; preds = %1417
-  br label %parser_node_name.exit1754
+1421:                                             ; preds = %1416
+  br label %parser_node_name.exit1753
 
-1423:                                             ; preds = %1417
-  %1424 = tail call ptr @ruby_node_name(i32 noundef %1421) #24
-  br label %parser_node_name.exit1754
+1422:                                             ; preds = %1416
+  %1423 = tail call ptr @ruby_node_name(i32 noundef %1420) #24
+  br label %parser_node_name.exit1753
 
-parser_node_name.exit1754:                        ; preds = %1417, %1422, %1423
-  %.0.i1753 = phi ptr [ %1424, %1423 ], [ @.str.524, %1422 ], [ @.str.523, %1417 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1753) #24
-  br label %2190
+parser_node_name.exit1753:                        ; preds = %1416, %1421, %1422
+  %.0.i1752 = phi ptr [ %1423, %1422 ], [ @.str.524, %1421 ], [ @.str.523, %1416 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1752) #24
+  br label %2189
 
-1425:                                             ; preds = %4
-  %1426 = load ptr, ptr %1, align 8
-  %magicptr1498 = ptrtoint ptr %1426 to i64
-  switch i64 %magicptr1498, label %1428 [
-    i64 -1, label %1427
-    i64 0, label %2190
+1424:                                             ; preds = %3
+  %1425 = load ptr, ptr %1, align 8
+  %magicptr1497 = ptrtoint ptr %1425 to i64
+  switch i64 %magicptr1497, label %1427 [
+    i64 -1, label %1426
+    i64 0, label %2189
   ]
 
-1427:                                             ; preds = %1425
+1426:                                             ; preds = %1424
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1428:                                             ; preds = %1425
-  %1429 = load i64, ptr %1426, align 8
-  %1430 = trunc i64 %1429 to i32
-  %1431 = lshr i32 %1430, 8
-  %1432 = and i32 %1431, 127
-  switch i32 %1432, label %1434 [
-    i32 114, label %parser_node_name.exit1756
-    i32 115, label %1433
+1427:                                             ; preds = %1424
+  %1428 = load i64, ptr %1425, align 8
+  %1429 = trunc i64 %1428 to i32
+  %1430 = lshr i32 %1429, 8
+  %1431 = and i32 %1430, 127
+  switch i32 %1431, label %1433 [
+    i32 114, label %parser_node_name.exit1755
+    i32 115, label %1432
   ]
 
-1433:                                             ; preds = %1428
-  br label %parser_node_name.exit1756
+1432:                                             ; preds = %1427
+  br label %parser_node_name.exit1755
 
-1434:                                             ; preds = %1428
-  %1435 = tail call ptr @ruby_node_name(i32 noundef %1432) #24
-  br label %parser_node_name.exit1756
+1433:                                             ; preds = %1427
+  %1434 = tail call ptr @ruby_node_name(i32 noundef %1431) #24
+  br label %parser_node_name.exit1755
 
-parser_node_name.exit1756:                        ; preds = %1428, %1433, %1434
-  %.0.i1755 = phi ptr [ %1435, %1434 ], [ @.str.524, %1433 ], [ @.str.523, %1428 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1755) #24
-  br label %2190
+parser_node_name.exit1755:                        ; preds = %1427, %1432, %1433
+  %.0.i1754 = phi ptr [ %1434, %1433 ], [ @.str.524, %1432 ], [ @.str.523, %1427 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1754) #24
+  br label %2189
 
-1436:                                             ; preds = %4
-  %1437 = load ptr, ptr %1, align 8
-  %magicptr1499 = ptrtoint ptr %1437 to i64
-  switch i64 %magicptr1499, label %1439 [
-    i64 -1, label %1438
-    i64 0, label %2190
+1435:                                             ; preds = %3
+  %1436 = load ptr, ptr %1, align 8
+  %magicptr1498 = ptrtoint ptr %1436 to i64
+  switch i64 %magicptr1498, label %1438 [
+    i64 -1, label %1437
+    i64 0, label %2189
   ]
 
-1438:                                             ; preds = %1436
+1437:                                             ; preds = %1435
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1439:                                             ; preds = %1436
-  %1440 = load i64, ptr %1437, align 8
-  %1441 = trunc i64 %1440 to i32
-  %1442 = lshr i32 %1441, 8
-  %1443 = and i32 %1442, 127
-  switch i32 %1443, label %1445 [
-    i32 114, label %parser_node_name.exit1758
-    i32 115, label %1444
+1438:                                             ; preds = %1435
+  %1439 = load i64, ptr %1436, align 8
+  %1440 = trunc i64 %1439 to i32
+  %1441 = lshr i32 %1440, 8
+  %1442 = and i32 %1441, 127
+  switch i32 %1442, label %1444 [
+    i32 114, label %parser_node_name.exit1757
+    i32 115, label %1443
   ]
 
-1444:                                             ; preds = %1439
-  br label %parser_node_name.exit1758
+1443:                                             ; preds = %1438
+  br label %parser_node_name.exit1757
 
-1445:                                             ; preds = %1439
-  %1446 = tail call ptr @ruby_node_name(i32 noundef %1443) #24
-  br label %parser_node_name.exit1758
+1444:                                             ; preds = %1438
+  %1445 = tail call ptr @ruby_node_name(i32 noundef %1442) #24
+  br label %parser_node_name.exit1757
 
-parser_node_name.exit1758:                        ; preds = %1439, %1444, %1445
-  %.0.i1757 = phi ptr [ %1446, %1445 ], [ @.str.524, %1444 ], [ @.str.523, %1439 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1757) #24
-  br label %2190
+parser_node_name.exit1757:                        ; preds = %1438, %1443, %1444
+  %.0.i1756 = phi ptr [ %1445, %1444 ], [ @.str.524, %1443 ], [ @.str.523, %1438 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1756) #24
+  br label %2189
 
-1447:                                             ; preds = %4
-  %1448 = load ptr, ptr %1, align 8
-  %magicptr1500 = ptrtoint ptr %1448 to i64
-  switch i64 %magicptr1500, label %1450 [
-    i64 -1, label %1449
-    i64 0, label %2190
+1446:                                             ; preds = %3
+  %1447 = load ptr, ptr %1, align 8
+  %magicptr1499 = ptrtoint ptr %1447 to i64
+  switch i64 %magicptr1499, label %1449 [
+    i64 -1, label %1448
+    i64 0, label %2189
   ]
 
-1449:                                             ; preds = %1447
+1448:                                             ; preds = %1446
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1450:                                             ; preds = %1447
-  %1451 = load i64, ptr %1448, align 8
-  %1452 = trunc i64 %1451 to i32
-  %1453 = lshr i32 %1452, 8
-  %1454 = and i32 %1453, 127
-  switch i32 %1454, label %1456 [
-    i32 114, label %parser_node_name.exit1760
-    i32 115, label %1455
+1449:                                             ; preds = %1446
+  %1450 = load i64, ptr %1447, align 8
+  %1451 = trunc i64 %1450 to i32
+  %1452 = lshr i32 %1451, 8
+  %1453 = and i32 %1452, 127
+  switch i32 %1453, label %1455 [
+    i32 114, label %parser_node_name.exit1759
+    i32 115, label %1454
   ]
 
-1455:                                             ; preds = %1450
-  br label %parser_node_name.exit1760
+1454:                                             ; preds = %1449
+  br label %parser_node_name.exit1759
 
-1456:                                             ; preds = %1450
-  %1457 = tail call ptr @ruby_node_name(i32 noundef %1454) #24
-  br label %parser_node_name.exit1760
+1455:                                             ; preds = %1449
+  %1456 = tail call ptr @ruby_node_name(i32 noundef %1453) #24
+  br label %parser_node_name.exit1759
 
-parser_node_name.exit1760:                        ; preds = %1450, %1455, %1456
-  %.0.i1759 = phi ptr [ %1457, %1456 ], [ @.str.524, %1455 ], [ @.str.523, %1450 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1759) #24
-  br label %2190
+parser_node_name.exit1759:                        ; preds = %1449, %1454, %1455
+  %.0.i1758 = phi ptr [ %1456, %1455 ], [ @.str.524, %1454 ], [ @.str.523, %1449 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1758) #24
+  br label %2189
 
-1458:                                             ; preds = %4
-  %1459 = load i64, ptr %1, align 8
-  %1460 = tail call i64 @rb_id2str(i64 noundef %1459) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1460) #24
-  br label %2190
+1457:                                             ; preds = %3
+  %1458 = load i64, ptr %1, align 8
+  %1459 = tail call i64 @rb_id2str(i64 noundef %1458) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1459) #24
+  br label %2189
 
-1461:                                             ; preds = %4
-  %1462 = load i64, ptr %1, align 8
-  %1463 = tail call i64 @rb_id2str(i64 noundef %1462) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1463) #24
-  br label %2190
+1460:                                             ; preds = %3
+  %1461 = load i64, ptr %1, align 8
+  %1462 = tail call i64 @rb_id2str(i64 noundef %1461) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1462) #24
+  br label %2189
 
-1464:                                             ; preds = %4
-  %1465 = load i64, ptr %1, align 8
-  %1466 = tail call i64 @rb_id2str(i64 noundef %1465) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1466) #24
-  br label %2190
+1463:                                             ; preds = %3
+  %1464 = load i64, ptr %1, align 8
+  %1465 = tail call i64 @rb_id2str(i64 noundef %1464) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1465) #24
+  br label %2189
 
-1467:                                             ; preds = %4
-  %1468 = load i64, ptr %1, align 8
-  %1469 = tail call i64 @rb_id2str(i64 noundef %1468) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1469) #24
-  br label %2190
+1466:                                             ; preds = %3
+  %1467 = load i64, ptr %1, align 8
+  %1468 = tail call i64 @rb_id2str(i64 noundef %1467) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1468) #24
+  br label %2189
 
-1470:                                             ; preds = %4
-  %1471 = load ptr, ptr %1, align 8
-  %magicptr1501 = ptrtoint ptr %1471 to i64
-  switch i64 %magicptr1501, label %1473 [
-    i64 -1, label %1472
-    i64 0, label %2190
+1469:                                             ; preds = %3
+  %1470 = load ptr, ptr %1, align 8
+  %magicptr1500 = ptrtoint ptr %1470 to i64
+  switch i64 %magicptr1500, label %1472 [
+    i64 -1, label %1471
+    i64 0, label %2189
   ]
 
-1472:                                             ; preds = %1470
+1471:                                             ; preds = %1469
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1473:                                             ; preds = %1470
-  %1474 = load i64, ptr %1471, align 8
-  %1475 = trunc i64 %1474 to i32
-  %1476 = lshr i32 %1475, 8
-  %1477 = and i32 %1476, 127
-  switch i32 %1477, label %1479 [
-    i32 114, label %parser_node_name.exit1762
-    i32 115, label %1478
+1472:                                             ; preds = %1469
+  %1473 = load i64, ptr %1470, align 8
+  %1474 = trunc i64 %1473 to i32
+  %1475 = lshr i32 %1474, 8
+  %1476 = and i32 %1475, 127
+  switch i32 %1476, label %1478 [
+    i32 114, label %parser_node_name.exit1761
+    i32 115, label %1477
   ]
 
-1478:                                             ; preds = %1473
-  br label %parser_node_name.exit1762
+1477:                                             ; preds = %1472
+  br label %parser_node_name.exit1761
 
-1479:                                             ; preds = %1473
-  %1480 = tail call ptr @ruby_node_name(i32 noundef %1477) #24
-  br label %parser_node_name.exit1762
+1478:                                             ; preds = %1472
+  %1479 = tail call ptr @ruby_node_name(i32 noundef %1476) #24
+  br label %parser_node_name.exit1761
 
-parser_node_name.exit1762:                        ; preds = %1473, %1478, %1479
-  %.0.i1761 = phi ptr [ %1480, %1479 ], [ @.str.524, %1478 ], [ @.str.523, %1473 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1761) #24
-  br label %2190
+parser_node_name.exit1761:                        ; preds = %1472, %1477, %1478
+  %.0.i1760 = phi ptr [ %1479, %1478 ], [ @.str.524, %1477 ], [ @.str.523, %1472 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1760) #24
+  br label %2189
 
-1481:                                             ; preds = %4
-  %1482 = load ptr, ptr %1, align 8
-  %magicptr1502 = ptrtoint ptr %1482 to i64
-  switch i64 %magicptr1502, label %1484 [
-    i64 -1, label %1483
-    i64 0, label %2190
+1480:                                             ; preds = %3
+  %1481 = load ptr, ptr %1, align 8
+  %magicptr1501 = ptrtoint ptr %1481 to i64
+  switch i64 %magicptr1501, label %1483 [
+    i64 -1, label %1482
+    i64 0, label %2189
   ]
 
-1483:                                             ; preds = %1481
+1482:                                             ; preds = %1480
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1484:                                             ; preds = %1481
-  %1485 = load i64, ptr %1482, align 8
-  %1486 = trunc i64 %1485 to i32
-  %1487 = lshr i32 %1486, 8
-  %1488 = and i32 %1487, 127
-  switch i32 %1488, label %1490 [
-    i32 114, label %parser_node_name.exit1764
-    i32 115, label %1489
+1483:                                             ; preds = %1480
+  %1484 = load i64, ptr %1481, align 8
+  %1485 = trunc i64 %1484 to i32
+  %1486 = lshr i32 %1485, 8
+  %1487 = and i32 %1486, 127
+  switch i32 %1487, label %1489 [
+    i32 114, label %parser_node_name.exit1763
+    i32 115, label %1488
   ]
 
-1489:                                             ; preds = %1484
-  br label %parser_node_name.exit1764
+1488:                                             ; preds = %1483
+  br label %parser_node_name.exit1763
 
-1490:                                             ; preds = %1484
-  %1491 = tail call ptr @ruby_node_name(i32 noundef %1488) #24
-  br label %parser_node_name.exit1764
+1489:                                             ; preds = %1483
+  %1490 = tail call ptr @ruby_node_name(i32 noundef %1487) #24
+  br label %parser_node_name.exit1763
 
-parser_node_name.exit1764:                        ; preds = %1484, %1489, %1490
-  %.0.i1763 = phi ptr [ %1491, %1490 ], [ @.str.524, %1489 ], [ @.str.523, %1484 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1763) #24
-  br label %2190
+parser_node_name.exit1763:                        ; preds = %1483, %1488, %1489
+  %.0.i1762 = phi ptr [ %1490, %1489 ], [ @.str.524, %1488 ], [ @.str.523, %1483 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1762) #24
+  br label %2189
 
-1492:                                             ; preds = %4
-  %1493 = load ptr, ptr %1, align 8
-  %magicptr1503 = ptrtoint ptr %1493 to i64
-  switch i64 %magicptr1503, label %1495 [
-    i64 -1, label %1494
-    i64 0, label %2190
+1491:                                             ; preds = %3
+  %1492 = load ptr, ptr %1, align 8
+  %magicptr1502 = ptrtoint ptr %1492 to i64
+  switch i64 %magicptr1502, label %1494 [
+    i64 -1, label %1493
+    i64 0, label %2189
   ]
 
-1494:                                             ; preds = %1492
+1493:                                             ; preds = %1491
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1495:                                             ; preds = %1492
-  %1496 = load i64, ptr %1493, align 8
-  %1497 = trunc i64 %1496 to i32
-  %1498 = lshr i32 %1497, 8
-  %1499 = and i32 %1498, 127
-  switch i32 %1499, label %1501 [
-    i32 114, label %parser_node_name.exit1766
-    i32 115, label %1500
+1494:                                             ; preds = %1491
+  %1495 = load i64, ptr %1492, align 8
+  %1496 = trunc i64 %1495 to i32
+  %1497 = lshr i32 %1496, 8
+  %1498 = and i32 %1497, 127
+  switch i32 %1498, label %1500 [
+    i32 114, label %parser_node_name.exit1765
+    i32 115, label %1499
   ]
 
-1500:                                             ; preds = %1495
-  br label %parser_node_name.exit1766
+1499:                                             ; preds = %1494
+  br label %parser_node_name.exit1765
 
-1501:                                             ; preds = %1495
-  %1502 = tail call ptr @ruby_node_name(i32 noundef %1499) #24
-  br label %parser_node_name.exit1766
+1500:                                             ; preds = %1494
+  %1501 = tail call ptr @ruby_node_name(i32 noundef %1498) #24
+  br label %parser_node_name.exit1765
 
-parser_node_name.exit1766:                        ; preds = %1495, %1500, %1501
-  %.0.i1765 = phi ptr [ %1502, %1501 ], [ @.str.524, %1500 ], [ @.str.523, %1495 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1765) #24
-  br label %2190
+parser_node_name.exit1765:                        ; preds = %1494, %1499, %1500
+  %.0.i1764 = phi ptr [ %1501, %1500 ], [ @.str.524, %1499 ], [ @.str.523, %1494 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1764) #24
+  br label %2189
 
-1503:                                             ; preds = %4
-  %1504 = load ptr, ptr %1, align 8
-  %magicptr1504 = ptrtoint ptr %1504 to i64
-  switch i64 %magicptr1504, label %1506 [
-    i64 -1, label %1505
-    i64 0, label %2190
+1502:                                             ; preds = %3
+  %1503 = load ptr, ptr %1, align 8
+  %magicptr1503 = ptrtoint ptr %1503 to i64
+  switch i64 %magicptr1503, label %1505 [
+    i64 -1, label %1504
+    i64 0, label %2189
   ]
 
-1505:                                             ; preds = %1503
+1504:                                             ; preds = %1502
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1506:                                             ; preds = %1503
-  %1507 = load i64, ptr %1504, align 8
-  %1508 = trunc i64 %1507 to i32
-  %1509 = lshr i32 %1508, 8
-  %1510 = and i32 %1509, 127
-  switch i32 %1510, label %1512 [
-    i32 114, label %parser_node_name.exit1768
-    i32 115, label %1511
+1505:                                             ; preds = %1502
+  %1506 = load i64, ptr %1503, align 8
+  %1507 = trunc i64 %1506 to i32
+  %1508 = lshr i32 %1507, 8
+  %1509 = and i32 %1508, 127
+  switch i32 %1509, label %1511 [
+    i32 114, label %parser_node_name.exit1767
+    i32 115, label %1510
   ]
 
-1511:                                             ; preds = %1506
-  br label %parser_node_name.exit1768
+1510:                                             ; preds = %1505
+  br label %parser_node_name.exit1767
 
-1512:                                             ; preds = %1506
-  %1513 = tail call ptr @ruby_node_name(i32 noundef %1510) #24
-  br label %parser_node_name.exit1768
+1511:                                             ; preds = %1505
+  %1512 = tail call ptr @ruby_node_name(i32 noundef %1509) #24
+  br label %parser_node_name.exit1767
 
-parser_node_name.exit1768:                        ; preds = %1506, %1511, %1512
-  %.0.i1767 = phi ptr [ %1513, %1512 ], [ @.str.524, %1511 ], [ @.str.523, %1506 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1767) #24
-  br label %2190
+parser_node_name.exit1767:                        ; preds = %1505, %1510, %1511
+  %.0.i1766 = phi ptr [ %1512, %1511 ], [ @.str.524, %1510 ], [ @.str.523, %1505 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1766) #24
+  br label %2189
 
-1514:                                             ; preds = %4
-  %1515 = load ptr, ptr %1, align 8
-  %magicptr1505 = ptrtoint ptr %1515 to i64
-  switch i64 %magicptr1505, label %1517 [
-    i64 -1, label %1516
-    i64 0, label %2190
+1513:                                             ; preds = %3
+  %1514 = load ptr, ptr %1, align 8
+  %magicptr1504 = ptrtoint ptr %1514 to i64
+  switch i64 %magicptr1504, label %1516 [
+    i64 -1, label %1515
+    i64 0, label %2189
   ]
 
-1516:                                             ; preds = %1514
+1515:                                             ; preds = %1513
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1517:                                             ; preds = %1514
-  %1518 = load i64, ptr %1515, align 8
-  %1519 = trunc i64 %1518 to i32
-  %1520 = lshr i32 %1519, 8
-  %1521 = and i32 %1520, 127
-  switch i32 %1521, label %1523 [
-    i32 114, label %parser_node_name.exit1770
-    i32 115, label %1522
+1516:                                             ; preds = %1513
+  %1517 = load i64, ptr %1514, align 8
+  %1518 = trunc i64 %1517 to i32
+  %1519 = lshr i32 %1518, 8
+  %1520 = and i32 %1519, 127
+  switch i32 %1520, label %1522 [
+    i32 114, label %parser_node_name.exit1769
+    i32 115, label %1521
   ]
 
-1522:                                             ; preds = %1517
-  br label %parser_node_name.exit1770
+1521:                                             ; preds = %1516
+  br label %parser_node_name.exit1769
 
-1523:                                             ; preds = %1517
-  %1524 = tail call ptr @ruby_node_name(i32 noundef %1521) #24
-  br label %parser_node_name.exit1770
+1522:                                             ; preds = %1516
+  %1523 = tail call ptr @ruby_node_name(i32 noundef %1520) #24
+  br label %parser_node_name.exit1769
 
-parser_node_name.exit1770:                        ; preds = %1517, %1522, %1523
-  %.0.i1769 = phi ptr [ %1524, %1523 ], [ @.str.524, %1522 ], [ @.str.523, %1517 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1769) #24
-  br label %2190
+parser_node_name.exit1769:                        ; preds = %1516, %1521, %1522
+  %.0.i1768 = phi ptr [ %1523, %1522 ], [ @.str.524, %1521 ], [ @.str.523, %1516 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1768) #24
+  br label %2189
 
-1525:                                             ; preds = %4
-  %1526 = load ptr, ptr %1, align 8
-  %magicptr1506 = ptrtoint ptr %1526 to i64
-  switch i64 %magicptr1506, label %1528 [
-    i64 -1, label %1527
-    i64 0, label %2190
+1524:                                             ; preds = %3
+  %1525 = load ptr, ptr %1, align 8
+  %magicptr1505 = ptrtoint ptr %1525 to i64
+  switch i64 %magicptr1505, label %1527 [
+    i64 -1, label %1526
+    i64 0, label %2189
   ]
 
-1527:                                             ; preds = %1525
+1526:                                             ; preds = %1524
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1528:                                             ; preds = %1525
-  %1529 = load i64, ptr %1526, align 8
-  %1530 = trunc i64 %1529 to i32
-  %1531 = lshr i32 %1530, 8
-  %1532 = and i32 %1531, 127
-  switch i32 %1532, label %1534 [
-    i32 114, label %parser_node_name.exit1772
-    i32 115, label %1533
+1527:                                             ; preds = %1524
+  %1528 = load i64, ptr %1525, align 8
+  %1529 = trunc i64 %1528 to i32
+  %1530 = lshr i32 %1529, 8
+  %1531 = and i32 %1530, 127
+  switch i32 %1531, label %1533 [
+    i32 114, label %parser_node_name.exit1771
+    i32 115, label %1532
   ]
 
-1533:                                             ; preds = %1528
-  br label %parser_node_name.exit1772
+1532:                                             ; preds = %1527
+  br label %parser_node_name.exit1771
 
-1534:                                             ; preds = %1528
-  %1535 = tail call ptr @ruby_node_name(i32 noundef %1532) #24
-  br label %parser_node_name.exit1772
+1533:                                             ; preds = %1527
+  %1534 = tail call ptr @ruby_node_name(i32 noundef %1531) #24
+  br label %parser_node_name.exit1771
 
-parser_node_name.exit1772:                        ; preds = %1528, %1533, %1534
-  %.0.i1771 = phi ptr [ %1535, %1534 ], [ @.str.524, %1533 ], [ @.str.523, %1528 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1771) #24
-  br label %2190
+parser_node_name.exit1771:                        ; preds = %1527, %1532, %1533
+  %.0.i1770 = phi ptr [ %1534, %1533 ], [ @.str.524, %1532 ], [ @.str.523, %1527 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1770) #24
+  br label %2189
 
-1536:                                             ; preds = %4
-  %1537 = load ptr, ptr %1, align 8
-  %magicptr1507 = ptrtoint ptr %1537 to i64
-  switch i64 %magicptr1507, label %1539 [
-    i64 -1, label %1538
-    i64 0, label %2190
+1535:                                             ; preds = %3
+  %1536 = load ptr, ptr %1, align 8
+  %magicptr1506 = ptrtoint ptr %1536 to i64
+  switch i64 %magicptr1506, label %1538 [
+    i64 -1, label %1537
+    i64 0, label %2189
   ]
 
-1538:                                             ; preds = %1536
+1537:                                             ; preds = %1535
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1539:                                             ; preds = %1536
-  %1540 = load i64, ptr %1537, align 8
-  %1541 = trunc i64 %1540 to i32
-  %1542 = lshr i32 %1541, 8
-  %1543 = and i32 %1542, 127
-  switch i32 %1543, label %1545 [
-    i32 114, label %parser_node_name.exit1774
-    i32 115, label %1544
+1538:                                             ; preds = %1535
+  %1539 = load i64, ptr %1536, align 8
+  %1540 = trunc i64 %1539 to i32
+  %1541 = lshr i32 %1540, 8
+  %1542 = and i32 %1541, 127
+  switch i32 %1542, label %1544 [
+    i32 114, label %parser_node_name.exit1773
+    i32 115, label %1543
   ]
 
-1544:                                             ; preds = %1539
-  br label %parser_node_name.exit1774
+1543:                                             ; preds = %1538
+  br label %parser_node_name.exit1773
 
-1545:                                             ; preds = %1539
-  %1546 = tail call ptr @ruby_node_name(i32 noundef %1543) #24
-  br label %parser_node_name.exit1774
+1544:                                             ; preds = %1538
+  %1545 = tail call ptr @ruby_node_name(i32 noundef %1542) #24
+  br label %parser_node_name.exit1773
 
-parser_node_name.exit1774:                        ; preds = %1539, %1544, %1545
-  %.0.i1773 = phi ptr [ %1546, %1545 ], [ @.str.524, %1544 ], [ @.str.523, %1539 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1773) #24
-  br label %2190
+parser_node_name.exit1773:                        ; preds = %1538, %1543, %1544
+  %.0.i1772 = phi ptr [ %1545, %1544 ], [ @.str.524, %1543 ], [ @.str.523, %1538 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1772) #24
+  br label %2189
 
-1547:                                             ; preds = %4
-  %1548 = load ptr, ptr %1, align 8
-  %magicptr1508 = ptrtoint ptr %1548 to i64
-  switch i64 %magicptr1508, label %1550 [
-    i64 -1, label %1549
-    i64 0, label %2190
+1546:                                             ; preds = %3
+  %1547 = load ptr, ptr %1, align 8
+  %magicptr1507 = ptrtoint ptr %1547 to i64
+  switch i64 %magicptr1507, label %1549 [
+    i64 -1, label %1548
+    i64 0, label %2189
   ]
 
-1549:                                             ; preds = %1547
+1548:                                             ; preds = %1546
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1550:                                             ; preds = %1547
-  %1551 = load i64, ptr %1548, align 8
-  %1552 = trunc i64 %1551 to i32
-  %1553 = lshr i32 %1552, 8
-  %1554 = and i32 %1553, 127
-  switch i32 %1554, label %1556 [
-    i32 114, label %parser_node_name.exit1776
-    i32 115, label %1555
+1549:                                             ; preds = %1546
+  %1550 = load i64, ptr %1547, align 8
+  %1551 = trunc i64 %1550 to i32
+  %1552 = lshr i32 %1551, 8
+  %1553 = and i32 %1552, 127
+  switch i32 %1553, label %1555 [
+    i32 114, label %parser_node_name.exit1775
+    i32 115, label %1554
   ]
 
-1555:                                             ; preds = %1550
-  br label %parser_node_name.exit1776
+1554:                                             ; preds = %1549
+  br label %parser_node_name.exit1775
 
-1556:                                             ; preds = %1550
-  %1557 = tail call ptr @ruby_node_name(i32 noundef %1554) #24
-  br label %parser_node_name.exit1776
+1555:                                             ; preds = %1549
+  %1556 = tail call ptr @ruby_node_name(i32 noundef %1553) #24
+  br label %parser_node_name.exit1775
 
-parser_node_name.exit1776:                        ; preds = %1550, %1555, %1556
-  %.0.i1775 = phi ptr [ %1557, %1556 ], [ @.str.524, %1555 ], [ @.str.523, %1550 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1775) #24
-  br label %2190
+parser_node_name.exit1775:                        ; preds = %1549, %1554, %1555
+  %.0.i1774 = phi ptr [ %1556, %1555 ], [ @.str.524, %1554 ], [ @.str.523, %1549 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1774) #24
+  br label %2189
 
-1558:                                             ; preds = %4
-  %1559 = load ptr, ptr %1, align 8
-  %magicptr1509 = ptrtoint ptr %1559 to i64
-  switch i64 %magicptr1509, label %1561 [
-    i64 -1, label %1560
-    i64 0, label %2190
+1557:                                             ; preds = %3
+  %1558 = load ptr, ptr %1, align 8
+  %magicptr1508 = ptrtoint ptr %1558 to i64
+  switch i64 %magicptr1508, label %1560 [
+    i64 -1, label %1559
+    i64 0, label %2189
   ]
 
-1560:                                             ; preds = %1558
+1559:                                             ; preds = %1557
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1561:                                             ; preds = %1558
-  %1562 = load i64, ptr %1559, align 8
-  %1563 = trunc i64 %1562 to i32
-  %1564 = lshr i32 %1563, 8
-  %1565 = and i32 %1564, 127
-  switch i32 %1565, label %1567 [
-    i32 114, label %parser_node_name.exit1778
-    i32 115, label %1566
+1560:                                             ; preds = %1557
+  %1561 = load i64, ptr %1558, align 8
+  %1562 = trunc i64 %1561 to i32
+  %1563 = lshr i32 %1562, 8
+  %1564 = and i32 %1563, 127
+  switch i32 %1564, label %1566 [
+    i32 114, label %parser_node_name.exit1777
+    i32 115, label %1565
   ]
 
-1566:                                             ; preds = %1561
-  br label %parser_node_name.exit1778
+1565:                                             ; preds = %1560
+  br label %parser_node_name.exit1777
 
-1567:                                             ; preds = %1561
-  %1568 = tail call ptr @ruby_node_name(i32 noundef %1565) #24
-  br label %parser_node_name.exit1778
+1566:                                             ; preds = %1560
+  %1567 = tail call ptr @ruby_node_name(i32 noundef %1564) #24
+  br label %parser_node_name.exit1777
 
-parser_node_name.exit1778:                        ; preds = %1561, %1566, %1567
-  %.0.i1777 = phi ptr [ %1568, %1567 ], [ @.str.524, %1566 ], [ @.str.523, %1561 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1777) #24
-  br label %2190
+parser_node_name.exit1777:                        ; preds = %1560, %1565, %1566
+  %.0.i1776 = phi ptr [ %1567, %1566 ], [ @.str.524, %1565 ], [ @.str.523, %1560 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1776) #24
+  br label %2189
 
-1569:                                             ; preds = %4
-  %1570 = load ptr, ptr %1, align 8
-  %magicptr1510 = ptrtoint ptr %1570 to i64
-  switch i64 %magicptr1510, label %1572 [
-    i64 -1, label %1571
-    i64 0, label %2190
+1568:                                             ; preds = %3
+  %1569 = load ptr, ptr %1, align 8
+  %magicptr1509 = ptrtoint ptr %1569 to i64
+  switch i64 %magicptr1509, label %1571 [
+    i64 -1, label %1570
+    i64 0, label %2189
   ]
 
-1571:                                             ; preds = %1569
+1570:                                             ; preds = %1568
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1572:                                             ; preds = %1569
-  %1573 = load i64, ptr %1570, align 8
-  %1574 = trunc i64 %1573 to i32
-  %1575 = lshr i32 %1574, 8
-  %1576 = and i32 %1575, 127
-  switch i32 %1576, label %1578 [
-    i32 114, label %parser_node_name.exit1780
-    i32 115, label %1577
+1571:                                             ; preds = %1568
+  %1572 = load i64, ptr %1569, align 8
+  %1573 = trunc i64 %1572 to i32
+  %1574 = lshr i32 %1573, 8
+  %1575 = and i32 %1574, 127
+  switch i32 %1575, label %1577 [
+    i32 114, label %parser_node_name.exit1779
+    i32 115, label %1576
   ]
 
-1577:                                             ; preds = %1572
-  br label %parser_node_name.exit1780
+1576:                                             ; preds = %1571
+  br label %parser_node_name.exit1779
 
-1578:                                             ; preds = %1572
-  %1579 = tail call ptr @ruby_node_name(i32 noundef %1576) #24
-  br label %parser_node_name.exit1780
+1577:                                             ; preds = %1571
+  %1578 = tail call ptr @ruby_node_name(i32 noundef %1575) #24
+  br label %parser_node_name.exit1779
 
-parser_node_name.exit1780:                        ; preds = %1572, %1577, %1578
-  %.0.i1779 = phi ptr [ %1579, %1578 ], [ @.str.524, %1577 ], [ @.str.523, %1572 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1779) #24
-  br label %2190
+parser_node_name.exit1779:                        ; preds = %1571, %1576, %1577
+  %.0.i1778 = phi ptr [ %1578, %1577 ], [ @.str.524, %1576 ], [ @.str.523, %1571 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1778) #24
+  br label %2189
 
-1580:                                             ; preds = %4
-  %1581 = load ptr, ptr %1, align 8
-  %magicptr1511 = ptrtoint ptr %1581 to i64
-  switch i64 %magicptr1511, label %1583 [
-    i64 -1, label %1582
-    i64 0, label %2190
+1579:                                             ; preds = %3
+  %1580 = load ptr, ptr %1, align 8
+  %magicptr1510 = ptrtoint ptr %1580 to i64
+  switch i64 %magicptr1510, label %1582 [
+    i64 -1, label %1581
+    i64 0, label %2189
   ]
 
-1582:                                             ; preds = %1580
+1581:                                             ; preds = %1579
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1583:                                             ; preds = %1580
-  %1584 = load i64, ptr %1581, align 8
-  %1585 = trunc i64 %1584 to i32
-  %1586 = lshr i32 %1585, 8
-  %1587 = and i32 %1586, 127
-  switch i32 %1587, label %1589 [
-    i32 114, label %parser_node_name.exit1782
-    i32 115, label %1588
+1582:                                             ; preds = %1579
+  %1583 = load i64, ptr %1580, align 8
+  %1584 = trunc i64 %1583 to i32
+  %1585 = lshr i32 %1584, 8
+  %1586 = and i32 %1585, 127
+  switch i32 %1586, label %1588 [
+    i32 114, label %parser_node_name.exit1781
+    i32 115, label %1587
   ]
 
-1588:                                             ; preds = %1583
-  br label %parser_node_name.exit1782
+1587:                                             ; preds = %1582
+  br label %parser_node_name.exit1781
 
-1589:                                             ; preds = %1583
-  %1590 = tail call ptr @ruby_node_name(i32 noundef %1587) #24
-  br label %parser_node_name.exit1782
+1588:                                             ; preds = %1582
+  %1589 = tail call ptr @ruby_node_name(i32 noundef %1586) #24
+  br label %parser_node_name.exit1781
 
-parser_node_name.exit1782:                        ; preds = %1583, %1588, %1589
-  %.0.i1781 = phi ptr [ %1590, %1589 ], [ @.str.524, %1588 ], [ @.str.523, %1583 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1781) #24
-  br label %2190
+parser_node_name.exit1781:                        ; preds = %1582, %1587, %1588
+  %.0.i1780 = phi ptr [ %1589, %1588 ], [ @.str.524, %1587 ], [ @.str.523, %1582 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1780) #24
+  br label %2189
 
-1591:                                             ; preds = %4
-  %1592 = load ptr, ptr %1, align 8
-  %magicptr1512 = ptrtoint ptr %1592 to i64
-  switch i64 %magicptr1512, label %1594 [
-    i64 -1, label %1593
-    i64 0, label %2190
+1590:                                             ; preds = %3
+  %1591 = load ptr, ptr %1, align 8
+  %magicptr1511 = ptrtoint ptr %1591 to i64
+  switch i64 %magicptr1511, label %1593 [
+    i64 -1, label %1592
+    i64 0, label %2189
   ]
 
-1593:                                             ; preds = %1591
+1592:                                             ; preds = %1590
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1594:                                             ; preds = %1591
-  %1595 = load i64, ptr %1592, align 8
-  %1596 = trunc i64 %1595 to i32
-  %1597 = lshr i32 %1596, 8
-  %1598 = and i32 %1597, 127
-  switch i32 %1598, label %1600 [
-    i32 114, label %parser_node_name.exit1784
-    i32 115, label %1599
+1593:                                             ; preds = %1590
+  %1594 = load i64, ptr %1591, align 8
+  %1595 = trunc i64 %1594 to i32
+  %1596 = lshr i32 %1595, 8
+  %1597 = and i32 %1596, 127
+  switch i32 %1597, label %1599 [
+    i32 114, label %parser_node_name.exit1783
+    i32 115, label %1598
   ]
 
-1599:                                             ; preds = %1594
-  br label %parser_node_name.exit1784
+1598:                                             ; preds = %1593
+  br label %parser_node_name.exit1783
 
-1600:                                             ; preds = %1594
-  %1601 = tail call ptr @ruby_node_name(i32 noundef %1598) #24
-  br label %parser_node_name.exit1784
+1599:                                             ; preds = %1593
+  %1600 = tail call ptr @ruby_node_name(i32 noundef %1597) #24
+  br label %parser_node_name.exit1783
 
-parser_node_name.exit1784:                        ; preds = %1594, %1599, %1600
-  %.0.i1783 = phi ptr [ %1601, %1600 ], [ @.str.524, %1599 ], [ @.str.523, %1594 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1783) #24
-  br label %2190
+parser_node_name.exit1783:                        ; preds = %1593, %1598, %1599
+  %.0.i1782 = phi ptr [ %1600, %1599 ], [ @.str.524, %1598 ], [ @.str.523, %1593 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1782) #24
+  br label %2189
 
-1602:                                             ; preds = %4
-  %1603 = load ptr, ptr %1, align 8
-  %magicptr1513 = ptrtoint ptr %1603 to i64
-  switch i64 %magicptr1513, label %1605 [
-    i64 -1, label %1604
-    i64 0, label %2190
+1601:                                             ; preds = %3
+  %1602 = load ptr, ptr %1, align 8
+  %magicptr1512 = ptrtoint ptr %1602 to i64
+  switch i64 %magicptr1512, label %1604 [
+    i64 -1, label %1603
+    i64 0, label %2189
   ]
 
-1604:                                             ; preds = %1602
+1603:                                             ; preds = %1601
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1605:                                             ; preds = %1602
-  %1606 = load i64, ptr %1603, align 8
-  %1607 = trunc i64 %1606 to i32
-  %1608 = lshr i32 %1607, 8
-  %1609 = and i32 %1608, 127
-  switch i32 %1609, label %1611 [
-    i32 114, label %parser_node_name.exit1786
-    i32 115, label %1610
+1604:                                             ; preds = %1601
+  %1605 = load i64, ptr %1602, align 8
+  %1606 = trunc i64 %1605 to i32
+  %1607 = lshr i32 %1606, 8
+  %1608 = and i32 %1607, 127
+  switch i32 %1608, label %1610 [
+    i32 114, label %parser_node_name.exit1785
+    i32 115, label %1609
   ]
 
-1610:                                             ; preds = %1605
-  br label %parser_node_name.exit1786
+1609:                                             ; preds = %1604
+  br label %parser_node_name.exit1785
 
-1611:                                             ; preds = %1605
-  %1612 = tail call ptr @ruby_node_name(i32 noundef %1609) #24
-  br label %parser_node_name.exit1786
+1610:                                             ; preds = %1604
+  %1611 = tail call ptr @ruby_node_name(i32 noundef %1608) #24
+  br label %parser_node_name.exit1785
 
-parser_node_name.exit1786:                        ; preds = %1605, %1610, %1611
-  %.0.i1785 = phi ptr [ %1612, %1611 ], [ @.str.524, %1610 ], [ @.str.523, %1605 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1785) #24
-  br label %2190
+parser_node_name.exit1785:                        ; preds = %1604, %1609, %1610
+  %.0.i1784 = phi ptr [ %1611, %1610 ], [ @.str.524, %1609 ], [ @.str.523, %1604 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1784) #24
+  br label %2189
 
-1613:                                             ; preds = %4
-  %1614 = load ptr, ptr %1, align 8
-  %magicptr1514 = ptrtoint ptr %1614 to i64
-  switch i64 %magicptr1514, label %1616 [
-    i64 -1, label %1615
-    i64 0, label %2190
+1612:                                             ; preds = %3
+  %1613 = load ptr, ptr %1, align 8
+  %magicptr1513 = ptrtoint ptr %1613 to i64
+  switch i64 %magicptr1513, label %1615 [
+    i64 -1, label %1614
+    i64 0, label %2189
   ]
 
-1615:                                             ; preds = %1613
+1614:                                             ; preds = %1612
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1616:                                             ; preds = %1613
-  %1617 = load i64, ptr %1614, align 8
-  %1618 = trunc i64 %1617 to i32
-  %1619 = lshr i32 %1618, 8
-  %1620 = and i32 %1619, 127
-  switch i32 %1620, label %1622 [
-    i32 114, label %parser_node_name.exit1788
-    i32 115, label %1621
+1615:                                             ; preds = %1612
+  %1616 = load i64, ptr %1613, align 8
+  %1617 = trunc i64 %1616 to i32
+  %1618 = lshr i32 %1617, 8
+  %1619 = and i32 %1618, 127
+  switch i32 %1619, label %1621 [
+    i32 114, label %parser_node_name.exit1787
+    i32 115, label %1620
   ]
 
-1621:                                             ; preds = %1616
-  br label %parser_node_name.exit1788
+1620:                                             ; preds = %1615
+  br label %parser_node_name.exit1787
 
-1622:                                             ; preds = %1616
-  %1623 = tail call ptr @ruby_node_name(i32 noundef %1620) #24
-  br label %parser_node_name.exit1788
+1621:                                             ; preds = %1615
+  %1622 = tail call ptr @ruby_node_name(i32 noundef %1619) #24
+  br label %parser_node_name.exit1787
 
-parser_node_name.exit1788:                        ; preds = %1616, %1621, %1622
-  %.0.i1787 = phi ptr [ %1623, %1622 ], [ @.str.524, %1621 ], [ @.str.523, %1616 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1787) #24
-  br label %2190
+parser_node_name.exit1787:                        ; preds = %1615, %1620, %1621
+  %.0.i1786 = phi ptr [ %1622, %1621 ], [ @.str.524, %1620 ], [ @.str.523, %1615 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1786) #24
+  br label %2189
 
-1624:                                             ; preds = %4
-  %1625 = load ptr, ptr %1, align 8
-  %magicptr1515 = ptrtoint ptr %1625 to i64
-  switch i64 %magicptr1515, label %1627 [
-    i64 -1, label %1626
-    i64 0, label %2190
+1623:                                             ; preds = %3
+  %1624 = load ptr, ptr %1, align 8
+  %magicptr1514 = ptrtoint ptr %1624 to i64
+  switch i64 %magicptr1514, label %1626 [
+    i64 -1, label %1625
+    i64 0, label %2189
   ]
 
-1626:                                             ; preds = %1624
+1625:                                             ; preds = %1623
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1627:                                             ; preds = %1624
-  %1628 = load i64, ptr %1625, align 8
-  %1629 = trunc i64 %1628 to i32
-  %1630 = lshr i32 %1629, 8
-  %1631 = and i32 %1630, 127
-  switch i32 %1631, label %1633 [
-    i32 114, label %parser_node_name.exit1790
-    i32 115, label %1632
+1626:                                             ; preds = %1623
+  %1627 = load i64, ptr %1624, align 8
+  %1628 = trunc i64 %1627 to i32
+  %1629 = lshr i32 %1628, 8
+  %1630 = and i32 %1629, 127
+  switch i32 %1630, label %1632 [
+    i32 114, label %parser_node_name.exit1789
+    i32 115, label %1631
   ]
 
-1632:                                             ; preds = %1627
-  br label %parser_node_name.exit1790
+1631:                                             ; preds = %1626
+  br label %parser_node_name.exit1789
 
-1633:                                             ; preds = %1627
-  %1634 = tail call ptr @ruby_node_name(i32 noundef %1631) #24
-  br label %parser_node_name.exit1790
+1632:                                             ; preds = %1626
+  %1633 = tail call ptr @ruby_node_name(i32 noundef %1630) #24
+  br label %parser_node_name.exit1789
 
-parser_node_name.exit1790:                        ; preds = %1627, %1632, %1633
-  %.0.i1789 = phi ptr [ %1634, %1633 ], [ @.str.524, %1632 ], [ @.str.523, %1627 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1789) #24
-  br label %2190
+parser_node_name.exit1789:                        ; preds = %1626, %1631, %1632
+  %.0.i1788 = phi ptr [ %1633, %1632 ], [ @.str.524, %1631 ], [ @.str.523, %1626 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1788) #24
+  br label %2189
 
-1635:                                             ; preds = %4
-  %1636 = load ptr, ptr %1, align 8
-  %magicptr1516 = ptrtoint ptr %1636 to i64
-  switch i64 %magicptr1516, label %1638 [
-    i64 -1, label %1637
-    i64 0, label %2190
+1634:                                             ; preds = %3
+  %1635 = load ptr, ptr %1, align 8
+  %magicptr1515 = ptrtoint ptr %1635 to i64
+  switch i64 %magicptr1515, label %1637 [
+    i64 -1, label %1636
+    i64 0, label %2189
   ]
 
-1637:                                             ; preds = %1635
+1636:                                             ; preds = %1634
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1638:                                             ; preds = %1635
-  %1639 = load i64, ptr %1636, align 8
-  %1640 = trunc i64 %1639 to i32
-  %1641 = lshr i32 %1640, 8
-  %1642 = and i32 %1641, 127
-  switch i32 %1642, label %1644 [
-    i32 114, label %parser_node_name.exit1792
-    i32 115, label %1643
+1637:                                             ; preds = %1634
+  %1638 = load i64, ptr %1635, align 8
+  %1639 = trunc i64 %1638 to i32
+  %1640 = lshr i32 %1639, 8
+  %1641 = and i32 %1640, 127
+  switch i32 %1641, label %1643 [
+    i32 114, label %parser_node_name.exit1791
+    i32 115, label %1642
   ]
 
-1643:                                             ; preds = %1638
-  br label %parser_node_name.exit1792
+1642:                                             ; preds = %1637
+  br label %parser_node_name.exit1791
 
-1644:                                             ; preds = %1638
-  %1645 = tail call ptr @ruby_node_name(i32 noundef %1642) #24
-  br label %parser_node_name.exit1792
+1643:                                             ; preds = %1637
+  %1644 = tail call ptr @ruby_node_name(i32 noundef %1641) #24
+  br label %parser_node_name.exit1791
 
-parser_node_name.exit1792:                        ; preds = %1638, %1643, %1644
-  %.0.i1791 = phi ptr [ %1645, %1644 ], [ @.str.524, %1643 ], [ @.str.523, %1638 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1791) #24
-  br label %2190
+parser_node_name.exit1791:                        ; preds = %1637, %1642, %1643
+  %.0.i1790 = phi ptr [ %1644, %1643 ], [ @.str.524, %1642 ], [ @.str.523, %1637 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1790) #24
+  br label %2189
 
-1646:                                             ; preds = %4
-  %1647 = load ptr, ptr %1, align 8
-  %magicptr1517 = ptrtoint ptr %1647 to i64
-  switch i64 %magicptr1517, label %1649 [
-    i64 -1, label %1648
-    i64 0, label %2190
+1645:                                             ; preds = %3
+  %1646 = load ptr, ptr %1, align 8
+  %magicptr1516 = ptrtoint ptr %1646 to i64
+  switch i64 %magicptr1516, label %1648 [
+    i64 -1, label %1647
+    i64 0, label %2189
   ]
 
-1648:                                             ; preds = %1646
+1647:                                             ; preds = %1645
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1649:                                             ; preds = %1646
-  %1650 = load i64, ptr %1647, align 8
-  %1651 = trunc i64 %1650 to i32
-  %1652 = lshr i32 %1651, 8
-  %1653 = and i32 %1652, 127
-  switch i32 %1653, label %1655 [
-    i32 114, label %parser_node_name.exit1794
-    i32 115, label %1654
+1648:                                             ; preds = %1645
+  %1649 = load i64, ptr %1646, align 8
+  %1650 = trunc i64 %1649 to i32
+  %1651 = lshr i32 %1650, 8
+  %1652 = and i32 %1651, 127
+  switch i32 %1652, label %1654 [
+    i32 114, label %parser_node_name.exit1793
+    i32 115, label %1653
   ]
 
-1654:                                             ; preds = %1649
-  br label %parser_node_name.exit1794
+1653:                                             ; preds = %1648
+  br label %parser_node_name.exit1793
 
-1655:                                             ; preds = %1649
-  %1656 = tail call ptr @ruby_node_name(i32 noundef %1653) #24
-  br label %parser_node_name.exit1794
+1654:                                             ; preds = %1648
+  %1655 = tail call ptr @ruby_node_name(i32 noundef %1652) #24
+  br label %parser_node_name.exit1793
 
-parser_node_name.exit1794:                        ; preds = %1649, %1654, %1655
-  %.0.i1793 = phi ptr [ %1656, %1655 ], [ @.str.524, %1654 ], [ @.str.523, %1649 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1793) #24
-  br label %2190
+parser_node_name.exit1793:                        ; preds = %1648, %1653, %1654
+  %.0.i1792 = phi ptr [ %1655, %1654 ], [ @.str.524, %1653 ], [ @.str.523, %1648 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1792) #24
+  br label %2189
 
-1657:                                             ; preds = %4
-  %1658 = load ptr, ptr %1, align 8
-  %magicptr1518 = ptrtoint ptr %1658 to i64
-  switch i64 %magicptr1518, label %1660 [
-    i64 -1, label %1659
-    i64 0, label %2190
+1656:                                             ; preds = %3
+  %1657 = load ptr, ptr %1, align 8
+  %magicptr1517 = ptrtoint ptr %1657 to i64
+  switch i64 %magicptr1517, label %1659 [
+    i64 -1, label %1658
+    i64 0, label %2189
   ]
 
-1659:                                             ; preds = %1657
+1658:                                             ; preds = %1656
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1660:                                             ; preds = %1657
-  %1661 = load i64, ptr %1658, align 8
-  %1662 = trunc i64 %1661 to i32
-  %1663 = lshr i32 %1662, 8
-  %1664 = and i32 %1663, 127
-  switch i32 %1664, label %1666 [
-    i32 114, label %parser_node_name.exit1796
-    i32 115, label %1665
+1659:                                             ; preds = %1656
+  %1660 = load i64, ptr %1657, align 8
+  %1661 = trunc i64 %1660 to i32
+  %1662 = lshr i32 %1661, 8
+  %1663 = and i32 %1662, 127
+  switch i32 %1663, label %1665 [
+    i32 114, label %parser_node_name.exit1795
+    i32 115, label %1664
   ]
 
-1665:                                             ; preds = %1660
-  br label %parser_node_name.exit1796
+1664:                                             ; preds = %1659
+  br label %parser_node_name.exit1795
 
-1666:                                             ; preds = %1660
-  %1667 = tail call ptr @ruby_node_name(i32 noundef %1664) #24
-  br label %parser_node_name.exit1796
+1665:                                             ; preds = %1659
+  %1666 = tail call ptr @ruby_node_name(i32 noundef %1663) #24
+  br label %parser_node_name.exit1795
 
-parser_node_name.exit1796:                        ; preds = %1660, %1665, %1666
-  %.0.i1795 = phi ptr [ %1667, %1666 ], [ @.str.524, %1665 ], [ @.str.523, %1660 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1795) #24
-  br label %2190
+parser_node_name.exit1795:                        ; preds = %1659, %1664, %1665
+  %.0.i1794 = phi ptr [ %1666, %1665 ], [ @.str.524, %1664 ], [ @.str.523, %1659 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1794) #24
+  br label %2189
 
-1668:                                             ; preds = %4
-  %1669 = load ptr, ptr %1, align 8
-  %magicptr1519 = ptrtoint ptr %1669 to i64
-  switch i64 %magicptr1519, label %1671 [
-    i64 -1, label %1670
-    i64 0, label %2190
+1667:                                             ; preds = %3
+  %1668 = load ptr, ptr %1, align 8
+  %magicptr1518 = ptrtoint ptr %1668 to i64
+  switch i64 %magicptr1518, label %1670 [
+    i64 -1, label %1669
+    i64 0, label %2189
   ]
 
-1670:                                             ; preds = %1668
+1669:                                             ; preds = %1667
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1671:                                             ; preds = %1668
-  %1672 = load i64, ptr %1669, align 8
-  %1673 = trunc i64 %1672 to i32
-  %1674 = lshr i32 %1673, 8
-  %1675 = and i32 %1674, 127
-  switch i32 %1675, label %1677 [
-    i32 114, label %parser_node_name.exit1798
-    i32 115, label %1676
+1670:                                             ; preds = %1667
+  %1671 = load i64, ptr %1668, align 8
+  %1672 = trunc i64 %1671 to i32
+  %1673 = lshr i32 %1672, 8
+  %1674 = and i32 %1673, 127
+  switch i32 %1674, label %1676 [
+    i32 114, label %parser_node_name.exit1797
+    i32 115, label %1675
   ]
 
-1676:                                             ; preds = %1671
-  br label %parser_node_name.exit1798
+1675:                                             ; preds = %1670
+  br label %parser_node_name.exit1797
 
-1677:                                             ; preds = %1671
-  %1678 = tail call ptr @ruby_node_name(i32 noundef %1675) #24
-  br label %parser_node_name.exit1798
+1676:                                             ; preds = %1670
+  %1677 = tail call ptr @ruby_node_name(i32 noundef %1674) #24
+  br label %parser_node_name.exit1797
 
-parser_node_name.exit1798:                        ; preds = %1671, %1676, %1677
-  %.0.i1797 = phi ptr [ %1678, %1677 ], [ @.str.524, %1676 ], [ @.str.523, %1671 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1797) #24
-  br label %2190
+parser_node_name.exit1797:                        ; preds = %1670, %1675, %1676
+  %.0.i1796 = phi ptr [ %1677, %1676 ], [ @.str.524, %1675 ], [ @.str.523, %1670 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1796) #24
+  br label %2189
 
-1679:                                             ; preds = %4
-  %1680 = load ptr, ptr %1, align 8
-  %magicptr1520 = ptrtoint ptr %1680 to i64
-  switch i64 %magicptr1520, label %1682 [
-    i64 -1, label %1681
-    i64 0, label %2190
+1678:                                             ; preds = %3
+  %1679 = load ptr, ptr %1, align 8
+  %magicptr1519 = ptrtoint ptr %1679 to i64
+  switch i64 %magicptr1519, label %1681 [
+    i64 -1, label %1680
+    i64 0, label %2189
   ]
 
-1681:                                             ; preds = %1679
+1680:                                             ; preds = %1678
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1682:                                             ; preds = %1679
-  %1683 = load i64, ptr %1680, align 8
-  %1684 = trunc i64 %1683 to i32
-  %1685 = lshr i32 %1684, 8
-  %1686 = and i32 %1685, 127
-  switch i32 %1686, label %1688 [
-    i32 114, label %parser_node_name.exit1800
-    i32 115, label %1687
+1681:                                             ; preds = %1678
+  %1682 = load i64, ptr %1679, align 8
+  %1683 = trunc i64 %1682 to i32
+  %1684 = lshr i32 %1683, 8
+  %1685 = and i32 %1684, 127
+  switch i32 %1685, label %1687 [
+    i32 114, label %parser_node_name.exit1799
+    i32 115, label %1686
   ]
 
-1687:                                             ; preds = %1682
-  br label %parser_node_name.exit1800
+1686:                                             ; preds = %1681
+  br label %parser_node_name.exit1799
 
-1688:                                             ; preds = %1682
-  %1689 = tail call ptr @ruby_node_name(i32 noundef %1686) #24
-  br label %parser_node_name.exit1800
+1687:                                             ; preds = %1681
+  %1688 = tail call ptr @ruby_node_name(i32 noundef %1685) #24
+  br label %parser_node_name.exit1799
 
-parser_node_name.exit1800:                        ; preds = %1682, %1687, %1688
-  %.0.i1799 = phi ptr [ %1689, %1688 ], [ @.str.524, %1687 ], [ @.str.523, %1682 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1799) #24
-  br label %2190
+parser_node_name.exit1799:                        ; preds = %1681, %1686, %1687
+  %.0.i1798 = phi ptr [ %1688, %1687 ], [ @.str.524, %1686 ], [ @.str.523, %1681 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1798) #24
+  br label %2189
 
-1690:                                             ; preds = %4
-  %1691 = load ptr, ptr %1, align 8
-  %magicptr1521 = ptrtoint ptr %1691 to i64
-  switch i64 %magicptr1521, label %1693 [
-    i64 -1, label %1692
-    i64 0, label %2190
+1689:                                             ; preds = %3
+  %1690 = load ptr, ptr %1, align 8
+  %magicptr1520 = ptrtoint ptr %1690 to i64
+  switch i64 %magicptr1520, label %1692 [
+    i64 -1, label %1691
+    i64 0, label %2189
   ]
 
-1692:                                             ; preds = %1690
+1691:                                             ; preds = %1689
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1693:                                             ; preds = %1690
-  %1694 = load i64, ptr %1691, align 8
-  %1695 = trunc i64 %1694 to i32
-  %1696 = lshr i32 %1695, 8
-  %1697 = and i32 %1696, 127
-  switch i32 %1697, label %1699 [
-    i32 114, label %parser_node_name.exit1802
-    i32 115, label %1698
+1692:                                             ; preds = %1689
+  %1693 = load i64, ptr %1690, align 8
+  %1694 = trunc i64 %1693 to i32
+  %1695 = lshr i32 %1694, 8
+  %1696 = and i32 %1695, 127
+  switch i32 %1696, label %1698 [
+    i32 114, label %parser_node_name.exit1801
+    i32 115, label %1697
   ]
 
-1698:                                             ; preds = %1693
-  br label %parser_node_name.exit1802
+1697:                                             ; preds = %1692
+  br label %parser_node_name.exit1801
 
-1699:                                             ; preds = %1693
-  %1700 = tail call ptr @ruby_node_name(i32 noundef %1697) #24
-  br label %parser_node_name.exit1802
+1698:                                             ; preds = %1692
+  %1699 = tail call ptr @ruby_node_name(i32 noundef %1696) #24
+  br label %parser_node_name.exit1801
 
-parser_node_name.exit1802:                        ; preds = %1693, %1698, %1699
-  %.0.i1801 = phi ptr [ %1700, %1699 ], [ @.str.524, %1698 ], [ @.str.523, %1693 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1801) #24
-  br label %2190
+parser_node_name.exit1801:                        ; preds = %1692, %1697, %1698
+  %.0.i1800 = phi ptr [ %1699, %1698 ], [ @.str.524, %1697 ], [ @.str.523, %1692 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1800) #24
+  br label %2189
 
-1701:                                             ; preds = %4
-  %1702 = load ptr, ptr %1, align 8
-  %magicptr1522 = ptrtoint ptr %1702 to i64
-  switch i64 %magicptr1522, label %1704 [
-    i64 -1, label %1703
-    i64 0, label %2190
+1700:                                             ; preds = %3
+  %1701 = load ptr, ptr %1, align 8
+  %magicptr1521 = ptrtoint ptr %1701 to i64
+  switch i64 %magicptr1521, label %1703 [
+    i64 -1, label %1702
+    i64 0, label %2189
   ]
 
-1703:                                             ; preds = %1701
+1702:                                             ; preds = %1700
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1704:                                             ; preds = %1701
-  %1705 = load i64, ptr %1702, align 8
-  %1706 = trunc i64 %1705 to i32
-  %1707 = lshr i32 %1706, 8
-  %1708 = and i32 %1707, 127
-  switch i32 %1708, label %1710 [
-    i32 114, label %parser_node_name.exit1804
-    i32 115, label %1709
+1703:                                             ; preds = %1700
+  %1704 = load i64, ptr %1701, align 8
+  %1705 = trunc i64 %1704 to i32
+  %1706 = lshr i32 %1705, 8
+  %1707 = and i32 %1706, 127
+  switch i32 %1707, label %1709 [
+    i32 114, label %parser_node_name.exit1803
+    i32 115, label %1708
   ]
 
-1709:                                             ; preds = %1704
-  br label %parser_node_name.exit1804
+1708:                                             ; preds = %1703
+  br label %parser_node_name.exit1803
 
-1710:                                             ; preds = %1704
-  %1711 = tail call ptr @ruby_node_name(i32 noundef %1708) #24
-  br label %parser_node_name.exit1804
+1709:                                             ; preds = %1703
+  %1710 = tail call ptr @ruby_node_name(i32 noundef %1707) #24
+  br label %parser_node_name.exit1803
 
-parser_node_name.exit1804:                        ; preds = %1704, %1709, %1710
-  %.0.i1803 = phi ptr [ %1711, %1710 ], [ @.str.524, %1709 ], [ @.str.523, %1704 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1803) #24
-  br label %2190
+parser_node_name.exit1803:                        ; preds = %1703, %1708, %1709
+  %.0.i1802 = phi ptr [ %1710, %1709 ], [ @.str.524, %1708 ], [ @.str.523, %1703 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1802) #24
+  br label %2189
 
-1712:                                             ; preds = %4
-  %1713 = load ptr, ptr %1, align 8
-  %magicptr1523 = ptrtoint ptr %1713 to i64
-  switch i64 %magicptr1523, label %1715 [
-    i64 -1, label %1714
-    i64 0, label %2190
+1711:                                             ; preds = %3
+  %1712 = load ptr, ptr %1, align 8
+  %magicptr1522 = ptrtoint ptr %1712 to i64
+  switch i64 %magicptr1522, label %1714 [
+    i64 -1, label %1713
+    i64 0, label %2189
   ]
 
-1714:                                             ; preds = %1712
+1713:                                             ; preds = %1711
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1715:                                             ; preds = %1712
-  %1716 = load i64, ptr %1713, align 8
-  %1717 = trunc i64 %1716 to i32
-  %1718 = lshr i32 %1717, 8
-  %1719 = and i32 %1718, 127
-  switch i32 %1719, label %1721 [
-    i32 114, label %parser_node_name.exit1806
-    i32 115, label %1720
+1714:                                             ; preds = %1711
+  %1715 = load i64, ptr %1712, align 8
+  %1716 = trunc i64 %1715 to i32
+  %1717 = lshr i32 %1716, 8
+  %1718 = and i32 %1717, 127
+  switch i32 %1718, label %1720 [
+    i32 114, label %parser_node_name.exit1805
+    i32 115, label %1719
   ]
 
-1720:                                             ; preds = %1715
-  br label %parser_node_name.exit1806
+1719:                                             ; preds = %1714
+  br label %parser_node_name.exit1805
 
-1721:                                             ; preds = %1715
-  %1722 = tail call ptr @ruby_node_name(i32 noundef %1719) #24
-  br label %parser_node_name.exit1806
+1720:                                             ; preds = %1714
+  %1721 = tail call ptr @ruby_node_name(i32 noundef %1718) #24
+  br label %parser_node_name.exit1805
 
-parser_node_name.exit1806:                        ; preds = %1715, %1720, %1721
-  %.0.i1805 = phi ptr [ %1722, %1721 ], [ @.str.524, %1720 ], [ @.str.523, %1715 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1805) #24
-  br label %2190
+parser_node_name.exit1805:                        ; preds = %1714, %1719, %1720
+  %.0.i1804 = phi ptr [ %1721, %1720 ], [ @.str.524, %1719 ], [ @.str.523, %1714 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1804) #24
+  br label %2189
 
-1723:                                             ; preds = %4
-  %1724 = load ptr, ptr %1, align 8
-  %magicptr1524 = ptrtoint ptr %1724 to i64
-  switch i64 %magicptr1524, label %1726 [
-    i64 -1, label %1725
-    i64 0, label %2190
+1722:                                             ; preds = %3
+  %1723 = load ptr, ptr %1, align 8
+  %magicptr1523 = ptrtoint ptr %1723 to i64
+  switch i64 %magicptr1523, label %1725 [
+    i64 -1, label %1724
+    i64 0, label %2189
   ]
 
-1725:                                             ; preds = %1723
+1724:                                             ; preds = %1722
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1726:                                             ; preds = %1723
-  %1727 = load i64, ptr %1724, align 8
-  %1728 = trunc i64 %1727 to i32
-  %1729 = lshr i32 %1728, 8
-  %1730 = and i32 %1729, 127
-  switch i32 %1730, label %1732 [
-    i32 114, label %parser_node_name.exit1808
-    i32 115, label %1731
+1725:                                             ; preds = %1722
+  %1726 = load i64, ptr %1723, align 8
+  %1727 = trunc i64 %1726 to i32
+  %1728 = lshr i32 %1727, 8
+  %1729 = and i32 %1728, 127
+  switch i32 %1729, label %1731 [
+    i32 114, label %parser_node_name.exit1807
+    i32 115, label %1730
   ]
 
-1731:                                             ; preds = %1726
-  br label %parser_node_name.exit1808
+1730:                                             ; preds = %1725
+  br label %parser_node_name.exit1807
 
-1732:                                             ; preds = %1726
-  %1733 = tail call ptr @ruby_node_name(i32 noundef %1730) #24
-  br label %parser_node_name.exit1808
+1731:                                             ; preds = %1725
+  %1732 = tail call ptr @ruby_node_name(i32 noundef %1729) #24
+  br label %parser_node_name.exit1807
 
-parser_node_name.exit1808:                        ; preds = %1726, %1731, %1732
-  %.0.i1807 = phi ptr [ %1733, %1732 ], [ @.str.524, %1731 ], [ @.str.523, %1726 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1807) #24
-  br label %2190
+parser_node_name.exit1807:                        ; preds = %1725, %1730, %1731
+  %.0.i1806 = phi ptr [ %1732, %1731 ], [ @.str.524, %1730 ], [ @.str.523, %1725 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1806) #24
+  br label %2189
 
-1734:                                             ; preds = %4
-  %1735 = load ptr, ptr %1, align 8
-  %magicptr1525 = ptrtoint ptr %1735 to i64
-  switch i64 %magicptr1525, label %1737 [
-    i64 -1, label %1736
-    i64 0, label %2190
+1733:                                             ; preds = %3
+  %1734 = load ptr, ptr %1, align 8
+  %magicptr1524 = ptrtoint ptr %1734 to i64
+  switch i64 %magicptr1524, label %1736 [
+    i64 -1, label %1735
+    i64 0, label %2189
   ]
 
-1736:                                             ; preds = %1734
+1735:                                             ; preds = %1733
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1737:                                             ; preds = %1734
-  %1738 = load i64, ptr %1735, align 8
-  %1739 = trunc i64 %1738 to i32
-  %1740 = lshr i32 %1739, 8
-  %1741 = and i32 %1740, 127
-  switch i32 %1741, label %1743 [
-    i32 114, label %parser_node_name.exit1810
-    i32 115, label %1742
+1736:                                             ; preds = %1733
+  %1737 = load i64, ptr %1734, align 8
+  %1738 = trunc i64 %1737 to i32
+  %1739 = lshr i32 %1738, 8
+  %1740 = and i32 %1739, 127
+  switch i32 %1740, label %1742 [
+    i32 114, label %parser_node_name.exit1809
+    i32 115, label %1741
   ]
 
-1742:                                             ; preds = %1737
-  br label %parser_node_name.exit1810
+1741:                                             ; preds = %1736
+  br label %parser_node_name.exit1809
 
-1743:                                             ; preds = %1737
-  %1744 = tail call ptr @ruby_node_name(i32 noundef %1741) #24
-  br label %parser_node_name.exit1810
+1742:                                             ; preds = %1736
+  %1743 = tail call ptr @ruby_node_name(i32 noundef %1740) #24
+  br label %parser_node_name.exit1809
 
-parser_node_name.exit1810:                        ; preds = %1737, %1742, %1743
-  %.0.i1809 = phi ptr [ %1744, %1743 ], [ @.str.524, %1742 ], [ @.str.523, %1737 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1809) #24
-  br label %2190
+parser_node_name.exit1809:                        ; preds = %1736, %1741, %1742
+  %.0.i1808 = phi ptr [ %1743, %1742 ], [ @.str.524, %1741 ], [ @.str.523, %1736 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1808) #24
+  br label %2189
 
-1745:                                             ; preds = %4
-  %1746 = load ptr, ptr %1, align 8
-  %magicptr1526 = ptrtoint ptr %1746 to i64
-  switch i64 %magicptr1526, label %1748 [
-    i64 -1, label %1747
-    i64 0, label %2190
+1744:                                             ; preds = %3
+  %1745 = load ptr, ptr %1, align 8
+  %magicptr1525 = ptrtoint ptr %1745 to i64
+  switch i64 %magicptr1525, label %1747 [
+    i64 -1, label %1746
+    i64 0, label %2189
   ]
 
-1747:                                             ; preds = %1745
+1746:                                             ; preds = %1744
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1748:                                             ; preds = %1745
-  %1749 = load i64, ptr %1746, align 8
-  %1750 = trunc i64 %1749 to i32
-  %1751 = lshr i32 %1750, 8
-  %1752 = and i32 %1751, 127
-  switch i32 %1752, label %1754 [
-    i32 114, label %parser_node_name.exit1812
-    i32 115, label %1753
+1747:                                             ; preds = %1744
+  %1748 = load i64, ptr %1745, align 8
+  %1749 = trunc i64 %1748 to i32
+  %1750 = lshr i32 %1749, 8
+  %1751 = and i32 %1750, 127
+  switch i32 %1751, label %1753 [
+    i32 114, label %parser_node_name.exit1811
+    i32 115, label %1752
   ]
 
-1753:                                             ; preds = %1748
-  br label %parser_node_name.exit1812
+1752:                                             ; preds = %1747
+  br label %parser_node_name.exit1811
 
-1754:                                             ; preds = %1748
-  %1755 = tail call ptr @ruby_node_name(i32 noundef %1752) #24
-  br label %parser_node_name.exit1812
+1753:                                             ; preds = %1747
+  %1754 = tail call ptr @ruby_node_name(i32 noundef %1751) #24
+  br label %parser_node_name.exit1811
 
-parser_node_name.exit1812:                        ; preds = %1748, %1753, %1754
-  %.0.i1811 = phi ptr [ %1755, %1754 ], [ @.str.524, %1753 ], [ @.str.523, %1748 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1811) #24
-  br label %2190
+parser_node_name.exit1811:                        ; preds = %1747, %1752, %1753
+  %.0.i1810 = phi ptr [ %1754, %1753 ], [ @.str.524, %1752 ], [ @.str.523, %1747 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1810) #24
+  br label %2189
 
-1756:                                             ; preds = %4
-  %1757 = load ptr, ptr %1, align 8
-  %magicptr1527 = ptrtoint ptr %1757 to i64
-  switch i64 %magicptr1527, label %1759 [
-    i64 -1, label %1758
-    i64 0, label %2190
+1755:                                             ; preds = %3
+  %1756 = load ptr, ptr %1, align 8
+  %magicptr1526 = ptrtoint ptr %1756 to i64
+  switch i64 %magicptr1526, label %1758 [
+    i64 -1, label %1757
+    i64 0, label %2189
   ]
 
-1758:                                             ; preds = %1756
+1757:                                             ; preds = %1755
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1759:                                             ; preds = %1756
-  %1760 = load i64, ptr %1757, align 8
-  %1761 = trunc i64 %1760 to i32
-  %1762 = lshr i32 %1761, 8
-  %1763 = and i32 %1762, 127
-  switch i32 %1763, label %1765 [
-    i32 114, label %parser_node_name.exit1814
-    i32 115, label %1764
+1758:                                             ; preds = %1755
+  %1759 = load i64, ptr %1756, align 8
+  %1760 = trunc i64 %1759 to i32
+  %1761 = lshr i32 %1760, 8
+  %1762 = and i32 %1761, 127
+  switch i32 %1762, label %1764 [
+    i32 114, label %parser_node_name.exit1813
+    i32 115, label %1763
   ]
 
-1764:                                             ; preds = %1759
-  br label %parser_node_name.exit1814
+1763:                                             ; preds = %1758
+  br label %parser_node_name.exit1813
 
-1765:                                             ; preds = %1759
-  %1766 = tail call ptr @ruby_node_name(i32 noundef %1763) #24
-  br label %parser_node_name.exit1814
+1764:                                             ; preds = %1758
+  %1765 = tail call ptr @ruby_node_name(i32 noundef %1762) #24
+  br label %parser_node_name.exit1813
 
-parser_node_name.exit1814:                        ; preds = %1759, %1764, %1765
-  %.0.i1813 = phi ptr [ %1766, %1765 ], [ @.str.524, %1764 ], [ @.str.523, %1759 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1813) #24
-  br label %2190
+parser_node_name.exit1813:                        ; preds = %1758, %1763, %1764
+  %.0.i1812 = phi ptr [ %1765, %1764 ], [ @.str.524, %1763 ], [ @.str.523, %1758 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1812) #24
+  br label %2189
 
-1767:                                             ; preds = %4
-  %1768 = load ptr, ptr %1, align 8
-  %magicptr1528 = ptrtoint ptr %1768 to i64
-  switch i64 %magicptr1528, label %1770 [
-    i64 -1, label %1769
-    i64 0, label %2190
+1766:                                             ; preds = %3
+  %1767 = load ptr, ptr %1, align 8
+  %magicptr1527 = ptrtoint ptr %1767 to i64
+  switch i64 %magicptr1527, label %1769 [
+    i64 -1, label %1768
+    i64 0, label %2189
   ]
 
-1769:                                             ; preds = %1767
+1768:                                             ; preds = %1766
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1770:                                             ; preds = %1767
-  %1771 = load i64, ptr %1768, align 8
-  %1772 = trunc i64 %1771 to i32
-  %1773 = lshr i32 %1772, 8
-  %1774 = and i32 %1773, 127
-  switch i32 %1774, label %1776 [
-    i32 114, label %parser_node_name.exit1816
-    i32 115, label %1775
+1769:                                             ; preds = %1766
+  %1770 = load i64, ptr %1767, align 8
+  %1771 = trunc i64 %1770 to i32
+  %1772 = lshr i32 %1771, 8
+  %1773 = and i32 %1772, 127
+  switch i32 %1773, label %1775 [
+    i32 114, label %parser_node_name.exit1815
+    i32 115, label %1774
   ]
 
-1775:                                             ; preds = %1770
-  br label %parser_node_name.exit1816
+1774:                                             ; preds = %1769
+  br label %parser_node_name.exit1815
 
-1776:                                             ; preds = %1770
-  %1777 = tail call ptr @ruby_node_name(i32 noundef %1774) #24
-  br label %parser_node_name.exit1816
+1775:                                             ; preds = %1769
+  %1776 = tail call ptr @ruby_node_name(i32 noundef %1773) #24
+  br label %parser_node_name.exit1815
 
-parser_node_name.exit1816:                        ; preds = %1770, %1775, %1776
-  %.0.i1815 = phi ptr [ %1777, %1776 ], [ @.str.524, %1775 ], [ @.str.523, %1770 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1815) #24
-  br label %2190
+parser_node_name.exit1815:                        ; preds = %1769, %1774, %1775
+  %.0.i1814 = phi ptr [ %1776, %1775 ], [ @.str.524, %1774 ], [ @.str.523, %1769 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1814) #24
+  br label %2189
 
-1778:                                             ; preds = %4
-  %1779 = load ptr, ptr %1, align 8
-  %magicptr1529 = ptrtoint ptr %1779 to i64
-  switch i64 %magicptr1529, label %1781 [
-    i64 -1, label %1780
-    i64 0, label %2190
+1777:                                             ; preds = %3
+  %1778 = load ptr, ptr %1, align 8
+  %magicptr1528 = ptrtoint ptr %1778 to i64
+  switch i64 %magicptr1528, label %1780 [
+    i64 -1, label %1779
+    i64 0, label %2189
   ]
 
-1780:                                             ; preds = %1778
+1779:                                             ; preds = %1777
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1781:                                             ; preds = %1778
-  %1782 = load i64, ptr %1779, align 8
-  %1783 = trunc i64 %1782 to i32
-  %1784 = lshr i32 %1783, 8
-  %1785 = and i32 %1784, 127
-  switch i32 %1785, label %1787 [
-    i32 114, label %parser_node_name.exit1818
-    i32 115, label %1786
+1780:                                             ; preds = %1777
+  %1781 = load i64, ptr %1778, align 8
+  %1782 = trunc i64 %1781 to i32
+  %1783 = lshr i32 %1782, 8
+  %1784 = and i32 %1783, 127
+  switch i32 %1784, label %1786 [
+    i32 114, label %parser_node_name.exit1817
+    i32 115, label %1785
   ]
 
-1786:                                             ; preds = %1781
-  br label %parser_node_name.exit1818
+1785:                                             ; preds = %1780
+  br label %parser_node_name.exit1817
 
-1787:                                             ; preds = %1781
-  %1788 = tail call ptr @ruby_node_name(i32 noundef %1785) #24
-  br label %parser_node_name.exit1818
+1786:                                             ; preds = %1780
+  %1787 = tail call ptr @ruby_node_name(i32 noundef %1784) #24
+  br label %parser_node_name.exit1817
 
-parser_node_name.exit1818:                        ; preds = %1781, %1786, %1787
-  %.0.i1817 = phi ptr [ %1788, %1787 ], [ @.str.524, %1786 ], [ @.str.523, %1781 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1817) #24
-  br label %2190
+parser_node_name.exit1817:                        ; preds = %1780, %1785, %1786
+  %.0.i1816 = phi ptr [ %1787, %1786 ], [ @.str.524, %1785 ], [ @.str.523, %1780 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1816) #24
+  br label %2189
 
-1789:                                             ; preds = %4
-  %1790 = load ptr, ptr %1, align 8
-  %magicptr1530 = ptrtoint ptr %1790 to i64
-  switch i64 %magicptr1530, label %1792 [
-    i64 -1, label %1791
-    i64 0, label %2190
+1788:                                             ; preds = %3
+  %1789 = load ptr, ptr %1, align 8
+  %magicptr1529 = ptrtoint ptr %1789 to i64
+  switch i64 %magicptr1529, label %1791 [
+    i64 -1, label %1790
+    i64 0, label %2189
   ]
 
-1791:                                             ; preds = %1789
+1790:                                             ; preds = %1788
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1792:                                             ; preds = %1789
-  %1793 = load i64, ptr %1790, align 8
-  %1794 = trunc i64 %1793 to i32
-  %1795 = lshr i32 %1794, 8
-  %1796 = and i32 %1795, 127
-  switch i32 %1796, label %1798 [
-    i32 114, label %parser_node_name.exit1820
-    i32 115, label %1797
+1791:                                             ; preds = %1788
+  %1792 = load i64, ptr %1789, align 8
+  %1793 = trunc i64 %1792 to i32
+  %1794 = lshr i32 %1793, 8
+  %1795 = and i32 %1794, 127
+  switch i32 %1795, label %1797 [
+    i32 114, label %parser_node_name.exit1819
+    i32 115, label %1796
   ]
 
-1797:                                             ; preds = %1792
-  br label %parser_node_name.exit1820
+1796:                                             ; preds = %1791
+  br label %parser_node_name.exit1819
 
-1798:                                             ; preds = %1792
-  %1799 = tail call ptr @ruby_node_name(i32 noundef %1796) #24
-  br label %parser_node_name.exit1820
+1797:                                             ; preds = %1791
+  %1798 = tail call ptr @ruby_node_name(i32 noundef %1795) #24
+  br label %parser_node_name.exit1819
 
-parser_node_name.exit1820:                        ; preds = %1792, %1797, %1798
-  %.0.i1819 = phi ptr [ %1799, %1798 ], [ @.str.524, %1797 ], [ @.str.523, %1792 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1819) #24
-  br label %2190
+parser_node_name.exit1819:                        ; preds = %1791, %1796, %1797
+  %.0.i1818 = phi ptr [ %1798, %1797 ], [ @.str.524, %1796 ], [ @.str.523, %1791 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1818) #24
+  br label %2189
 
-1800:                                             ; preds = %4
-  %1801 = load ptr, ptr %1, align 8
-  %magicptr1531 = ptrtoint ptr %1801 to i64
-  switch i64 %magicptr1531, label %1803 [
-    i64 -1, label %1802
-    i64 0, label %2190
+1799:                                             ; preds = %3
+  %1800 = load ptr, ptr %1, align 8
+  %magicptr1530 = ptrtoint ptr %1800 to i64
+  switch i64 %magicptr1530, label %1802 [
+    i64 -1, label %1801
+    i64 0, label %2189
   ]
 
-1802:                                             ; preds = %1800
+1801:                                             ; preds = %1799
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1803:                                             ; preds = %1800
-  %1804 = load i64, ptr %1801, align 8
-  %1805 = trunc i64 %1804 to i32
-  %1806 = lshr i32 %1805, 8
-  %1807 = and i32 %1806, 127
-  switch i32 %1807, label %1809 [
-    i32 114, label %parser_node_name.exit1822
-    i32 115, label %1808
+1802:                                             ; preds = %1799
+  %1803 = load i64, ptr %1800, align 8
+  %1804 = trunc i64 %1803 to i32
+  %1805 = lshr i32 %1804, 8
+  %1806 = and i32 %1805, 127
+  switch i32 %1806, label %1808 [
+    i32 114, label %parser_node_name.exit1821
+    i32 115, label %1807
   ]
 
-1808:                                             ; preds = %1803
-  br label %parser_node_name.exit1822
+1807:                                             ; preds = %1802
+  br label %parser_node_name.exit1821
 
-1809:                                             ; preds = %1803
-  %1810 = tail call ptr @ruby_node_name(i32 noundef %1807) #24
-  br label %parser_node_name.exit1822
+1808:                                             ; preds = %1802
+  %1809 = tail call ptr @ruby_node_name(i32 noundef %1806) #24
+  br label %parser_node_name.exit1821
 
-parser_node_name.exit1822:                        ; preds = %1803, %1808, %1809
-  %.0.i1821 = phi ptr [ %1810, %1809 ], [ @.str.524, %1808 ], [ @.str.523, %1803 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1821) #24
-  br label %2190
+parser_node_name.exit1821:                        ; preds = %1802, %1807, %1808
+  %.0.i1820 = phi ptr [ %1809, %1808 ], [ @.str.524, %1807 ], [ @.str.523, %1802 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1820) #24
+  br label %2189
 
-1811:                                             ; preds = %4
-  %1812 = load ptr, ptr %1, align 8
-  %magicptr1532 = ptrtoint ptr %1812 to i64
-  switch i64 %magicptr1532, label %1814 [
-    i64 -1, label %1813
-    i64 0, label %2190
+1810:                                             ; preds = %3
+  %1811 = load ptr, ptr %1, align 8
+  %magicptr1531 = ptrtoint ptr %1811 to i64
+  switch i64 %magicptr1531, label %1813 [
+    i64 -1, label %1812
+    i64 0, label %2189
   ]
 
-1813:                                             ; preds = %1811
+1812:                                             ; preds = %1810
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1814:                                             ; preds = %1811
-  %1815 = load i64, ptr %1812, align 8
-  %1816 = trunc i64 %1815 to i32
-  %1817 = lshr i32 %1816, 8
-  %1818 = and i32 %1817, 127
-  switch i32 %1818, label %1820 [
-    i32 114, label %parser_node_name.exit1824
-    i32 115, label %1819
+1813:                                             ; preds = %1810
+  %1814 = load i64, ptr %1811, align 8
+  %1815 = trunc i64 %1814 to i32
+  %1816 = lshr i32 %1815, 8
+  %1817 = and i32 %1816, 127
+  switch i32 %1817, label %1819 [
+    i32 114, label %parser_node_name.exit1823
+    i32 115, label %1818
   ]
 
-1819:                                             ; preds = %1814
-  br label %parser_node_name.exit1824
+1818:                                             ; preds = %1813
+  br label %parser_node_name.exit1823
 
-1820:                                             ; preds = %1814
-  %1821 = tail call ptr @ruby_node_name(i32 noundef %1818) #24
-  br label %parser_node_name.exit1824
+1819:                                             ; preds = %1813
+  %1820 = tail call ptr @ruby_node_name(i32 noundef %1817) #24
+  br label %parser_node_name.exit1823
 
-parser_node_name.exit1824:                        ; preds = %1814, %1819, %1820
-  %.0.i1823 = phi ptr [ %1821, %1820 ], [ @.str.524, %1819 ], [ @.str.523, %1814 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1823) #24
-  br label %2190
+parser_node_name.exit1823:                        ; preds = %1813, %1818, %1819
+  %.0.i1822 = phi ptr [ %1820, %1819 ], [ @.str.524, %1818 ], [ @.str.523, %1813 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1822) #24
+  br label %2189
 
-1822:                                             ; preds = %4
-  %1823 = load i64, ptr %1, align 8
-  %1824 = tail call i64 @rb_id2str(i64 noundef %1823) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1824) #24
-  br label %2190
+1821:                                             ; preds = %3
+  %1822 = load i64, ptr %1, align 8
+  %1823 = tail call i64 @rb_id2str(i64 noundef %1822) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1823) #24
+  br label %2189
 
-1825:                                             ; preds = %4
-  %1826 = load ptr, ptr %1, align 8
-  %magicptr1533 = ptrtoint ptr %1826 to i64
-  switch i64 %magicptr1533, label %1828 [
-    i64 -1, label %1827
-    i64 0, label %2190
+1824:                                             ; preds = %3
+  %1825 = load ptr, ptr %1, align 8
+  %magicptr1532 = ptrtoint ptr %1825 to i64
+  switch i64 %magicptr1532, label %1827 [
+    i64 -1, label %1826
+    i64 0, label %2189
   ]
 
-1827:                                             ; preds = %1825
+1826:                                             ; preds = %1824
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1828:                                             ; preds = %1825
-  %1829 = load i64, ptr %1826, align 8
-  %1830 = trunc i64 %1829 to i32
-  %1831 = lshr i32 %1830, 8
-  %1832 = and i32 %1831, 127
-  switch i32 %1832, label %1834 [
-    i32 114, label %parser_node_name.exit1826
-    i32 115, label %1833
+1827:                                             ; preds = %1824
+  %1828 = load i64, ptr %1825, align 8
+  %1829 = trunc i64 %1828 to i32
+  %1830 = lshr i32 %1829, 8
+  %1831 = and i32 %1830, 127
+  switch i32 %1831, label %1833 [
+    i32 114, label %parser_node_name.exit1825
+    i32 115, label %1832
   ]
 
-1833:                                             ; preds = %1828
-  br label %parser_node_name.exit1826
+1832:                                             ; preds = %1827
+  br label %parser_node_name.exit1825
 
-1834:                                             ; preds = %1828
-  %1835 = tail call ptr @ruby_node_name(i32 noundef %1832) #24
-  br label %parser_node_name.exit1826
+1833:                                             ; preds = %1827
+  %1834 = tail call ptr @ruby_node_name(i32 noundef %1831) #24
+  br label %parser_node_name.exit1825
 
-parser_node_name.exit1826:                        ; preds = %1828, %1833, %1834
-  %.0.i1825 = phi ptr [ %1835, %1834 ], [ @.str.524, %1833 ], [ @.str.523, %1828 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1825) #24
-  br label %2190
+parser_node_name.exit1825:                        ; preds = %1827, %1832, %1833
+  %.0.i1824 = phi ptr [ %1834, %1833 ], [ @.str.524, %1832 ], [ @.str.523, %1827 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1824) #24
+  br label %2189
 
-1836:                                             ; preds = %4
-  %1837 = load ptr, ptr %1, align 8
-  %magicptr1534 = ptrtoint ptr %1837 to i64
-  switch i64 %magicptr1534, label %1839 [
-    i64 -1, label %1838
-    i64 0, label %2190
+1835:                                             ; preds = %3
+  %1836 = load ptr, ptr %1, align 8
+  %magicptr1533 = ptrtoint ptr %1836 to i64
+  switch i64 %magicptr1533, label %1838 [
+    i64 -1, label %1837
+    i64 0, label %2189
   ]
 
-1838:                                             ; preds = %1836
+1837:                                             ; preds = %1835
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1839:                                             ; preds = %1836
-  %1840 = load i64, ptr %1837, align 8
-  %1841 = trunc i64 %1840 to i32
-  %1842 = lshr i32 %1841, 8
-  %1843 = and i32 %1842, 127
-  switch i32 %1843, label %1845 [
-    i32 114, label %parser_node_name.exit1828
-    i32 115, label %1844
+1838:                                             ; preds = %1835
+  %1839 = load i64, ptr %1836, align 8
+  %1840 = trunc i64 %1839 to i32
+  %1841 = lshr i32 %1840, 8
+  %1842 = and i32 %1841, 127
+  switch i32 %1842, label %1844 [
+    i32 114, label %parser_node_name.exit1827
+    i32 115, label %1843
   ]
 
-1844:                                             ; preds = %1839
-  br label %parser_node_name.exit1828
+1843:                                             ; preds = %1838
+  br label %parser_node_name.exit1827
 
-1845:                                             ; preds = %1839
-  %1846 = tail call ptr @ruby_node_name(i32 noundef %1843) #24
-  br label %parser_node_name.exit1828
+1844:                                             ; preds = %1838
+  %1845 = tail call ptr @ruby_node_name(i32 noundef %1842) #24
+  br label %parser_node_name.exit1827
 
-parser_node_name.exit1828:                        ; preds = %1839, %1844, %1845
-  %.0.i1827 = phi ptr [ %1846, %1845 ], [ @.str.524, %1844 ], [ @.str.523, %1839 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1827) #24
-  br label %2190
+parser_node_name.exit1827:                        ; preds = %1838, %1843, %1844
+  %.0.i1826 = phi ptr [ %1845, %1844 ], [ @.str.524, %1843 ], [ @.str.523, %1838 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1826) #24
+  br label %2189
 
-1847:                                             ; preds = %4
-  %1848 = load ptr, ptr %1, align 8
-  %magicptr1535 = ptrtoint ptr %1848 to i64
-  switch i64 %magicptr1535, label %1850 [
-    i64 -1, label %1849
-    i64 0, label %2190
+1846:                                             ; preds = %3
+  %1847 = load ptr, ptr %1, align 8
+  %magicptr1534 = ptrtoint ptr %1847 to i64
+  switch i64 %magicptr1534, label %1849 [
+    i64 -1, label %1848
+    i64 0, label %2189
   ]
 
-1849:                                             ; preds = %1847
+1848:                                             ; preds = %1846
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1850:                                             ; preds = %1847
-  %1851 = load i64, ptr %1848, align 8
-  %1852 = trunc i64 %1851 to i32
-  %1853 = lshr i32 %1852, 8
-  %1854 = and i32 %1853, 127
-  switch i32 %1854, label %1856 [
-    i32 114, label %parser_node_name.exit1830
-    i32 115, label %1855
+1849:                                             ; preds = %1846
+  %1850 = load i64, ptr %1847, align 8
+  %1851 = trunc i64 %1850 to i32
+  %1852 = lshr i32 %1851, 8
+  %1853 = and i32 %1852, 127
+  switch i32 %1853, label %1855 [
+    i32 114, label %parser_node_name.exit1829
+    i32 115, label %1854
   ]
 
-1855:                                             ; preds = %1850
-  br label %parser_node_name.exit1830
+1854:                                             ; preds = %1849
+  br label %parser_node_name.exit1829
 
-1856:                                             ; preds = %1850
-  %1857 = tail call ptr @ruby_node_name(i32 noundef %1854) #24
-  br label %parser_node_name.exit1830
+1855:                                             ; preds = %1849
+  %1856 = tail call ptr @ruby_node_name(i32 noundef %1853) #24
+  br label %parser_node_name.exit1829
 
-parser_node_name.exit1830:                        ; preds = %1850, %1855, %1856
-  %.0.i1829 = phi ptr [ %1857, %1856 ], [ @.str.524, %1855 ], [ @.str.523, %1850 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1829) #24
-  br label %2190
+parser_node_name.exit1829:                        ; preds = %1849, %1854, %1855
+  %.0.i1828 = phi ptr [ %1856, %1855 ], [ @.str.524, %1854 ], [ @.str.523, %1849 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1828) #24
+  br label %2189
 
-1858:                                             ; preds = %4
-  %1859 = load i64, ptr %1, align 8
-  %1860 = tail call i64 @rb_id2str(i64 noundef %1859) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1860) #24
-  br label %2190
+1857:                                             ; preds = %3
+  %1858 = load i64, ptr %1, align 8
+  %1859 = tail call i64 @rb_id2str(i64 noundef %1858) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1859) #24
+  br label %2189
 
-1861:                                             ; preds = %4
-  %1862 = load i64, ptr %1, align 8
-  %1863 = tail call i64 @rb_id2str(i64 noundef %1862) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1863) #24
-  br label %2190
+1860:                                             ; preds = %3
+  %1861 = load i64, ptr %1, align 8
+  %1862 = tail call i64 @rb_id2str(i64 noundef %1861) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1862) #24
+  br label %2189
 
-1864:                                             ; preds = %4
-  %1865 = load i64, ptr %1, align 8
-  %1866 = tail call i64 @rb_id2str(i64 noundef %1865) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1866) #24
-  br label %2190
+1863:                                             ; preds = %3
+  %1864 = load i64, ptr %1, align 8
+  %1865 = tail call i64 @rb_id2str(i64 noundef %1864) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1865) #24
+  br label %2189
 
-1867:                                             ; preds = %4
-  %1868 = load ptr, ptr %1, align 8
-  %magicptr1536 = ptrtoint ptr %1868 to i64
-  switch i64 %magicptr1536, label %1870 [
-    i64 -1, label %1869
-    i64 0, label %2190
+1866:                                             ; preds = %3
+  %1867 = load ptr, ptr %1, align 8
+  %magicptr1535 = ptrtoint ptr %1867 to i64
+  switch i64 %magicptr1535, label %1869 [
+    i64 -1, label %1868
+    i64 0, label %2189
   ]
 
-1869:                                             ; preds = %1867
+1868:                                             ; preds = %1866
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1870:                                             ; preds = %1867
-  %1871 = load i64, ptr %1868, align 8
-  %1872 = trunc i64 %1871 to i32
-  %1873 = lshr i32 %1872, 8
-  %1874 = and i32 %1873, 127
-  switch i32 %1874, label %1876 [
-    i32 114, label %parser_node_name.exit1832
-    i32 115, label %1875
+1869:                                             ; preds = %1866
+  %1870 = load i64, ptr %1867, align 8
+  %1871 = trunc i64 %1870 to i32
+  %1872 = lshr i32 %1871, 8
+  %1873 = and i32 %1872, 127
+  switch i32 %1873, label %1875 [
+    i32 114, label %parser_node_name.exit1831
+    i32 115, label %1874
   ]
 
-1875:                                             ; preds = %1870
-  br label %parser_node_name.exit1832
+1874:                                             ; preds = %1869
+  br label %parser_node_name.exit1831
 
-1876:                                             ; preds = %1870
-  %1877 = tail call ptr @ruby_node_name(i32 noundef %1874) #24
-  br label %parser_node_name.exit1832
+1875:                                             ; preds = %1869
+  %1876 = tail call ptr @ruby_node_name(i32 noundef %1873) #24
+  br label %parser_node_name.exit1831
 
-parser_node_name.exit1832:                        ; preds = %1870, %1875, %1876
-  %.0.i1831 = phi ptr [ %1877, %1876 ], [ @.str.524, %1875 ], [ @.str.523, %1870 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1831) #24
-  br label %2190
+parser_node_name.exit1831:                        ; preds = %1869, %1874, %1875
+  %.0.i1830 = phi ptr [ %1876, %1875 ], [ @.str.524, %1874 ], [ @.str.523, %1869 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1830) #24
+  br label %2189
 
-1878:                                             ; preds = %4
-  %1879 = load ptr, ptr %1, align 8
-  %magicptr1537 = ptrtoint ptr %1879 to i64
-  switch i64 %magicptr1537, label %1881 [
-    i64 -1, label %1880
-    i64 0, label %2190
+1877:                                             ; preds = %3
+  %1878 = load ptr, ptr %1, align 8
+  %magicptr1536 = ptrtoint ptr %1878 to i64
+  switch i64 %magicptr1536, label %1880 [
+    i64 -1, label %1879
+    i64 0, label %2189
   ]
 
-1880:                                             ; preds = %1878
+1879:                                             ; preds = %1877
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1881:                                             ; preds = %1878
-  %1882 = load i64, ptr %1879, align 8
-  %1883 = trunc i64 %1882 to i32
-  %1884 = lshr i32 %1883, 8
-  %1885 = and i32 %1884, 127
-  switch i32 %1885, label %1887 [
-    i32 114, label %parser_node_name.exit1834
-    i32 115, label %1886
+1880:                                             ; preds = %1877
+  %1881 = load i64, ptr %1878, align 8
+  %1882 = trunc i64 %1881 to i32
+  %1883 = lshr i32 %1882, 8
+  %1884 = and i32 %1883, 127
+  switch i32 %1884, label %1886 [
+    i32 114, label %parser_node_name.exit1833
+    i32 115, label %1885
   ]
 
-1886:                                             ; preds = %1881
-  br label %parser_node_name.exit1834
+1885:                                             ; preds = %1880
+  br label %parser_node_name.exit1833
 
-1887:                                             ; preds = %1881
-  %1888 = tail call ptr @ruby_node_name(i32 noundef %1885) #24
-  br label %parser_node_name.exit1834
+1886:                                             ; preds = %1880
+  %1887 = tail call ptr @ruby_node_name(i32 noundef %1884) #24
+  br label %parser_node_name.exit1833
 
-parser_node_name.exit1834:                        ; preds = %1881, %1886, %1887
-  %.0.i1833 = phi ptr [ %1888, %1887 ], [ @.str.524, %1886 ], [ @.str.523, %1881 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1833) #24
-  br label %2190
+parser_node_name.exit1833:                        ; preds = %1880, %1885, %1886
+  %.0.i1832 = phi ptr [ %1887, %1886 ], [ @.str.524, %1885 ], [ @.str.523, %1880 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1832) #24
+  br label %2189
 
-1889:                                             ; preds = %4
-  %1890 = load ptr, ptr %1, align 8
-  %magicptr1538 = ptrtoint ptr %1890 to i64
-  switch i64 %magicptr1538, label %1892 [
-    i64 -1, label %1891
-    i64 0, label %2190
+1888:                                             ; preds = %3
+  %1889 = load ptr, ptr %1, align 8
+  %magicptr1537 = ptrtoint ptr %1889 to i64
+  switch i64 %magicptr1537, label %1891 [
+    i64 -1, label %1890
+    i64 0, label %2189
   ]
 
-1891:                                             ; preds = %1889
+1890:                                             ; preds = %1888
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1892:                                             ; preds = %1889
-  %1893 = load i64, ptr %1890, align 8
-  %1894 = trunc i64 %1893 to i32
-  %1895 = lshr i32 %1894, 8
-  %1896 = and i32 %1895, 127
-  switch i32 %1896, label %1898 [
-    i32 114, label %parser_node_name.exit1836
-    i32 115, label %1897
+1891:                                             ; preds = %1888
+  %1892 = load i64, ptr %1889, align 8
+  %1893 = trunc i64 %1892 to i32
+  %1894 = lshr i32 %1893, 8
+  %1895 = and i32 %1894, 127
+  switch i32 %1895, label %1897 [
+    i32 114, label %parser_node_name.exit1835
+    i32 115, label %1896
   ]
 
-1897:                                             ; preds = %1892
-  br label %parser_node_name.exit1836
+1896:                                             ; preds = %1891
+  br label %parser_node_name.exit1835
 
-1898:                                             ; preds = %1892
-  %1899 = tail call ptr @ruby_node_name(i32 noundef %1896) #24
-  br label %parser_node_name.exit1836
+1897:                                             ; preds = %1891
+  %1898 = tail call ptr @ruby_node_name(i32 noundef %1895) #24
+  br label %parser_node_name.exit1835
 
-parser_node_name.exit1836:                        ; preds = %1892, %1897, %1898
-  %.0.i1835 = phi ptr [ %1899, %1898 ], [ @.str.524, %1897 ], [ @.str.523, %1892 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1835) #24
-  br label %2190
+parser_node_name.exit1835:                        ; preds = %1891, %1896, %1897
+  %.0.i1834 = phi ptr [ %1898, %1897 ], [ @.str.524, %1896 ], [ @.str.523, %1891 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1834) #24
+  br label %2189
 
-1900:                                             ; preds = %4
-  %1901 = load ptr, ptr %1, align 8
-  %magicptr1539 = ptrtoint ptr %1901 to i64
-  switch i64 %magicptr1539, label %1903 [
-    i64 -1, label %1902
-    i64 0, label %2190
+1899:                                             ; preds = %3
+  %1900 = load ptr, ptr %1, align 8
+  %magicptr1538 = ptrtoint ptr %1900 to i64
+  switch i64 %magicptr1538, label %1902 [
+    i64 -1, label %1901
+    i64 0, label %2189
   ]
 
-1902:                                             ; preds = %1900
+1901:                                             ; preds = %1899
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1903:                                             ; preds = %1900
-  %1904 = load i64, ptr %1901, align 8
-  %1905 = trunc i64 %1904 to i32
-  %1906 = lshr i32 %1905, 8
-  %1907 = and i32 %1906, 127
-  switch i32 %1907, label %1909 [
-    i32 114, label %parser_node_name.exit1838
-    i32 115, label %1908
+1902:                                             ; preds = %1899
+  %1903 = load i64, ptr %1900, align 8
+  %1904 = trunc i64 %1903 to i32
+  %1905 = lshr i32 %1904, 8
+  %1906 = and i32 %1905, 127
+  switch i32 %1906, label %1908 [
+    i32 114, label %parser_node_name.exit1837
+    i32 115, label %1907
   ]
 
-1908:                                             ; preds = %1903
-  br label %parser_node_name.exit1838
+1907:                                             ; preds = %1902
+  br label %parser_node_name.exit1837
 
-1909:                                             ; preds = %1903
-  %1910 = tail call ptr @ruby_node_name(i32 noundef %1907) #24
-  br label %parser_node_name.exit1838
+1908:                                             ; preds = %1902
+  %1909 = tail call ptr @ruby_node_name(i32 noundef %1906) #24
+  br label %parser_node_name.exit1837
 
-parser_node_name.exit1838:                        ; preds = %1903, %1908, %1909
-  %.0.i1837 = phi ptr [ %1910, %1909 ], [ @.str.524, %1908 ], [ @.str.523, %1903 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1837) #24
-  br label %2190
+parser_node_name.exit1837:                        ; preds = %1902, %1907, %1908
+  %.0.i1836 = phi ptr [ %1909, %1908 ], [ @.str.524, %1907 ], [ @.str.523, %1902 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1836) #24
+  br label %2189
 
-1911:                                             ; preds = %4
-  %1912 = load ptr, ptr %1, align 8
-  %magicptr1540 = ptrtoint ptr %1912 to i64
-  switch i64 %magicptr1540, label %1914 [
-    i64 -1, label %1913
-    i64 0, label %2190
+1910:                                             ; preds = %3
+  %1911 = load ptr, ptr %1, align 8
+  %magicptr1539 = ptrtoint ptr %1911 to i64
+  switch i64 %magicptr1539, label %1913 [
+    i64 -1, label %1912
+    i64 0, label %2189
   ]
 
-1913:                                             ; preds = %1911
+1912:                                             ; preds = %1910
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1914:                                             ; preds = %1911
-  %1915 = load i64, ptr %1912, align 8
-  %1916 = trunc i64 %1915 to i32
-  %1917 = lshr i32 %1916, 8
-  %1918 = and i32 %1917, 127
-  switch i32 %1918, label %1920 [
-    i32 114, label %parser_node_name.exit1840
-    i32 115, label %1919
+1913:                                             ; preds = %1910
+  %1914 = load i64, ptr %1911, align 8
+  %1915 = trunc i64 %1914 to i32
+  %1916 = lshr i32 %1915, 8
+  %1917 = and i32 %1916, 127
+  switch i32 %1917, label %1919 [
+    i32 114, label %parser_node_name.exit1839
+    i32 115, label %1918
   ]
 
-1919:                                             ; preds = %1914
-  br label %parser_node_name.exit1840
+1918:                                             ; preds = %1913
+  br label %parser_node_name.exit1839
 
-1920:                                             ; preds = %1914
-  %1921 = tail call ptr @ruby_node_name(i32 noundef %1918) #24
-  br label %parser_node_name.exit1840
+1919:                                             ; preds = %1913
+  %1920 = tail call ptr @ruby_node_name(i32 noundef %1917) #24
+  br label %parser_node_name.exit1839
 
-parser_node_name.exit1840:                        ; preds = %1914, %1919, %1920
-  %.0.i1839 = phi ptr [ %1921, %1920 ], [ @.str.524, %1919 ], [ @.str.523, %1914 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1839) #24
-  br label %2190
+parser_node_name.exit1839:                        ; preds = %1913, %1918, %1919
+  %.0.i1838 = phi ptr [ %1920, %1919 ], [ @.str.524, %1918 ], [ @.str.523, %1913 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1838) #24
+  br label %2189
 
-1922:                                             ; preds = %4
-  %1923 = load ptr, ptr %1, align 8
-  %magicptr1541 = ptrtoint ptr %1923 to i64
-  switch i64 %magicptr1541, label %1925 [
-    i64 -1, label %1924
-    i64 0, label %2190
+1921:                                             ; preds = %3
+  %1922 = load ptr, ptr %1, align 8
+  %magicptr1540 = ptrtoint ptr %1922 to i64
+  switch i64 %magicptr1540, label %1924 [
+    i64 -1, label %1923
+    i64 0, label %2189
   ]
 
-1924:                                             ; preds = %1922
+1923:                                             ; preds = %1921
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1925:                                             ; preds = %1922
-  %1926 = load i64, ptr %1923, align 8
-  %1927 = trunc i64 %1926 to i32
-  %1928 = lshr i32 %1927, 8
-  %1929 = and i32 %1928, 127
-  switch i32 %1929, label %1931 [
-    i32 114, label %parser_node_name.exit1842
-    i32 115, label %1930
+1924:                                             ; preds = %1921
+  %1925 = load i64, ptr %1922, align 8
+  %1926 = trunc i64 %1925 to i32
+  %1927 = lshr i32 %1926, 8
+  %1928 = and i32 %1927, 127
+  switch i32 %1928, label %1930 [
+    i32 114, label %parser_node_name.exit1841
+    i32 115, label %1929
   ]
 
-1930:                                             ; preds = %1925
-  br label %parser_node_name.exit1842
+1929:                                             ; preds = %1924
+  br label %parser_node_name.exit1841
 
-1931:                                             ; preds = %1925
-  %1932 = tail call ptr @ruby_node_name(i32 noundef %1929) #24
-  br label %parser_node_name.exit1842
+1930:                                             ; preds = %1924
+  %1931 = tail call ptr @ruby_node_name(i32 noundef %1928) #24
+  br label %parser_node_name.exit1841
 
-parser_node_name.exit1842:                        ; preds = %1925, %1930, %1931
-  %.0.i1841 = phi ptr [ %1932, %1931 ], [ @.str.524, %1930 ], [ @.str.523, %1925 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1841) #24
-  br label %2190
+parser_node_name.exit1841:                        ; preds = %1924, %1929, %1930
+  %.0.i1840 = phi ptr [ %1931, %1930 ], [ @.str.524, %1929 ], [ @.str.523, %1924 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1840) #24
+  br label %2189
 
-1933:                                             ; preds = %4
-  %1934 = load ptr, ptr %1, align 8
-  %magicptr1542 = ptrtoint ptr %1934 to i64
-  switch i64 %magicptr1542, label %1936 [
-    i64 -1, label %1935
-    i64 0, label %2190
+1932:                                             ; preds = %3
+  %1933 = load ptr, ptr %1, align 8
+  %magicptr1541 = ptrtoint ptr %1933 to i64
+  switch i64 %magicptr1541, label %1935 [
+    i64 -1, label %1934
+    i64 0, label %2189
   ]
 
-1935:                                             ; preds = %1933
+1934:                                             ; preds = %1932
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1936:                                             ; preds = %1933
-  %1937 = load i64, ptr %1934, align 8
-  %1938 = trunc i64 %1937 to i32
-  %1939 = lshr i32 %1938, 8
-  %1940 = and i32 %1939, 127
-  switch i32 %1940, label %1942 [
-    i32 114, label %parser_node_name.exit1844
-    i32 115, label %1941
+1935:                                             ; preds = %1932
+  %1936 = load i64, ptr %1933, align 8
+  %1937 = trunc i64 %1936 to i32
+  %1938 = lshr i32 %1937, 8
+  %1939 = and i32 %1938, 127
+  switch i32 %1939, label %1941 [
+    i32 114, label %parser_node_name.exit1843
+    i32 115, label %1940
   ]
 
-1941:                                             ; preds = %1936
-  br label %parser_node_name.exit1844
+1940:                                             ; preds = %1935
+  br label %parser_node_name.exit1843
 
-1942:                                             ; preds = %1936
-  %1943 = tail call ptr @ruby_node_name(i32 noundef %1940) #24
-  br label %parser_node_name.exit1844
+1941:                                             ; preds = %1935
+  %1942 = tail call ptr @ruby_node_name(i32 noundef %1939) #24
+  br label %parser_node_name.exit1843
 
-parser_node_name.exit1844:                        ; preds = %1936, %1941, %1942
-  %.0.i1843 = phi ptr [ %1943, %1942 ], [ @.str.524, %1941 ], [ @.str.523, %1936 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1843) #24
-  br label %2190
+parser_node_name.exit1843:                        ; preds = %1935, %1940, %1941
+  %.0.i1842 = phi ptr [ %1942, %1941 ], [ @.str.524, %1940 ], [ @.str.523, %1935 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1842) #24
+  br label %2189
 
-1944:                                             ; preds = %4
-  %1945 = load ptr, ptr %1, align 8
-  %magicptr1543 = ptrtoint ptr %1945 to i64
-  switch i64 %magicptr1543, label %1947 [
-    i64 -1, label %1946
-    i64 0, label %2190
+1943:                                             ; preds = %3
+  %1944 = load ptr, ptr %1, align 8
+  %magicptr1542 = ptrtoint ptr %1944 to i64
+  switch i64 %magicptr1542, label %1946 [
+    i64 -1, label %1945
+    i64 0, label %2189
   ]
 
-1946:                                             ; preds = %1944
+1945:                                             ; preds = %1943
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1947:                                             ; preds = %1944
-  %1948 = load i64, ptr %1945, align 8
-  %1949 = trunc i64 %1948 to i32
-  %1950 = lshr i32 %1949, 8
-  %1951 = and i32 %1950, 127
-  switch i32 %1951, label %1953 [
-    i32 114, label %parser_node_name.exit1846
-    i32 115, label %1952
+1946:                                             ; preds = %1943
+  %1947 = load i64, ptr %1944, align 8
+  %1948 = trunc i64 %1947 to i32
+  %1949 = lshr i32 %1948, 8
+  %1950 = and i32 %1949, 127
+  switch i32 %1950, label %1952 [
+    i32 114, label %parser_node_name.exit1845
+    i32 115, label %1951
   ]
 
-1952:                                             ; preds = %1947
-  br label %parser_node_name.exit1846
+1951:                                             ; preds = %1946
+  br label %parser_node_name.exit1845
 
-1953:                                             ; preds = %1947
-  %1954 = tail call ptr @ruby_node_name(i32 noundef %1951) #24
-  br label %parser_node_name.exit1846
+1952:                                             ; preds = %1946
+  %1953 = tail call ptr @ruby_node_name(i32 noundef %1950) #24
+  br label %parser_node_name.exit1845
 
-parser_node_name.exit1846:                        ; preds = %1947, %1952, %1953
-  %.0.i1845 = phi ptr [ %1954, %1953 ], [ @.str.524, %1952 ], [ @.str.523, %1947 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1845) #24
-  br label %2190
+parser_node_name.exit1845:                        ; preds = %1946, %1951, %1952
+  %.0.i1844 = phi ptr [ %1953, %1952 ], [ @.str.524, %1951 ], [ @.str.523, %1946 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1844) #24
+  br label %2189
 
-1955:                                             ; preds = %4
-  %1956 = load ptr, ptr %1, align 8
-  %magicptr1544 = ptrtoint ptr %1956 to i64
-  switch i64 %magicptr1544, label %1958 [
-    i64 -1, label %1957
-    i64 0, label %2190
+1954:                                             ; preds = %3
+  %1955 = load ptr, ptr %1, align 8
+  %magicptr1543 = ptrtoint ptr %1955 to i64
+  switch i64 %magicptr1543, label %1957 [
+    i64 -1, label %1956
+    i64 0, label %2189
   ]
 
-1957:                                             ; preds = %1955
+1956:                                             ; preds = %1954
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1958:                                             ; preds = %1955
-  %1959 = load i64, ptr %1956, align 8
-  %1960 = trunc i64 %1959 to i32
-  %1961 = lshr i32 %1960, 8
-  %1962 = and i32 %1961, 127
-  switch i32 %1962, label %1964 [
-    i32 114, label %parser_node_name.exit1848
-    i32 115, label %1963
+1957:                                             ; preds = %1954
+  %1958 = load i64, ptr %1955, align 8
+  %1959 = trunc i64 %1958 to i32
+  %1960 = lshr i32 %1959, 8
+  %1961 = and i32 %1960, 127
+  switch i32 %1961, label %1963 [
+    i32 114, label %parser_node_name.exit1847
+    i32 115, label %1962
   ]
 
-1963:                                             ; preds = %1958
-  br label %parser_node_name.exit1848
+1962:                                             ; preds = %1957
+  br label %parser_node_name.exit1847
 
-1964:                                             ; preds = %1958
-  %1965 = tail call ptr @ruby_node_name(i32 noundef %1962) #24
-  br label %parser_node_name.exit1848
+1963:                                             ; preds = %1957
+  %1964 = tail call ptr @ruby_node_name(i32 noundef %1961) #24
+  br label %parser_node_name.exit1847
 
-parser_node_name.exit1848:                        ; preds = %1958, %1963, %1964
-  %.0.i1847 = phi ptr [ %1965, %1964 ], [ @.str.524, %1963 ], [ @.str.523, %1958 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1847) #24
-  br label %2190
+parser_node_name.exit1847:                        ; preds = %1957, %1962, %1963
+  %.0.i1846 = phi ptr [ %1964, %1963 ], [ @.str.524, %1962 ], [ @.str.523, %1957 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1846) #24
+  br label %2189
 
-1966:                                             ; preds = %4
-  %1967 = load ptr, ptr %1, align 8
-  %magicptr1545 = ptrtoint ptr %1967 to i64
-  switch i64 %magicptr1545, label %1969 [
-    i64 -1, label %1968
-    i64 0, label %2190
+1965:                                             ; preds = %3
+  %1966 = load ptr, ptr %1, align 8
+  %magicptr1544 = ptrtoint ptr %1966 to i64
+  switch i64 %magicptr1544, label %1968 [
+    i64 -1, label %1967
+    i64 0, label %2189
   ]
 
-1968:                                             ; preds = %1966
+1967:                                             ; preds = %1965
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1969:                                             ; preds = %1966
-  %1970 = load i64, ptr %1967, align 8
-  %1971 = trunc i64 %1970 to i32
-  %1972 = lshr i32 %1971, 8
-  %1973 = and i32 %1972, 127
-  switch i32 %1973, label %1975 [
-    i32 114, label %parser_node_name.exit1850
-    i32 115, label %1974
+1968:                                             ; preds = %1965
+  %1969 = load i64, ptr %1966, align 8
+  %1970 = trunc i64 %1969 to i32
+  %1971 = lshr i32 %1970, 8
+  %1972 = and i32 %1971, 127
+  switch i32 %1972, label %1974 [
+    i32 114, label %parser_node_name.exit1849
+    i32 115, label %1973
   ]
 
-1974:                                             ; preds = %1969
-  br label %parser_node_name.exit1850
+1973:                                             ; preds = %1968
+  br label %parser_node_name.exit1849
 
-1975:                                             ; preds = %1969
-  %1976 = tail call ptr @ruby_node_name(i32 noundef %1973) #24
-  br label %parser_node_name.exit1850
+1974:                                             ; preds = %1968
+  %1975 = tail call ptr @ruby_node_name(i32 noundef %1972) #24
+  br label %parser_node_name.exit1849
 
-parser_node_name.exit1850:                        ; preds = %1969, %1974, %1975
-  %.0.i1849 = phi ptr [ %1976, %1975 ], [ @.str.524, %1974 ], [ @.str.523, %1969 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1849) #24
-  br label %2190
+parser_node_name.exit1849:                        ; preds = %1968, %1973, %1974
+  %.0.i1848 = phi ptr [ %1975, %1974 ], [ @.str.524, %1973 ], [ @.str.523, %1968 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1848) #24
+  br label %2189
 
-1977:                                             ; preds = %4
-  %1978 = load i64, ptr %1, align 8
-  %1979 = tail call i64 @rb_id2str(i64 noundef %1978) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1979) #24
-  br label %2190
+1976:                                             ; preds = %3
+  %1977 = load i64, ptr %1, align 8
+  %1978 = tail call i64 @rb_id2str(i64 noundef %1977) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1978) #24
+  br label %2189
 
-1980:                                             ; preds = %4
-  %1981 = load i64, ptr %1, align 8
-  %1982 = tail call i64 @rb_id2str(i64 noundef %1981) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1982) #24
-  br label %2190
+1979:                                             ; preds = %3
+  %1980 = load i64, ptr %1, align 8
+  %1981 = tail call i64 @rb_id2str(i64 noundef %1980) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1981) #24
+  br label %2189
 
-1983:                                             ; preds = %4
-  %1984 = load i64, ptr %1, align 8
-  %1985 = tail call i64 @rb_id2str(i64 noundef %1984) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1985) #24
-  br label %2190
+1982:                                             ; preds = %3
+  %1983 = load i64, ptr %1, align 8
+  %1984 = tail call i64 @rb_id2str(i64 noundef %1983) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1984) #24
+  br label %2189
 
-1986:                                             ; preds = %4
-  %1987 = load i64, ptr %1, align 8
-  %1988 = tail call i64 @rb_id2str(i64 noundef %1987) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1988) #24
-  br label %2190
+1985:                                             ; preds = %3
+  %1986 = load i64, ptr %1, align 8
+  %1987 = tail call i64 @rb_id2str(i64 noundef %1986) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %1987) #24
+  br label %2189
 
-1989:                                             ; preds = %4
-  %1990 = load ptr, ptr %1, align 8
-  %magicptr1546 = ptrtoint ptr %1990 to i64
-  switch i64 %magicptr1546, label %1992 [
-    i64 -1, label %1991
-    i64 0, label %2190
+1988:                                             ; preds = %3
+  %1989 = load ptr, ptr %1, align 8
+  %magicptr1545 = ptrtoint ptr %1989 to i64
+  switch i64 %magicptr1545, label %1991 [
+    i64 -1, label %1990
+    i64 0, label %2189
   ]
 
-1991:                                             ; preds = %1989
+1990:                                             ; preds = %1988
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-1992:                                             ; preds = %1989
-  %1993 = load i64, ptr %1990, align 8
-  %1994 = trunc i64 %1993 to i32
-  %1995 = lshr i32 %1994, 8
-  %1996 = and i32 %1995, 127
-  switch i32 %1996, label %1998 [
-    i32 114, label %parser_node_name.exit1852
-    i32 115, label %1997
+1991:                                             ; preds = %1988
+  %1992 = load i64, ptr %1989, align 8
+  %1993 = trunc i64 %1992 to i32
+  %1994 = lshr i32 %1993, 8
+  %1995 = and i32 %1994, 127
+  switch i32 %1995, label %1997 [
+    i32 114, label %parser_node_name.exit1851
+    i32 115, label %1996
   ]
 
-1997:                                             ; preds = %1992
-  br label %parser_node_name.exit1852
+1996:                                             ; preds = %1991
+  br label %parser_node_name.exit1851
 
-1998:                                             ; preds = %1992
-  %1999 = tail call ptr @ruby_node_name(i32 noundef %1996) #24
-  br label %parser_node_name.exit1852
+1997:                                             ; preds = %1991
+  %1998 = tail call ptr @ruby_node_name(i32 noundef %1995) #24
+  br label %parser_node_name.exit1851
 
-parser_node_name.exit1852:                        ; preds = %1992, %1997, %1998
-  %.0.i1851 = phi ptr [ %1999, %1998 ], [ @.str.524, %1997 ], [ @.str.523, %1992 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1851) #24
-  br label %2190
+parser_node_name.exit1851:                        ; preds = %1991, %1996, %1997
+  %.0.i1850 = phi ptr [ %1998, %1997 ], [ @.str.524, %1996 ], [ @.str.523, %1991 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1850) #24
+  br label %2189
 
-2000:                                             ; preds = %4
-  %2001 = load ptr, ptr %1, align 8
-  %magicptr1547 = ptrtoint ptr %2001 to i64
-  switch i64 %magicptr1547, label %2003 [
-    i64 -1, label %2002
-    i64 0, label %2190
+1999:                                             ; preds = %3
+  %2000 = load ptr, ptr %1, align 8
+  %magicptr1546 = ptrtoint ptr %2000 to i64
+  switch i64 %magicptr1546, label %2002 [
+    i64 -1, label %2001
+    i64 0, label %2189
   ]
 
-2002:                                             ; preds = %2000
+2001:                                             ; preds = %1999
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2003:                                             ; preds = %2000
-  %2004 = load i64, ptr %2001, align 8
-  %2005 = trunc i64 %2004 to i32
-  %2006 = lshr i32 %2005, 8
-  %2007 = and i32 %2006, 127
-  switch i32 %2007, label %2009 [
-    i32 114, label %parser_node_name.exit1854
-    i32 115, label %2008
+2002:                                             ; preds = %1999
+  %2003 = load i64, ptr %2000, align 8
+  %2004 = trunc i64 %2003 to i32
+  %2005 = lshr i32 %2004, 8
+  %2006 = and i32 %2005, 127
+  switch i32 %2006, label %2008 [
+    i32 114, label %parser_node_name.exit1853
+    i32 115, label %2007
   ]
 
-2008:                                             ; preds = %2003
-  br label %parser_node_name.exit1854
+2007:                                             ; preds = %2002
+  br label %parser_node_name.exit1853
 
-2009:                                             ; preds = %2003
-  %2010 = tail call ptr @ruby_node_name(i32 noundef %2007) #24
-  br label %parser_node_name.exit1854
+2008:                                             ; preds = %2002
+  %2009 = tail call ptr @ruby_node_name(i32 noundef %2006) #24
+  br label %parser_node_name.exit1853
 
-parser_node_name.exit1854:                        ; preds = %2003, %2008, %2009
-  %.0.i1853 = phi ptr [ %2010, %2009 ], [ @.str.524, %2008 ], [ @.str.523, %2003 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1853) #24
-  br label %2190
+parser_node_name.exit1853:                        ; preds = %2002, %2007, %2008
+  %.0.i1852 = phi ptr [ %2009, %2008 ], [ @.str.524, %2007 ], [ @.str.523, %2002 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1852) #24
+  br label %2189
 
-2011:                                             ; preds = %4
-  %2012 = load i64, ptr %1, align 8
-  %2013 = tail call i64 @rb_id2str(i64 noundef %2012) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2013) #24
-  br label %2190
+2010:                                             ; preds = %3
+  %2011 = load i64, ptr %1, align 8
+  %2012 = tail call i64 @rb_id2str(i64 noundef %2011) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2012) #24
+  br label %2189
 
-2014:                                             ; preds = %4
-  %2015 = load ptr, ptr %1, align 8
-  %magicptr1548 = ptrtoint ptr %2015 to i64
-  switch i64 %magicptr1548, label %2017 [
-    i64 -1, label %2016
-    i64 0, label %2190
+2013:                                             ; preds = %3
+  %2014 = load ptr, ptr %1, align 8
+  %magicptr1547 = ptrtoint ptr %2014 to i64
+  switch i64 %magicptr1547, label %2016 [
+    i64 -1, label %2015
+    i64 0, label %2189
   ]
 
-2016:                                             ; preds = %2014
+2015:                                             ; preds = %2013
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2017:                                             ; preds = %2014
-  %2018 = load i64, ptr %2015, align 8
-  %2019 = trunc i64 %2018 to i32
-  %2020 = lshr i32 %2019, 8
-  %2021 = and i32 %2020, 127
-  switch i32 %2021, label %2023 [
-    i32 114, label %parser_node_name.exit1856
-    i32 115, label %2022
+2016:                                             ; preds = %2013
+  %2017 = load i64, ptr %2014, align 8
+  %2018 = trunc i64 %2017 to i32
+  %2019 = lshr i32 %2018, 8
+  %2020 = and i32 %2019, 127
+  switch i32 %2020, label %2022 [
+    i32 114, label %parser_node_name.exit1855
+    i32 115, label %2021
   ]
 
-2022:                                             ; preds = %2017
-  br label %parser_node_name.exit1856
+2021:                                             ; preds = %2016
+  br label %parser_node_name.exit1855
 
-2023:                                             ; preds = %2017
-  %2024 = tail call ptr @ruby_node_name(i32 noundef %2021) #24
-  br label %parser_node_name.exit1856
+2022:                                             ; preds = %2016
+  %2023 = tail call ptr @ruby_node_name(i32 noundef %2020) #24
+  br label %parser_node_name.exit1855
 
-parser_node_name.exit1856:                        ; preds = %2017, %2022, %2023
-  %.0.i1855 = phi ptr [ %2024, %2023 ], [ @.str.524, %2022 ], [ @.str.523, %2017 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1855) #24
-  br label %2190
+parser_node_name.exit1855:                        ; preds = %2016, %2021, %2022
+  %.0.i1854 = phi ptr [ %2023, %2022 ], [ @.str.524, %2021 ], [ @.str.523, %2016 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1854) #24
+  br label %2189
 
-2025:                                             ; preds = %4
-  %2026 = load ptr, ptr %1, align 8
-  %magicptr1549 = ptrtoint ptr %2026 to i64
-  switch i64 %magicptr1549, label %2028 [
-    i64 -1, label %2027
-    i64 0, label %2190
+2024:                                             ; preds = %3
+  %2025 = load ptr, ptr %1, align 8
+  %magicptr1548 = ptrtoint ptr %2025 to i64
+  switch i64 %magicptr1548, label %2027 [
+    i64 -1, label %2026
+    i64 0, label %2189
   ]
 
-2027:                                             ; preds = %2025
+2026:                                             ; preds = %2024
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2028:                                             ; preds = %2025
-  %2029 = load i64, ptr %2026, align 8
-  %2030 = trunc i64 %2029 to i32
-  %2031 = lshr i32 %2030, 8
-  %2032 = and i32 %2031, 127
-  switch i32 %2032, label %2034 [
-    i32 114, label %parser_node_name.exit1858
-    i32 115, label %2033
+2027:                                             ; preds = %2024
+  %2028 = load i64, ptr %2025, align 8
+  %2029 = trunc i64 %2028 to i32
+  %2030 = lshr i32 %2029, 8
+  %2031 = and i32 %2030, 127
+  switch i32 %2031, label %2033 [
+    i32 114, label %parser_node_name.exit1857
+    i32 115, label %2032
   ]
 
-2033:                                             ; preds = %2028
-  br label %parser_node_name.exit1858
+2032:                                             ; preds = %2027
+  br label %parser_node_name.exit1857
 
-2034:                                             ; preds = %2028
-  %2035 = tail call ptr @ruby_node_name(i32 noundef %2032) #24
-  br label %parser_node_name.exit1858
+2033:                                             ; preds = %2027
+  %2034 = tail call ptr @ruby_node_name(i32 noundef %2031) #24
+  br label %parser_node_name.exit1857
 
-parser_node_name.exit1858:                        ; preds = %2028, %2033, %2034
-  %.0.i1857 = phi ptr [ %2035, %2034 ], [ @.str.524, %2033 ], [ @.str.523, %2028 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1857) #24
-  br label %2190
+parser_node_name.exit1857:                        ; preds = %2027, %2032, %2033
+  %.0.i1856 = phi ptr [ %2034, %2033 ], [ @.str.524, %2032 ], [ @.str.523, %2027 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1856) #24
+  br label %2189
 
-2036:                                             ; preds = %4
-  %2037 = load ptr, ptr %1, align 8
-  %magicptr1550 = ptrtoint ptr %2037 to i64
-  switch i64 %magicptr1550, label %2039 [
-    i64 -1, label %2038
-    i64 0, label %2190
+2035:                                             ; preds = %3
+  %2036 = load ptr, ptr %1, align 8
+  %magicptr1549 = ptrtoint ptr %2036 to i64
+  switch i64 %magicptr1549, label %2038 [
+    i64 -1, label %2037
+    i64 0, label %2189
   ]
 
-2038:                                             ; preds = %2036
+2037:                                             ; preds = %2035
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2039:                                             ; preds = %2036
-  %2040 = load i64, ptr %2037, align 8
-  %2041 = trunc i64 %2040 to i32
-  %2042 = lshr i32 %2041, 8
-  %2043 = and i32 %2042, 127
-  switch i32 %2043, label %2045 [
-    i32 114, label %parser_node_name.exit1860
-    i32 115, label %2044
+2038:                                             ; preds = %2035
+  %2039 = load i64, ptr %2036, align 8
+  %2040 = trunc i64 %2039 to i32
+  %2041 = lshr i32 %2040, 8
+  %2042 = and i32 %2041, 127
+  switch i32 %2042, label %2044 [
+    i32 114, label %parser_node_name.exit1859
+    i32 115, label %2043
   ]
 
-2044:                                             ; preds = %2039
-  br label %parser_node_name.exit1860
+2043:                                             ; preds = %2038
+  br label %parser_node_name.exit1859
 
-2045:                                             ; preds = %2039
-  %2046 = tail call ptr @ruby_node_name(i32 noundef %2043) #24
-  br label %parser_node_name.exit1860
+2044:                                             ; preds = %2038
+  %2045 = tail call ptr @ruby_node_name(i32 noundef %2042) #24
+  br label %parser_node_name.exit1859
 
-parser_node_name.exit1860:                        ; preds = %2039, %2044, %2045
-  %.0.i1859 = phi ptr [ %2046, %2045 ], [ @.str.524, %2044 ], [ @.str.523, %2039 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1859) #24
-  br label %2190
+parser_node_name.exit1859:                        ; preds = %2038, %2043, %2044
+  %.0.i1858 = phi ptr [ %2045, %2044 ], [ @.str.524, %2043 ], [ @.str.523, %2038 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1858) #24
+  br label %2189
 
-2047:                                             ; preds = %4
-  %2048 = load ptr, ptr %1, align 8
-  %magicptr1551 = ptrtoint ptr %2048 to i64
-  switch i64 %magicptr1551, label %2050 [
-    i64 -1, label %2049
-    i64 0, label %2190
+2046:                                             ; preds = %3
+  %2047 = load ptr, ptr %1, align 8
+  %magicptr1550 = ptrtoint ptr %2047 to i64
+  switch i64 %magicptr1550, label %2049 [
+    i64 -1, label %2048
+    i64 0, label %2189
   ]
 
-2049:                                             ; preds = %2047
+2048:                                             ; preds = %2046
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2050:                                             ; preds = %2047
-  %2051 = load i64, ptr %2048, align 8
-  %2052 = trunc i64 %2051 to i32
-  %2053 = lshr i32 %2052, 8
-  %2054 = and i32 %2053, 127
-  switch i32 %2054, label %2056 [
-    i32 114, label %parser_node_name.exit1862
-    i32 115, label %2055
+2049:                                             ; preds = %2046
+  %2050 = load i64, ptr %2047, align 8
+  %2051 = trunc i64 %2050 to i32
+  %2052 = lshr i32 %2051, 8
+  %2053 = and i32 %2052, 127
+  switch i32 %2053, label %2055 [
+    i32 114, label %parser_node_name.exit1861
+    i32 115, label %2054
   ]
 
-2055:                                             ; preds = %2050
-  br label %parser_node_name.exit1862
+2054:                                             ; preds = %2049
+  br label %parser_node_name.exit1861
 
-2056:                                             ; preds = %2050
-  %2057 = tail call ptr @ruby_node_name(i32 noundef %2054) #24
-  br label %parser_node_name.exit1862
+2055:                                             ; preds = %2049
+  %2056 = tail call ptr @ruby_node_name(i32 noundef %2053) #24
+  br label %parser_node_name.exit1861
 
-parser_node_name.exit1862:                        ; preds = %2050, %2055, %2056
-  %.0.i1861 = phi ptr [ %2057, %2056 ], [ @.str.524, %2055 ], [ @.str.523, %2050 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1861) #24
-  br label %2190
+parser_node_name.exit1861:                        ; preds = %2049, %2054, %2055
+  %.0.i1860 = phi ptr [ %2056, %2055 ], [ @.str.524, %2054 ], [ @.str.523, %2049 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1860) #24
+  br label %2189
 
-2058:                                             ; preds = %4
-  %2059 = load i64, ptr %1, align 8
-  %2060 = tail call i64 @rb_id2str(i64 noundef %2059) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2060) #24
-  br label %2190
+2057:                                             ; preds = %3
+  %2058 = load i64, ptr %1, align 8
+  %2059 = tail call i64 @rb_id2str(i64 noundef %2058) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2059) #24
+  br label %2189
 
-2061:                                             ; preds = %4
-  %2062 = load i64, ptr %1, align 8
-  %2063 = tail call i64 @rb_id2str(i64 noundef %2062) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2063) #24
-  br label %2190
+2060:                                             ; preds = %3
+  %2061 = load i64, ptr %1, align 8
+  %2062 = tail call i64 @rb_id2str(i64 noundef %2061) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2062) #24
+  br label %2189
 
-2064:                                             ; preds = %4
-  %2065 = load ptr, ptr %1, align 8
-  %magicptr1552 = ptrtoint ptr %2065 to i64
-  switch i64 %magicptr1552, label %2067 [
-    i64 -1, label %2066
-    i64 0, label %2190
+2063:                                             ; preds = %3
+  %2064 = load ptr, ptr %1, align 8
+  %magicptr1551 = ptrtoint ptr %2064 to i64
+  switch i64 %magicptr1551, label %2066 [
+    i64 -1, label %2065
+    i64 0, label %2189
   ]
 
-2066:                                             ; preds = %2064
+2065:                                             ; preds = %2063
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2067:                                             ; preds = %2064
-  %2068 = load i64, ptr %2065, align 8
-  %2069 = trunc i64 %2068 to i32
-  %2070 = lshr i32 %2069, 8
-  %2071 = and i32 %2070, 127
-  switch i32 %2071, label %2073 [
-    i32 114, label %parser_node_name.exit1864
-    i32 115, label %2072
+2066:                                             ; preds = %2063
+  %2067 = load i64, ptr %2064, align 8
+  %2068 = trunc i64 %2067 to i32
+  %2069 = lshr i32 %2068, 8
+  %2070 = and i32 %2069, 127
+  switch i32 %2070, label %2072 [
+    i32 114, label %parser_node_name.exit1863
+    i32 115, label %2071
   ]
 
-2072:                                             ; preds = %2067
-  br label %parser_node_name.exit1864
+2071:                                             ; preds = %2066
+  br label %parser_node_name.exit1863
 
-2073:                                             ; preds = %2067
-  %2074 = tail call ptr @ruby_node_name(i32 noundef %2071) #24
-  br label %parser_node_name.exit1864
+2072:                                             ; preds = %2066
+  %2073 = tail call ptr @ruby_node_name(i32 noundef %2070) #24
+  br label %parser_node_name.exit1863
 
-parser_node_name.exit1864:                        ; preds = %2067, %2072, %2073
-  %.0.i1863 = phi ptr [ %2074, %2073 ], [ @.str.524, %2072 ], [ @.str.523, %2067 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1863) #24
-  br label %2190
+parser_node_name.exit1863:                        ; preds = %2066, %2071, %2072
+  %.0.i1862 = phi ptr [ %2073, %2072 ], [ @.str.524, %2071 ], [ @.str.523, %2066 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1862) #24
+  br label %2189
 
-2075:                                             ; preds = %4
-  %2076 = load ptr, ptr %1, align 8
-  %magicptr1553 = ptrtoint ptr %2076 to i64
-  switch i64 %magicptr1553, label %2078 [
-    i64 -1, label %2077
-    i64 0, label %2190
+2074:                                             ; preds = %3
+  %2075 = load ptr, ptr %1, align 8
+  %magicptr1552 = ptrtoint ptr %2075 to i64
+  switch i64 %magicptr1552, label %2077 [
+    i64 -1, label %2076
+    i64 0, label %2189
   ]
 
-2077:                                             ; preds = %2075
+2076:                                             ; preds = %2074
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2078:                                             ; preds = %2075
-  %2079 = load i64, ptr %2076, align 8
-  %2080 = trunc i64 %2079 to i32
-  %2081 = lshr i32 %2080, 8
-  %2082 = and i32 %2081, 127
-  switch i32 %2082, label %2084 [
-    i32 114, label %parser_node_name.exit1866
-    i32 115, label %2083
+2077:                                             ; preds = %2074
+  %2078 = load i64, ptr %2075, align 8
+  %2079 = trunc i64 %2078 to i32
+  %2080 = lshr i32 %2079, 8
+  %2081 = and i32 %2080, 127
+  switch i32 %2081, label %2083 [
+    i32 114, label %parser_node_name.exit1865
+    i32 115, label %2082
   ]
 
-2083:                                             ; preds = %2078
-  br label %parser_node_name.exit1866
+2082:                                             ; preds = %2077
+  br label %parser_node_name.exit1865
 
-2084:                                             ; preds = %2078
-  %2085 = tail call ptr @ruby_node_name(i32 noundef %2082) #24
-  br label %parser_node_name.exit1866
+2083:                                             ; preds = %2077
+  %2084 = tail call ptr @ruby_node_name(i32 noundef %2081) #24
+  br label %parser_node_name.exit1865
 
-parser_node_name.exit1866:                        ; preds = %2078, %2083, %2084
-  %.0.i1865 = phi ptr [ %2085, %2084 ], [ @.str.524, %2083 ], [ @.str.523, %2078 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1865) #24
-  br label %2190
+parser_node_name.exit1865:                        ; preds = %2077, %2082, %2083
+  %.0.i1864 = phi ptr [ %2084, %2083 ], [ @.str.524, %2082 ], [ @.str.523, %2077 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1864) #24
+  br label %2189
 
-2086:                                             ; preds = %4
-  %2087 = load ptr, ptr %1, align 8
-  %magicptr1554 = ptrtoint ptr %2087 to i64
-  switch i64 %magicptr1554, label %2089 [
-    i64 -1, label %2088
-    i64 0, label %2190
+2085:                                             ; preds = %3
+  %2086 = load ptr, ptr %1, align 8
+  %magicptr1553 = ptrtoint ptr %2086 to i64
+  switch i64 %magicptr1553, label %2088 [
+    i64 -1, label %2087
+    i64 0, label %2189
   ]
 
-2088:                                             ; preds = %2086
+2087:                                             ; preds = %2085
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2089:                                             ; preds = %2086
-  %2090 = load i64, ptr %2087, align 8
-  %2091 = trunc i64 %2090 to i32
-  %2092 = lshr i32 %2091, 8
-  %2093 = and i32 %2092, 127
-  switch i32 %2093, label %2095 [
-    i32 114, label %parser_node_name.exit1868
-    i32 115, label %2094
+2088:                                             ; preds = %2085
+  %2089 = load i64, ptr %2086, align 8
+  %2090 = trunc i64 %2089 to i32
+  %2091 = lshr i32 %2090, 8
+  %2092 = and i32 %2091, 127
+  switch i32 %2092, label %2094 [
+    i32 114, label %parser_node_name.exit1867
+    i32 115, label %2093
   ]
 
-2094:                                             ; preds = %2089
-  br label %parser_node_name.exit1868
+2093:                                             ; preds = %2088
+  br label %parser_node_name.exit1867
 
-2095:                                             ; preds = %2089
-  %2096 = tail call ptr @ruby_node_name(i32 noundef %2093) #24
-  br label %parser_node_name.exit1868
+2094:                                             ; preds = %2088
+  %2095 = tail call ptr @ruby_node_name(i32 noundef %2092) #24
+  br label %parser_node_name.exit1867
 
-parser_node_name.exit1868:                        ; preds = %2089, %2094, %2095
-  %.0.i1867 = phi ptr [ %2096, %2095 ], [ @.str.524, %2094 ], [ @.str.523, %2089 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1867) #24
-  br label %2190
+parser_node_name.exit1867:                        ; preds = %2088, %2093, %2094
+  %.0.i1866 = phi ptr [ %2095, %2094 ], [ @.str.524, %2093 ], [ @.str.523, %2088 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1866) #24
+  br label %2189
 
-2097:                                             ; preds = %4
-  %2098 = load ptr, ptr %1, align 8
-  %magicptr1555 = ptrtoint ptr %2098 to i64
-  switch i64 %magicptr1555, label %2100 [
-    i64 -1, label %2099
-    i64 0, label %2190
+2096:                                             ; preds = %3
+  %2097 = load ptr, ptr %1, align 8
+  %magicptr1554 = ptrtoint ptr %2097 to i64
+  switch i64 %magicptr1554, label %2099 [
+    i64 -1, label %2098
+    i64 0, label %2189
   ]
 
-2099:                                             ; preds = %2097
+2098:                                             ; preds = %2096
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2100:                                             ; preds = %2097
-  %2101 = load i64, ptr %2098, align 8
-  %2102 = trunc i64 %2101 to i32
-  %2103 = lshr i32 %2102, 8
-  %2104 = and i32 %2103, 127
-  switch i32 %2104, label %2106 [
-    i32 114, label %parser_node_name.exit1870
-    i32 115, label %2105
+2099:                                             ; preds = %2096
+  %2100 = load i64, ptr %2097, align 8
+  %2101 = trunc i64 %2100 to i32
+  %2102 = lshr i32 %2101, 8
+  %2103 = and i32 %2102, 127
+  switch i32 %2103, label %2105 [
+    i32 114, label %parser_node_name.exit1869
+    i32 115, label %2104
   ]
 
-2105:                                             ; preds = %2100
-  br label %parser_node_name.exit1870
+2104:                                             ; preds = %2099
+  br label %parser_node_name.exit1869
 
-2106:                                             ; preds = %2100
-  %2107 = tail call ptr @ruby_node_name(i32 noundef %2104) #24
-  br label %parser_node_name.exit1870
+2105:                                             ; preds = %2099
+  %2106 = tail call ptr @ruby_node_name(i32 noundef %2103) #24
+  br label %parser_node_name.exit1869
 
-parser_node_name.exit1870:                        ; preds = %2100, %2105, %2106
-  %.0.i1869 = phi ptr [ %2107, %2106 ], [ @.str.524, %2105 ], [ @.str.523, %2100 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1869) #24
-  br label %2190
+parser_node_name.exit1869:                        ; preds = %2099, %2104, %2105
+  %.0.i1868 = phi ptr [ %2106, %2105 ], [ @.str.524, %2104 ], [ @.str.523, %2099 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1868) #24
+  br label %2189
 
-2108:                                             ; preds = %4
-  %2109 = load i64, ptr %1, align 8
-  %2110 = tail call i64 @rb_id2str(i64 noundef %2109) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2110) #24
-  br label %2190
+2107:                                             ; preds = %3
+  %2108 = load i64, ptr %1, align 8
+  %2109 = tail call i64 @rb_id2str(i64 noundef %2108) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2109) #24
+  br label %2189
 
-2111:                                             ; preds = %4
-  %2112 = load i64, ptr %1, align 8
-  %2113 = tail call i64 @rb_id2str(i64 noundef %2112) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2113) #24
-  br label %2190
+2110:                                             ; preds = %3
+  %2111 = load i64, ptr %1, align 8
+  %2112 = tail call i64 @rb_id2str(i64 noundef %2111) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2112) #24
+  br label %2189
 
-2114:                                             ; preds = %4
-  %2115 = load i64, ptr %1, align 8
-  %2116 = tail call i64 @rb_id2str(i64 noundef %2115) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2116) #24
-  br label %2190
+2113:                                             ; preds = %3
+  %2114 = load i64, ptr %1, align 8
+  %2115 = tail call i64 @rb_id2str(i64 noundef %2114) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2115) #24
+  br label %2189
 
-2117:                                             ; preds = %4
-  %2118 = load ptr, ptr %1, align 8
-  %magicptr1556 = ptrtoint ptr %2118 to i64
-  switch i64 %magicptr1556, label %2120 [
-    i64 -1, label %2119
-    i64 0, label %2190
+2116:                                             ; preds = %3
+  %2117 = load ptr, ptr %1, align 8
+  %magicptr1555 = ptrtoint ptr %2117 to i64
+  switch i64 %magicptr1555, label %2119 [
+    i64 -1, label %2118
+    i64 0, label %2189
   ]
 
-2119:                                             ; preds = %2117
+2118:                                             ; preds = %2116
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2120:                                             ; preds = %2117
-  %2121 = load i64, ptr %2118, align 8
-  %2122 = trunc i64 %2121 to i32
-  %2123 = lshr i32 %2122, 8
-  %2124 = and i32 %2123, 127
-  switch i32 %2124, label %2126 [
-    i32 114, label %parser_node_name.exit1872
-    i32 115, label %2125
+2119:                                             ; preds = %2116
+  %2120 = load i64, ptr %2117, align 8
+  %2121 = trunc i64 %2120 to i32
+  %2122 = lshr i32 %2121, 8
+  %2123 = and i32 %2122, 127
+  switch i32 %2123, label %2125 [
+    i32 114, label %parser_node_name.exit1871
+    i32 115, label %2124
   ]
 
-2125:                                             ; preds = %2120
-  br label %parser_node_name.exit1872
+2124:                                             ; preds = %2119
+  br label %parser_node_name.exit1871
 
-2126:                                             ; preds = %2120
-  %2127 = tail call ptr @ruby_node_name(i32 noundef %2124) #24
-  br label %parser_node_name.exit1872
+2125:                                             ; preds = %2119
+  %2126 = tail call ptr @ruby_node_name(i32 noundef %2123) #24
+  br label %parser_node_name.exit1871
 
-parser_node_name.exit1872:                        ; preds = %2120, %2125, %2126
-  %.0.i1871 = phi ptr [ %2127, %2126 ], [ @.str.524, %2125 ], [ @.str.523, %2120 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1871) #24
-  br label %2190
+parser_node_name.exit1871:                        ; preds = %2119, %2124, %2125
+  %.0.i1870 = phi ptr [ %2126, %2125 ], [ @.str.524, %2124 ], [ @.str.523, %2119 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1870) #24
+  br label %2189
 
-2128:                                             ; preds = %4
-  %2129 = load ptr, ptr %1, align 8
-  %magicptr1557 = ptrtoint ptr %2129 to i64
-  switch i64 %magicptr1557, label %2131 [
-    i64 -1, label %2130
-    i64 0, label %2190
+2127:                                             ; preds = %3
+  %2128 = load ptr, ptr %1, align 8
+  %magicptr1556 = ptrtoint ptr %2128 to i64
+  switch i64 %magicptr1556, label %2130 [
+    i64 -1, label %2129
+    i64 0, label %2189
   ]
 
-2130:                                             ; preds = %2128
+2129:                                             ; preds = %2127
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2131:                                             ; preds = %2128
-  %2132 = load i64, ptr %2129, align 8
-  %2133 = trunc i64 %2132 to i32
-  %2134 = lshr i32 %2133, 8
-  %2135 = and i32 %2134, 127
-  switch i32 %2135, label %2137 [
-    i32 114, label %parser_node_name.exit1874
-    i32 115, label %2136
+2130:                                             ; preds = %2127
+  %2131 = load i64, ptr %2128, align 8
+  %2132 = trunc i64 %2131 to i32
+  %2133 = lshr i32 %2132, 8
+  %2134 = and i32 %2133, 127
+  switch i32 %2134, label %2136 [
+    i32 114, label %parser_node_name.exit1873
+    i32 115, label %2135
   ]
 
-2136:                                             ; preds = %2131
-  br label %parser_node_name.exit1874
+2135:                                             ; preds = %2130
+  br label %parser_node_name.exit1873
 
-2137:                                             ; preds = %2131
-  %2138 = tail call ptr @ruby_node_name(i32 noundef %2135) #24
-  br label %parser_node_name.exit1874
+2136:                                             ; preds = %2130
+  %2137 = tail call ptr @ruby_node_name(i32 noundef %2134) #24
+  br label %parser_node_name.exit1873
 
-parser_node_name.exit1874:                        ; preds = %2131, %2136, %2137
-  %.0.i1873 = phi ptr [ %2138, %2137 ], [ @.str.524, %2136 ], [ @.str.523, %2131 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1873) #24
-  br label %2190
+parser_node_name.exit1873:                        ; preds = %2130, %2135, %2136
+  %.0.i1872 = phi ptr [ %2137, %2136 ], [ @.str.524, %2135 ], [ @.str.523, %2130 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1872) #24
+  br label %2189
 
-2139:                                             ; preds = %4
-  %2140 = load ptr, ptr %1, align 8
-  %magicptr1558 = ptrtoint ptr %2140 to i64
-  switch i64 %magicptr1558, label %2142 [
-    i64 -1, label %2141
-    i64 0, label %2190
+2138:                                             ; preds = %3
+  %2139 = load ptr, ptr %1, align 8
+  %magicptr1557 = ptrtoint ptr %2139 to i64
+  switch i64 %magicptr1557, label %2141 [
+    i64 -1, label %2140
+    i64 0, label %2189
   ]
 
-2141:                                             ; preds = %2139
+2140:                                             ; preds = %2138
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2142:                                             ; preds = %2139
-  %2143 = load i64, ptr %2140, align 8
-  %2144 = trunc i64 %2143 to i32
-  %2145 = lshr i32 %2144, 8
-  %2146 = and i32 %2145, 127
-  switch i32 %2146, label %2148 [
-    i32 114, label %parser_node_name.exit1876
-    i32 115, label %2147
+2141:                                             ; preds = %2138
+  %2142 = load i64, ptr %2139, align 8
+  %2143 = trunc i64 %2142 to i32
+  %2144 = lshr i32 %2143, 8
+  %2145 = and i32 %2144, 127
+  switch i32 %2145, label %2147 [
+    i32 114, label %parser_node_name.exit1875
+    i32 115, label %2146
   ]
 
-2147:                                             ; preds = %2142
-  br label %parser_node_name.exit1876
+2146:                                             ; preds = %2141
+  br label %parser_node_name.exit1875
 
-2148:                                             ; preds = %2142
-  %2149 = tail call ptr @ruby_node_name(i32 noundef %2146) #24
-  br label %parser_node_name.exit1876
+2147:                                             ; preds = %2141
+  %2148 = tail call ptr @ruby_node_name(i32 noundef %2145) #24
+  br label %parser_node_name.exit1875
 
-parser_node_name.exit1876:                        ; preds = %2142, %2147, %2148
-  %.0.i1875 = phi ptr [ %2149, %2148 ], [ @.str.524, %2147 ], [ @.str.523, %2142 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1875) #24
-  br label %2190
+parser_node_name.exit1875:                        ; preds = %2141, %2146, %2147
+  %.0.i1874 = phi ptr [ %2148, %2147 ], [ @.str.524, %2146 ], [ @.str.523, %2141 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1874) #24
+  br label %2189
 
-2150:                                             ; preds = %4
-  %2151 = load ptr, ptr %1, align 8
-  %magicptr1559 = ptrtoint ptr %2151 to i64
-  switch i64 %magicptr1559, label %2153 [
-    i64 -1, label %2152
-    i64 0, label %2190
+2149:                                             ; preds = %3
+  %2150 = load ptr, ptr %1, align 8
+  %magicptr1558 = ptrtoint ptr %2150 to i64
+  switch i64 %magicptr1558, label %2152 [
+    i64 -1, label %2151
+    i64 0, label %2189
   ]
 
-2152:                                             ; preds = %2150
+2151:                                             ; preds = %2149
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2153:                                             ; preds = %2150
-  %2154 = load i64, ptr %2151, align 8
-  %2155 = trunc i64 %2154 to i32
-  %2156 = lshr i32 %2155, 8
-  %2157 = and i32 %2156, 127
-  switch i32 %2157, label %2159 [
-    i32 114, label %parser_node_name.exit1878
-    i32 115, label %2158
+2152:                                             ; preds = %2149
+  %2153 = load i64, ptr %2150, align 8
+  %2154 = trunc i64 %2153 to i32
+  %2155 = lshr i32 %2154, 8
+  %2156 = and i32 %2155, 127
+  switch i32 %2156, label %2158 [
+    i32 114, label %parser_node_name.exit1877
+    i32 115, label %2157
   ]
 
-2158:                                             ; preds = %2153
-  br label %parser_node_name.exit1878
+2157:                                             ; preds = %2152
+  br label %parser_node_name.exit1877
 
-2159:                                             ; preds = %2153
-  %2160 = tail call ptr @ruby_node_name(i32 noundef %2157) #24
-  br label %parser_node_name.exit1878
+2158:                                             ; preds = %2152
+  %2159 = tail call ptr @ruby_node_name(i32 noundef %2156) #24
+  br label %parser_node_name.exit1877
 
-parser_node_name.exit1878:                        ; preds = %2153, %2158, %2159
-  %.0.i1877 = phi ptr [ %2160, %2159 ], [ @.str.524, %2158 ], [ @.str.523, %2153 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1877) #24
-  br label %2190
+parser_node_name.exit1877:                        ; preds = %2152, %2157, %2158
+  %.0.i1876 = phi ptr [ %2159, %2158 ], [ @.str.524, %2157 ], [ @.str.523, %2152 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1876) #24
+  br label %2189
 
-2161:                                             ; preds = %4
-  %2162 = load i64, ptr %1, align 8
-  %2163 = tail call i64 @rb_id2str(i64 noundef %2162) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2163) #24
-  br label %2190
+2160:                                             ; preds = %3
+  %2161 = load i64, ptr %1, align 8
+  %2162 = tail call i64 @rb_id2str(i64 noundef %2161) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2162) #24
+  br label %2189
 
-2164:                                             ; preds = %4
-  %2165 = load i64, ptr %1, align 8
-  %2166 = tail call i64 @rb_id2str(i64 noundef %2165) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2166) #24
-  br label %2190
+2163:                                             ; preds = %3
+  %2164 = load i64, ptr %1, align 8
+  %2165 = tail call i64 @rb_id2str(i64 noundef %2164) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2165) #24
+  br label %2189
 
-2167:                                             ; preds = %4
-  %2168 = load i64, ptr %1, align 8
-  %2169 = tail call i64 @rb_id2str(i64 noundef %2168) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2169) #24
-  br label %2190
+2166:                                             ; preds = %3
+  %2167 = load i64, ptr %1, align 8
+  %2168 = tail call i64 @rb_id2str(i64 noundef %2167) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2168) #24
+  br label %2189
 
-2170:                                             ; preds = %4
-  %2171 = load i64, ptr %1, align 8
-  %2172 = tail call i64 @rb_id2str(i64 noundef %2171) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2172) #24
-  br label %2190
+2169:                                             ; preds = %3
+  %2170 = load i64, ptr %1, align 8
+  %2171 = tail call i64 @rb_id2str(i64 noundef %2170) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2171) #24
+  br label %2189
 
-2173:                                             ; preds = %4
-  %2174 = load i64, ptr %1, align 8
-  %2175 = tail call i64 @rb_id2str(i64 noundef %2174) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2175) #24
-  br label %2190
+2172:                                             ; preds = %3
+  %2173 = load i64, ptr %1, align 8
+  %2174 = tail call i64 @rb_id2str(i64 noundef %2173) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2174) #24
+  br label %2189
 
-2176:                                             ; preds = %4
-  %2177 = load i64, ptr %1, align 8
-  %2178 = tail call i64 @rb_id2str(i64 noundef %2177) #24
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2178) #24
-  br label %2190
+2175:                                             ; preds = %3
+  %2176 = load i64, ptr %1, align 8
+  %2177 = tail call i64 @rb_id2str(i64 noundef %2176) #24
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.517, i64 noundef %2177) #24
+  br label %2189
 
-2179:                                             ; preds = %4
-  %2180 = load ptr, ptr %1, align 8
-  %magicptr1560 = ptrtoint ptr %2180 to i64
-  switch i64 %magicptr1560, label %2182 [
-    i64 -1, label %2181
-    i64 0, label %2190
+2178:                                             ; preds = %3
+  %2179 = load ptr, ptr %1, align 8
+  %magicptr1559 = ptrtoint ptr %2179 to i64
+  switch i64 %magicptr1559, label %2181 [
+    i64 -1, label %2180
+    i64 0, label %2189
   ]
 
-2181:                                             ; preds = %2179
+2180:                                             ; preds = %2178
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.521) #24
-  br label %2190
+  br label %2189
 
-2182:                                             ; preds = %2179
-  %2183 = load i64, ptr %2180, align 8
-  %2184 = trunc i64 %2183 to i32
-  %2185 = lshr i32 %2184, 8
-  %2186 = and i32 %2185, 127
-  switch i32 %2186, label %2188 [
-    i32 114, label %parser_node_name.exit1880
-    i32 115, label %2187
+2181:                                             ; preds = %2178
+  %2182 = load i64, ptr %2179, align 8
+  %2183 = trunc i64 %2182 to i32
+  %2184 = lshr i32 %2183, 8
+  %2185 = and i32 %2184, 127
+  switch i32 %2185, label %2187 [
+    i32 114, label %parser_node_name.exit1879
+    i32 115, label %2186
   ]
 
-2187:                                             ; preds = %2182
-  br label %parser_node_name.exit1880
+2186:                                             ; preds = %2181
+  br label %parser_node_name.exit1879
 
-2188:                                             ; preds = %2182
-  %2189 = tail call ptr @ruby_node_name(i32 noundef %2186) #24
-  br label %parser_node_name.exit1880
+2187:                                             ; preds = %2181
+  %2188 = tail call ptr @ruby_node_name(i32 noundef %2185) #24
+  br label %parser_node_name.exit1879
 
-parser_node_name.exit1880:                        ; preds = %2182, %2187, %2188
-  %.0.i1879 = phi ptr [ %2189, %2188 ], [ @.str.524, %2187 ], [ @.str.523, %2182 ]
-  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1879) #24
-  br label %2190
+parser_node_name.exit1879:                        ; preds = %2181, %2186, %2187
+  %.0.i1878 = phi ptr [ %2188, %2187 ], [ @.str.524, %2186 ], [ @.str.523, %2181 ]
+  tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.522, ptr noundef %.0.i1878) #24
+  br label %2189
 
-2190:                                             ; preds = %2179, %2150, %2139, %2128, %2117, %2097, %2086, %2075, %2064, %2047, %2036, %2025, %2014, %2000, %1989, %1966, %1955, %1944, %1933, %1922, %1911, %1900, %1889, %1878, %1867, %1847, %1836, %1825, %1811, %1800, %1789, %1778, %1767, %1756, %1745, %1734, %1723, %1712, %1701, %1690, %1679, %1668, %1657, %1646, %1635, %1624, %1613, %1602, %1591, %1580, %1569, %1558, %1547, %1536, %1525, %1514, %1503, %1492, %1481, %1470, %1447, %1436, %1425, %1414, %1403, %1392, %1381, %1370, %1359, %1348, %1337, %1326, %1315, %1304, %1293, %1282, %1271, %1260, %1249, %1238, %1227, %1216, %1205, %1194, %1183, %1172, %1161, %1150, %1139, %1128, %1114, %1094, %1083, %1072, %1058, %1047, %1033, %1022, %1011, %1000, %989, %978, %967, %956, %945, %934, %923, %912, %901, %890, %879, %868, %857, %846, %835, %824, %813, %802, %791, %780, %769, %758, %747, %736, %722, %711, %694, %683, %669, %655, %644, %633, %622, %611, %600, %589, %578, %567, %556, %545, %534, %523, %512, %501, %490, %479, %465, %454, %443, %432, %421, %410, %399, %388, %377, %366, %355, %344, %333, %322, %311, %4, %2181, %parser_node_name.exit1880, %2152, %parser_node_name.exit1878, %2141, %parser_node_name.exit1876, %2130, %parser_node_name.exit1874, %2119, %parser_node_name.exit1872, %2099, %parser_node_name.exit1870, %2088, %parser_node_name.exit1868, %2077, %parser_node_name.exit1866, %2066, %parser_node_name.exit1864, %2049, %parser_node_name.exit1862, %2038, %parser_node_name.exit1860, %2027, %parser_node_name.exit1858, %2016, %parser_node_name.exit1856, %2002, %parser_node_name.exit1854, %1991, %parser_node_name.exit1852, %1968, %parser_node_name.exit1850, %1957, %parser_node_name.exit1848, %1946, %parser_node_name.exit1846, %1935, %parser_node_name.exit1844, %1924, %parser_node_name.exit1842, %1913, %parser_node_name.exit1840, %1902, %parser_node_name.exit1838, %1891, %parser_node_name.exit1836, %1880, %parser_node_name.exit1834, %1869, %parser_node_name.exit1832, %1849, %parser_node_name.exit1830, %1838, %parser_node_name.exit1828, %1827, %parser_node_name.exit1826, %1813, %parser_node_name.exit1824, %1802, %parser_node_name.exit1822, %1791, %parser_node_name.exit1820, %1780, %parser_node_name.exit1818, %1769, %parser_node_name.exit1816, %1758, %parser_node_name.exit1814, %1747, %parser_node_name.exit1812, %1736, %parser_node_name.exit1810, %1725, %parser_node_name.exit1808, %1714, %parser_node_name.exit1806, %1703, %parser_node_name.exit1804, %1692, %parser_node_name.exit1802, %1681, %parser_node_name.exit1800, %1670, %parser_node_name.exit1798, %1659, %parser_node_name.exit1796, %1648, %parser_node_name.exit1794, %1637, %parser_node_name.exit1792, %1626, %parser_node_name.exit1790, %1615, %parser_node_name.exit1788, %1604, %parser_node_name.exit1786, %1593, %parser_node_name.exit1784, %1582, %parser_node_name.exit1782, %1571, %parser_node_name.exit1780, %1560, %parser_node_name.exit1778, %1549, %parser_node_name.exit1776, %1538, %parser_node_name.exit1774, %1527, %parser_node_name.exit1772, %1516, %parser_node_name.exit1770, %1505, %parser_node_name.exit1768, %1494, %parser_node_name.exit1766, %1483, %parser_node_name.exit1764, %1472, %parser_node_name.exit1762, %1449, %parser_node_name.exit1760, %1438, %parser_node_name.exit1758, %1427, %parser_node_name.exit1756, %1416, %parser_node_name.exit1754, %1405, %parser_node_name.exit1752, %1394, %parser_node_name.exit1750, %1383, %parser_node_name.exit1748, %1372, %parser_node_name.exit1746, %1361, %parser_node_name.exit1744, %1350, %parser_node_name.exit1742, %1339, %parser_node_name.exit1740, %1328, %parser_node_name.exit1738, %1317, %parser_node_name.exit1736, %1306, %parser_node_name.exit1734, %1295, %parser_node_name.exit1732, %1284, %parser_node_name.exit1730, %1273, %parser_node_name.exit1728, %1262, %parser_node_name.exit1726, %1251, %parser_node_name.exit1724, %1240, %parser_node_name.exit1722, %1229, %parser_node_name.exit1720, %1218, %parser_node_name.exit1718, %1207, %parser_node_name.exit1716, %1196, %parser_node_name.exit1714, %1185, %parser_node_name.exit1712, %1174, %parser_node_name.exit1710, %1163, %parser_node_name.exit1708, %1152, %parser_node_name.exit1706, %1141, %parser_node_name.exit1704, %1130, %parser_node_name.exit1702, %1116, %parser_node_name.exit1700, %1096, %parser_node_name.exit1698, %1085, %parser_node_name.exit1696, %1074, %parser_node_name.exit1694, %1060, %parser_node_name.exit1692, %1049, %parser_node_name.exit1690, %1035, %parser_node_name.exit1688, %1024, %parser_node_name.exit1686, %1013, %parser_node_name.exit1684, %1002, %parser_node_name.exit1682, %991, %parser_node_name.exit1680, %980, %parser_node_name.exit1678, %969, %parser_node_name.exit1676, %958, %parser_node_name.exit1674, %947, %parser_node_name.exit1672, %936, %parser_node_name.exit1670, %925, %parser_node_name.exit1668, %914, %parser_node_name.exit1666, %903, %parser_node_name.exit1664, %892, %parser_node_name.exit1662, %881, %parser_node_name.exit1660, %870, %parser_node_name.exit1658, %859, %parser_node_name.exit1656, %848, %parser_node_name.exit1654, %837, %parser_node_name.exit1652, %826, %parser_node_name.exit1650, %815, %parser_node_name.exit1648, %804, %parser_node_name.exit1646, %793, %parser_node_name.exit1644, %782, %parser_node_name.exit1642, %771, %parser_node_name.exit1640, %760, %parser_node_name.exit1638, %749, %parser_node_name.exit1636, %738, %parser_node_name.exit1634, %724, %parser_node_name.exit1632, %713, %parser_node_name.exit1630, %696, %parser_node_name.exit1628, %685, %parser_node_name.exit1626, %671, %parser_node_name.exit1624, %657, %parser_node_name.exit1622, %646, %parser_node_name.exit1620, %635, %parser_node_name.exit1618, %624, %parser_node_name.exit1616, %613, %parser_node_name.exit1614, %602, %parser_node_name.exit1612, %591, %parser_node_name.exit1610, %580, %parser_node_name.exit1608, %569, %parser_node_name.exit1606, %558, %parser_node_name.exit1604, %547, %parser_node_name.exit1602, %536, %parser_node_name.exit1600, %525, %parser_node_name.exit1598, %514, %parser_node_name.exit1596, %503, %parser_node_name.exit1594, %492, %parser_node_name.exit1592, %481, %parser_node_name.exit1590, %467, %parser_node_name.exit1588, %456, %parser_node_name.exit1586, %445, %parser_node_name.exit1584, %434, %parser_node_name.exit1582, %423, %parser_node_name.exit1580, %412, %parser_node_name.exit1578, %401, %parser_node_name.exit1576, %390, %parser_node_name.exit1574, %379, %parser_node_name.exit1572, %368, %parser_node_name.exit1570, %357, %parser_node_name.exit1568, %346, %parser_node_name.exit1566, %335, %parser_node_name.exit1564, %324, %parser_node_name.exit1562, %313, %parser_node_name.exit, %273, %275, %277, %279, %281, %267, %247, %249, %251, %253, %255, %241, %230, %232, %234, %236, %238, %224, %213, %215, %217, %219, %221, %207, %196, %198, %200, %202, %204, %190, %179, %181, %183, %185, %187, %173, %3, %2176, %2173, %2170, %2167, %2164, %2161, %2114, %2111, %2108, %2061, %2058, %2011, %1986, %1983, %1980, %1977, %1864, %1861, %1858, %1822, %1467, %1464, %1461, %1458, %1125, %1111, %1108, %1105, %1069, %1044, %733, %708, %705, %680, %666, %476, %308, %305, %302, %299, %296, %293, %290, %287, %284, %262, %258, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8, %5
+2189:                                             ; preds = %2178, %2149, %2138, %2127, %2116, %2096, %2085, %2074, %2063, %2046, %2035, %2024, %2013, %1999, %1988, %1965, %1954, %1943, %1932, %1921, %1910, %1899, %1888, %1877, %1866, %1846, %1835, %1824, %1810, %1799, %1788, %1777, %1766, %1755, %1744, %1733, %1722, %1711, %1700, %1689, %1678, %1667, %1656, %1645, %1634, %1623, %1612, %1601, %1590, %1579, %1568, %1557, %1546, %1535, %1524, %1513, %1502, %1491, %1480, %1469, %1446, %1435, %1424, %1413, %1402, %1391, %1380, %1369, %1358, %1347, %1336, %1325, %1314, %1303, %1292, %1281, %1270, %1259, %1248, %1237, %1226, %1215, %1204, %1193, %1182, %1171, %1160, %1149, %1138, %1127, %1113, %1093, %1082, %1071, %1057, %1046, %1032, %1021, %1010, %999, %988, %977, %966, %955, %944, %933, %922, %911, %900, %889, %878, %867, %856, %845, %834, %823, %812, %801, %790, %779, %768, %757, %746, %735, %721, %710, %693, %682, %668, %654, %643, %632, %621, %610, %599, %588, %577, %566, %555, %544, %533, %522, %511, %500, %489, %478, %464, %453, %442, %431, %420, %409, %398, %387, %376, %365, %354, %343, %332, %321, %310, %3, %2180, %parser_node_name.exit1879, %2151, %parser_node_name.exit1877, %2140, %parser_node_name.exit1875, %2129, %parser_node_name.exit1873, %2118, %parser_node_name.exit1871, %2098, %parser_node_name.exit1869, %2087, %parser_node_name.exit1867, %2076, %parser_node_name.exit1865, %2065, %parser_node_name.exit1863, %2048, %parser_node_name.exit1861, %2037, %parser_node_name.exit1859, %2026, %parser_node_name.exit1857, %2015, %parser_node_name.exit1855, %2001, %parser_node_name.exit1853, %1990, %parser_node_name.exit1851, %1967, %parser_node_name.exit1849, %1956, %parser_node_name.exit1847, %1945, %parser_node_name.exit1845, %1934, %parser_node_name.exit1843, %1923, %parser_node_name.exit1841, %1912, %parser_node_name.exit1839, %1901, %parser_node_name.exit1837, %1890, %parser_node_name.exit1835, %1879, %parser_node_name.exit1833, %1868, %parser_node_name.exit1831, %1848, %parser_node_name.exit1829, %1837, %parser_node_name.exit1827, %1826, %parser_node_name.exit1825, %1812, %parser_node_name.exit1823, %1801, %parser_node_name.exit1821, %1790, %parser_node_name.exit1819, %1779, %parser_node_name.exit1817, %1768, %parser_node_name.exit1815, %1757, %parser_node_name.exit1813, %1746, %parser_node_name.exit1811, %1735, %parser_node_name.exit1809, %1724, %parser_node_name.exit1807, %1713, %parser_node_name.exit1805, %1702, %parser_node_name.exit1803, %1691, %parser_node_name.exit1801, %1680, %parser_node_name.exit1799, %1669, %parser_node_name.exit1797, %1658, %parser_node_name.exit1795, %1647, %parser_node_name.exit1793, %1636, %parser_node_name.exit1791, %1625, %parser_node_name.exit1789, %1614, %parser_node_name.exit1787, %1603, %parser_node_name.exit1785, %1592, %parser_node_name.exit1783, %1581, %parser_node_name.exit1781, %1570, %parser_node_name.exit1779, %1559, %parser_node_name.exit1777, %1548, %parser_node_name.exit1775, %1537, %parser_node_name.exit1773, %1526, %parser_node_name.exit1771, %1515, %parser_node_name.exit1769, %1504, %parser_node_name.exit1767, %1493, %parser_node_name.exit1765, %1482, %parser_node_name.exit1763, %1471, %parser_node_name.exit1761, %1448, %parser_node_name.exit1759, %1437, %parser_node_name.exit1757, %1426, %parser_node_name.exit1755, %1415, %parser_node_name.exit1753, %1404, %parser_node_name.exit1751, %1393, %parser_node_name.exit1749, %1382, %parser_node_name.exit1747, %1371, %parser_node_name.exit1745, %1360, %parser_node_name.exit1743, %1349, %parser_node_name.exit1741, %1338, %parser_node_name.exit1739, %1327, %parser_node_name.exit1737, %1316, %parser_node_name.exit1735, %1305, %parser_node_name.exit1733, %1294, %parser_node_name.exit1731, %1283, %parser_node_name.exit1729, %1272, %parser_node_name.exit1727, %1261, %parser_node_name.exit1725, %1250, %parser_node_name.exit1723, %1239, %parser_node_name.exit1721, %1228, %parser_node_name.exit1719, %1217, %parser_node_name.exit1717, %1206, %parser_node_name.exit1715, %1195, %parser_node_name.exit1713, %1184, %parser_node_name.exit1711, %1173, %parser_node_name.exit1709, %1162, %parser_node_name.exit1707, %1151, %parser_node_name.exit1705, %1140, %parser_node_name.exit1703, %1129, %parser_node_name.exit1701, %1115, %parser_node_name.exit1699, %1095, %parser_node_name.exit1697, %1084, %parser_node_name.exit1695, %1073, %parser_node_name.exit1693, %1059, %parser_node_name.exit1691, %1048, %parser_node_name.exit1689, %1034, %parser_node_name.exit1687, %1023, %parser_node_name.exit1685, %1012, %parser_node_name.exit1683, %1001, %parser_node_name.exit1681, %990, %parser_node_name.exit1679, %979, %parser_node_name.exit1677, %968, %parser_node_name.exit1675, %957, %parser_node_name.exit1673, %946, %parser_node_name.exit1671, %935, %parser_node_name.exit1669, %924, %parser_node_name.exit1667, %913, %parser_node_name.exit1665, %902, %parser_node_name.exit1663, %891, %parser_node_name.exit1661, %880, %parser_node_name.exit1659, %869, %parser_node_name.exit1657, %858, %parser_node_name.exit1655, %847, %parser_node_name.exit1653, %836, %parser_node_name.exit1651, %825, %parser_node_name.exit1649, %814, %parser_node_name.exit1647, %803, %parser_node_name.exit1645, %792, %parser_node_name.exit1643, %781, %parser_node_name.exit1641, %770, %parser_node_name.exit1639, %759, %parser_node_name.exit1637, %748, %parser_node_name.exit1635, %737, %parser_node_name.exit1633, %723, %parser_node_name.exit1631, %712, %parser_node_name.exit1629, %695, %parser_node_name.exit1627, %684, %parser_node_name.exit1625, %670, %parser_node_name.exit1623, %656, %parser_node_name.exit1621, %645, %parser_node_name.exit1619, %634, %parser_node_name.exit1617, %623, %parser_node_name.exit1615, %612, %parser_node_name.exit1613, %601, %parser_node_name.exit1611, %590, %parser_node_name.exit1609, %579, %parser_node_name.exit1607, %568, %parser_node_name.exit1605, %557, %parser_node_name.exit1603, %546, %parser_node_name.exit1601, %535, %parser_node_name.exit1599, %524, %parser_node_name.exit1597, %513, %parser_node_name.exit1595, %502, %parser_node_name.exit1593, %491, %parser_node_name.exit1591, %480, %parser_node_name.exit1589, %466, %parser_node_name.exit1587, %455, %parser_node_name.exit1585, %444, %parser_node_name.exit1583, %433, %parser_node_name.exit1581, %422, %parser_node_name.exit1579, %411, %parser_node_name.exit1577, %400, %parser_node_name.exit1575, %389, %parser_node_name.exit1573, %378, %parser_node_name.exit1571, %367, %parser_node_name.exit1569, %356, %parser_node_name.exit1567, %345, %parser_node_name.exit1565, %334, %parser_node_name.exit1563, %323, %parser_node_name.exit1561, %312, %parser_node_name.exit, %272, %274, %276, %278, %280, %266, %246, %248, %250, %252, %254, %240, %229, %231, %233, %235, %237, %223, %212, %214, %216, %218, %220, %206, %195, %197, %199, %201, %203, %189, %178, %180, %182, %184, %186, %172, %2175, %2172, %2169, %2166, %2163, %2160, %2113, %2110, %2107, %2060, %2057, %2010, %1985, %1982, %1979, %1976, %1863, %1860, %1857, %1821, %1466, %1463, %1460, %1457, %1124, %1110, %1107, %1104, %1068, %1043, %732, %707, %704, %679, %665, %475, %307, %304, %301, %298, %295, %292, %289, %286, %283, %261, %257, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4
   ret void
 }
 
@@ -35052,125 +35048,125 @@ rb_enc_asciicompat.exit.thread.i.i:               ; preds = %rb_parser_enc_str_a
   %70 = getelementptr inbounds i8, ptr %2, i64 16
   %71 = load i64, ptr %70, align 8
   %.val.i23 = load ptr, ptr %6, align 8
-  %.val78.i.i = load ptr, ptr %5, align 8
+  %.val77.i.i = load ptr, ptr %5, align 8
   %72 = getelementptr inbounds i8, ptr %1, i64 16
   %73 = load i64, ptr %72, align 8
   %.not.i.i24 = icmp eq i64 %73, 0
-  br i1 %.not.i.i24, label %.thread25.i, label %74
+  br i1 %.not.i.i24, label %rb_parser_coderange_scan.exit.thread.i.thread19.i, label %74
 
 74:                                               ; preds = %rb_enc_asciicompat.exit.thread.i.i
-  %.val77.i.i = load i32, ptr %1, align 8
-  %75 = icmp ne ptr %.val78.i.i, %.val.i23
-  %76 = icmp eq i32 %.val77.i.i, 0
+  %.val76.i.i = load i32, ptr %1, align 8
+  %75 = icmp ne ptr %.val77.i.i, %.val.i23
+  %76 = icmp eq i32 %.val76.i.i, 0
   %or.cond.i25 = select i1 %75, i1 %76, i1 false
   br i1 %or.cond.i25, label %77, label %rb_parser_coderange_scan.exit.i.i
 
 77:                                               ; preds = %74
   %78 = tail call nonnull ptr @rb_ascii8bit_encoding() #24
-  %79 = icmp eq ptr %.val78.i.i, %78
+  %79 = icmp eq ptr %.val77.i.i, %78
   %80 = icmp ne i32 %67, 1
   %or.cond3.i.i = or i1 %80, %79
-  br i1 %or.cond3.i.i, label %81, label %.thread.i
+  br i1 %or.cond3.i.i, label %81, label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
 81:                                               ; preds = %77
   %82 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %1)
   br label %rb_parser_coderange_scan.exit.i.i
 
 rb_parser_coderange_scan.exit.i.i:                ; preds = %81, %74
-  %.064.i.i = phi i32 [ %82, %81 ], [ %.val77.i.i, %74 ]
+  %.064.i.i = phi i32 [ %82, %81 ], [ %.val76.i.i, %74 ]
   %83 = icmp ne i32 %.064.i.i, 1
   %or.cond5.i.i = select i1 %75, i1 %83, i1 false
   %84 = icmp ne i32 %67, 1
   %or.cond7.i.i = and i1 %84, %or.cond5.i.i
-  br i1 %or.cond7.i.i, label %111, label %85
+  br i1 %or.cond7.i.i, label %110, label %rb_parser_coderange_scan.exit.thread.i.i
 
-85:                                               ; preds = %rb_parser_coderange_scan.exit.i.i
-  switch i32 %.064.i.i, label %88 [
-    i32 0, label %.thread.i
-    i32 1, label %.thread25.i
-    i32 2, label %87
+rb_parser_coderange_scan.exit.thread.i.i:         ; preds = %rb_parser_coderange_scan.exit.i.i
+  switch i32 %.064.i.i, label %87 [
+    i32 0, label %rb_parser_coderange_scan.exit.thread.i.thread.i
+    i32 1, label %rb_parser_coderange_scan.exit.thread.i.thread19.i
+    i32 2, label %86
   ]
 
-.thread25.i:                                      ; preds = %85, %rb_enc_asciicompat.exit.thread.i.i
-  %86 = icmp eq i32 %67, 1
-  %..i.i = select i1 %86, ptr %.val78.i.i, ptr %.val.i23
-  br label %.thread.i
+rb_parser_coderange_scan.exit.thread.i.thread19.i: ; preds = %rb_parser_coderange_scan.exit.thread.i.i, %rb_enc_asciicompat.exit.thread.i.i
+  %85 = icmp eq i32 %67, 1
+  %..i.i = select i1 %85, ptr %.val77.i.i, ptr %.val.i23
+  br label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
-87:                                               ; preds = %85
-  %..06275.i.i = tail call i32 @llvm.umax.i32(i32 %67, i32 2)
-  br label %.thread.i
+86:                                               ; preds = %rb_parser_coderange_scan.exit.thread.i.i
+  %..06274.i.i = tail call i32 @llvm.umax.i32(i32 %67, i32 2)
+  br label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
-88:                                               ; preds = %85
-  %89 = icmp sgt i64 %71, 0
-  %spec.store.select.i.i = select i1 %89, i32 0, i32 %.064.i.i
-  br label %.thread.i
+87:                                               ; preds = %rb_parser_coderange_scan.exit.thread.i.i
+  %88 = icmp sgt i64 %71, 0
+  %spec.store.select.i.i = select i1 %88, i32 0, i32 %.064.i.i
+  br label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
-.thread.i:                                        ; preds = %88, %87, %.thread25.i, %85, %77
-  %.062.i1518.i = phi i32 [ %67, %88 ], [ %67, %85 ], [ %67, %.thread25.i ], [ %67, %87 ], [ 1, %77 ]
-  %.063.i.i = phi i32 [ %spec.store.select.i.i, %88 ], [ %.064.i.i, %85 ], [ %67, %.thread25.i ], [ %..06275.i.i, %87 ], [ 0, %77 ]
-  %.0.i.i = phi ptr [ %.val78.i.i, %88 ], [ %.val78.i.i, %85 ], [ %..i.i, %.thread25.i ], [ %.val78.i.i, %87 ], [ %.val78.i.i, %77 ]
-  %90 = icmp slt i64 %71, 0
-  br i1 %90, label %.thread.i.i, label %91
+rb_parser_coderange_scan.exit.thread.i.thread.i:  ; preds = %87, %86, %rb_parser_coderange_scan.exit.thread.i.thread19.i, %rb_parser_coderange_scan.exit.thread.i.i, %77
+  %.013.i = phi i32 [ %67, %87 ], [ %67, %rb_parser_coderange_scan.exit.thread.i.i ], [ %67, %rb_parser_coderange_scan.exit.thread.i.thread19.i ], [ %67, %86 ], [ 1, %77 ]
+  %.063.i.i = phi i32 [ %spec.store.select.i.i, %87 ], [ %.064.i.i, %rb_parser_coderange_scan.exit.thread.i.i ], [ %67, %rb_parser_coderange_scan.exit.thread.i.thread19.i ], [ %..06274.i.i, %86 ], [ 0, %77 ]
+  %.0.i.i = phi ptr [ %.val77.i.i, %87 ], [ %.val77.i.i, %rb_parser_coderange_scan.exit.thread.i.i ], [ %..i.i, %rb_parser_coderange_scan.exit.thread.i.thread19.i ], [ %.val77.i.i, %86 ], [ %.val77.i.i, %77 ]
+  %89 = icmp slt i64 %71, 0
+  br i1 %89, label %.thread.i.i, label %90
 
-.thread.i.i:                                      ; preds = %.thread.i
+.thread.i.i:                                      ; preds = %rb_parser_coderange_scan.exit.thread.i.thread.i
   tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef %0, ptr noundef nonnull @.str.552) #24
   store i32 0, ptr %1, align 8
-  br label %93
+  br label %92
 
-91:                                               ; preds = %.thread.i
+90:                                               ; preds = %rb_parser_coderange_scan.exit.thread.i.thread.i
   store i32 0, ptr %1, align 8
-  %92 = icmp eq i64 %71, 0
-  br i1 %92, label %rb_parser_str_buf_append.exit, label %93
+  %91 = icmp eq i64 %71, 0
+  br i1 %91, label %rb_parser_str_buf_append.exit, label %92
 
-93:                                               ; preds = %91, %.thread.i.i
-  %94 = load i64, ptr %72, align 8
-  %95 = sub nsw i64 9223372036854775807, %71
-  %96 = icmp sgt i64 %94, %95
-  br i1 %96, label %97, label %ruby_nonempty_memcpy.exit.i.i.i
+92:                                               ; preds = %90, %.thread.i.i
+  %93 = load i64, ptr %72, align 8
+  %94 = sub nsw i64 9223372036854775807, %71
+  %95 = icmp sgt i64 %93, %94
+  br i1 %95, label %96, label %ruby_nonempty_memcpy.exit.i.i.i
 
-97:                                               ; preds = %93
+96:                                               ; preds = %92
   tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef %0, ptr noundef nonnull @.str.554) #24
   br label %rb_parser_str_buf_append.exit
 
-ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
-  %99 = load ptr, ptr %98, align 8
-  %.not.i.i.i26 = icmp ult ptr %69, %99
-  %100 = getelementptr inbounds i8, ptr %99, i64 %94
-  %.not40.i.i.i = icmp ugt ptr %69, %100
+ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %92
+  %97 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = load ptr, ptr %97, align 8
+  %.not.i.i.i26 = icmp ult ptr %69, %98
+  %99 = getelementptr inbounds i8, ptr %98, i64 %93
+  %.not40.i.i.i = icmp ugt ptr %69, %99
   %or.cond.i.i.i = select i1 %.not.i.i.i26, i1 true, i1 %.not40.i.i.i
-  %101 = ptrtoint ptr %69 to i64
-  %102 = ptrtoint ptr %99 to i64
-  %103 = sub i64 %101, %102
-  %.034.i.i.i = select i1 %or.cond.i.i.i, i64 -1, i64 %103
-  %104 = add nsw i64 %94, %71
-  %105 = add i64 %104, 1
-  %106 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %99, i64 noundef %105, i64 noundef 1) #30
-  store ptr %106, ptr %98, align 8
-  store i64 %104, ptr %72, align 8
+  %100 = ptrtoint ptr %69 to i64
+  %101 = ptrtoint ptr %98 to i64
+  %102 = sub i64 %100, %101
+  %.034.i.i.i = select i1 %or.cond.i.i.i, i64 -1, i64 %102
+  %103 = add nsw i64 %93, %71
+  %104 = add i64 %103, 1
+  %105 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %98, i64 noundef %104, i64 noundef 1) #30
+  store ptr %105, ptr %97, align 8
+  store i64 %103, ptr %72, align 8
   %.not41.i.i.i = icmp eq i64 %.034.i.i.i, -1
-  %107 = getelementptr inbounds i8, ptr %106, i64 %.034.i.i.i
-  %spec.select.i.i.i = select i1 %.not41.i.i.i, ptr %69, ptr %107
-  %108 = getelementptr inbounds i8, ptr %106, i64 %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr readonly align 1 %spec.select.i.i.i, i64 %71, i1 false)
-  store i64 %104, ptr %72, align 8
-  %109 = load ptr, ptr %98, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 %104
-  store i8 0, ptr %110, align 1
+  %106 = getelementptr inbounds i8, ptr %105, i64 %.034.i.i.i
+  %spec.select.i.i.i = select i1 %.not41.i.i.i, ptr %69, ptr %106
+  %107 = getelementptr inbounds i8, ptr %105, i64 %93
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr readonly align 1 %spec.select.i.i.i, i64 %71, i1 false)
+  store i64 %103, ptr %72, align 8
+  %108 = load ptr, ptr %97, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 %103
+  store i8 0, ptr %109, align 1
   br label %rb_parser_str_buf_append.exit
 
-111:                                              ; preds = %rb_parser_coderange_scan.exit.i.i
-  %112 = getelementptr i8, ptr %.val78.i.i, i64 8
-  %.val76.i.i = load ptr, ptr %112, align 8
-  %113 = getelementptr i8, ptr %.val.i23, i64 8
-  %.val.i.i = load ptr, ptr %113, align 8
-  tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef %0, ptr noundef nonnull @.str.553, ptr noundef %.val76.i.i, ptr noundef %.val.i.i) #24
+110:                                              ; preds = %rb_parser_coderange_scan.exit.i.i
+  %111 = getelementptr i8, ptr %.val77.i.i, i64 8
+  %.val75.i.i = load ptr, ptr %111, align 8
+  %112 = getelementptr i8, ptr %.val.i23, i64 8
+  %.val.i.i = load ptr, ptr %112, align 8
+  tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef %0, ptr noundef nonnull @.str.553, ptr noundef %.val75.i.i, ptr noundef %.val.i.i) #24
   unreachable
 
-rb_parser_str_buf_append.exit:                    ; preds = %91, %97, %ruby_nonempty_memcpy.exit.i.i.i
+rb_parser_str_buf_append.exit:                    ; preds = %90, %96, %ruby_nonempty_memcpy.exit.i.i.i
   store ptr %.0.i.i, ptr %5, align 8
   store i32 %.063.i.i, ptr %1, align 8
-  store i32 %.062.i1518.i, ptr %2, align 8
+  store i32 %.013.i, ptr %2, align 8
   br label %rb_parser_str_resize.exit22
 
 rb_parser_str_resize.exit22:                      ; preds = %64, %58, %3, %rb_parser_str_buf_append.exit

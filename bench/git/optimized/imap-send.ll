@@ -2255,17 +2255,13 @@ return:                                           ; preds = %socket_read.exit, %
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @next_arg(ptr noundef %s) unnamed_addr #9 {
+define internal fastcc ptr @next_arg(ptr nocapture noundef %s) unnamed_addr #9 {
 entry:
-  %tobool.not = icmp eq ptr %s, null
-  br i1 %tobool.not, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %s, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %while.cond.preheader
 
-while.cond.preheader:                             ; preds = %lor.lhs.false
+while.cond.preheader:                             ; preds = %entry
   %1 = load i8, ptr %0, align 1
   %idxprom29 = zext i8 %1 to i64
   %arrayidx30 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom29
@@ -2340,8 +2336,8 @@ return.sink.split:                                ; preds = %while.body20, %if.e
   store ptr null, ptr %s, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end23, %if.end29, %entry, %lor.lhs.false
-  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ %ret.039, %if.end29 ], [ %incdec.ptr10, %if.end23 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end23, %if.end29, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %ret.039, %if.end29 ], [ %incdec.ptr10, %if.end23 ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -2414,7 +2410,7 @@ while.body20.i:                                   ; preds = %land.rhs.i
   store ptr %incdec.ptr21.i, ptr %s.addr, align 8
   %15 = load i8, ptr %incdec.ptr21.i, align 1
   %tobool13.not.i = icmp eq i8 %15, 0
-  br i1 %tobool13.not.i, label %next_arg.exit.thread97, label %land.rhs.i, !llvm.loop !10
+  br i1 %tobool13.not.i, label %next_arg.exit.thread94, label %land.rhs.i, !llvm.loop !10
 
 if.end23.i:                                       ; preds = %while.end.i
   %incdec.ptr10.i = getelementptr inbounds i8, ptr %s.promoted33.i, i64 1
@@ -2432,7 +2428,7 @@ if.then25.i:                                      ; preds = %land.rhs.i, %if.end
   %ret.039.i = phi ptr [ %incdec.ptr10.i, %if.end23.i.if.then25.i_crit_edge ], [ %s.promoted33.i, %land.rhs.i ]
   %16 = phi ptr [ %call.i, %if.end23.i.if.then25.i_crit_edge ], [ %.pr.i, %land.rhs.i ]
   %tobool26.not.i = icmp eq i8 %.pr24.i, 0
-  br i1 %tobool26.not.i, label %next_arg.exit.thread97, label %if.end29.i
+  br i1 %tobool26.not.i, label %next_arg.exit.thread94, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then25.i
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %16, i64 1
@@ -2441,9 +2437,9 @@ if.end29.i:                                       ; preds = %if.then25.i
   %.pre.i = load ptr, ptr %s.addr, align 8
   %.pre36.i = load i8, ptr %.pre.i, align 1
   %17 = icmp eq i8 %.pre36.i, 0
-  br i1 %17, label %next_arg.exit.thread97, label %if.end12
+  br i1 %17, label %next_arg.exit.thread94, label %if.end12
 
-next_arg.exit.thread97:                           ; preds = %while.body20.i, %if.end29.i, %if.then25.i
+next_arg.exit.thread94:                           ; preds = %while.body20.i, %if.end29.i, %if.then25.i
   %retval.0.ph.i.ph = phi ptr [ %ret.039.i, %if.then25.i ], [ %ret.039.i, %if.end29.i ], [ %s.promoted33.i, %while.body20.i ]
   store ptr null, ptr %s.addr, align 8
   br label %if.end12
@@ -2453,9 +2449,9 @@ if.then10:                                        ; preds = %while.end.i
   %19 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 32, i64 1, ptr %18) #21
   br label %return
 
-if.end12:                                         ; preds = %if.end23.i, %if.end29.i, %next_arg.exit.thread97
-  %20 = phi ptr [ null, %next_arg.exit.thread97 ], [ null, %if.end23.i ], [ %.pre.i, %if.end29.i ]
-  %retval.0.i92 = phi ptr [ %retval.0.ph.i.ph, %next_arg.exit.thread97 ], [ %incdec.ptr10.i, %if.end23.i ], [ %ret.039.i, %if.end29.i ]
+if.end12:                                         ; preds = %if.end23.i, %if.end29.i, %next_arg.exit.thread94
+  %20 = phi ptr [ null, %next_arg.exit.thread94 ], [ null, %if.end23.i ], [ %.pre.i, %if.end29.i ]
+  %retval.0.i92 = phi ptr [ %retval.0.ph.i.ph, %next_arg.exit.thread94 ], [ %incdec.ptr10.i, %if.end23.i ], [ %ret.039.i, %if.end29.i ]
   %call13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.84, ptr noundef nonnull dereferenceable(1) %retval.0.i92) #22
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then15, label %if.else
@@ -2533,8 +2529,8 @@ if.end29.i38:                                     ; preds = %if.then25.i34
   br label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %while.body20.i50, %if.end29.i38, %if.then25.i34, %if.end23.i30
-  %retval.0.i42102 = phi ptr [ %incdec.ptr10.i31, %if.end23.i30 ], [ %ret.039.i35, %if.then25.i34 ], [ %ret.039.i35, %if.end29.i38 ], [ %s.promoted33.i29, %while.body20.i50 ]
-  %call19 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i42102) #22
+  %retval.0.i4299 = phi ptr [ %incdec.ptr10.i31, %if.end23.i30 ], [ %ret.039.i35, %if.then25.i34 ], [ %ret.039.i35, %if.end29.i38 ], [ %s.promoted33.i29, %while.body20.i50 ]
+  %call19 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i4299) #22
   %uidvalidity = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %call19, ptr %uidvalidity, align 8
   %tobool20.not = icmp eq i32 %call19, 0
@@ -2623,8 +2619,8 @@ if.end29.i74:                                     ; preds = %if.then25.i70
   br label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %while.body20.i86, %if.end29.i74, %if.then25.i70, %if.end23.i66
-  %retval.0.i78112 = phi ptr [ %incdec.ptr10.i67, %if.end23.i66 ], [ %ret.039.i71, %if.then25.i70 ], [ %ret.039.i71, %if.end29.i74 ], [ %s.promoted33.i65, %while.body20.i86 ]
-  %call30 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i78112) #22
+  %retval.0.i78109 = phi ptr [ %incdec.ptr10.i67, %if.end23.i66 ], [ %ret.039.i71, %if.then25.i70 ], [ %ret.039.i71, %if.end29.i74 ], [ %s.promoted33.i65, %while.body20.i86 ]
+  %call30 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i78109) #22
   store i32 %call30, ptr %0, align 8
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then32, label %return
@@ -2685,7 +2681,7 @@ if.then55:                                        ; preds = %land.lhs.true52
   br i1 %tobool57.not, label %if.then69, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %if.then55
-  %call59 = call i32 @atoi(ptr nocapture noundef nonnull %call56) #22
+  %call59 = tail call i32 @atoi(ptr nocapture noundef nonnull %call56) #22
   %uidvalidity60 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %call59, ptr %uidvalidity60, align 8
   %tobool61.not = icmp eq i32 %call59, 0
@@ -2697,7 +2693,7 @@ lor.lhs.false62:                                  ; preds = %lor.lhs.false58
   br i1 %tobool64.not, label %if.then69, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false62
-  %call66 = call i32 @atoi(ptr nocapture noundef nonnull %call63) #22
+  %call66 = tail call i32 @atoi(ptr nocapture noundef nonnull %call63) #22
   %56 = load ptr, ptr %ctx50, align 8
   store i32 %call66, ptr %56, align 4
   %tobool68.not = icmp eq i32 %call66, 0
@@ -2705,7 +2701,7 @@ lor.lhs.false65:                                  ; preds = %lor.lhs.false62
 
 if.then69:                                        ; preds = %lor.lhs.false65, %lor.lhs.false62, %lor.lhs.false58, %if.then55
   %57 = load ptr, ptr @stderr, align 8
-  %58 = call i64 @fwrite(ptr nonnull @.str.91, i64 39, i64 1, ptr %57) #21
+  %58 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 39, i64 1, ptr %57) #21
   br label %return
 
 return:                                           ; preds = %lor.lhs.false18, %if.then38, %if.else48, %land.lhs.true, %land.lhs.true52, %lor.lhs.false65, %for.end, %lor.lhs.false29, %entry, %lor.lhs.false, %if.then69, %if.then32, %if.then21, %if.then10, %if.then4

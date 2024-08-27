@@ -313,7 +313,6 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 24
-  store ptr %116, ptr %10, align 8
   br label %117
 
 117:                                              ; preds = %112, %104
@@ -933,7 +932,7 @@ declare void @php_stream_notification_notify(ptr noundef, i32 noundef, i32 nound
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = tail call i64 @_php_stream_write(ptr noundef %0, ptr noundef nonnull @.str.37, i64 noundef 6) #15
@@ -950,8 +949,8 @@ define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr nounde
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %4, i64 4
   %13 = load i8, ptr %12, align 4
-  %.not5771 = icmp eq i8 %13, 0
-  br i1 %.not5771, label %.critedge.thread, label %.lr.ph
+  %.not5770 = icmp eq i8 %13, 0
+  br i1 %.not5770, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %14 = tail call ptr @__ctype_b_loc() #16
@@ -960,7 +959,7 @@ define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr nounde
 
 16:                                               ; preds = %.lr.ph, %22
   %17 = phi i8 [ %13, %.lr.ph ], [ %24, %22 ]
-  %.04272 = phi ptr [ %12, %.lr.ph ], [ %23, %22 ]
+  %.04271 = phi ptr [ %12, %.lr.ph ], [ %23, %22 ]
   %18 = sext i8 %17 to i64
   %19 = getelementptr inbounds i16, ptr %15, i64 %18
   %20 = load i16, ptr %19, align 2
@@ -969,41 +968,41 @@ define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr nounde
   br i1 %.not58, label %22, label %.preheader
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %.04272, i64 1
+  %23 = getelementptr inbounds i8, ptr %.04271, i64 1
   %24 = load i8, ptr %23, align 1
   %.not57 = icmp eq i8 %24, 0
   br i1 %.not57, label %.critedge.thread, label %16
 
 .preheader:                                       ; preds = %16, %.critedge
-  %.174 = phi ptr [ %32, %.critedge ], [ %.04272, %16 ]
-  %.04473 = phi i32 [ %34, %.critedge ], [ 0, %16 ]
+  %.173 = phi ptr [ %32, %.critedge ], [ %.04271, %16 ]
+  %.04472 = phi i32 [ %34, %.critedge ], [ 0, %16 ]
   %25 = load ptr, ptr %14, align 8
   br label %26
 
 26:                                               ; preds = %26, %.preheader
-  %.2 = phi ptr [ %32, %26 ], [ %.174, %.preheader ]
+  %.2 = phi ptr [ %32, %26 ], [ %.173, %.preheader ]
   %27 = load i8, ptr %.2, align 1
   %28 = sext i8 %27 to i64
   %29 = getelementptr inbounds i16, ptr %25, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 2048
-  %.not62 = icmp eq i16 %31, 0
+  %.not61 = icmp eq i16 %31, 0
   %32 = getelementptr inbounds i8, ptr %.2, i64 1
-  br i1 %.not62, label %33, label %26
+  br i1 %.not61, label %33, label %26
 
 33:                                               ; preds = %26
-  %.not63 = icmp eq i8 %27, 44
-  br i1 %.not63, label %.critedge, label %.critedge.thread
+  %.not62 = icmp eq i8 %27, 44
+  br i1 %.not62, label %.critedge, label %.critedge.thread
 
 .critedge:                                        ; preds = %33
   store i8 46, ptr %.2, align 1
-  %34 = add nuw nsw i32 %.04473, 1
+  %34 = add nuw nsw i32 %.04472, 1
   %exitcond.not = icmp eq i32 %34, 4
   br i1 %exitcond.not, label %35, label %.preheader
 
 35:                                               ; preds = %.critedge
   store i8 0, ptr %.2, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) %.04272, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) %.04271, i64 15, i1 false)
   %36 = getelementptr inbounds i8, ptr %1, i64 15
   store i8 0, ptr %36, align 1
   %37 = call i64 @strtoul(ptr noundef nonnull %32, ptr noundef nonnull %5, i32 noundef 10) #15
@@ -1066,15 +1065,11 @@ define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr nounde
   br i1 %65, label %.critedge.thread, label %66
 
 66:                                               ; preds = %63
-  %.not61 = icmp eq ptr %2, null
-  br i1 %.not61, label %.critedge.thread, label %67
-
-67:                                               ; preds = %66
   store ptr %.0, ptr %2, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %22, %33, %11, %66, %67, %63, %58, %42, %35, %8
-  %.048 = phi i16 [ 0, %8 ], [ 0, %35 ], [ 0, %42 ], [ 0, %58 ], [ 0, %63 ], [ %.043, %67 ], [ %.043, %66 ], [ 0, %11 ], [ 0, %33 ], [ 0, %22 ]
+.critedge.thread:                                 ; preds = %22, %33, %11, %63, %58, %42, %35, %8, %66
+  %.048 = phi i16 [ %.043, %66 ], [ 0, %8 ], [ 0, %35 ], [ 0, %42 ], [ 0, %58 ], [ 0, %63 ], [ 0, %11 ], [ 0, %33 ], [ 0, %22 ]
   ret i16 %.048
 }
 
@@ -1137,7 +1132,6 @@ define hidden ptr @php_stream_ftp_opendir(ptr noundef %0, ptr noundef %1, ptr no
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  store ptr %28, ptr %11, align 8
   br label %29
 
 29:                                               ; preds = %24, %21

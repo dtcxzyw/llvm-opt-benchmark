@@ -4588,7 +4588,7 @@ define internal fastcc void @dissect_dtn_time(ptr noundef %0, i32 noundef %1, pt
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @wscbor_chunk_read(ptr noundef %14, ptr noundef %3, ptr noundef nonnull %4) #16
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %52, label %16
+  br i1 %.not, label %49, label %16
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr %13, align 8
@@ -4596,80 +4596,67 @@ define internal fastcc void @dissect_dtn_time(ptr noundef %0, i32 noundef %1, pt
   %19 = load i32, ptr @hf_time_dtntime, align 4
   %20 = tail call ptr @proto_tree_add_cbor_uint64(ptr noundef %11, i32 noundef %19, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %15, ptr noundef %18) #16
   %.not42 = icmp eq ptr %18, null
-  %.not43 = icmp eq ptr %5, null
-  br i1 %.not42, label %49, label %21
+  br i1 %.not42, label %47, label %21
 
 21:                                               ; preds = %16
-  %.pre = load i64, ptr %18, align 8
-  br i1 %.not43, label %23, label %22
+  %22 = load i64, ptr %18, align 8
+  store i64 %22, ptr %5, align 8
+  %.not43 = icmp eq i64 %22, 0
+  br i1 %.not43, label %46, label %23
 
-22:                                               ; preds = %21
-  store i64 %.pre, ptr %5, align 8
-  br label %23
+23:                                               ; preds = %21
+  %24 = sdiv i64 %22, 1000
+  %25 = add nsw i64 %24, 946684800
+  %26 = srem i64 %22, 1000
+  %27 = trunc nsw i64 %26 to i32
+  %28 = mul nsw i32 %27, 1000000
+  store i64 %25, ptr %7, align 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %28, ptr %29, align 8
+  %30 = load i32, ptr @hf_time_utctime, align 4
+  %31 = getelementptr inbounds i8, ptr %15, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %15, i64 16
+  %34 = load i32, ptr %33, align 8
+  %35 = call ptr @proto_tree_add_time(ptr noundef %11, i32 noundef %30, ptr noundef %3, i32 noundef %32, i32 noundef %34, ptr noundef nonnull %7) #16
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %36
 
-23:                                               ; preds = %22, %21
-  %.not45 = icmp eq i64 %.pre, 0
-  br i1 %.not45, label %48, label %24
+36:                                               ; preds = %23
+  %37 = getelementptr inbounds i8, ptr %35, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %.not5.i = icmp eq ptr %38, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %39
 
-24:                                               ; preds = %23
-  %25 = sdiv i64 %.pre, 1000
-  %26 = add nsw i64 %25, 946684800
-  %27 = srem i64 %.pre, 1000
-  %28 = trunc nsw i64 %27 to i32
-  %29 = mul nsw i32 %28, 1000000
-  store i64 %26, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %29, ptr %30, align 8
-  %31 = load i32, ptr @hf_time_utctime, align 4
-  %32 = getelementptr inbounds i8, ptr %15, i64 8
-  %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = call ptr @proto_tree_add_time(ptr noundef %11, i32 noundef %31, ptr noundef %3, i32 noundef %33, i32 noundef %35, ptr noundef nonnull %7) #16
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %37
-
-37:                                               ; preds = %24
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %.not5.i = icmp eq ptr %39, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %40
-
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 28
-  %42 = load i32, ptr %41, align 4
-  %43 = or i32 %42, 2
-  store i32 %43, ptr %41, align 4
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %38, i64 28
+  %41 = load i32, ptr %40, align 4
+  %42 = or i32 %41, 2
+  store i32 %42, ptr %40, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %24, %37, %40
-  %44 = load ptr, ptr %13, align 8
-  %45 = call ptr @abs_time_to_str_ex(ptr noundef %44, ptr noundef nonnull %7, i32 noundef 19, i32 noundef 1) #16
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.7, ptr noundef %45) #16
-  br i1 %.not43, label %52, label %46
+proto_item_set_generated.exit:                    ; preds = %23, %36, %39
+  %43 = load ptr, ptr %13, align 8
+  %44 = call ptr @abs_time_to_str_ex(ptr noundef %43, ptr noundef nonnull %7, i32 noundef 19, i32 noundef 1) #16
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.7, ptr noundef %44) #16
+  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  br label %49
 
-46:                                               ; preds = %proto_item_set_generated.exit
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  br label %52
-
-48:                                               ; preds = %23
+46:                                               ; preds = %21
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.294) #16
-  br label %52
+  br label %49
 
-49:                                               ; preds = %16
-  br i1 %.not43, label %52, label %50
-
-50:                                               ; preds = %49
+47:                                               ; preds = %16
   store i64 0, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @nstime_set_zero(ptr noundef nonnull %51) #16
-  br label %52
+  %48 = getelementptr inbounds i8, ptr %5, i64 8
+  tail call void @nstime_set_zero(ptr noundef nonnull %48) #16
+  br label %49
 
-52:                                               ; preds = %proto_item_set_generated.exit, %46, %48, %50, %49, %6
-  %53 = load i32, ptr %4, align 4
-  %54 = sub i32 %53, %12
-  call void @proto_item_set_len(ptr noundef %9, i32 noundef %54) #16
+49:                                               ; preds = %proto_item_set_generated.exit, %46, %47, %6
+  %50 = load i32, ptr %4, align 4
+  %51 = sub i32 %50, %12
+  call void @proto_item_set_len(ptr noundef %9, i32 noundef %51) #16
   ret void
 }
 

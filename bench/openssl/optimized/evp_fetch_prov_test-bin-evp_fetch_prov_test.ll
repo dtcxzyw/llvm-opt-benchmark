@@ -205,23 +205,23 @@ if.end.i:                                         ; preds = %if.then.i, %land.en
   %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
-  br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
+  br i1 %cmp3.not.i, label %land.lhs.true.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %call6.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %1) #7
-  br label %if.end7.i
+  br label %land.lhs.true.i
 
-if.end7.i:                                        ; preds = %if.then4.i, %if.end.i
+land.lhs.true.i:                                  ; preds = %if.then4.i, %if.end.i
   %2 = load ptr, ptr %ctx, align 8
   %cmp9.not.i = icmp eq ptr %2, null
   br i1 %cmp9.not.i, label %unload_providers.exit, label %if.then10.i
 
-if.then10.i:                                      ; preds = %if.end7.i
+if.then10.i:                                      ; preds = %land.lhs.true.i
   tail call void @OPENSSL_thread_stop_ex(ptr noundef nonnull %2) #7
   tail call void @OSSL_LIB_CTX_free(ptr noundef nonnull %2) #7
   br label %unload_providers.exit
 
-unload_providers.exit:                            ; preds = %if.end7.i, %if.then10.i
+unload_providers.exit:                            ; preds = %land.lhs.true.i, %if.then10.i
   ret i32 %land.ext
 }
 
@@ -331,23 +331,23 @@ if.end.i:                                         ; preds = %if.then.i, %land.en
   %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
-  br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
+  br i1 %cmp3.not.i, label %land.lhs.true.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %call6.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %1) #7
-  br label %if.end7.i
+  br label %land.lhs.true.i
 
-if.end7.i:                                        ; preds = %if.then4.i, %if.end.i
+land.lhs.true.i:                                  ; preds = %if.then4.i, %if.end.i
   %2 = load ptr, ptr %ctx, align 8
   %cmp9.not.i = icmp eq ptr %2, null
   br i1 %cmp9.not.i, label %unload_providers.exit, label %if.then10.i
 
-if.then10.i:                                      ; preds = %if.end7.i
+if.then10.i:                                      ; preds = %land.lhs.true.i
   tail call void @OPENSSL_thread_stop_ex(ptr noundef nonnull %2) #7
   tail call void @OSSL_LIB_CTX_free(ptr noundef nonnull %2) #7
   br label %unload_providers.exit
 
-unload_providers.exit:                            ; preds = %if.end7.i, %if.then10.i
+unload_providers.exit:                            ; preds = %land.lhs.true.i, %if.then10.i
   ret i32 %land.ext
 }
 
@@ -685,23 +685,23 @@ if.end.i:                                         ; preds = %if.then.i, %err
   %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %3 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
-  br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
+  br i1 %cmp3.not.i, label %land.lhs.true.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %call6.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %3) #7
-  br label %if.end7.i
+  br label %land.lhs.true.i
 
-if.end7.i:                                        ; preds = %if.then4.i, %if.end.i
+land.lhs.true.i:                                  ; preds = %if.then4.i, %if.end.i
   %4 = load ptr, ptr %ctx, align 8
   %cmp9.not.i = icmp eq ptr %4, null
   br i1 %cmp9.not.i, label %unload_providers.exit, label %if.then10.i
 
-if.then10.i:                                      ; preds = %if.end7.i
+if.then10.i:                                      ; preds = %land.lhs.true.i
   tail call void @OPENSSL_thread_stop_ex(ptr noundef nonnull %4) #7
   tail call void @OSSL_LIB_CTX_free(ptr noundef nonnull %4) #7
   br label %unload_providers.exit
 
-unload_providers.exit:                            ; preds = %if.end7.i, %if.then10.i
+unload_providers.exit:                            ; preds = %land.lhs.true.i, %if.then10.i
   ret i32 %ret.0
 }
 
@@ -907,23 +907,23 @@ if.end.i:                                         ; preds = %if.then.i, %err
   %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %3 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
-  br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
+  br i1 %cmp3.not.i, label %land.lhs.true.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %call6.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %3) #7
-  br label %if.end7.i
+  br label %land.lhs.true.i
 
-if.end7.i:                                        ; preds = %if.then4.i, %if.end.i
+land.lhs.true.i:                                  ; preds = %if.then4.i, %if.end.i
   %4 = load ptr, ptr %ctx, align 8
   %cmp9.not.i = icmp eq ptr %4, null
   br i1 %cmp9.not.i, label %unload_providers.exit, label %if.then10.i
 
-if.then10.i:                                      ; preds = %if.end7.i
+if.then10.i:                                      ; preds = %land.lhs.true.i
   tail call void @OPENSSL_thread_stop_ex(ptr noundef nonnull %4) #7
   tail call void @OSSL_LIB_CTX_free(ptr noundef nonnull %4) #7
   br label %unload_providers.exit
 
-unload_providers.exit:                            ; preds = %if.end7.i, %if.then10.i
+unload_providers.exit:                            ; preds = %land.lhs.true.i, %if.then10.i
   ret i32 %ret.0
 }
 

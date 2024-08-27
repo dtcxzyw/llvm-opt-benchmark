@@ -539,7 +539,7 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
 
 ._crit_edge45:                                    ; preds = %27, %.preheader39
   %.036.lcssa = phi i32 [ 0, %.preheader39 ], [ %.137, %27 ]
-  %36 = sext i32 %.036.lcssa to i64
+  %36 = zext nneg i32 %.036.lcssa to i64
   %37 = getelementptr inbounds i32, ptr %3, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, 1

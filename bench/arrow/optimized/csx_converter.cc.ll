@@ -889,18 +889,11 @@ if.then150.i:                                     ; preds = %for.body147.i
 
 if.then.i.i:                                      ; preds = %if.then150.i
   %call5.i.i.i.i.i283.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
-          to label %call5.i.i.i.i.i.noexc.i unwind label %lpad141.loopexit.i
+          to label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i unwind label %lpad141.loopexit.i
 
-call5.i.i.i.i.i.noexc.i:                          ; preds = %if.then.i.i
+_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i: ; preds = %if.then.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i283.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp151.i, i64 16, i1 false)
-  %tobool.not.i.i.i = icmp eq ptr %coords.sroa.0.2374.i, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i, label %if.then.i13.i.i
-
-if.then.i13.i.i:                                  ; preds = %call5.i.i.i.i.i.noexc.i
   call void @_ZdlPv(ptr noundef nonnull %coords.sroa.0.2374.i) #16
-  br label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i
-
-_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i: ; preds = %if.then.i13.i.i, %call5.i.i.i.i.i.noexc.i
   %add.ptr.i282.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i283.i, i64 16
   br label %if.end164.i
 
@@ -957,20 +950,16 @@ lpad141.loopexit.i:                               ; preds = %invoke.cont176.i, %
   %coords.sroa.0.0.ph.i = phi ptr [ %coords.sroa.0.2374.i, %if.then.i327.i ], [ %coords.sroa.0.2374.i, %if.then.i.i ], [ %coords.sroa.0.3.i, %invoke.cont176.i ]
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %lpad141.i
+  br label %if.then.i.i.i170.i
 
 lpad141.loopexit.split-lp.i:                      ; preds = %for.end.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %lpad141.i
+  br label %if.then.i.i.i170.i
 
-lpad141.i:                                        ; preds = %lpad141.loopexit.split-lp.i, %lpad141.loopexit.i
+if.then.i.i.i170.i:                               ; preds = %lpad141.loopexit.split-lp.i, %lpad141.loopexit.i
   %coords.sroa.0.0.i = phi ptr [ %coords.sroa.0.0.ph.i, %lpad141.loopexit.i ], [ %coords.sroa.0.2.lcssa.i, %lpad141.loopexit.split-lp.i ]
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %lpad141.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad141.loopexit.split-lp.i ]
-  %tobool.not.i.i.i.i = icmp eq ptr %coords.sroa.0.0.i, null
-  br i1 %tobool.not.i.i.i.i, label %ehcleanup.i, label %if.then.i.i.i170.i
-
-if.then.i.i.i170.i:                               ; preds = %lpad141.i
   call void @_ZdlPv(ptr noundef nonnull %coords.sroa.0.0.i) #16
   br label %ehcleanup.i
 
@@ -981,18 +970,11 @@ if.else154.i:                                     ; preds = %for.body147.i
 
 if.then.i327.i:                                   ; preds = %if.else154.i
   %call5.i.i.i.i.i336.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
-          to label %call5.i.i.i.i.i.noexc335.i unwind label %lpad141.loopexit.i
+          to label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i unwind label %lpad141.loopexit.i
 
-call5.i.i.i.i.i.noexc335.i:                       ; preds = %if.then.i327.i
+_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i: ; preds = %if.then.i327.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i336.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp156.i, i64 16, i1 false)
-  %tobool.not.i.i331.i = icmp eq ptr %coords.sroa.0.2374.i, null
-  br i1 %tobool.not.i.i331.i, label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i, label %if.then.i13.i332.i
-
-if.then.i13.i332.i:                               ; preds = %call5.i.i.i.i.i.noexc335.i
   call void @_ZdlPv(ptr noundef nonnull %coords.sroa.0.2374.i) #16
-  br label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i
-
-_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i: ; preds = %if.then.i13.i332.i, %call5.i.i.i.i.i.noexc335.i
   %add.ptr.i334.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i336.i, i64 16
   br label %if.end164.i
 
@@ -1184,24 +1166,20 @@ for.end.i:                                        ; preds = %for.inc.i, %for.con
 invoke.cont185.i:                                 ; preds = %for.end.i
   %inc189.i = add nuw nsw i64 %i.0392.i, 1
   %exitcond404.not.i = icmp eq i64 %inc189.i, %27
-  br i1 %exitcond404.not.i, label %for.end190.i, label %for.cond145.preheader.i, !llvm.loop !43
+  br i1 %exitcond404.not.i, label %if.then.i.i.i179.i, label %for.cond145.preheader.i, !llvm.loop !43
 
-for.end190.i:                                     ; preds = %invoke.cont185.i
-  %tobool.not.i.i.i178.i = icmp eq ptr %coords.sroa.0.2.lcssa.i, null
-  br i1 %tobool.not.i.i.i178.i, label %cleanup191.i, label %if.then.i.i.i179.i
-
-if.then.i.i.i179.i:                               ; preds = %for.end190.i, %_ZSt6fill_nIPhiiET_S1_T0_RKT1_.exit.i
-  %coords.sroa.0.1.lcssa407.i = phi ptr [ %coords.sroa.0.2.lcssa.i, %for.end190.i ], [ %call5.i.i.i.i2.i.i162.i, %_ZSt6fill_nIPhiiET_S1_T0_RKT1_.exit.i ]
-  call void @_ZdlPv(ptr noundef nonnull %coords.sroa.0.1.lcssa407.i) #16
+if.then.i.i.i179.i:                               ; preds = %invoke.cont185.i, %_ZSt6fill_nIPhiiET_S1_T0_RKT1_.exit.i
+  %coords.sroa.0.1.lcssa.i = phi ptr [ %call5.i.i.i.i2.i.i162.i, %_ZSt6fill_nIPhiiET_S1_T0_RKT1_.exit.i ], [ %coords.sroa.0.2.lcssa.i, %invoke.cont185.i ]
+  call void @_ZdlPv(ptr noundef nonnull %coords.sroa.0.1.lcssa.i) #16
   br label %cleanup191.i
 
-cleanup191.i:                                     ; preds = %if.then.i.i.i179.i, %for.end190.i, %if.then122.i
+cleanup191.i:                                     ; preds = %if.then.i.i.i179.i, %if.then122.i
   call void @_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp109.i) #14
   call void @_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp81.i) #14
   br i1 %cmp.i.i142.i, label %if.end196.i, label %cleanup248.i
 
-ehcleanup.i:                                      ; preds = %if.then.i.i.i170.i, %lpad141.i, %lpad138.i, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit169.i, %lpad115.i
-  %.pn.i = phi { ptr, i32 } [ %76, %lpad115.i ], [ %90, %lpad138.i ], [ %87, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit169.i ], [ %lpad.phi.i, %lpad141.i ], [ %lpad.phi.i, %if.then.i.i.i170.i ]
+ehcleanup.i:                                      ; preds = %if.then.i.i.i170.i, %lpad138.i, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit169.i, %lpad115.i
+  %.pn.i = phi { ptr, i32 } [ %76, %lpad115.i ], [ %90, %lpad138.i ], [ %87, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit169.i ], [ %lpad.phi.i, %if.then.i.i.i170.i ]
   call void @_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp109.i) #14
   br label %ehcleanup195.i
 

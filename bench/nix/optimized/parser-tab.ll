@@ -2729,20 +2729,20 @@ define internal fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11Pars
   %7 = getelementptr inbounds i8, ptr %0, i64 276
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, -2
-  br i1 %9, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71, label %10
+  br i1 %9, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69, label %10
 
 10:                                               ; preds = %6
   %or.cond.i = icmp ult i32 %8, 293
-  br i1 %or.cond.i, label %11, label %.thread26.i
+  br i1 %or.cond.i, label %11, label %.thread25.i
 
 11:                                               ; preds = %10
   %12 = zext nneg i32 %8 to i64
   %13 = getelementptr inbounds [293 x i8], ptr @_ZL11yytranslate, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
-  br label %.thread26.i
+  br label %.thread25.i
 
-.thread26.i:                                      ; preds = %11, %10
+.thread25.i:                                      ; preds = %11, %10
   %16 = phi i32 [ %15, %11 ], [ 2, %10 ]
   store i32 %16, ptr %4, align 16
   %17 = getelementptr inbounds i8, ptr %4, i64 4
@@ -2755,9 +2755,9 @@ define internal fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11Pars
   %21 = getelementptr inbounds [174 x i16], ptr @_ZL6yypact, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = icmp eq i16 %22, -129
-  br i1 %23, label %.loopexit.i.i.thread, label %24
+  br i1 %23, label %.thread.i.i, label %24
 
-24:                                               ; preds = %.thread26.i
+24:                                               ; preds = %.thread25.i
   %25 = sext i16 %22 to i32
   %26 = icmp slt i16 %22, 0
   %27 = sub nsw i32 0, %25
@@ -2765,17 +2765,17 @@ define internal fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11Pars
   %29 = sub nsw i32 333, %25
   %30 = tail call i32 @llvm.smin.i32(i32 %29, i32 59)
   %31 = icmp slt i32 %28, %30
-  br i1 %31, label %.lr.ph.i.i, label %.loopexit.i.i.thread
+  br i1 %31, label %.lr.ph.preheader.i.i, label %.thread.i.i
 
-.lr.ph.i.i:                                       ; preds = %24
+.lr.ph.preheader.i.i:                             ; preds = %24
   %32 = sext i32 %28 to i64
   %33 = sext i16 %22 to i64
   %34 = sext i32 %30 to i64
-  br label %.lr.ph.split.i.i
+  br label %.lr.ph.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %52
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %52 ], [ %32, %.lr.ph.i.i ]
-  %.13.i.i = phi i32 [ %.035.i.fr.i, %52 ], [ 0, %.lr.ph.i.i ]
+.lr.ph.i.i:                                       ; preds = %52, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %32, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %52 ]
+  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.fr.i, %52 ]
   %35 = add nsw i64 %indvars.iv.i.i, %33
   %36 = getelementptr inbounds [333 x i16], ptr @_ZL7yycheck, i64 0, i64 %35
   %37 = load i16, ptr %36, align 2
@@ -2786,85 +2786,85 @@ define internal fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11Pars
   %or.cond.i.i = and i1 %41, %40
   br i1 %or.cond.i.i, label %42, label %52
 
-42:                                               ; preds = %.lr.ph.split.i.i
+42:                                               ; preds = %.lr.ph.i.i
   %43 = getelementptr inbounds [333 x i16], ptr @_ZL7yytable, i64 0, i64 %35
   %44 = load i16, ptr %43, align 2
   %45 = icmp eq i16 %44, -69
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %42
-  %47 = icmp eq i32 %.13.i.i, 4
-  br i1 %47, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71, label %48
+  %47 = icmp eq i32 %.14.i.i, 4
+  br i1 %47, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69, label %48
 
 48:                                               ; preds = %46
-  %49 = add nsw i32 %.13.i.i, 1
-  %50 = sext i32 %.13.i.i to i64
+  %49 = add nsw i32 %.14.i.i, 1
+  %50 = sext i32 %.14.i.i to i64
   %51 = getelementptr inbounds i32, ptr %17, i64 %50
   store i32 %38, ptr %51, align 4
   br label %52
 
-52:                                               ; preds = %48, %42, %.lr.ph.split.i.i
-  %.2.i.i = phi i32 [ %.13.i.i, %42 ], [ %49, %48 ], [ %.13.i.i, %.lr.ph.split.i.i ]
-  %.035.i.fr.i = freeze i32 %.2.i.i
+52:                                               ; preds = %48, %42, %.lr.ph.i.i
+  %.2.i.i = phi i32 [ %.14.i.i, %42 ], [ %49, %48 ], [ %.14.i.i, %.lr.ph.i.i ]
+  %.2.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %exitcond32.not.i = icmp eq i64 %indvars.iv.next.i.i, %34
-  br i1 %exitcond32.not.i, label %.loopexit.i.i, label %.lr.ph.split.i.i, !llvm.loop !21
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %34
+  br i1 %exitcond.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !21
 
-.loopexit.i.i:                                    ; preds = %52
-  switch i32 %.035.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit [
-    i32 0, label %.loopexit.i.i.thread
-    i32 -2, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread73
+._crit_edge.i.i:                                  ; preds = %52
+  switch i32 %.2.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit [
+    i32 0, label %.thread.i.i
+    i32 -2, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
   ]
 
-.loopexit.i.i.thread:                             ; preds = %.loopexit.i.i, %24, %.thread26.i
+.thread.i.i:                                      ; preds = %._crit_edge.i.i, %24, %.thread25.i
   store i32 -2, ptr %17, align 4
-  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
+  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69
 
-_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit: ; preds = %.loopexit.i.i
-  %53 = add nsw i32 %.035.i.fr.i, 1
-  switch i32 %.035.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71 [
-    i32 -3, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread73
+_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit: ; preds = %._crit_edge.i.i
+  %53 = add nsw i32 %.2.i.fr.i, 1
+  switch i32 %.2.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69 [
+    i32 -3, label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
     i32 4, label %57
     i32 3, label %56
     i32 1, label %54
     i32 2, label %55
   ]
 
-_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread73: ; preds = %.loopexit.i.i, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit
+_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71: ; preds = %._crit_edge.i.i, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit
   tail call fastcc void @_ZL17yyMemoryExhaustedP10yyGLRStack(ptr noundef nonnull %0) #39
   unreachable
 
 54:                                               ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit
-  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
+  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69
 
 55:                                               ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit
-  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
+  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69
 
 56:                                               ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit
-  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
+  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69
 
 57:                                               ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit
-  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
+  br label %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69
 
-_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71: ; preds = %46, %.loopexit.i.i.thread, %6, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit, %57, %56, %55, %54
-  %.0.i70 = phi i32 [ 4, %56 ], [ 3, %55 ], [ 2, %54 ], [ 5, %57 ], [ %53, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit ], [ 0, %6 ], [ 1, %.loopexit.i.i.thread ], [ 1, %46 ]
-  %.048 = phi ptr [ @.str.27, %56 ], [ @.str.26, %55 ], [ @.str.25, %54 ], [ @.str.28, %57 ], [ @.str, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit ], [ @.str, %6 ], [ @.str.24, %.loopexit.i.i.thread ], [ @.str.24, %46 ]
+_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69: ; preds = %46, %.thread.i.i, %6, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit, %57, %56, %55, %54
+  %.0.i68 = phi i32 [ 4, %56 ], [ 3, %55 ], [ 2, %54 ], [ 5, %57 ], [ %53, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit ], [ 0, %6 ], [ 1, %.thread.i.i ], [ 1, %46 ]
+  %.048 = phi ptr [ @.str.27, %56 ], [ @.str.26, %55 ], [ @.str.25, %54 ], [ @.str.28, %57 ], [ @.str, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit ], [ @.str, %6 ], [ @.str.24, %.thread.i.i ], [ @.str.24, %46 ]
   %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.048) #45
-  %59 = shl nsw i32 %.0.i70, 1
+  %59 = shl nsw i32 %.0.i68, 1
   %60 = sext i32 %59 to i64
   %reass.sub = sub i64 %58, %60
   %61 = add i64 %reass.sub, 1
-  %62 = icmp sgt i32 %.0.i70, 0
+  %62 = icmp sgt i32 %.0.i68, 0
   br i1 %62, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71
-  %wide.trip.count = zext nneg i32 %.0.i70 to i64
+.lr.ph.preheader:                                 ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69
+  %wide.trip.count = zext nneg i32 %.0.i68 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit ]
-  %.04281 = phi i1 [ false, %.lr.ph.preheader ], [ %.143, %_ZL9yytnamerrPcPKc.exit ]
-  %.04679 = phi i64 [ %61, %.lr.ph.preheader ], [ %.147, %_ZL9yytnamerrPcPKc.exit ]
+  %.04279 = phi i1 [ false, %.lr.ph.preheader ], [ %.143, %_ZL9yytnamerrPcPKc.exit ]
+  %.04677 = phi i64 [ %61, %.lr.ph.preheader ], [ %.147, %_ZL9yytnamerrPcPKc.exit ]
   %63 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
@@ -2903,11 +2903,11 @@ _ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71: ;
 
 _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us.i, %.loopexit.i
   %.019.i = phi i64 [ %77, %.loopexit.i ], [ %.018.us.i, %.preheader.split.us.i ]
-  %78 = sub nsw i64 9223372036854775807, %.04679
+  %78 = sub nsw i64 9223372036854775807, %.04677
   %79 = icmp slt i64 %78, %.019.i
   %80 = select i1 %79, i64 0, i64 %.019.i
-  %.147 = add nsw i64 %80, %.04679
-  %.143 = select i1 %79, i1 true, i1 %.04281
+  %.147 = add nsw i64 %80, %.04677
+  %.143 = select i1 %79, i1 true, i1 %.04279
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -2915,9 +2915,9 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
 ._crit_edge:                                      ; preds = %_ZL9yytnamerrPcPKc.exit
   br i1 %.143, label %.thread, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71, %._crit_edge
-  %.046.lcssa87 = phi i64 [ %.147, %._crit_edge ], [ %61, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71 ]
-  %81 = tail call noalias ptr @malloc(i64 noundef %.046.lcssa87) #43
+._crit_edge.thread:                               ; preds = %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69, %._crit_edge
+  %.046.lcssa85 = phi i64 [ %.147, %._crit_edge ], [ %61, %_ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread69 ]
+  %81 = tail call noalias ptr @malloc(i64 noundef %.046.lcssa85) #43
   %.not53 = icmp eq ptr %81, null
   br i1 %.not53, label %.thread, label %.preheader
 
@@ -2936,7 +2936,7 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   %84 = getelementptr inbounds i8, ptr %.149, i64 1
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, 115
-  %87 = icmp slt i32 %.0, %.0.i70
+  %87 = icmp slt i32 %.0, %.0.i68
   %or.cond = select i1 %86, i1 %87, i1 false
   br i1 %or.cond, label %88, label %_ZL9yytnamerrPcPKc.exit65
 
@@ -2990,10 +2990,10 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit65
 
 _ZL9yytnamerrPcPKc.exit65:                        ; preds = %83, %.preheader, %.loopexit.thread.i, %.split.us.thread.i
-  %.sink90 = phi i64 [ %110, %.loopexit.thread.i ], [ %.018.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %83 ]
+  %.sink88 = phi i64 [ %110, %.loopexit.thread.i ], [ %.018.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %83 ]
   %.sink = phi i64 [ 2, %.loopexit.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %83 ]
   %.1 = phi i32 [ %89, %.loopexit.thread.i ], [ %89, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %83 ]
-  %111 = getelementptr inbounds i8, ptr %.040, i64 %.sink90
+  %111 = getelementptr inbounds i8, ptr %.040, i64 %.sink88
   %112 = getelementptr inbounds i8, ptr %.149, i64 %.sink
   br label %.preheader, !llvm.loop !24
 

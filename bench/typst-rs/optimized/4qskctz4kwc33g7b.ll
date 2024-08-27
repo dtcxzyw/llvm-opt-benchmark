@@ -95614,9 +95614,6 @@ define void @"_ZN5typst6layout9transform137_$LT$impl$u20$typst..layout..LayoutSi
     i8 4, label %58
   ]
 
-default.unreachable:                              ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i.i"
-  unreachable
-
 54:                                               ; preds = %.noexc8
   unreachable
 
@@ -95645,6 +95642,9 @@ default.unreachable:                              ; preds = %"_ZN87_$LT$typst..l
     i8 1, label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i.i
     i8 2, label %61
   ]
+
+default.unreachable:                              ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i.i"
+  unreachable
 
 61:                                               ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i.i"
   br label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i.i
@@ -95936,9 +95936,6 @@ define void @"_ZN5typst6layout9transform136_$LT$impl$u20$typst..layout..LayoutSi
     i8 4, label %70
   ]
 
-default.unreachable:                              ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i.i"
-  unreachable
-
 66:                                               ; preds = %.noexc16
   unreachable
 
@@ -95967,6 +95964,9 @@ default.unreachable:                              ; preds = %"_ZN87_$LT$typst..l
     i8 1, label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i.i
     i8 2, label %73
   ]
+
+default.unreachable:                              ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i.i"
+  unreachable
 
 73:                                               ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i.i"
   br label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i.i

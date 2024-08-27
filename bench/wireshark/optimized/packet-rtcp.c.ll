@@ -5884,9 +5884,9 @@ define internal fastcc noundef i32 @dissect_rtcp_rr(ptr noundef %0, ptr noundef 
   br label %calculate_roundtrip_delay.exit
 
 calculate_roundtrip_delay.exit:                   ; preds = %118, %94, %90, %81, %78, %71, %64, %15
-  %120 = add i32 %.07479, 1
-  %.not = icmp sgt i32 %120, %4
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !39
+  %120 = add nuw i32 %.07479, 1
+  %exitcond.not = icmp eq i32 %.07479, %4
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %calculate_roundtrip_delay.exit, %6
   %.0.lcssa = phi i32 [ %2, %6 ], [ %55, %calculate_roundtrip_delay.exit ]

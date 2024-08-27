@@ -3756,16 +3756,16 @@ if.end4:                                          ; preds = %if.then2, %if.end
 if.end7:                                          ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #21
-  %.pre.i = load i64, ptr %tv.i, align 8
+  %2 = load i64, ptr %tv.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
   %conv = zext i32 %timeout_sec to i64
-  %add = add nsw i64 %.pre.i, %conv
+  %add = add nsw i64 %2, %conv
   %pid = getelementptr inbounds i8, ptr %cmd, i64 48
   br label %wait
 
 wait:                                             ; preds = %wait.backedge, %if.end7
-  %2 = load i32, ptr %pid, align 8
-  %call9 = call i32 @waitpid(i32 noundef %2, ptr noundef nonnull %wait_status, i32 noundef 1) #21
+  %3 = load i32, ptr %pid, align 8
+  %call9 = call i32 @waitpid(i32 noundef %3, ptr noundef nonnull %wait_status, i32 noundef 1) #21
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.else23
 
@@ -3785,9 +3785,9 @@ if.else:                                          ; preds = %if.then11
 if.then16:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i17)
   %call.i18 = call i32 @gettimeofday(ptr noundef nonnull %tv.i17, ptr noundef null) #21
-  %.pre.i19 = load i64, ptr %tv.i17, align 8
+  %4 = load i64, ptr %tv.i17, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i17)
-  %cmp18 = icmp slt i64 %.pre.i19, %add
+  %cmp18 = icmp slt i64 %4, %add
   br i1 %cmp18, label %wait.backedge, label %if.end21
 
 wait.backedge:                                    ; preds = %if.then16, %land.lhs.true
@@ -3802,18 +3802,18 @@ if.else22:                                        ; preds = %if.else
   br label %done
 
 if.else23:                                        ; preds = %wait
-  %3 = load i32, ptr %pid, align 8
-  %cmp25 = icmp eq i32 %call9, %3
+  %5 = load i32, ptr %pid, align 8
+  %cmp25 = icmp eq i32 %call9, %5
   br i1 %cmp25, label %if.then27, label %if.else45
 
 if.then27:                                        ; preds = %if.else23
-  %4 = load i32, ptr %wait_status, align 4
-  %and = and i32 %4, 127
+  %6 = load i32, ptr %wait_status, align 4
+  %and = and i32 %6, 127
   %cmp28 = icmp eq i32 %and, 0
   br i1 %cmp28, label %if.then30, label %if.else32
 
 if.then30:                                        ; preds = %if.then27
-  %and31 = lshr i32 %4, 8
+  %and31 = lshr i32 %6, 8
   %shr = and i32 %and31, 255
   br label %if.end44
 
@@ -3836,8 +3836,8 @@ if.else45:                                        ; preds = %if.else23
 
 land.lhs.true:                                    ; preds = %if.else45
   %call48 = tail call ptr @__errno_location() #23
-  %5 = load i32, ptr %call48, align 4
-  %cmp49 = icmp eq i32 %5, 4
+  %7 = load i32, ptr %call48, align 4
+  %cmp49 = icmp eq i32 %7, 4
   br i1 %cmp49, label %wait.backedge, label %if.end54
 
 if.end54:                                         ; preds = %land.lhs.true, %if.else45

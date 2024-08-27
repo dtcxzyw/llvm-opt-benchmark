@@ -78,46 +78,46 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   br i1 %17, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %41
-  %.165.i.i = phi i32 [ %.2.i.i, %41 ], [ 0, %15 ]
-  %.04064.i.i = phi i32 [ %.141.i.i, %41 ], [ 0, %15 ]
-  %.sroa.0.163.i.i = phi i8 [ %.sroa.0.2.i.i, %41 ], [ 0, %15 ]
-  %.04362.i.i = phi ptr [ %18, %41 ], [ %4, %15 ]
-  %.04461.i.i = phi ptr [ %.145.i.i, %41 ], [ %11, %15 ]
-  %18 = getelementptr i8, ptr %.04362.i.i, i64 1
-  %19 = load i8, ptr %.04362.i.i, align 1
+  %.163.i.i = phi i32 [ %.2.i.i, %41 ], [ 0, %15 ]
+  %.04062.i.i = phi i32 [ %.141.i.i, %41 ], [ 0, %15 ]
+  %.sroa.0.161.i.i = phi i8 [ %.sroa.0.2.i.i, %41 ], [ 0, %15 ]
+  %.04360.i.i = phi ptr [ %18, %41 ], [ %4, %15 ]
+  %.04459.i.i = phi ptr [ %.145.i.i, %41 ], [ %11, %15 ]
+  %18 = getelementptr i8, ptr %.04360.i.i, i64 1
+  %19 = load i8, ptr %.04360.i.i, align 1
   %20 = zext i8 %19 to i64
   %21 = getelementptr [256 x i8], ptr @mime_base64uri_rank, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
-  %.not57.i.i = icmp eq i8 %22, -1
-  br i1 %.not57.i.i, label %41, label %23
+  %.not55.i.i = icmp eq i8 %22, -1
+  br i1 %.not55.i.i, label %41, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
   %24 = zext i8 %22 to i32
-  %25 = shl i32 %.04064.i.i, 6
+  %25 = shl i32 %.04062.i.i, 6
   %26 = or i32 %25, %24
-  %27 = add i32 %.165.i.i, 1
+  %27 = add i32 %.163.i.i, 1
   %28 = icmp eq i32 %27, 4
   br i1 %28, label %29, label %41
 
 29:                                               ; preds = %23
   %30 = lshr i32 %25, 16
   %31 = trunc i32 %30 to i8
-  %32 = getelementptr i8, ptr %.04461.i.i, i64 1
-  store i8 %31, ptr %.04461.i.i, align 1
-  %.not58.i.i = icmp eq i8 %.sroa.0.163.i.i, 61
-  br i1 %.not58.i.i, label %37, label %33
+  %32 = getelementptr i8, ptr %.04459.i.i, i64 1
+  store i8 %31, ptr %.04459.i.i, align 1
+  %.not56.i.i = icmp eq i8 %.sroa.0.161.i.i, 61
+  br i1 %.not56.i.i, label %37, label %33
 
 33:                                               ; preds = %29
   %34 = lshr i32 %25, 8
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr i8, ptr %.04461.i.i, i64 2
+  %36 = getelementptr i8, ptr %.04459.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %37
 
 37:                                               ; preds = %33, %29
   %.246.i.i = phi ptr [ %36, %33 ], [ %32, %29 ]
-  %.not59.i.i = icmp eq i8 %19, 61
-  br i1 %.not59.i.i, label %41, label %38
+  %.not57.i.i = icmp eq i8 %19, 61
+  br i1 %.not57.i.i, label %41, label %38
 
 38:                                               ; preds = %37
   %39 = trunc i32 %26 to i8
@@ -126,10 +126,10 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   br label %41
 
 41:                                               ; preds = %38, %37, %23, %.lr.ph.i.i
-  %.145.i.i = phi ptr [ %.04461.i.i, %23 ], [ %.04461.i.i, %.lr.ph.i.i ], [ %40, %38 ], [ %.246.i.i, %37 ]
-  %.sroa.0.2.i.i = phi i8 [ %19, %23 ], [ %.sroa.0.163.i.i, %.lr.ph.i.i ], [ %19, %38 ], [ 61, %37 ]
-  %.141.i.i = phi i32 [ %26, %23 ], [ %.04064.i.i, %.lr.ph.i.i ], [ %26, %38 ], [ %26, %37 ]
-  %.2.i.i = phi i32 [ %27, %23 ], [ %.165.i.i, %.lr.ph.i.i ], [ 0, %38 ], [ 0, %37 ]
+  %.145.i.i = phi ptr [ %.04459.i.i, %23 ], [ %.04459.i.i, %.lr.ph.i.i ], [ %40, %38 ], [ %.246.i.i, %37 ]
+  %.sroa.0.2.i.i = phi i8 [ %19, %23 ], [ %.sroa.0.161.i.i, %.lr.ph.i.i ], [ %19, %38 ], [ 61, %37 ]
+  %.141.i.i = phi i32 [ %26, %23 ], [ %.04062.i.i, %.lr.ph.i.i ], [ %26, %38 ], [ %26, %37 ]
+  %.2.i.i = phi i32 [ %27, %23 ], [ %.163.i.i, %.lr.ph.i.i ], [ 0, %38 ], [ 0, %37 ]
   %exitcond.not.i.i = icmp eq ptr %18, %16
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !4
 

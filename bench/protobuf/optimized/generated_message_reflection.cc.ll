@@ -748,16 +748,16 @@ _ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEi
   %14 = ptrtoint ptr %call.i to i64
   %15 = cmpxchg ptr %deci, i64 0, i64 %14 release acquire, align 8
   %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %return.sink.split, label %delete.end
+  br i1 %16, label %return.sink.split, label %delete.notnull
 
-delete.end:                                       ; preds = %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit
+delete.notnull:                                   ; preds = %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit
   %17 = extractvalue { i64, i1 } %15, 0
   %18 = inttoptr i64 %17 to ptr
   tail call void @_ZdaPv(ptr noundef nonnull %call.i) #29
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit, %delete.end
-  %.sink = phi ptr [ %18, %delete.end ], [ %call.i, %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit ]
+return.sink.split:                                ; preds = %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit, %delete.notnull
+  %.sink = phi ptr [ %18, %delete.notnull ], [ %call.i, %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit ]
   %19 = load i32, ptr %min_val, align 8
   %sub10 = sub nsw i32 %v, %19
   %idxprom11 = sext i32 %sub10 to i64

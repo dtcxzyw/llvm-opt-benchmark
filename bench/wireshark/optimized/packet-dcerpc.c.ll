@@ -12117,59 +12117,46 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_auth(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %6, label %5
-
-5:                                                ; preds = %4
+define internal fastcc void @dissect_dcerpc_dg_auth(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   store i32 -1, ptr %3, align 4
-  br label %6
+  %5 = getelementptr inbounds i8, ptr %2, i64 74
+  %6 = load i16, ptr %5, align 2
+  %7 = zext i16 %6 to i32
+  %8 = add nuw nsw i32 %7, 80
+  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8) #16
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %11, label %30
 
-6:                                                ; preds = %5, %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 74
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %10 = add nuw nsw i32 %9, 80
-  %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %10) #16
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %32
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %2, i64 78
+  %13 = load i8, ptr %12, align 2
+  %cond = icmp eq i8 %13, 1
+  br i1 %cond, label %14, label %27
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %2, i64 78
-  %15 = load i8, ptr %14, align 2
-  %cond = icmp eq i8 %15, 1
-  br i1 %cond, label %16, label %29
+14:                                               ; preds = %11
+  %15 = load i32, ptr @ett_dcerpc_krb5_auth_verf, align 4
+  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef -1, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.711) #16
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #16
+  %18 = zext i8 %17 to i32
+  store i32 %18, ptr %3, align 4
+  %19 = load i32, ptr @hf_dcerpc_krb5_av_prot_level, align 4
+  %20 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %19, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %18) #16
+  %21 = add nuw nsw i32 %7, 81
+  %22 = load i32, ptr @hf_dcerpc_krb5_av_key_vers_num, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #16
+  %24 = icmp eq i8 %17, 6
+  %.0.v = select i1 %24, i32 88, i32 84
+  %.0 = add nuw nsw i32 %.0.v, %7
+  %25 = load i32, ptr @hf_dcerpc_krb5_av_key_auth_verifier, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %25, ptr noundef %0, i32 noundef %.0, i32 noundef 16, i32 noundef 0) #16
+  br label %30
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr @ett_dcerpc_krb5_auth_verf, align 4
-  %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %10, i32 noundef -1, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.711) #16
-  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #16
-  %.pre = zext i8 %19 to i32
-  br i1 %.not, label %._crit_edge, label %20
+27:                                               ; preds = %11
+  %28 = load i32, ptr @hf_dcerpc_authentication_verifier, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %8, i32 noundef -1, i32 noundef 0) #16
+  br label %30
 
-20:                                               ; preds = %16
-  store i32 %.pre, ptr %3, align 4
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %16, %20
-  %21 = load i32, ptr @hf_dcerpc_krb5_av_prot_level, align 4
-  %22 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %21, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef %.pre) #16
-  %23 = add nuw nsw i32 %9, 81
-  %24 = load i32, ptr @hf_dcerpc_krb5_av_key_vers_num, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #16
-  %26 = icmp eq i8 %19, 6
-  %.0.v = select i1 %26, i32 88, i32 84
-  %.0 = add nuw nsw i32 %.0.v, %9
-  %27 = load i32, ptr @hf_dcerpc_krb5_av_key_auth_verifier, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef %.0, i32 noundef 16, i32 noundef 0) #16
-  br label %32
-
-29:                                               ; preds = %13
-  %30 = load i32, ptr @hf_dcerpc_authentication_verifier, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %10, i32 noundef -1, i32 noundef 0) #16
-  br label %32
-
-32:                                               ; preds = %._crit_edge, %29, %6
+30:                                               ; preds = %14, %27, %4
   ret void
 }
 

@@ -185,7 +185,7 @@ if.end15.us:                                      ; preds = %if.then7.us, %for.c
 
 if.then17.us:                                     ; preds = %if.end15.us
   %add18.us = add nuw nsw i32 %size.1.us, 1
-  call void @_ZdaPv(ptr noundef nonnull %buf.0.us.ph) #19
+  call void @_ZdaPv(ptr noundef %buf.0.us.ph) #19
   %conv19.us = zext nneg i32 %add18.us to i64
   %call20.us = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv19.us) #18
   br label %for.cond.us.outer, !llvm.loop !4
@@ -214,7 +214,7 @@ if.end15:                                         ; preds = %if.then7, %for.cond
 
 if.then17:                                        ; preds = %if.end15
   %add18 = add nuw nsw i32 %size.1, 1
-  call void @_ZdaPv(ptr noundef nonnull %buf.0.ph) #19
+  call void @_ZdaPv(ptr noundef %buf.0.ph) #19
   %conv19 = zext nneg i32 %add18 to i64
   %call20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv19) #18
   br label %for.cond.outer, !llvm.loop !4
@@ -250,9 +250,9 @@ if.end.i:                                         ; preds = %call.i.noexc
 invoke.cont:                                      ; preds = %if.end.i
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %delete.end27 unwind label %lpad23
+          to label %invoke.cont24 unwind label %lpad23
 
-delete.end27:                                     ; preds = %invoke.cont
+invoke.cont24:                                    ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #17
   call void @_ZdaPv(ptr noundef nonnull %.us-phi) #19

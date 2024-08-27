@@ -2414,27 +2414,19 @@ define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
-  %.not = icmp eq ptr %6, null
+define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef %1) #6
-  br i1 %.not, label %.cont, label %.else
-
-.else:                                            ; preds = %7
   store ptr %8, ptr %6, align 8
-  br label %.cont
-
-.cont:                                            ; preds = %7, %.else
-  %.022 = phi ptr [ null, %.else ], [ %8, %7 ]
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %14
 
-10:                                               ; preds = %.cont
+10:                                               ; preds = %7
   %11 = load i64, ptr @H5E_ARGS_g, align 8
   %12 = load i64, ptr @H5E_BADTYPE_g, align 8
   %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__common_optional_op, i32 noundef 351, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.181) #6
   br label %40
 
-14:                                               ; preds = %.cont
+14:                                               ; preds = %7
   %15 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef nonnull %8) #6
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
@@ -2446,14 +2438,7 @@ define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef
   br label %40
 
 21:                                               ; preds = %14
-  br i1 %.not, label %.cont20, label %.else21
-
-.else21:                                          ; preds = %21
-  %.else.val = load ptr, ptr %6, align 8
-  br label %.cont20
-
-.cont20:                                          ; preds = %21, %.else21
-  %22 = phi ptr [ %.022, %21 ], [ %.else.val, %.else21 ]
+  %22 = load ptr, ptr %6, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -2462,13 +2447,13 @@ define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %33
 
-29:                                               ; preds = %.cont20
+29:                                               ; preds = %21
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__common_optional_op, i32 noundef 362, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.173) #6
   br label %33
 
-33:                                               ; preds = %29, %.cont20
+33:                                               ; preds = %29, %21
   %34 = tail call i32 @H5VL_reset_vol_wrapper() #6
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %40

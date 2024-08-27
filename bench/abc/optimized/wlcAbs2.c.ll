@@ -324,8 +324,8 @@ Wlc_NtkAbsMarkOpers.exit.i:                       ; preds = %145, %.critedge.i.i
   br i1 %148, label %.critedge.i20.i, label %.critedge.preheader.i.Wlc_NtkAbsMarkNodes.exit_crit_edge.i
 
 .critedge.preheader.i.Wlc_NtkAbsMarkNodes.exit_crit_edge.i: ; preds = %.critedge.preheader.i.i, %Wlc_NtkAbsMarkOpers.exit.i
-  %.val4256.i33.i = phi i32 [ %.val4256.i.pre.i, %.critedge.preheader.i.i ], [ 0, %Wlc_NtkAbsMarkOpers.exit.i ]
-  %.pre.i = sext i32 %.val4256.i33.i to i64
+  %.val4256.i31.i = phi i32 [ %.val4256.i.pre.i, %.critedge.preheader.i.i ], [ 0, %Wlc_NtkAbsMarkOpers.exit.i ]
+  %.pre.i = sext i32 %.val4256.i31.i to i64
   br label %Wlc_NtkAbsMarkNodes.exit.i
 
 .lr.ph.i21.i:                                     ; preds = %Wlc_NtkAbsMarkOpers.exit.i, %.lr.ph.i21.i

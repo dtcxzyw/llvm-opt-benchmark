@@ -254,8 +254,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 87:                                               ; preds = %82, %79
   %88 = getelementptr inbounds i8, ptr %7, i64 48
   %89 = load ptr, ptr %88, align 8
-  %.not17.i = icmp eq ptr %89, null
-  br i1 %.not17.i, label %91, label %90
+  %.not.i31 = icmp eq ptr %89, null
+  br i1 %.not.i31, label %91, label %90
 
 90:                                               ; preds = %87
   call void @free(ptr noundef nonnull %89) #26
@@ -265,8 +265,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 91:                                               ; preds = %90, %87
   %92 = getelementptr inbounds i8, ptr %7, i64 64
   %93 = load ptr, ptr %92, align 8
-  %.not18.i = icmp eq ptr %93, null
-  br i1 %.not18.i, label %95, label %94
+  %.not17.i = icmp eq ptr %93, null
+  br i1 %.not17.i, label %95, label %94
 
 94:                                               ; preds = %91
   call void @free(ptr noundef nonnull %93) #26
@@ -276,8 +276,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 95:                                               ; preds = %94, %91
   %96 = getelementptr inbounds i8, ptr %7, i64 72
   %97 = load ptr, ptr %96, align 8
-  %.not19.i = icmp eq ptr %97, null
-  br i1 %.not19.i, label %99, label %98
+  %.not18.i = icmp eq ptr %97, null
+  br i1 %.not18.i, label %99, label %98
 
 98:                                               ; preds = %95
   call void @free(ptr noundef nonnull %97) #26
@@ -287,8 +287,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 99:                                               ; preds = %98, %95
   %100 = getelementptr inbounds i8, ptr %7, i64 8
   %101 = load ptr, ptr %100, align 8
-  %.not20.i = icmp eq ptr %101, null
-  br i1 %.not20.i, label %COVER_ctx_destroy.exit, label %102
+  %.not19.i = icmp eq ptr %101, null
+  br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %102
 
 102:                                              ; preds = %99
   call void @free(ptr noundef nonnull %101) #26
@@ -331,8 +331,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 127:                                              ; preds = %121, %111
   %128 = getelementptr inbounds i8, ptr %7, i64 48
   %129 = load ptr, ptr %128, align 8
-  %.not17.i33 = icmp eq ptr %129, null
-  br i1 %.not17.i33, label %131, label %130
+  %.not.i32 = icmp eq ptr %129, null
+  br i1 %.not.i32, label %131, label %130
 
 130:                                              ; preds = %127
   call void @free(ptr noundef nonnull %129) #26
@@ -341,8 +341,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 
 131:                                              ; preds = %130, %127
   %132 = load ptr, ptr %112, align 8
-  %.not18.i34 = icmp eq ptr %132, null
-  br i1 %.not18.i34, label %134, label %133
+  %.not17.i33 = icmp eq ptr %132, null
+  br i1 %.not17.i33, label %134, label %133
 
 133:                                              ; preds = %131
   call void @free(ptr noundef nonnull %132) #26
@@ -352,8 +352,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 134:                                              ; preds = %133, %131
   %135 = getelementptr inbounds i8, ptr %7, i64 72
   %136 = load ptr, ptr %135, align 8
-  %.not19.i35 = icmp eq ptr %136, null
-  br i1 %.not19.i35, label %138, label %137
+  %.not18.i34 = icmp eq ptr %136, null
+  br i1 %.not18.i34, label %138, label %137
 
 137:                                              ; preds = %134
   call void @free(ptr noundef nonnull %136) #26
@@ -363,8 +363,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 138:                                              ; preds = %137, %134
   %139 = getelementptr inbounds i8, ptr %7, i64 8
   %140 = load ptr, ptr %139, align 8
-  %.not20.i36 = icmp eq ptr %140, null
-  br i1 %.not20.i36, label %COVER_map_destroy.exit, label %141
+  %.not19.i35 = icmp eq ptr %140, null
+  br i1 %.not19.i35, label %COVER_map_destroy.exit, label %141
 
 141:                                              ; preds = %138
   call void @free(ptr noundef nonnull %140) #26
@@ -580,10 +580,10 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   %.pre140 = load ptr, ptr %90, align 8
   br label %107
 
-107:                                              ; preds = %99, %102
-  %108 = phi ptr [ %89, %99 ], [ %.pre140, %102 ]
-  %.not17.i = icmp eq ptr %108, null
-  br i1 %.not17.i, label %110, label %109
+107:                                              ; preds = %102, %99
+  %108 = phi ptr [ %.pre140, %102 ], [ %89, %99 ]
+  %.not.i121 = icmp eq ptr %108, null
+  br i1 %.not.i121, label %110, label %109
 
 109:                                              ; preds = %107
   tail call void @free(ptr noundef nonnull %108) #26
@@ -593,8 +593,8 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
 110:                                              ; preds = %109, %107
   %111 = getelementptr inbounds i8, ptr %0, i64 64
   %112 = load ptr, ptr %111, align 8
-  %.not18.i = icmp eq ptr %112, null
-  br i1 %.not18.i, label %114, label %113
+  %.not17.i = icmp eq ptr %112, null
+  br i1 %.not17.i, label %114, label %113
 
 113:                                              ; preds = %110
   tail call void @free(ptr noundef nonnull %112) #26
@@ -603,8 +603,8 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
 
 114:                                              ; preds = %113, %110
   %115 = load ptr, ptr %92, align 8
-  %.not19.i = icmp eq ptr %115, null
-  br i1 %.not19.i, label %117, label %116
+  %.not18.i = icmp eq ptr %115, null
+  br i1 %.not18.i, label %117, label %116
 
 116:                                              ; preds = %114
   tail call void @free(ptr noundef nonnull %115) #26
@@ -613,8 +613,8 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
 
 117:                                              ; preds = %116, %114
   %118 = load ptr, ptr %97, align 8
-  %.not20.i = icmp eq ptr %118, null
-  br i1 %.not20.i, label %COVER_ctx_destroy.exit, label %119
+  %.not19.i = icmp eq ptr %118, null
+  br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %119
 
 119:                                              ; preds = %117
   tail call void @free(ptr noundef nonnull %118) #26
@@ -1797,10 +1797,10 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   br label %91
 
 91:                                               ; preds = %86, %80
-  %.not132171 = icmp ugt i32 %18, %19
-  br i1 %.not132171, label %._crit_edge177, label %.lr.ph176
+  %.not132175 = icmp ugt i32 %18, %19
+  br i1 %.not132175, label %._crit_edge181, label %.lr.ph180
 
-.lr.ph176:                                        ; preds = %91
+.lr.ph180:                                        ; preds = %91
   %92 = icmp sgt i32 %36, 2
   %93 = getelementptr inbounds i8, ptr %8, i64 56
   %94 = uitofp i64 %1 to double
@@ -1814,21 +1814,21 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %101 = getelementptr inbounds i8, ptr %8, i64 8
   br label %102
 
-102:                                              ; preds = %.lr.ph176, %COVER_ctx_destroy.exit149
-  %.0109174 = phi i32 [ 1, %.lr.ph176 ], [ %.2, %COVER_ctx_destroy.exit149 ]
-  %.0110173 = phi i32 [ %18, %.lr.ph176 ], [ %218, %COVER_ctx_destroy.exit149 ]
-  %.not135172 = phi i1 [ true, %.lr.ph176 ], [ false, %COVER_ctx_destroy.exit149 ]
+102:                                              ; preds = %.lr.ph180, %COVER_ctx_destroy.exit151
+  %.0109178 = phi i32 [ 1, %.lr.ph180 ], [ %.2, %COVER_ctx_destroy.exit151 ]
+  %.0110177 = phi i32 [ %18, %.lr.ph180 ], [ %218, %COVER_ctx_destroy.exit151 ]
+  %.not135176 = phi i1 [ true, %.lr.ph180 ], [ false, %COVER_ctx_destroy.exit151 ]
   br i1 %92, label %103, label %108
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0110173) #23
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0110177) #23
   %106 = load ptr, ptr @stderr, align 8
   %107 = call i32 @fflush(ptr noundef %106)
   br label %108
 
 108:                                              ; preds = %103, %102
-  %109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110173, double noundef %14)
+  %109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110177, double noundef %14)
   %110 = icmp ult i64 %109, -119
   br i1 %110, label %122, label %111
 
@@ -1865,7 +1865,7 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
   br label %239
 
 122:                                              ; preds = %108
-  br i1 %.not135172, label %123, label %.lr.ph.preheader
+  br i1 %.not135176, label %123, label %.lr.ph.preheader
 
 123:                                              ; preds = %122
   %124 = load i64, ptr %93, align 8
@@ -1884,18 +1884,18 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %122, %123, %128
-  %134 = add i32 %.0110173, -1
+  %134 = add i32 %.0110177, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %204
-  %.1170 = phi i32 [ %.2, %204 ], [ %.0109174, %.lr.ph.preheader ]
-  %.0111169 = phi i32 [ %205, %204 ], [ %22, %.lr.ph.preheader ]
+  %.1174 = phi i32 [ %.2, %204 ], [ %.0109178, %.lr.ph.preheader ]
+  %.0111173 = phi i32 [ %205, %204 ], [ %22, %.lr.ph.preheader ]
   %135 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
   br i1 %92, label %136, label %141
 
 136:                                              ; preds = %.lr.ph
   %137 = load ptr, ptr @stderr, align 8
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.11, i32 noundef %.0111169) #23
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.11, i32 noundef %.0111173) #23
   %139 = load ptr, ptr @stderr, align 8
   %140 = call i32 @fflush(ptr noundef %139)
   br label %141
@@ -1934,8 +1934,8 @@ COVER_best_wait.exit.i142:                        ; preds = %148
 
 COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exit.i142, %152
   %153 = load ptr, ptr %98, align 8
-  %.not17.i = icmp eq ptr %153, null
-  br i1 %.not17.i, label %155, label %154
+  %.not.i = icmp eq ptr %153, null
+  br i1 %.not.i, label %155, label %154
 
 154:                                              ; preds = %COVER_best_destroy.exit144
   call void @free(ptr noundef nonnull %153) #26
@@ -1944,8 +1944,8 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
 
 155:                                              ; preds = %154, %COVER_best_destroy.exit144
   %156 = load ptr, ptr %99, align 8
-  %.not18.i = icmp eq ptr %156, null
-  br i1 %.not18.i, label %158, label %157
+  %.not17.i = icmp eq ptr %156, null
+  br i1 %.not17.i, label %158, label %157
 
 157:                                              ; preds = %155
   call void @free(ptr noundef nonnull %156) #26
@@ -1954,8 +1954,8 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
 
 158:                                              ; preds = %157, %155
   %159 = load ptr, ptr %100, align 8
-  %.not19.i = icmp eq ptr %159, null
-  br i1 %.not19.i, label %161, label %160
+  %.not18.i = icmp eq ptr %159, null
+  br i1 %.not18.i, label %161, label %160
 
 160:                                              ; preds = %158
   call void @free(ptr noundef nonnull %159) #26
@@ -1964,8 +1964,8 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
 
 161:                                              ; preds = %160, %158
   %162 = load ptr, ptr %101, align 8
-  %.not20.i = icmp eq ptr %162, null
-  br i1 %.not20.i, label %COVER_ctx_destroy.exit, label %163
+  %.not19.i = icmp eq ptr %162, null
+  br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %163
 
 163:                                              ; preds = %161
   call void @free(ptr noundef nonnull %162) #26
@@ -1984,9 +1984,9 @@ COVER_ctx_destroy.exit:                           ; preds = %161, %163
   store i64 %1, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %135, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %167, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
-  store i32 %.0111169, ptr %167, align 8
+  store i32 %.0111173, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %135, i64 28
-  store i32 %.0110173, ptr %168, align 4
+  store i32 %.0110177, ptr %168, align 4
   %169 = getelementptr inbounds i8, ptr %135, i64 40
   store double %14, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %135, i64 32
@@ -1996,9 +1996,9 @@ COVER_ctx_destroy.exit:                           ; preds = %161, %163
   %172 = load i32, ptr @g_displayLevel, align 4
   %173 = getelementptr inbounds i8, ptr %135, i64 60
   store i32 %172, ptr %173, align 4
-  %174 = zext i32 %.0111169 to i64
+  %174 = zext i32 %.0111173 to i64
   %175 = icmp ult i64 %1, %174
-  %176 = icmp uge i32 %134, %.0111169
+  %176 = icmp uge i32 %134, %.0111173
   %or.cond11.i = or i1 %175, %176
   br i1 %or.cond11.i, label %COVER_checkParameters.exit.thread, label %COVER_checkParameters.exit
 
@@ -2046,7 +2046,7 @@ COVER_checkParameters.exit:                       ; preds = %164
   %195 = call i64 @clock() #26
   store i64 %195, ptr @g_time, align 8
   %196 = load ptr, ptr @stderr, align 8
-  %197 = mul i32 %.1170, 100
+  %197 = mul i32 %.1174, 100
   %198 = udiv i32 %197, %34
   %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.13, i32 noundef %198) #23
   %200 = load ptr, ptr @stderr, align 8
@@ -2054,12 +2054,12 @@ COVER_checkParameters.exit:                       ; preds = %164
   br label %202
 
 202:                                              ; preds = %194, %189, %188
-  %203 = add i32 %.1170, 1
+  %203 = add i32 %.1174, 1
   br label %204
 
 204:                                              ; preds = %202, %183
-  %.2 = phi i32 [ %203, %202 ], [ %.1170, %183 ]
-  %205 = add i32 %.0111169, %30
+  %.2 = phi i32 [ %203, %202 ], [ %.1174, %183 ]
+  %205 = add i32 %.0111173, %30
   %.not136 = icmp ugt i32 %205, %23
   br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
@@ -2073,8 +2073,8 @@ COVER_checkParameters.exit:                       ; preds = %164
 
 COVER_best_wait.exit:                             ; preds = %._crit_edge
   %207 = load ptr, ptr %98, align 8
-  %.not17.i145 = icmp eq ptr %207, null
-  br i1 %.not17.i145, label %209, label %208
+  %.not.i147 = icmp eq ptr %207, null
+  br i1 %.not.i147, label %209, label %208
 
 208:                                              ; preds = %COVER_best_wait.exit
   call void @free(ptr noundef nonnull %207) #26
@@ -2083,8 +2083,8 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
 
 209:                                              ; preds = %208, %COVER_best_wait.exit
   %210 = load ptr, ptr %99, align 8
-  %.not18.i146 = icmp eq ptr %210, null
-  br i1 %.not18.i146, label %212, label %211
+  %.not17.i148 = icmp eq ptr %210, null
+  br i1 %.not17.i148, label %212, label %211
 
 211:                                              ; preds = %209
   call void @free(ptr noundef nonnull %210) #26
@@ -2093,8 +2093,8 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
 
 212:                                              ; preds = %211, %209
   %213 = load ptr, ptr %100, align 8
-  %.not19.i147 = icmp eq ptr %213, null
-  br i1 %.not19.i147, label %215, label %214
+  %.not18.i149 = icmp eq ptr %213, null
+  br i1 %.not18.i149, label %215, label %214
 
 214:                                              ; preds = %212
   call void @free(ptr noundef nonnull %213) #26
@@ -2103,30 +2103,30 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
 
 215:                                              ; preds = %214, %212
   %216 = load ptr, ptr %101, align 8
-  %.not20.i148 = icmp eq ptr %216, null
-  br i1 %.not20.i148, label %COVER_ctx_destroy.exit149, label %217
+  %.not19.i150 = icmp eq ptr %216, null
+  br i1 %.not19.i150, label %COVER_ctx_destroy.exit151, label %217
 
 217:                                              ; preds = %215
   call void @free(ptr noundef nonnull %216) #26
   store ptr null, ptr %101, align 8
-  br label %COVER_ctx_destroy.exit149
+  br label %COVER_ctx_destroy.exit151
 
-COVER_ctx_destroy.exit149:                        ; preds = %215, %217
-  %218 = add i32 %.0110173, 2
+COVER_ctx_destroy.exit151:                        ; preds = %215, %217
+  %218 = add i32 %.0110177, 2
   %.not132 = icmp ugt i32 %218, %19
-  br i1 %.not132, label %._crit_edge177, label %102, !llvm.loop !65
+  br i1 %.not132, label %._crit_edge181, label %102, !llvm.loop !65
 
-._crit_edge177:                                   ; preds = %COVER_ctx_destroy.exit149, %91
+._crit_edge181:                                   ; preds = %COVER_ctx_destroy.exit151, %91
   br i1 %85, label %219, label %224
 
-219:                                              ; preds = %._crit_edge177
+219:                                              ; preds = %._crit_edge181
   %220 = load ptr, ptr @stderr, align 8
   %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
   %222 = load ptr, ptr @stderr, align 8
   %223 = call i32 @fflush(ptr noundef %222)
   br label %224
 
-224:                                              ; preds = %219, %._crit_edge177
+224:                                              ; preds = %219, %._crit_edge181
   %225 = getelementptr inbounds i8, ptr %7, i64 24
   %226 = load i64, ptr %225, align 8
   %227 = load i64, ptr %82, align 8
@@ -2135,23 +2135,23 @@ COVER_ctx_destroy.exit149:                        ; preds = %215, %217
 
 229:                                              ; preds = %224
   %230 = load i64, ptr %81, align 8
-  %.not2.i.i150 = icmp eq i64 %230, 0
-  br i1 %.not2.i.i150, label %COVER_best_wait.exit.i152, label %.preheader.split.i.i151, !llvm.loop !20
+  %.not2.i.i153 = icmp eq i64 %230, 0
+  br i1 %.not2.i.i153, label %COVER_best_wait.exit.i155, label %.preheader.split.i.i154, !llvm.loop !20
 
-.preheader.split.i.i151:                          ; preds = %229, %.preheader.split.i.i151
-  br label %.preheader.split.i.i151
+.preheader.split.i.i154:                          ; preds = %229, %.preheader.split.i.i154
+  br label %.preheader.split.i.i154
 
-COVER_best_wait.exit.i152:                        ; preds = %229
+COVER_best_wait.exit.i155:                        ; preds = %229
   %231 = getelementptr inbounds i8, ptr %7, i64 16
   %232 = load ptr, ptr %231, align 8
-  %.not5.i153 = icmp eq ptr %232, null
-  br i1 %.not5.i153, label %COVER_best_destroy.exit154, label %233
+  %.not5.i156 = icmp eq ptr %232, null
+  br i1 %.not5.i156, label %COVER_best_destroy.exit157, label %233
 
-233:                                              ; preds = %COVER_best_wait.exit.i152
+233:                                              ; preds = %COVER_best_wait.exit.i155
   call void @free(ptr noundef nonnull %232) #26
-  br label %COVER_best_destroy.exit154
+  br label %COVER_best_destroy.exit157
 
-COVER_best_destroy.exit154:                       ; preds = %COVER_best_wait.exit.i152, %233
+COVER_best_destroy.exit157:                       ; preds = %COVER_best_wait.exit.i155, %233
   call void @POOL_free(ptr noundef %.0114) #26
   br label %239
 
@@ -2161,26 +2161,26 @@ COVER_best_destroy.exit154:                       ; preds = %COVER_best_wait.exi
   %236 = load ptr, ptr %235, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %236, i64 %226, i1 false)
   %237 = load i64, ptr %81, align 8
-  %.not2.i.i155 = icmp eq i64 %237, 0
-  br i1 %.not2.i.i155, label %COVER_best_wait.exit.i157, label %.preheader.split.i.i156, !llvm.loop !20
+  %.not2.i.i159 = icmp eq i64 %237, 0
+  br i1 %.not2.i.i159, label %COVER_best_wait.exit.i161, label %.preheader.split.i.i160, !llvm.loop !20
 
-.preheader.split.i.i156:                          ; preds = %234, %.preheader.split.i.i156
-  br label %.preheader.split.i.i156
+.preheader.split.i.i160:                          ; preds = %234, %.preheader.split.i.i160
+  br label %.preheader.split.i.i160
 
-COVER_best_wait.exit.i157:                        ; preds = %234
-  %.not5.i158 = icmp eq ptr %236, null
-  br i1 %.not5.i158, label %COVER_best_destroy.exit159, label %238
+COVER_best_wait.exit.i161:                        ; preds = %234
+  %.not5.i162 = icmp eq ptr %236, null
+  br i1 %.not5.i162, label %COVER_best_destroy.exit163, label %238
 
-238:                                              ; preds = %COVER_best_wait.exit.i157
+238:                                              ; preds = %COVER_best_wait.exit.i161
   call void @free(ptr noundef nonnull %236) #26
-  br label %COVER_best_destroy.exit159
+  br label %COVER_best_destroy.exit163
 
-COVER_best_destroy.exit159:                       ; preds = %COVER_best_wait.exit.i157, %238
+COVER_best_destroy.exit163:                       ; preds = %COVER_best_wait.exit.i161, %238
   call void @POOL_free(ptr noundef %.0114) #26
   br label %239
 
-239:                                              ; preds = %77, %67, %70, %57, %60, %48, %50, %38, %40, %COVER_best_destroy.exit159, %COVER_best_destroy.exit154, %COVER_ctx_destroy.exit, %COVER_best_destroy.exit
-  %.0 = phi i64 [ %109, %COVER_best_destroy.exit ], [ -64, %COVER_ctx_destroy.exit ], [ %227, %COVER_best_destroy.exit154 ], [ %226, %COVER_best_destroy.exit159 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ]
+239:                                              ; preds = %77, %67, %70, %57, %60, %48, %50, %38, %40, %COVER_best_destroy.exit163, %COVER_best_destroy.exit157, %COVER_ctx_destroy.exit, %COVER_best_destroy.exit
+  %.0 = phi i64 [ %109, %COVER_best_destroy.exit ], [ -64, %COVER_ctx_destroy.exit ], [ %227, %COVER_best_destroy.exit157 ], [ %226, %COVER_best_destroy.exit163 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ]
   ret i64 %.0
 }
 

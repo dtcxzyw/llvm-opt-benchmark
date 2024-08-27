@@ -826,13 +826,13 @@ setlocales.exit.thread:                           ; preds = %29
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %42
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.139) #18
-  call void @exit(i32 noundef 1) #19
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.139) #18
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %47 = call ptr @pg_malloc(i64 noundef 32) #18
+  %47 = tail call ptr @pg_malloc(i64 noundef 32) #18
   br label %48
 
 48:                                               ; preds = %52, %46
@@ -4185,70 +4185,61 @@ declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @destroyPQExpBuffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_locale_name(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %4 = icmp ne ptr %2, null
-  br i1 %4, label %5, label %6
+define internal fastcc void @check_locale_name(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+  store ptr null, ptr %2, align 8
+  %4 = tail call ptr @setlocale(i32 noundef %0, ptr noundef null) #18
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  store ptr null, ptr %2, align 8
-  br label %6
-
-6:                                                ; preds = %5, %3
-  %7 = tail call ptr @setlocale(i32 noundef %0, ptr noundef null) #18
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %9
-
-8:                                                ; preds = %6
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.141) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
-9:                                                ; preds = %6
-  %10 = tail call ptr @pg_strdup(ptr noundef nonnull %7) #18
+6:                                                ; preds = %3
+  %7 = tail call ptr @pg_strdup(ptr noundef nonnull %4) #18
   %.not21 = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not21, ptr @.str.142, ptr %1
-  %11 = tail call ptr @setlocale(i32 noundef %0, ptr noundef nonnull %spec.store.select) #18
-  %12 = icmp ne ptr %11, null
-  %or.cond = and i1 %4, %12
-  br i1 %or.cond, label %13, label %15
+  %8 = tail call ptr @setlocale(i32 noundef %0, ptr noundef nonnull %spec.store.select) #18
+  %.not22 = icmp eq ptr %8, null
+  br i1 %.not22, label %11, label %9
 
-13:                                               ; preds = %9
-  %14 = tail call ptr @pg_strdup(ptr noundef nonnull %11) #18
-  store ptr %14, ptr %2, align 8
-  br label %15
+9:                                                ; preds = %6
+  %10 = tail call ptr @pg_strdup(ptr noundef nonnull %8) #18
+  store ptr %10, ptr %2, align 8
+  br label %11
 
-15:                                               ; preds = %13, %9
-  %16 = tail call ptr @setlocale(i32 noundef %0, ptr noundef %10) #18
-  %.not22 = icmp eq ptr %16, null
-  br i1 %.not22, label %17, label %18
+11:                                               ; preds = %9, %6
+  %12 = tail call ptr @setlocale(i32 noundef %0, ptr noundef %7) #18
+  %.not23 = icmp eq ptr %12, null
+  br i1 %.not23, label %13, label %14
 
-17:                                               ; preds = %15
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.143, ptr noundef %10) #18
+13:                                               ; preds = %11
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.143, ptr noundef %7) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
-18:                                               ; preds = %15
-  tail call void @free(ptr noundef %10) #18
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %20, label %24
+14:                                               ; preds = %11
+  tail call void @free(ptr noundef %7) #18
+  br i1 %.not22, label %15, label %19
 
-20:                                               ; preds = %18
-  %21 = load i8, ptr %spec.store.select, align 1
-  %.not23 = icmp eq i8 %21, 0
-  br i1 %.not23, label %23, label %22
+15:                                               ; preds = %14
+  %16 = load i8, ptr %spec.store.select, align 1
+  %.not24 = icmp eq i8 %16, 0
+  br i1 %.not24, label %18, label %17
 
-22:                                               ; preds = %20
+17:                                               ; preds = %15
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.144, ptr noundef nonnull %spec.store.select) #18
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.145) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
-23:                                               ; preds = %20
+18:                                               ; preds = %15
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.146) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
-24:                                               ; preds = %18
+19:                                               ; preds = %14
   ret void
 }
 

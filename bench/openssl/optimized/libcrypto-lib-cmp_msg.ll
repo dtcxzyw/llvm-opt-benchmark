@@ -459,7 +459,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.end.thread
 
 cond.end.thread:                                  ; preds = %entry
-  %call69 = tail call ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef nonnull %ctx) #6
+  %call67 = tail call ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef nonnull %ctx) #6
   br label %cond.true3
 
 cond.end:                                         ; preds = %entry
@@ -470,15 +470,15 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp2.not, label %cond.end6, label %cond.true3
 
 cond.true3:                                       ; preds = %cond.end.thread, %cond.end
-  %call75 = phi ptr [ %call69, %cond.end.thread ], [ %call, %cond.end ]
-  %cond72 = phi ptr [ %0, %cond.end.thread ], [ %1, %cond.end ]
-  %call4 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %cond72) #6
+  %call73 = phi ptr [ %call67, %cond.end.thread ], [ %call, %cond.end ]
+  %cond70 = phi ptr [ %0, %cond.end.thread ], [ %1, %cond.end ]
+  %call4 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %cond70) #6
   br label %cond.end6
 
 cond.end6:                                        ; preds = %cond.end, %cond.true3
-  %cmp276 = phi i1 [ true, %cond.true3 ], [ false, %cond.end ]
-  %call73 = phi ptr [ %call75, %cond.true3 ], [ %call, %cond.end ]
-  %cond71 = phi ptr [ %cond72, %cond.true3 ], [ null, %cond.end ]
+  %cmp274 = phi i1 [ true, %cond.true3 ], [ false, %cond.end ]
+  %call72 = phi ptr [ %call73, %cond.true3 ], [ %call, %cond.end ]
+  %cond69 = phi ptr [ %cond70, %cond.true3 ], [ null, %cond.end ]
   %cond7 = phi ptr [ %call4, %cond.true3 ], [ null, %cond.end ]
   %subjectName.i = getelementptr inbounds i8, ptr %ctx, i64 376
   %2 = load ptr, ptr %subjectName.i, align 8
@@ -528,7 +528,7 @@ determine_subj.exit:                              ; preds = %if.then.i, %cond.fa
   %issuer9 = getelementptr inbounds i8, ptr %ctx, i64 352
   %6 = load ptr, ptr %issuer9, align 8
   %cmp10 = icmp ne ptr %6, null
-  %cmp11 = icmp eq ptr %cond71, null
+  %cmp11 = icmp eq ptr %cond69, null
   %or.cond = or i1 %cmp11, %cmp10
   br i1 %or.cond, label %cond.true12, label %cond.false21
 
@@ -542,7 +542,7 @@ cond.false17:                                     ; preds = %cond.true12
   br label %cond.end23
 
 cond.false21:                                     ; preds = %determine_subj.exit
-  %call22 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %cond71) #6
+  %call22 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %cond69) #6
   br label %cond.end23
 
 cond.end23:                                       ; preds = %cond.false17, %cond.true12, %cond.false21
@@ -554,7 +554,7 @@ cond.end23:                                       ; preds = %cond.false17, %cond
   %9 = select i1 %tobool, i1 true, i1 %cmp25
   %lor.ext = zext i1 %9 to i32
   store ptr null, ptr %exts, align 8
-  %cmp26 = icmp eq ptr %call73, null
+  %cmp26 = icmp eq ptr %call72, null
   br i1 %cmp26, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end23
@@ -592,7 +592,7 @@ if.end36:                                         ; preds = %if.end32
 
 lor.lhs.false39:                                  ; preds = %if.end36
   %call40 = tail call ptr @OSSL_CRMF_MSG_get0_tmpl(ptr noundef nonnull %call33) #6
-  %call41 = tail call i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %call40, ptr noundef nonnull %call73, ptr noundef %retval.0.i, ptr noundef %cond24, ptr noundef null) #6
+  %call41 = tail call i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %call40, ptr noundef nonnull %call72, ptr noundef %retval.0.i, ptr noundef %cond24, ptr noundef null) #6
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %err, label %if.end44
 
@@ -650,11 +650,11 @@ land.lhs.true69:                                  ; preds = %if.end67
 lor.lhs.false73:                                  ; preds = %land.lhs.true69
   %call74 = tail call i32 @OSSL_CMP_CTX_reqExtensions_have_SAN(ptr noundef nonnull %ctx) #6
   %cmp75 = icmp ne i32 %call74, 1
-  %or.cond3 = and i1 %cmp276, %cmp75
+  %or.cond3 = and i1 %cmp274, %cmp75
   br i1 %or.cond3, label %land.lhs.true78, label %if.end86
 
 land.lhs.true78:                                  ; preds = %lor.lhs.false73
-  %call79 = tail call ptr @X509_get0_extensions(ptr noundef nonnull %cond71) #6
+  %call79 = tail call ptr @X509_get0_extensions(ptr noundef nonnull %cond69) #6
   %call80 = tail call ptr @X509V3_get_d2i(ptr noundef %call79, i32 noundef 85, ptr noundef null, ptr noundef null) #6
   %cmp81.not = icmp eq ptr %call80, null
   br i1 %cmp81.not, label %if.end86, label %land.lhs.true82
@@ -715,14 +715,14 @@ if.end93:                                         ; preds = %for.cond.i, %land.l
 
 land.lhs.true98:                                  ; preds = %if.end93
   %21 = load ptr, ptr %subjectAltNames94, align 8
-  %call.i65 = call ptr @X509V3_EXT_i2d(i32 noundef 85, i32 noundef %lor.ext, ptr noundef %21) #6
-  %cmp5.i = icmp eq ptr %call.i65, null
+  %call.i63 = call ptr @X509V3_EXT_i2d(i32 noundef 85, i32 noundef %lor.ext, ptr noundef %21) #6
+  %cmp5.i = icmp eq ptr %call.i63, null
   br i1 %cmp5.i, label %err, label %add1_extension.exit
 
 add1_extension.exit:                              ; preds = %land.lhs.true98
-  %call9.i = call ptr @X509v3_add_ext(ptr noundef nonnull %exts, ptr noundef nonnull %call.i65, i32 noundef 0) #6
+  %call9.i = call ptr @X509v3_add_ext(ptr noundef nonnull %exts, ptr noundef nonnull %call.i63, i32 noundef 0) #6
   %cmp10.i.not = icmp eq ptr %call9.i, null
-  call void @X509_EXTENSION_free(ptr noundef nonnull %call.i65) #6
+  call void @X509_EXTENSION_free(ptr noundef nonnull %call.i63) #6
   br i1 %cmp10.i.not, label %err, label %if.end103
 
 if.end103:                                        ; preds = %add1_extension.exit, %if.end93
@@ -746,12 +746,12 @@ if.end110:                                        ; preds = %land.lhs.true105, %
 
 if.end114:                                        ; preds = %if.end110
   store ptr null, ptr %exts, align 8
-  %or.cond4 = and i1 %tobool27, %cmp276
+  %or.cond4 = and i1 %tobool27, %cmp274
   br i1 %or.cond4, label %if.then118, label %end
 
 if.then118:                                       ; preds = %if.end114
-  %call119 = call ptr @X509_get_issuer_name(ptr noundef nonnull %cond71) #6
-  %call120 = call ptr @X509_get0_serialNumber(ptr noundef nonnull %cond71) #6
+  %call119 = call ptr @X509_get_issuer_name(ptr noundef nonnull %cond69) #6
+  %call120 = call ptr @X509_get0_serialNumber(ptr noundef nonnull %cond69) #6
   %call121 = call ptr @OSSL_CRMF_CERTID_gen(ptr noundef %call119, ptr noundef %call120) #6
   %cmp122 = icmp eq ptr %call121, null
   br i1 %cmp122, label %err, label %if.end124
@@ -818,23 +818,19 @@ declare ptr @X509_get0_extensions(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @add1_extension(ptr noundef %pexts, i32 noundef %nid, i32 noundef %crit, ptr noundef %ex) unnamed_addr #0 {
 entry:
-  %cmp.not = icmp eq ptr %pexts, null
-  br i1 %cmp.not, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
   %call = tail call ptr @X509V3_EXT_i2d(i32 noundef %nid, i32 noundef %crit, ptr noundef %ex) #6
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %return, label %if.end8
 
-if.end8:                                          ; preds = %if.end
-  %call9 = tail call ptr @X509v3_add_ext(ptr noundef nonnull %pexts, ptr noundef nonnull %call, i32 noundef 0) #6
+if.end8:                                          ; preds = %entry
+  %call9 = tail call ptr @X509v3_add_ext(ptr noundef %pexts, ptr noundef nonnull %call, i32 noundef 0) #6
   %cmp10 = icmp ne ptr %call9, null
   %conv11 = zext i1 %cmp10 to i32
   tail call void @X509_EXTENSION_free(ptr noundef nonnull %call) #6
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %if.end8
-  %retval.0 = phi i32 [ %conv11, %if.end8 ], [ 0, %entry ], [ 0, %if.end ]
+return:                                           ; preds = %entry, %if.end8
+  %retval.0 = phi i32 [ %conv11, %if.end8 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1257,18 +1253,18 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true51
   %conv.i = sext i32 %11 to i64
   %call1.i = tail call i32 @ASN1_ENUMERATED_set(ptr noundef nonnull %call.i, i64 noundef %conv.i) #6
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %add_crl_reason_extension.exit.thread, label %if.end.i.i
+  br i1 %tobool.not.i, label %add_crl_reason_extension.exit.thread, label %if.then.i
 
-if.end.i.i:                                       ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %land.lhs.true.i
   %call.i.i = tail call ptr @X509V3_EXT_i2d(i32 noundef 141, i32 noundef 0, ptr noundef nonnull %call.i) #6
   %cmp5.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp5.i.i, label %add_crl_reason_extension.exit.thread, label %add_crl_reason_extension.exit
 
-add_crl_reason_extension.exit.thread:             ; preds = %land.lhs.true.i, %land.lhs.true51, %if.end.i.i
+add_crl_reason_extension.exit.thread:             ; preds = %land.lhs.true.i, %land.lhs.true51, %if.then.i
   tail call void @ASN1_ENUMERATED_free(ptr noundef %call.i) #6
   br label %err
 
-add_crl_reason_extension.exit:                    ; preds = %if.end.i.i
+add_crl_reason_extension.exit:                    ; preds = %if.then.i
   %call9.i.i = tail call ptr @X509v3_add_ext(ptr noundef nonnull %crlEntryDetails, ptr noundef nonnull %call.i.i, i32 noundef 0) #6
   %cmp10.i.i.not = icmp eq ptr %call9.i.i, null
   tail call void @X509_EXTENSION_free(ptr noundef nonnull %call.i.i) #6

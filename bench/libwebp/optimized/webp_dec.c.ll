@@ -55,7 +55,7 @@ define hidden i32 @WebPParseHeaders(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
@@ -64,7 +64,6 @@ define internal fastcc i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1,
   store ptr %0, ptr %9, align 8
   store i64 %1, ptr %10, align 8
   store i32 0, ptr %11, align 4
-  store i32 0, ptr %12, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %14
 
@@ -89,7 +88,7 @@ define internal fastcc i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1,
   %24 = getelementptr inbounds i8, ptr %13, i64 56
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %25, label %ParseRIFF.exit.thread133
+  br i1 %.not.i, label %25, label %ParseRIFF.exit.thread132
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 8
@@ -125,20 +124,20 @@ ParseRIFF.exit:                                   ; preds = %35
   %40 = add i64 %1, -12
   store i64 %40, ptr %10, align 8
   %41 = icmp ult i64 %40, 8
-  br i1 %41, label %ParseRIFF.exit.thread, label %ParseRIFF.exit.thread133
+  br i1 %41, label %ParseRIFF.exit.thread, label %ParseRIFF.exit.thread132
 
-ParseRIFF.exit.thread133:                         ; preds = %21, %ParseRIFF.exit
+ParseRIFF.exit.thread132:                         ; preds = %21, %ParseRIFF.exit
   %42 = phi i64 [ %40, %ParseRIFF.exit ], [ %1, %21 ]
   %43 = phi i64 [ %36, %ParseRIFF.exit ], [ 0, %21 ]
   %44 = phi ptr [ %39, %ParseRIFF.exit ], [ %0, %21 ]
-  %bcmp.i92 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
-  %.not.i93.not = icmp eq i32 %bcmp.i92, 0
-  br i1 %.not.i93.not, label %45, label %ParseVP8X.exit.thread116
+  %bcmp.i91 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
+  %.not.i92.not = icmp eq i32 %bcmp.i91, 0
+  br i1 %.not.i92.not, label %45, label %ParseVP8X.exit.thread115
 
-45:                                               ; preds = %ParseRIFF.exit.thread133
+45:                                               ; preds = %ParseRIFF.exit.thread132
   %46 = getelementptr inbounds i8, ptr %44, i64 4
-  %.val.i.i95 = load i32, ptr %46, align 1
-  %.not26.i = icmp eq i32 %.val.i.i95, 10
+  %.val.i.i94 = load i32, ptr %46, align 1
+  %.not26.i = icmp eq i32 %.val.i.i94, 10
   br i1 %.not26.i, label %47, label %ParseRIFF.exit.thread
 
 47:                                               ; preds = %45
@@ -147,8 +146,8 @@ ParseRIFF.exit.thread133:                         ; preds = %21, %ParseRIFF.exit
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds i8, ptr %44, i64 12
-  %.val.i32.i = load i16, ptr %50, align 1
-  %51 = zext i16 %.val.i32.i to i32
+  %.val.i29.i = load i16, ptr %50, align 1
+  %51 = zext i16 %.val.i29.i to i32
   %52 = getelementptr inbounds i8, ptr %44, i64 14
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
@@ -156,8 +155,8 @@ ParseRIFF.exit.thread133:                         ; preds = %21, %ParseRIFF.exit
   %56 = or disjoint i32 %55, %51
   %57 = add nuw nsw i32 %56, 1
   %58 = getelementptr inbounds i8, ptr %44, i64 15
-  %.val.i33.i = load i16, ptr %58, align 1
-  %59 = zext i16 %.val.i33.i to i32
+  %.val.i30.i = load i16, ptr %58, align 1
+  %59 = zext i16 %.val.i30.i to i32
   %60 = getelementptr inbounds i8, ptr %44, i64 17
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
@@ -169,199 +168,192 @@ ParseRIFF.exit.thread133:                         ; preds = %21, %ParseRIFF.exit
   br i1 %66, label %ParseRIFF.exit.thread, label %ParseVP8X.exit
 
 ParseVP8X.exit:                                   ; preds = %49
-  %67 = getelementptr inbounds i8, ptr %44, i64 8
-  %.val.i30.i = load i32, ptr %67, align 1
+  %67 = getelementptr i8, ptr %44, i64 8
+  %.val.i27.i = load i32, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %44, i64 18
   store ptr %68, ptr %9, align 8
   %69 = add i64 %42, -18
   store i64 %69, ptr %10, align 8
-  %70 = and i32 %.val.i30.i, 2
+  %70 = and i32 %.val.i27.i, 2
   %71 = icmp ne i32 %70, 0
   %.lobit = lshr exact i32 %70, 1
-  br i1 %.not.i, label %ParseVP8X.exit.thread116, label %ParseRIFF.exit.thread
+  br i1 %.not.i, label %ParseVP8X.exit.thread115, label %ParseRIFF.exit.thread
 
-ParseVP8X.exit.thread116:                         ; preds = %ParseRIFF.exit.thread133, %ParseVP8X.exit
-  %72 = phi ptr [ %68, %ParseVP8X.exit ], [ %44, %ParseRIFF.exit.thread133 ]
-  %73 = phi i64 [ %69, %ParseVP8X.exit ], [ %42, %ParseRIFF.exit.thread133 ]
-  %.lobit128 = phi i32 [ %.lobit, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread133 ]
-  %74 = phi i1 [ %71, %ParseVP8X.exit ], [ false, %ParseRIFF.exit.thread133 ]
-  %.0104127 = phi i32 [ %.val.i30.i, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread133 ]
-  %.0106125 = phi i32 [ %65, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread133 ]
-  %.0107124 = phi i32 [ %57, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread133 ]
+ParseVP8X.exit.thread115:                         ; preds = %ParseRIFF.exit.thread132, %ParseVP8X.exit
+  %72 = phi ptr [ %68, %ParseVP8X.exit ], [ %44, %ParseRIFF.exit.thread132 ]
+  %73 = phi i64 [ %69, %ParseVP8X.exit ], [ %42, %ParseRIFF.exit.thread132 ]
+  %.lobit127 = phi i32 [ %.lobit, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread132 ]
+  %74 = phi i1 [ %71, %ParseVP8X.exit ], [ false, %ParseRIFF.exit.thread132 ]
+  %.0103126 = phi i32 [ %.val.i27.i, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread132 ]
+  %.0105124 = phi i32 [ %65, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread132 ]
+  %.0106123 = phi i32 [ %57, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread132 ]
   %.not76 = icmp eq ptr %4, null
   br i1 %.not76, label %77, label %75
 
-75:                                               ; preds = %ParseVP8X.exit.thread116
-  %76 = lshr i32 %.0104127, 4
+75:                                               ; preds = %ParseVP8X.exit.thread115
+  %76 = lshr i32 %.0103126, 4
   %.lobit77 = and i32 %76, 1
   store i32 %.lobit77, ptr %4, align 4
   br label %77
 
-77:                                               ; preds = %75, %ParseVP8X.exit.thread116
-  %.not78 = icmp eq ptr %5, null
+77:                                               ; preds = %ParseVP8X.exit.thread115, %75
+  store i32 %.lobit127, ptr %5, align 4
+  %.not78 = icmp eq ptr %6, null
   br i1 %.not78, label %79, label %78
 
 78:                                               ; preds = %77
-  store i32 %.lobit128, ptr %5, align 4
+  store i32 0, ptr %6, align 4
   br label %79
 
 79:                                               ; preds = %78, %77
-  %.not79 = icmp eq ptr %6, null
-  br i1 %.not79, label %81, label %80
+  store i32 %.0106123, ptr %11, align 4
+  store i32 %.0105124, ptr %12, align 4
+  %or.cond7 = and i1 %.not, %74
+  br i1 %or.cond7, label %126, label %80
 
 80:                                               ; preds = %79
-  store i32 0, ptr %6, align 4
-  br label %81
+  %81 = icmp ult i64 %73, 4
+  br i1 %81, label %124, label %82
 
-81:                                               ; preds = %80, %79
-  store i32 %.0107124, ptr %11, align 4
-  store i32 %.0106125, ptr %12, align 4
-  %or.cond7 = and i1 %.not, %74
-  br i1 %or.cond7, label %128, label %82
-
-82:                                               ; preds = %81
-  %83 = icmp ult i64 %73, 4
-  br i1 %83, label %126, label %84
+82:                                               ; preds = %80
+  %83 = or i32 %bcmp.i, %bcmp.i91
+  %or.cond9 = icmp eq i32 %83, 0
+  br i1 %or.cond9, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = or i32 %bcmp.i, %bcmp.i92
-  %or.cond9 = icmp eq i32 %85, 0
-  br i1 %or.cond9, label %88, label %86
+  %or.cond11 = or i1 %.not.i, %.not.i92.not
+  br i1 %or.cond11, label %90, label %85
 
-86:                                               ; preds = %84
-  %or.cond11 = or i1 %.not.i, %.not.i93.not
-  br i1 %or.cond11, label %92, label %87
-
-87:                                               ; preds = %86
+85:                                               ; preds = %84
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %72, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
-  %.not80 = icmp eq i32 %bcmp, 0
-  br i1 %.not80, label %88, label %92
+  %.not79 = icmp eq i32 %bcmp, 0
+  br i1 %.not79, label %86, label %90
 
-88:                                               ; preds = %84, %87
-  %89 = getelementptr inbounds i8, ptr %13, i64 32
-  %90 = getelementptr inbounds i8, ptr %13, i64 40
-  %91 = call fastcc i32 @ParseOptionalChunks(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef %43, ptr noundef nonnull %89, ptr noundef nonnull %90)
-  %.not81 = icmp eq i32 %91, 0
-  br i1 %.not81, label %._crit_edge, label %126
+86:                                               ; preds = %82, %85
+  %87 = getelementptr inbounds i8, ptr %13, i64 32
+  %88 = getelementptr inbounds i8, ptr %13, i64 40
+  %89 = call fastcc i32 @ParseOptionalChunks(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef %43, ptr noundef nonnull %87, ptr noundef nonnull %88)
+  %.not80 = icmp eq i32 %89, 0
+  br i1 %.not80, label %._crit_edge, label %124
 
-._crit_edge:                                      ; preds = %88
+._crit_edge:                                      ; preds = %86
   %.pre = load i64, ptr %24, align 8
-  br label %92
+  br label %90
 
-92:                                               ; preds = %._crit_edge, %87, %86
-  %93 = phi i64 [ %.pre, %._crit_edge ], [ 0, %87 ], [ %43, %86 ]
-  %94 = getelementptr inbounds i8, ptr %13, i64 48
-  %95 = getelementptr inbounds i8, ptr %13, i64 64
-  %96 = call fastcc i32 @ParseVP8Header(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %18, i64 noundef %93, ptr noundef nonnull %94, ptr noundef nonnull %95)
-  %.not82 = icmp eq i32 %96, 0
-  br i1 %.not82, label %97, label %126
+90:                                               ; preds = %._crit_edge, %85, %84
+  %91 = phi i64 [ %.pre, %._crit_edge ], [ 0, %85 ], [ %43, %84 ]
+  %92 = getelementptr inbounds i8, ptr %13, i64 48
+  %93 = getelementptr inbounds i8, ptr %13, i64 64
+  %94 = call fastcc i32 @ParseVP8Header(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %18, i64 noundef %91, ptr noundef nonnull %92, ptr noundef nonnull %93)
+  %.not81 = icmp eq i32 %94, 0
+  br i1 %.not81, label %95, label %124
 
-97:                                               ; preds = %92
-  %98 = load i64, ptr %94, align 8
-  %99 = icmp ugt i64 %98, 4294967286
-  br i1 %99, label %ParseRIFF.exit.thread, label %100
+95:                                               ; preds = %90
+  %96 = load i64, ptr %92, align 8
+  %97 = icmp ugt i64 %96, 4294967286
+  br i1 %97, label %ParseRIFF.exit.thread, label %98
 
-100:                                              ; preds = %97
-  %or.cond13 = select i1 %.not79, i1 true, i1 %74
-  %.pr129 = load i32, ptr %95, align 8
-  br i1 %or.cond13, label %thread-pre-split, label %101
+98:                                               ; preds = %95
+  %or.cond13 = select i1 %.not78, i1 true, i1 %74
+  %.pr128 = load i32, ptr %93, align 8
+  br i1 %or.cond13, label %thread-pre-split, label %99
 
-101:                                              ; preds = %100
-  %.not83 = icmp eq i32 %.pr129, 0
-  %102 = select i1 %.not83, i32 1, i32 2
-  store i32 %102, ptr %6, align 4
+99:                                               ; preds = %98
+  %.not82 = icmp eq i32 %.pr128, 0
+  %100 = select i1 %.not82, i32 1, i32 2
+  store i32 %100, ptr %6, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %100, %101
-  %.not84 = icmp eq i32 %.pr129, 0
-  %103 = load i64, ptr %10, align 8
-  br i1 %.not84, label %104, label %109
+thread-pre-split:                                 ; preds = %98, %99
+  %.not83 = icmp eq i32 %.pr128, 0
+  %101 = load i64, ptr %10, align 8
+  br i1 %.not83, label %102, label %107
 
-104:                                              ; preds = %thread-pre-split
-  %105 = icmp ult i64 %103, 10
-  br i1 %105, label %126, label %106
+102:                                              ; preds = %thread-pre-split
+  %103 = icmp ult i64 %101, 10
+  br i1 %103, label %124, label %104
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %9, align 8
-  %108 = call i32 @VP8GetInfo(ptr noundef %107, i64 noundef %103, i64 noundef %98, ptr noundef nonnull %11, ptr noundef nonnull %12) #10
-  %.not85 = icmp eq i32 %108, 0
-  br i1 %.not85, label %ParseRIFF.exit.thread, label %114
+104:                                              ; preds = %102
+  %105 = load ptr, ptr %9, align 8
+  %106 = call i32 @VP8GetInfo(ptr noundef %105, i64 noundef %101, i64 noundef %96, ptr noundef nonnull %11, ptr noundef nonnull %12) #10
+  %.not84 = icmp eq i32 %106, 0
+  br i1 %.not84, label %ParseRIFF.exit.thread, label %112
 
-109:                                              ; preds = %thread-pre-split
-  %110 = icmp ult i64 %103, 5
-  br i1 %110, label %126, label %111
+107:                                              ; preds = %thread-pre-split
+  %108 = icmp ult i64 %101, 5
+  br i1 %108, label %124, label %109
 
-111:                                              ; preds = %109
-  %112 = load ptr, ptr %9, align 8
-  %113 = call i32 @VP8LGetInfo(ptr noundef %112, i64 noundef %103, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %4) #10
-  %.not86 = icmp eq i32 %113, 0
-  br i1 %.not86, label %ParseRIFF.exit.thread, label %114
+109:                                              ; preds = %107
+  %110 = load ptr, ptr %9, align 8
+  %111 = call i32 @VP8LGetInfo(ptr noundef %110, i64 noundef %101, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %4) #10
+  %.not85 = icmp eq i32 %111, 0
+  br i1 %.not85, label %ParseRIFF.exit.thread, label %112
 
-114:                                              ; preds = %111, %106
-  %115 = phi ptr [ %112, %111 ], [ %107, %106 ]
-  br i1 %.not.i93.not, label %116, label %119
+112:                                              ; preds = %109, %104
+  %113 = phi ptr [ %110, %109 ], [ %105, %104 ]
+  br i1 %.not.i92.not, label %114, label %117
 
-116:                                              ; preds = %114
-  %117 = load i32, ptr %11, align 4
-  %.not88 = icmp eq i32 %.0107124, %117
-  %118 = load i32, ptr %12, align 4
-  %.not89 = icmp eq i32 %.0106125, %118
-  %or.cond132 = select i1 %.not88, i1 %.not89, i1 false
-  br i1 %or.cond132, label %119, label %ParseRIFF.exit.thread
+114:                                              ; preds = %112
+  %115 = load i32, ptr %11, align 4
+  %.not87 = icmp eq i32 %.0106123, %115
+  %116 = load i32, ptr %12, align 4
+  %.not88 = icmp eq i32 %.0105124, %116
+  %or.cond131 = select i1 %.not87, i1 %.not88, i1 false
+  br i1 %or.cond131, label %117, label %ParseRIFF.exit.thread
 
-119:                                              ; preds = %116, %114
-  br i1 %.not, label %128, label %120
+117:                                              ; preds = %114, %112
+  br i1 %.not, label %126, label %118
 
-120:                                              ; preds = %119
+118:                                              ; preds = %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %13, i64 72, i1 false)
-  %121 = load ptr, ptr %7, align 8
-  %122 = ptrtoint ptr %115 to i64
-  %123 = ptrtoint ptr %121 to i64
-  %124 = sub i64 %122, %123
-  %125 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 %124, ptr %125, align 8
-  br label %128
+  %119 = load ptr, ptr %7, align 8
+  %120 = ptrtoint ptr %113 to i64
+  %121 = ptrtoint ptr %119 to i64
+  %122 = sub i64 %120, %121
+  %123 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 %122, ptr %123, align 8
+  br label %126
 
-126:                                              ; preds = %88, %92, %82, %104, %109
-  %.0.ph = phi i32 [ 7, %109 ], [ 7, %104 ], [ 7, %82 ], [ %96, %92 ], [ %91, %88 ]
-  %127 = icmp eq i32 %.0.ph, 7
-  %or.cond15 = and i1 %.not.i93.not, %127
+124:                                              ; preds = %86, %90, %80, %102, %107
+  %.0.ph = phi i32 [ 7, %107 ], [ 7, %102 ], [ 7, %80 ], [ %94, %90 ], [ %89, %86 ]
+  %125 = icmp eq i32 %.0.ph, 7
+  %or.cond15 = and i1 %.not.i92.not, %125
   %or.cond17 = and i1 %.not, %or.cond15
-  br i1 %or.cond17, label %128, label %ParseRIFF.exit.thread
+  br i1 %or.cond17, label %126, label %ParseRIFF.exit.thread
 
-128:                                              ; preds = %120, %119, %81, %126
-  br i1 %.not76, label %136, label %129
+126:                                              ; preds = %118, %117, %79, %124
+  br i1 %.not76, label %134, label %127
 
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %13, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp ne ptr %131, null
-  %133 = zext i1 %132 to i32
-  %134 = load i32, ptr %4, align 4
-  %135 = or i32 %134, %133
-  store i32 %135, ptr %4, align 4
-  br label %136
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds i8, ptr %13, i64 32
+  %129 = load ptr, ptr %128, align 8
+  %130 = icmp ne ptr %129, null
+  %131 = zext i1 %130 to i32
+  %132 = load i32, ptr %4, align 4
+  %133 = or i32 %132, %131
+  store i32 %133, ptr %4, align 4
+  br label %134
 
-136:                                              ; preds = %129, %128
-  %.not90 = icmp eq ptr %2, null
-  br i1 %.not90, label %139, label %137
+134:                                              ; preds = %127, %126
+  %.not89 = icmp eq ptr %2, null
+  br i1 %.not89, label %137, label %135
 
-137:                                              ; preds = %136
-  %138 = load i32, ptr %11, align 4
-  store i32 %138, ptr %2, align 4
-  br label %139
+135:                                              ; preds = %134
+  %136 = load i32, ptr %11, align 4
+  store i32 %136, ptr %2, align 4
+  br label %137
 
-139:                                              ; preds = %137, %136
-  %.not91 = icmp eq ptr %3, null
-  br i1 %.not91, label %ParseRIFF.exit.thread, label %140
+137:                                              ; preds = %135, %134
+  %.not90 = icmp eq ptr %3, null
+  br i1 %.not90, label %ParseRIFF.exit.thread, label %138
 
-140:                                              ; preds = %139
-  %141 = load i32, ptr %12, align 4
-  store i32 %141, ptr %3, align 4
+138:                                              ; preds = %137
+  %139 = load i32, ptr %12, align 4
+  store i32 %139, ptr %3, align 4
   br label %ParseRIFF.exit.thread
 
-ParseRIFF.exit.thread:                            ; preds = %49, %47, %45, %ParseRIFF.exit, %35, %27, %25, %126, %139, %140, %116, %111, %106, %97, %ParseVP8X.exit, %17
-  %.057 = phi i32 [ 7, %17 ], [ 3, %ParseVP8X.exit ], [ 3, %97 ], [ 3, %106 ], [ 3, %111 ], [ 3, %116 ], [ 0, %140 ], [ 0, %139 ], [ %.0.ph, %126 ], [ 7, %35 ], [ 3, %27 ], [ 3, %25 ], [ 3, %49 ], [ 7, %47 ], [ 3, %45 ], [ 7, %ParseRIFF.exit ]
+ParseRIFF.exit.thread:                            ; preds = %49, %47, %45, %ParseRIFF.exit, %35, %27, %25, %124, %137, %138, %114, %109, %104, %95, %ParseVP8X.exit, %17
+  %.057 = phi i32 [ 7, %17 ], [ 3, %ParseVP8X.exit ], [ 3, %95 ], [ 3, %104 ], [ 3, %109 ], [ 3, %114 ], [ 0, %138 ], [ 0, %137 ], [ %.0.ph, %124 ], [ 7, %35 ], [ 3, %27 ], [ 3, %25 ], [ 3, %49 ], [ 7, %47 ], [ 3, %45 ], [ 7, %ParseRIFF.exit ]
   ret i32 %.057
 }
 

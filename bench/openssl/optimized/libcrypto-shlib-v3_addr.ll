@@ -995,14 +995,10 @@ return:                                           ; preds = %lor.lhs.false12, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @extract_min_max(ptr noundef readonly %aor, ptr noundef %min, ptr noundef %max, i32 noundef %length) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @extract_min_max(ptr noundef readonly %aor, ptr nocapture noundef %min, ptr nocapture noundef %max, i32 noundef %length) unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %aor, null
-  %cmp1 = icmp eq ptr %min, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %max, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  br i1 %or.cond1, label %return, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %aor, align 8
@@ -1028,7 +1024,7 @@ if.then6.i:                                       ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %conv.i = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %min, ptr align 1 %3, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %min, ptr align 1 %3, i64 %conv.i, i1 false)
   %flags.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %4, 7
@@ -1072,7 +1068,7 @@ if.then6.i19:                                     ; preds = %if.end.i17
   %data.i20 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %data.i20, align 8
   %conv.i21 = zext nneg i32 %12 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %max, ptr align 1 %13, i64 %conv.i21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %max, ptr align 1 %13, i64 %conv.i21, i1 false)
   %flags.i22 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %flags.i22, align 8
   %and.i23 = and i64 %14, 7
@@ -1098,7 +1094,7 @@ if.then6.i39:                                     ; preds = %if.end.i37
   %data.i40 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %data.i40, align 8
   %conv.i41 = zext nneg i32 %17 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %min, ptr align 1 %18, i64 %conv.i41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %min, ptr align 1 %18, i64 %conv.i41, i1 false)
   %flags.i42 = getelementptr inbounds i8, ptr %16, i64 16
   %19 = load i64, ptr %flags.i42, align 8
   %and.i43 = and i64 %19, 7
@@ -1144,7 +1140,7 @@ if.then6.i62:                                     ; preds = %if.end.i60
   %data.i63 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %data.i63, align 8
   %conv.i64 = zext nneg i32 %28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %max, ptr align 1 %29, i64 %conv.i64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %max, ptr align 1 %29, i64 %conv.i64, i1 false)
   %flags.i65 = getelementptr inbounds i8, ptr %27, i64 16
   %30 = load i64, ptr %flags.i65, align 8
   %and.i66 = and i64 %30, 7
@@ -1238,7 +1234,7 @@ if.end11:                                         ; preds = %lor.lhs.false
 
 for.body20:                                       ; preds = %for.cond16.preheader, %for.inc152
   %i.186 = phi i32 [ %inc153, %for.inc152 ], [ 0, %for.cond16.preheader ]
-  %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %addr, i32 noundef %i.186) #15
+  %call22 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %addr, i32 noundef %i.186) #15
   %cmp.i = icmp eq ptr %call22, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
@@ -1296,12 +1292,12 @@ sw.epilog:                                        ; preds = %if.end29
 if.end35:                                         ; preds = %sw.epilog
   %u = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load ptr, ptr %u, align 8
-  %call38 = call i32 @OPENSSL_sk_num(ptr noundef %14) #15
+  %call38 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #15
   %cmp39 = icmp eq i32 %call38, 0
   br i1 %cmp39, label %return, label %for.cond42.preheader
 
 for.cond42.preheader:                             ; preds = %if.end35
-  %call4480 = call i32 @OPENSSL_sk_num(ptr noundef %14) #15
+  %call4480 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #15
   %cmp4682 = icmp sgt i32 %call4480, 1
   br i1 %cmp4682, label %for.body47.lr.ph, label %for.end117
 
@@ -1312,9 +1308,9 @@ for.body47.lr.ph:                                 ; preds = %for.cond42.preheade
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.inc115
   %j.083 = phi i32 [ 0, %for.body47.lr.ph ], [ %add53, %for.inc115 ]
-  %call50 = call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %j.083) #15
+  %call50 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %j.083) #15
   %add53 = add nuw nsw i32 %j.083, 1
-  %call54 = call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %add53) #15
+  %call54 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %add53) #15
   %call56 = call fastcc i32 @extract_min_max(ptr noundef %call50, ptr noundef nonnull %a_min, ptr noundef nonnull %a_max, i32 noundef %10)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %lor.lhs.false58
@@ -1454,15 +1450,15 @@ sw.epilog.i:                                      ; preds = %if.end29.i, %if.end
   br i1 %or.cond, label %return, label %for.inc115
 
 for.inc115:                                       ; preds = %sw.epilog.i, %if.end29.i, %for.end23.i, %if.end104
-  %call44 = call i32 @OPENSSL_sk_num(ptr noundef %14) #15
+  %call44 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #15
   %sub45 = add nsw i32 %call44, -1
   %cmp46 = icmp slt i32 %add53, %sub45
   br i1 %cmp46, label %for.body47, label %for.end117, !llvm.loop !14
 
 for.end117:                                       ; preds = %for.inc115, %for.cond42.preheader
-  %call119 = call i32 @OPENSSL_sk_num(ptr noundef %14) #15
+  %call119 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #15
   %sub120 = add nsw i32 %call119, -1
-  %call123 = call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %sub120) #15
+  %call123 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %sub120) #15
   %cmp124.not = icmp eq ptr %call123, null
   br i1 %cmp124.not, label %for.inc152, label %land.lhs.true126
 
@@ -1489,7 +1485,7 @@ lor.lhs.false143:                                 ; preds = %if.end136
 
 for.inc152:                                       ; preds = %for.end117, %land.lhs.true126, %lor.lhs.false143, %if.end29
   %inc153 = add nuw nsw i32 %i.186, 1
-  %call18 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %addr) #15
+  %call18 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %addr) #15
   %cmp19 = icmp slt i32 %inc153, %call18
   br i1 %cmp19, label %for.body20, label %return, !llvm.loop !15
 
@@ -2637,26 +2633,26 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.cond:                                         ; preds = %if.end33
   %inc43 = add nuw nsw i32 %c.022, 1
-  %call5 = call i32 @OPENSSL_sk_num(ptr noundef %child) #15
+  %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %child) #15
   %cmp6 = icmp slt i32 %inc43, %call5
   br i1 %cmp6, label %for.body, label %return, !llvm.loop !24
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %c.022 = phi i32 [ 0, %for.body.lr.ph ], [ %inc43, %for.cond ]
   %p.021 = phi i32 [ 0, %for.body.lr.ph ], [ %p.118, %for.cond ]
-  %call8 = call ptr @OPENSSL_sk_value(ptr noundef %child, i32 noundef %c.022) #15
+  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef %child, i32 noundef %c.022) #15
   %call10 = call fastcc i32 @extract_min_max(ptr noundef %call8, ptr noundef nonnull %c_min, ptr noundef nonnull %c_max, i32 noundef %length)
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %return, label %for.cond13.preheader
 
 for.cond13.preheader:                             ; preds = %for.body
-  %call1516 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %parent) #15
+  %call1516 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %parent) #15
   %cmp16.not17 = icmp slt i32 %p.021, %call1516
   br i1 %cmp16.not17, label %if.end18, label %return
 
 if.end18:                                         ; preds = %for.cond13.preheader, %for.inc
   %p.118 = phi i32 [ %inc, %for.inc ], [ %p.021, %for.cond13.preheader ]
-  %call20 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %parent, i32 noundef %p.118) #15
+  %call20 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %parent, i32 noundef %p.118) #15
   %call23 = call fastcc i32 @extract_min_max(ptr noundef %call20, ptr noundef nonnull %p_min, ptr noundef nonnull %p_max, i32 noundef %length)
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %return, label %if.end26
@@ -2673,7 +2669,7 @@ if.end33:                                         ; preds = %if.end26
 
 for.inc:                                          ; preds = %if.end26
   %inc = add nsw i32 %p.118, 1
-  %call15 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %parent) #15
+  %call15 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %parent) #15
   %cmp16.not = icmp slt i32 %inc, %call15
   br i1 %cmp16.not, label %if.end18, label %return
 

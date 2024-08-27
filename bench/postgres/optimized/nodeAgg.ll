@@ -4735,8 +4735,8 @@ hashagg_recompile_expressions.exit.i:             ; preds = %278, %267
 303:                                              ; preds = %297
   %304 = load i32, ptr %4, align 4
   %305 = call i64 @LogicalTapeRead(ptr noundef %.val107.i, ptr noundef nonnull %3, i64 noundef 4) #12
-  %.not24.i.i = icmp eq i64 %305, 4
-  br i1 %.not24.i.i, label %310, label %306
+  %.not23.i.i = icmp eq i64 %305, 4
+  br i1 %.not23.i.i, label %310, label %306
 
 306:                                              ; preds = %303
   %307 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -4759,8 +4759,8 @@ hashagg_recompile_expressions.exit.i:             ; preds = %278, %267
   %319 = load i32, ptr %3, align 4
   %320 = zext i32 %319 to i64
   %321 = add nsw i64 %320, -4
-  %.not25.i.i = icmp eq i64 %318, %321
-  br i1 %.not25.i.i, label %329, label %322
+  %.not24.i.i = icmp eq i64 %318, %321
+  br i1 %.not24.i.i, label %329, label %322
 
 322:                                              ; preds = %310
   %323 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13

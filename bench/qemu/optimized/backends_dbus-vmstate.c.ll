@@ -644,7 +644,6 @@ for.cond.preheader:                               ; preds = %get_id_list_set.exi
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool23.not = icmp eq ptr %retval.06.i, null
-  %cmp.not = icmp eq ptr %err, null
   br label %for.body
 
 cleanup82.thread63:                               ; preds = %get_id_list_set.exit
@@ -662,12 +661,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load ptr, ptr %bus, align 8
   %call8 = call ptr @g_dbus_proxy_new_sync(ptr noundef %9, i32 noundef 0, ptr noundef nonnull @vmstate1_interface_info, ptr noundef nonnull %8, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef %err) #6
   %tobool9.not = icmp eq ptr %call8, null
-  br i1 %tobool9.not, label %if.then10, label %if.end14
+  br i1 %tobool9.not, label %land.lhs.true, label %if.end14
 
-if.then10:                                        ; preds = %for.body
-  br i1 %cmp.not, label %glib_autoptr_cleanup_GVariant.exit.thread, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.then10
+land.lhs.true:                                    ; preds = %for.body
   %10 = load ptr, ptr %err, align 8
   %cmp11.not = icmp eq ptr %10, null
   br i1 %cmp11.not, label %glib_autoptr_cleanup_GVariant.exit.thread, label %if.then12
@@ -735,8 +731,8 @@ if.then62:                                        ; preds = %if.end51
   call void @g_variant_unref(ptr noundef nonnull %call15) #6
   br label %glib_autoptr_cleanup_GVariant.exit.thread
 
-glib_autoptr_cleanup_GVariant.exit.thread:        ; preds = %if.then62, %if.then19, %if.then12, %land.lhs.true, %if.then10
-  %cleanup.dest.slot.0.ph = phi i32 [ 0, %if.then62 ], [ 4, %if.then19 ], [ 4, %if.then10 ], [ 4, %land.lhs.true ], [ 4, %if.then12 ]
+glib_autoptr_cleanup_GVariant.exit.thread:        ; preds = %if.then62, %if.then19, %if.then12, %land.lhs.true
+  %cleanup.dest.slot.0.ph = phi i32 [ 0, %if.then62 ], [ 4, %if.then19 ], [ 4, %land.lhs.true ], [ 4, %if.then12 ]
   call void @g_free(ptr noundef null) #6
   br label %glib_autoptr_cleanup_GDBusProxy.exit
 

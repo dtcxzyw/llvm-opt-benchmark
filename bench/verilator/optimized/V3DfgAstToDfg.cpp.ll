@@ -6038,8 +6038,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstAcosD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -6112,8 +6112,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -6247,8 +6247,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstAcoshD(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -6321,8 +6321,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -6458,8 +6458,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstAdd(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -6532,8 +6532,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -6562,8 +6562,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -6611,8 +6611,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -6630,9 +6630,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -6722,8 +6722,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstAddD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -6796,8 +6796,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -6826,8 +6826,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -6875,8 +6875,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -6894,9 +6894,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -7237,8 +7237,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstAnd(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -7311,8 +7311,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -7341,8 +7341,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -7390,8 +7390,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -7409,9 +7409,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -7503,8 +7503,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP11AstArraySel(pt
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -7577,8 +7577,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -7607,8 +7607,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -7656,8 +7656,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -7675,9 +7675,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -7767,8 +7767,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstAsinD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -7841,8 +7841,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -7976,8 +7976,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstAsinhD(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -8050,8 +8050,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -8245,8 +8245,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP11AstAssocSel(pt
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -8319,8 +8319,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -8349,8 +8349,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -8398,8 +8398,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -8417,9 +8417,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -8509,8 +8509,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstAtan2D(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -8583,8 +8583,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -8613,8 +8613,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -8662,8 +8662,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -8681,9 +8681,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -8773,8 +8773,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstAtanD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -8847,8 +8847,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -8982,8 +8982,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstAtanhD(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -9056,8 +9056,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -9306,8 +9306,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP14AstBitsToRealD
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -9380,8 +9380,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -9521,8 +9521,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstBufIf1(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -9595,8 +9595,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -9625,8 +9625,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -9674,8 +9674,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -9693,9 +9693,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -9785,8 +9785,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstCAwait(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -9859,8 +9859,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -10113,8 +10113,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstCLog2(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -10187,8 +10187,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -10342,8 +10342,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP14AstCastDynamic
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -10416,8 +10416,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -10446,8 +10446,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -10495,8 +10495,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -10514,9 +10514,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -10610,8 +10610,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP11AstCastWrap(pt
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -10684,8 +10684,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -10819,8 +10819,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstCeilD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -10893,8 +10893,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -11197,8 +11197,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstConcat(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -11271,8 +11271,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -11301,8 +11301,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -11350,8 +11350,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -11369,9 +11369,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -11461,8 +11461,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstConcatN(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -11535,8 +11535,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -11565,8 +11565,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -11614,8 +11614,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -11633,9 +11633,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -11725,8 +11725,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstCond(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -11778,7 +11778,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstCond(ptr nou
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -11789,7 +11789,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -11799,8 +11799,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -11819,7 +11819,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -11829,8 +11829,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -11849,7 +11849,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -11859,8 +11859,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -11894,7 +11894,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI7DfgCond7AstCondEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -11902,157 +11902,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI7DfgCond7AstCondEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI7DfgCond7AstCondEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI7DfgCond7AstCondEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -12064,8 +12064,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstCondBound(p
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -12117,7 +12117,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstCondBound(p
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -12128,7 +12128,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -12138,8 +12138,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -12158,7 +12158,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -12168,8 +12168,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -12188,7 +12188,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -12198,8 +12198,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -12233,7 +12233,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI12DfgCondBound12AstCondBoundEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -12241,157 +12241,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI12DfgCondBound12AstCondBoundEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV12DfgCondBound, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI12DfgCondBound12AstCondBoundEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI12DfgCondBound12AstCondBoundEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -12626,8 +12626,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstCosD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -12700,8 +12700,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -12835,8 +12835,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstCoshD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -12909,8 +12909,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -13046,8 +13046,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstCountOnes(p
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -13120,8 +13120,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -13265,8 +13265,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP16AstCvtPackStri
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -13339,8 +13339,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -13492,8 +13492,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP16AstDistChiSqua
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -13566,8 +13566,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -13596,8 +13596,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -13645,8 +13645,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -13664,9 +13664,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -13756,8 +13756,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstDistErlang(
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -13809,7 +13809,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstDistErlang(
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -13820,7 +13820,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -13830,8 +13830,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -13850,7 +13850,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -13860,8 +13860,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -13880,7 +13880,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -13890,8 +13890,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -13925,7 +13925,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI13DfgDistErlang13AstDistErlangEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -13933,157 +13933,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI13DfgDistErlang13AstDistErlangEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DfgDistErlang, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI13DfgDistErlang13AstDistErlangEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI13DfgDistErlang13AstDistErlangEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -14095,8 +14095,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP18AstDistExponen
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -14169,8 +14169,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -14199,8 +14199,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -14248,8 +14248,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -14267,9 +14267,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -14361,8 +14361,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstDistNormal(
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -14414,7 +14414,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstDistNormal(
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -14425,7 +14425,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -14435,8 +14435,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -14455,7 +14455,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -14465,8 +14465,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -14485,7 +14485,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -14495,8 +14495,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -14530,7 +14530,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI13DfgDistNormal13AstDistNormalEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -14538,157 +14538,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI13DfgDistNormal13AstDistNormalEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DfgDistNormal, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI13DfgDistNormal13AstDistNormalEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI13DfgDistNormal13AstDistNormalEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -14700,8 +14700,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP14AstDistPoisson
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -14774,8 +14774,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -14804,8 +14804,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -14853,8 +14853,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -14872,9 +14872,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -14964,8 +14964,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstDistT(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -15038,8 +15038,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -15068,8 +15068,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -15117,8 +15117,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -15136,9 +15136,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -15228,8 +15228,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP14AstDistUniform
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -15281,7 +15281,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP14AstDistUniform
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -15292,7 +15292,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -15302,8 +15302,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -15322,7 +15322,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -15332,8 +15332,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -15352,7 +15352,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -15362,8 +15362,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -15397,7 +15397,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI14DfgDistUniform14AstDistUniformEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -15405,157 +15405,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI14DfgDistUniform14AstDistUniformEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV14DfgDistUniform, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI14DfgDistUniform14AstDistUniformEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI14DfgDistUniform14AstDistUniformEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -15567,8 +15567,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstDiv(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -15641,8 +15641,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -15671,8 +15671,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -15720,8 +15720,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -15739,9 +15739,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -15831,8 +15831,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstDivD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -15905,8 +15905,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -15935,8 +15935,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -15984,8 +15984,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -16003,9 +16003,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -16095,8 +16095,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstDivS(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -16169,8 +16169,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -16199,8 +16199,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -16248,8 +16248,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -16267,9 +16267,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -16383,8 +16383,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP5AstEq(ptr nound
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -16457,8 +16457,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -16487,8 +16487,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -16536,8 +16536,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -16555,9 +16555,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -16647,8 +16647,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstEqCase(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -16721,8 +16721,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -16751,8 +16751,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -16800,8 +16800,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -16819,9 +16819,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -16911,8 +16911,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstEqD(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -16985,8 +16985,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -17015,8 +17015,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -17064,8 +17064,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -17083,9 +17083,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -17175,8 +17175,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstEqN(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -17249,8 +17249,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -17279,8 +17279,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -17328,8 +17328,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -17347,9 +17347,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -17439,8 +17439,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstEqT(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -17513,8 +17513,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -17543,8 +17543,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -17592,8 +17592,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -17611,9 +17611,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -17703,8 +17703,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstEqWild(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -17777,8 +17777,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -17807,8 +17807,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -17856,8 +17856,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -17875,9 +17875,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -17971,8 +17971,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstExpD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -18045,8 +18045,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -18182,8 +18182,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstExtend(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -18256,8 +18256,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -18391,8 +18391,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstExtendS(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -18465,8 +18465,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -18602,8 +18602,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstFEof(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -18676,8 +18676,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -18815,8 +18815,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstFGetC(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -18889,8 +18889,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -19024,8 +19024,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstFGetS(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -19098,8 +19098,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -19128,8 +19128,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -19177,8 +19177,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -19196,9 +19196,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -19302,8 +19302,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstFUngetC(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -19376,8 +19376,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -19406,8 +19406,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -19455,8 +19455,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -19474,9 +19474,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -19574,8 +19574,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstFloorD(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -19648,8 +19648,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -19799,8 +19799,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstGetcN(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -19873,8 +19873,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -19903,8 +19903,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -19952,8 +19952,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -19971,9 +19971,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -20063,8 +20063,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP11AstGetcRefN(pt
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -20137,8 +20137,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -20167,8 +20167,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -20216,8 +20216,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -20235,9 +20235,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -20327,8 +20327,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP5AstGt(ptr nound
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -20401,8 +20401,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -20431,8 +20431,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -20480,8 +20480,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -20499,9 +20499,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -20591,8 +20591,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstGtD(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -20665,8 +20665,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -20695,8 +20695,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -20744,8 +20744,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -20763,9 +20763,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -20855,8 +20855,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstGtN(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -20929,8 +20929,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -20959,8 +20959,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -21008,8 +21008,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -21027,9 +21027,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -21119,8 +21119,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstGtS(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -21193,8 +21193,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -21223,8 +21223,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -21272,8 +21272,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -21291,9 +21291,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -21383,8 +21383,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstGte(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -21457,8 +21457,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -21487,8 +21487,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -21536,8 +21536,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -21555,9 +21555,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -21647,8 +21647,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstGteD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -21721,8 +21721,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -21751,8 +21751,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -21800,8 +21800,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -21819,9 +21819,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -21911,8 +21911,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstGteN(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -21985,8 +21985,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -22015,8 +22015,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -22064,8 +22064,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -22083,9 +22083,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -22175,8 +22175,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstGteS(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -22249,8 +22249,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -22279,8 +22279,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -22328,8 +22328,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -22347,9 +22347,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -22439,8 +22439,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstHypotD(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -22513,8 +22513,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -22543,8 +22543,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -22592,8 +22592,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -22611,9 +22611,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -22703,8 +22703,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstISToRD(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -22777,8 +22777,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -22912,8 +22912,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstIToRD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -22986,8 +22986,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -23147,8 +23147,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP14AstIsUnbounded
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -23221,8 +23221,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -23356,8 +23356,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstIsUnknown(p
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -23430,8 +23430,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -23573,8 +23573,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstLenN(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -23647,8 +23647,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -23784,8 +23784,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstLog10D(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -23858,8 +23858,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -23993,8 +23993,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstLogAnd(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -24067,8 +24067,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -24097,8 +24097,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -24146,8 +24146,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -24165,9 +24165,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -24257,8 +24257,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstLogD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -24331,8 +24331,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -24466,8 +24466,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstLogEq(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -24540,8 +24540,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -24570,8 +24570,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -24619,8 +24619,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -24638,9 +24638,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -24730,8 +24730,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstLogIf(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -24804,8 +24804,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -24834,8 +24834,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -24883,8 +24883,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -24902,9 +24902,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -24994,8 +24994,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstLogNot(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -25068,8 +25068,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -25203,8 +25203,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstLogOr(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -25277,8 +25277,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -25307,8 +25307,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -25356,8 +25356,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -25375,9 +25375,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -25467,8 +25467,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP5AstLt(ptr nound
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -25541,8 +25541,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -25571,8 +25571,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -25620,8 +25620,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -25639,9 +25639,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -25731,8 +25731,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstLtD(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -25805,8 +25805,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -25835,8 +25835,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -25884,8 +25884,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -25903,9 +25903,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -25995,8 +25995,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstLtN(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -26069,8 +26069,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -26099,8 +26099,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -26148,8 +26148,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -26167,9 +26167,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -26259,8 +26259,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstLtS(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -26333,8 +26333,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -26363,8 +26363,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -26412,8 +26412,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -26431,9 +26431,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -26523,8 +26523,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstLte(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -26597,8 +26597,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -26627,8 +26627,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -26676,8 +26676,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -26695,9 +26695,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -26787,8 +26787,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstLteD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -26861,8 +26861,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -26891,8 +26891,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -26940,8 +26940,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -26959,9 +26959,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -27051,8 +27051,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstLteN(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -27125,8 +27125,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -27155,8 +27155,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -27204,8 +27204,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -27223,9 +27223,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -27315,8 +27315,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstLteS(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -27389,8 +27389,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -27419,8 +27419,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -27468,8 +27468,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -27487,9 +27487,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -27587,8 +27587,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstModDiv(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -27661,8 +27661,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -27691,8 +27691,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -27740,8 +27740,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -27759,9 +27759,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -27851,8 +27851,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstModDivS(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -27925,8 +27925,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -27955,8 +27955,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -28004,8 +28004,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -28023,9 +28023,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -28125,8 +28125,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstMul(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -28199,8 +28199,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -28229,8 +28229,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -28278,8 +28278,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -28297,9 +28297,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -28389,8 +28389,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstMulD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -28463,8 +28463,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -28493,8 +28493,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -28542,8 +28542,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -28561,9 +28561,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -28653,8 +28653,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstMulS(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -28727,8 +28727,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -28757,8 +28757,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -28806,8 +28806,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -28825,9 +28825,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -28917,8 +28917,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstNToI(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -28991,8 +28991,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -29126,8 +29126,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstNegate(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -29200,8 +29200,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -29335,8 +29335,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstNegateD(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -29409,8 +29409,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -29544,8 +29544,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstNeq(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -29618,8 +29618,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -29648,8 +29648,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -29697,8 +29697,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -29716,9 +29716,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -29808,8 +29808,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstNeqCase(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -29882,8 +29882,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -29912,8 +29912,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -29961,8 +29961,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -29980,9 +29980,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -30072,8 +30072,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstNeqD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -30146,8 +30146,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -30176,8 +30176,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -30225,8 +30225,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -30244,9 +30244,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -30336,8 +30336,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstNeqN(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -30410,8 +30410,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -30440,8 +30440,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -30489,8 +30489,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -30508,9 +30508,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -30600,8 +30600,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstNeqT(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -30674,8 +30674,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -30704,8 +30704,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -30753,8 +30753,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -30772,9 +30772,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -30864,8 +30864,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstNeqWild(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -30938,8 +30938,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -30968,8 +30968,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -31017,8 +31017,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -31036,9 +31036,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -31220,8 +31220,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstNot(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -31294,8 +31294,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -31431,8 +31431,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstNullCheck(p
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -31505,8 +31505,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -31640,8 +31640,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstOneHot(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -31714,8 +31714,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -31849,8 +31849,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstOneHot0(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -31923,8 +31923,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -32058,8 +32058,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP5AstOr(ptr nound
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -32132,8 +32132,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -32162,8 +32162,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -32211,8 +32211,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -32230,9 +32230,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -32348,8 +32348,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstPostAdd(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -32401,7 +32401,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstPostAdd(ptr
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -32412,7 +32412,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -32422,8 +32422,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -32442,7 +32442,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -32452,8 +32452,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -32472,7 +32472,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -32482,8 +32482,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -32517,7 +32517,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI10DfgPostAdd10AstPostAddEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -32525,157 +32525,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI10DfgPostAdd10AstPostAddEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV10DfgPostAdd, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgPostAdd10AstPostAddEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgPostAdd10AstPostAddEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -32687,8 +32687,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstPostSub(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -32740,7 +32740,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstPostSub(ptr
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -32751,7 +32751,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -32761,8 +32761,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -32781,7 +32781,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -32791,8 +32791,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -32811,7 +32811,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -32821,8 +32821,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -32856,7 +32856,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI10DfgPostSub10AstPostSubEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -32864,157 +32864,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI10DfgPostSub10AstPostSubEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV10DfgPostSub, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgPostSub10AstPostSubEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgPostSub10AstPostSubEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -33026,8 +33026,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstPow(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -33100,8 +33100,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -33130,8 +33130,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -33179,8 +33179,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -33198,9 +33198,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -33290,8 +33290,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstPowD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -33364,8 +33364,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -33394,8 +33394,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -33443,8 +33443,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -33462,9 +33462,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -33554,8 +33554,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstPowSS(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -33628,8 +33628,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -33658,8 +33658,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -33707,8 +33707,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -33726,9 +33726,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -33818,8 +33818,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstPowSU(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -33892,8 +33892,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -33922,8 +33922,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -33971,8 +33971,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -33990,9 +33990,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -34082,8 +34082,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstPowUS(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -34156,8 +34156,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -34186,8 +34186,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -34235,8 +34235,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -34254,9 +34254,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -34348,8 +34348,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstPreAdd(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -34401,7 +34401,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstPreAdd(ptr n
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -34412,7 +34412,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -34422,8 +34422,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -34442,7 +34442,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -34452,8 +34452,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -34472,7 +34472,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -34482,8 +34482,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -34517,7 +34517,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI9DfgPreAdd9AstPreAddEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -34525,157 +34525,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI9DfgPreAdd9AstPreAddEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgPreAdd, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI9DfgPreAdd9AstPreAddEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI9DfgPreAdd9AstPreAddEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -34687,8 +34687,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstPreSub(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -34740,7 +34740,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstPreSub(ptr n
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -34751,7 +34751,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -34761,8 +34761,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -34781,7 +34781,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -34791,8 +34791,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -34811,7 +34811,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -34821,8 +34821,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -34856,7 +34856,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI9DfgPreSub9AstPreSubEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -34864,157 +34864,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI9DfgPreSub9AstPreSubEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgPreSub, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI9DfgPreSub9AstPreSubEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI9DfgPreSub9AstPreSubEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -35036,8 +35036,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstPutcN(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -35089,7 +35089,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstPutcN(ptr no
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -35100,7 +35100,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -35110,8 +35110,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -35130,7 +35130,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -35140,8 +35140,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -35160,7 +35160,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -35170,8 +35170,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -35205,7 +35205,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI8DfgPutcN8AstPutcNEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -35213,157 +35213,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI8DfgPutcN8AstPutcNEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV8DfgPutcN, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI8DfgPutcN8AstPutcNEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI8DfgPutcN8AstPutcNEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -35377,8 +35377,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstRToIRoundS(
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -35451,8 +35451,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -35586,8 +35586,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstRToIS(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -35660,8 +35660,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -35805,8 +35805,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstRealToBits(
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -35879,8 +35879,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -36014,8 +36014,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstRedAnd(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -36088,8 +36088,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -36223,8 +36223,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstRedOr(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -36297,8 +36297,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -36432,8 +36432,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstRedXor(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -36506,8 +36506,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -36647,8 +36647,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstReplicate(p
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -36721,8 +36721,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -36751,8 +36751,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -36800,8 +36800,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -36819,9 +36819,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -36911,8 +36911,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstReplicateN(
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -36985,8 +36985,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -37015,8 +37015,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -37064,8 +37064,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -37083,9 +37083,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -37175,8 +37175,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP15AstResizeLValu
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -37249,8 +37249,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -37740,8 +37740,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstShiftL(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -37814,8 +37814,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -37844,8 +37844,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -37893,8 +37893,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -37912,9 +37912,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -38004,8 +38004,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstShiftLOvr(p
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -38078,8 +38078,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -38108,8 +38108,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -38157,8 +38157,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -38176,9 +38176,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -38268,8 +38268,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstShiftR(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -38342,8 +38342,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -38372,8 +38372,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -38421,8 +38421,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -38440,9 +38440,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -38532,8 +38532,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP12AstShiftROvr(p
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -38606,8 +38606,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -38636,8 +38636,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -38685,8 +38685,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -38704,9 +38704,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -38796,8 +38796,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstShiftRS(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -38870,8 +38870,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -38900,8 +38900,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -38949,8 +38949,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -38968,9 +38968,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -39060,8 +39060,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstShiftRSOvr(
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -39134,8 +39134,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -39164,8 +39164,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -39213,8 +39213,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -39232,9 +39232,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -39324,8 +39324,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP9AstSigned(ptr n
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -39398,8 +39398,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -39533,8 +39533,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstSinD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -39607,8 +39607,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -39742,8 +39742,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstSinhD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -39816,8 +39816,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -40120,8 +40120,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstSqrtD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -40194,8 +40194,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -40341,8 +40341,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstStreamL(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -40415,8 +40415,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -40445,8 +40445,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -40494,8 +40494,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -40513,9 +40513,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -40605,8 +40605,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstStreamR(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -40679,8 +40679,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -40709,8 +40709,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -40758,8 +40758,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -40777,9 +40777,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -40875,8 +40875,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstSub(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -40949,8 +40949,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -40979,8 +40979,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -41028,8 +41028,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -41047,9 +41047,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -41139,8 +41139,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstSubD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -41213,8 +41213,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -41243,8 +41243,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -41292,8 +41292,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -41311,9 +41311,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -41403,8 +41403,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstSubstrN(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not42 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not42
+  %.not41 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not41
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -41456,7 +41456,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstSubstrN(ptr
 _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %38 = load i8, ptr %14, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %192, label %40
+  br i1 %39, label %191, label %40
 
 40:                                               ; preds = %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -41467,7 +41467,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %192, label %48
+  br i1 %47, label %191, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
@@ -41477,8 +41477,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not2443 = icmp eq i64 %55, 0
-  %.not24 = select i1 %53, i1 true, i1 %.not2443
+  %.not2442 = icmp eq i64 %55, 0
+  %.not24 = select i1 %53, i1 true, i1 %.not2442
   br i1 %.not24, label %56, label %60
 
 56:                                               ; preds = %48
@@ -41497,7 +41497,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %192, label %68
+  br i1 %67, label %191, label %68
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %61, align 8
@@ -41507,8 +41507,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2544 = icmp eq i64 %75, 0
-  %.not25 = select i1 %73, i1 true, i1 %.not2544
+  %.not2543 = icmp eq i64 %75, 0
+  %.not25 = select i1 %73, i1 true, i1 %.not2543
   br i1 %.not25, label %76, label %80
 
 76:                                               ; preds = %68
@@ -41527,7 +41527,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %192, label %88
+  br i1 %87, label %191, label %88
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %81, align 8
@@ -41537,8 +41537,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %93 = icmp ne i32 %91, %92
   %94 = getelementptr inbounds i8, ptr %89, i64 104
   %95 = load i64, ptr %94, align 8
-  %.not2645 = icmp eq i64 %95, 0
-  %.not26 = select i1 %93, i1 true, i1 %.not2645
+  %.not2644 = icmp eq i64 %95, 0
+  %.not26 = select i1 %93, i1 true, i1 %.not2644
   br i1 %.not26, label %96, label %100
 
 96:                                               ; preds = %88
@@ -41572,7 +41572,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
-  br i1 %exitcond.not.i.i.i.i, label %114, label %109, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_110makeVertexI10DfgSubstrN10AstSubstrNEEPT_PKT0_R8DfgGraph.exit, label %109, !llvm.loop !36
 
 112:                                              ; preds = %107, %100
   %113 = landingpad { ptr, i32 }
@@ -41580,157 +41580,157 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   tail call void @_ZdlPv(ptr noundef nonnull %103) #26
   resume { ptr, i32 } %113
 
-114:                                              ; preds = %109
+_ZN12_GLOBAL__N_110makeVertexI10DfgSubstrN10AstSubstrNEEPT_PKT0_R8DfgGraph.exit: ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTV10DfgSubstrN, i64 16), ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %.not.i = icmp eq ptr %116, %103
-  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %117
+  %114 = getelementptr inbounds i8, ptr %103, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %103
+  br i1 %.not.i, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit, label %116
 
-117:                                              ; preds = %114
-  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %120) #25
+116:                                              ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgSubstrN10AstSubstrNEEPT_PKT0_R8DfgGraph.exit
+  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
-_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %114
-  %121 = load ptr, ptr %41, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load i32, ptr %122, align 8
-  %124 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %125 = icmp eq i32 %123, %124
-  %126 = getelementptr inbounds i8, ptr %121, i64 104
-  %127 = load i64, ptr %126, align 8
-  %128 = inttoptr i64 %127 to ptr
-  %.sroa.0.0.i = select i1 %125, ptr %128, ptr null
+_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgSubstrN10AstSubstrNEEPT_PKT0_R8DfgGraph.exit
+  %120 = load ptr, ptr %41, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 112
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %124 = icmp eq i32 %122, %123
+  %125 = getelementptr inbounds i8, ptr %120, i64 104
+  %126 = load i64, ptr %125, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.sroa.0.0.i = select i1 %124, ptr %127, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %.sroa.0.0.i)
-  %129 = getelementptr inbounds i8, ptr %103, i64 128
-  %130 = load ptr, ptr %129, align 8
-  %.not.i32 = icmp eq ptr %130, %103
-  br i1 %.not.i32, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %131
+  %128 = getelementptr inbounds i8, ptr %103, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %.not.i31 = icmp eq ptr %129, %103
+  br i1 %.not.i31, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %130
 
-131:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %133 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %134) #25
+130:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
+  %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
-  %135 = load ptr, ptr %61, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 112
-  %137 = load i32, ptr %136, align 8
-  %138 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %139 = icmp eq i32 %137, %138
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
-  %141 = load i64, ptr %140, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %.sroa.0.0.i31 = select i1 %139, ptr %142, ptr null
-  %143 = getelementptr inbounds i8, ptr %103, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef %.sroa.0.0.i31)
-  %144 = getelementptr inbounds i8, ptr %103, i64 160
-  %145 = load ptr, ptr %144, align 8
-  %.not.i34 = icmp eq ptr %145, %103
-  br i1 %.not.i34, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %146
+  %134 = load ptr, ptr %61, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %138 = icmp eq i32 %136, %137
+  %139 = getelementptr inbounds i8, ptr %134, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = inttoptr i64 %140 to ptr
+  %.sroa.0.0.i30 = select i1 %138, ptr %141, ptr null
+  %142 = getelementptr inbounds i8, ptr %103, i64 104
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %.sroa.0.0.i30)
+  %143 = getelementptr inbounds i8, ptr %103, i64 160
+  %144 = load ptr, ptr %143, align 8
+  %.not.i33 = icmp eq ptr %144, %103
+  br i1 %.not.i33, label %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit, label %145
 
-146:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
-  %148 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %149) #25
+145:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
+  %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
+  %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
-  %150 = load ptr, ptr %81, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %154 = icmp eq i32 %152, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 104
-  %156 = load i64, ptr %155, align 8
-  %157 = inttoptr i64 %156 to ptr
-  %.sroa.0.0.i33 = select i1 %154, ptr %157, ptr null
-  %158 = getelementptr inbounds i8, ptr %103, i64 136
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %.sroa.0.0.i33)
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
-  %160 = getelementptr inbounds i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  %.not.i.i = icmp eq ptr %161, %163
-  br i1 %.not.i.i, label %167, label %164
+  %149 = load ptr, ptr %81, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  %153 = icmp eq i32 %151, %152
+  %154 = getelementptr inbounds i8, ptr %149, i64 104
+  %155 = load i64, ptr %154, align 8
+  %156 = inttoptr i64 %155 to ptr
+  %.sroa.0.0.i32 = select i1 %153, ptr %156, ptr null
+  %157 = getelementptr inbounds i8, ptr %103, i64 136
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef %.sroa.0.0.i32)
+  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i = icmp eq ptr %160, %162
+  br i1 %.not.i.i, label %166, label %163
 
-164:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  store ptr %103, ptr %161, align 8
-  %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store ptr %166, ptr %160, align 8
+163:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  store ptr %103, ptr %160, align 8
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  store ptr %165, ptr %159, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-167:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
-  %168 = load ptr, ptr %159, align 8
-  %169 = ptrtoint ptr %161 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp eq i64 %171, 9223372036854775800
-  br i1 %172, label %173, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %160 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-173:                                              ; preds = %167
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %167
-  %174 = ashr exact i64 %171, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %175 = add nsw i64 %.sroa.speculated.i.i.i.i, %174
-  %176 = icmp ult i64 %175, %174
-  %177 = tail call i64 @llvm.umin.i64(i64 %175, i64 1152921504606846975)
-  %178 = select i1 %176, i64 1152921504606846975, i64 %177
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %179
+_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = ashr exact i64 %170, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 1152921504606846975)
+  %177 = select i1 %175, i64 1152921504606846975, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i, label %178
 
-179:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %180 = shl nuw nsw i64 %178, 3
-  %181 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #24
+178:                                              ; preds = %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = shl nuw nsw i64 %177, 3
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #24
   br label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %179, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %182 = phi ptr [ %181, %179 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %174
-  store ptr %103, ptr %183, align 8
-  %184 = icmp sgt i64 %171, 0
-  br i1 %184, label %185, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorIP9DfgVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %173
+  store ptr %103, ptr %182, align 8
+  %183 = icmp sgt i64 %170, 0
+  br i1 %183, label %184, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %168, i64 %171, i1 false)
+184:                                              ; preds = %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr align 8 %167, i64 %170, i1 false)
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %185, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
-  %186 = getelementptr inbounds i8, ptr %182, i64 %171
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %188
+_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %184, %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %185 = getelementptr inbounds i8, ptr %181, i64 %170
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %187
 
-188:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %168) #26
+187:                                              ; preds = %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #26
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %182, ptr %159, align 8
-  store ptr %187, ptr %160, align 8
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %178
-  store ptr %189, ptr %162, align 8
+_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %187, %_ZNSt6vectorIP9DfgVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %186, ptr %159, align 8
+  %188 = getelementptr inbounds ptr, ptr %181, i64 %177
+  store ptr %188, ptr %161, align 8
   br label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
 
-_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %164, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %190 = ptrtoint ptr %103 to i64
-  store i64 %190, ptr %7, align 8
-  %191 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %191, ptr %3, align 8
-  br label %192
+_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %163, %_ZNSt6vectorIP9DfgVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+  %189 = ptrtoint ptr %103 to i64
+  store i64 %189, ptr %7, align 8
+  %190 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %190, ptr %3, align 8
+  br label %191
 
-192:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
+191:                                              ; preds = %80, %60, %40, %_ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit, %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit
   ret void
 }
 
@@ -41750,8 +41750,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstTanD(ptr nou
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -41824,8 +41824,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -41959,8 +41959,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP8AstTanhD(ptr no
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -42033,8 +42033,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -42186,8 +42186,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP13AstTimeImport(
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -42260,8 +42260,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -42399,8 +42399,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP11AstToLowerN(pt
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -42473,8 +42473,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -42608,8 +42608,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP11AstToUpperN(pt
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -42682,8 +42682,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -42837,8 +42837,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP15AstURandomRang
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -42911,8 +42911,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -42941,8 +42941,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -42990,8 +42990,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -43009,9 +43009,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -43113,8 +43113,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP11AstUnsigned(pt
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not20 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not20
+  %.not19 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not19
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -43187,8 +43187,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1421 = icmp eq i64 %55, 0
-  %.not14 = select i1 %53, i1 true, i1 %.not1421
+  %.not1420 = icmp eq i64 %55, 0
+  %.not14 = select i1 %53, i1 true, i1 %.not1420
   br i1 %.not14, label %56, label %60
 
 56:                                               ; preds = %48
@@ -43527,8 +43527,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP14AstWildcardSel
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -43601,8 +43601,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -43631,8 +43631,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -43680,8 +43680,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -43699,9 +43699,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -43795,8 +43795,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstWordSel(ptr
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -43869,8 +43869,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -43899,8 +43899,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -43948,8 +43948,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -43967,9 +43967,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8
@@ -44061,8 +44061,8 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP6AstXor(ptr noun
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not31 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not31
+  %.not30 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not30
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -44135,8 +44135,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds i8, ptr %49, i64 104
   %55 = load i64, ptr %54, align 8
-  %.not1932 = icmp eq i64 %55, 0
-  %.not19 = select i1 %53, i1 true, i1 %.not1932
+  %.not1931 = icmp eq i64 %55, 0
+  %.not19 = select i1 %53, i1 true, i1 %.not1931
   br i1 %.not19, label %56, label %60
 
 56:                                               ; preds = %48
@@ -44165,8 +44165,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %73 = icmp ne i32 %71, %72
   %74 = getelementptr inbounds i8, ptr %69, i64 104
   %75 = load i64, ptr %74, align 8
-  %.not2033 = icmp eq i64 %75, 0
-  %.not20 = select i1 %73, i1 true, i1 %.not2033
+  %.not2032 = icmp eq i64 %75, 0
+  %.not20 = select i1 %73, i1 true, i1 %.not2032
   br i1 %.not20, label %76, label %80
 
 76:                                               ; preds = %68
@@ -44214,8 +44214,8 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %.sroa.0.0.i = select i1 %97, ptr %100, ptr null
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %.sroa.0.0.i)
   %101 = load ptr, ptr %92, align 8
-  %.not.i25 = icmp eq ptr %101, %83
-  br i1 %.not.i25, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
+  %.not.i24 = icmp eq ptr %101, %83
+  br i1 %.not.i24, label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit, label %102
 
 102:                                              ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
@@ -44233,9 +44233,9 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %111 = getelementptr inbounds i8, ptr %106, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = inttoptr i64 %112 to ptr
-  %.sroa.0.0.i24 = select i1 %110, ptr %113, ptr null
+  %.sroa.0.0.i23 = select i1 %110, ptr %113, ptr null
   %114 = getelementptr inbounds i8, ptr %83, i64 104
-  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i24)
+  tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %.sroa.0.0.i23)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 72
   %117 = load ptr, ptr %116, align 8

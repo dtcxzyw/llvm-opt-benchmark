@@ -168,14 +168,14 @@ if.then11.i:                                      ; preds = %if.end6.i
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %4, ptr align 2 %add.ptr.i, i64 %mul.i, i1 false)
   %.pre.i = load ptr, ptr %f, align 8
   %pos23.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 12
-  %.pre60.i = load i32, ptr %pos23.phi.trans.insert.i, align 4
+  %.pre51.i = load i32, ptr %pos23.phi.trans.insert.i, align 4
   %length25.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
-  %.pre61.i = load i32, ptr %length25.phi.trans.insert.i, align 8
+  %.pre52.i = load i32, ptr %length25.phi.trans.insert.i, align 8
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then11.i, %if.end6.i
-  %5 = phi i32 [ %.pre61.i, %if.then11.i ], [ %2, %if.end6.i ]
-  %6 = phi i32 [ %.pre60.i, %if.then11.i ], [ %3, %if.end6.i ]
+  %5 = phi i32 [ %.pre52.i, %if.then11.i ], [ %2, %if.end6.i ]
+  %6 = phi i32 [ %.pre51.i, %if.then11.i ], [ %3, %if.end6.i ]
   %7 = phi ptr [ %.pre.i, %if.then11.i ], [ %0, %if.end6.i ]
   %length25.i = getelementptr inbounds i8, ptr %7, i64 16
   %sub26.i = sub nsw i32 %5, %6
@@ -220,14 +220,14 @@ if.end50.i:                                       ; preds = %if.else.i, %if.then
 if.end55.i:                                       ; preds = %if.end50.i
   %capacity57.i = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %mul31.i, ptr %capacity57.i, align 8
-  %.pre62.i = load ptr, ptr %f, align 8
-  %length62.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre62.i, i64 16
-  %.pre63.i = load i32, ptr %length62.phi.trans.insert.i, align 8
+  %.pre53.i = load ptr, ptr %f, align 8
+  %length62.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre53.i, i64 16
+  %.pre54.i = load i32, ptr %length62.phi.trans.insert.i, align 8
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end55.i, %if.end21.i
-  %16 = phi i32 [ %.pre63.i, %if.end55.i ], [ %10, %if.end21.i ]
-  %17 = phi ptr [ %.pre62.i, %if.end55.i ], [ %9, %if.end21.i ]
+  %16 = phi i32 [ %.pre54.i, %if.end55.i ], [ %10, %if.end21.i ]
+  %17 = phi ptr [ %.pre53.i, %if.end55.i ], [ %9, %if.end21.i ]
   %18 = load ptr, ptr %17, align 8
   %idx.ext63.i = sext i32 %16 to i64
   %add.ptr64.i = getelementptr inbounds i16, ptr %18, i64 %idx.ext63.i

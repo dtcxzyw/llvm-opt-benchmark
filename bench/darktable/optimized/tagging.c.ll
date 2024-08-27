@@ -4715,72 +4715,56 @@ define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagid(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_calculate_sel_on_tree(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_calculate_sel_on_tree(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
-  %8 = icmp eq ptr %1, null
-  br i1 %8, label %20, label %9
-
-9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !31
-  %10 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %4) #16
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit, label %.preheader
+  %8 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %4) #16
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %9, %16
+.preheader:                                       ; preds = %2, %14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 5, ptr noundef nonnull %3, i32 noundef -1) #16
-  %12 = load i32, ptr %3, align 4, !tbaa !32
-  %13 = icmp eq i32 %12, 2
-  br i1 %13, label %14, label %16
+  %10 = load i32, ptr %3, align 4, !tbaa !32
+  %11 = icmp eq i32 %10, 2
+  br i1 %11, label %12, label %14
 
-14:                                               ; preds = %.preheader
+12:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8, !tbaa !18
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #16
-  %15 = load ptr, ptr %5, align 8, !tbaa !18
-  call void @g_free(ptr noundef %15) #16
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @g_free(ptr noundef %13) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %.split2
 
-16:                                               ; preds = %.preheader
+14:                                               ; preds = %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !31
-  %17 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %4) #16
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.loopexit, label %.preheader
+  %15 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %4) #16
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %16, %9
+.loopexit:                                        ; preds = %14, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store ptr null, ptr %6, align 8, !tbaa !18
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull %6, i32 noundef -1) #16
-  %19 = load ptr, ptr %6, align 8, !tbaa !18
-  call void @g_free(ptr noundef %19) #16
+  %17 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @g_free(ptr noundef %17) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   br label %.split2
 
-.split2:                                          ; preds = %.loopexit, %14
+.split2:                                          ; preds = %.loopexit, %12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
-  br label %.sink.split
-
-20:                                               ; preds = %2
-  %21 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %0, ptr noundef nonnull %7) #16
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.sink.split
-
-.sink.split:                                      ; preds = %20, %.split2
-  %.sink3 = phi i32 [ 1, %.split2 ], [ 0, %20 ]
-  call fastcc void @_reset_sel_on_path(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %.sink3)
-  call fastcc void @_calculate_sel_on_path(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %.sink3)
-  br label %23
-
-23:                                               ; preds = %.sink.split, %20
+  call fastcc void @_reset_sel_on_path(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1)
+  call fastcc void @_calculate_sel_on_path(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
   ret void
 }

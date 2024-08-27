@@ -6768,14 +6768,14 @@ define hidden void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreedyInternal
 68:                                               ; preds = %70
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 %.val47.i, i64 %.val48.i, i1 false), !alias.scope !629, !noalias !633
   %.pre.i = load ptr, ptr %14, align 8, !alias.scope !616, !noalias !623
-  %.pre22.i = load i64, ptr %53, align 8, !alias.scope !616, !noalias !623
+  %.pre21.i = load i64, ptr %53, align 8, !alias.scope !616, !noalias !623
   store ptr %65, ptr %14, align 8, !alias.scope !616, !noalias !623
   store i64 %67, ptr %53, align 8, !alias.scope !616, !noalias !623
-  %69 = icmp eq i64 %.pre22.i, 0
+  %69 = icmp eq i64 %.pre21.i, 0
   br i1 %69, label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17hd8914b2e0c062ebdE.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i": ; preds = %68
-  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.i, i64 noundef %.pre22.i, i64 noundef 1) #26, !noalias !635
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.i, i64 noundef %.pre21.i, i64 noundef 1) #26, !noalias !635
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17hd8914b2e0c062ebdE.exit.i"
 
 70:                                               ; preds = %.noexc.i
@@ -7318,14 +7318,14 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17hb2d66d2627967bceE.exit: ; p
 229:                                              ; preds = %231
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr nonnull readonly align 1 %.val47.i73, i64 %.val48.i74, i1 false), !alias.scope !792, !noalias !796
   %.pre.i81 = load ptr, ptr %209, align 8, !alias.scope !780, !noalias !787
-  %.pre22.i82 = load i64, ptr %214, align 8, !alias.scope !780, !noalias !787
+  %.pre21.i82 = load i64, ptr %214, align 8, !alias.scope !780, !noalias !787
   store ptr %226, ptr %209, align 8, !alias.scope !780, !noalias !787
   store i64 %228, ptr %214, align 8, !alias.scope !780, !noalias !787
-  %230 = icmp eq i64 %.pre22.i82, 0
+  %230 = icmp eq i64 %.pre21.i82, 0
   br i1 %230, label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17hd8914b2e0c062ebdE.exit.i84", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i83"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i83": ; preds = %229
-  call void @__rust_dealloc(ptr noundef nonnull %.pre.i81, i64 noundef %.pre22.i82, i64 noundef 1) #26, !noalias !798
+  call void @__rust_dealloc(ptr noundef nonnull %.pre.i81, i64 noundef %.pre21.i82, i64 noundef 1) #26, !noalias !798
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17hd8914b2e0c062ebdE.exit.i84"
 
 231:                                              ; preds = %.noexc.i79
@@ -7552,14 +7552,14 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = 
 298:                                              ; preds = %300
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %295, ptr nonnull readonly align 1 %.val47.i106, i64 %.val48.i107, i1 false), !alias.scope !865, !noalias !869
   %.pre.i114 = load ptr, ptr %278, align 8, !alias.scope !853, !noalias !860
-  %.pre22.i115 = load i64, ptr %283, align 8, !alias.scope !853, !noalias !860
+  %.pre21.i115 = load i64, ptr %283, align 8, !alias.scope !853, !noalias !860
   store ptr %295, ptr %278, align 8, !alias.scope !853, !noalias !860
   store i64 %297, ptr %283, align 8, !alias.scope !853, !noalias !860
-  %299 = icmp eq i64 %.pre22.i115, 0
+  %299 = icmp eq i64 %.pre21.i115, 0
   br i1 %299, label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17hd8914b2e0c062ebdE.exit.i117", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i116"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i116": ; preds = %298
-  call void @__rust_dealloc(ptr noundef nonnull %.pre.i114, i64 noundef %.pre22.i115, i64 noundef 1) #26, !noalias !871
+  call void @__rust_dealloc(ptr noundef nonnull %.pre.i114, i64 noundef %.pre21.i115, i64 noundef 1) #26, !noalias !871
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17hd8914b2e0c062ebdE.exit.i117"
 
 300:                                              ; preds = %.noexc.i112

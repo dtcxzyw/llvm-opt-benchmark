@@ -6305,82 +6305,78 @@ declare i32 @dissector_try_payload_new(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
-  %6 = icmp eq ptr %3, null
-  br i1 %6, label %63, label %7
+  %6 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %5, i32 noundef 256) #11
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %61, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %5, i32 noundef 256) #11
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %63, label %9
-
-9:                                                ; preds = %7
-  %10 = add i32 %5, 1
+  %8 = add i32 %5, 1
+  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %8) #11
+  store i8 %9, ptr %3, align 8
+  %10 = add i32 %5, 2
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %10) #11
-  store i8 %11, ptr %3, align 8
-  %12 = add i32 %5, 2
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %12) #11
-  %14 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %13, ptr %14, align 1
-  %15 = add i32 %5, 3
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %15) #11
-  %17 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %16, ptr %17, align 2
-  %18 = add i32 %5, 4
-  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %18) #11
-  %20 = getelementptr inbounds i8, ptr %3, i64 3
-  store i8 %19, ptr %20, align 1
-  %21 = add i32 %5, 6
-  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %21) #11
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
-  store i16 %22, ptr %23, align 4
-  %24 = add i32 %5, 8
-  %25 = tail call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef %24) #11
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %25, ptr %26, align 8
-  %27 = add i32 %5, 16
-  %28 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %27) #11
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
-  store i16 %28, ptr %29, align 8
-  %30 = add i32 %5, 20
-  %31 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %30) #11
-  %32 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
-  %34 = add i32 %5, 24
-  %35 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef nonnull %33, i32 noundef %34, i64 noundef 232) #11
-  %36 = load i32, ptr @hf_infiniband_MAD, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %36, ptr noundef %1, i32 noundef %5, i32 noundef 256, i32 noundef 0) #11
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %37, ptr noundef nonnull @.str.1201, ptr noundef nonnull @.str.1302) #11
-  %38 = load i32, ptr @ett_mad, align 4
-  %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #11
-  %40 = load i32, ptr @hf_infiniband_base_version, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %1, i32 noundef %5, i32 noundef 1, i32 noundef 0) #11
-  %42 = load i32, ptr @hf_infiniband_mgmt_class, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %42, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #11
-  %44 = load i32, ptr @hf_infiniband_class_version, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %44, ptr noundef %1, i32 noundef %12, i32 noundef 1, i32 noundef 0) #11
-  %46 = load i32, ptr @hf_infiniband_method, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %46, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef 0) #11
-  %48 = load i32, ptr @hf_infiniband_status, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %48, ptr noundef %1, i32 noundef %18, i32 noundef 2, i32 noundef 0) #11
-  %50 = load i32, ptr @hf_infiniband_class_specific, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %50, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef 0) #11
-  %52 = load i32, ptr @hf_infiniband_transaction_id, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %52, ptr noundef %1, i32 noundef %24, i32 noundef 8, i32 noundef 0) #11
-  %54 = load i32, ptr @hf_infiniband_attribute_id, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %54, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef 0) #11
-  %56 = add i32 %5, 18
-  %57 = load i32, ptr @hf_infiniband_reserved, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %57, ptr noundef %1, i32 noundef %56, i32 noundef 2, i32 noundef 0) #11
-  %59 = load i32, ptr @hf_infiniband_attribute_modifier, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %59, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef 0) #11
-  %61 = load i32, ptr @hf_infiniband_data, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %61, ptr noundef %1, i32 noundef %34, i32 noundef 232, i32 noundef 0) #11
-  store i32 %34, ptr %2, align 4
-  br label %63
+  %12 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %11, ptr %12, align 1
+  %13 = add i32 %5, 3
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %13) #11
+  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %14, ptr %15, align 2
+  %16 = add i32 %5, 4
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %16) #11
+  %18 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 %17, ptr %18, align 1
+  %19 = add i32 %5, 6
+  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %19) #11
+  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  store i16 %20, ptr %21, align 4
+  %22 = add i32 %5, 8
+  %23 = tail call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef %22) #11
+  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %23, ptr %24, align 8
+  %25 = add i32 %5, 16
+  %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %25) #11
+  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  store i16 %26, ptr %27, align 8
+  %28 = add i32 %5, 20
+  %29 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %28) #11
+  %30 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %32 = add i32 %5, 24
+  %33 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef nonnull %31, i32 noundef %32, i64 noundef 232) #11
+  %34 = load i32, ptr @hf_infiniband_MAD, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %5, i32 noundef 256, i32 noundef 0) #11
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %35, ptr noundef nonnull @.str.1201, ptr noundef nonnull @.str.1302) #11
+  %36 = load i32, ptr @ett_mad, align 4
+  %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #11
+  %38 = load i32, ptr @hf_infiniband_base_version, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %1, i32 noundef %5, i32 noundef 1, i32 noundef 0) #11
+  %40 = load i32, ptr @hf_infiniband_mgmt_class, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %1, i32 noundef %8, i32 noundef 1, i32 noundef 0) #11
+  %42 = load i32, ptr @hf_infiniband_class_version, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %42, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #11
+  %44 = load i32, ptr @hf_infiniband_method, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %44, ptr noundef %1, i32 noundef %13, i32 noundef 1, i32 noundef 0) #11
+  %46 = load i32, ptr @hf_infiniband_status, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %46, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef 0) #11
+  %48 = load i32, ptr @hf_infiniband_class_specific, align 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %48, ptr noundef %1, i32 noundef %19, i32 noundef 2, i32 noundef 0) #11
+  %50 = load i32, ptr @hf_infiniband_transaction_id, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %50, ptr noundef %1, i32 noundef %22, i32 noundef 8, i32 noundef 0) #11
+  %52 = load i32, ptr @hf_infiniband_attribute_id, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %52, ptr noundef %1, i32 noundef %25, i32 noundef 2, i32 noundef 0) #11
+  %54 = add i32 %5, 18
+  %55 = load i32, ptr @hf_infiniband_reserved, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %55, ptr noundef %1, i32 noundef %54, i32 noundef 2, i32 noundef 0) #11
+  %57 = load i32, ptr @hf_infiniband_attribute_modifier, align 4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %57, ptr noundef %1, i32 noundef %28, i32 noundef 4, i32 noundef 0) #11
+  %59 = load i32, ptr @hf_infiniband_data, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %59, ptr noundef %1, i32 noundef %32, i32 noundef 232, i32 noundef 0) #11
+  store i32 %32, ptr %2, align 4
+  br label %61
 
-63:                                               ; preds = %7, %4, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %4 ], [ 0, %7 ]
+61:                                               ; preds = %4, %7
+  %.0 = phi i32 [ 1, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 

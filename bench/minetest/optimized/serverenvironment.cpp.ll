@@ -14799,23 +14799,19 @@ _ZNSt10_HashtableIlSt4pairIKlaESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %148 = load ptr, ptr %dists, align 8, !tbaa !464
   %cmp.i.i.i.i.i242 = icmp eq ptr %_M_single_bucket.i.i, %148
-  br i1 %cmp.i.i.i.i.i242, label %_ZNSt13unordered_mapIlaSt4hashIlESt8equal_toIlESaISt4pairIKlaEEED2Ev.exit, label %if.end.i.i.i.i243
+  br i1 %cmp.i.i.i.i.i242, label %if.then.i.i.i244, label %if.end.i.i.i.i243
 
 if.end.i.i.i.i243:                                ; preds = %_ZNSt10_HashtableIlSt4pairIKlaESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
   call void @_ZdlPv(ptr noundef %148) #37
-  br label %_ZNSt13unordered_mapIlaSt4hashIlESt8equal_toIlESaISt4pairIKlaEEED2Ev.exit
+  br label %if.then.i.i.i244
 
-_ZNSt13unordered_mapIlaSt4hashIlESt8equal_toIlESaISt4pairIKlaEEED2Ev.exit: ; preds = %if.end.i.i.i.i243, %_ZNSt10_HashtableIlSt4pairIKlaESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
+if.then.i.i.i244:                                 ; preds = %_ZNSt10_HashtableIlSt4pairIKlaESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i243
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dists) #36
-  %tobool.not.i.i.i = icmp eq ptr %call5.i.i4.i.i.i.i.i.i.i237316, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt5stackIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySt5dequeIS5_SaIS5_EEED2Ev.exit, label %if.then.i.i.i244
-
-if.then.i.i.i244:                                 ; preds = %_ZNSt13unordered_mapIlaSt4hashIlESt8equal_toIlESaISt4pairIKlaEEED2Ev.exit
   %149 = load ptr, ptr %_M_node.i.i.i.i.i, align 8, !tbaa !482
   %150 = load ptr, ptr %_M_node.i51.i.i.i.i, align 8, !tbaa !480
   %add.ptr.i.i.i246 = getelementptr inbounds i8, ptr %150, i64 8
   %cmp1.i.i.i.i = icmp ult ptr %149, %add.ptr.i.i.i246
-  br i1 %cmp1.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
+  br i1 %cmp1.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt5stackIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySt5dequeIS5_SaIS5_EEED2Ev.exit
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i244, %for.body.i.i.i.i
   %__n.02.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %149, %if.then.i.i.i244 ]
@@ -14823,13 +14819,10 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i244, %
   call void @_ZdlPv(ptr noundef %151) #37
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.02.i.i.i.i, i64 8
   %cmp.i.i.i.i247 = icmp ult ptr %__n.02.i.i.i.i, %150
-  br i1 %cmp.i.i.i.i247, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i, !llvm.loop !483
+  br i1 %cmp.i.i.i.i247, label %for.body.i.i.i.i, label %_ZNSt5stackIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySt5dequeIS5_SaIS5_EEED2Ev.exit, !llvm.loop !483
 
-_ZNSt11_Deque_baseIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i: ; preds = %for.body.i.i.i.i, %if.then.i.i.i244
+_ZNSt5stackIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %for.body.i.i.i.i, %if.then.i.i.i244
   call void @_ZdlPv(ptr noundef %call5.i.i4.i.i.i.i.i.i.i237316) #37
-  br label %_ZNSt5stackIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySt5dequeIS5_SaIS5_EEED2Ev.exit
-
-_ZNSt5stackIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %_ZNSt11_Deque_baseIZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEEE11stack_entrySaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i, %_ZNSt13unordered_mapIlaSt4hashIlESt8equal_toIlESaISt4pairIKlaEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %stack) #36
   ret i8 %found_light.6
 

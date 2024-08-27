@@ -14023,7 +14023,7 @@ define hidden i32 @_m3d_gettx(ptr nocapture noundef %0, ptr noundef readonly %1,
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_m3dstbi__png_load(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @_m3dstbi__png_load(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [3 x i8], align 1
   %8 = alloca [3 x i16], align 2
@@ -14477,8 +14477,8 @@ _m3dstbi__get8.exit265.thread.i.i:                ; preds = %_m3dstbi__get8.exit
 210:                                              ; preds = %_m3dstbi__get_chunk_header.exit.i.i
   %.not227.i.i = icmp ne i32 %.0198.i.i, 0
   %211 = icmp ugt i32 %.sroa.0.0.insert.ext.i.i.i, 768
-  %or.cond728.i = select i1 %.not227.i.i, i1 true, i1 %211
-  br i1 %or.cond728.i, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %212
+  %or.cond727.i = select i1 %.not227.i.i, i1 true, i1 %211
+  br i1 %or.cond727.i, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %212
 
 212:                                              ; preds = %210
   %.lhs.trunc.i.i = trunc nuw i32 %.sroa.0.0.insert.ext.i.i.i to i16
@@ -14568,8 +14568,8 @@ _m3dstbi__get8.exit271.i.i:                       ; preds = %235, %_m3dstbi__get
 246:                                              ; preds = %245
   %247 = icmp eq i32 %.0196.i.i, 0
   %248 = icmp ult i32 %.0196.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %or.cond729.i = select i1 %247, i1 true, i1 %248
-  br i1 %or.cond729.i, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %.preheader315.i.i
+  %or.cond728.i = select i1 %247, i1 true, i1 %248
+  br i1 %or.cond728.i, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %.preheader315.i.i
 
 .preheader315.i.i:                                ; preds = %246
   %.not.i.i = icmp eq i32 %.sroa.0.0.insert.ext.i.i.i, 0
@@ -14611,8 +14611,8 @@ _m3dstbi__get8.exit273.i.i:                       ; preds = %254, %250
   %.not225.i.i = icmp ne i32 %265, 0
   %266 = shl i32 %264, 1
   %.not226.i.i = icmp eq i32 %266, %.sroa.0.0.insert.ext.i.i.i
-  %or.cond730.i = select i1 %.not225.i.i, i1 %.not226.i.i, i1 false
-  br i1 %or.cond730.i, label %267, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i
+  %or.cond729.i = select i1 %.not225.i.i, i1 %.not226.i.i, i1 false
+  br i1 %or.cond729.i, label %267, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i
 
 267:                                              ; preds = %263
   %268 = icmp eq i32 %31, 16
@@ -14673,8 +14673,8 @@ _m3dstbi__get16be.exit.i.i:                       ; preds = %287, %_m3dstbi__get
   %294 = getelementptr inbounds [3 x i16], ptr %8, i64 0, i64 %indvars.iv770.i.i
   store i16 %293, ptr %294, align 2
   %indvars.iv.next771.i.i = add nuw nsw i64 %indvars.iv770.i.i, 1
-  %exitcond502.not.i = icmp eq i64 %indvars.iv.next771.i.i, %274
-  br i1 %exitcond502.not.i, label %_m3dstbi__skip.exit.i.i, label %275
+  %exitcond501.not.i = icmp eq i64 %indvars.iv.next771.i.i, %274
+  br i1 %exitcond501.not.i, label %_m3dstbi__skip.exit.i.i, label %275
 
 .lr.ph537.i.i:                                    ; preds = %_m3dstbi__get16be.exit279.i.i, %.lr.ph537.preheader.i.i
   %295 = phi ptr [ %86, %.lr.ph537.preheader.i.i ], [ %306, %_m3dstbi__get16be.exit279.i.i ]
@@ -14708,8 +14708,8 @@ _m3dstbi__get16be.exit279.i.i:                    ; preds = %303, %_m3dstbi__get
   %309 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 %indvars.iv767.i.i
   store i8 %308, ptr %309, align 1
   %indvars.iv.next768.i.i = add nuw nsw i64 %indvars.iv767.i.i, 1
-  %exitcond501.not.i = icmp eq i64 %indvars.iv.next768.i.i, %270
-  br i1 %exitcond501.not.i, label %_m3dstbi__skip.exit.i.i, label %.lr.ph537.i.i
+  %exitcond500.not.i = icmp eq i64 %indvars.iv.next768.i.i, %270
+  br i1 %exitcond500.not.i, label %_m3dstbi__skip.exit.i.i, label %.lr.ph537.i.i
 
 310:                                              ; preds = %_m3dstbi__get_chunk_header.exit.i.i
   %.not220.i.i = icmp eq i32 %.0198.i.i, 0
@@ -14950,23 +14950,19 @@ _m3dstbi__parse_png_file.exit.thread.i:           ; preds = %314, %_m3dstbi__par
   %409 = getelementptr inbounds i8, ptr %407, i64 4
   %410 = load i32, ptr %409, align 4
   store i32 %410, ptr %2, align 4
-  %.not48.i = icmp eq ptr %3, null
-  br i1 %.not48.i, label %_m3dstbi__do_png.exit, label %411
-
-411:                                              ; preds = %403
-  %412 = getelementptr inbounds i8, ptr %407, i64 8
-  %413 = load i32, ptr %412, align 8
-  store i32 %413, ptr %3, align 4
+  %411 = getelementptr inbounds i8, ptr %407, i64 8
+  %412 = load i32, ptr %411, align 8
+  store i32 %412, ptr %3, align 4
   br label %_m3dstbi__do_png.exit
 
-_m3dstbi__do_png.exit:                            ; preds = %_m3dstbi__parse_png_file.exit.thread.i, %403, %411
-  %414 = phi ptr [ null, %411 ], [ null, %403 ], [ %.pre67, %_m3dstbi__parse_png_file.exit.thread.i ]
-  %415 = phi ptr [ null, %411 ], [ null, %403 ], [ %.pre, %_m3dstbi__parse_png_file.exit.thread.i ]
-  %.0.i = phi ptr [ %406, %411 ], [ %406, %403 ], [ null, %_m3dstbi__parse_png_file.exit.thread.i ]
-  call void @free(ptr noundef %415) #53
+_m3dstbi__do_png.exit:                            ; preds = %_m3dstbi__parse_png_file.exit.thread.i, %403
+  %413 = phi ptr [ null, %403 ], [ %.pre67, %_m3dstbi__parse_png_file.exit.thread.i ]
+  %414 = phi ptr [ null, %403 ], [ %.pre, %_m3dstbi__parse_png_file.exit.thread.i ]
+  %.0.i = phi ptr [ %406, %403 ], [ null, %_m3dstbi__parse_png_file.exit.thread.i ]
   call void @free(ptr noundef %414) #53
-  %416 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %416) #53
+  call void @free(ptr noundef %413) #53
+  %415 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %415) #53
   ret ptr %.0.i
 }
 

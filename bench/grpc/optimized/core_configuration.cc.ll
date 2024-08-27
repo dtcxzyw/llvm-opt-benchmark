@@ -1114,17 +1114,17 @@ invoke.cont15:                                    ; preds = %call.i.noexc
   %7 = ptrtoint ptr %call.i10 to i64
   %8 = cmpxchg ptr @_ZN9grpc_core17CoreConfiguration7config_E, i64 0, i64 %7 acq_rel acquire, align 8
   %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %cleanup, label %delete.end
+  br i1 %9, label %cleanup, label %delete.notnull
 
-delete.end:                                       ; preds = %invoke.cont15
+delete.notnull:                                   ; preds = %invoke.cont15
   %10 = extractvalue { i64, i1 } %8, 0
   %11 = inttoptr i64 %10 to ptr
   call void @_ZN9grpc_core17CoreConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %call.i10) #16
   call void @_ZdlPv(ptr noundef nonnull %call.i10) #17
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont15, %delete.end
-  %retval.0 = phi ptr [ %11, %delete.end ], [ %call.i10, %invoke.cont15 ]
+cleanup:                                          ; preds = %invoke.cont15, %delete.notnull
+  %retval.0 = phi ptr [ %11, %delete.notnull ], [ %call.i10, %invoke.cont15 ]
   %tobool.not.i.i.i11 = icmp eq ptr %registered_builders.sroa.0.0.lcssa, null
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EED2Ev.exit13, label %if.then.i.i.i12
 

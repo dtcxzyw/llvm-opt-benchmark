@@ -4359,19 +4359,19 @@ if.end43:                                         ; preds = %if.else
   br i1 %cmp44, label %if.then45, label %if.end50
 
 if.then45:                                        ; preds = %if.end43
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1683, i32 noundef 2, ptr noundef nonnull @.str.56)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1683, i32 noundef 2, ptr noundef nonnull @.str.56)
   %9 = load ptr, ptr %unused_bytes, align 8
-  call void @gpr_free(ptr noundef %9)
+  tail call void @gpr_free(ptr noundef %9)
   %cmp46.not = icmp eq ptr %error, null
   br i1 %cmp46.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %if.then45
-  %call48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull @.str.56)
+  %call48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull @.str.56)
   br label %return
 
 if.end50:                                         ; preds = %if.end43
   %10 = load ptr, ptr %unused_bytes, align 8
-  %call51 = call fastcc noundef i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef %10, i64 noundef %8, ptr noundef %handshaker_result, ptr noundef %error)
+  %call51 = tail call fastcc noundef i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef %10, i64 noundef %8, ptr noundef %handshaker_result, ptr noundef %error)
   %cmp52 = icmp eq i32 %call51, 0
   br i1 %cmp52, label %if.then53, label %return
 
@@ -4570,14 +4570,10 @@ return:                                           ; preds = %if.else, %sw.bb, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 8) i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %impl, ptr noundef %bytes_remaining, ptr noundef writeonly %bytes_remaining_size, ptr noundef %error) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %impl, ptr nocapture noundef %bytes_remaining, ptr nocapture noundef writeonly %bytes_remaining_size, ptr noundef %error) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %impl, null
-  %cmp1 = icmp eq ptr %bytes_remaining, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %bytes_remaining_size, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  br i1 %or.cond1, label %if.then, label %if.end6
+  br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
   %cmp4.not = icmp eq ptr %error, null
@@ -4606,8 +4602,8 @@ if.end11:                                         ; preds = %if.end6
   %cmp16 = icmp sgt i32 %call15, -1
   %conv18 = zext nneg i32 %call15 to i64
   %cmp19.not = icmp eq i64 %call8, %conv18
-  %or.cond17 = select i1 %cmp16, i1 %cmp19.not, i1 false
-  br i1 %or.cond17, label %if.end25, label %if.then20
+  %or.cond = select i1 %cmp16, i1 %cmp19.not, i1 false
+  br i1 %or.cond, label %if.end25, label %if.then20
 
 if.then20:                                        ; preds = %if.end11
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1576, i32 noundef 2, ptr noundef nonnull @.str.63)

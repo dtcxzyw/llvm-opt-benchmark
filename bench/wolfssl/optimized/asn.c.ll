@@ -2796,7 +2796,7 @@ return:                                           ; preds = %GetASNTag.exit.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GetAlgoId(ptr noundef %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef %oid, i32 noundef %oidType, i32 noundef %maxIdx) local_unnamed_addr #5 {
+define range(i32 -146, 1) i32 @GetAlgoId(ptr noundef %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef %oid, i32 noundef %oidType, i32 noundef %maxIdx) local_unnamed_addr #5 {
 entry:
   %idx = alloca i32, align 4
   %0 = load i32, ptr %inOutIdx, align 4
@@ -3751,7 +3751,7 @@ return:                                           ; preds = %if.then5.i.i.i.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DecodeRsaPssParams(ptr noundef %params, i32 noundef %sz, ptr nocapture noundef writeonly %hash, ptr nocapture noundef writeonly %mgf, ptr nocapture noundef writeonly %saltLen) unnamed_addr #5 {
+define internal fastcc range(i32 -2147483648, 65536) i32 @DecodeRsaPssParams(ptr noundef %params, i32 noundef %sz, ptr nocapture noundef writeonly %hash, ptr nocapture noundef writeonly %mgf, ptr nocapture noundef writeonly %saltLen) unnamed_addr #5 {
 entry:
   %idx = alloca i32, align 4
   %oid = alloca i32, align 4
@@ -7532,7 +7532,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -173, 1) i32 @wc_RsaPublicKeyDecode_ex(ptr noundef %input, ptr noundef %inOutIdx, i32 noundef %inSz, ptr noundef writeonly %n, ptr noundef writeonly %nSz, ptr noundef writeonly %e, ptr noundef writeonly %eSz) local_unnamed_addr #11 {
+define i32 @wc_RsaPublicKeyDecode_ex(ptr noundef %input, ptr noundef %inOutIdx, i32 noundef %inSz, ptr noundef writeonly %n, ptr noundef writeonly %nSz, ptr noundef writeonly %e, ptr noundef writeonly %eSz) local_unnamed_addr #11 {
 entry:
   %length = alloca i32, align 4
   %cmp = icmp eq ptr %input, null
@@ -16529,7 +16529,7 @@ if.then20.i:                                      ; preds = %sw.bb18.i
   %saltLen23.i = getelementptr inbounds i8, ptr %cert, i64 996
   %call24.i = call fastcc i32 @DecodeRsaPssParams(ptr noundef %add.ptr293, i32 noundef %200, ptr noundef nonnull %hash21.i, ptr noundef nonnull %mgf22.i, ptr noundef nonnull %saltLen23.i)
   %cmp25.not.i = icmp eq i32 %call24.i, 0
-  br i1 %cmp25.not.i, label %if.end27.i, label %ConfirmSignature.exit.thread206
+  br i1 %cmp25.not.i, label %if.end27.i, label %ConfirmSignature.exit
 
 if.end27.i:                                       ; preds = %if.then20.i
   %202 = load i32, ptr %hash21.i, align 4
@@ -16826,8 +16826,8 @@ sw.bb185.i:                                       ; preds = %sw.bb149.i
   %cmp187.i = icmp eq i32 %234, 1
   br i1 %cmp187.i, label %ConfirmSignature.exit.thread210, label %ConfirmSignature.exit.thread206
 
-ConfirmSignature.exit.thread206:                  ; preds = %if.end27.i, %if.end94.i, %if.end102.i, %if.end55.i, %if.end74.i, %if.then20.i, %switch.lookup, %if.else.i, %sw.bb.i, %sw.bb48.i, %if.end61.i, %if.end68.i, %sw.bb85.i, %sw.epilog143.i, %sw.bb185.i, %sw.bb47.i, %land.lhs.true173.i, %land.lhs.true.i, %wc_EncodeSignature.exit.i
-  %ret.5.i.ph = phi i32 [ -148, %sw.bb47.i ], [ -140, %if.end27.i ], [ -155, %sw.bb185.i ], [ -155, %sw.epilog143.i ], [ -125, %sw.bb85.i ], [ -132, %if.end68.i ], [ -125, %if.end61.i ], [ -125, %sw.bb48.i ], [ -125, %sw.bb.i ], [ %call41.i, %if.else.i ], [ %call34.i169, %switch.lookup ], [ %call24.i, %if.then20.i ], [ %call76.i, %if.end74.i ], [ %call58.i, %if.end55.i ], [ %call104.i, %if.end102.i ], [ %call98.i, %if.end94.i ], [ -155, %land.lhs.true173.i ], [ -155, %land.lhs.true.i ], [ -155, %wc_EncodeSignature.exit.i ]
+ConfirmSignature.exit.thread206:                  ; preds = %if.end27.i, %if.end94.i, %if.end102.i, %if.end55.i, %if.end74.i, %switch.lookup, %if.else.i, %sw.bb.i, %sw.bb48.i, %if.end61.i, %if.end68.i, %sw.bb85.i, %sw.epilog143.i, %sw.bb185.i, %sw.bb47.i, %land.lhs.true173.i, %land.lhs.true.i, %wc_EncodeSignature.exit.i
+  %ret.5.i.ph = phi i32 [ -148, %sw.bb47.i ], [ -140, %if.end27.i ], [ -155, %sw.bb185.i ], [ -155, %sw.epilog143.i ], [ -125, %sw.bb85.i ], [ -132, %if.end68.i ], [ -125, %if.end61.i ], [ -125, %sw.bb48.i ], [ -125, %sw.bb.i ], [ %call41.i, %if.else.i ], [ %call34.i169, %switch.lookup ], [ %call76.i, %if.end74.i ], [ %call58.i, %if.end55.i ], [ %call104.i, %if.end102.i ], [ %call98.i, %if.end94.i ], [ -155, %land.lhs.true173.i ], [ -155, %land.lhs.true.i ], [ -155, %wc_EncodeSignature.exit.i ]
   call void @FreeSignatureCtx(ptr noundef nonnull %sigCtx)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i157)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx86.i)
@@ -16841,8 +16841,8 @@ ConfirmSignature.exit.thread210:                  ; preds = %do.end.i, %land.lhs
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %encodedSig.i)
   br label %if.end305
 
-ConfirmSignature.exit:                            ; preds = %sw.bb149.i, %if.then153.i
-  %ret.5.i = phi i32 [ %ret.1.i, %sw.bb149.i ], [ %call162.i, %if.then153.i ]
+ConfirmSignature.exit:                            ; preds = %if.then20.i, %sw.bb149.i, %if.then153.i
+  %ret.5.i = phi i32 [ %ret.1.i, %sw.bb149.i ], [ %call162.i, %if.then153.i ], [ %call24.i, %if.then20.i ]
   call void @FreeSignatureCtx(ptr noundef nonnull %sigCtx)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i157)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx86.i)

@@ -3674,7 +3674,7 @@ Dot11DecryptIsFtAkm.exit:                         ; preds = %18, %224, %Dot11Dec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr nocapture noundef %11) unnamed_addr #0 {
   %13 = alloca [48 x i8], align 16
   %14 = alloca [48 x i8], align 16
   %15 = alloca [16 x i8], align 16
@@ -3703,83 +3703,79 @@ Dot11DecryptGetHashAlgoFromAkm.exit:              ; preds = %switch.lookup, %12
   %or.cond7 = and i1 %or.cond5, %25
   %26 = icmp ne ptr %7, null
   %or.cond9 = and i1 %or.cond7, %26
-  %27 = icmp ne ptr %10, null
-  %or.cond11 = and i1 %or.cond9, %27
-  %28 = icmp ne ptr %11, null
-  %or.cond13 = and i1 %or.cond11, %28
-  br i1 %or.cond13, label %30, label %29
+  br i1 %or.cond9, label %28, label %27
 
-29:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
+27:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2600, ptr noundef nonnull @__func__.Dot11DecryptFtDerivePtk, ptr noundef nonnull @.str.50) #14
-  br label %65
+  br label %63
 
-30:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
-  %31 = tail call fastcc i32 @Dot11DecryptGetPtkLen(i32 noundef %8, i32 noundef %9)
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %34
+28:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
+  %29 = tail call fastcc i32 @Dot11DecryptGetPtkLen(i32 noundef %8, i32 noundef %9)
+  %30 = icmp eq i32 %29, -1
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %30
+31:                                               ; preds = %28
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2605, ptr noundef nonnull @__func__.Dot11DecryptFtDerivePtk, ptr noundef nonnull @.str.51) #14
-  br label %65
+  br label %63
 
-34:                                               ; preds = %30
-  %35 = lshr i32 %31, 3
-  %36 = zext nneg i32 %35 to i64
-  store i64 %36, ptr %11, align 8
-  %37 = load i8, ptr %2, align 8
-  %38 = icmp eq i8 %37, 7
-  br i1 %38, label %39, label %Dot11DecryptGetXXKeyFromMSK.exit.thread
+32:                                               ; preds = %28
+  %33 = lshr i32 %29, 3
+  %34 = zext nneg i32 %33 to i64
+  store i64 %34, ptr %11, align 8
+  %35 = load i8, ptr %2, align 8
+  %36 = icmp eq i8 %35, 7
+  br i1 %36, label %37, label %Dot11DecryptGetXXKeyFromMSK.exit.thread
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %2, i64 313
-  %41 = load i8, ptr %40, align 1
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %2, i64 313
+  %39 = load i8, ptr %38, align 1
   switch i32 %8, label %Dot11DecryptGetXXKeyFromMSK.exit.thread [
-    i32 3, label %42
-    i32 13, label %45
+    i32 3, label %40
+    i32 13, label %43
   ]
 
-42:                                               ; preds = %39
-  %43 = icmp ult i8 %41, 64
-  %44 = getelementptr i8, ptr %2, i64 217
-  %.not = icmp eq ptr %44, null
-  %or.cond = or i1 %.not, %43
+40:                                               ; preds = %37
+  %41 = icmp ult i8 %39, 64
+  %42 = getelementptr i8, ptr %2, i64 217
+  %.not = icmp eq ptr %42, null
+  %or.cond = or i1 %.not, %41
   br i1 %or.cond, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %2, i64 185
-  %47 = icmp ult i8 %41, 48
-  br i1 %47, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds i8, ptr %2, i64 185
+  %45 = icmp ult i8 %39, 48
+  br i1 %45, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
 
-Dot11DecryptGetXXKeyFromMSK.exit.thread:          ; preds = %39, %45, %42, %34
-  %48 = getelementptr inbounds i8, ptr %2, i64 144
-  %49 = load i8, ptr %48, align 8
-  %.not57 = icmp eq i8 %49, 0
-  br i1 %.not57, label %65, label %50
+Dot11DecryptGetXXKeyFromMSK.exit.thread:          ; preds = %37, %43, %40, %32
+  %46 = getelementptr inbounds i8, ptr %2, i64 144
+  %47 = load i8, ptr %46, align 8
+  %.not57 = icmp eq i8 %47, 0
+  br i1 %.not57, label %63, label %48
 
-50:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread
-  %51 = getelementptr inbounds i8, ptr %2, i64 8
-  %52 = zext i8 %49 to i64
+48:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread
+  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = zext i8 %47 to i64
   br label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
 
-Dot11DecryptGetXXKeyFromMSK.exit.thread66:        ; preds = %42, %45, %50
-  %.161.ph = phi i64 [ %52, %50 ], [ 48, %45 ], [ 32, %42 ]
-  %.1.ph = phi ptr [ %51, %50 ], [ %46, %45 ], [ %44, %42 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 27664
-  %54 = getelementptr inbounds i8, ptr %0, i64 27696
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 14
-  %58 = call zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef nonnull %.1.ph, i64 noundef %.161.ph, ptr noundef nonnull %53, i64 noundef %55, ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %57, i32 noundef %.0.i, ptr noundef nonnull %13, ptr noundef nonnull %18, ptr noundef nonnull %15) #14
-  %59 = load i64, ptr %18, align 8
-  %60 = call zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef nonnull %13, i64 noundef %59, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %57, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %16) #14
-  %61 = load i64, ptr %19, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 37
-  %63 = load i64, ptr %11, align 8
-  %64 = call zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef nonnull %14, i64 noundef %61, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %62, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef %.0.i, ptr noundef nonnull %10, i64 noundef %63, ptr noundef nonnull %17) #14
-  br label %65
+Dot11DecryptGetXXKeyFromMSK.exit.thread66:        ; preds = %40, %43, %48
+  %.161.ph = phi i64 [ %50, %48 ], [ 48, %43 ], [ 32, %40 ]
+  %.1.ph = phi ptr [ %49, %48 ], [ %44, %43 ], [ %42, %40 ]
+  %51 = getelementptr inbounds i8, ptr %0, i64 27664
+  %52 = getelementptr inbounds i8, ptr %0, i64 27696
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 14
+  %56 = call zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef nonnull %.1.ph, i64 noundef %.161.ph, ptr noundef nonnull %51, i64 noundef %53, ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %55, i32 noundef %.0.i, ptr noundef nonnull %13, ptr noundef nonnull %18, ptr noundef nonnull %15) #14
+  %57 = load i64, ptr %18, align 8
+  %58 = call zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef nonnull %13, i64 noundef %57, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %55, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %16) #14
+  %59 = load i64, ptr %19, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 37
+  %61 = load i64, ptr %11, align 8
+  %62 = call zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef nonnull %14, i64 noundef %59, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %60, ptr noundef nonnull %54, ptr noundef nonnull %55, i32 noundef %.0.i, ptr noundef %10, i64 noundef %61, ptr noundef nonnull %17) #14
+  br label %63
 
-65:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread, %Dot11DecryptGetXXKeyFromMSK.exit.thread66, %33, %29
-  %.0 = phi i8 [ 4, %33 ], [ 0, %Dot11DecryptGetXXKeyFromMSK.exit.thread66 ], [ 4, %29 ], [ 4, %Dot11DecryptGetXXKeyFromMSK.exit.thread ]
+63:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread, %Dot11DecryptGetXXKeyFromMSK.exit.thread66, %31, %27
+  %.0 = phi i8 [ 4, %31 ], [ 0, %Dot11DecryptGetXXKeyFromMSK.exit.thread66 ], [ 4, %27 ], [ 4, %Dot11DecryptGetXXKeyFromMSK.exit.thread ]
   ret i8 %.0
 }
 

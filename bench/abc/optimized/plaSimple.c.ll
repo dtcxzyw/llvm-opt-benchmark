@@ -1263,7 +1263,7 @@ define noalias noundef ptr @Pla_ManFxPrepare(i32 noundef %0) local_unnamed_addr 
   store ptr %9, ptr %8, align 8
   %10 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #19
   %11 = add i64 %10, 1
-  %12 = call noalias ptr @malloc(i64 noundef %11) #16
+  %12 = call noalias noundef ptr @malloc(i64 noundef %11) #16
   %13 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %12, ptr %14, align 8

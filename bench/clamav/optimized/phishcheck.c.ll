@@ -446,7 +446,7 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %57 = getelementptr inbounds i8, ptr %14, i64 56
   %58 = getelementptr inbounds i8, ptr %14, i64 88
   %59 = getelementptr inbounds i8, ptr %11, i64 8
-  %.sroa.gep76.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.gep75.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %60 = getelementptr inbounds i8, ptr %4, i64 64
   br label %61
 
@@ -590,16 +590,16 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 115:                                              ; preds = %112
   %116 = load ptr, ptr %6, align 8
   %117 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %116, i32 noundef 46) #17
-  %.not115.i.i = icmp eq ptr %117, null
-  br i1 %.not115.i.i, label %._crit_edge.i.i, label %.preheader.i.i
+  %.not114.i.i = icmp eq ptr %117, null
+  br i1 %.not114.i.i, label %._crit_edge.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %115, %125
-  %.05191.i.i = phi i64 [ %126, %125 ], [ 4, %115 ]
-  %.05590.i.i = phi ptr [ %119, %125 ], [ %117, %115 ]
+  %.05190.i.i = phi i64 [ %126, %125 ], [ 4, %115 ]
+  %.05589.i.i = phi ptr [ %119, %125 ], [ %117, %115 ]
   br label %118
 
 118:                                              ; preds = %118, %.preheader.i.i
-  %.156.i.i = phi ptr [ %119, %118 ], [ %.05590.i.i, %.preheader.i.i ]
+  %.156.i.i = phi ptr [ %119, %118 ], [ %.05589.i.i, %.preheader.i.i ]
   %119 = getelementptr inbounds i8, ptr %.156.i.i, i64 -1
   %120 = load i8, ptr %119, align 1
   %121 = icmp ne i8 %120, 46
@@ -611,54 +611,54 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   br i1 %121, label %._crit_edge.i.i, label %125
 
 125:                                              ; preds = %124
-  %126 = add nsw i64 %.05191.i.i, -1
-  %127 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %.05191.i.i
+  %126 = add nsw i64 %.05190.i.i, -1
+  %127 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %.05190.i.i
   store ptr %.156.i.i, ptr %127, align 8
   %128 = icmp eq i64 %126, 0
   br i1 %128, label %._crit_edge.i.i, label %.preheader.i.i
 
 ._crit_edge.i.i:                                  ; preds = %125, %124, %115
-  %.051.lcssa.i.i = phi i64 [ 4, %115 ], [ %.05191.i.i, %124 ], [ 0, %125 ]
+  %.051.lcssa.i.i = phi i64 [ 4, %115 ], [ %.05190.i.i, %124 ], [ 0, %125 ]
   %129 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %.051.lcssa.i.i
   store ptr %116, ptr %129, align 8
   %130 = load i64, ptr %8, align 8
   store i64 %130, ptr %11, align 16
   %.not67.i.i = icmp eq i64 %130, 0
-  %.pre126.i.i = load ptr, ptr %7, align 8
-  %.fr118.i.i = freeze ptr %.pre126.i.i
-  br i1 %.not67.i.i, label %.loopexit83.i.i, label %131
+  %.pre125.i.i = load ptr, ptr %7, align 8
+  %.fr117.i.i = freeze ptr %.pre125.i.i
+  br i1 %.not67.i.i, label %.loopexit82.i.i, label %131
 
 131:                                              ; preds = %._crit_edge.i.i
-  %132 = call i64 @strcspn(ptr noundef %.fr118.i.i, ptr noundef nonnull @.str.317) #17
+  %132 = call i64 @strcspn(ptr noundef %.fr117.i.i, ptr noundef nonnull @.str.317) #17
   store i64 %132, ptr %59, align 8
   %.not68.i.i = icmp eq i64 %132, %130
-  %.74.sroa.sel.i.i = select i1 %.not68.i.i, ptr %59, ptr %.sroa.gep76.i.i
+  %.74.sroa.sel.i.i = select i1 %.not68.i.i, ptr %59, ptr %.sroa.gep75.i.i
   store i64 0, ptr %.74.sroa.sel.i.i, align 8
-  %invariant.gep.i.i = getelementptr i8, ptr %.fr118.i.i, i64 1
-  %.15492.i.i = select i1 %.not68.i.i, i64 2, i64 3
-  %133 = ptrtoint ptr %.fr118.i.i to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %.fr117.i.i, i64 1
+  %.15491.i.i = select i1 %.not68.i.i, i64 2, i64 3
+  %133 = ptrtoint ptr %.fr117.i.i to i64
   br label %134
 
 134:                                              ; preds = %138, %131
   %135 = phi i64 [ 0, %131 ], [ %140, %138 ]
-  %.15494.i.i = phi i64 [ %.15492.i.i, %131 ], [ %.154.i.i, %138 ]
+  %.15493.i.i = phi i64 [ %.15491.i.i, %131 ], [ %.154.i.i, %138 ]
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %135
   %136 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %gep.i.i, i32 noundef 47) #17
-  %137 = icmp ugt ptr %136, %.fr118.i.i
-  br i1 %137, label %138, label %.loopexit83.i.i
+  %137 = icmp ugt ptr %136, %.fr117.i.i
+  br i1 %137, label %138, label %.loopexit82.i.i
 
 138:                                              ; preds = %134
   %139 = ptrtoint ptr %136 to i64
   %reass.sub.i.i = sub i64 %139, %133
   %140 = add i64 %reass.sub.i.i, 1
-  %141 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 %.15494.i.i
+  %141 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 %.15493.i.i
   store i64 %140, ptr %141, align 8
-  %.154.i.i = add nuw nsw i64 %.15494.i.i, 1
+  %.154.i.i = add nuw nsw i64 %.15493.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %.154.i.i, 6
-  br i1 %exitcond.not.i.i, label %.loopexit83.i.i, label %134
+  br i1 %exitcond.not.i.i, label %.loopexit82.i.i, label %134
 
-.loopexit83.i.i:                                  ; preds = %138, %134, %._crit_edge.i.i
-  %.2.i.i = phi i64 [ 1, %._crit_edge.i.i ], [ %.15494.i.i, %134 ], [ 6, %138 ]
+.loopexit82.i.i:                                  ; preds = %138, %134, %._crit_edge.i.i
+  %.2.i.i = phi i64 [ 1, %._crit_edge.i.i ], [ %.15493.i.i, %134 ], [ 6, %138 ]
   %142 = icmp ult i64 %.051.lcssa.i.i, 5
   %143 = load i64, ptr %9, align 8
   %144 = getelementptr inbounds i8, ptr %116, i64 %143
@@ -666,34 +666,34 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %146 = getelementptr inbounds i8, ptr %104, i64 488
   br i1 %142, label %.split.us.i.i, label %.loopexit.thread.i
 
-.split.us.i.i:                                    ; preds = %.loopexit83.i.i
-  %147 = icmp eq ptr %.fr118.i.i, null
+.split.us.i.i:                                    ; preds = %.loopexit82.i.i
+  %147 = icmp eq ptr %.fr117.i.i, null
   br i1 %147, label %.lr.ph.us.us.i.i, label %.lr.ph.us.i.i
 
 .lr.ph.us.us.i.i:                                 ; preds = %.split.us.i.i, %hash_match.exit.us.us.us.preheader.i.i
-  %.05799.us.us.i.i = phi i64 [ %148, %hash_match.exit.us.us.us.preheader.i.i ], [ %.2.i.i, %.split.us.i.i ]
-  %148 = add nsw i64 %.05799.us.us.i.i, -1
+  %.05798.us.us.i.i = phi i64 [ %148, %hash_match.exit.us.us.us.preheader.i.i ], [ %.2.i.i, %.split.us.i.i ]
+  %148 = add nsw i64 %.05798.us.us.i.i, -1
   %149 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 %148
   %150 = load i64, ptr %149, align 8
   %.not71.us.us.i.i = icmp ugt i64 %150, %130
-  br i1 %.not71.us.us.i.i, label %.split114.us.i.i, label %hash_match.exit.us.us.us.preheader.i.i
+  br i1 %.not71.us.us.i.i, label %.split113.us.i.i, label %hash_match.exit.us.us.us.preheader.i.i
 
 hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
   %.not70.us.us.i.i = icmp eq i64 %148, 0
   br i1 %.not70.us.us.i.i, label %.loopexit.thread.i, label %.lr.ph.us.us.i.i
 
-.lr.ph.us.i.i:                                    ; preds = %.split.us.i.i, %..loopexit_crit_edge.split.us104.i.i
-  %.05799.us.i.i = phi i64 [ %151, %..loopexit_crit_edge.split.us104.i.i ], [ %.2.i.i, %.split.us.i.i ]
-  %151 = add nsw i64 %.05799.us.i.i, -1
+.lr.ph.us.i.i:                                    ; preds = %.split.us.i.i, %..loopexit_crit_edge.split.us103.i.i
+  %.05798.us.i.i = phi i64 [ %151, %..loopexit_crit_edge.split.us103.i.i ], [ %.2.i.i, %.split.us.i.i ]
+  %151 = add nsw i64 %.05798.us.i.i, -1
   %152 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 %151
   %153 = load i64, ptr %152, align 8
   %.not71.us.i.i = icmp ugt i64 %153, %130
   %154 = trunc i64 %153 to i32
-  br i1 %.not71.us.i.i, label %.split114.us.i.i, label %.lr.ph.split.us.i.i
+  br i1 %.not71.us.i.i, label %.split113.us.i.i, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.us.i.i, %.sink.split.i.i
-  %.05895.us102.i.i = phi i64 [ %155, %.sink.split.i.i ], [ 5, %.lr.ph.us.i.i ]
-  %155 = add nsw i64 %.05895.us102.i.i, -1
+  %.05894.us101.i.i = phi i64 [ %155, %.sink.split.i.i ], [ 5, %.lr.ph.us.i.i ]
+  %155 = add nsw i64 %.05894.us101.i.i, -1
   %156 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = ptrtoint ptr %157 to i64
@@ -717,7 +717,7 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
 
 166:                                              ; preds = %164
   %167 = call i32 @cl_update_hash(ptr noundef nonnull %165, ptr noundef nonnull %157, i64 noundef %160) #18
-  %168 = call i32 @cl_update_hash(ptr noundef nonnull %165, ptr noundef nonnull %.fr118.i.i, i64 noundef %153) #18
+  %168 = call i32 @cl_update_hash(ptr noundef nonnull %165, ptr noundef nonnull %.fr117.i.i, i64 noundef %153) #18
   %169 = call i32 @cl_finish_hash(ptr noundef nonnull %165, ptr noundef nonnull %5) #18
   br label %170
 
@@ -746,7 +746,7 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
 185:                                              ; preds = %170
   store i8 0, ptr %60, align 16
   %186 = trunc i64 %160 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.321, ptr noundef nonnull %4, ptr noundef nonnull %157, i32 noundef %186, ptr noundef nonnull %.fr118.i.i, i32 noundef %154) #18
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.321, ptr noundef nonnull %4, ptr noundef nonnull %157, i32 noundef %186, ptr noundef nonnull %.fr117.i.i, i32 noundef %154) #18
   %187 = call i32 @cli_bm_scanbuff(ptr noundef nonnull %5, i32 noundef 32, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %146, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %188 = icmp eq i32 %187, 1
   br i1 %188, label %189, label %.sink.split.i.i
@@ -770,13 +770,13 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %193 = icmp ugt i64 %155, %.051.lcssa.i.i
-  br i1 %193, label %.lr.ph.split.us.i.i, label %..loopexit_crit_edge.split.us104.i.i
+  br i1 %193, label %.lr.ph.split.us.i.i, label %..loopexit_crit_edge.split.us103.i.i
 
-..loopexit_crit_edge.split.us104.i.i:             ; preds = %.sink.split.i.i
+..loopexit_crit_edge.split.us103.i.i:             ; preds = %.sink.split.i.i
   %.not70.us.i.i = icmp eq i64 %151, 0
   br i1 %.not70.us.i.i, label %.loopexit.thread.i, label %.lr.ph.us.i.i
 
-.split114.us.i.i:                                 ; preds = %.lr.ph.us.i.i, %.lr.ph.us.us.i.i
+.split113.us.i.i:                                 ; preds = %.lr.ph.us.i.i, %.lr.ph.us.us.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.318, ptr noundef nonnull @.str.319, i32 noundef 1411, ptr noundef nonnull @__PRETTY_FUNCTION__.url_hash_match) #19
   unreachable
 
@@ -825,7 +825,7 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, ptr noundef %197) #18
   br label %.thread134.i
 
-.loopexit.thread.i:                               ; preds = %..loopexit_crit_edge.split.us104.i.i, %hash_match.exit.us.us.us.preheader.i.i, %.loopexit83.i.i, %107, %101
+.loopexit.thread.i:                               ; preds = %..loopexit_crit_edge.split.us103.i.i, %hash_match.exit.us.us.us.preheader.i.i, %.loopexit82.i.i, %107, %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

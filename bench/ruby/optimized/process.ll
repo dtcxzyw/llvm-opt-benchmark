@@ -3664,32 +3664,28 @@ proc_exec_sh.exit:                                ; preds = %22, %36, %63, %61, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rb_exec_fail(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %14, label %3
+  %3 = load i8, ptr %1, align 1
+  %.not = icmp eq i8 %3, 0
+  br i1 %.not, label %13, label %4
 
-3:                                                ; preds = %2
-  %4 = load i8, ptr %1, align 1
-  %.not6 = icmp eq i8 %4, 0
-  br i1 %.not6, label %14, label %5
+4:                                                ; preds = %2
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.14) #27
+  %6 = icmp eq i32 %5, 0
+  %7 = tail call ptr @rb_errno_ptr() #26
+  %8 = load i32, ptr %7, align 4
+  br i1 %6, label %9, label %12
 
-5:                                                ; preds = %3
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.14) #27
-  %7 = icmp eq i32 %6, 0
-  %8 = tail call ptr @rb_errno_ptr() #26
-  %9 = load i32, ptr %8, align 4
-  br i1 %7, label %10, label %13
-
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 168
-  %12 = load i64, ptr %11, align 8
-  tail call void @rb_syserr_fail_str(i32 noundef %9, i64 noundef %12) #28
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %11 = load i64, ptr %10, align 8
+  tail call void @rb_syserr_fail_str(i32 noundef %8, i64 noundef %11) #28
   unreachable
 
-13:                                               ; preds = %5
-  tail call void @rb_syserr_fail(i32 noundef %9, ptr noundef nonnull %1) #28
+12:                                               ; preds = %4
+  tail call void @rb_syserr_fail(i32 noundef %8, ptr noundef nonnull %1) #28
   unreachable
 
-14:                                               ; preds = %2, %3
+13:                                               ; preds = %2
   ret void
 }
 
@@ -5171,52 +5167,55 @@ define hidden range(i32 -1, -2147483648) i32 @rb_fork_ruby(ptr noundef writeonly
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   store i32 1, ptr %4, align 4
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %7 = load i64, ptr @rb_stdout, align 8
-  %8 = tail call i64 @rb_io_flush(i64 noundef %7) #26
-  %9 = load i64, ptr @rb_stderr, align 8
-  %10 = tail call i64 @rb_io_flush(i64 noundef %9) #26
+  %6 = load i64, ptr @rb_stdout, align 8
+  %7 = tail call i64 @rb_io_flush(i64 noundef %6) #26
+  %8 = load i64, ptr @rb_stderr, align 8
+  %9 = tail call i64 @rb_io_flush(i64 noundef %8) #26
   tail call void @rb_thread_stop_timer_thread() #26
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  %11 = call i32 @sigfillset(ptr noundef nonnull %3) #26
-  %12 = icmp eq i32 %11, -1
-  br i1 %12, label %.split23.us.i, label %.lr.ph
+  %10 = call i32 @sigfillset(ptr noundef nonnull %3) #26
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %._crit_edge.i, label %.lr.ph.i
 
-.split23.us.i:                                    ; preds = %handle_fork_error.exit, %1
+.lr.ph.i:                                         ; preds = %1
+  %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  br label %15
+
+._crit_edge.i:                                    ; preds = %handle_fork_error.exit.i, %1
   %13 = call ptr @rb_errno_ptr() #26
   %14 = load i32, ptr %13, align 4
   call void @rb_syserr_fail(i32 noundef %14, ptr noundef nonnull @.str.206) #28
   unreachable
 
-.lr.ph:                                           ; preds = %1, %handle_fork_error.exit
-  %15 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %5) #26
-  %.not.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i.i, label %disable_child_handler_before_fork.exit.i, label %.split25.us.i
+15:                                               ; preds = %handle_fork_error.exit.i, %.lr.ph.i
+  %16 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %5) #26
+  %.not.i.i = icmp eq i32 %16, 0
+  br i1 %.not.i.i, label %disable_child_handler_before_fork.exit.i, label %17
 
-.split25.us.i:                                    ; preds = %.lr.ph
-  call void @rb_syserr_fail(i32 noundef %15, ptr noundef nonnull @.str.207) #28
+17:                                               ; preds = %15
+  call void @rb_syserr_fail(i32 noundef %16, ptr noundef nonnull @.str.207) #28
   unreachable
 
-disable_child_handler_before_fork.exit.i:         ; preds = %.lr.ph
+disable_child_handler_before_fork.exit.i:         ; preds = %15
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
-  %16 = call i32 @fork() #26
-  %17 = call ptr @rb_errno_ptr() #26
-  %18 = load i32, ptr %17, align 4
-  %19 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #26
-  %.not.i15.i = icmp eq i32 %19, 0
-  br i1 %.not.i15.i, label %disable_child_handler_fork_parent.exit.i, label %.split27.us.i
+  %18 = call i32 @fork() #26
+  %19 = call ptr @rb_errno_ptr() #26
+  %20 = load i32, ptr %19, align 4
+  %21 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #26
+  %.not.i14.i = icmp eq i32 %21, 0
+  br i1 %.not.i14.i, label %disable_child_handler_fork_parent.exit.i, label %22
 
-.split27.us.i:                                    ; preds = %disable_child_handler_before_fork.exit.i
-  call void @rb_syserr_fail(i32 noundef %19, ptr noundef nonnull @.str.207) #28
+22:                                               ; preds = %disable_child_handler_before_fork.exit.i
+  call void @rb_syserr_fail(i32 noundef %21, ptr noundef nonnull @.str.207) #28
   unreachable
 
 disable_child_handler_fork_parent.exit.i:         ; preds = %disable_child_handler_before_fork.exit.i
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr i8, ptr %20, i64 48
-  %.val.i.i.i = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = getelementptr i8, ptr %23, i64 48
+  %.val.i.i.i = load ptr, ptr %24, align 8
   call void @rb_threadptr_pending_interrupt_clear(ptr noundef %.val.i.i.i) #26
-  %22 = icmp eq i32 %16, 0
-  br i1 %22, label %after_fork_ruby.exit.thread.i, label %after_fork_ruby.exit.i
+  %25 = icmp eq i32 %18, 0
+  br i1 %25, label %after_fork_ruby.exit.thread.i, label %after_fork_ruby.exit.i
 
 after_fork_ruby.exit.thread.i:                    ; preds = %disable_child_handler_fork_parent.exit.i
   store i32 0, ptr @cached_pid, align 4
@@ -5226,69 +5225,69 @@ after_fork_ruby.exit.thread.i:                    ; preds = %disable_child_handl
 after_fork_ruby.exit.i:                           ; preds = %disable_child_handler_fork_parent.exit.i
   call void @rb_thread_reset_timer_thread() #26
   call void @rb_thread_start_timer_thread() #26
-  %23 = icmp sgt i32 %16, -1
-  br i1 %23, label %rb_fork_ruby2.exit, label %24
+  %26 = icmp sgt i32 %18, -1
+  br i1 %26, label %rb_fork_ruby2.exit, label %27
 
-24:                                               ; preds = %after_fork_ruby.exit.i
+27:                                               ; preds = %after_fork_ruby.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  switch i32 %18, label %handle_fork_error.exit.thread [
-    i32 12, label %25
-    i32 11, label %31
+  switch i32 %20, label %handle_fork_error.exit.thread.i [
+    i32 12, label %28
+    i32 11, label %thread-pre-split.i.i
   ]
 
-25:                                               ; preds = %24
-  %.0..0..0. = load volatile i32, ptr %4, align 4
-  %26 = add i32 %.0..0..0., -1
-  store volatile i32 %26, ptr %4, align 4
-  %27 = icmp sgt i32 %.0..0..0., 0
-  br i1 %27, label %28, label %handle_fork_error.exit.thread
+28:                                               ; preds = %27
+  %.0..0..0..0..0..i = load volatile i32, ptr %4, align 4
+  %29 = add i32 %.0..0..0..0..0..i, -1
+  store volatile i32 %29, ptr %4, align 4
+  %30 = icmp sgt i32 %.0..0..0..0..0..i, 0
+  br i1 %30, label %31, label %handle_fork_error.exit.thread.i
 
-28:                                               ; preds = %25
-  %29 = call i32 @rb_during_gc() #27
-  %.not17.i = icmp eq i32 %29, 0
-  br i1 %.not17.i, label %30, label %handle_fork_error.exit.thread
+31:                                               ; preds = %28
+  %32 = call i32 @rb_during_gc() #27
+  %.not17.i.i = icmp eq i32 %32, 0
+  br i1 %.not17.i.i, label %33, label %handle_fork_error.exit.thread.i
 
-30:                                               ; preds = %28
+33:                                               ; preds = %31
   call void @rb_gc() #26
-  br label %handle_fork_error.exit
+  br label %handle_fork_error.exit.i
 
-31:                                               ; preds = %24
-  %32 = call i64 @rb_protect(ptr noundef nonnull @rb_thread_sleep_that_takes_VALUE_as_sole_argument, i64 noundef 3, ptr noundef nonnull %2) #26
-  %33 = load i32, ptr %2, align 4
-  %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %handle_fork_error.exit, label %handle_fork_error.exit.thread
+thread-pre-split.i.i:                             ; preds = %27
+  %34 = call i64 @rb_protect(ptr noundef nonnull @rb_thread_sleep_that_takes_VALUE_as_sole_argument, i64 noundef 3, ptr noundef nonnull %2) #26
+  %35 = load i32, ptr %2, align 4
+  %.not.i15.i = icmp eq i32 %35, 0
+  br i1 %.not.i15.i, label %handle_fork_error.exit.i, label %handle_fork_error.exit.thread.i
 
-handle_fork_error.exit.thread:                    ; preds = %28, %25, %24, %31
-  %.sroa.2.3.ph = phi i32 [ 0, %25 ], [ 0, %28 ], [ 0, %24 ], [ %33, %31 ]
+handle_fork_error.exit.thread.i:                  ; preds = %thread-pre-split.i.i, %31, %28, %27
+  %.sroa.2.1 = phi i32 [ 0, %27 ], [ %35, %thread-pre-split.i.i ], [ 0, %31 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %rb_fork_ruby2.exit
 
-handle_fork_error.exit:                           ; preds = %30, %31
+handle_fork_error.exit.i:                         ; preds = %thread-pre-split.i.i, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %34 = load i64, ptr @rb_stdout, align 8
-  %35 = call i64 @rb_io_flush(i64 noundef %34) #26
-  %36 = load i64, ptr @rb_stderr, align 8
+  %36 = load i64, ptr @rb_stdout, align 8
   %37 = call i64 @rb_io_flush(i64 noundef %36) #26
+  %38 = load i64, ptr @rb_stderr, align 8
+  %39 = call i64 @rb_io_flush(i64 noundef %38) #26
   call void @rb_thread_stop_timer_thread() #26
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  %38 = call i32 @sigfillset(ptr noundef nonnull %3) #26
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %.split23.us.i, label %.lr.ph
+  %40 = call i32 @sigfillset(ptr noundef nonnull %3) #26
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %._crit_edge.i, label %15
 
-rb_fork_ruby2.exit:                               ; preds = %after_fork_ruby.exit.i, %handle_fork_error.exit.thread, %after_fork_ruby.exit.thread.i
-  %.sroa.2.1 = phi i32 [ 0, %after_fork_ruby.exit.thread.i ], [ %.sroa.2.3.ph, %handle_fork_error.exit.thread ], [ 0, %after_fork_ruby.exit.i ]
-  %.0.i = phi i32 [ 0, %after_fork_ruby.exit.thread.i ], [ -1, %handle_fork_error.exit.thread ], [ %16, %after_fork_ruby.exit.i ]
+rb_fork_ruby2.exit:                               ; preds = %after_fork_ruby.exit.i, %after_fork_ruby.exit.thread.i, %handle_fork_error.exit.thread.i
+  %.sroa.2.3 = phi i32 [ 0, %after_fork_ruby.exit.thread.i ], [ %.sroa.2.1, %handle_fork_error.exit.thread.i ], [ 0, %after_fork_ruby.exit.i ]
+  %.0.i = phi i32 [ 0, %after_fork_ruby.exit.thread.i ], [ -1, %handle_fork_error.exit.thread.i ], [ %18, %after_fork_ruby.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %41, label %40
+  br i1 %.not, label %43, label %42
 
-40:                                               ; preds = %rb_fork_ruby2.exit
-  store i32 %.sroa.2.1, ptr %0, align 4
-  br label %41
+42:                                               ; preds = %rb_fork_ruby2.exit
+  store i32 %.sroa.2.3, ptr %0, align 4
+  br label %43
 
-41:                                               ; preds = %40, %rb_fork_ruby2.exit
+43:                                               ; preds = %42, %rb_fork_ruby2.exit
   ret i32 %.0.i
 }
 

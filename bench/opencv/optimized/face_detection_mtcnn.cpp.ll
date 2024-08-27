@@ -32466,60 +32466,53 @@ define internal fastcc void @_ZNSt12__shared_ptrIN2cv6detail14BasicVectorRefELN9
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #30
-  %9 = icmp eq ptr %1, null
-  br i1 %9, label %19, label %10
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds [4 x ptr], ptr @constinit.57, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  invoke void %12(ptr noundef nonnull %13)
+          to label %_ZN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEED2Ev.exit.i.i unwind label %14
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds [4 x ptr], ptr @constinit.57, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  invoke void %14(ptr noundef nonnull %15)
-          to label %_ZN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEED2Ev.exit.i.i unwind label %16
-
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %5
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #34
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #34
   unreachable
 
-_ZN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEED2Ev.exit.i.i: ; preds = %10
+_ZN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEED2Ev.exit.i.i: ; preds = %5
   tail call void @_ZdlPv(ptr noundef nonnull %1) #33
-  br label %19
-
-19:                                               ; preds = %_ZN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEED2Ev.exit.i.i, %5
   invoke void @__cxa_rethrow() #31
-          to label %26 unwind label %20
+          to label %23 unwind label %17
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %_ZN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEED2Ev.exit.i.i
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %22 unwind label %23
+          to label %19 unwind label %20
 
-22:                                               ; preds = %20
-  resume { ptr, i32 } %21
+19:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-23:                                               ; preds = %20
-  %24 = landingpad { ptr, i32 }
+20:                                               ; preds = %17
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #34
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #34
   unreachable
 
-26:                                               ; preds = %19
+23:                                               ; preds = %_ZN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEED2Ev.exit.i.i
   unreachable
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEEEEET_St17integral_constantIbLb0EE.exit: ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 1, ptr %28, align 4
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 1, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %1, ptr %29, align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %1, ptr %26, align 8
   store ptr %4, ptr %3, align 8
   ret void
 }

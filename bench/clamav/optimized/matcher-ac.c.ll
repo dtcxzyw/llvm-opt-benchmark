@@ -7735,17 +7735,17 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   %42 = load i16, ptr %18, align 8
   %43 = tail call i16 @llvm.umin.i16(i16 %40, i16 %42)
   %44 = zext i16 %43 to i64
-  %.not164.i = icmp eq i16 %43, 0
-  br i1 %.not164.i, label %ac_uicmp.exit.thread71.thread, label %.lr.ph.i
+  %.not163.i = icmp eq i16 %43, 0
+  br i1 %.not163.i, label %ac_uicmp.exit.thread71.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph121, %.thread.i
-  %.093163.i = phi i64 [ %125, %.thread.i ], [ 0, %.lr.ph121 ]
-  %.094162.i = phi i16 [ %.1117.i, %.thread.i ], [ 0, %.lr.ph121 ]
-  %45 = getelementptr inbounds i16, ptr %38, i64 %.093163.i
+  %.093162.i = phi i64 [ %125, %.thread.i ], [ 0, %.lr.ph121 ]
+  %.094161.i = phi i16 [ %.1116.i, %.thread.i ], [ 0, %.lr.ph121 ]
+  %45 = getelementptr inbounds i16, ptr %38, i64 %.093162.i
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   %48 = and i16 %46, 3840
-  %49 = getelementptr inbounds i16, ptr %41, i64 %.093163.i
+  %49 = getelementptr inbounds i16, ptr %41, i64 %.093162.i
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = and i16 %50, 3840
@@ -7764,8 +7764,8 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
 56:                                               ; preds = %54
   %57 = and i32 %47, 255
   %58 = and i32 %51, 255
-  %.not115.i = icmp eq i32 %57, %58
-  br i1 %.not115.i, label %.thread.i, label %59
+  %.not114.i = icmp eq i32 %57, %58
+  br i1 %.not114.i, label %.thread.i, label %59
 
 59:                                               ; preds = %56
   %60 = sub nsw i32 %58, %57
@@ -7774,8 +7774,8 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
 61:                                               ; preds = %54
   %62 = and i32 %47, 240
   %63 = and i32 %51, 240
-  %.not114.i = icmp eq i32 %62, %63
-  br i1 %.not114.i, label %.thread.i, label %64
+  %.not113.i = icmp eq i32 %62, %63
+  br i1 %.not113.i, label %.thread.i, label %64
 
 64:                                               ; preds = %61
   %65 = sub nsw i32 %63, %62
@@ -7784,8 +7784,8 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
 66:                                               ; preds = %54
   %67 = and i32 %47, 15
   %68 = and i32 %51, 15
-  %.not113.i = icmp eq i32 %67, %68
-  br i1 %.not113.i, label %.thread.i, label %69
+  %.not112.i = icmp eq i32 %67, %68
+  br i1 %.not112.i, label %.thread.i, label %69
 
 69:                                               ; preds = %66
   %70 = sub nsw i32 %68, %67
@@ -7807,14 +7807,14 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   ]
 
 75:                                               ; preds = %74
-  %76 = or i16 %.094162.i, 2
+  %76 = or i16 %.094161.i, 2
   br label %select.unfold.i
 
 77:                                               ; preds = %74
   %78 = and i32 %47, 240
   %79 = and i32 %51, 240
-  %.not112.i = icmp eq i32 %78, %79
-  br i1 %.not112.i, label %83, label %80
+  %.not111.i = icmp eq i32 %78, %79
+  br i1 %.not111.i, label %83, label %80
 
 80:                                               ; preds = %77
   %81 = and i32 %47, 255
@@ -7822,14 +7822,14 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   br label %ac_uicmp.exit
 
 83:                                               ; preds = %77
-  %84 = or i16 %.094162.i, 2
+  %84 = or i16 %.094161.i, 2
   br label %select.unfold.i
 
 85:                                               ; preds = %74
   %86 = and i32 %47, 15
   %87 = and i32 %51, 15
-  %.not111.i = icmp eq i32 %86, %87
-  br i1 %.not111.i, label %91, label %88
+  %.not110.i = icmp eq i32 %86, %87
+  br i1 %.not110.i, label %91, label %88
 
 88:                                               ; preds = %85
   %89 = and i32 %47, 255
@@ -7837,7 +7837,7 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   br label %ac_uicmp.exit
 
 91:                                               ; preds = %85
-  %92 = or i16 %.094162.i, 2
+  %92 = or i16 %.094161.i, 2
   br label %select.unfold.i
 
 93:                                               ; preds = %74
@@ -7856,14 +7856,14 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   ]
 
 97:                                               ; preds = %96
-  %98 = or i16 %.094162.i, 1
+  %98 = or i16 %.094161.i, 1
   br label %select.unfold.i
 
 99:                                               ; preds = %96
   %100 = and i32 %47, 240
   %101 = and i32 %51, 240
-  %.not110.i = icmp eq i32 %100, %101
-  br i1 %.not110.i, label %105, label %102
+  %.not109.i = icmp eq i32 %100, %101
+  br i1 %.not109.i, label %105, label %102
 
 102:                                              ; preds = %99
   %103 = and i32 %51, 255
@@ -7871,14 +7871,14 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   br label %ac_uicmp.exit
 
 105:                                              ; preds = %99
-  %106 = or i16 %.094162.i, 1
+  %106 = or i16 %.094161.i, 1
   br label %select.unfold.i
 
 107:                                              ; preds = %96
   %108 = and i32 %47, 15
   %109 = and i32 %51, 15
-  %.not109.i = icmp eq i32 %108, %109
-  br i1 %.not109.i, label %113, label %110
+  %.not.i = icmp eq i32 %108, %109
+  br i1 %.not.i, label %113, label %110
 
 110:                                              ; preds = %107
   %111 = and i32 %51, 255
@@ -7886,7 +7886,7 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   br label %ac_uicmp.exit
 
 113:                                              ; preds = %107
-  %114 = or i16 %.094162.i, 1
+  %114 = or i16 %.094161.i, 1
   br label %select.unfold.i
 
 115:                                              ; preds = %96
@@ -7903,11 +7903,11 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   br i1 %117, label %120, label %122
 
 120:                                              ; preds = %119
-  %121 = or i16 %.094162.i, 1
+  %121 = or i16 %.094161.i, 1
   br label %select.unfold.i
 
 122:                                              ; preds = %119
-  %123 = or i16 %.094162.i, 2
+  %123 = or i16 %.094161.i, 2
   br i1 %118, label %select.unfold.i, label %.thread.i
 
 select.unfold.i:                                  ; preds = %122, %120, %113, %105, %97, %91, %83, %75
@@ -7916,13 +7916,13 @@ select.unfold.i:                                  ; preds = %122, %120, %113, %1
   br i1 %124, label %ac_uicmp.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %select.unfold.i, %122, %66, %61, %56, %54
-  %.1117.i = phi i16 [ %.1.i, %select.unfold.i ], [ %.094162.i, %66 ], [ %.094162.i, %61 ], [ %.094162.i, %54 ], [ %.094162.i, %56 ], [ %.094162.i, %122 ]
-  %125 = add nuw nsw i64 %.093163.i, 1
+  %.1116.i = phi i16 [ %.1.i, %select.unfold.i ], [ %.094161.i, %66 ], [ %.094161.i, %61 ], [ %.094161.i, %54 ], [ %.094161.i, %56 ], [ %.094161.i, %122 ]
+  %125 = add nuw nsw i64 %.093162.i, 1
   %exitcond.not.i = icmp eq i64 %125, %44
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.thread.i
-  %126 = zext nneg i16 %.1117.i to i32
+  %126 = zext nneg i16 %.1116.i to i32
   br label %ac_uicmp.exit.thread71
 
 ac_uicmp.exit:                                    ; preds = %59, %64, %69, %80, %88, %102, %110

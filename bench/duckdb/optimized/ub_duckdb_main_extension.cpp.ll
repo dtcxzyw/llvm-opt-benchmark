@@ -40956,21 +40956,14 @@ if.then.i.i.i.i.i.i.i70.i.i:                      ; preds = %call5.i.i.i.i.i.noe
 
 try.cont.i.i:                                     ; preds = %if.then.i.i.i.i.i.i.i70.i.i, %call5.i.i.i.i.i.noexc
   %cmp.i.i.i.i.not.i.i = icmp eq ptr %glowable_buf.sroa.14.080, %glowable_buf.sroa.0.082
-  br i1 %cmp.i.i.i.i.not.i.i, label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.not.i.i, label %if.then.i76.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %try.cont.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i53, ptr align 1 %glowable_buf.sroa.0.082, i64 %sub.ptr.sub.i84, i1 false)
-  br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i
+  br label %if.then.i76.i.i
 
-_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %try.cont.i.i
-  %tobool.not.i75.i.i = icmp eq ptr %glowable_buf.sroa.0.082, null
-  br i1 %tobool.not.i75.i.i, label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit77.i.i, label %if.then.i76.i.i
-
-if.then.i76.i.i:                                  ; preds = %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i
+if.then.i76.i.i:                                  ; preds = %try.cont.i.i, %if.then.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %glowable_buf.sroa.0.082) #32
-  br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit77.i.i
-
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit77.i.i: ; preds = %if.then.i76.i.i, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i
   %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i53, i64 %mul
   %add.ptr39.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i53, i64 %2
   br label %invoke.cont17
@@ -40981,10 +40974,10 @@ if.else.i:                                        ; preds = %while.body
   %spec.select = select i1 %cmp4.i.not, ptr %glowable_buf.sroa.14.080, ptr %add.ptr.i
   br label %invoke.cont17
 
-invoke.cont17:                                    ; preds = %if.else.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit77.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %glowable_buf.sroa.14.1 = phi ptr [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit77.i.i ], [ %incdec.ptr.i.i.i.i.i52, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %spec.select, %if.else.i ]
-  %glowable_buf.sroa.22.1 = phi ptr [ %add.ptr39.i.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit77.i.i ], [ %glowable_buf.sroa.22.081, %if.then.i.i.i.i.i ], [ %glowable_buf.sroa.22.081, %if.then.i.i.i.i.i.i.i.i.i ], [ %glowable_buf.sroa.22.081, %if.else.i ]
-  %glowable_buf.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i53, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit77.i.i ], [ %glowable_buf.sroa.0.082, %if.then.i.i.i.i.i ], [ %glowable_buf.sroa.0.082, %if.then.i.i.i.i.i.i.i.i.i ], [ %glowable_buf.sroa.0.082, %if.else.i ]
+invoke.cont17:                                    ; preds = %if.else.i, %if.then.i76.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
+  %glowable_buf.sroa.14.1 = phi ptr [ %add.ptr36.i.i, %if.then.i76.i.i ], [ %incdec.ptr.i.i.i.i.i52, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %spec.select, %if.else.i ]
+  %glowable_buf.sroa.22.1 = phi ptr [ %add.ptr39.i.i, %if.then.i76.i.i ], [ %glowable_buf.sroa.22.081, %if.then.i.i.i.i.i ], [ %glowable_buf.sroa.22.081, %if.then.i.i.i.i.i.i.i.i.i ], [ %glowable_buf.sroa.22.081, %if.else.i ]
+  %glowable_buf.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i53, %if.then.i76.i.i ], [ %glowable_buf.sroa.0.082, %if.then.i.i.i.i.i ], [ %glowable_buf.sroa.0.082, %if.then.i.i.i.i.i.i.i.i.i ], [ %glowable_buf.sroa.0.082, %if.else.i ]
   %sub.ptr.lhs.cast.i55 = ptrtoint ptr %glowable_buf.sroa.14.1 to i64
   %sub.ptr.rhs.cast.i56 = ptrtoint ptr %glowable_buf.sroa.0.1 to i64
   %3 = xor i64 %sub.ptr.rhs.cast.i56, -1
@@ -41001,42 +40994,31 @@ invoke.cont17:                                    ; preds = %if.else.i, %_ZNSt12
 lpad16.loopexit:                                  ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %lpad16
+  br label %if.then.i.i.i58
 
 lpad16.loopexit.split-lp:                         ; preds = %while.end, %if.then.i.i.i
   %glowable_buf.sroa.0.077 = phi ptr [ %glowable_buf.sroa.0.1, %while.end ], [ %glowable_buf.sroa.0.082, %if.then.i.i.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %lpad16
+  br label %if.then.i.i.i58
 
-lpad16:                                           ; preds = %lpad16.loopexit.split-lp, %lpad16.loopexit
+if.then.i.i.i58:                                  ; preds = %lpad16.loopexit, %lpad16.loopexit.split-lp
   %glowable_buf.sroa.0.076 = phi ptr [ %glowable_buf.sroa.0.082, %lpad16.loopexit ], [ %glowable_buf.sroa.0.077, %lpad16.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit.split-lp, %lpad16.loopexit.split-lp ]
-  %tobool.not.i.i.i = icmp eq ptr %glowable_buf.sroa.0.076, null
-  br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i58
-
-if.then.i.i.i58:                                  ; preds = %lpad16
   tail call void @_ZdlPv(ptr noundef nonnull %glowable_buf.sroa.0.076) #32
-  br label %ehcleanup
+  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %buf) #30
+  resume { ptr, i32 } %lpad.phi
 
 while.end:                                        ; preds = %invoke.cont17
   %vtable = load ptr, ptr %this, align 8, !tbaa !187
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %6 = load ptr, ptr %vfn, align 8
   %call25 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %glowable_buf.sroa.0.1, i64 noundef %conv22)
-          to label %invoke.cont24 unwind label %lpad16.loopexit.split-lp
+          to label %if.then.i.i.i60 unwind label %lpad16.loopexit.split-lp
 
-invoke.cont24:                                    ; preds = %while.end
-  %tobool.not.i.i.i59 = icmp eq ptr %glowable_buf.sroa.0.1, null
-  br i1 %tobool.not.i.i.i59, label %cleanup31, label %if.then.i.i.i60
-
-if.then.i.i.i60:                                  ; preds = %invoke.cont24
+if.then.i.i.i60:                                  ; preds = %while.end
   tail call void @_ZdlPv(ptr noundef nonnull %glowable_buf.sroa.0.1) #32
   br label %cleanup31
-
-ehcleanup:                                        ; preds = %if.then.i.i.i58, %lpad16
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %buf) #30
-  resume { ptr, i32 } %lpad.phi
 
 if.else:                                          ; preds = %if.end
   %conv6 = zext nneg i32 %call5 to i64
@@ -41046,8 +41028,8 @@ if.else:                                          ; preds = %if.end
   %call29 = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %buf, i64 noundef %conv6)
   br label %cleanup31
 
-cleanup31:                                        ; preds = %if.else, %if.then.i.i.i60, %invoke.cont24, %if.then
-  %retval.1 = phi i64 [ %conv, %if.then ], [ %call29, %if.else ], [ %call25, %invoke.cont24 ], [ %call25, %if.then.i.i.i60 ]
+cleanup31:                                        ; preds = %if.else, %if.then.i.i.i60, %if.then
+  %retval.1 = phi i64 [ %conv, %if.then ], [ %call29, %if.else ], [ %call25, %if.then.i.i.i60 ]
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %buf) #30
   ret i64 %retval.1
 }

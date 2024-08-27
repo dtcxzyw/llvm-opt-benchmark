@@ -3903,22 +3903,22 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   store ptr %25, ptr %curr_data.i, align 8
   %26 = load i64, ptr %p.i.i, align 8
   %cmp9.i.i = icmp eq i64 %26, -1
-  br i1 %cmp9.i.i, label %read_thread_id.exit.i, label %if.end12.i.i
+  br i1 %cmp9.i.i, label %read_thread_id.exit.i, label %if.then14.i.i
 
-if.end12.i.i:                                     ; preds = %if.end8.i.i
+if.then14.i.i:                                    ; preds = %if.end8.i.i
   %conv15.i.i = trunc i64 %26 to i32
   store i32 %conv15.i.i, ptr %pid.i, align 4
   %27 = load i64, ptr %t.i.i, align 8
   %cmp17.i.i = icmp eq i64 %27, -1
-  br i1 %cmp17.i.i, label %read_thread_id.exit.i, label %if.end20.i.i
+  br i1 %cmp17.i.i, label %read_thread_id.exit.i, label %if.then22.i.i
 
-if.end20.i.i:                                     ; preds = %if.end12.i.i
+if.then22.i.i:                                    ; preds = %if.then14.i.i
   %conv23.i.i = trunc i64 %27 to i32
   store i32 %conv23.i.i, ptr %tid.i, align 8
   br label %read_thread_id.exit.i
 
-read_thread_id.exit.i:                            ; preds = %if.end20.i.i, %if.end12.i.i, %if.end8.i.i, %if.end4.i.i, %if.then.i.i
-  %retval.0.i70.i = phi i32 [ 3, %if.then.i.i ], [ 3, %if.end4.i.i ], [ 2, %if.end8.i.i ], [ 1, %if.end12.i.i ], [ 0, %if.end20.i.i ]
+read_thread_id.exit.i:                            ; preds = %if.then22.i.i, %if.then14.i.i, %if.end8.i.i, %if.end4.i.i, %if.then.i.i
+  %retval.0.i70.i = phi i32 [ 0, %if.then22.i.i ], [ 3, %if.then.i.i ], [ 3, %if.end4.i.i ], [ 2, %if.end8.i.i ], [ 1, %if.then14.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
@@ -4209,7 +4209,7 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   store ptr %18, ptr %p.addr.i, align 8
   %19 = load i64, ptr %p.i.i, align 8
   %cmp9.i.i = icmp eq i64 %19, -1
-  br i1 %cmp9.i.i, label %if.end58.thread85.i, label %if.end12.i.i
+  br i1 %cmp9.i.i, label %if.end58.thread85.i, label %if.then14.i.i
 
 if.end58.thread85.i:                              ; preds = %if.end8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.addr.i.i)
@@ -4217,7 +4217,7 @@ if.end58.thread85.i:                              ; preds = %if.end8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
   br label %sw.bb59.i
 
-if.end12.i.i:                                     ; preds = %if.end8.i.i
+if.then14.i.i:                                    ; preds = %if.end8.i.i
   %conv15.i.i = trunc i64 %19 to i32
   %20 = load i64, ptr %t.i.i, align 8
   %cmp17.i.i = icmp eq i64 %20, -1
@@ -4403,7 +4403,7 @@ gdb_next_attached_cpu.exit.i:                     ; preds = %while.end8.i.i, %gd
   %tobool62.not.i = icmp eq ptr %cpu.addr.0.lcssa.i.i, null
   br i1 %tobool62.not.i, label %sw.epilog.i, label %while.body63.i, !llvm.loop !35
 
-sw.bb77.i:                                        ; preds = %if.end12.i.i
+sw.bb77.i:                                        ; preds = %if.then14.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
@@ -4511,7 +4511,7 @@ gdb_next_cpu_in_process.exit.i:                   ; preds = %while.end8.i63.i, %
   %tobool84.not.i = icmp eq ptr %cpu.addr.0.lcssa.i67.i, null
   br i1 %tobool84.not.i, label %sw.epilog.i, label %while.body85.i, !llvm.loop !36
 
-sw.bb100.i:                                       ; preds = %if.end12.i.i
+sw.bb100.i:                                       ; preds = %if.then14.i.i
   %conv23.i.i = trunc i64 %20 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)

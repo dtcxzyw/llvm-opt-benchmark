@@ -467,7 +467,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef %0) local_unnamed_
 74:                                               ; preds = %71
   %75 = load i64, ptr @H5E_CACHE_g, align 8
   %76 = load i64, ptr @H5E_SYSTEM_g, align 8
-  %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1899, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.44) #6
+  %77 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1899, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.44) #6
   br label %85
 
 78:                                               ; preds = %71
@@ -619,8 +619,8 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
 
 38:                                               ; preds = %26, %30
   %39 = load i32, ptr %1, align 8
-  %.not25 = icmp eq i32 %39, 1
-  br i1 %.not25, label %47, label %40
+  %.not.i = icmp eq i32 %39, 1
+  br i1 %.not.i, label %47, label %40
 
 40:                                               ; preds = %38
   %41 = load i64, ptr @H5E_CACHE_g, align 8
@@ -2176,127 +2176,125 @@ define range(i32 -1, 1) i32 @H5AC_reset_cache_hit_rate_stats(ptr noundef %0) loc
 declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %8, label %4
+  br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8
-  %6 = icmp ne i32 %5, 1
-  %7 = icmp eq ptr %1, null
-  %or.cond = or i1 %7, %6
-  br i1 %or.cond, label %8, label %12
+  %.not = icmp eq i32 %5, 1
+  br i1 %.not, label %10, label %6
 
-8:                                                ; preds = %2, %4
-  %9 = load i64, ptr @H5E_CACHE_g, align 8
-  %10 = load i64, ptr @H5E_SYSTEM_g, align 8
-  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC__ext_config_2_int_config, i32 noundef 2035, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.69) #6
-  br label %87
+6:                                                ; preds = %2, %4
+  %7 = load i64, ptr @H5E_CACHE_g, align 8
+  %8 = load i64, ptr @H5E_SYSTEM_g, align 8
+  %9 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC__ext_config_2_int_config, i32 noundef 2035, i64 noundef %7, i64 noundef %8, ptr noundef nonnull @.str.69) #6
+  br label %85
 
-12:                                               ; preds = %4
+10:                                               ; preds = %4
   store i32 1, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = load i8, ptr %13, align 4
-  %15 = trunc i8 %14 to i1
-  %spec.select = select i1 %15, ptr @H5C_def_auto_resize_rpt_fcn, ptr null
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %spec.select, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 1033
-  %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = and i8 %18, 1
-  store i8 %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 1040
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1048
-  %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
-  store double %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1056
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1064
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
-  store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 1072
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
-  store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 1080
-  %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 1088
-  %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 72
-  store double %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 1096
-  %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 80
-  store double %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 1104
-  %46 = load i8, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 88
-  %48 = and i8 %46, 1
-  store i8 %48, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 1112
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 96
-  store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 1120
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 104
-  store i32 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 1128
-  %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 112
-  store double %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 1136
-  %59 = load double, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 120
-  store double %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 1144
-  %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 128
-  store i32 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 1152
-  %65 = load double, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 136
-  store double %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 1160
-  %68 = load double, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 144
-  store double %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 1168
-  %71 = load i8, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 152
-  %73 = and i8 %71, 1
-  store i8 %73, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 1176
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 160
-  store i64 %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 1184
-  %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 1188
-  %81 = load i8, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %1, i64 172
-  %83 = and i8 %81, 1
-  store i8 %83, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %0, i64 1192
-  %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 176
-  store double %85, ptr %86, align 8
-  br label %87
+  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = load i8, ptr %11, align 4
+  %13 = trunc i8 %12 to i1
+  %spec.select = select i1 %13, ptr @H5C_def_auto_resize_rpt_fcn, ptr null
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %spec.select, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 1033
+  %16 = load i8, ptr %15, align 1
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = and i8 %16, 1
+  store i8 %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 1040
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 1048
+  %23 = load double, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  store double %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 1056
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  store i64 %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 1064
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 48
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 1072
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  store i64 %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 1080
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 1088
+  %38 = load double, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 72
+  store double %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 1096
+  %41 = load double, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 80
+  store double %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 1104
+  %44 = load i8, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 88
+  %46 = and i8 %44, 1
+  store i8 %46, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 1112
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 96
+  store i64 %48, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 1120
+  %51 = load i32, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 104
+  store i32 %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 1128
+  %54 = load double, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 112
+  store double %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 1136
+  %57 = load double, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %1, i64 120
+  store double %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 1144
+  %60 = load i32, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %1, i64 128
+  store i32 %60, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 1152
+  %63 = load double, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 136
+  store double %63, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 1160
+  %66 = load double, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 144
+  store double %66, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 1168
+  %69 = load i8, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %1, i64 152
+  %71 = and i8 %69, 1
+  store i8 %71, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 1176
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %1, i64 160
+  store i64 %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 1184
+  %76 = load i32, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 %76, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 1188
+  %79 = load i8, ptr %78, align 4
+  %80 = getelementptr inbounds i8, ptr %1, i64 172
+  %81 = and i8 %79, 1
+  store i8 %81, ptr %80, align 4
+  %82 = getelementptr inbounds i8, ptr %0, i64 1192
+  %83 = load double, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %1, i64 176
+  store double %83, ptr %84, align 8
+  br label %85
 
-87:                                               ; preds = %12, %8
-  %.0 = phi i32 [ -1, %8 ], [ 0, %12 ]
+85:                                               ; preds = %10, %6
+  %.0 = phi i32 [ -1, %6 ], [ 0, %10 ]
   ret i32 %.0
 }
 

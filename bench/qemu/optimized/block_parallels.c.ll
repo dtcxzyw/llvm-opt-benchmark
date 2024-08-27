@@ -302,7 +302,7 @@ if.then93:                                        ; preds = %if.end88
 
 if.end94:                                         ; preds = %if.then93, %if.end88
   %call95 = call fastcc zeroext i1 @parallels_test_data_off(ptr noundef nonnull %0, i64 noundef %call7, ptr noundef nonnull %data_start)
-  %.not = select i1 %cmp91, i1 %call95, i1 false
+  %.not = and i1 %cmp91, %call95
   %23 = load i32, ptr %data_start, align 4
   %conv100 = zext i32 %23 to i64
   %data_start101 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1478,7 +1478,7 @@ declare i64 @bdrv_opt_mem_align(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef %file_nb_sectors, ptr noundef writeonly %correct_offset) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef %file_nb_sectors, ptr nocapture noundef writeonly %correct_offset) unnamed_addr #4 {
 entry:
   %header = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %header, align 8
@@ -1507,37 +1507,27 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %min_off.0.in = phi i64 [ %div14, %entry ], [ %and, %if.then ]
   %min_off.0 = trunc i64 %min_off.0.in to i32
-  %tobool14.not = icmp eq ptr %correct_offset, null
-  br i1 %tobool14.not, label %if.end16, label %if.then15
-
-if.then15:                                        ; preds = %if.end
   store i32 %min_off.0, ptr %correct_offset, align 4
-  %.pre = load ptr, ptr %header, align 8
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.then15, %if.end
-  %4 = phi ptr [ %.pre, %if.then15 ], [ %0, %if.end ]
+  %4 = load ptr, ptr %header, align 8
   %data_off18 = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load i32, ptr %data_off18, align 1
   %6 = or i32 %5, %bcmp
   %brmerge.not = icmp eq i32 %6, 0
   br i1 %brmerge.not, label %return, label %if.end24
 
-if.end24:                                         ; preds = %if.end16
+if.end24:                                         ; preds = %if.end
   %cmp25 = icmp ult i32 %5, %min_off.0
   %conv27 = zext i32 %5 to i64
   %cmp28 = icmp slt i64 %file_nb_sectors, %conv27
   %or.cond = or i1 %cmp25, %cmp28
-  %brmerge15 = or i1 %tobool14.not, %or.cond
-  %not.or.cond = xor i1 %or.cond, true
-  br i1 %brmerge15, label %return, label %if.then33
+  br i1 %or.cond, label %return, label %if.then33
 
 if.then33:                                        ; preds = %if.end24
   store i32 %5, ptr %correct_offset, align 4
   br label %return
 
-return:                                           ; preds = %if.end24, %if.then33, %if.end16
-  %retval.0 = phi i1 [ true, %if.end16 ], [ %not.or.cond, %if.end24 ], [ true, %if.then33 ]
+return:                                           ; preds = %if.end24, %if.end, %if.then33
+  %retval.0 = phi i1 [ true, %if.then33 ], [ true, %if.end ], [ false, %if.end24 ]
   ret i1 %retval.0
 }
 

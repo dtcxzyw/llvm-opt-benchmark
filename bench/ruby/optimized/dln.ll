@@ -53,8 +53,8 @@ define dso_local noundef ptr @dln_load(ptr noundef %0) local_unnamed_addr #0 {
 abi_check_enabled_p.exit:                         ; preds = %8
   %11 = getelementptr i8, ptr %6, i64 1
   %12 = load i8, ptr %11, align 1
-  %.not9 = icmp eq i8 %12, 0
-  br i1 %.not9, label %13, label %abi_check_enabled_p.exit.thread
+  %.not8 = icmp eq i8 %12, 0
+  br i1 %.not8, label %13, label %abi_check_enabled_p.exit.thread
 
 abi_check_enabled_p.exit.thread:                  ; preds = %8, %5, %abi_check_enabled_p.exit
   tail call void (ptr, ...) @rb_loaderror(ptr noundef nonnull @.str.1, ptr noundef %0) #9

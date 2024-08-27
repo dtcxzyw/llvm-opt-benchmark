@@ -1659,10 +1659,10 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit39:         ; preds = %21
   store i32 %25, ptr %23, align 4
   %26 = getelementptr inbounds i8, ptr %23, i64 8
   tail call void @_ZdlPv(ptr noundef nonnull %20) #23
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
-  %.pre242.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8
   %.phi.trans.insert243.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
   %.pre244.pre = load ptr, ptr %.phi.trans.insert243.phi.trans.insert, align 8
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.pre242.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8
   store ptr %23, ptr %3, align 8
   store ptr %26, ptr %18, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 8

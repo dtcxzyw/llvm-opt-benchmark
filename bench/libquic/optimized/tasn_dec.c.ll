@@ -1885,31 +1885,20 @@ entry:
   %0 = load ptr, ptr %in, align 8
   store ptr %0, ptr %p, align 8
   %1 = and i8 %inf, 1
-  %tobool = icmp ne ptr %buf, null
-  %tobool2 = icmp ne i8 %1, 0
-  %or.cond = or i1 %tobool, %tobool2
-  br i1 %or.cond, label %while.cond.preheader, label %if.then
+  %tobool2.not = icmp eq i8 %1, 0
+  %cmp39 = icmp sgt i64 %len, 0
+  br i1 %cmp39, label %while.body.lr.ph, label %while.end
 
-while.cond.preheader:                             ; preds = %entry
-  %cmp40 = icmp sgt i64 %len, 0
-  br i1 %cmp40, label %while.body.lr.ph, label %while.end
-
-while.body.lr.ph:                                 ; preds = %while.cond.preheader
+while.body.lr.ph:                                 ; preds = %entry
   %cmp16 = icmp sgt i32 %depth, 4
   %add = add nuw nsw i32 %depth, 1
-  %tobool.not.i16 = icmp eq ptr %buf, null
   %data.i = getelementptr inbounds i8, ptr %buf, i64 8
   br label %while.body
 
-if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %len
-  store ptr %add.ptr, ptr %in, align 8
-  br label %return
-
 while.body:                                       ; preds = %while.body.lr.ph, %if.end30
   %2 = phi ptr [ %0, %while.body.lr.ph ], [ %10, %if.end30 ]
-  %len.addr.041 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end30 ]
-  %cmp.i = icmp eq i64 %len.addr.041, 1
+  %len.addr.040 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end30 ]
+  %cmp.i = icmp eq i64 %len.addr.040, 1
   br i1 %cmp.i, label %if.end9, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -1925,7 +1914,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then5:                                         ; preds = %land.lhs.true.i
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 2
-  br i1 %tobool2, label %if.end33, label %if.then7
+  br i1 %tobool2.not, label %if.then7, label %if.end33
 
 if.then7:                                         ; preds = %if.then5
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 180, ptr noundef nonnull @.str, i32 noundef 1069) #7
@@ -1937,7 +1926,7 @@ if.end9:                                          ; preds = %while.body, %land.l
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %plen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr %2, ptr %p.i, align 8
-  %call38.i = call i32 @ASN1_get_object(ptr noundef nonnull %p.i, ptr noundef nonnull %plen.i, ptr noundef nonnull %ptag.i, ptr noundef nonnull %pclass.i, i64 noundef %len.addr.041) #7
+  %call38.i = call i32 @ASN1_get_object(ptr noundef nonnull %p.i, ptr noundef nonnull %plen.i, ptr noundef nonnull %ptag.i, ptr noundef nonnull %pclass.i, i64 noundef %len.addr.040) #7
   %and2640.i = and i32 %call38.i, 128
   %tobool27.not41.i = icmp eq i32 %and2640.i, 0
   br i1 %tobool27.not41.i, label %if.end33.i, label %if.then12
@@ -1951,7 +1940,7 @@ if.then57.i:                                      ; preds = %if.end33.i
   %5 = load ptr, ptr %p.i, align 8
   %sub.ptr.lhs.cast58.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast59.i = ptrtoint ptr %2 to i64
-  %sub.ptr.sub60.neg.i = add i64 %len.addr.041, %sub.ptr.rhs.cast59.i
+  %sub.ptr.sub60.neg.i = add i64 %len.addr.040, %sub.ptr.rhs.cast59.i
   %sub.i = sub i64 %sub.ptr.sub60.neg.i, %sub.ptr.lhs.cast58.i
   br label %if.end13
 
@@ -1978,8 +1967,8 @@ if.end13:                                         ; preds = %if.end13thread-pre-
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pclass.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %plen.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %conv70.i35 = and i32 %call38.i, 32
-  %tobool14.not = icmp eq i32 %conv70.i35, 0
+  %conv70.i34 = and i32 %call38.i, 32
+  %tobool14.not = icmp eq i32 %conv70.i34, 0
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
@@ -1995,7 +1984,7 @@ if.end19:                                         ; preds = %if.then15
   br i1 %tobool21.not, label %return, label %if.end19.if.end30_crit_edge
 
 if.end19.if.end30_crit_edge:                      ; preds = %if.end19
-  %.pre47 = load ptr, ptr %p, align 8
+  %.pre46 = load ptr, ptr %p, align 8
   br label %if.end30
 
 if.else:                                          ; preds = %if.end13
@@ -2003,45 +1992,38 @@ if.else:                                          ; preds = %if.end13
   br i1 %tobool24.not, label %if.end30, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %if.else
-  br i1 %tobool.not.i16, label %collect_data.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true25
   %8 = load i64, ptr %buf, align 8
   %sext.i = shl i64 %8, 32
   %conv1.i = ashr exact i64 %sext.i, 32
   %add.i = add nsw i64 %conv1.i, %7
   %call.i = call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %buf, i64 noundef %add.i) #7
-  %tobool2.not.i17 = icmp eq i64 %call.i, 0
-  br i1 %tobool2.not.i17, label %collect_data.exit.thread, label %if.end.i18
+  %tobool2.not.i16 = icmp eq i64 %call.i, 0
+  br i1 %tobool2.not.i16, label %collect_data.exit.thread, label %collect_data.exit
 
-collect_data.exit.thread:                         ; preds = %if.then.i
+collect_data.exit.thread:                         ; preds = %land.lhs.true25
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1108) #7
   br label %return
 
-if.end.i18:                                       ; preds = %if.then.i
+collect_data.exit:                                ; preds = %land.lhs.true25
   %9 = load ptr, ptr %data.i, align 8
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %9, i64 %conv1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i19, ptr align 1 %6, i64 %7, i1 false)
-  br label %collect_data.exit
-
-collect_data.exit:                                ; preds = %land.lhs.true25, %if.end.i18
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %9, i64 %conv1.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i18, ptr align 1 %6, i64 %7, i1 false)
   %add.ptr5.i = getelementptr inbounds i8, ptr %6, i64 %7
   store ptr %add.ptr5.i, ptr %p, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end19.if.end30_crit_edge, %collect_data.exit, %if.else
-  %10 = phi ptr [ %.pre47, %if.end19.if.end30_crit_edge ], [ %add.ptr5.i, %collect_data.exit ], [ %6, %if.else ]
+  %10 = phi ptr [ %.pre46, %if.end19.if.end30_crit_edge ], [ %add.ptr5.i, %collect_data.exit ], [ %6, %if.else ]
   %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.neg = add i64 %len.addr.041, %sub.ptr.rhs.cast
+  %sub.ptr.sub.neg = add i64 %len.addr.040, %sub.ptr.rhs.cast
   %sub = sub i64 %sub.ptr.sub.neg, %sub.ptr.lhs.cast
   %cmp = icmp sgt i64 %sub, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !15
 
-while.end:                                        ; preds = %if.end30, %while.cond.preheader
-  %11 = phi ptr [ %0, %while.cond.preheader ], [ %10, %if.end30 ]
-  %tobool31.not = icmp eq i8 %1, 0
-  br i1 %tobool31.not, label %if.end33, label %if.then32
+while.end:                                        ; preds = %if.end30, %entry
+  %11 = phi ptr [ %0, %entry ], [ %10, %if.end30 ]
+  br i1 %tobool2.not, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %while.end
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 153, ptr noundef nonnull @.str, i32 noundef 1095) #7
@@ -2052,8 +2034,8 @@ if.end33:                                         ; preds = %if.then5, %while.en
   store ptr %12, ptr %in, align 8
   br label %return
 
-return:                                           ; preds = %if.end19, %collect_data.exit.thread, %if.end33, %if.then32, %if.then18, %if.then12, %if.then7, %if.then
-  %retval.0 = phi i32 [ 0, %if.then32 ], [ 1, %if.end33 ], [ 0, %if.then7 ], [ 0, %if.then18 ], [ 0, %if.then12 ], [ 1, %if.then ], [ 0, %collect_data.exit.thread ], [ 0, %if.end19 ]
+return:                                           ; preds = %if.end19, %collect_data.exit.thread, %if.end33, %if.then32, %if.then18, %if.then12, %if.then7
+  %retval.0 = phi i32 [ 0, %if.then32 ], [ 1, %if.end33 ], [ 0, %if.then7 ], [ 0, %if.then18 ], [ 0, %if.then12 ], [ 0, %collect_data.exit.thread ], [ 0, %if.end19 ]
   ret i32 %retval.0
 }
 

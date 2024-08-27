@@ -26644,7 +26644,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @guess_byte_ordering(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, -2147483647) i32 @guess_byte_ordering(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 10332
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %6 [

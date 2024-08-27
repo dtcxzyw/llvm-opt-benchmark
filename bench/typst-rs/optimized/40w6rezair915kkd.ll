@@ -17813,7 +17813,7 @@ define hidden noundef zeroext i1 @_ZN20unicode_segmentation4word16has_alphanumer
   %.021.i.i.i.i.i = select i1 %57, i64 %50, i64 %.02026.i.i.i.i.i
   %58 = add nuw nsw i64 %50, 1
   %.022.i.i.i.i.i = select i1 %.not2.i.i.i.i.i.i, i64 %.01927.i.i.i.i.i, i64 %58
-  %59 = sub i64 %.021.i.i.i.i.i, %.022.i.i.i.i.i
+  %59 = sub nsw i64 %.021.i.i.i.i.i, %.022.i.i.i.i.i
   %60 = icmp ult i64 %.022.i.i.i.i.i, %.021.i.i.i.i.i
   br i1 %60, label %.preheader.i.i.i.i, label %_ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.i.i.i
 
@@ -17859,7 +17859,7 @@ _ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.th
   %.021.i.i10.i.i.i = select i1 %73, i64 %66, i64 %.02026.i.i5.i.i.i
   %74 = add nuw nsw i64 %66, 1
   %.022.i.i11.i.i.i = select i1 %.not2.i.i.i9.i.i.i, i64 %.01927.i.i4.i.i.i, i64 %74
-  %75 = sub i64 %.021.i.i10.i.i.i, %.022.i.i11.i.i.i
+  %75 = sub nsw i64 %.021.i.i10.i.i.i, %.022.i.i11.i.i.i
   %76 = icmp ult i64 %.022.i.i11.i.i.i, %.021.i.i10.i.i.i
   br i1 %76, label %.preheader.i2.i.i.i, label %._crit_edge.i.i12.i.i.i
 

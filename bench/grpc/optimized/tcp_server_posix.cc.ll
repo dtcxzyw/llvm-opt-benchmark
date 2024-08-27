@@ -1477,9 +1477,9 @@ ehcleanup68.i:                                    ; preds = %ehcleanup65.i, %lpa
 if.end69.i:                                       ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit213.i, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit77.i
   %154 = load i64, ptr %listener.i, align 8, !noalias !13
   %cmp.i.i.i = icmp eq i64 %154, 0
-  br i1 %cmp.i.i.i, label %invoke.cont77.i, label %delete.end.i
+  br i1 %cmp.i.i.i, label %invoke.cont77.i, label %delete.notnull.i
 
-delete.end.i:                                     ; preds = %if.end69.i
+delete.notnull.i:                                 ; preds = %if.end69.i
   call void @_ZN15grpc_tcp_serverD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %call) #26, !noalias !13
   call void @_ZdlPv(ptr noundef nonnull %call) #29, !noalias !13
   store ptr null, ptr %server, align 8, !noalias !13
@@ -1489,7 +1489,7 @@ delete.end.i:                                     ; preds = %if.end69.i
   %cmp.i.i.i.i76 = icmp eq i64 %and.i.i.i.i, 0
   br i1 %cmp.i.i.i.i76, label %cleanup.i, label %if.then.i.i.i77
 
-if.then.i.i.i77:                                  ; preds = %delete.end.i
+if.then.i.i.i77:                                  ; preds = %delete.notnull.i
   %sub.i.i.i.i = add nsw i64 %155, -1
   %156 = inttoptr i64 %sub.i.i.i.i to ptr
   %157 = atomicrmw add ptr %156, i32 1 monotonic, align 4, !noalias !13
@@ -1520,8 +1520,8 @@ cleanupthread-pre-split.i:                        ; preds = %_ZNSt10unique_ptrIN
   %.pr.i = load i64, ptr %listener.i, align 8, !noalias !13
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %cleanupthread-pre-split.i, %delete.end.i
-  %162 = phi i64 [ %.pr.i, %cleanupthread-pre-split.i ], [ %155, %delete.end.i ]
+cleanup.i:                                        ; preds = %cleanupthread-pre-split.i, %delete.notnull.i
+  %162 = phi i64 [ %.pr.i, %cleanupthread-pre-split.i ], [ %155, %delete.notnull.i ]
   %cmp.i.i.i.i233.i = icmp eq i64 %162, 0
   br i1 %cmp.i.i.i.i233.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i239.i, label %if.else.i.i234.i
 

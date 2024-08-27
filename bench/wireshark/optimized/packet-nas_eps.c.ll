@@ -7548,7 +7548,7 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
   %44 = load ptr, ptr %43, align 8
   call void @col_append_sep_str(ptr noundef %44, i32 noundef 25, ptr noundef null, ptr noundef nonnull %36) #10
   %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #10
-  %46 = add i32 %.0, 1
+  %46 = add nuw nsw i32 %.0, 1
   %47 = and i64 %40, 2305843009213693951
   %48 = shl nuw i64 1, %47
   %49 = and i64 %48, 4295262496

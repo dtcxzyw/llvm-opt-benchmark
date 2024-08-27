@@ -2414,7 +2414,7 @@ define hidden noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u
   %38 = invoke noundef i32 @"_ZN62_$LT$flate2..Compression$u20$as$u20$core..default..Default$GT$7default17h8828ac7c56747830E"()
           to label %41 unwind label %39
 
-39:                                               ; preds = %.noexc36, %.noexc35, %41, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit", %37
+39:                                               ; preds = %.noexc34, %.noexc33, %41, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit", %37
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2422,18 +2422,18 @@ define hidden noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u
 41:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !310
   invoke void @_ZN6flate22gz9GzBuilder3new17heafe99cd064804d7E(ptr noalias nocapture noundef nonnull sret({ { ptr, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, i32, { i8, i8 }, [2 x i8] }) align 8 dereferenceable(64) %4)
-          to label %.noexc35 unwind label %39
+          to label %.noexc33 unwind label %39
 
-.noexc35:                                         ; preds = %41
+.noexc33:                                         ; preds = %41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !314
   invoke void @_ZN6flate22gz9GzBuilder11into_header17h865b190e97747390E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %38)
-          to label %.noexc36 unwind label %39
+          to label %.noexc34 unwind label %39
 
-.noexc36:                                         ; preds = %.noexc35
+.noexc34:                                         ; preds = %.noexc33
   invoke void @_ZN6flate22gz5write10gz_encoder17hfcfc11fb01c7c39fE.llvm.14504113750506346165(ptr noalias nocapture noundef nonnull sret({ { { { i32, i32 }, i64 }, i32, [1 x i32] }, { { { ptr, i64, i64 } }, { { ptr, i64 }, i64 }, ptr }, { { ptr, i64 }, i64 }, i64 }) align 8 dereferenceable(112) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %38)
           to label %42 unwind label %39
 
-42:                                               ; preds = %.noexc36
+42:                                               ; preds = %.noexc34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !314
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !310
   %43 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
@@ -2597,7 +2597,7 @@ define hidden noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u
   %30 = invoke noundef i32 @"_ZN62_$LT$flate2..Compression$u20$as$u20$core..default..Default$GT$7default17h8828ac7c56747830E"()
           to label %33 unwind label %31
 
-31:                                               ; preds = %.noexc36, %.noexc35, %33, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit", %29
+31:                                               ; preds = %.noexc34, %.noexc33, %33, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit", %29
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2605,18 +2605,18 @@ define hidden noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !329
   invoke void @_ZN6flate22gz9GzBuilder3new17heafe99cd064804d7E(ptr noalias nocapture noundef nonnull sret({ { ptr, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, i32, { i8, i8 }, [2 x i8] }) align 8 dereferenceable(64) %4)
-          to label %.noexc35 unwind label %31
+          to label %.noexc33 unwind label %31
 
-.noexc35:                                         ; preds = %33
+.noexc33:                                         ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !333
   invoke void @_ZN6flate22gz9GzBuilder11into_header17h865b190e97747390E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %30)
-          to label %.noexc36 unwind label %31
+          to label %.noexc34 unwind label %31
 
-.noexc36:                                         ; preds = %.noexc35
+.noexc34:                                         ; preds = %.noexc33
   invoke void @_ZN6flate22gz5write10gz_encoder17hfcfc11fb01c7c39fE.llvm.14504113750506346165(ptr noalias nocapture noundef nonnull sret({ { { { i32, i32 }, i64 }, i32, [1 x i32] }, { { { ptr, i64, i64 } }, { { ptr, i64 }, i64 }, ptr }, { { ptr, i64 }, i64 }, i64 }) align 8 dereferenceable(112) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %30)
           to label %34 unwind label %31
 
-34:                                               ; preds = %.noexc36
+34:                                               ; preds = %.noexc34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !333
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !329
   %35 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
@@ -28550,24 +28550,24 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
 .thread:                                          ; preds = %2, %85
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread54.thread
+  br label %.thread52.thread
 
-.thread57:                                        ; preds = %24, %39, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit"
+.thread55:                                        ; preds = %24, %39, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread44
+  br label %.thread42
 
 23:                                               ; preds = %59, %63
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread54.thread
+  br label %.thread52.thread
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !5
   invoke void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$13copy_to_bytes17hfccf0b4540a8157dE"(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26)
-          to label %27 unwind label %.thread57
+          to label %27 unwind label %.thread55
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %6, i64 8
@@ -28581,7 +28581,7 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc98db53282842706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #56
-          to label %.thread44 unwind label %83
+          to label %.thread42 unwind label %83
 
 35:                                               ; preds = %27
   %36 = icmp eq ptr %32, null
@@ -28599,7 +28599,7 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
   %42 = load ptr, ptr %41, align 8, !noalias !3608, !nonnull !5, !noundef !5
   %43 = getelementptr inbounds i8, ptr %6, i64 24
   invoke void %42(ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %29, i64 noundef %31)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc98db53282842706E.exit" unwind label %.thread57
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc98db53282842706E.exit" unwind label %.thread55
 
 "_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit": ; preds = %37
   call void @llvm.experimental.noalias.scope.decl(metadata !3609)
@@ -28611,7 +28611,7 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
   %48 = load ptr, ptr %28, align 8, !alias.scope !3615, !noundef !5
   %49 = load i64, ptr %30, align 8, !alias.scope !3615, !noundef !5
   invoke void %46(ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %48, i64 noundef %49)
-          to label %85 unwind label %.thread57
+          to label %85 unwind label %.thread55
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc98db53282842706E.exit": ; preds = %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -28624,7 +28624,7 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
   %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr129drop_in_place$LT$flate2..gz..write..GzDecoder$LT$bytes..buf..writer..Writer$LT$$RF$mut$u20$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17hf76a0180b6e73e45E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5) #56
-          to label %.thread54.thread unwind label %60
+          to label %.thread52.thread unwind label %60
 
 53:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc98db53282842706E.exit"
   %54 = icmp eq ptr %50, null
@@ -28666,7 +28666,7 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
 
 63:                                               ; preds = %62
   %64 = invoke noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17h270e40d6c2e99897E"(ptr noundef nonnull %.sroa.3.0.i, ptr noalias noundef nonnull readonly align 1 @anon.4b22e441b9d3f133a95fc3384b4bae56.153, i64 noundef 25)
-          to label %.thread71 unwind label %23
+          to label %.thread62 unwind label %23
 
 65:                                               ; preds = %62
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
@@ -28713,18 +28713,18 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %82
 
-82:                                               ; preds = %.thread71, %"_ZN14kafka_protocol7records18RecordBatchDecoder16decode_new_batch28_$u7b$$u7b$closure$u7d$$u7d$17hd1e93acef112faf3E.exit"
-  %.1 = phi ptr [ %.073, %.thread71 ], [ %71, %"_ZN14kafka_protocol7records18RecordBatchDecoder16decode_new_batch28_$u7b$$u7b$closure$u7d$$u7d$17hd1e93acef112faf3E.exit" ]
+82:                                               ; preds = %.thread62, %"_ZN14kafka_protocol7records18RecordBatchDecoder16decode_new_batch28_$u7b$$u7b$closure$u7d$$u7d$17hd1e93acef112faf3E.exit"
+  %.1 = phi ptr [ %.064, %.thread62 ], [ %71, %"_ZN14kafka_protocol7records18RecordBatchDecoder16decode_new_batch28_$u7b$$u7b$closure$u7d$$u7d$17hd1e93acef112faf3E.exit" ]
   ret ptr %.1
 
-83:                                               ; preds = %.thread54.thread, %.thread44, %72, %33
+83:                                               ; preds = %.thread52.thread, %.thread42, %72, %33
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #58
   unreachable
 
-.thread71:                                        ; preds = %63, %85
-  %.073 = phi ptr [ %38, %85 ], [ %64, %63 ]
+.thread62:                                        ; preds = %63, %85
+  %.064 = phi ptr [ %38, %85 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7)
   call void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd201adc395a5a501E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -28733,20 +28733,20 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
 85:                                               ; preds = %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17h93ac4e08362970a5E.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   invoke void @"_ZN4core3ptr129drop_in_place$LT$flate2..gz..write..GzDecoder$LT$bytes..buf..writer..Writer$LT$$RF$mut$u20$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17hf76a0180b6e73e45E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %7)
-          to label %.thread71 unwind label %.thread
+          to label %.thread62 unwind label %.thread
 
-.thread44:                                        ; preds = %33, %.thread57
-  %.pn49 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread57 ], [ %34, %33 ]
+.thread42:                                        ; preds = %33, %.thread55
+  %.pn47 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread55 ], [ %34, %33 ]
   invoke void @"_ZN4core3ptr129drop_in_place$LT$flate2..gz..write..GzDecoder$LT$bytes..buf..writer..Writer$LT$$RF$mut$u20$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17hf76a0180b6e73e45E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %7) #56
-          to label %.thread54.thread unwind label %83
+          to label %.thread52.thread unwind label %83
 
-.thread54.thread:                                 ; preds = %51, %23, %.thread44, %.thread
-  %.pn2643 = phi { ptr, i32 } [ %22, %.thread ], [ %52, %51 ], [ %lpad.thr_comm.split-lp, %23 ], [ %.pn49, %.thread44 ]
+.thread52.thread:                                 ; preds = %51, %23, %.thread42, %.thread
+  %.pn2641 = phi { ptr, i32 } [ %22, %.thread ], [ %52, %51 ], [ %lpad.thr_comm.split-lp, %23 ], [ %.pn47, %.thread42 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h3b08365425f52345E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #56
           to label %86 unwind label %83
 
-86:                                               ; preds = %72, %.thread54.thread
-  %.pn28 = phi { ptr, i32 } [ %.pn2643, %.thread54.thread ], [ %73, %72 ]
+86:                                               ; preds = %72, %.thread52.thread
+  %.pn28 = phi { ptr, i32 } [ %.pn2641, %.thread52.thread ], [ %73, %72 ]
   resume { ptr, i32 } %.pn28
 }
 

@@ -168,10 +168,10 @@ define internal i32 @dissect_ippusb(ptr noundef %0, ptr noundef %1, ptr noundef 
   %23 = tail call nonnull ptr @conversation_new(i32 noundef %10, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 2, i32 noundef %20, i32 noundef %22, i32 noundef 0) #5
   br label %24
 
-24:                                               ; preds = %16, %15, %11
-  %.07.i = phi ptr [ %8, %15 ], [ %8, %11 ], [ %23, %16 ]
+24:                                               ; preds = %11, %15, %16
+  %.0230 = phi ptr [ %8, %15 ], [ %8, %11 ], [ %23, %16 ]
   %25 = load i32, ptr @proto_ippusb, align 4
-  %26 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.07.i, i32 noundef %25) #5
+  %26 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0230, i32 noundef %25) #5
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %27, label %get_ippusb_conversation_data.exit
 
@@ -182,7 +182,7 @@ define internal i32 @dissect_ippusb(ptr noundef %0, ptr noundef %1, ptr noundef 
   %31 = tail call noalias ptr @wmem_tree_new(ptr noundef %30) #5
   store ptr %31, ptr %29, align 8
   %32 = load i32, ptr @proto_ippusb, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %.07.i, i32 noundef %32, ptr noundef nonnull %29) #5
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %.0230, i32 noundef %32, ptr noundef nonnull %29) #5
   br label %get_ippusb_conversation_data.exit
 
 get_ippusb_conversation_data.exit:                ; preds = %24, %27

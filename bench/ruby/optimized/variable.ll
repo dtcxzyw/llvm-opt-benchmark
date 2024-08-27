@@ -4704,16 +4704,16 @@ rb_obj_write.exit.i:                              ; preds = %58, %RTYPEDDATA_GET
   br label %autoload_feature_lookup_or_create.exit
 
 autoload_feature_lookup_or_create.exit:           ; preds = %rb_obj_write.exit.i, %64
-  %.034 = phi ptr [ %53, %rb_obj_write.exit.i ], [ %65, %64 ]
-  %.0.i32 = phi i64 [ %45, %rb_obj_write.exit.i ], [ %42, %64 ]
+  %.033 = phi ptr [ %53, %rb_obj_write.exit.i ], [ %65, %64 ]
+  %.0.i31 = phi i64 [ %45, %rb_obj_write.exit.i ], [ %42, %64 ]
   %66 = call i64 @rb_data_typed_object_zalloc(i64 noundef 0, i64 noundef 72, ptr noundef nonnull @autoload_const_type) #24
   %67 = inttoptr i64 %66 to ptr
   %68 = getelementptr inbounds i8, ptr %67, i64 24
   %69 = load i64, ptr %68, align 8
   %70 = and i64 %69, 2
-  %.not.i33 = icmp eq i64 %70, 0
+  %.not.i32 = icmp eq i64 %70, 0
   %71 = getelementptr i8, ptr %67, i64 32
-  br i1 %.not.i33, label %72, label %RTYPEDDATA_GET_DATA.exit
+  br i1 %.not.i32, label %72, label %RTYPEDDATA_GET_DATA.exit
 
 72:                                               ; preds = %autoload_feature_lookup_or_create.exit
   %73 = load ptr, ptr %71, align 8
@@ -4732,10 +4732,10 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %autoload_feature_lo
   %80 = getelementptr inbounds i8, ptr %74, i64 48
   store i32 0, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %74, i64 16
-  store i64 %.0.i32, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %.034, i64 24
+  store i64 %.0.i31, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %.033, i64 24
   store ptr %82, ptr %74, align 8
-  %83 = getelementptr inbounds i8, ptr %.034, i64 32
+  %83 = getelementptr inbounds i8, ptr %.033, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %84, ptr %85, align 8

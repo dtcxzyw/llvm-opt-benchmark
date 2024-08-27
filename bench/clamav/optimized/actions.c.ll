@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [71 x i8] c"traverse_rename: Failed to open file descriptor for source directory!\0A\00", align 1
 @.str.12 = private unnamed_addr constant [70 x i8] c"traverse_rename: Failed to get basename of source path:%s\0A\09Error: %d\0A\00", align 1
 @.str.13 = private unnamed_addr constant [56 x i8] c"traverse_rename: Failed to rename: %s\0A\09to: %s\0AError:%s\0A\00", align 1
-@.str.14 = private unnamed_addr constant [33 x i8] c"traverse_to: Invalid arguments!\0A\00", align 1
 @.str.15 = private unnamed_addr constant [68 x i8] c"traverse_to: Failed to get copy of directory path to be tokenized!\0A\00", align 1
 @.str.16 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @.str.17 = private unnamed_addr constant [62 x i8] c"traverse_to: tokenize of target directory returned 0 tokens!\0A\00", align 1
@@ -159,11 +158,11 @@ traverse_rename.exit.thread:                      ; preds = %9
   br i1 %.not.i, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.11) #11
+  %15 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.11) #11
   br label %30
 
 16:                                               ; preds = %12
-  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %18 = call i32 @cli_basename(ptr noundef nonnull %0, i64 noundef %17, ptr noundef nonnull %3) #11
   %.not17.i = icmp eq i32 %18, 0
   br i1 %.not17.i, label %21, label %19
@@ -424,11 +423,11 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_unlink(ptr noundef %0) unn
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22) #11
+  %6 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22) #11
   br label %21
 
 7:                                                ; preds = %1
-  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %9 = call i32 @cli_basename(ptr noundef %0, i64 noundef %8, ptr noundef nonnull %3) #11
   %.not12 = icmp eq i32 %9, 0
   br i1 %.not12, label %12, label %10
@@ -501,100 +500,92 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca [2048 x ptr], align 16
-  %4 = icmp eq ptr %1, null
-  br i1 %4, label %5, label %7
+  %4 = tail call noalias ptr @strdup(ptr noundef %0) #11
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %.thread.thread55, label %7
 
-5:                                                ; preds = %2
-  %6 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.14) #11
-  br label %.thread.thread
+.thread.thread55:                                 ; preds = %2
+  %6 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.15) #11
+  br label %39
 
 7:                                                ; preds = %2
-  %8 = tail call noalias ptr @strdup(ptr noundef %0) #11
-  %9 = icmp eq ptr %8, null
+  %8 = call i64 @cli_strtokenize(ptr noundef nonnull %4, i8 noundef signext 47, i64 noundef 2048, ptr noundef nonnull %3) #11
+  %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.15) #11
+  %11 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.17) #11
   br label %.thread.thread
 
 12:                                               ; preds = %7
-  %13 = call i64 @cli_strtokenize(ptr noundef nonnull %8, i8 noundef signext 47, i64 noundef 2048, ptr noundef nonnull %3) #11
-  %14 = icmp eq i64 %13, 0
+  %13 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.16, i32 noundef 131072) #11
+  %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.17) #11
-  br label %.thread.thread54
-
-17:                                               ; preds = %12
-  %18 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.16, i32 noundef 131072) #11
-  %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18) #11
-  br label %.thread.thread54
-
-22:                                               ; preds = %17
-  %23 = add i64 %13, -1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %.thread, label %.preheader
-
-.thread:                                          ; preds = %22
-  %25 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.15) #11
-  br label %42
-
-.preheader:                                       ; preds = %22, %36
-  %.163 = phi i32 [ %.2, %36 ], [ %18, %22 ]
-  %.03262 = phi i64 [ %37, %36 ], [ 0, %22 ]
-  %26 = getelementptr inbounds [2048 x ptr], ptr %3, i64 0, i64 %.03262
-  %27 = load ptr, ptr %26, align 8
-  %char0 = load i8, ptr %27, align 1
-  %28 = icmp eq i8 %char0, 0
-  br i1 %28, label %36, label %29
-
-29:                                               ; preds = %.preheader
-  %30 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.163, ptr noundef nonnull %27, i32 noundef 131072) #11
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %39, label %32
-
-32:                                               ; preds = %29
-  %33 = call i32 @close(i32 noundef %.163) #11
-  %34 = load ptr, ptr %26, align 8
-  %35 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %34) #11
-  br label %36
-
-36:                                               ; preds = %.preheader, %32
-  %.2 = phi i32 [ %.163, %.preheader ], [ %30, %32 ]
-  %37 = add nuw i64 %.03262, 1
-  %exitcond.not = icmp eq i64 %37, %23
-  br i1 %exitcond.not, label %38, label %.preheader
-
-38:                                               ; preds = %36
-  store i32 %.2, ptr %1, align 4
-  br label %.thread.thread54
-
-39:                                               ; preds = %29
-  %40 = load ptr, ptr %26, align 8
-  %41 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %40) #11
-  %.not60 = icmp eq i32 %.163, -1
-  br i1 %.not60, label %.thread.thread54, label %42
-
-42:                                               ; preds = %.thread, %39
-  %.068 = phi i32 [ %18, %.thread ], [ %.163, %39 ]
-  %43 = call i32 @close(i32 noundef %.068) #11
-  br label %.thread.thread54
-
-.thread.thread54:                                 ; preds = %39, %42, %38, %15, %20
-  %.0344759 = phi i32 [ -1, %20 ], [ -1, %15 ], [ -1, %42 ], [ -1, %39 ], [ 0, %38 ]
-  call void @free(ptr noundef nonnull %8) #11
+  %16 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18) #11
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %5, %10, %.thread.thread54
-  %.0344752 = phi i32 [ %.0344759, %.thread.thread54 ], [ -1, %10 ], [ -1, %5 ]
-  ret i32 %.0344752
+17:                                               ; preds = %12
+  %18 = add i64 %8, -1
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.thread, label %.preheader
+
+.thread:                                          ; preds = %17
+  %20 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.15) #11
+  br label %37
+
+.preheader:                                       ; preds = %17, %31
+  %.162 = phi i32 [ %.2, %31 ], [ %13, %17 ]
+  %.03261 = phi i64 [ %32, %31 ], [ 0, %17 ]
+  %21 = getelementptr inbounds [2048 x ptr], ptr %3, i64 0, i64 %.03261
+  %22 = load ptr, ptr %21, align 8
+  %char0 = load i8, ptr %22, align 1
+  %23 = icmp eq i8 %char0, 0
+  br i1 %23, label %31, label %24
+
+24:                                               ; preds = %.preheader
+  %25 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.162, ptr noundef nonnull %22, i32 noundef 131072) #11
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %34, label %27
+
+27:                                               ; preds = %24
+  %28 = call i32 @close(i32 noundef %.162) #11
+  %29 = load ptr, ptr %21, align 8
+  %30 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %29) #11
+  br label %31
+
+31:                                               ; preds = %.preheader, %27
+  %.2 = phi i32 [ %.162, %.preheader ], [ %25, %27 ]
+  %32 = add nuw i64 %.03261, 1
+  %exitcond.not = icmp eq i64 %32, %18
+  br i1 %exitcond.not, label %33, label %.preheader
+
+33:                                               ; preds = %31
+  store i32 %.2, ptr %1, align 4
+  br label %.thread.thread
+
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %21, align 8
+  %36 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %35) #11
+  %.not59 = icmp eq i32 %.162, -1
+  br i1 %.not59, label %.thread.thread, label %37
+
+37:                                               ; preds = %.thread, %34
+  %.067 = phi i32 [ %13, %.thread ], [ %.162, %34 ]
+  %38 = call i32 @close(i32 noundef %.067) #11
+  br label %.thread.thread
+
+.thread.thread:                                   ; preds = %34, %37, %33, %10, %15
+  %.0344753 = phi i32 [ -1, %15 ], [ -1, %10 ], [ -1, %37 ], [ -1, %34 ], [ 0, %33 ]
+  call void @free(ptr noundef nonnull %4) #11
+  br label %39
+
+39:                                               ; preds = %.thread.thread55, %.thread.thread
+  %.0344754 = phi i32 [ %.0344753, %.thread.thread ], [ -1, %.thread.thread55 ]
+  ret i32 %.0344754
 }
 
 declare i32 @cli_basename(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
