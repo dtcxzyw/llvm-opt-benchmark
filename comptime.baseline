@@ -4916,7 +4916,7 @@ cpython/_weakref.ll 99728147
 cpython/_xxinterpchannelsmodule.ll 1120011933
 cpython/_xxinterpqueuesmodule.ll 469866673
 cpython/_xxsubinterpretersmodule.ll 271829884
-cpython/_xxtestfuzz.ll 38798944
+cpython/_xxtestfuzz.ll 38837747
 cpython/_zoneinfo.ll 1128265388
 cpython/abstract.ll 1237097796
 cpython/action_helpers.ll 811399034
@@ -20931,7 +20931,7 @@ openjdk/Ushort565Rgb.ll 950068996
 openjdk/UshortGray.ll 705239899
 openjdk/UshortIndexed.ll 950390746
 openjdk/Utilities.ll 44283823
-openjdk/VM.ll 37443207
+openjdk/VM.ll 37480830
 openjdk/VMManagementImpl.ll 86007523
 openjdk/VMSupport.ll 35589909
 openjdk/VM_md.ll 37310189
@@ -36250,7 +36250,7 @@ wireshark/sharkd.c.ll 182137214
 wireshark/sharkd_daemon.c.ll 81487740
 wireshark/sharkd_session.c.ll 1888354920
 wireshark/show_packet_bytes_dialog.cpp.ll 1535081071
-wireshark/simple_dialog.c.ll 38190195
+wireshark/simple_dialog.c.ll 38228551
 wireshark/simple_dialog.cpp.ll 1125413077
 wireshark/simple_statistics_dialog.cpp.ll 1087016274
 wireshark/snoop.c.ll 153848764
