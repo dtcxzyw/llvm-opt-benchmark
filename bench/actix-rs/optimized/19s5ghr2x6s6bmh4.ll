@@ -3775,7 +3775,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit636
   br label %560
 
 568:                                              ; preds = %195
-  %569 = load ptr, ptr %133, align 8, !nonnull !4, !noundef !4
+  %569 = load ptr, ptr %133, align 8, !noundef !4
   %570 = load i32, ptr %569, align 1, !alias.scope !485, !noalias !490
   %571 = icmp eq i32 %570, 758132785
   %..0438 = select i1 %571, i1 true, i1 %.04381122
