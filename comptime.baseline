@@ -33390,7 +33390,7 @@ vcpkg/commands.add-version.cpp.ll 2857223334
 vcpkg/commands.add.cpp.ll 2414215618
 vcpkg/commands.autocomplete.cpp.ll 2066215348
 vcpkg/commands.bootstrap-standalone.cpp.ll 197394300
-vcpkg/commands.build-external.cpp.ll 415315165
+vcpkg/commands.build-external.cpp.ll 415730585
 vcpkg/commands.build.cpp.ll 8061720114
 vcpkg/commands.check-support.cpp.ll 2405667652
 vcpkg/commands.ci-clean.cpp.ll 962983772
@@ -36779,7 +36779,7 @@ yosys/iopadmap.ll 8303324799
 yosys/jny.ll 1927949353
 yosys/json.ll 469002700
 yosys/json11.ll 1853734870
-yosys/jsonparse.ll 3866469704
+yosys/jsonparse.ll 3870337269
 yosys/lattice_gsr.ll 2078713049
 yosys/liberty.ll 4526818474
 yosys/libparse.ll 487067655
