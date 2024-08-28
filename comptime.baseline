@@ -3991,7 +3991,7 @@ coreutils-rs/1rvo68el0puz8ruh.ll 110820673
 coreutils-rs/1si88ckqec3ipkyo.ll 91442647
 coreutils-rs/1sk0tcojx9tvolbs.ll 237467927
 coreutils-rs/1szl1qzxl9ewlwdb.ll 226474774
-coreutils-rs/1txa66hcuyy467ak.ll 57214179
+coreutils-rs/1txa66hcuyy467ak.ll 57271402
 coreutils-rs/1ui3yxdetdbghtw.ll 135560270
 coreutils-rs/1ule2h3a0hqz383r.ll 263544020
 coreutils-rs/1um4j9buokth39rd.ll 2092278129
@@ -16103,7 +16103,7 @@ minetest/translation.cpp.ll 416074453
 minetest/treegen.cpp.ll 1486772873
 minetest/unit_sao.cpp.ll 839635216
 minetest/voxel.cpp.ll 262934566
-minetest/voxelalgorithms.cpp.ll 1698234078
+minetest/voxelalgorithms.cpp.ll 1699932431
 minetest/wieldmesh.cpp.ll 1610833762
 mini-lsm-rs/1fz4nd3pxmha003h.ll 2544120602
 mini-lsm-rs/1l7z10o45uoy15bk.ll 942978054
