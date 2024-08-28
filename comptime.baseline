@@ -16887,7 +16887,7 @@ nix/local-store.ll 10711528085
 nix/lock.ll 2935425676
 nix/lockfile.ll 12945600683
 nix/log-store.ll 125232866
-nix/log.ll 3680850268
+nix/log.ll 3684531183
 nix/loggers.ll 2042193976
 nix/lru-cache.ll 1593118647
 nix/ls.ll 5003136964
@@ -20739,7 +20739,7 @@ openjdk/EncodingSupport_md.ll 66038375
 openjdk/ErrorHandling.ll 197591724
 openjdk/EventFD.ll 37717883
 openjdk/EventRequestImpl.ll 97906580
-openjdk/Executable.ll 35469062
+openjdk/Executable.ll 35504630
 openjdk/Executor.ll 105645146
 openjdk/Field.ll 34514751
 openjdk/FileDescriptor_md.ll 44869469
