@@ -11875,7 +11875,7 @@ libquic/hpack_input_stream.cc.ll 127512911
 libquic/hpack_output_stream.cc.ll 70282098
 libquic/hpack_static_table.cc.ll 537209263
 libquic/hybrid_slow_start.cc.ll 67994700
-libquic/icu_utf.cc.ll 72461565
+libquic/icu_utf.cc.ll 72534049
 libquic/infback.c.ll 466225032
 libquic/inflate.c.ll 1033342670
 libquic/inftrees.c.ll 136577290
@@ -19459,7 +19459,7 @@ opencv/face_detect.cpp.ll 394679430
 opencv/face_detection_mtcnn.cpp.ll 11545044660
 opencv/face_recognize.cpp.ll 499205566
 opencv/facedetect.cpp.ll 346129286
-opencv/facemark.cpp.ll 775639276
+opencv/facemark.cpp.ll 776414999
 opencv/facemarkAAM.cpp.ll 5800069578
 opencv/facemarkLBF.cpp.ll 3980583586
 opencv/facemark_demo_aam.cpp.ll 880310920
