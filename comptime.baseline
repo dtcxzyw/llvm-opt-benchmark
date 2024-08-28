@@ -3849,7 +3849,7 @@ coreutils-rs/10pfxidp22umbsz5.ll 264369673
 coreutils-rs/10sdelxcwav6tcy.ll 111214132
 coreutils-rs/10w4sgrrvnzii9mc.ll 441865684
 coreutils-rs/116h42tp70w1ozaw.ll 182554196
-coreutils-rs/116xljx6yb512hlm.ll 91170551
+coreutils-rs/116xljx6yb512hlm.ll 91262053
 coreutils-rs/117trshqha4cn8w1.ll 357709480
 coreutils-rs/11fdr7kbbvsdssj2.ll 910424209
 coreutils-rs/11gym17ubzaiuw01.ll 139168391
@@ -22305,7 +22305,7 @@ openjdk/vmIntrinsics.ll 998747933
 openjdk/vmOperations.ll 489936170
 openjdk/vmStructs.ll 8577378506
 openjdk/vmStructs_jvmci.ll 6082904883
-openjdk/vmStructs_x.ll 48297445
+openjdk/vmStructs_x.ll 48345807
 openjdk/vmStructs_z.ll 48298442
 openjdk/vmSymbols.ll 164121382
 openjdk/vmThread.ll 872907730
