@@ -11681,7 +11681,7 @@ libphonenumber/unicodestring_test.cc.ll 1335590095
 libphonenumber/unicodetext.cc.ll 340353053
 libphonenumber/unicodetext_test.cc.ll 174282123
 libpng/filter_sse2_intrinsics.c.ll 129245657
-libpng/intel_init.c.ll 37132283
+libpng/intel_init.c.ll 37169563
 libpng/png.c.ll 1147344288
 libpng/pngerror.c.ll 277079162
 libpng/pngget.c.ll 294484569
