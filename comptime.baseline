@@ -14852,7 +14852,7 @@ linux/xz_dec_lzma2.ll 403649440
 linux/xz_dec_stream.ll 209524711
 linux/yenta_socket.ll 494381766
 linux/zhaoxin.ll 59387479
-linux/zstd_common.ll 51066784
+linux/zstd_common.ll 51015715
 linux/zstd_decompress.ll 637582361
 linux/zstd_decompress_block.ll 2837996514
 llama.cpp/common.cpp.ll 8332816634
@@ -25109,7 +25109,7 @@ openssl/libcrypto-shlib-der_writer.ll 117941685
 openssl/libcrypto-shlib-des_enc.ll 1340213352
 openssl/libcrypto-shlib-deterministic_nonce.ll 82867259
 openssl/libcrypto-shlib-dh_ameth.ll 150582087
-openssl/libcrypto-shlib-dh_asn1.ll 63490318
+openssl/libcrypto-shlib-dh_asn1.ll 63426818
 openssl/libcrypto-shlib-dh_backend.ll 82948145
 openssl/libcrypto-shlib-dh_check.ll 115454620
 openssl/libcrypto-shlib-dh_ctrl.ll 106127793
