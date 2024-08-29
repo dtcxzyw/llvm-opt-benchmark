@@ -8979,7 +8979,7 @@ gromacs/rstparser.cpp.ll 165032832
 gromacs/runner.cpp.ll 4663756367
 gromacs/runnercommon.cpp.ll 545579140
 gromacs/sasa.cpp.ll 1490645917
-gromacs/sasum.cpp.ll 60250120
+gromacs/sasum.cpp.ll 60189855
 gromacs/saxpy.cpp.ll 62986429
 gromacs/sbdsdc.cpp.ll 165182017
 gromacs/sbdsqr.cpp.ll 390125007
@@ -18701,7 +18701,7 @@ openblas/dsymm_thread_LL.c.ll 223582137
 openblas/dsymm_thread_LU.c.ll 223574877
 openblas/dsymm_thread_RL.c.ll 223680842
 openblas/dsymm_thread_RU.c.ll 223686117
-openblas/dsymv_U.c.ll 83204171
+openblas/dsymv_U.c.ll 83120795
 openblas/dsymv_thread_L.c.ll 67127226
 openblas/dsymv_thread_U.c.ll 66051898
 openblas/dsyr2_thread_L.c.ll 67638407
@@ -27049,7 +27049,7 @@ postgres/interval.ll 437015605
 postgres/inv_api.ll 250287766
 postgres/inval.ll 294434712
 postgres/ip.ll 75456781
-postgres/ip_shlib.ll 75553287
+postgres/ip_shlib.ll 75477528
 postgres/ip_srv.ll 75534018
 postgres/ipc.ll 70795433
 postgres/ipci.ll 64732537
