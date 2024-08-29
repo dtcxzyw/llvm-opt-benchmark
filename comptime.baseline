@@ -7752,7 +7752,7 @@ git/tr2_sysenv.ll 58785932
 git/tr2_tgt_event.ll 149726719
 git/tr2_tgt_normal.ll 132007473
 git/tr2_tgt_perf.ll 197161532
-git/tr2_tls.ll 82279280
+git/tr2_tls.ll 82196979
 git/trace.ll 191244531
 git/trace2.ll 365513173
 git/trailer.ll 865387362
