@@ -2154,7 +2154,7 @@ _ZNSt12_Vector_baseISt6vectorItSaItEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z17prepareOutputFilePKc(ptr noundef %basename) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_Z17prepareOutputFilePKc(ptr noundef %basename) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::IcuToolErrorCode", align 8
   %outFileName = alloca %"class.icu_75::CharString", align 8
@@ -2516,11 +2516,11 @@ invoke.cont75:                                    ; preds = %if.else9.i, %if.the
   %fLength.i = getelementptr inbounds i8, ptr %canonicalCompositionTrie, i64 12
   %15 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i30, i32 %15, i32 %shr.i.i
-  invoke void @usrc_writeArray(ptr noundef %call, ptr noundef nonnull @.str.44, ptr noundef %retval.0.i, i32 noundef 16, i32 noundef %cond.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call, ptr noundef nonnull @.str.44, ptr noundef %retval.0.i, i32 noundef 16, i32 noundef %cond.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %invoke.cont77 unwind label %lpad66
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  %call79 = call i32 @fclose(ptr noundef %call)
+  %call79 = call i32 @fclose(ptr noundef nonnull %call)
   invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull @.str.43)
           to label %_ZN6icu_7512LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit unwind label %lpad66
 
@@ -2589,10 +2589,10 @@ define dso_local void @_Z24writeDecompositionTablesPKcPKtmPKjm(ptr noundef %base
 entry:
   %call = tail call noundef ptr @_Z17prepareOutputFilePKc(ptr noundef %basename)
   %conv = trunc i64 %len16 to i32
-  tail call void @usrc_writeArray(ptr noundef %call, ptr noundef nonnull @.str.47, ptr noundef %ptr16, i32 noundef 16, i32 noundef %conv, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  tail call void @usrc_writeArray(ptr noundef nonnull %call, ptr noundef nonnull @.str.47, ptr noundef %ptr16, i32 noundef 16, i32 noundef %conv, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
   %conv1 = trunc i64 %len32 to i32
-  tail call void @usrc_writeArray(ptr noundef %call, ptr noundef nonnull @.str.48, ptr noundef %ptr32, i32 noundef 32, i32 noundef %conv1, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
-  %call2 = tail call i32 @fclose(ptr noundef %call)
+  tail call void @usrc_writeArray(ptr noundef nonnull %call, ptr noundef nonnull @.str.48, ptr noundef %ptr32, i32 noundef 32, i32 noundef %conv1, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  %call2 = tail call i32 @fclose(ptr noundef nonnull %call)
   ret void
 }
 
@@ -2840,18 +2840,18 @@ invoke.cont100:                                   ; preds = %if.end99
           to label %invoke.cont101 unwind label %lpad42
 
 invoke.cont101:                                   ; preds = %invoke.cont100
-  %call104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.50, i32 noundef %flags.0)
+  %call104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.50, i32 noundef %flags.0)
   %conv105 = zext i16 %passthroughCap to i32
-  %call107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef %conv105)
+  %call107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.51, i32 noundef %conv105)
   br label %if.end108
 
 if.end108:                                        ; preds = %invoke.cont101, %invoke.cont43
-  %12 = call i64 @fwrite(ptr nonnull @.str.52, i64 7, i64 1, ptr %call)
-  invoke void @usrc_writeUCPTrie(ptr noundef %call, ptr noundef nonnull @.str.53, ptr noundef %call40, i32 noundef 1)
+  %12 = call i64 @fwrite(ptr nonnull @.str.52, i64 7, i64 1, ptr nonnull %call)
+  invoke void @usrc_writeUCPTrie(ptr noundef nonnull %call, ptr noundef nonnull @.str.53, ptr noundef %call40, i32 noundef 1)
           to label %invoke.cont113 unwind label %lpad42
 
 invoke.cont113:                                   ; preds = %if.end108
-  %call115 = call i32 @fclose(ptr noundef %call)
+  %call115 = call i32 @fclose(ptr noundef nonnull %call)
   invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
           to label %invoke.cont116 unwind label %lpad42
 
@@ -5287,12 +5287,12 @@ invoke.cont100:                                   ; preds = %invoke.cont98
           to label %invoke.cont103 unwind label %lpad.loopexit
 
 invoke.cont103:                                   ; preds = %invoke.cont100
-  %call106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call99, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %uvbuf)
+  %call106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call99, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %uvbuf)
   %cmp107 = icmp slt i32 %call88, 75
   br i1 %cmp107, label %if.then108, label %if.else110
 
 if.then108:                                       ; preds = %invoke.cont103
-  invoke void @_Z18dumpBinaryProperty9UPropertyP8_IO_FILE(i32 noundef %call88, ptr noundef %call99)
+  invoke void @_Z18dumpBinaryProperty9UPropertyP8_IO_FILE(i32 noundef %call88, ptr noundef nonnull %call99)
           to label %if.end139 unwind label %lpad.loopexit
 
 if.else110:                                       ; preds = %invoke.cont103
@@ -5301,7 +5301,7 @@ if.else110:                                       ; preds = %invoke.cont103
   br i1 %or.cond8, label %if.then114, label %if.else116
 
 if.then114:                                       ; preds = %if.else110
-  invoke void @_Z22dumpEnumeratedProperty9UPropertyP8_IO_FILE(i32 noundef %call88, ptr noundef %call99)
+  invoke void @_Z22dumpEnumeratedProperty9UPropertyP8_IO_FILE(i32 noundef %call88, ptr noundef nonnull %call99)
           to label %if.end139 unwind label %lpad.loopexit
 
 if.else116:                                       ; preds = %if.else110
@@ -5312,15 +5312,15 @@ if.else116:                                       ; preds = %if.else110
   ]
 
 if.then118:                                       ; preds = %if.else116
-  invoke void @_Z23dumpGeneralCategoryMaskP8_IO_FILE(ptr noundef %call99)
+  invoke void @_Z23dumpGeneralCategoryMaskP8_IO_FILE(ptr noundef nonnull %call99)
           to label %if.end139 unwind label %lpad.loopexit
 
 if.then122:                                       ; preds = %if.else116
-  invoke void @_Z22dumpBidiMirroringGlyphP8_IO_FILE(ptr noundef %call99)
+  invoke void @_Z22dumpBidiMirroringGlyphP8_IO_FILE(ptr noundef nonnull %call99)
           to label %if.end139 unwind label %lpad.loopexit
 
 if.then126:                                       ; preds = %if.else116
-  invoke void @_Z20dumpScriptExtensionsP8_IO_FILE(ptr noundef %call99)
+  invoke void @_Z20dumpScriptExtensionsP8_IO_FILE(ptr noundef nonnull %call99)
           to label %if.end139 unwind label %lpad.loopexit
 
 if.else128:                                       ; preds = %if.else116
@@ -5336,7 +5336,7 @@ invoke.cont131:                                   ; preds = %invoke.cont129
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end139:                                        ; preds = %if.then114, %if.then122, %if.then126, %if.then118, %if.then108
-  %call141 = call i32 @fclose(ptr noundef %call99)
+  %call141 = call i32 @fclose(ptr noundef nonnull %call99)
   %incdec.ptr.i86 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0150, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i86, %propNames.sroa.10.1
   br i1 %cmp.i.not, label %for.end144, label %for.body84
@@ -5351,20 +5351,20 @@ if.then146:                                       ; preds = %for.end144
           to label %for.body158.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.body158.preheader:                            ; preds = %if.then146
-  %22 = call i64 @fwrite(ptr nonnull @.str.73, i64 10, i64 1, ptr %call149)
+  %22 = call i64 @fwrite(ptr nonnull @.str.73, i64 10, i64 1, ptr nonnull %call149)
   br label %for.body158
 
 for.body158:                                      ; preds = %for.body158.preheader, %for.body158
   %__begin2.sroa.0.0152 = phi ptr [ %incdec.ptr.i89, %for.body158 ], [ %propNames.sroa.0.2, %for.body158.preheader ]
   %23 = load ptr, ptr %__begin2.sroa.0.0152, align 8
-  %call162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call149, ptr noundef nonnull @.str.74, ptr noundef %23)
+  %call162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call149, ptr noundef nonnull @.str.74, ptr noundef %23)
   %incdec.ptr.i89 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0152, i64 8
   %cmp.i88.not = icmp eq ptr %incdec.ptr.i89, %propNames.sroa.10.1
   br i1 %cmp.i88.not, label %for.end165, label %for.body158
 
 for.end165:                                       ; preds = %for.body158
-  %24 = call i64 @fwrite(ptr nonnull @.str.5, i64 2, i64 1, ptr %call149)
-  %call169 = call i32 @fclose(ptr noundef %call149)
+  %24 = call i64 @fwrite(ptr nonnull @.str.5, i64 2, i64 1, ptr nonnull %call149)
+  %call169 = call i32 @fclose(ptr noundef nonnull %call149)
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end144, %for.end165, %invoke.cont131, %invoke.cont93, %if.else73, %if.then60, %if.then50
@@ -5454,27 +5454,27 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont26 unwind label %lpad19
 
 invoke.cont26:                                    ; preds = %invoke.cont23
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call22, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %uvbuf)
-  %3 = call i64 @fwrite(ptr nonnull @.str.78, i64 24, i64 1, ptr %call22)
-  invoke void @usrc_writeUCPTrie(ptr noundef %call22, ptr noundef nonnull @.str.79, ptr noundef %call17, i32 noundef 1)
+  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call22, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %uvbuf)
+  %3 = call i64 @fwrite(ptr nonnull @.str.78, i64 24, i64 1, ptr nonnull %call22)
+  invoke void @usrc_writeUCPTrie(ptr noundef nonnull %call22, ptr noundef nonnull @.str.79, ptr noundef %call17, i32 noundef 1)
           to label %invoke.cont34 unwind label %lpad19
 
 invoke.cont34:                                    ; preds = %invoke.cont26
-  %fputc = call i32 @fputc(i32 10, ptr %call22)
-  %4 = call i64 @fwrite(ptr nonnull @.str.80, i64 19, i64 1, ptr %call22)
+  %fputc = call i32 @fputc(i32 10, ptr nonnull %call22)
+  %4 = call i64 @fwrite(ptr nonnull @.str.80, i64 19, i64 1, ptr nonnull %call22)
   %exceptions = getelementptr inbounds i8, ptr %call8, i64 16
   %5 = load ptr, ptr %exceptions, align 8
   %6 = load i32, ptr %exceptionsLength, align 4
-  invoke void @usrc_writeArray(ptr noundef %call22, ptr noundef nonnull @.str.81, ptr noundef %5, i32 noundef 16, i32 noundef %6, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call22, ptr noundef nonnull @.str.81, ptr noundef %5, i32 noundef 16, i32 noundef %6, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %invoke.cont39 unwind label %lpad19
 
 invoke.cont39:                                    ; preds = %invoke.cont34
-  %fputc13 = call i32 @fputc(i32 10, ptr %call22)
-  %7 = call i64 @fwrite(ptr nonnull @.str.82, i64 15, i64 1, ptr %call22)
+  %fputc13 = call i32 @fputc(i32 10, ptr nonnull %call22)
+  %7 = call i64 @fwrite(ptr nonnull @.str.82, i64 15, i64 1, ptr nonnull %call22)
   %unfold = getelementptr inbounds i8, ptr %call8, i64 24
   %8 = load ptr, ptr %unfold, align 8
   %9 = load i32, ptr %unfoldLength, align 4
-  invoke void @usrc_writeArray(ptr noundef %call22, ptr noundef nonnull @.str.83, ptr noundef %8, i32 noundef 16, i32 noundef %9, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call22, ptr noundef nonnull @.str.83, ptr noundef %8, i32 noundef 16, i32 noundef %9, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %invoke.cont44 unwind label %lpad19
 
 invoke.cont44:                                    ; preds = %invoke.cont39
@@ -5807,15 +5807,15 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %call.i.noexc unwind label %lpad45
 
 call.i.noexc:                                     ; preds = %invoke.cont80
-  invoke void @usrc_writeArray(ptr noundef %call.i57, ptr noundef nonnull @.str.47, ptr noundef %20, i32 noundef 16, i32 noundef %conv, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call.i57, ptr noundef nonnull @.str.47, ptr noundef %20, i32 noundef 16, i32 noundef %conv, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %.noexc unwind label %lpad45
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @usrc_writeArray(ptr noundef %call.i57, ptr noundef nonnull @.str.48, ptr noundef %21, i32 noundef 32, i32 noundef %conv14, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call.i57, ptr noundef nonnull @.str.48, ptr noundef %21, i32 noundef 32, i32 noundef %conv14, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %invoke.cont85 unwind label %lpad45
 
 invoke.cont85:                                    ; preds = %.noexc
-  %call2.i = call i32 @fclose(ptr noundef %call.i57)
+  %call2.i = call i32 @fclose(ptr noundef nonnull %call.i57)
   %22 = load ptr, ptr %storage16, align 8
   %23 = load ptr, ptr %storage32, align 8
   %add.ptr90 = getelementptr inbounds i32, ptr %23, i64 %conv72
@@ -5824,16 +5824,16 @@ invoke.cont85:                                    ; preds = %.noexc
 
 call.i.noexc62:                                   ; preds = %invoke.cont85
   %add.ptr = getelementptr inbounds i16, ptr %22, i64 %conv69
-  invoke void @usrc_writeArray(ptr noundef %call.i63, ptr noundef nonnull @.str.47, ptr noundef %add.ptr, i32 noundef 16, i32 noundef %conv70, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call.i63, ptr noundef nonnull @.str.47, ptr noundef %add.ptr, i32 noundef 16, i32 noundef %conv70, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %.noexc64 unwind label %lpad45
 
 .noexc64:                                         ; preds = %call.i.noexc62
   %conv1.i60 = trunc i64 %sub73 to i32
-  invoke void @usrc_writeArray(ptr noundef %call.i63, ptr noundef nonnull @.str.48, ptr noundef %add.ptr90, i32 noundef 32, i32 noundef %conv1.i60, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call.i63, ptr noundef nonnull @.str.48, ptr noundef %add.ptr90, i32 noundef 32, i32 noundef %conv1.i60, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %invoke.cont92 unwind label %lpad45
 
 invoke.cont92:                                    ; preds = %.noexc64
-  %call2.i61 = call i32 @fclose(ptr noundef %call.i63)
+  %call2.i61 = call i32 @fclose(ptr noundef nonnull %call.i63)
   invoke void @uset_close_75(ptr noundef %call4)
           to label %invoke.cont93 unwind label %lpad45
 

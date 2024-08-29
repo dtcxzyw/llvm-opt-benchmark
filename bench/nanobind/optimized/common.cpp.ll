@@ -492,7 +492,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @PyImport_ImportModule(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %8
@@ -519,7 +519,7 @@ define noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %0) local
 declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail20module_new_submoduleEP7_objectPKcS4_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8nanobind6detail20module_new_submoduleEP7_objectPKcS4_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = invoke ptr @PyModule_GetNameObject(ptr noundef %0)
           to label %5 unwind label %40
 
@@ -696,7 +696,7 @@ declare i64 @PyObject_LengthHint(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare void @PyErr_Clear() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_reprEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail8obj_reprEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyObject_Repr(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -729,7 +729,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8obj_compEP7_objectS2_i(ptr nounde
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_op_1EP7_objectPFS2_S2_E(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail8obj_op_1EP7_objectPFS2_S2_E(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = tail call noundef ptr %1(ptr noundef %0)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -743,7 +743,7 @@ define noundef ptr @_ZN8nanobind6detail8obj_op_1EP7_objectPFS2_S2_E(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_op_2EP7_objectS2_PFS2_S2_S2_E(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail8obj_op_2EP7_objectS2_PFS2_S2_S2_E(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = tail call noundef ptr %2(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -757,7 +757,7 @@ define noundef ptr @_ZN8nanobind6detail8obj_op_2EP7_objectS2_PFS2_S2_S2_E(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = and i64 %2, 9223372036854775807
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %7
@@ -914,7 +914,7 @@ _ZL26_PyObject_VectorcallTstateP3_tsP7_objectPKS2_mS2_.exit: ; preds = %_ZL21PyV
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_iterEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail8obj_iterEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyObject_GetIter(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -951,7 +951,7 @@ define noundef ptr @_ZN8nanobind6detail13obj_iter_nextEP7_object(ptr noundef %0)
 declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail7getattrEP7_objectPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @PyObject_GetAttrString(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -967,7 +967,7 @@ define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKc(ptr noundef %0, ptr
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail7getattrEP7_objectS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @PyObject_GetAttr(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -1402,7 +1402,7 @@ define void @_ZN8nanobind6detail7delitemEP7_objectS2_(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail12str_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail12str_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyObject_Str(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1418,7 +1418,7 @@ define noundef ptr @_ZN8nanobind6detail12str_from_objEP7_object(ptr noundef %0) 
 declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyUnicode_FromString(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1432,7 +1432,7 @@ define noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef %0) local
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail22str_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail22str_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef %0, i64 noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -1448,7 +1448,7 @@ define noundef ptr @_ZN8nanobind6detail22str_from_cstr_and_sizeEPKcm(ptr noundef
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14bytes_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail14bytes_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyBytes_FromObject(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1464,7 +1464,7 @@ define noundef ptr @_ZN8nanobind6detail14bytes_from_objEP7_object(ptr noundef %0
 declare ptr @PyBytes_FromObject(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail15bytes_from_cstrEPKc(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail15bytes_from_cstrEPKc(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyBytes_FromString(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1480,7 +1480,7 @@ define noundef ptr @_ZN8nanobind6detail15bytes_from_cstrEPKc(ptr noundef %0) loc
 declare ptr @PyBytes_FromString(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail24bytes_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail24bytes_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %0, i64 noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -1514,7 +1514,7 @@ define noundef nonnull ptr @_ZN8nanobind6detail13bool_from_objEP7_object(ptr nou
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail12int_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail12int_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyNumber_Long(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1530,7 +1530,7 @@ define noundef ptr @_ZN8nanobind6detail12int_from_objEP7_object(ptr noundef %0) 
 declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14float_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail14float_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PyNumber_Float(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1546,7 +1546,7 @@ define noundef ptr @_ZN8nanobind6detail14float_from_objEP7_object(ptr noundef %0
 declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14tuple_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail14tuple_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PySequence_Tuple(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1562,7 +1562,7 @@ define noundef ptr @_ZN8nanobind6detail14tuple_from_objEP7_object(ptr noundef %0
 declare ptr @PySequence_Tuple(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13list_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8nanobind6detail13list_from_objEP7_object(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @PySequence_List(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -1835,7 +1835,7 @@ define internal fastcc void @_ZN8nanobind6detailL21property_install_implEP11_typ
 41:                                               ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.i, %33, %29
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %83
+  br label %78
 
 _ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE.exit.i: ; preds = %34, %37, %25, %21, %5
   %43 = phi ptr [ %32, %34 ], [ %32, %37 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %5 ]
@@ -1875,103 +1875,83 @@ _ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_
 _ZNKR8nanobind6handle7inc_refEv.exit.i:           ; preds = %56, %_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE.exit.i
   store ptr null, ptr %7, align 16, !noalias !12
   %59 = invoke noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %0, ptr noundef nonnull %46, i64 noundef -9223372036854775804, ptr noundef null, i1 noundef zeroext false)
-          to label %60 unwind label %41
+          to label %_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE.exit.i unwind label %41
 
-60:                                               ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.i
+_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE.exit.i: ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   store ptr %1, ptr %10, align 8, !alias.scope !15
-  %61 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr null, ptr %61, align 8, !alias.scope !15
-  %62 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %2, ptr %62, align 8, !alias.scope !15
+  %60 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr null, ptr %60, align 8, !alias.scope !15
+  %61 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %2, ptr %61, align 8, !alias.scope !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   store ptr null, ptr %9, align 8, !noalias !18
-  %.not.i.i49 = icmp eq ptr %59, null
-  br i1 %.not.i.i49, label %63, label %_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE.exit.i
-
-63:                                               ; preds = %60
-  invoke void @_ZN8nanobind6detail16raise_cast_errorEv() #24
-          to label %.noexc51 unwind label %81
-
-.noexc51:                                         ; preds = %63
-  unreachable
-
-_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE.exit.i: ; preds = %60
   store ptr %59, ptr %6, align 8, !alias.scope !18
-  %64 = invoke i32 @PyObject_SetAttrString(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %59)
-          to label %.noexc.i unwind label %72
+  %62 = invoke i32 @PyObject_SetAttrString(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %59)
+          to label %.noexc.i unwind label %.body
 
 .noexc.i:                                         ; preds = %_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE.exit.i
-  %.not.i7.i = icmp eq i32 %64, 0
-  br i1 %.not.i7.i, label %_ZN8nanobind6detail7setattrEP7_objectPKcS2_.exit.i, label %65
+  %.not.i7.i = icmp eq i32 %62, 0
+  br i1 %.not.i7.i, label %_ZN8nanobind6detail7setattrEP7_objectPKcS2_.exit.i, label %63
 
-65:                                               ; preds = %.noexc.i
+63:                                               ; preds = %.noexc.i
   invoke void @_ZN8nanobind6detail18raise_python_errorEv() #24
-          to label %.noexc8.i unwind label %72
+          to label %.noexc8.i unwind label %.body
 
-.noexc8.i:                                        ; preds = %65
+.noexc8.i:                                        ; preds = %63
   unreachable
 
 _ZN8nanobind6detail7setattrEP7_objectPKcS2_.exit.i: ; preds = %.noexc.i
-  %66 = load i64, ptr %59, align 8
-  %67 = add nsw i64 %66, -1
-  store i64 %67, ptr %59, align 8
-  %.not.i.i.i.i.i50 = icmp eq i64 %67, 0
-  br i1 %.not.i.i.i.i.i50, label %68, label %74
+  %64 = load i64, ptr %59, align 8
+  %65 = add nsw i64 %64, -1
+  store i64 %65, ptr %59, align 8
+  %.not.i.i.i.i.i50 = icmp eq i64 %65, 0
+  br i1 %.not.i.i.i.i.i50, label %66, label %70
 
-68:                                               ; preds = %_ZN8nanobind6detail7setattrEP7_objectPKcS2_.exit.i
+66:                                               ; preds = %_ZN8nanobind6detail7setattrEP7_objectPKcS2_.exit.i
   invoke void @_Py_Dealloc(ptr noundef nonnull %59)
-          to label %74 unwind label %69
+          to label %70 unwind label %67
 
-69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+67:                                               ; preds = %66
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #25
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #25
   unreachable
 
-72:                                               ; preds = %65, %_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE.exit.i
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
-  br label %.body
-
-74:                                               ; preds = %_ZN8nanobind6detail7setattrEP7_objectPKcS2_.exit.i, %68
+70:                                               ; preds = %_ZN8nanobind6detail7setattrEP7_objectPKcS2_.exit.i, %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %75 = load i64, ptr %43, align 8
-  %76 = add nsw i64 %75, -1
-  store i64 %76, ptr %43, align 8
-  %.not.i.i.i.i57 = icmp eq i64 %76, 0
-  br i1 %.not.i.i.i.i57, label %77, label %_ZN8nanobind6objectD2Ev.exit58
+  %71 = load i64, ptr %43, align 8
+  %72 = add nsw i64 %71, -1
+  store i64 %72, ptr %43, align 8
+  %.not.i.i.i.i57 = icmp eq i64 %72, 0
+  br i1 %.not.i.i.i.i57, label %73, label %_ZN8nanobind6objectD2Ev.exit58
 
-77:                                               ; preds = %74
+73:                                               ; preds = %70
   invoke void @_Py_Dealloc(ptr noundef nonnull %43)
-          to label %_ZN8nanobind6objectD2Ev.exit58 unwind label %78
+          to label %_ZN8nanobind6objectD2Ev.exit58 unwind label %74
 
-78:                                               ; preds = %77
-  %79 = landingpad { ptr, i32 }
+74:                                               ; preds = %73
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #25
+  %76 = extractvalue { ptr, i32 } %75, 0
+  call void @__clang_call_terminate(ptr %76) #25
   unreachable
 
-_ZN8nanobind6objectD2Ev.exit58:                   ; preds = %74, %77
+_ZN8nanobind6objectD2Ev.exit58:                   ; preds = %70, %73
   ret void
 
-81:                                               ; preds = %63
-  %82 = landingpad { ptr, i32 }
+.body:                                            ; preds = %_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE.exit.i, %63
+  %77 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
-
-.body:                                            ; preds = %72, %81
-  %eh.lpad-body = phi { ptr, i32 } [ %82, %81 ], [ %73, %72 ]
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
-  br label %83
+  br label %78
 
-83:                                               ; preds = %.body, %41
-  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %42, %41 ]
+78:                                               ; preds = %.body, %41
+  %.pn.pn = phi { ptr, i32 } [ %77, %.body ], [ %42, %41 ]
   call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
   resume { ptr, i32 } %.pn.pn
 }

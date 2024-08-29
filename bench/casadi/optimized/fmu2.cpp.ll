@@ -7187,8 +7187,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
   %238 = getelementptr inbounds i8, ptr %0, i64 1264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %238, i8 0, i64 16, i1 false)
   %239 = call noundef ptr @_ZNK6casadi4Fmu211instantiateEv(ptr noundef nonnull align 8 dereferenceable(1376) %0)
-  call void @_ZNK6casadi4Fmu216setup_experimentEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %239)
-  %240 = call noundef i32 @_ZNK6casadi4Fmu210set_valuesEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %239)
+  call void @_ZNK6casadi4Fmu216setup_experimentEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull %239)
+  %240 = call noundef i32 @_ZNK6casadi4Fmu210set_valuesEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull %239)
   %.not = icmp eq i32 %240, 0
   br i1 %.not, label %270, label %241
 
@@ -7306,7 +7306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
   br label %369
 
 270:                                              ; preds = %234
-  %271 = call noundef i32 @_ZNK6casadi4Fmu225enter_initialization_modeEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %239)
+  %271 = call noundef i32 @_ZNK6casadi4Fmu225enter_initialization_modeEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull %239)
   %.not112 = icmp eq i32 %271, 0
   br i1 %.not112, label %301, label %272
 
@@ -7425,7 +7425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
 
 301:                                              ; preds = %270
   %302 = getelementptr inbounds i8, ptr %0, i64 520
-  %303 = call noundef i32 @_ZNK6casadi4Fmu26get_inEPvPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %239, ptr noundef nonnull %302)
+  %303 = call noundef i32 @_ZNK6casadi4Fmu26get_inEPvPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull %239, ptr noundef nonnull %302)
   %.not113 = icmp eq i32 %303, 0
   br i1 %.not113, label %333, label %304
 
@@ -7544,7 +7544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
 
 333:                                              ; preds = %301
   %334 = getelementptr inbounds i8, ptr %0, i64 1280
-  %335 = call noundef i32 @_ZNK6casadi4Fmu27get_auxEPvPNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %239, ptr noundef nonnull %334)
+  %335 = call noundef i32 @_ZNK6casadi4Fmu27get_auxEPvPNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull %239, ptr noundef nonnull %334)
   %.not114 = icmp eq i32 %335, 0
   br i1 %.not114, label %365, label %336
 
@@ -7665,7 +7665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
   %366 = load ptr, ptr %0, align 8
   %367 = getelementptr inbounds i8, ptr %366, i64 64
   %368 = load ptr, ptr %367, align 8
-  call void %368(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %239)
+  call void %368(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull %239)
   ret void
 
 369:                                              ; preds = %363, %364, %331, %332, %299, %300, %268, %269, %.body217, %.body212, %.body207, %.body202, %.body197, %.body192, %.body187, %.body182, %.body177, %.body172, %.body167, %.body162, %.body157, %.body152, %.body147, %.body
@@ -9786,7 +9786,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) #8
 declare void @free(ptr allocptr nocapture noundef) #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6casadi4Fmu211instantiateEv(ptr noundef nonnull align 8 dereferenceable(1376) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK6casadi4Fmu211instantiateEv(ptr noundef nonnull align 8 dereferenceable(1376) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11746,7 +11746,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi4Fmu28init_memEPNS_9FmuMemoryE(pt
 53:                                               ; preds = %2
   %54 = tail call noundef ptr @_ZNK6casadi4Fmu211instantiateEv(ptr noundef nonnull align 8 dereferenceable(1376) %0)
   store ptr %54, ptr %16, align 8
-  tail call void @_ZNK6casadi4Fmu216setup_experimentEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %54)
+  tail call void @_ZNK6casadi4Fmu216setup_experimentEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull %54)
   %55 = load ptr, ptr %16, align 8
   %56 = tail call noundef i32 @_ZNK6casadi4Fmu210set_valuesEPv(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %55)
   %.not = icmp eq i32 %56, 0
@@ -16524,7 +16524,7 @@ declare void @_ZN6casadi11FmuInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6casadi4Fmu211deserializeERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6casadi4Fmu211deserializeERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1376) ptr @_Znwm(i64 noundef 1376) #29
   invoke void @_ZN6casadi4Fmu2C1ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1376) %2, ptr noundef nonnull align 8 dereferenceable(41) %0)
           to label %3 unwind label %7
