@@ -2221,7 +2221,7 @@ bullet3/btTetrahedronShape.ll 109777393
 bullet3/btThreads.ll 78741059
 bullet3/btTriangleBuffer.ll 89560876
 bullet3/btTriangleIndexVertexArray.ll 122342739
-bullet3/btTriangleIndexVertexMaterialArray.ll 112909865
+bullet3/btTriangleIndexVertexMaterialArray.ll 113022865
 bullet3/btTriangleMesh.ll 375055228
 bullet3/btTriangleMeshShape.ll 214543726
 bullet3/btTriangleShapeEx.ll 237493903
@@ -17797,7 +17797,7 @@ nuttx/x86_64_allocateheap.c.ll 35877436
 nuttx/x86_64_copystate.c.ll 38530295
 ocio/ACES.cpp.ll 1576438950
 ocio/AllocationOp.cpp.ll 85330848
-ocio/AllocationTransform.cpp.ll 361167675
+ocio/AllocationTransform.cpp.ll 361528929
 ocio/ArriCameras.cpp.ll 263079008
 ocio/Baker.cpp.ll 531363077
 ocio/BitDepthUtils.cpp.ll 60770181
@@ -32711,7 +32711,7 @@ spike/vmxnor_mm.ll 587576053
 spike/vmxor_mm.ll 585457415
 spike/vnclip_wi.ll 1437923701
 spike/vnclip_wv.ll 1474880396
-spike/vnclip_wx.ll 1482671773
+spike/vnclip_wx.ll 1484154591
 spike/vnclipu_wi.ll 1423206534
 spike/vnclipu_wv.ll 1457466740
 spike/vnclipu_wx.ll 1465773367
@@ -36740,7 +36740,7 @@ yosys/extractinv.ll 1824815925
 yosys/ezminisat.ll 960492450
 yosys/ezsat.ll 4371553678
 yosys/fastlz.ll 399949706
-yosys/ff.ll 4646367928
+yosys/ff.ll 4651014802
 yosys/ffmerge.ll 4440259941
 yosys/filterlib.ll 920675482
 yosys/firrtl.ll 5944095810
