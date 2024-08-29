@@ -3404,7 +3404,7 @@ cmake/cmGlobalNinjaGenerator.cxx.ll 9049559112
 cmake/cmGlobalUnixMakefileGenerator3.cxx.ll 2599692552
 cmake/cmGlobalWatcomWMakeGenerator.cxx.ll 240979234
 cmake/cmGraphVizWriter.cxx.ll 2193879967
-cmake/cmHexFileConverter.cxx.ll 131392094
+cmake/cmHexFileConverter.cxx.ll 131259554
 cmake/cmIfCommand.cxx.ll 807492004
 cmake/cmImportedCxxModuleInfo.cxx.ll 650667347
 cmake/cmIncludeCommand.cxx.ll 359847302
@@ -9116,7 +9116,7 @@ gromacs/sorgl2.cpp.ll 90323409
 gromacs/sorglq.cpp.ll 116342204
 gromacs/sorgqr.cpp.ll 114361874
 gromacs/sorm2l.cpp.ll 64402062
-gromacs/sorm2r.cpp.ll 63916686
+gromacs/sorm2r.cpp.ll 63850928
 gromacs/sormbr.cpp.ll 56123597
 gromacs/sorml2.cpp.ll 62797901
 gromacs/sormlq.cpp.ll 79105996
@@ -18883,7 +18883,7 @@ openblas/lapacke_dspev_work.c.ll 53368666
 openblas/lapacke_dspevd_work.c.ll 56055457
 openblas/lapacke_dspevx_work.c.ll 58880019
 openblas/lapacke_dspgst_work.c.ll 46864648
-openblas/lapacke_dspgv_work.c.ll 56127136
+openblas/lapacke_dspgv_work.c.ll 56070102
 openblas/lapacke_dspgvd_work.c.ll 58898564
 openblas/lapacke_dspgvx_work.c.ll 61693252
 openblas/lapacke_dsprfs_work.c.ll 57835535
@@ -21659,7 +21659,7 @@ openjdk/jfrTraceId.ll 780519151
 openjdk/jfrTraceIdEpoch.ll 58014159
 openjdk/jfrTraceIdKlassQueue.ll 587430049
 openjdk/jfrTraceIdLoadBarrier.ll 76226417
-openjdk/jfrType.ll 648053392
+openjdk/jfrType.ll 647404366
 openjdk/jfrTypeManager.ll 256644902
 openjdk/jfrTypeSet.ll 2331145417
 openjdk/jfrTypeSetUtils.ll 174085639
@@ -34563,7 +34563,7 @@ wasmtime-rs/hxqh9elqnq6j966.ll 38072591
 wasmtime-rs/i5u7vsclgey2ddj.ll 678674849
 wasmtime-rs/ik84o2k0wlq2iqv.ll 87635510
 wasmtime-rs/ikljeakuo7p4s4j.ll 40745943
-wasmtime-rs/j0yk3zmzo17fnmy.ll 36108213
+wasmtime-rs/j0yk3zmzo17fnmy.ll 36071998
 wasmtime-rs/j1ejlm038aqxv7c.ll 43722813
 wasmtime-rs/jcy3ulzaiykp2rl.ll 3271050282
 wasmtime-rs/jd0egfnydpuo3ak.ll 2291484341
@@ -34863,7 +34863,7 @@ wireshark/grammar.c.ll 261307558
 wireshark/gsm_map_summary_dialog.cpp.ll 688389043
 wireshark/hcidump.c.ll 58919676
 wireshark/i4btrace.c.ll 131898866
-wireshark/iana-ip.c.ll 56795169
+wireshark/iana-ip.c.ll 56737979
 wireshark/iana_charsets.c.ll 61725973
 wireshark/iax2_analysis_dialog.cpp.ll 2700636499
 wireshark/idl2wrs.c.ll 1145982157
@@ -36428,7 +36428,7 @@ wolfssl/echoserver.c.ll 138393472
 wolfssl/hash.c.ll 205436948
 wolfssl/hmac.c.ll 231718297
 wolfssl/internal.c.ll 4680698967
-wolfssl/kdf.c.ll 170531676
+wolfssl/kdf.c.ll 170359363
 wolfssl/keys.c.ll 371147925
 wolfssl/md5.c.ll 299571079
 wolfssl/pkcs12.c.ll 597664028
