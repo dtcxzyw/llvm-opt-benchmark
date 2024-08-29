@@ -5263,7 +5263,7 @@ curl/libcurl_la-hash.ll 119361456
 curl/libcurl_la-headers.ll 152443868
 curl/libcurl_la-hmac.ll 61542488
 curl/libcurl_la-hostasyn.ll 42281236
-curl/libcurl_la-hostcheck.ll 57199205
+curl/libcurl_la-hostcheck.ll 57256524
 curl/libcurl_la-hostip.ll 339652651
 curl/libcurl_la-hsts.ll 211295178
 curl/libcurl_la-http.ll 1373428559
