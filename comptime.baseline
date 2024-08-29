@@ -403,7 +403,7 @@ abc/decPrint.c.ll 119454004
 abc/decUtil.c.ll 90595706
 abc/decompress.c.ll 1724036311
 abc/deflate.c.ll 775223684
-abc/disjunctiveMonotone.c.ll 461157023
+abc/disjunctiveMonotone.c.ll 460694903
 abc/dsc.c.ll 574379833
 abc/dsdApi.c.ll 44518169
 abc/dsdCheck.c.ll 129010642
@@ -1525,7 +1525,7 @@ actix-rs/88957z0fweolpgo.ll 42467102
 actix-rs/bcivtj360kt2ve.ll 88140820
 actix-rs/cd3xchev5fp4w96.ll 64501463
 actix-rs/comsm606o4zjj7a.ll 3466291585
-actix-rs/d7z2ueos8qkfuul.ll 5013109535
+actix-rs/d7z2ueos8qkfuul.ll 5008062987
 actix-rs/fm81nl3rle8c979.ll 39719853
 actix-rs/fpsycltpd003ini.ll 87749189
 actix-rs/fy31os0f4h7zty5.ll 84293280
@@ -4177,7 +4177,7 @@ coreutils-rs/2s4uaxez6wfea7ag.ll 34577791
 coreutils-rs/2s8sp82j0653zqjs.ll 38296581
 coreutils-rs/2s9kgpa9iklbo09h.ll 117772220
 coreutils-rs/2squaey4o6wn3vzq.ll 729838454
-coreutils-rs/2t0y7t7n5luzzzcl.ll 809457929
+coreutils-rs/2t0y7t7n5luzzzcl.ll 808645757
 coreutils-rs/2t23cb18cg4b649o.ll 144451731
 coreutils-rs/2t9zoei8ixz2gngq.ll 318870844
 coreutils-rs/2ta8w176qckc5o3u.ll 668412571
@@ -13215,7 +13215,7 @@ linux/e1000_param.ll 158347858
 linux/e820.ll 310528756
 linux/early-lookup.ll 111483295
 linux/early-quirks.ll 154398221
-linux/early.ll 62117657
+linux/early.ll 62179828
 linux/early_ioremap.ll 111374127
 linux/early_printk.ll 140124132
 linux/earlycon.ll 78398041
@@ -15698,7 +15698,7 @@ meshlab/variance_shadow_mapping.cpp.ll 1936257357
 meshlab/variance_shadow_mapping_blur.cpp.ll 1953088941
 meshlab/xmldocumentmanaging.cpp.ll 125692194
 meshoptimizer/clusterizer.cpp.ll 482467008
-meshoptimizer/indexcodec.cpp.ll 370136373
+meshoptimizer/indexcodec.cpp.ll 369766072
 meshoptimizer/indexgenerator.cpp.ll 458122148
 meshoptimizer/overdrawanalyzer.cpp.ll 211099730
 meshoptimizer/overdrawoptimizer.cpp.ll 260024237
@@ -15994,7 +15994,7 @@ minetest/rollback_interface.cpp.ll 442592844
 minetest/s_async.cpp.ll 763372501
 minetest/s_base.cpp.ll 475567037
 minetest/s_client.cpp.ll 297385354
-minetest/s_entity.cpp.ll 355360548
+minetest/s_entity.cpp.ll 355003195
 minetest/s_env.cpp.ll 603644511
 minetest/s_inventory.cpp.ll 180106750
 minetest/s_item.cpp.ll 916819941
@@ -20101,7 +20101,7 @@ opencv/perf_joint_bilateral_filter.cpp.ll 1922772072
 opencv/perf_jpeg.cpp.ll 354743052
 opencv/perf_l0_smooth.cpp.ll 1662015833
 opencv/perf_latch.cpp.ll 54618970
-opencv/perf_layer.cpp.ll 11487792951
+opencv/perf_layer.cpp.ll 11476240648
 opencv/perf_learning_based_color_balance.cpp.ll 1471475439
 opencv/perf_lut.cpp.ll 1077378201
 opencv/perf_main.cpp.ll 151721510
@@ -20949,7 +20949,7 @@ openjdk/XRBackendNative.ll 320683638
 openjdk/XRSurfaceData.ll 46960068
 openjdk/XToolkit.ll 269659155
 openjdk/XWindow.ll 106380887
-openjdk/XlibWrapper.ll 353486183
+openjdk/XlibWrapper.ll 353131482
 openjdk/abstractCompiler.ll 59320320
 openjdk/abstractDisassembler.ll 157768758
 openjdk/abstractInterpreter.ll 350777181
@@ -30181,7 +30181,7 @@ rocksdb/write_batch_with_index_internal.cc.ll 1816020900
 rocksdb/write_buffer_manager.cc.ll 467510103
 rocksdb/write_controller.cc.ll 95958807
 rocksdb/write_prepared_txn.cc.ll 1637793632
-rocksdb/write_prepared_txn_db.cc.ll 4243985827
+rocksdb/write_prepared_txn_db.cc.ll 4239729843
 rocksdb/write_stall_stats.cc.ll 146337055
 rocksdb/write_thread.cc.ll 593946976
 rocksdb/write_unprepared_txn.cc.ll 2861319733
