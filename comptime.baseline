@@ -25512,7 +25512,7 @@ openssl/libdefault-lib-bio_prov.ll 105491648
 openssl/libdefault-lib-blake2_prov.ll 85835677
 openssl/libdefault-lib-blake2b_mac.ll 76108788
 openssl/libdefault-lib-blake2b_prov.ll 1323353612
-openssl/libdefault-lib-blake2s_mac.ll 76104673
+openssl/libdefault-lib-blake2s_mac.ll 76180837
 openssl/libdefault-lib-blake2s_prov.ll 1118159773
 openssl/libdefault-lib-capabilities.ll 68441646
 openssl/libdefault-lib-cipher_aes_cbc_hmac_sha.ll 113916983
