@@ -839,7 +839,7 @@ abc/plaHash.c.ll 452590713
 abc/plaMan.c.ll 463007042
 abc/plaRead.c.ll 271520519
 abc/plaSimple.c.ll 510837500
-abc/plaWrite.c.ll 156453695
+abc/plaWrite.c.ll 156297210
 abc/reoProfile.c.ll 184996245
 abc/reoShuffle.c.ll 101452017
 abc/reoSift.c.ll 192450671
@@ -6879,7 +6879,7 @@ eastl/TestFixedVector.cpp.ll 5584652258
 eastl/TestFunctional.cpp.ll 4023005218
 eastl/TestHash.cpp.ll 14016476457
 eastl/TestHeap.cpp.ll 1096305539
-eastl/TestIntrusiveHash.cpp.ll 1419306001
+eastl/TestIntrusiveHash.cpp.ll 1420725354
 eastl/TestIntrusiveList.cpp.ll 621634045
 eastl/TestIntrusiveSDList.cpp.ll 321749899
 eastl/TestIterator.cpp.ll 2085460038
