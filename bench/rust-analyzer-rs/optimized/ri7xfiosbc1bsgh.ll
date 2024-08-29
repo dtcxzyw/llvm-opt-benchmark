@@ -1524,7 +1524,6 @@ common.resume:                                    ; preds = %135, %"_ZN4core3ptr
 
 180:                                              ; preds = %174
   %181 = getelementptr inbounds i64, ptr %144, i64 %175
-  tail call void @llvm.assume(i1 %169)
   store ptr %144, ptr %10, align 8
   %182 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %181, ptr %182, align 8
@@ -1534,6 +1533,7 @@ common.resume:                                    ; preds = %135, %"_ZN4core3ptr
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h566ce8ce137087e3E.exit" unwind label %.loopexit.split-lp
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h566ce8ce137087e3E.exit": ; preds = %180
+  call void @llvm.assume(i1 %169)
   call void @llvm.assume(i1 %170)
   call void @llvm.experimental.noalias.scope.decl(metadata !335)
   %184 = load i64, ptr %1, align 8, !range !69, !alias.scope !335, !noundef !9

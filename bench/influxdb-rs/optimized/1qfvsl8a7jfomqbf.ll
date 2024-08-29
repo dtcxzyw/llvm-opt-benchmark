@@ -13572,7 +13572,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$arrow_array..array..byte_array..Gen
   %47 = getelementptr inbounds i8, ptr %0, i64 32
   %.val.i.i83.i = load ptr, ptr %47, align 8, !alias.scope !2022, !noalias !2025
   %48 = getelementptr inbounds i8, ptr %0, i64 56
-  %.val7.i.i84.i = load ptr, ptr %48, align 8, !alias.scope !2022, !noalias !2025, !nonnull !4
+  %.val7.i.i84.i = load ptr, ptr %48, align 8, !alias.scope !2022, !noalias !2025
   %49 = getelementptr inbounds i8, ptr %11, i64 8
   %50 = getelementptr inbounds i8, ptr %11, i64 32
   %51 = getelementptr inbounds i8, ptr %11, i64 16
