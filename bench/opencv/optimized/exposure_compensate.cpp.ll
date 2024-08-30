@@ -2015,16 +2015,16 @@ define void @_ZN2cv6detail15GainCompensator10singleFeedERKSt6vectorINS_6Point_Ii
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %124, %.lr.ph.preheader.i.i.i.i
-  %.070.i.i.i.i = phi i64 [ %126, %124 ], [ %107, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.044.069.i.i.i.i = phi ptr [ %125, %124 ], [ %78, %.lr.ph.preheader.i.i.i.i ]
-  %.val1.i.i.i.i.i = load i32, ptr %.sroa.044.069.i.i.i.i, align 8
+  %.071.i.i.i.i = phi i64 [ %126, %124 ], [ %107, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.044.070.i.i.i.i = phi ptr [ %125, %124 ], [ %78, %.lr.ph.preheader.i.i.i.i ]
+  %.val1.i.i.i.i.i = load i32, ptr %.sroa.044.070.i.i.i.i, align 8
   %110 = lshr i32 %.val1.i.i.i.i.i, 3
   %111 = and i32 %110, 511
   %.not55.i.i.i.i = icmp eq i32 %111, %106
   br i1 %.not55.i.i.i.i, label %112, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit"
 
 112:                                              ; preds = %.lr.ph.i.i.i.i
-  %113 = getelementptr inbounds i8, ptr %.sroa.044.069.i.i.i.i, i64 80
+  %113 = getelementptr inbounds i8, ptr %.sroa.044.070.i.i.i.i, i64 80
   %.val1.i22.i.i.i.i = load i32, ptr %113, align 8
   %114 = lshr i32 %.val1.i22.i.i.i.i, 3
   %115 = and i32 %114, 511
@@ -2032,7 +2032,7 @@ define void @_ZN2cv6detail15GainCompensator10singleFeedERKSt6vectorINS_6Point_Ii
   br i1 %.not56.i.i.i.i, label %116, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit"
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %.sroa.044.069.i.i.i.i, i64 160
+  %117 = getelementptr inbounds i8, ptr %.sroa.044.070.i.i.i.i, i64 160
   %.val1.i23.i.i.i.i = load i32, ptr %117, align 8
   %118 = lshr i32 %.val1.i23.i.i.i.i, 3
   %119 = and i32 %118, 511
@@ -2040,7 +2040,7 @@ define void @_ZN2cv6detail15GainCompensator10singleFeedERKSt6vectorINS_6Point_Ii
   br i1 %.not57.i.i.i.i, label %120, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit559"
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %.sroa.044.069.i.i.i.i, i64 240
+  %121 = getelementptr inbounds i8, ptr %.sroa.044.070.i.i.i.i, i64 240
   %.val1.i24.i.i.i.i = load i32, ptr %121, align 8
   %122 = lshr i32 %.val1.i24.i.i.i.i, 3
   %123 = and i32 %122, 511
@@ -2048,20 +2048,20 @@ define void @_ZN2cv6detail15GainCompensator10singleFeedERKSt6vectorINS_6Point_Ii
   br i1 %.not58.i.i.i.i, label %124, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit561"
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %.sroa.044.069.i.i.i.i, i64 320
-  %126 = add nsw i64 %.070.i.i.i.i, -1
-  %127 = icmp sgt i64 %.070.i.i.i.i, 1
+  %125 = getelementptr inbounds i8, ptr %.sroa.044.070.i.i.i.i, i64 320
+  %126 = add nsw i64 %.071.i.i.i.i, -1
+  %127 = icmp sgt i64 %.071.i.i.i.i, 1
   br i1 %127, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !42
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %124
   %.pre.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  %.pre75.i.i.i.i = sub i64 %79, %.pre.i.i.i.i
+  %.pre76.i.i.i.i = sub i64 %79, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %103
-  %.pre-phi76.i.i.i.i = phi i64 [ %.pre75.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %81, %103 ]
+  %.pre-phi77.i.i.i.i = phi i64 [ %.pre76.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %81, %103 ]
   %.sroa.044.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %78, %103 ]
-  %128 = sdiv exact i64 %.pre-phi76.i.i.i.i, 80
+  %128 = sdiv exact i64 %.pre-phi77.i.i.i.i, 80
   switch i64 %128, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.thread" [
     i64 3, label %129
     i64 2, label %134
@@ -2101,19 +2101,19 @@ define void @_ZN2cv6detail15GainCompensator10singleFeedERKSt6vectorINS_6Point_Ii
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit": ; preds = %112
-  %142 = getelementptr inbounds i8, ptr %.sroa.044.069.i.i.i.i, i64 80
+  %142 = getelementptr inbounds i8, ptr %.sroa.044.070.i.i.i.i, i64 80
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit559": ; preds = %116
-  %143 = getelementptr inbounds i8, ptr %.sroa.044.069.i.i.i.i, i64 160
+  %143 = getelementptr inbounds i8, ptr %.sroa.044.070.i.i.i.i, i64 160
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit561": ; preds = %120
-  %144 = getelementptr inbounds i8, ptr %.sroa.044.069.i.i.i.i, i64 240
+  %144 = getelementptr inbounds i8, ptr %.sroa.044.070.i.i.i.i, i64 240
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit559", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit561", %129, %134, %139
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %129 ], [ %.sroa.044.1.i.i.i.i, %134 ], [ %spec.select.i.i.i.i, %139 ], [ %142, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit" ], [ %143, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit559" ], [ %144, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit561" ], [ %.sroa.044.069.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %129 ], [ %.sroa.044.1.i.i.i.i, %134 ], [ %spec.select.i.i.i.i, %139 ], [ %142, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit" ], [ %143, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit559" ], [ %144, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.loopexit.split.loop.exit561" ], [ %.sroa.044.070.i.i.i.i, %.lr.ph.i.i.i.i ]
   %145 = icmp eq ptr %77, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %145, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEEZNS2_6detail15GainCompensator10singleFeedERKS6_INS2_6Point_IiEESaISD_EERKS8_RKS6_ISt4pairIS3_hESaISL_EEE3$_0EbT_SR_T0_.exit.thread", label %146
 

@@ -6247,10 +6247,11 @@ define hidden void @_ZNK8rawspeed10ArwDecoder11ParseA100WBEv(ptr nocapture nound
   %58 = icmp sgt i32 %50, -1
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds i8, ptr %37, i64 8
+  %invariant.op = add nsw i64 %51, -4
   br label %60
 
-60:                                               ; preds = %93, %55
-  %61 = phi i32 [ 0, %55 ], [ %88, %93 ]
+60:                                               ; preds = %92, %55
+  %61 = phi i32 [ 0, %55 ], [ %87, %92 ]
   %62 = icmp eq i32 %50, %61
   br i1 %62, label %.loopexit, label %63
 
@@ -6271,103 +6272,102 @@ define hidden void @_ZNK8rawspeed10ArwDecoder11ParseA100WBEv(ptr nocapture nound
   %71 = getelementptr inbounds i8, ptr %59, i64 %64
   %72 = load i32, ptr %71, align 1
   %73 = zext nneg i32 %69 to i64
-  %74 = add nuw nsw i64 %73, 4
-  %75 = icmp ugt i64 %74, %51
-  br i1 %75, label %76, label %77
+  %74 = icmp ult i64 %invariant.op, %73
+  br i1 %74, label %75, label %76
 
-76:                                               ; preds = %68
+75:                                               ; preds = %68
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.34, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #17
   unreachable
 
-77:                                               ; preds = %68
-  %78 = add nuw nsw i32 %61, 8
-  %79 = icmp ule i32 %78, %50
-  tail call void @llvm.assume(i1 %79)
-  %80 = getelementptr inbounds i8, ptr %59, i64 %73
-  %81 = load i32, ptr %80, align 1
-  %82 = zext nneg i32 %78 to i64
-  %83 = zext i32 %81 to i64
-  %84 = add nuw nsw i64 %83, %82
-  %85 = icmp ugt i64 %84, %51
-  br i1 %85, label %86, label %87
+76:                                               ; preds = %68
+  %77 = add nuw nsw i32 %61, 8
+  %78 = icmp ule i32 %77, %50
+  tail call void @llvm.assume(i1 %78)
+  %79 = getelementptr inbounds i8, ptr %59, i64 %73
+  %80 = load i32, ptr %79, align 1
+  %81 = zext nneg i32 %77 to i64
+  %82 = zext i32 %80 to i64
+  %83 = add nuw nsw i64 %82, %81
+  %84 = icmp ugt i64 %83, %51
+  br i1 %84, label %85, label %86
 
-86:                                               ; preds = %77
+85:                                               ; preds = %76
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.41, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #17
   unreachable
 
-87:                                               ; preds = %77
-  %88 = add nuw nsw i32 %81, %78
-  %89 = icmp ule i32 %88, %50
+86:                                               ; preds = %76
+  %87 = add nuw nsw i32 %80, %77
+  %88 = icmp ule i32 %87, %50
+  tail call void @llvm.assume(i1 %88)
+  %89 = icmp sgt i32 %80, -1
   tail call void @llvm.assume(i1 %89)
-  %90 = icmp sgt i32 %81, -1
-  tail call void @llvm.assume(i1 %90)
-  %91 = icmp eq i32 %81, 0
-  br i1 %91, label %92, label %93
+  %90 = icmp eq i32 %80, 0
+  br i1 %90, label %91, label %92
 
-92:                                               ; preds = %87
+91:                                               ; preds = %86
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ArwDecoder11ParseA100WBEv) #17
   unreachable
 
-93:                                               ; preds = %87
-  %94 = icmp eq i32 %72, 1195529984
-  br i1 %94, label %95, label %60, !llvm.loop !215
+92:                                               ; preds = %86
+  %93 = icmp eq i32 %72, 1195529984
+  br i1 %93, label %94, label %60, !llvm.loop !215
 
-95:                                               ; preds = %93
-  %96 = add nuw nsw i64 %82, 4
-  %97 = icmp ugt i64 %96, %51
-  br i1 %97, label %98, label %99
+94:                                               ; preds = %92
+  %95 = add nuw nsw i64 %81, 4
+  %96 = icmp ugt i64 %95, %51
+  br i1 %96, label %97, label %98
 
-98:                                               ; preds = %95
+97:                                               ; preds = %94
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.41, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #17
   unreachable
 
-99:                                               ; preds = %95
-  %100 = add nuw nsw i32 %61, 12
-  %101 = icmp ule i32 %100, %50
-  tail call void @llvm.assume(i1 %101)
-  %102 = zext nneg i32 %100 to i64
-  %103 = add nuw nsw i64 %102, 2
-  %104 = icmp ugt i64 %103, %51
-  br i1 %104, label %105, label %106
+98:                                               ; preds = %94
+  %99 = add nuw nsw i32 %61, 12
+  %100 = icmp ule i32 %99, %50
+  tail call void @llvm.assume(i1 %100)
+  %101 = zext nneg i32 %99 to i64
+  %102 = add nuw nsw i64 %101, 2
+  %103 = icmp ugt i64 %102, %51
+  br i1 %103, label %104, label %105
 
-105:                                              ; preds = %111, %106, %99
+104:                                              ; preds = %110, %105, %98
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.34, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #17
   unreachable
 
-106:                                              ; preds = %99
-  %107 = getelementptr inbounds i8, ptr %59, i64 %102
-  %108 = load i16, ptr %107, align 1
-  %109 = add nuw nsw i64 %102, 4
-  %110 = icmp ugt i64 %109, %51
-  br i1 %110, label %105, label %111
+105:                                              ; preds = %98
+  %106 = getelementptr inbounds i8, ptr %59, i64 %101
+  %107 = load i16, ptr %106, align 1
+  %108 = add nuw nsw i64 %101, 4
+  %109 = icmp ugt i64 %108, %51
+  br i1 %109, label %104, label %110
 
-111:                                              ; preds = %106
-  %112 = add nuw nsw i64 %102, 6
-  %113 = icmp ugt i64 %112, %51
-  %114 = add nuw nsw i64 %102, 8
-  %115 = icmp ugt i64 %114, %51
-  %116 = select i1 %113, i1 true, i1 %115
-  br i1 %116, label %105, label %117
+110:                                              ; preds = %105
+  %111 = add nuw nsw i64 %101, 6
+  %112 = icmp ugt i64 %111, %51
+  %113 = add nuw nsw i64 %101, 8
+  %114 = icmp ugt i64 %113, %51
+  %115 = select i1 %112, i1 true, i1 %114
+  br i1 %115, label %104, label %116
 
-117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %59, i64 %103
-  %119 = load i16, ptr %118, align 1
-  %120 = getelementptr inbounds i8, ptr %59, i64 %112
-  %121 = load i16, ptr %120, align 1
-  %122 = uitofp i16 %108 to float
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !26
-  %125 = getelementptr inbounds i8, ptr %124, i64 256
-  store float %122, ptr %125, align 4, !tbaa !216
-  %126 = uitofp i16 %119 to float
-  %127 = getelementptr inbounds i8, ptr %124, i64 260
-  store float %126, ptr %127, align 4, !tbaa !216
-  %128 = uitofp i16 %121 to float
-  %129 = getelementptr inbounds i8, ptr %124, i64 264
-  store float %128, ptr %129, align 4, !tbaa !216
+116:                                              ; preds = %110
+  %117 = getelementptr inbounds i8, ptr %59, i64 %102
+  %118 = load i16, ptr %117, align 1
+  %119 = getelementptr inbounds i8, ptr %59, i64 %111
+  %120 = load i16, ptr %119, align 1
+  %121 = uitofp i16 %107 to float
+  %122 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = load ptr, ptr %122, align 8, !tbaa !26
+  %124 = getelementptr inbounds i8, ptr %123, i64 256
+  store float %121, ptr %124, align 4, !tbaa !216
+  %125 = uitofp i16 %118 to float
+  %126 = getelementptr inbounds i8, ptr %123, i64 260
+  store float %125, ptr %126, align 4, !tbaa !216
+  %127 = uitofp i16 %120 to float
+  %128 = getelementptr inbounds i8, ptr %123, i64 264
+  store float %127, ptr %128, align 4, !tbaa !216
   br label %.loopexit
 
-.loopexit:                                        ; preds = %60, %117, %1
+.loopexit:                                        ; preds = %60, %116, %1
   ret void
 }
 

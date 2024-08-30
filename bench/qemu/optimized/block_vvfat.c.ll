@@ -4158,6 +4158,7 @@ if.end42:                                         ; preds = %if.end37
   %conv1.i51 = zext i32 %s.val to i64
   %div.i52 = sdiv i64 %sub.i50, %conv1.i51
   %conv2.i53 = trunc i64 %div.i52 to i32
+  %invariant.op = add i32 %34, -1
   %cmp4777 = icmp slt i32 %34, %conv2.i53
   br i1 %cmp4777, label %for.body49.lr.ph, label %for.end71
 
@@ -4178,8 +4179,7 @@ for.body49:                                       ; preds = %for.body49.lr.ph, %
   br i1 %cmp.i54, label %if.then.i, label %if.end.i55
 
 if.then.i:                                        ; preds = %for.body49
-  %add.i = add nuw nsw i32 %i.279, 1
-  %cmp2.i60 = icmp eq i32 %add.i, %34
+  %cmp2.i60 = icmp eq i32 %i.279, %invariant.op
   br i1 %cmp2.i60, label %if.then3.i, label %if.then.i.if.then52_crit_edge
 
 if.then.i.if.then52_crit_edge:                    ; preds = %if.then.i

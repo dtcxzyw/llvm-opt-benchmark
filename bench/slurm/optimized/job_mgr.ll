@@ -20888,7 +20888,9 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   %75 = add nuw i32 %74, %27
   %76 = zext i32 %75 to i64
   %77 = call ptr @slurm_xcalloc(i64 noundef %76, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.39, i32 noundef 8283, ptr noundef nonnull @__func__._read_data_array_from_file) #28
-  %78 = zext nneg i32 %27 to i64
+  %invariant.op.i = add nsw i32 %27, -1
+  %78 = zext i32 %invariant.op.i to i64
+  %wide.trip.count154.i = zext nneg i32 %27 to i64
   %.pre165.i = load ptr, ptr %3, align 8
   br label %79
 
@@ -20907,8 +20909,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   %88 = add i32 %.2126.i, 1
   %89 = add i32 %88, %87
   %90 = icmp sgt i32 %89, %.089121.i
-  %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 1
-  %91 = icmp ult i64 %indvars.iv.next152.i, %78
+  %91 = icmp ult i64 %indvars.iv151.i, %78
   %or.cond.i = select i1 %90, i1 %91, i1 false
   br i1 %or.cond.i, label %92, label %95
 
@@ -20918,7 +20919,8 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   br label %.loopexit110.i
 
 95:                                               ; preds = %79
-  %exitcond155.not.i = icmp eq i64 %indvars.iv.next152.i, %78
+  %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 1
+  %exitcond155.not.i = icmp eq i64 %indvars.iv.next152.i, %wide.trip.count154.i
   br i1 %exitcond155.not.i, label %.loopexit110.i, label %79, !llvm.loop !56
 
 .loopexit110.i:                                   ; preds = %95, %92

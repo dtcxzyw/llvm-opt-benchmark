@@ -1483,6 +1483,7 @@ for.body22.lr.ph:                                 ; preds = %if.end19
   %49 = add i64 %i.2, %targetOffset
   %50 = and i64 %49, 7
   %tobool.not.i108 = icmp eq i64 %48, 0
+  %invariant.op = sub nuw nsw i64 9, %48
   %sh_prom.i117 = trunc nuw nsw i64 %48 to i8
   %sub25.i144 = sub nuw nsw i64 8, %50
   br label %for.body22
@@ -1499,8 +1500,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   br i1 %tobool.not.i108, label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit, label %if.end.i109
 
 if.end.i109:                                      ; preds = %for.body22
-  %add1.i110 = add nuw nsw i64 %48, %.sroa.speculated
-  %cmp.i111 = icmp ult i64 %add1.i110, 9
+  %cmp.i111 = icmp ult i64 %.sroa.speculated, %invariant.op
   br i1 %cmp.i111, label %if.then2.i116, label %if.end5.i112
 
 if.then2.i116:                                    ; preds = %if.end.i109

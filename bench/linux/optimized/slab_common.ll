@@ -2379,10 +2379,11 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
 
 37:                                               ; preds = %34
   %38 = load i1, ptr @slab_nomerge, align 1
+  %invariant.op = or disjoint i32 %30, 7
   br i1 %38, label %.loopexit, label %.split
 
 .split:                                           ; preds = %37, %.thread
-  %39 = phi ptr [ %67, %.thread ], [ %35, %37 ]
+  %39 = phi ptr [ %66, %.thread ], [ %35, %37 ]
   %40 = getelementptr i8, ptr %39, i64 -96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 27855872
@@ -2414,24 +2415,23 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   %60 = and i32 %54, %29
   %61 = icmp ne i32 %60, %54
   %62 = or i1 %61, %59
-  %63 = sub nuw i32 %54, %30
-  %64 = icmp ugt i32 %63, 7
-  %65 = or i1 %64, %62
-  br i1 %65, label %.thread, label %69
+  %63 = icmp ugt i32 %54, %invariant.op
+  %64 = or i1 %63, %62
+  br i1 %64, label %.thread, label %68
 
 .thread:                                          ; preds = %44, %.split, %56, %52, %48
-  %66 = getelementptr inbounds i8, ptr %39, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, @slab_caches
-  br i1 %68, label %.loopexit, label %.split, !llvm.loop !34
+  %65 = getelementptr inbounds i8, ptr %39, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, @slab_caches
+  br i1 %67, label %.loopexit, label %.split, !llvm.loop !34
 
-69:                                               ; preds = %56
-  %70 = getelementptr i8, ptr %39, i64 -104
+68:                                               ; preds = %56
+  %69 = getelementptr i8, ptr %39, i64 -104
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %37, %69, %34, %22, %5
-  %71 = phi ptr [ null, %5 ], [ null, %22 ], [ %70, %69 ], [ null, %34 ], [ null, %37 ], [ null, %.thread ]
-  ret ptr %71
+.loopexit:                                        ; preds = %.thread, %37, %68, %34, %22, %5
+  %70 = phi ptr [ null, %5 ], [ null, %22 ], [ %69, %68 ], [ null, %34 ], [ null, %37 ], [ null, %.thread ]
+  ret ptr %70
 }
 
 ; Function Attrs: null_pointer_is_valid

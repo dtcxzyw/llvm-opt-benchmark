@@ -648,7 +648,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i64, ptr %9, align 8
   %.fr = freeze i64 %10
   %11 = trunc i64 %.fr to i32
-  %12 = and i64 %.fr, 4294967295
+  %12 = and i64 %.fr, 4294967294
   %.not = icmp ult i64 %.fr, 4294967296
   br i1 %.not, label %14, label %13
 
@@ -671,29 +671,32 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr inbounds i8, ptr %8, i64 104
   %19 = icmp ugt i64 %12, 45
   %20 = and i64 %17, 4294967295
-  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %19, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %31
-  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %31 ], [ %20, %.lr.ph ]
-  %21 = load ptr, ptr %18, align 8
-  %22 = tail call ptr %21(ptr noundef nonnull %8, i64 noundef %indvars.iv191, i64 noundef 20, i32 noundef 0) #12
-  %.not114.us = icmp eq ptr %22, null
-  br i1 %.not114.us, label %31, label %23
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  %21 = trunc nuw i64 %.fr to i32
+  %22 = add i32 %21, -46
+  br label %.lr.ph.split.us
 
-23:                                               ; preds = %.lr.ph.split.us
-  %24 = load i32, ptr %22, align 1
-  %25 = icmp eq i32 %24, 101010256
-  br i1 %25, label %26, label %31
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %31
+  %indvars.iv191 = phi i64 [ %20, %.lr.ph.split.us.preheader ], [ %indvars.iv.next192, %31 ]
+  %23 = load ptr, ptr %18, align 8
+  %24 = tail call ptr %23(ptr noundef nonnull %8, i64 noundef %indvars.iv191, i64 noundef 20, i32 noundef 0) #12
+  %.not114.us = icmp eq ptr %24, null
+  br i1 %.not114.us, label %31, label %25
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
-  %28 = load i32, ptr %27, align 1
-  %29 = zext i32 %28 to i64
-  %30 = add nuw nsw i64 %29, 46
-  %.not115.us.not = icmp ugt i64 %30, %12
+25:                                               ; preds = %.lr.ph.split.us
+  %26 = load i32, ptr %24, align 1
+  %27 = icmp eq i32 %26, 101010256
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %30 = load i32, ptr %29, align 1
+  %.not115.us.not = icmp ult i32 %22, %30
   br i1 %.not115.us.not, label %31, label %.split.us
 
-31:                                               ; preds = %26, %23, %.lr.ph.split.us
+31:                                               ; preds = %28, %25, %.lr.ph.split.us
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, -1
   %32 = and i64 %indvars.iv.next192, 4294967295
   %.not113.us = icmp eq i64 %32, 0
@@ -708,13 +711,13 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %.not113 = icmp eq i64 %35, 0
   br i1 %.not113, label %.thread, label %.lr.ph.split
 
-.split.us:                                        ; preds = %26
-  %.not116 = icmp eq i32 %28, 0
+.split.us:                                        ; preds = %28
+  %.not116 = icmp eq i32 %30, 0
   br i1 %.not116, label %.thread, label %36
 
 36:                                               ; preds = %.split.us
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %28) #12
-  %37 = call i32 @index_the_central_directory(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %11, i32 noundef %28, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %30) #12
+  %37 = call i32 @index_the_central_directory(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %11, i32 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull %6)
   store i32 %37, ptr %3, align 4
   %.not117 = icmp eq i32 %37, 0
   br i1 %.not117, label %.preheader151, label %.critedge
