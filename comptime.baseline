@@ -13315,7 +13315,7 @@ linux/ff-core.ll 114237792
 linux/ff-memless.ll 170376327
 linux/fhandle.ll 88298755
 linux/fib_frontend.ll 600173073
-linux/fib_notifier.ll 75804233
+linux/fib_notifier.ll 75728263
 linux/fib_rules.ll 472727387
 linux/fib_semantics.ll 891872097
 linux/fib_trie.ll 1366043504
@@ -30294,7 +30294,7 @@ ruby/iso_8859_8.ll 40999861
 ruby/iso_8859_9.ll 77873223
 ruby/japanese.ll 50424665
 ruby/koi8_r.ll 45939635
-ruby/koi8_u.ll 46095229
+ruby/koi8_u.ll 46049105
 ruby/load.ll 711395777
 ruby/lock_native_thread.ll 40285894
 ruby/loop.ll 73258273
