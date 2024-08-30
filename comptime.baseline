@@ -6314,7 +6314,7 @@ diesel-rs/152idtvtmysvk2sx.ll 199377543
 diesel-rs/154vdacr98taww8b.ll 461138793
 diesel-rs/15s0i984drbne3lh.ll 350543160
 diesel-rs/173kfv9vgwy610wq.ll 572841710
-diesel-rs/17oxsd0qf9l9nib2.ll 41198035
+diesel-rs/17oxsd0qf9l9nib2.ll 41156757
 diesel-rs/18c6qug6q42af287.ll 79210208
 diesel-rs/1a0eeki5zv7i23mc.ll 355090123
 diesel-rs/1a5i3zh1agibg74z.ll 42643903
@@ -21263,7 +21263,7 @@ openjdk/edgeStore.ll 367314191
 openjdk/edgeUtils.ll 385190575
 openjdk/elfFile.ll 818747408
 openjdk/elfFuncDescTable.ll 51474665
-openjdk/elfStringTable.ll 53351507
+openjdk/elfStringTable.ll 53298027
 openjdk/elfSymbolTable.ll 93820119
 openjdk/endian.ll 70308352
 openjdk/epsilonArguments.ll 62193884
