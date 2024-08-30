@@ -17753,7 +17753,7 @@ nuttx/sig_initialize.c.ll 70132907
 nuttx/sig_isemptyset.c.ll 38725379
 nuttx/sig_ismember.c.ll 40192833
 nuttx/sig_kill.c.ll 43123154
-nuttx/sig_nanosleep.c.ll 56076115
+nuttx/sig_nanosleep.c.ll 56020020
 nuttx/sig_pause.c.ll 36198441
 nuttx/sig_pending.c.ll 51671234
 nuttx/sig_procmask.c.ll 49433447
