@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [10 x i8] c"undefined\00", align 1
 @.str.7 = private unnamed_addr constant [19 x i8] c"libpng warning: %s\00", align 1
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define hidden void @png_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
@@ -39,7 +39,7 @@ define hidden void @png_error(ptr noalias noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @png_default_error(ptr noalias noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @png_default_error(ptr noalias noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr @stderr, align 8
   %.not = icmp eq ptr %1, null
   %4 = select i1 %.not, ptr @.str.5, ptr %1
@@ -51,7 +51,7 @@ define internal fastcc void @png_default_error(ptr noalias noundef %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 {
+define hidden i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #2 {
   %.not = icmp ne ptr %0, null
   %5 = icmp ult i64 %2, %1
   %or.cond = and i1 %.not, %5
@@ -95,7 +95,7 @@ define hidden i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -1
   store i8 0, ptr %5, align 1
   %6 = icmp ugt ptr %5, %0
@@ -240,7 +240,7 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.split, label %3
 
@@ -291,7 +291,7 @@ define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @png_default_warning(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @png_default_warning(ptr noundef %0) unnamed_addr #5 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef %0) #22
   %4 = load ptr, ptr @stderr, align 8
@@ -300,7 +300,7 @@ define internal fastcc void @png_default_warning(ptr noundef %0) unnamed_addr #4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @png_warning_parameter(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @png_warning_parameter(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = add i32 %1, -1
   %or.cond = icmp ult i32 %4, 8
   br i1 %or.cond, label %5, label %png_safecat.exit
@@ -346,7 +346,7 @@ png_safecat.exit:                                 ; preds = %.loopexit.i, %5, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_warning_parameter_unsigned(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define hidden void @png_warning_parameter_unsigned(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -392,10 +392,10 @@ png_warning_parameter.exit:                       ; preds = %4, %9, %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define hidden void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = icmp slt i32 %3, 0
@@ -455,7 +455,7 @@ png_warning_parameter.exit:                       ; preds = %13, %15, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = alloca [192 x i8], align 16
   %.not37.not = icmp eq ptr %1, null
   br i1 %.not37.not, label %.split.us, label %.split
@@ -606,7 +606,7 @@ png_warning.exit:                                 ; preds = %.split.i, %.split14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1048576
@@ -691,7 +691,7 @@ png_warning.exit:                                 ; preds = %25, %.split14.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca [214 x i8], align 16
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
@@ -839,7 +839,7 @@ png_warning.exit:                                 ; preds = %66, %.split14.i, %5
   ret void
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define hidden void @png_chunk_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [214 x i8], align 16
   %4 = icmp eq ptr %0, null
@@ -858,7 +858,7 @@ define hidden void @png_chunk_error(ptr noalias noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 2097152
@@ -913,7 +913,7 @@ png_warning.exit:                                 ; preds = %.split14.i, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4194304
@@ -968,7 +968,7 @@ png_warning.exit:                                 ; preds = %.split14.i, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @png_format_buffer(i32 %.456.val, ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @png_format_buffer(i32 %.456.val, ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %2, %32
@@ -1067,7 +1067,7 @@ define internal fastcc void @png_format_buffer(i32 %.456.val, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_chunk_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @png_chunk_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1048576
@@ -1084,7 +1084,7 @@ define hidden void @png_chunk_benign_error(ptr noalias noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp slt i32 %2, 2
   br i1 %4, label %5, label %6
 
@@ -1112,7 +1112,7 @@ png_chunk_benign_error.exit:                      ; preds = %6
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [220 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str, i64 24, i1 false)
   %.not = icmp eq ptr %1, null
@@ -1152,7 +1152,7 @@ define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %png_warning.exit, label %5
 
@@ -1228,7 +1228,7 @@ png_warning.exit:                                 ; preds = %26, %.split14.i, %1
 declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #3 {
+define hidden void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #4 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
@@ -1277,7 +1277,7 @@ declare void @longjmp(ptr noundef, i32 noundef) #12
 
 declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define hidden void @png_longjmp(ptr noalias noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
@@ -1340,7 +1340,7 @@ define hidden ptr @png_get_error_ptr(ptr noalias noundef readonly %0) local_unna
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @png_safe_error(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define hidden void @png_safe_error(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1443,7 +1443,7 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_safe_warning(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define hidden void @png_safe_warning(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1489,7 +1489,7 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %8, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1532,15 +1532,15 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
-attributes #0 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

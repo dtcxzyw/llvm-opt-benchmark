@@ -42,7 +42,7 @@ define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr nound
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 544
   store ptr @gsc_notifier, ptr %7, align 8
-  %8 = tail call i32 @bus_register_notifier(ptr noundef %1, ptr noundef %7) #5
+  %8 = tail call i32 @bus_register_notifier(ptr noundef %1, ptr noundef %7) #4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %31, label %10
 
@@ -63,10 +63,10 @@ define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr nound
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %8 to i64
   %22 = inttoptr i64 %21 to ptr
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef %20, ptr noundef nonnull %22) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef %20, ptr noundef nonnull %22) #5
   store ptr null, ptr %7, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 480
-  %24 = tail call i32 @hrtimer_cancel(ptr noundef %23) #5
+  %24 = tail call i32 @hrtimer_cancel(ptr noundef %23) #4
   %25 = getelementptr inbounds i8, ptr %0, i64 568
   store i32 2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 472
@@ -76,7 +76,7 @@ define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr nound
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %30) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %30) #4
   br label %31
 
 31:                                               ; preds = %29, %17, %6, %2
@@ -102,7 +102,7 @@ define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr no
 
 11:                                               ; preds = %10
   %12 = getelementptr i8, ptr %0, i64 -64
-  %13 = tail call i32 @hrtimer_cancel(ptr noundef %12) #5
+  %13 = tail call i32 @hrtimer_cancel(ptr noundef %12) #4
   %14 = getelementptr i8, ptr %0, i64 24
   store i32 1, ptr %14, align 8
   %15 = getelementptr i8, ptr %0, i64 -72
@@ -111,7 +111,7 @@ define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %17, label %37, label %18
 
 18:                                               ; preds = %11
-  tail call void @hrtimer_start_range_ns(ptr noundef %12, i64 noundef 5000000000, i64 noundef 0, i32 noundef 1) #5
+  tail call void @hrtimer_start_range_ns(ptr noundef %12, i64 noundef 5000000000, i64 noundef 0, i32 noundef 1) #4
   br label %37
 
 19:                                               ; preds = %10, %10
@@ -128,9 +128,9 @@ define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr no
   %26 = phi ptr [ %24, %22 ], [ null, %19 ]
   %27 = getelementptr i8, ptr %0, i64 2016
   %28 = load i32, ptr %27, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %26, ptr noundef nonnull @.str.12, i32 noundef %28) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %26, ptr noundef nonnull @.str.12, i32 noundef %28) #5
   %29 = getelementptr i8, ptr %0, i64 -64
-  %30 = tail call i32 @hrtimer_cancel(ptr noundef %29) #5
+  %30 = tail call i32 @hrtimer_cancel(ptr noundef %29) #4
   %31 = getelementptr i8, ptr %0, i64 24
   store i32 2, ptr %31, align 8
   %32 = getelementptr i8, ptr %0, i64 -72
@@ -140,7 +140,7 @@ define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr no
 
 35:                                               ; preds = %25
   %36 = getelementptr i8, ptr %0, i64 -104
-  tail call void @i915_sw_fence_complete(ptr noundef %36) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %36) #4
   br label %37
 
 37:                                               ; preds = %35, %25, %18, %11, %10, %3
@@ -162,7 +162,7 @@ define dso_local void @intel_huc_unregister_gsc_notifier(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 480
-  %8 = tail call i32 @hrtimer_cancel(ptr noundef %7) #5
+  %8 = tail call i32 @hrtimer_cancel(ptr noundef %7) #4
   %9 = getelementptr inbounds i8, ptr %0, i64 472
   %10 = load volatile i32, ptr %9, align 4
   %11 = icmp slt i32 %10, 0
@@ -170,11 +170,11 @@ define dso_local void @intel_huc_unregister_gsc_notifier(ptr noundef %0, ptr nou
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %13) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %13) #4
   br label %14
 
 14:                                               ; preds = %12, %6
-  %15 = tail call i32 @bus_unregister_notifier(ptr noundef %1, ptr noundef %3) #5
+  %15 = tail call i32 @bus_unregister_notifier(ptr noundef %1, ptr noundef %3) #4
   store ptr null, ptr %3, align 8
   br label %16
 
@@ -188,7 +188,7 @@ declare dso_local i32 @bus_unregister_notifier(ptr noundef, ptr noundef) local_u
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @intel_huc_sanitize(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 480
-  %3 = tail call i32 @hrtimer_cancel(ptr noundef %2) #5
+  %3 = tail call i32 @hrtimer_cancel(ptr noundef %2) #4
   %4 = getelementptr inbounds i8, ptr %0, i64 472
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
@@ -196,7 +196,7 @@ define dso_local noundef i32 @intel_huc_sanitize(ptr noundef %0) local_unnamed_a
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %8) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %8) #4
   br label %9
 
 9:                                                ; preds = %7, %1
@@ -217,12 +217,12 @@ define dso_local noundef i32 @intel_huc_sanitize(ptr noundef %0) local_unnamed_a
 define dso_local void @intel_huc_init_early(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -2392
   %3 = load ptr, ptr %2, align 8
-  tail call void @intel_uc_fw_init_early(ptr noundef %0, i32 noundef 1, i1 noundef zeroext true) #5
+  tail call void @intel_uc_fw_init_early(ptr noundef %0, i32 noundef 1, i1 noundef zeroext true) #4
   %4 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @__i915_sw_fence_init(ptr noundef %4, ptr noundef nonnull @sw_fence_dummy_notify, ptr noundef null, ptr noundef null) #5
-  tail call void @i915_sw_fence_commit(ptr noundef %4) #5
+  tail call void @__i915_sw_fence_init(ptr noundef %4, ptr noundef nonnull @sw_fence_dummy_notify, ptr noundef null, ptr noundef null) #4
+  tail call void @i915_sw_fence_commit(ptr noundef %4) #4
   %5 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @hrtimer_init(ptr noundef %5, i32 noundef 1, i32 noundef 1) #5
+  tail call void @hrtimer_init(ptr noundef %5, i32 noundef 1, i32 noundef 1) #4
   %6 = getelementptr inbounds i8, ptr %0, i64 520
   store ptr @huc_delayed_load_timer_callback, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 2560
@@ -308,7 +308,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %15, i32 49256, i1 noundef zeroext true) #5
+  %18 = tail call i32 %17(ptr noundef %15, i32 49256, i1 noundef zeroext true) #4
   %19 = getelementptr inbounds i8, ptr %0, i64 584
   %20 = lshr i32 %18, 30
   %21 = trunc nuw nsw i32 %20 to i8
@@ -336,7 +336,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %34 = phi ptr [ %32, %30 ], [ null, %27 ]
   %35 = getelementptr i8, ptr %0, i64 2560
   %36 = load i32, ptr %35, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.16, i32 noundef %36) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.16, i32 noundef %36) #5
   br label %.thread9
 
 37:                                               ; preds = %23
@@ -363,7 +363,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %49 = phi ptr [ %47, %45 ], [ null, %43 ]
   %50 = getelementptr i8, ptr %0, i64 2560
   %51 = load i32, ptr %50, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %49, ptr noundef nonnull @.str.17, i32 noundef %51) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %49, ptr noundef nonnull @.str.17, i32 noundef %51) #5
   br label %.thread9
 
 52:                                               ; preds = %37
@@ -390,7 +390,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %64 = phi ptr [ %62, %60 ], [ null, %58 ]
   %65 = getelementptr i8, ptr %0, i64 2560
   %66 = load i32, ptr %65, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.18, i32 noundef %66) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.18, i32 noundef %66) #5
   br label %.thread9
 
 67:                                               ; preds = %53
@@ -413,7 +413,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %78 = phi ptr [ %76, %74 ], [ null, %72 ]
   %79 = getelementptr i8, ptr %0, i64 2560
   %80 = load i32, ptr %79, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %78, ptr noundef nonnull @.str.19, i32 noundef %80) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %78, ptr noundef nonnull @.str.19, i32 noundef %80) #5
   br label %.thread9
 
 .thread:                                          ; preds = %39, %67, %52
@@ -432,7 +432,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %89 = load i32, ptr %88, align 8
   %90 = icmp eq i8 %24, 0
   %91 = select i1 %90, ptr @.str.22, ptr @.str.21
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %87, i32 noundef 1, ptr noundef nonnull @.str.20, i32 noundef %89, ptr noundef nonnull %91) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %87, i32 noundef 1, ptr noundef nonnull @.str.20, i32 noundef %89, ptr noundef nonnull %91) #4
   %92 = getelementptr i8, ptr %0, i64 2564
   %93 = load i32, ptr %92, align 4
   %94 = and i32 %93, 67108864
@@ -441,7 +441,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
 
 96:                                               ; preds = %86
   %97 = getelementptr i8, ptr %0, i64 -1760
-  %98 = tail call ptr @intel_guc_allocate_vma(ptr noundef %97, i32 noundef 8192) #5
+  %98 = tail call ptr @intel_guc_allocate_vma(ptr noundef %97, i32 noundef 8192) #4
   %99 = icmp ugt ptr %98, inttoptr (i64 -4096 to ptr)
   br i1 %99, label %100, label %110
 
@@ -460,7 +460,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
 .thread10:                                        ; preds = %100, %105
   %108 = phi ptr [ %107, %105 ], [ null, %100 ]
   %109 = load i32, ptr %88, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %108, ptr noundef nonnull @.str.1, i32 noundef %109) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %108, ptr noundef nonnull @.str.1, i32 noundef %109) #5
   br label %.thread9
 
 110:                                              ; preds = %96
@@ -469,7 +469,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %112
 
 112:                                              ; preds = %110, %86
-  %113 = tail call i32 @intel_uc_fw_init(ptr noundef %0) #5
+  %113 = tail call i32 @intel_uc_fw_init(ptr noundef %0) #4
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %117
 
@@ -485,7 +485,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %120, label %.thread9, label %121
 
 121:                                              ; preds = %117
-  tail call void @i915_vma_unpin_and_release(ptr noundef %118, i32 noundef 0) #5
+  tail call void @i915_vma_unpin_and_release(ptr noundef %118, i32 noundef 0) #4
   br label %.thread9
 
 .thread9:                                         ; preds = %33, %48, %77, %63, %.thread10, %121, %117
@@ -507,7 +507,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %132 = load i32, ptr %131, align 8
   %133 = sext i32 %122 to i64
   %134 = inttoptr i64 %133 to ptr
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %130, ptr noundef nonnull @.str.2, i32 noundef %132, ptr noundef %134) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %130, ptr noundef nonnull @.str.2, i32 noundef %132, ptr noundef %134) #5
   br label %135
 
 135:                                              ; preds = %129, %115
@@ -530,7 +530,7 @@ declare dso_local void @i915_vma_unpin_and_release(ptr noundef, i32 noundef) loc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_huc_fini(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 480
-  %3 = tail call i32 @hrtimer_cancel(ptr noundef %2) #5
+  %3 = tail call i32 @hrtimer_cancel(ptr noundef %2) #4
   %4 = getelementptr inbounds i8, ptr %0, i64 472
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
@@ -538,7 +538,7 @@ define dso_local void @intel_huc_fini(ptr noundef %0) local_unnamed_addr #0 alig
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %8) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %8) #4
   br label %9
 
 9:                                                ; preds = %7, %1
@@ -548,7 +548,7 @@ define dso_local void @intel_huc_fini(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9
-  tail call void @i915_vma_unpin_and_release(ptr noundef %10, i32 noundef 0) #5
+  tail call void @i915_vma_unpin_and_release(ptr noundef %10, i32 noundef 0) #4
   br label %14
 
 14:                                               ; preds = %13, %9
@@ -558,7 +558,7 @@ define dso_local void @intel_huc_fini(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @intel_uc_fw_fini(ptr noundef %0) #5
+  tail call void @intel_uc_fw_fini(ptr noundef %0) #4
   br label %19
 
 19:                                               ; preds = %18, %14
@@ -577,7 +577,7 @@ define dso_local void @intel_huc_suspend(ptr noundef %0) local_unnamed_addr #0 a
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 480
-  %7 = tail call i32 @hrtimer_cancel(ptr noundef %6) #5
+  %7 = tail call i32 @hrtimer_cancel(ptr noundef %6) #4
   %8 = getelementptr inbounds i8, ptr %0, i64 472
   %9 = load volatile i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -585,15 +585,15 @@ define dso_local void @intel_huc_suspend(ptr noundef %0) local_unnamed_addr #0 a
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %12) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %12) #4
   br label %13
 
 13:                                               ; preds = %11, %5, %1
   ret void
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -2392
   %4 = getelementptr i8, ptr %0, i64 -2368
   %5 = load ptr, ptr %4, align 8
@@ -605,9 +605,9 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %8, align 4
-  %14 = tail call i32 @__intel_wait_for_register(ptr noundef %5, i32 %13, i32 noundef %10, i32 noundef %12, i32 noundef 2, i32 noundef 50, ptr noundef null) #5
+  %14 = tail call i32 @__intel_wait_for_register(ptr noundef %5, i32 %13, i32 noundef %10, i32 noundef %12, i32 noundef 2, i32 noundef 50, ptr noundef null) #4
   %15 = getelementptr inbounds i8, ptr %0, i64 480
-  %16 = tail call i32 @hrtimer_cancel(ptr noundef %15) #5
+  %16 = tail call i32 @hrtimer_cancel(ptr noundef %15) #4
   %17 = getelementptr inbounds i8, ptr %0, i64 472
   %18 = load volatile i32, ptr %17, align 4
   %19 = icmp slt i32 %18, 0
@@ -615,7 +615,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %21) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %21) #4
   br label %22
 
 22:                                               ; preds = %20, %2
@@ -644,7 +644,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %39 = select i1 %38, ptr @.str.23, ptr @.str.24
   %40 = sext i32 %14 to i64
   %41 = inttoptr i64 %40 to ptr
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.3, i32 noundef %33, ptr noundef nonnull %39, ptr noundef nonnull %41) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.3, i32 noundef %33, ptr noundef nonnull %39, ptr noundef nonnull %41) #5
   %42 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 8, ptr %42, align 4
   br label %60
@@ -671,7 +671,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %57 = icmp eq i32 %1, 0
   %58 = and i1 %57, %56
   %59 = select i1 %58, ptr @.str.23, ptr @.str.24
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %51, ptr noundef nonnull @.str.4, i32 noundef %53, ptr noundef nonnull %59) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %51, ptr noundef nonnull @.str.4, i32 noundef %53, ptr noundef nonnull %59) #5
   br label %60
 
 60:                                               ; preds = %50, %30
@@ -701,7 +701,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i64 @intel_runtime_pm_get(ptr noundef %16) #5
+  %17 = tail call i64 @intel_runtime_pm_get(ptr noundef %16) #4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %._crit_edge, label %19
 
@@ -717,11 +717,11 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   %24 = load i32, ptr %22, align 4
   %25 = getelementptr inbounds i8, ptr %23, i64 144
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %23, i32 %24, i1 noundef zeroext true) #5
+  %27 = tail call i32 %26(ptr noundef %23, i32 %24, i1 noundef zeroext true) #4
   %28 = load ptr, ptr %13, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %30) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %30) #4
   br label %31
 
 31:                                               ; preds = %._crit_edge, %19
@@ -752,20 +752,20 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   %48 = load i32, ptr %47, align 8
   %49 = trunc i64 %46 to i32
   %50 = add i32 %48, %49
-  %51 = tail call i32 @intel_guc_auth_huc(ptr noundef %4, i32 noundef %50) #5
+  %51 = tail call i32 @intel_guc_auth_huc(ptr noundef %4, i32 noundef %50) #4
   br label %54
 
 52:                                               ; preds = %41
-  %53 = tail call i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) #5
+  %53 = tail call i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) #4
   br label %54
 
 .thread:                                          ; preds = %41
-  tail call void asm sideeffect "539: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 539b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 539) #5, !srcloc !7
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %.pre-phi) #5
-  tail call void asm sideeffect "540: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 540b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 540) #5, !srcloc !8
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 516, i32 2313, i64 12) #5, !srcloc !9
-  tail call void asm sideeffect "541: nop\0A\09.pushsection .discard.instr_end\0A\09.long 541b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 541) #5, !srcloc !10
-  tail call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_end\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #5, !srcloc !11
+  tail call void asm sideeffect "539: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 539b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 539) #4, !srcloc !7
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %.pre-phi) #4
+  tail call void asm sideeffect "540: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 540b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 540) #4, !srcloc !8
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 516, i32 2313, i64 12) #4, !srcloc !9
+  tail call void asm sideeffect "541: nop\0A\09.pushsection .discard.instr_end\0A\09.long 541b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 541) #4, !srcloc !10
+  tail call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_end\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #4, !srcloc !11
   br label %60
 
 54:                                               ; preds = %52, %42
@@ -801,7 +801,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   %76 = select i1 %75, ptr @.str.23, ptr @.str.24
   %77 = sext i32 %61 to i64
   %78 = inttoptr i64 %77 to ptr
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %68, ptr noundef nonnull @.str.8, i32 noundef %70, ptr noundef nonnull %76, ptr noundef nonnull %78) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %68, ptr noundef nonnull @.str.8, i32 noundef %70, ptr noundef nonnull %76, ptr noundef nonnull %78) #5
   br label %79
 
 79:                                               ; preds = %67, %57, %31, %8, %2
@@ -815,7 +815,7 @@ define dso_local zeroext i1 @intel_huc_is_authenticated(ptr nocapture noundef re
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @intel_runtime_pm_get(ptr noundef %6) #5
+  %7 = tail call i64 @intel_runtime_pm_get(ptr noundef %6) #4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %._crit_edge, label %9
 
@@ -831,11 +831,11 @@ define dso_local zeroext i1 @intel_huc_is_authenticated(ptr nocapture noundef re
   %14 = load i32, ptr %12, align 4
   %15 = getelementptr inbounds i8, ptr %13, i64 144
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %13, i32 %14, i1 noundef zeroext true) #5
+  %17 = tail call i32 %16(ptr noundef %13, i32 %14, i1 noundef zeroext true) #4
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %20) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %20) #4
   br label %21
 
 21:                                               ; preds = %._crit_edge, %9
@@ -903,7 +903,7 @@ define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocap
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i64 @intel_runtime_pm_get(ptr noundef %17) #5
+  %18 = tail call i64 @intel_runtime_pm_get(ptr noundef %17) #4
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %huc_is_fully_authenticated.exit, label %36
 
@@ -925,7 +925,7 @@ define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocap
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i64 @intel_runtime_pm_get(ptr noundef %33) #5
+  %34 = tail call i64 @intel_runtime_pm_get(ptr noundef %33) #4
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %huc_is_fully_authenticated.exit, label %36
 
@@ -939,11 +939,11 @@ define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocap
   %43 = load i32, ptr %41, align 4
   %44 = getelementptr inbounds i8, ptr %42, i64 144
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 %45(ptr noundef %42, i32 %43, i1 noundef zeroext true) #5
+  %46 = tail call i32 %45(ptr noundef %42, i32 %43, i1 noundef zeroext true) #4
   %47 = load ptr, ptr %38, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %49) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %49) #4
   br label %huc_is_fully_authenticated.exit
 
 huc_is_fully_authenticated.exit:                  ; preds = %13, %29, %36
@@ -974,7 +974,7 @@ huc_is_fully_authenticated.exit.thread.thread:    ; preds = %24, %huc_is_fully_a
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i64 @intel_runtime_pm_get(ptr noundef %67) #5
+  %68 = tail call i64 @intel_runtime_pm_get(ptr noundef %67) #4
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %80, label %70
 
@@ -984,11 +984,11 @@ huc_is_fully_authenticated.exit.thread.thread:    ; preds = %24, %huc_is_fully_a
   %73 = load i32, ptr %71, align 4
   %74 = getelementptr inbounds i8, ptr %72, i64 144
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 %75(ptr noundef %72, i32 %73, i1 noundef zeroext true) #5
+  %76 = tail call i32 %75(ptr noundef %72, i32 %73, i1 noundef zeroext true) #4
   %77 = load ptr, ptr %64, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %79) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %79) #4
   br label %80
 
 80:                                               ; preds = %70, %63
@@ -1040,7 +1040,7 @@ define dso_local void @intel_huc_update_auth_status(ptr noundef %0) local_unname
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i64 @intel_runtime_pm_get(ptr noundef %22) #5
+  %23 = tail call i64 @intel_runtime_pm_get(ptr noundef %22) #4
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %huc_is_fully_authenticated.exit, label %25
 
@@ -1050,11 +1050,11 @@ define dso_local void @intel_huc_update_auth_status(ptr noundef %0) local_unname
   %28 = load i32, ptr %26, align 4
   %29 = getelementptr inbounds i8, ptr %27, i64 144
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 %30(ptr noundef %27, i32 %28, i1 noundef zeroext true) #5
+  %31 = tail call i32 %30(ptr noundef %27, i32 %28, i1 noundef zeroext true) #4
   %32 = load ptr, ptr %19, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %34) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %34) #4
   br label %huc_is_fully_authenticated.exit
 
 huc_is_fully_authenticated.exit:                  ; preds = %18, %25
@@ -1094,7 +1094,7 @@ huc_is_fully_authenticated.exit.thread:           ; preds = %huc_is_fully_authen
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %0, i64 480
-  %53 = tail call i32 @hrtimer_cancel(ptr noundef %52) #5
+  %53 = tail call i32 @hrtimer_cancel(ptr noundef %52) #4
   store i32 2, ptr %45, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 472
   %55 = load volatile i32, ptr %54, align 4
@@ -1102,16 +1102,16 @@ huc_is_fully_authenticated.exit.thread:           ; preds = %huc_is_fully_authen
   br i1 %56, label %huc_is_fully_authenticated.exit.thread.thread, label %57
 
 57:                                               ; preds = %51
-  tail call void @i915_sw_fence_complete(ptr noundef %49) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %49) #4
   br label %huc_is_fully_authenticated.exit.thread.thread
 
 58:                                               ; preds = %50, %48
   %59 = phi i64 [ 5000000000, %50 ], [ 10000000000, %48 ]
-  tail call void @i915_sw_fence_reinit(ptr noundef %49) #5
-  %60 = tail call zeroext i1 @i915_sw_fence_await(ptr noundef %49) #5
-  tail call void @i915_sw_fence_commit(ptr noundef %49) #5
+  tail call void @i915_sw_fence_reinit(ptr noundef %49) #4
+  %60 = tail call zeroext i1 @i915_sw_fence_await(ptr noundef %49) #4
+  tail call void @i915_sw_fence_commit(ptr noundef %49) #4
   %61 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @hrtimer_start_range_ns(ptr noundef %61, i64 noundef %59, i64 noundef 0, i32 noundef 1) #5
+  tail call void @hrtimer_start_range_ns(ptr noundef %61, i64 noundef %59, i64 noundef 0, i32 noundef 1) #4
   br label %huc_is_fully_authenticated.exit.thread.thread
 
 huc_is_fully_authenticated.exit.thread.thread:    ; preds = %13, %58, %57, %51, %44, %huc_is_fully_authenticated.exit.thread, %42, %5, %1
@@ -1126,7 +1126,7 @@ define dso_local void @intel_huc_load_status(ptr noundef %0, ptr noundef %1) loc
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.9) #5
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.9) #4
   br label %27
 
 7:                                                ; preds = %2
@@ -1134,16 +1134,16 @@ define dso_local void @intel_huc_load_status(ptr noundef %0, ptr noundef %1) loc
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.10) #5
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.10) #4
   br label %27
 
 10:                                               ; preds = %7
-  tail call void @intel_uc_fw_dump(ptr noundef %0, ptr noundef %1) #5
+  tail call void @intel_uc_fw_dump(ptr noundef %0, ptr noundef %1) #4
   %11 = getelementptr i8, ptr %0, i64 -2368
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i64 @intel_runtime_pm_get(ptr noundef %14) #5
+  %15 = tail call i64 @intel_runtime_pm_get(ptr noundef %14) #4
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %27, label %17
 
@@ -1153,12 +1153,12 @@ define dso_local void @intel_huc_load_status(ptr noundef %0, ptr noundef %1) loc
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 144
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %18, i32 %20, i1 noundef zeroext true) #5
-  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %23) #5
+  %23 = tail call i32 %22(ptr noundef %18, i32 %20, i1 noundef zeroext true) #4
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %23) #4
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %26) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %26) #4
   br label %27
 
 27:                                               ; preds = %17, %10, %9, %6
@@ -1184,7 +1184,7 @@ declare dso_local void @i915_sw_fence_complete(ptr noundef) local_unnamed_addr #
 declare dso_local void @__i915_sw_fence_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @sw_fence_dummy_notify(ptr nocapture readnone %0, i32 %1) #4 align 16 {
+define internal noundef i32 @sw_fence_dummy_notify(ptr nocapture readnone %0, i32 %1) #3 align 16 {
   ret i32 0
 }
 
@@ -1200,7 +1200,7 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @intel_runtime_pm_get(ptr noundef %5) #5
+  %6 = tail call i64 @intel_runtime_pm_get(ptr noundef %5) #4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %18, label %8
 
@@ -1210,11 +1210,11 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
   %11 = load i32, ptr %9, align 4
   %12 = getelementptr inbounds i8, ptr %10, i64 144
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %10, i32 %11, i1 noundef zeroext true) #5
+  %14 = tail call i32 %13(ptr noundef %10, i32 %11, i1 noundef zeroext true) #4
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %17) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %17) #4
   br label %18
 
 18:                                               ; preds = %8, %1
@@ -1250,7 +1250,7 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
   %37 = phi ptr [ %35, %33 ], [ null, %29 ]
   %38 = getelementptr i8, ptr %0, i64 2080
   %39 = load i32, ptr %38, align 8
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %37, ptr noundef nonnull @.str.13, i32 noundef %39) #6
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %37, ptr noundef nonnull @.str.13, i32 noundef %39) #5
   br label %54
 
 40:                                               ; preds = %26
@@ -1268,18 +1268,18 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
   %48 = phi ptr [ %46, %44 ], [ null, %40 ]
   %49 = getelementptr i8, ptr %0, i64 2080
   %50 = load i32, ptr %49, align 8
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %48, ptr noundef nonnull @.str.14, i32 noundef %50) #6
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %48, ptr noundef nonnull @.str.14, i32 noundef %50) #5
   br label %54
 
 51:                                               ; preds = %26
-  tail call void asm sideeffect "534: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 534b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 534) #5, !srcloc !12
+  tail call void asm sideeffect "534: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 534b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 534) #4, !srcloc !12
   %52 = load i32, ptr %27, align 8
   %53 = zext i32 %52 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.15, i64 noundef %53) #5
-  tail call void asm sideeffect "535: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 535b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 535) #5, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 127, i32 2313, i64 12) #5, !srcloc !14
-  tail call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_end\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #5, !srcloc !15
-  tail call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #5, !srcloc !16
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.15, i64 noundef %53) #4
+  tail call void asm sideeffect "535: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 535b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 535) #4, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 127, i32 2313, i64 12) #4, !srcloc !14
+  tail call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_end\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #4, !srcloc !15
+  tail call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #4, !srcloc !16
   br label %54
 
 54:                                               ; preds = %51, %47, %36
@@ -1291,7 +1291,7 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
 
 58:                                               ; preds = %54
   %59 = getelementptr i8, ptr %0, i64 -40
-  tail call void @i915_sw_fence_complete(ptr noundef %59) #5
+  tail call void @i915_sw_fence_complete(ptr noundef %59) #4
   br label %60
 
 60:                                               ; preds = %58, %54, %18
@@ -1316,10 +1316,9 @@ declare dso_local zeroext i1 @i915_sw_fence_await(ptr noundef) local_unnamed_add
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -6663,8 +6663,8 @@ define dso_local zeroext i1 @rcu_check_boost_fail(i64 %0, ptr noundef writeonly 
   ret i1 %94
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_rcu_gp_kthreads() #17 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
   %1 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 3280), align 16
   %2 = load volatile i64, ptr @jiffies, align 64
   %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 3600), align 16
@@ -11737,8 +11737,8 @@ declare dso_local void @ftrace_dump(i32 noundef) local_unnamed_addr #7
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @rcu_inkernel_boot_has_ended() local_unnamed_addr #7
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #17 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca [32 x i8], align 16
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
@@ -17598,8 +17598,8 @@ define internal noundef i32 @rcu_panic(ptr nocapture readnone %0, i64 %1, ptr no
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @register_sysrq_key(i8 noundef zeroext, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sysrq_show_rcu(i8 zeroext %0) #17 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @sysrq_show_rcu(i8 zeroext %0) #1 align 16 {
   tail call void @show_rcu_gp_kthreads()
   ret void
 }

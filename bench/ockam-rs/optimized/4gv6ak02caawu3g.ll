@@ -2826,8 +2826,8 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
   ret i1 %6
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$17end_raw_buffering17h73215c73d893b6e2E"(ptr noalias nocapture noundef writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$17end_raw_buffering17h73215c73d893b6e2E"(ptr noalias nocapture noundef writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32

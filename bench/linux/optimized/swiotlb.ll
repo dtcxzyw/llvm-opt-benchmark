@@ -786,8 +786,8 @@ swiotlb_init_io_tlb_pool.exit:                    ; preds = %.preheader.i, %.loo
   ret void
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @swiotlb_adjust_nareas(i32 noundef %0) unnamed_addr #7 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @swiotlb_adjust_nareas(i32 noundef %0) unnamed_addr #1 align 16 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %14, label %3
 

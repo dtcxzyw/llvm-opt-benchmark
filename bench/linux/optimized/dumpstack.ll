@@ -206,8 +206,8 @@ define dso_local void @show_iret_regs(ptr noundef %0, ptr noundef %1) local_unna
   ret void
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_stack(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @show_stack(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %8
 

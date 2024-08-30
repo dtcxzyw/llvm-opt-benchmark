@@ -12769,8 +12769,8 @@ while.end57:                                      ; preds = %while.cond52
   ret void
 }
 
-; Function Attrs: cold nounwind uwtable
-define internal fastcc void @getRDB(ptr noundef %node) unnamed_addr #16 {
+; Function Attrs: nounwind uwtable
+define internal fastcc void @getRDB(ptr noundef %node) unnamed_addr #2 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %cmp.not = icmp eq ptr %node, null

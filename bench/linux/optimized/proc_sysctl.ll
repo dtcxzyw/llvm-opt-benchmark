@@ -1630,8 +1630,8 @@ declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sysctl_print_dir(ptr nocapture noundef readonly %0) unnamed_addr #10 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @sysctl_print_dir(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

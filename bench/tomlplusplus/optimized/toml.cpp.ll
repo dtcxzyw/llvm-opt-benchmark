@@ -21916,16 +21916,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZNK4toml2v34impl7impl_ex6parser9set_errorIJSt17basic_string_viewIcSt11char_traitsIcEEN12_GLOBAL__N_117escaped_codepointES8_EEEvDpRKT_(ptr noundef nonnull align 8 dereferenceable(3496) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %reason1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason3) unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress noreturn uwtable
+define internal fastcc void @_ZNK4toml2v34impl7impl_ex6parser9set_errorIJSt17basic_string_viewIcSt11char_traitsIcEEN12_GLOBAL__N_117escaped_codepointES8_EEEvDpRKT_(ptr noundef nonnull align 8 dereferenceable(3496) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %reason1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason3) unnamed_addr #19 align 2 {
 entry:
   %call = tail call i64 @_ZNK4toml2v34impl7impl_ex6parser16current_positionEj(ptr noundef nonnull align 8 dereferenceable(3496) %this, i32 noundef 1) #42
   tail call fastcc void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17basic_string_viewIcSt11char_traitsIcEEN12_GLOBAL__N_117escaped_codepointES8_EEEvNS0_15source_positionEDpRKT_(ptr noundef nonnull align 8 dereferenceable(3496) %this, i64 %call, ptr noundef nonnull align 8 dereferenceable(16) %reason, ptr noundef nonnull align 8 dereferenceable(8) %reason1, ptr noundef nonnull align 8 dereferenceable(16) %reason3) #46
   unreachable
 }
 
-; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17basic_string_viewIcSt11char_traitsIcEEN12_GLOBAL__N_117escaped_codepointES8_EEEvNS0_15source_positionEDpRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3496) %this, i64 %pos.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %reason1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason3) unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress noreturn uwtable
+define internal fastcc void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17basic_string_viewIcSt11char_traitsIcEEN12_GLOBAL__N_117escaped_codepointES8_EEEvNS0_15source_positionEDpRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3496) %this, i64 %pos.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %reason1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reason3) unnamed_addr #19 align 2 {
 entry:
   %pos = alloca %"struct.toml::v3::source_position", align 8
   %builder = alloca %"struct.(anonymous namespace)::error_builder", align 8
@@ -22046,7 +22046,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113error_builder6appendINS_17escaped_codepointEEEvRKT_(ptr nocapture noundef nonnull align 8 dereferenceable(528) %this, ptr nocapture readonly %arg.0.val) unnamed_addr #28 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113error_builder6appendINS_17escaped_codepointEEEvRKT_(ptr nocapture noundef nonnull align 8 dereferenceable(528) %this, ptr nocapture readonly %arg.0.val) unnamed_addr #27 align 2 {
 entry:
   %buf.i = alloca [10 x i8], align 1
   %write_pos = getelementptr inbounds i8, ptr %this, i64 512
@@ -22142,7 +22142,7 @@ _ZN12_GLOBAL__N_111concatenateINS_17escaped_codepointEEEvRPcS2_RKT_.exit: ; pred
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_113error_builder6finishERKN4toml2v315source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef nonnull align 4 dereferenceable(8) %pos, ptr noundef nonnull align 8 dereferenceable(16) %source_path) unnamed_addr #27 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_113error_builder6finishERKN4toml2v315source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef nonnull align 4 dereferenceable(8) %pos, ptr noundef nonnull align 8 dereferenceable(16) %source_path) unnamed_addr #28 align 2 {
 entry:
   %write_pos = getelementptr inbounds i8, ptr %this, i64 512
   %0 = load ptr, ptr %write_pos, align 8
@@ -44394,8 +44394,8 @@ attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #24 = { alwaysinline mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

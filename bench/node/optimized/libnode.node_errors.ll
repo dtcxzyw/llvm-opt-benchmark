@@ -2164,8 +2164,8 @@ declare noundef zeroext i1 @_ZNK2v88TryCatch11CanContinueEv(ptr noundef nonnull 
 
 declare ptr @_ZN2v89Exception13CreateMessageEPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef, ptr) local_unnamed_addr #0
 
-; Function Attrs: cold mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionE(ptr noundef %env, ptr %error.coerce, ptr %message.coerce, i32 noundef %enhance_stack) unnamed_addr #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionE(ptr noundef %env, ptr %error.coerce, ptr %message.coerce, i32 noundef %enhance_stack) unnamed_addr #3 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.84", align 1
   %argv.i39 = alloca [1 x %"class.v8::Local"], align 8

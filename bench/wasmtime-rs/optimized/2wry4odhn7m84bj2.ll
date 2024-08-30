@@ -31249,8 +31249,8 @@ switch.lookup40:                                  ; preds = %41
   br label %_ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN8wasmtime7runtime5types8matching16func_ty_mismatch17h3581cea6ba1b39e2E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define internal fastcc noundef nonnull ptr @_ZN8wasmtime7runtime5types8matching16func_ty_mismatch17h3581cea6ba1b39e2E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

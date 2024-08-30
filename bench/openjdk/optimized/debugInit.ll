@@ -173,12 +173,12 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not67, label %21, label %20
 
 20:                                               ; preds = %16
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 164) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.2) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 164) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.2) #17
   br label %21
 
 21:                                               ; preds = %16, %20
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.2) #18
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.2) #17
   br label %668
 
 22:                                               ; preds = %12
@@ -195,12 +195,12 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not66, label %30, label %29
 
 29:                                               ; preds = %25
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 170) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.3) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 170) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.3) #17
   br label %30
 
 30:                                               ; preds = %25, %29
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.3) #18
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.3) #17
   br label %668
 
 31:                                               ; preds = %3, %22
@@ -213,7 +213,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 48
   %.pre175 = load ptr, ptr %.phi.trans.insert, align 8
-  %32 = tail call i32 %.pre175(ptr noundef nonnull %0, ptr noundef nonnull @get_gdata.s, i32 noundef 806879232) #18
+  %32 = tail call i32 %.pre175(ptr noundef nonnull %0, ptr noundef nonnull @get_gdata.s, i32 noundef 806879232) #17
   %.not46 = icmp eq i32 %32, 0
   br i1 %.not46, label %40, label %33
 
@@ -226,19 +226,19 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not47, label %39, label %38
 
 38:                                               ; preds = %33
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 201) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.8, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 806879232, i32 noundef %32) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 201) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.8, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 806879232, i32 noundef %32) #17
   br label %39
 
 39:                                               ; preds = %33, %38
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.8, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 806879232, i32 noundef %32) #18
-  tail call void @transport_close() #18
-  tail call void @exit(i32 noundef 1) #19
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.8, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 806879232, i32 noundef %32) #17
+  tail call void @transport_close() #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 40:                                               ; preds = %31
-  %41 = tail call i32 @jvmtiMajorVersion() #18
-  %42 = tail call i32 @jvmtiMinorVersion() #18
+  %41 = tail call i32 @jvmtiMajorVersion() #17
+  %42 = tail call i32 @jvmtiMinorVersion() #17
   %43 = icmp ne i32 %41, 24
   %44 = icmp slt i32 %42, 0
   %.not75 = or i1 %43, %44
@@ -253,20 +253,20 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not49, label %54, label %50
 
 50:                                               ; preds = %45
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 216) #18
-  %51 = tail call i32 @jvmtiMajorVersion() #18
-  %52 = tail call i32 @jvmtiMinorVersion() #18
-  %53 = tail call i32 @jvmtiMicroVersion() #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef 24, i32 noundef 0, i32 noundef 0) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 216) #17
+  %51 = tail call i32 @jvmtiMajorVersion() #17
+  %52 = tail call i32 @jvmtiMinorVersion() #17
+  %53 = tail call i32 @jvmtiMicroVersion() #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef 24, i32 noundef 0, i32 noundef 0) #17
   br label %54
 
 54:                                               ; preds = %45, %50
-  %55 = tail call i32 @jvmtiMajorVersion() #18
-  %56 = tail call i32 @jvmtiMinorVersion() #18
-  %57 = tail call i32 @jvmtiMicroVersion() #18
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.9, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef 24, i32 noundef 0, i32 noundef 0) #18
-  tail call void @transport_close() #18
-  tail call void @exit(i32 noundef 1) #19
+  %55 = tail call i32 @jvmtiMajorVersion() #17
+  %56 = tail call i32 @jvmtiMinorVersion() #17
+  %57 = tail call i32 @jvmtiMicroVersion() #17
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.9, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef 24, i32 noundef 0, i32 noundef 0) #17
+  tail call void @transport_close() #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 58:                                               ; preds = %40
@@ -288,54 +288,54 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   store i8 0, ptr %64, align 1
   %65 = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %65, ptr @.str.23, ptr %1
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i, ptr noundef nonnull dereferenceable(5) @.str.56) #20
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i, ptr noundef nonnull dereferenceable(5) @.str.56) #19
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %58
-  tail call void (ptr, ...) @tty_message(ptr noundef nonnull @.str.101) #18
-  tail call void (ptr, ...) @tty_message(ptr noundef nonnull @.str.102) #18
-  tail call void @transport_close() #18
-  tail call void @exit(i32 noundef 0) #21
+  tail call void (ptr, ...) @tty_message(ptr noundef nonnull @.str.101) #17
+  tail call void (ptr, ...) @tty_message(ptr noundef nonnull @.str.102) #17
+  tail call void @transport_close() #17
+  tail call void @exit(i32 noundef 0) #20
   unreachable
 
 69:                                               ; preds = %58
-  %70 = tail call ptr @getenv(ptr noundef nonnull @.str.57) #18
+  %70 = tail call ptr @getenv(ptr noundef nonnull @.str.57) #17
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %85, label %71
 
 71:                                               ; preds = %69
-  %72 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #20
+  %72 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #19
   %73 = trunc i64 %72 to i32
-  %74 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %70) #20
+  %74 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %70) #19
   %75 = trunc i64 %74 to i32
   %76 = add i32 %73, 2
   %77 = add i32 %76, %75
-  %78 = tail call ptr @jvmtiAllocate(i32 noundef %77) #18
+  %78 = tail call ptr @jvmtiAllocate(i32 noundef %77) #17
   %79 = icmp eq ptr %78, null
   br i1 %79, label %82, label %add_to_options.exit.i
 
 add_to_options.exit.i:                            ; preds = %71
-  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #18
+  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #17
   %strlen.i.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %78)
   %endptr.i.i = getelementptr inbounds i8, ptr %78, i64 %strlen.i.i
   store i16 44, ptr %endptr.i.i, align 1
-  %81 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(1) %70) #18
+  %81 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(1) %70) #17
   br label %85
 
 82:                                               ; preds = %71
   %83 = load ptr, ptr @stderr, align 8
-  %84 = tail call ptr @jvmtiErrorText(i32 noundef 188) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %83, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %84, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1020) #18
+  %84 = tail call ptr @jvmtiErrorText(i32 noundef 188) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %83, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %84, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1020) #17
   tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.58)
   unreachable
 
 85:                                               ; preds = %add_to_options.exit.i, %69
   %.0103.i = phi ptr [ %78, %add_to_options.exit.i ], [ %spec.store.select.i, %69 ]
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0103.i) #20
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0103.i) #19
   %87 = trunc i64 %86 to i32
   %88 = add nsw i32 %87, 1
-  %89 = tail call ptr @jvmtiAllocate(i32 noundef %88) #18
+  %89 = tail call ptr @jvmtiAllocate(i32 noundef %88) #17
   %90 = load ptr, ptr @gdata, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 32
   store ptr %89, ptr %91, align 8
@@ -344,35 +344,35 @@ add_to_options.exit.i:                            ; preds = %71
 
 93:                                               ; preds = %85
   %94 = load ptr, ptr @stderr, align 8
-  %95 = tail call ptr @jvmtiErrorText(i32 noundef 188) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %94, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %95, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1032) #18
+  %95 = tail call ptr @jvmtiErrorText(i32 noundef 188) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %94, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %95, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1032) #17
   tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.58)
   unreachable
 
 96:                                               ; preds = %85
-  %97 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %.0103.i) #18
-  %98 = tail call ptr @jvmtiAllocate(i32 noundef %88) #18
+  %97 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %.0103.i) #17
+  %98 = tail call ptr @jvmtiAllocate(i32 noundef %88) #17
   store ptr %98, ptr @names, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr @stderr, align 8
-  %102 = tail call ptr @jvmtiErrorText(i32 noundef 188) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %101, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %102, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1037) #18
+  %102 = tail call ptr @jvmtiErrorText(i32 noundef 188) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %101, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %102, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1037) #17
   tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.58)
   unreachable
 
 103:                                              ; preds = %96
-  %104 = tail call ptr @bagCreateBag(i32 noundef 32, i32 noundef 3) #18
+  %104 = tail call ptr @bagCreateBag(i32 noundef 32, i32 noundef 3) #17
   store ptr %104, ptr @transports, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %103
   %107 = load ptr, ptr @stderr, align 8
-  %108 = tail call ptr @jvmtiErrorText(i32 noundef 188) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %107, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %108, i32 noundef 188, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 1042) #18
+  %108 = tail call ptr @jvmtiErrorText(i32 noundef 188) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %107, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %108, i32 noundef 188, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 1042) #17
   tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.59)
   unreachable
 
@@ -432,7 +432,7 @@ get_tok.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr @transports, align 8
-  %130 = tail call ptr @bagAdd(ptr noundef %129) #18
+  %130 = tail call ptr @bagAdd(ptr noundef %129) #17
   %131 = ptrtoint ptr %.0106410.i to i64
   %132 = sub i64 %114, %131
   %133 = trunc i64 %132 to i32
@@ -479,7 +479,7 @@ get_tok.exit187.i:                                ; preds = %.lr.ph.i181.i, %.lr
   store ptr %.0106410.i, ptr %130, align 8
   %149 = getelementptr inbounds i8, ptr %130, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false)
-  %150 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %150 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %151 = add i64 %150, 1
   %152 = getelementptr inbounds i8, ptr %.0106410.i, i64 %151
   br label %519
@@ -539,7 +539,7 @@ get_tok.exit197.i:                                ; preds = %.lr.ph.i191.i, %.lr
 174:                                              ; preds = %get_tok.exit197.i
   %175 = getelementptr inbounds i8, ptr %.0105413.i, i64 8
   store ptr %.0106410.i, ptr %175, align 8
-  %176 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %176 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %177 = add i64 %176, 1
   %178 = getelementptr inbounds i8, ptr %.0106410.i, i64 %177
   br label %519
@@ -599,7 +599,7 @@ get_tok.exit207.i:                                ; preds = %.lr.ph.i201.i, %.lr
 201:                                              ; preds = %get_tok.exit207.i
   %202 = getelementptr inbounds i8, ptr %.0105413.i, i64 24
   store ptr %.0106410.i, ptr %202, align 8
-  %203 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %203 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %204 = add i64 %203, 1
   %205 = getelementptr inbounds i8, ptr %.0106410.i, i64 %204
   br label %519
@@ -656,10 +656,10 @@ get_tok.exit217.i:                                ; preds = %.lr.ph.i211.i, %.lr
   br i1 %.not174.i, label %get_tok.exit.thread.i, label %227
 
 227:                                              ; preds = %get_tok.exit217.i
-  %228 = tail call i64 @atol(ptr nocapture noundef nonnull %.0106410.i) #20
+  %228 = tail call i64 @atol(ptr nocapture noundef nonnull %.0106410.i) #19
   %229 = getelementptr inbounds i8, ptr %.0105413.i, i64 16
   store i64 %228, ptr %229, align 8
-  %230 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %230 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %231 = add i64 %230, 1
   %232 = getelementptr inbounds i8, ptr %.0106410.i, i64 %231
   br label %519
@@ -753,7 +753,7 @@ sub_1333.i:                                       ; preds = %sub_0332.i
   store i8 %.sink.i, ptr %269, align 4
   %270 = getelementptr inbounds i8, ptr %268, i64 21
   store i8 %.sink.i, ptr %270, align 1
-  %271 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %271 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %272 = add i64 %271, 1
   %273 = getelementptr inbounds i8, ptr %.0106410.i, i64 %272
   br label %519
@@ -808,7 +808,7 @@ get_tok.exit237.i:                                ; preds = %.lr.ph.i231.i, %.lr
 
 294:                                              ; preds = %get_tok.exit237.i
   store ptr %.0106410.i, ptr @launchOnInit, align 8
-  %295 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %295 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %296 = add i64 %295, 1
   %297 = getelementptr inbounds i8, ptr %.0106410.i, i64 %296
   br label %519
@@ -958,7 +958,7 @@ sub_1337.i:                                       ; preds = %sub_0336.i
   br i1 %356, label %366, label %357
 
 357:                                              ; preds = %.tail335.i
-  %358 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0106410.i, ptr noundef nonnull dereferenceable(6) @.str.73) #20
+  %358 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0106410.i, ptr noundef nonnull dereferenceable(6) @.str.73) #19
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %366, label %sub_0340.i
 
@@ -986,7 +986,7 @@ sub_1341.i:                                       ; preds = %sub_0340.i
   store i8 %.sink522.i, ptr %368, align 1
   %369 = getelementptr inbounds i8, ptr %367, i64 18
   store i8 %.sink519.i, ptr %369, align 2
-  %370 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %370 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %371 = add i64 %370, 1
   %372 = getelementptr inbounds i8, ptr %.0106410.i, i64 %371
   br label %519
@@ -1046,7 +1046,7 @@ get_boolean.exit.thread.i:                        ; preds = %386, %get_tok.exit.
 
 387:                                              ; preds = %386
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  tail call void @do_pause() #18
+  tail call void @do_pause() #17
   br label %519
 
 388:                                              ; preds = %373
@@ -1179,7 +1179,7 @@ get_tok.exit280.i:                                ; preds = %.lr.ph.i274.i, %.lr
 
 432:                                              ; preds = %get_tok.exit280.i
   store ptr %.0106410.i, ptr @logfile, align 8
-  %433 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #20
+  %433 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %434 = add i64 %433, 1
   %435 = getelementptr inbounds i8, ptr %.0106410.i, i64 %434
   br label %519
@@ -1233,7 +1233,7 @@ get_tok.exit290.i:                                ; preds = %.lr.ph.i284.i, %.lr
   br i1 %.not163.i, label %get_tok.exit.thread.i, label %456
 
 456:                                              ; preds = %get_tok.exit290.i
-  %457 = tail call i64 @strtol(ptr nocapture noundef nonnull %.0106410.i, ptr noundef null, i32 noundef 0) #18
+  %457 = tail call i64 @strtol(ptr nocapture noundef nonnull %.0106410.i, ptr noundef null, i32 noundef 0) #17
   %458 = trunc i64 %457 to i32
   store i32 %458, ptr @logflags, align 4
   br label %519
@@ -1287,7 +1287,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %.not162.i, label %get_tok.exit.thread.i, label %479
 
 479:                                              ; preds = %get_tok.exit300.i
-  %480 = tail call i64 @strtol(ptr nocapture noundef nonnull %.0106410.i, ptr noundef null, i32 noundef 0) #18
+  %480 = tail call i64 @strtol(ptr nocapture noundef nonnull %.0106410.i, ptr noundef null, i32 noundef 0) #17
   %481 = trunc i64 %480 to i32
   %482 = load ptr, ptr @gdata, align 8
   %483 = getelementptr inbounds i8, ptr %482, i64 28
@@ -1392,19 +1392,19 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
 
 523:                                              ; preds = %._crit_edge.i
   %524 = load i32, ptr @logflags, align 4
-  tail call void @setup_logging(ptr noundef nonnull %522, i32 noundef %524) #18
-  %525 = tail call i32 @atexit(ptr noundef nonnull @atexit_finish_logging) #18
+  tail call void @setup_logging(ptr noundef nonnull %522, i32 noundef %524) #17
+  %525 = tail call i32 @atexit(ptr noundef nonnull @atexit_finish_logging) #17
   br label %526
 
 526:                                              ; preds = %523, %._crit_edge.i
   %527 = load ptr, ptr @transports, align 8
-  %528 = tail call i32 @bagSize(ptr noundef %527) #18
+  %528 = tail call i32 @bagSize(ptr noundef %527) #17
   %529 = icmp eq i32 %528, 0
   br i1 %529, label %.loopexit.i, label %530
 
 530:                                              ; preds = %526
   %531 = load ptr, ptr @transports, align 8
-  %532 = tail call i32 @bagSize(ptr noundef %531) #18
+  %532 = tail call i32 @bagSize(ptr noundef %531) #17
   %533 = icmp sgt i32 %532, 1
   br i1 %533, label %.loopexit.i, label %534
 
@@ -1415,7 +1415,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
 
 536:                                              ; preds = %534
   %537 = load ptr, ptr @transports, align 8
-  %538 = tail call zeroext i8 @bagEnumerateOver(ptr noundef %537, ptr noundef nonnull @checkAddress, ptr noundef null) #18
+  %538 = tail call zeroext i8 @bagEnumerateOver(ptr noundef %537, ptr noundef nonnull @checkAddress, ptr noundef null) #17
   %.not116.i = icmp eq i8 %538, 0
   br i1 %.not116.i, label %566, label %539
 
@@ -1463,12 +1463,12 @@ get_tok.exit.thread.i:                            ; preds = %517, %515, %513, %5
   br i1 %.not179.i, label %559, label %558
 
 558:                                              ; preds = %get_tok.exit.thread.i
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1296) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1296) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #17
   br label %559
 
 559:                                              ; preds = %558, %get_tok.exit.thread.i
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #18
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #17
   br label %577
 
 .loopexit.i:                                      ; preds = %411, %409, %207, %181, %154, %551, %549, %544, %530, %526
@@ -1481,12 +1481,12 @@ get_tok.exit.thread.i:                            ; preds = %517, %515, %513, %5
   br i1 %.not177.i, label %565, label %564
 
 564:                                              ; preds = %.loopexit.i
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1300) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.99, ptr noundef nonnull %.0104.i, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1300) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.99, ptr noundef nonnull %.0104.i, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #17
   br label %565
 
 565:                                              ; preds = %564, %.loopexit.i
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.99, ptr noundef nonnull %.0104.i, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #18
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.99, ptr noundef nonnull %.0104.i, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #17
   br label %577
 
 566:                                              ; preds = %536
@@ -1498,12 +1498,12 @@ get_tok.exit.thread.i:                            ; preds = %517, %515, %513, %5
   br i1 %.not117.i, label %572, label %571
 
 571:                                              ; preds = %566
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1304) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1304) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #17
   br label %572
 
 572:                                              ; preds = %571, %566
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #18
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.98, ptr noundef nonnull %.0103.i) #17
   br label %577
 
 parseOptions.exit:                                ; preds = %547, %553
@@ -1521,13 +1521,13 @@ parseOptions.exit:                                ; preds = %547, %553
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8)
-  tail call void @transport_close() #18
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @transport_close() #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 578:                                              ; preds = %parseOptions.exit
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 229) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.11, ptr noundef %1) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 229) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.11, ptr noundef %1) #17
   %.pre176 = load ptr, ptr @gdata, align 8
   %.phi.trans.insert177 = getelementptr inbounds i8, ptr %.pre176, i64 528
   %.pre178 = load i32, ptr %.phi.trans.insert177, align 8
@@ -1542,8 +1542,8 @@ parseOptions.exit:                                ; preds = %547, %553
   br i1 %.not52, label %584, label %583
 
 583:                                              ; preds = %579
-  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 233) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 233) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13) #17
   %.pre179 = load ptr, ptr @gdata, align 8
   br label %584
 
@@ -1553,7 +1553,7 @@ parseOptions.exit:                                ; preds = %547, %553
   %587 = load ptr, ptr %586, align 8
   %588 = getelementptr inbounds i8, ptr %587, i64 1112
   %589 = load ptr, ptr %588, align 8
-  %590 = call i32 %589(ptr noundef nonnull %586, ptr noundef nonnull %10) #18
+  %590 = call i32 %589(ptr noundef nonnull %586, ptr noundef nonnull %10) #17
   %.not53 = icmp eq i32 %590, 0
   br i1 %.not53, label %600, label %591
 
@@ -1566,14 +1566,14 @@ parseOptions.exit:                                ; preds = %547, %553
   br i1 %.not65, label %598, label %596
 
 596:                                              ; preds = %591
-  call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 237) #18
-  %597 = call ptr @jvmtiErrorText(i32 noundef %590) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.14, ptr noundef %597, i32 noundef %590) #18
+  call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 237) #17
+  %597 = call ptr @jvmtiErrorText(i32 noundef %590) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.14, ptr noundef %597, i32 noundef %590) #17
   br label %598
 
 598:                                              ; preds = %591, %596
-  %599 = call ptr @jvmtiErrorText(i32 noundef %590) #18
-  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.14, ptr noundef %599, i32 noundef %590) #18
+  %599 = call ptr @jvmtiErrorText(i32 noundef %590) #17
+  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.14, ptr noundef %599, i32 noundef %590) #17
   br label %668
 
 600:                                              ; preds = %584
@@ -1596,8 +1596,8 @@ parseOptions.exit:                                ; preds = %547, %553
   br i1 %.not55, label %613, label %612
 
 612:                                              ; preds = %600
-  call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 295) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 295) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15) #17
   %.pre180 = load ptr, ptr @gdata, align 8
   br label %613
 
@@ -1607,7 +1607,7 @@ parseOptions.exit:                                ; preds = %547, %553
   %616 = load ptr, ptr %615, align 8
   %617 = getelementptr inbounds i8, ptr %616, i64 1128
   %618 = load ptr, ptr %617, align 8
-  %619 = call i32 %618(ptr noundef nonnull %615, ptr noundef nonnull %9) #18
+  %619 = call i32 %618(ptr noundef nonnull %615, ptr noundef nonnull %9) #17
   %.not56 = icmp eq i32 %619, 0
   br i1 %.not56, label %627, label %620
 
@@ -1620,18 +1620,18 @@ parseOptions.exit:                                ; preds = %547, %553
   br i1 %.not57, label %626, label %625
 
 625:                                              ; preds = %620
-  call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 298) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.16) #18
+  call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 298) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.16) #17
   br label %626
 
 626:                                              ; preds = %620, %625
-  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.16) #18
-  call void @transport_close() #18
-  call void @exit(i32 noundef 1) #19
+  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.16) #17
+  call void @transport_close() #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 627:                                              ; preds = %613
-  call void @eventIndexInit() #18
+  call void @eventIndexInit() #17
   %628 = call fastcc i32 @set_event_notification(i32 noundef 1, i32 noundef 20)
   %.not58 = icmp eq i32 %628, 0
   br i1 %.not58, label %629, label %668
@@ -1671,8 +1671,8 @@ parseOptions.exit:                                ; preds = %547, %553
   br i1 %.not61, label %648, label %647
 
 647:                                              ; preds = %638
-  call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 326) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 326) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #17
   %.pre181 = load ptr, ptr @gdata, align 8
   br label %648
 
@@ -1683,7 +1683,7 @@ parseOptions.exit:                                ; preds = %547, %553
   %652 = getelementptr inbounds i8, ptr %651, i64 968
   %653 = load ptr, ptr %652, align 8
   %654 = getelementptr inbounds i8, ptr %649, i64 160
-  %655 = call i32 %653(ptr noundef nonnull %650, ptr noundef nonnull %654, i32 noundef 312) #18
+  %655 = call i32 %653(ptr noundef nonnull %650, ptr noundef nonnull %654, i32 noundef 312) #17
   %.not62 = icmp eq i32 %655, 0
   %656 = load ptr, ptr @gdata, align 8
   %657 = getelementptr inbounds i8, ptr %656, i64 528
@@ -1696,14 +1696,14 @@ parseOptions.exit:                                ; preds = %547, %553
   br i1 %.not64, label %663, label %661
 
 661:                                              ; preds = %659
-  call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 330) #18
-  %662 = call ptr @jvmtiErrorText(i32 noundef %655) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.18, ptr noundef %662, i32 noundef %655) #18
+  call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 330) #17
+  %662 = call ptr @jvmtiErrorText(i32 noundef %655) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.18, ptr noundef %662, i32 noundef %655) #17
   br label %663
 
 663:                                              ; preds = %659, %661
-  %664 = call ptr @jvmtiErrorText(i32 noundef %655) #18
-  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.18, ptr noundef %664, i32 noundef %655) #18
+  %664 = call ptr @jvmtiErrorText(i32 noundef %655) #17
+  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.18, ptr noundef %664, i32 noundef %655) #17
   br label %668
 
 665:                                              ; preds = %648
@@ -1712,8 +1712,8 @@ parseOptions.exit:                                ; preds = %547, %553
   br i1 %.not63, label %668, label %667
 
 667:                                              ; preds = %665
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 334) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.19) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 334) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.19) #17
   br label %668
 
 668:                                              ; preds = %667, %665, %636, %629, %627, %663, %598, %30, %21
@@ -1729,8 +1729,8 @@ declare void @error_message(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @forceExit(i32 noundef %0) local_unnamed_addr #2 {
-  tail call void @transport_close() #18
-  tail call void @exit(i32 noundef %0) #21
+  tail call void @transport_close() #17
+  tail call void @exit(i32 noundef %0) #20
   unreachable
 }
 
@@ -1757,8 +1757,8 @@ define internal fastcc i32 @set_event_notification(i32 noundef %0, i32 noundef %
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 131) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.27) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 131) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.27) #17
   %.pre = load ptr, ptr @gdata, align 8
   br label %8
 
@@ -1768,8 +1768,8 @@ define internal fastcc i32 @set_event_notification(i32 noundef %0, i32 noundef %
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #18
-  %15 = tail call i32 (ptr, i32, i32, ptr, ...) %13(ptr noundef nonnull %10, i32 noundef %0, i32 noundef %14, ptr noundef null) #18
+  %14 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #17
+  %15 = tail call i32 (ptr, i32, i32, ptr, ...) %13(ptr noundef nonnull %10, i32 noundef %0, i32 noundef %14, ptr noundef null) #17
   %.not10 = icmp eq i32 %15, 0
   br i1 %.not10, label %27, label %16
 
@@ -1782,16 +1782,16 @@ define internal fastcc i32 @set_event_notification(i32 noundef %0, i32 noundef %
   br i1 %.not11, label %24, label %21
 
 21:                                               ; preds = %16
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 135) #18
-  %22 = tail call ptr @eventText(i32 noundef %1) #18
-  %23 = tail call ptr @jvmtiErrorText(i32 noundef %15) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.28, ptr noundef %22, ptr noundef %23, i32 noundef %15) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 135) #17
+  %22 = tail call ptr @eventText(i32 noundef %1) #17
+  %23 = tail call ptr @jvmtiErrorText(i32 noundef %15) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.28, ptr noundef %22, ptr noundef %23, i32 noundef %15) #17
   br label %24
 
 24:                                               ; preds = %16, %21
-  %25 = tail call ptr @eventText(i32 noundef %1) #18
-  %26 = tail call ptr @jvmtiErrorText(i32 noundef %15) #18
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.28, ptr noundef %25, ptr noundef %26, i32 noundef %15) #18
+  %25 = tail call ptr @eventText(i32 noundef %1) #17
+  %26 = tail call ptr @jvmtiErrorText(i32 noundef %15) #17
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.28, ptr noundef %25, ptr noundef %26, i32 noundef %15) #17
   br label %27
 
 27:                                               ; preds = %24, %8
@@ -1808,8 +1808,8 @@ define internal void @cbEarlyVMInit(ptr nocapture readnone %0, ptr noundef %1, p
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @log_message_begin(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 389) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.30) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 389) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.30) #17
   %.pre = load ptr, ptr @gdata, align 8
   br label %9
 
@@ -1822,8 +1822,8 @@ define internal void @cbEarlyVMInit(ptr nocapture readnone %0, ptr noundef %1, p
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call ptr @jvmtiErrorText(i32 noundef 181) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %14, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %15, i32 noundef 181, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 391) #18
+  %15 = tail call ptr @jvmtiErrorText(i32 noundef 181) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %14, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %15, i32 noundef 181, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 391) #17
   tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.34)
   unreachable
 
@@ -1846,8 +1846,8 @@ define internal void @cbEarlyVMInit(ptr nocapture readnone %0, ptr noundef %1, p
   br i1 %.not3, label %24, label %23
 
 23:                                               ; preds = %18
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 396) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.35) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 396) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.35) #17
   br label %24
 
 24:                                               ; preds = %18, %23
@@ -1864,8 +1864,8 @@ define internal void @cbEarlyVMDeath(ptr noundef %0, ptr nocapture readnone %1) 
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @log_message_begin(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 418) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.36) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 418) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.36) #17
   %.pre = load ptr, ptr @gdata, align 8
   br label %8
 
@@ -1878,8 +1878,8 @@ define internal void @cbEarlyVMDeath(ptr noundef %0, ptr nocapture readnone %1) 
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call ptr @jvmtiErrorText(i32 noundef 181) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %13, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %14, i32 noundef 181, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 420) #18
+  %14 = tail call ptr @jvmtiErrorText(i32 noundef 181) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %13, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %14, i32 noundef 181, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 420) #17
   tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.37)
   unreachable
 
@@ -1899,8 +1899,8 @@ define internal void @cbEarlyVMDeath(ptr noundef %0, ptr nocapture readnone %1) 
   br i1 %.not2, label %24, label %23
 
 23:                                               ; preds = %15
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 426) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.38) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 426) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.38) #17
   br label %24
 
 24:                                               ; preds = %15, %23
@@ -1919,8 +1919,8 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %8
-  tail call void @log_message_begin(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 438) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.39, ptr noundef %2) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 438) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.39, ptr noundef %2) #17
   %.pre = load ptr, ptr @gdata, align 8
   br label %16
 
@@ -1933,8 +1933,8 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call ptr @jvmtiErrorText(i32 noundef 181) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %22, i32 noundef 181, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 441) #18
+  %22 = tail call ptr @jvmtiErrorText(i32 noundef 181) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %22, i32 noundef 181, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 441) #17
   tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.40)
   unreachable
 
@@ -1950,15 +1950,15 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not39, label %145, label %28
 
 28:                                               ; preds = %24
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 444) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.41) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 444) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.41) #17
   br label %145
 
 29:                                               ; preds = %23
   store i32 4, ptr %9, align 8
   %30 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %2, ptr %30, align 8
-  %31 = tail call ptr @getMethodClass(ptr noundef %0, ptr noundef %3) #18
+  %31 = tail call ptr @getMethodClass(ptr noundef %0, ptr noundef %3) #17
   %32 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %9, i64 32
@@ -1974,13 +1974,13 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not40, label %42, label %39
 
 39:                                               ; preds = %29
-  %40 = tail call zeroext i8 @isVThread(ptr noundef %2) #18
+  %40 = tail call zeroext i8 @isVThread(ptr noundef %2) #17
   %41 = getelementptr inbounds i8, ptr %9, i64 16
   store i8 %40, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %39, %29
-  %43 = tail call ptr @getMethodClass(ptr noundef %0, ptr noundef %6) #18
+  %43 = tail call ptr @getMethodClass(ptr noundef %0, ptr noundef %6) #17
   %44 = getelementptr inbounds i8, ptr %9, i64 56
   store ptr %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %9, i64 64
@@ -1995,15 +1995,15 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not41, label %52, label %51
 
 51:                                               ; preds = %42
-  tail call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 468) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.43) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 468) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.43) #17
   br label %52
 
 52:                                               ; preds = %42, %51
   %53 = load ptr, ptr %1, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 120
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr %55(ptr noundef nonnull %1) #18
+  %56 = tail call ptr %55(ptr noundef nonnull %1) #17
   %57 = load ptr, ptr @gdata, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 528
   %59 = load i32, ptr %58, align 8
@@ -2012,15 +2012,15 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not42, label %62, label %61
 
 61:                                               ; preds = %52
-  tail call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 469) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.44) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 469) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.44) #17
   br label %62
 
 62:                                               ; preds = %52, %61
   %63 = load ptr, ptr %1, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 136
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull %1) #18
+  tail call void %65(ptr noundef nonnull %1) #17
   %66 = load i8, ptr @initOnUncaught, align 1
   %67 = icmp ne i8 %66, 0
   %68 = icmp eq ptr %6, null
@@ -2036,8 +2036,8 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not54, label %75, label %74
 
 74:                                               ; preds = %69
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 473) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 473) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45) #17
   br label %75
 
 75:                                               ; preds = %69, %74
@@ -2058,21 +2058,21 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not44, label %84, label %83
 
 83:                                               ; preds = %78
-  tail call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 478) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.46) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 478) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.46) #17
   br label %84
 
 84:                                               ; preds = %78, %83
   %85 = load ptr, ptr %1, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 248
   %87 = load ptr, ptr %86, align 8
-  %88 = tail call ptr %87(ptr noundef nonnull %1, ptr noundef %5) #18
+  %88 = tail call ptr %87(ptr noundef nonnull %1, ptr noundef %5) #17
   %.not45 = icmp eq ptr %88, null
   br i1 %.not45, label %.thread, label %89
 
 89:                                               ; preds = %84
   store ptr null, ptr %10, align 8
-  %90 = call i32 @classSignature(ptr noundef nonnull %88, ptr noundef nonnull %10, ptr noundef null) #18
+  %90 = call i32 @classSignature(ptr noundef nonnull %88, ptr noundef nonnull %10, ptr noundef null) #17
   %91 = load ptr, ptr @gdata, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 528
   %93 = load i32, ptr %92, align 8
@@ -2081,10 +2081,10 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not46, label %98, label %95
 
 95:                                               ; preds = %89
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 485) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 485) #17
   %96 = load ptr, ptr @initOnException, align 8
   %97 = load ptr, ptr %10, align 8
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.47, ptr noundef %96, ptr noundef %97) #18
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.47, ptr noundef %96, ptr noundef %97) #17
   br label %98
 
 98:                                               ; preds = %89, %95
@@ -2094,7 +2094,7 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
 100:                                              ; preds = %98
   %101 = load ptr, ptr %10, align 8
   %102 = load ptr, ptr @initOnException, align 8
-  %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %102) #20
+  %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %102) #19
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %112
 
@@ -2107,8 +2107,8 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not47, label %111, label %110
 
 110:                                              ; preds = %105
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 488) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.48) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 488) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.48) #17
   br label %111
 
 111:                                              ; preds = %105, %110
@@ -2126,7 +2126,7 @@ thread-pre-split:                                 ; preds = %111, %98
   br i1 %.not48, label %115, label %114
 
 114:                                              ; preds = %112
-  call void @jvmtiDeallocate(ptr noundef nonnull %113) #18
+  call void @jvmtiDeallocate(ptr noundef nonnull %113) #17
   br label %115
 
 115:                                              ; preds = %112, %114
@@ -2141,8 +2141,8 @@ thread-pre-split:                                 ; preds = %111, %98
   br i1 %.not50, label %121, label %120
 
 120:                                              ; preds = %.thread
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 505) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.49) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 505) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.49) #17
   br label %121
 
 121:                                              ; preds = %.thread, %120
@@ -2158,30 +2158,30 @@ thread-pre-split:                                 ; preds = %111, %98
   br i1 %.not52, label %128, label %127
 
 127:                                              ; preds = %126
-  call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 507) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.50) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 507) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.50) #17
   br label %128
 
 128:                                              ; preds = %126, %127
   %129 = load ptr, ptr %1, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 104
   %131 = load ptr, ptr %130, align 8
-  %132 = call i32 %131(ptr noundef nonnull %1, ptr noundef nonnull %56) #18
+  %132 = call i32 %131(ptr noundef nonnull %1, ptr noundef nonnull %56) #17
   br label %139
 
 133:                                              ; preds = %121
   br i1 %.not52, label %135, label %134
 
 134:                                              ; preds = %133
-  call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 509) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.44) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 509) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.44) #17
   br label %135
 
 135:                                              ; preds = %133, %134
   %136 = load ptr, ptr %1, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 136
   %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull %1) #18
+  call void %138(ptr noundef nonnull %1) #17
   br label %139
 
 139:                                              ; preds = %76, %128, %135, %115, %75
@@ -2193,8 +2193,8 @@ thread-pre-split:                                 ; preds = %111, %98
   br i1 %.not55, label %145, label %144
 
 144:                                              ; preds = %139
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 515) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.51) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 515) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.51) #17
   br label %145
 
 145:                                              ; preds = %139, %28, %24, %144
@@ -2206,12 +2206,12 @@ define void @Agent_OnUnload(ptr nocapture noundef readnone %0) local_unnamed_add
   %2 = load ptr, ptr @gdata, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 576
   store i8 0, ptr %3, align 8
-  %4 = tail call zeroext i8 @transport_is_open() #18
+  %4 = tail call zeroext i8 @transport_is_open() #17
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @transport_close() #18
+  tail call void @transport_close() #17
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -2232,19 +2232,19 @@ define hidden zeroext range(i8 0, 2) i8 @debugInit_isInitComplete() local_unname
 ; Function Attrs: nounwind uwtable
 define hidden void @debugInit_waitInitComplete() local_unnamed_addr #0 {
   %1 = load ptr, ptr @initMonitor, align 8
-  tail call void @debugMonitorEnter(ptr noundef %1) #18
+  tail call void @debugMonitorEnter(ptr noundef %1) #17
   %.b1 = load i1, ptr @initComplete, align 1
   br i1 %.b1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %2 = load ptr, ptr @initMonitor, align 8
-  tail call void @debugMonitorWait(ptr noundef %2) #18
+  tail call void @debugMonitorWait(ptr noundef %2) #17
   %.b = load i1, ptr @initComplete, align 1
   br i1 %.b, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %3 = load ptr, ptr @initMonitor, align 8
-  tail call void @debugMonitorExit(ptr noundef %3) #18
+  tail call void @debugMonitorExit(ptr noundef %3) #17
   ret void
 }
 
@@ -2268,8 +2268,8 @@ define hidden void @debugInit_reset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 748) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.20) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 748) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.20) #17
   br label %8
 
 8:                                                ; preds = %1, %7
@@ -2277,14 +2277,14 @@ define hidden void @debugInit_reset(ptr noundef %0) local_unnamed_addr #0 {
   %10 = add i8 %9, 1
   store i8 %10, ptr @currentSessionID, align 1
   store i1 false, ptr @initComplete, align 1
-  tail call void @eventHandler_reset(i8 noundef signext %10) #18
-  tail call void @transport_reset() #18
-  tail call void @debugDispatch_reset() #18
-  tail call void @invoker_reset() #18
-  tail call void @stepControl_reset() #18
-  tail call void @threadControl_reset() #18
-  tail call void @util_reset() #18
-  tail call void @commonRef_reset(ptr noundef %0) #18
+  tail call void @eventHandler_reset(i8 noundef signext %10) #17
+  tail call void @transport_reset() #17
+  tail call void @debugDispatch_reset() #17
+  tail call void @invoker_reset() #17
+  tail call void @stepControl_reset() #17
+  tail call void @threadControl_reset() #17
+  tail call void @util_reset() #17
+  tail call void @commonRef_reset(ptr noundef %0) #17
   %11 = load i8, ptr @isServer, align 1
   %.not1 = icmp eq i8 %11, 0
   br i1 %.not1, label %25, label %12
@@ -2296,7 +2296,7 @@ define hidden void @debugInit_reset(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %14, align 4
   %15 = load ptr, ptr @transports, align 8
-  %16 = call zeroext i8 @bagEnumerateOver(ptr noundef %15, ptr noundef nonnull @startTransport, ptr noundef nonnull %2) #18
+  %16 = call zeroext i8 @bagEnumerateOver(ptr noundef %15, ptr noundef nonnull @startTransport, ptr noundef nonnull %2) #17
   %17 = load ptr, ptr @gdata, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 528
   %19 = load i32, ptr %18, align 8
@@ -2305,19 +2305,19 @@ define hidden void @debugInit_reset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %signalInitComplete.exit, label %21
 
 21:                                               ; preds = %12
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 557) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.55) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 557) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.55) #17
   br label %signalInitComplete.exit
 
 signalInitComplete.exit:                          ; preds = %12, %21
   %22 = load ptr, ptr @initMonitor, align 8
-  call void @debugMonitorEnter(ptr noundef %22) #18
+  call void @debugMonitorEnter(ptr noundef %22) #17
   store i1 true, ptr @initComplete, align 1
   %23 = load ptr, ptr @initMonitor, align 8
-  call void @debugMonitorNotifyAll(ptr noundef %23) #18
+  call void @debugMonitorNotifyAll(ptr noundef %23) #17
   %24 = load ptr, ptr @initMonitor, align 8
-  call void @debugMonitorExit(ptr noundef %24) #18
-  call void @transport_waitForConnection() #18
+  call void @debugMonitorExit(ptr noundef %24) #17
+  call void @transport_waitForConnection() #17
   br label %34
 
 25:                                               ; preds = %8
@@ -2329,18 +2329,18 @@ signalInitComplete.exit:                          ; preds = %12, %21
   br i1 %.not.i3, label %signalInitComplete.exit4, label %30
 
 30:                                               ; preds = %25
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 557) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.55) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 557) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.55) #17
   br label %signalInitComplete.exit4
 
 signalInitComplete.exit4:                         ; preds = %25, %30
   %31 = load ptr, ptr @initMonitor, align 8
-  tail call void @debugMonitorEnter(ptr noundef %31) #18
+  tail call void @debugMonitorEnter(ptr noundef %31) #17
   store i1 true, ptr @initComplete, align 1
   %32 = load ptr, ptr @initMonitor, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %32) #18
+  tail call void @debugMonitorNotifyAll(ptr noundef %32) #17
   %33 = load ptr, ptr @initMonitor, align 8
-  tail call void @debugMonitorExit(ptr noundef %33) #18
+  tail call void @debugMonitorExit(ptr noundef %33) #17
   br label %34
 
 34:                                               ; preds = %signalInitComplete.exit4, %signalInitComplete.exit
@@ -2352,8 +2352,8 @@ signalInitComplete.exit4:                         ; preds = %25, %30
   br i1 %.not2, label %40, label %39
 
 39:                                               ; preds = %34
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 780) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.21) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 780) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.21) #17
   br label %40
 
 40:                                               ; preds = %34, %39
@@ -2388,8 +2388,8 @@ define internal noundef zeroext i8 @startTransport(ptr nocapture noundef readonl
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 532) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.52) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 532) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.52) #17
   br label %8
 
 8:                                                ; preds = %2, %7
@@ -2401,7 +2401,7 @@ define internal noundef zeroext i8 @startTransport(ptr nocapture noundef readonl
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call zeroext i16 @transport_startTransport(i8 noundef zeroext %9, ptr noundef %10, ptr noundef %12, i64 noundef %14, ptr noundef %16) #18
+  %17 = tail call zeroext i16 @transport_startTransport(i8 noundef zeroext %9, ptr noundef %10, ptr noundef %12, i64 noundef %14, ptr noundef %16) #17
   %18 = zext i16 %17 to i32
   %.not16 = icmp eq i16 %17, 0
   br i1 %.not16, label %31, label %19
@@ -2415,16 +2415,16 @@ define internal noundef zeroext i8 @startTransport(ptr nocapture noundef readonl
   br i1 %.not17, label %27, label %24
 
 24:                                               ; preds = %19
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 538) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 538) #17
   %25 = load ptr, ptr %0, align 8
-  %26 = tail call ptr @jdwpErrorText(i16 noundef zeroext %17) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.53, ptr noundef %25, ptr noundef %26, i32 noundef %18) #18
+  %26 = tail call ptr @jdwpErrorText(i16 noundef zeroext %17) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.53, ptr noundef %25, ptr noundef %26, i32 noundef %18) #17
   br label %27
 
 27:                                               ; preds = %19, %24
   %28 = load ptr, ptr %0, align 8
-  %29 = tail call ptr @jdwpErrorText(i16 noundef zeroext %17) #18
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.53, ptr noundef %28, ptr noundef %29, i32 noundef %18) #18
+  %29 = tail call ptr @jdwpErrorText(i16 noundef zeroext %17) #17
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.53, ptr noundef %28, ptr noundef %29, i32 noundef %18) #17
   %30 = getelementptr inbounds i8, ptr %1, i64 2
   store i16 %17, ptr %30, align 2
   br label %35
@@ -2445,8 +2445,8 @@ define internal noundef zeroext i8 @startTransport(ptr nocapture noundef readonl
   br i1 %.not18, label %41, label %40
 
 40:                                               ; preds = %35
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 546) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.54) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 546) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.54) #17
   br label %41
 
 41:                                               ; preds = %35, %40
@@ -2469,82 +2469,130 @@ define hidden zeroext i8 @debugInit_suspendOnInit() local_unnamed_addr #4 {
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @debugInit_exit(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call void @commandLoop_exitVmDeathLockOnError() #18
-  %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 528
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 8
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %11, label %7
+  %3 = alloca ptr, align 8
+  %4 = alloca [512 x i8], align 16
+  tail call void @commandLoop_exitVmDeathLockOnError() #17
+  %5 = load ptr, ptr @gdata, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 528
+  %7 = load i32, ptr %6, align 8
+  %8 = and i32 %7, 8
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %13, label %9
 
-7:                                                ; preds = %2
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1319) #18
-  %8 = tail call ptr @jvmtiErrorText(i32 noundef %0) #18
-  %9 = icmp eq ptr %1, null
-  %10 = select i1 %9, ptr @.str.23, ptr %1
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.22, ptr noundef %8, i32 noundef %0, ptr noundef nonnull %10) #18
-  br label %11
+9:                                                ; preds = %2
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1319) #17
+  %10 = tail call ptr @jvmtiErrorText(i32 noundef %0) #17
+  %11 = icmp eq ptr %1, null
+  %12 = select i1 %11, ptr @.str.23, ptr %1
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.22, ptr noundef %10, i32 noundef %0, ptr noundef nonnull %12) #17
+  br label %13
 
-11:                                               ; preds = %2, %7
-  %12 = icmp ne i32 %0, 0
-  %13 = load i8, ptr @docoredump, align 1
-  %14 = icmp ne i8 %13, 0
-  %or.cond = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %22
+13:                                               ; preds = %2, %9
+  %14 = icmp ne i32 %0, 0
+  %15 = load i8, ptr @docoredump, align 1
+  %16 = icmp ne i8 %15, 0
+  %or.cond = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond, label %17, label %24
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr @gdata, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 528
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 8
-  %.not14 = icmp eq i32 %19, 0
-  br i1 %.not14, label %21, label %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr @gdata, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 528
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 8
+  %.not14 = icmp eq i32 %21, 0
+  br i1 %.not14, label %23, label %22
 
-20:                                               ; preds = %15
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1323) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.24) #18
-  br label %21
+22:                                               ; preds = %17
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1323) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.24) #17
+  br label %23
 
-21:                                               ; preds = %15, %20
-  tail call void (...) @finish_logging() #18
-  tail call void @abort() #21
+23:                                               ; preds = %17, %22
+  tail call void (...) @finish_logging() #17
+  tail call void @abort() #20
   unreachable
 
-22:                                               ; preds = %11
-  tail call void (...) @finish_logging() #18
-  %23 = load ptr, ptr @gdata, align 8
-  %.not12 = icmp eq ptr %23, null
-  br i1 %.not12, label %28, label %24
+24:                                               ; preds = %13
+  tail call void (...) @finish_logging() #17
+  %25 = load ptr, ptr @gdata, align 8
+  %.not12 = icmp eq ptr %25, null
+  br i1 %.not12, label %30, label %26
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
-  store volatile i8 1, ptr %25, align 8
-  %26 = load ptr, ptr %23, align 8
-  %.not13 = icmp eq ptr %26, null
-  br i1 %.not13, label %28, label %27
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  store volatile i8 1, ptr %27, align 8
+  %28 = load ptr, ptr %25, align 8
+  %.not13 = icmp eq ptr %28, null
+  br i1 %.not13, label %30, label %29
 
-27:                                               ; preds = %24
-  tail call fastcc void @disposeEnvironment(ptr noundef nonnull %26)
-  br label %28
+29:                                               ; preds = %26
+  tail call fastcc void @disposeEnvironment(ptr noundef nonnull %28)
+  br label %30
 
-28:                                               ; preds = %24, %27, %22
-  switch i32 %0, label %31 [
-    i32 0, label %29
-    i32 197, label %30
+30:                                               ; preds = %26, %29, %24
+  switch i32 %0, label %33 [
+    i32 0, label %31
+    i32 197, label %32
   ]
 
-29:                                               ; preds = %28
-  tail call void @transport_close() #18
-  tail call void @exit(i32 noundef 0) #21
+31:                                               ; preds = %30
+  tail call void @transport_close() #17
+  tail call void @exit(i32 noundef 0) #20
   unreachable
 
-30:                                               ; preds = %28
-  tail call void @transport_close() #18
-  tail call void @exit(i32 noundef 2) #19
+32:                                               ; preds = %30
+  tail call void @transport_close() #17
+  tail call void @exit(i32 noundef 2) #18
   unreachable
 
-31:                                               ; preds = %28
-  tail call fastcc void @jniFatalError(ptr noundef %1, i32 noundef %0)
+33:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
+  store ptr null, ptr %3, align 8
+  %34 = load ptr, ptr @gdata, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  store volatile i8 1, ptr %35, align 8
+  %36 = icmp eq ptr %1, null
+  %spec.store.select.i = select i1 %36, ptr @.str.107, ptr %1
+  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %.not1.i = icmp eq ptr %38, null
+  br i1 %.not1.i, label %45, label %39
+
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 %42(ptr noundef nonnull %38, ptr noundef nonnull %3, i32 noundef 65538) #17
+  %.not.i = icmp eq i32 %43, 0
+  br i1 %.not.i, label %45, label %44
+
+44:                                               ; preds = %39
+  store ptr null, ptr %3, align 8
+  br label %45
+
+45:                                               ; preds = %44, %39, %33
+  %46 = call ptr @jvmtiErrorText(i32 noundef %0) #17
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 512, ptr noundef nonnull @.str.108, ptr noundef nonnull %spec.store.select.i, ptr noundef %46, i32 noundef %0) #17
+  %48 = load ptr, ptr %3, align 8
+  %.not13.i = icmp eq ptr %48, null
+  br i1 %.not13.i, label %53, label %49
+
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %48, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 144
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull %48, ptr noundef nonnull %4) #17
+  br label %55
+
+53:                                               ; preds = %45
+  %54 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %54, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.111, ptr noundef nonnull %4) #17
+  br label %55
+
+55:                                               ; preds = %53, %49
+  call void @transport_close() #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 }
 
@@ -2565,15 +2613,15 @@ define internal fastcc void @disposeEnvironment(ptr noundef %0) unnamed_addr #0 
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 404) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.105) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 404) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.105) #17
   br label %7
 
 7:                                                ; preds = %1, %6
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1008
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #18
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #17
   switch i32 %11, label %12 [
     i32 99, label %21
     i32 0, label %21
@@ -2588,72 +2636,20 @@ define internal fastcc void @disposeEnvironment(ptr noundef %0) unnamed_addr #0 
   br i1 %.not9, label %19, label %17
 
 17:                                               ; preds = %12
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 410) #18
-  %18 = tail call ptr @jvmtiErrorText(i32 noundef %11) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.106, ptr noundef %18, i32 noundef %11) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 410) #17
+  %18 = tail call ptr @jvmtiErrorText(i32 noundef %11) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.106, ptr noundef %18, i32 noundef %11) #17
   br label %19
 
 19:                                               ; preds = %12, %17
-  %20 = tail call ptr @jvmtiErrorText(i32 noundef %11) #18
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.106, ptr noundef %20, i32 noundef %11) #18
+  %20 = tail call ptr @jvmtiErrorText(i32 noundef %11) #17
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.106, ptr noundef %20, i32 noundef %11) #17
   br label %21
 
 21:                                               ; preds = %7, %7, %19
   %22 = load ptr, ptr @gdata, align 8
   store ptr null, ptr %22, align 8
   ret void
-}
-
-; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @jniFatalError(ptr noundef %0, i32 noundef %1) unnamed_addr #7 {
-  %3 = alloca ptr, align 8
-  %4 = alloca [512 x i8], align 16
-  store ptr null, ptr %3, align 8
-  %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store volatile i8 1, ptr %6, align 8
-  %7 = icmp eq ptr %0, null
-  %spec.store.select = select i1 %7, ptr @.str.107, ptr %0
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %.not1 = icmp eq ptr %9, null
-  br i1 %.not1, label %16, label %10
-
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8
-  %14 = call i32 %13(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 65538) #18
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %16, label %15
-
-15:                                               ; preds = %10
-  store ptr null, ptr %3, align 8
-  br label %16
-
-16:                                               ; preds = %2, %15, %10
-  %17 = call ptr @jvmtiErrorText(i32 noundef %1) #18
-  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 512, ptr noundef nonnull @.str.108, ptr noundef nonnull %spec.store.select, ptr noundef %17, i32 noundef %1) #18
-  %19 = load ptr, ptr %3, align 8
-  %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %24, label %20
-
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 144
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull %19, ptr noundef nonnull %4) #18
-  br label %26
-
-24:                                               ; preds = %16
-  %25 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %25, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.111, ptr noundef nonnull %4) #18
-  br label %26
-
-26:                                               ; preds = %24, %20
-  call void @transport_close() #18
-  call void @exit(i32 noundef 1) #19
-  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2679,7 +2675,7 @@ define noundef ptr @debugInit_startDebuggingViaCommand(ptr noundef %0, ptr nound
 10:                                               ; preds = %9, %8
   %.0 = phi i8 [ 0, %8 ], [ 1, %9 ]
   %11 = load ptr, ptr @transports, align 8
-  %12 = call zeroext i8 @bagEnumerateOver(ptr noundef %11, ptr noundef nonnull @getFirstTransport, ptr noundef nonnull %6) #18
+  %12 = call zeroext i8 @bagEnumerateOver(ptr noundef %11, ptr noundef nonnull @getFirstTransport, ptr noundef nonnull %6) #17
   %13 = load ptr, ptr %6, align 8
   %14 = icmp ne ptr %13, null
   %15 = icmp ne ptr %2, null
@@ -2720,8 +2716,8 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %4
-  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 640) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.112) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 640) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.112) #17
   %.pre = load ptr, ptr @gdata, align 8
   br label %11
 
@@ -2736,8 +2732,8 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call ptr @jvmtiErrorText(i32 noundef 181) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %16, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %17, i32 noundef 181, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.1, i32 noundef 645) #18
+  %17 = tail call ptr @jvmtiErrorText(i32 noundef 181) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %16, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %17, i32 noundef 181, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.1, i32 noundef 645) #17
   tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.113)
   unreachable
 
@@ -2748,8 +2744,8 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call ptr @jvmtiErrorText(i32 noundef %19) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %22, i32 noundef %19, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 651) #18
+  %22 = tail call ptr @jvmtiErrorText(i32 noundef %19) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %22, i32 noundef %19, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 651) #17
   tail call void @debugInit_exit(i32 noundef %19, ptr noundef nonnull @.str.114)
   unreachable
 
@@ -2760,8 +2756,8 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call ptr @jvmtiErrorText(i32 noundef %24) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %26, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %27, i32 noundef %24, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 655) #18
+  %27 = tail call ptr @jvmtiErrorText(i32 noundef %24) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %26, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %27, i32 noundef %24, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 655) #17
   tail call void @debugInit_exit(i32 noundef %24, ptr noundef nonnull @.str.114)
   unreachable
 
@@ -2772,8 +2768,8 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call ptr @jvmtiErrorText(i32 noundef %29) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %31, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %32, i32 noundef %29, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 659) #18
+  %32 = tail call ptr @jvmtiErrorText(i32 noundef %29) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %31, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %32, i32 noundef %29, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 659) #17
   tail call void @debugInit_exit(i32 noundef %29, ptr noundef nonnull @.str.114)
   unreachable
 
@@ -2788,8 +2784,8 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not48, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 664) #18
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 664) #17
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #17
   %.pre64 = load ptr, ptr @gdata, align 8
   br label %40
 
@@ -2800,27 +2796,27 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
   %44 = getelementptr inbounds i8, ptr %43, i64 968
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %41, i64 160
-  %47 = tail call i32 %45(ptr noundef nonnull %42, ptr noundef nonnull %46, i32 noundef 312) #18
+  %47 = tail call i32 %45(ptr noundef nonnull %42, ptr noundef nonnull %46, i32 noundef 312) #17
   %.not49 = icmp eq i32 %47, 0
   br i1 %.not49, label %51, label %48
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call ptr @jvmtiErrorText(i32 noundef %47) #18
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %49, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %50, i32 noundef %47, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.1, i32 noundef 667) #18
+  %50 = tail call ptr @jvmtiErrorText(i32 noundef %47) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %49, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %50, i32 noundef %47, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.1, i32 noundef 667) #17
   tail call void @debugInit_exit(i32 noundef %47, ptr noundef nonnull @.str.115)
   unreachable
 
 51:                                               ; preds = %40
-  tail call void @commonRef_initialize() #18
-  tail call void @util_initialize(ptr noundef %0) #18
-  tail call void @threadControl_initialize() #18
-  tail call void @stepControl_initialize() #18
-  tail call void @invoker_initialize() #18
-  tail call void @debugDispatch_initialize() #18
-  tail call void @classTrack_initialize(ptr noundef %0) #18
-  tail call void @debugLoop_initialize() #18
-  %52 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str.116) #18
+  tail call void @commonRef_initialize() #17
+  tail call void @util_initialize(ptr noundef %0) #17
+  tail call void @threadControl_initialize() #17
+  tail call void @stepControl_initialize() #17
+  tail call void @invoker_initialize() #17
+  tail call void @debugDispatch_initialize() #17
+  tail call void @classTrack_initialize(ptr noundef %0) #17
+  tail call void @debugLoop_initialize() #17
+  %52 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str.116) #17
   store ptr %52, ptr @initMonitor, align 8
   %53 = load i8, ptr @isServer, align 1
   store i8 %53, ptr %5, align 4
@@ -2828,9 +2824,9 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
   store i16 0, ptr %54, align 2
   %55 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %55, align 4
-  tail call void @transport_initialize() #18
+  tail call void @transport_initialize() #17
   %56 = load ptr, ptr @transports, align 8
-  %57 = call zeroext i8 @bagEnumerateOver(ptr noundef %56, ptr noundef nonnull @startTransport, ptr noundef nonnull %5) #18
+  %57 = call zeroext i8 @bagEnumerateOver(ptr noundef %56, ptr noundef nonnull @startTransport, ptr noundef nonnull %5) #17
   %58 = load i16, ptr %54, align 2
   %59 = icmp eq i16 %58, 0
   %60 = load i32, ptr %55, align 4
@@ -2842,19 +2838,19 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
 
 62:                                               ; preds = %51
   %63 = load ptr, ptr @stderr, align 8
-  %64 = call i32 @map2jvmtiError(i16 noundef zeroext %58) #18
-  %65 = call ptr @jvmtiErrorText(i32 noundef %64) #18
+  %64 = call i32 @map2jvmtiError(i16 noundef zeroext %58) #17
+  %65 = call ptr @jvmtiErrorText(i32 noundef %64) #17
   %66 = load i16, ptr %54, align 2
-  %67 = call i32 @map2jvmtiError(i16 noundef zeroext %66) #18
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %63, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %65, i32 noundef %67, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.1, i32 noundef 700) #18
+  %67 = call i32 @map2jvmtiError(i16 noundef zeroext %66) #17
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %63, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %65, i32 noundef %67, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.1, i32 noundef 700) #17
   %68 = load i16, ptr %54, align 2
-  %69 = call i32 @map2jvmtiError(i16 noundef zeroext %68) #18
+  %69 = call i32 @map2jvmtiError(i16 noundef zeroext %68) #17
   call void @debugInit_exit(i32 noundef %69, ptr noundef nonnull @.str.117)
   unreachable
 
 70:                                               ; preds = %51
   %71 = load i8, ptr @currentSessionID, align 1
-  call void @eventHandler_initialize(i8 noundef signext %71) #18
+  call void @eventHandler_initialize(i8 noundef signext %71) #17
   %72 = load ptr, ptr @gdata, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 528
   %74 = load i32, ptr %73, align 8
@@ -2863,19 +2859,19 @@ define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not.i, label %signalInitComplete.exit, label %76
 
 76:                                               ; preds = %70
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 557) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.55) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 557) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.55) #17
   br label %signalInitComplete.exit
 
 signalInitComplete.exit:                          ; preds = %70, %76
   %77 = load ptr, ptr @initMonitor, align 8
-  call void @debugMonitorEnter(ptr noundef %77) #18
+  call void @debugMonitorEnter(ptr noundef %77) #17
   store i1 true, ptr @initComplete, align 1
   %78 = load ptr, ptr @initMonitor, align 8
-  call void @debugMonitorNotifyAll(ptr noundef %78) #18
+  call void @debugMonitorNotifyAll(ptr noundef %78) #17
   %79 = load ptr, ptr @initMonitor, align 8
-  call void @debugMonitorExit(ptr noundef %79) #18
-  call void @transport_waitForConnection() #18
+  call void @debugMonitorExit(ptr noundef %79) #17
+  call void @transport_waitForConnection() #17
   %80 = load i8, ptr @suspendOnInit, align 1
   %.not53 = icmp eq i8 %80, 0
   %81 = select i1 %.not53, i8 0, i8 2
@@ -2891,21 +2887,21 @@ signalInitComplete.exit:                          ; preds = %70, %76
   br i1 %.not57, label %89, label %88
 
 88:                                               ; preds = %87
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 712) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.118) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 712) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.118) #17
   br label %89
 
 89:                                               ; preds = %87, %88
   %90 = load i8, ptr @currentSessionID, align 1
-  call void @eventHelper_reportVMInit(ptr noundef %0, i8 noundef signext %90, ptr noundef %1, i8 noundef signext %81) #18
+  call void @eventHelper_reportVMInit(ptr noundef %0, i8 noundef signext %90, ptr noundef %1, i8 noundef signext %81) #17
   br label %109
 
 91:                                               ; preds = %signalInitComplete.exit
   br i1 %.not57, label %.thread, label %92
 
 92:                                               ; preds = %91
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 723) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.119) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 723) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.119) #17
   %.pr = load ptr, ptr @gdata, align 8
   %.not55 = icmp eq ptr %.pr, null
   br i1 %.not55, label %.thread62, label %.thread
@@ -2920,7 +2916,7 @@ signalInitComplete.exit:                          ; preds = %70, %76
   br i1 %or.cond7, label %.thread66, label %98
 
 98:                                               ; preds = %.thread
-  call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 724, ptr noundef nonnull @.str.119) #18
+  call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 724, ptr noundef nonnull @.str.119) #17
   %.pr61.pre = load ptr, ptr @gdata, align 8
   %.not56 = icmp eq ptr %.pr61.pre, null
   br i1 %.not56, label %.thread62, label %.thread66
@@ -2935,17 +2931,17 @@ signalInitComplete.exit:                          ; preds = %70, %76
   br i1 %or.cond9, label %.thread62, label %103
 
 103:                                              ; preds = %.thread66
-  call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @.str.120) #18
+  call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @.str.120) #17
   br label %.thread62
 
 .thread62:                                        ; preds = %92, %98, %.thread66, %103
-  %104 = call ptr @eventHelper_createEventBag() #18
+  %104 = call ptr @eventHelper_createEventBag() #17
   %105 = load i8, ptr @currentSessionID, align 1
-  %106 = call ptr @threadControl_onEventHandlerEntry(i8 noundef signext %105, ptr noundef %3, ptr noundef null) #18
-  call void @eventHelper_recordEvent(ptr noundef %3, i32 noundef 0, i8 noundef signext %81, ptr noundef %104) #18
+  %106 = call ptr @threadControl_onEventHandlerEntry(i8 noundef signext %105, ptr noundef %3, ptr noundef null) #17
+  call void @eventHelper_recordEvent(ptr noundef %3, i32 noundef 0, i8 noundef signext %81, ptr noundef %104) #17
   %107 = load i8, ptr @currentSessionID, align 1
-  %108 = call signext i8 @eventHelper_reportEvents(i8 noundef signext %107, ptr noundef %104) #18
-  call void @bagDestroyBag(ptr noundef %104) #18
+  %108 = call signext i8 @eventHelper_reportEvents(i8 noundef signext %107, ptr noundef %104) #17
+  call void @bagDestroyBag(ptr noundef %104) #17
   br label %109
 
 109:                                              ; preds = %.thread62, %89
@@ -2957,8 +2953,8 @@ signalInitComplete.exit:                          ; preds = %70, %76
 
 113:                                              ; preds = %109
   %114 = load ptr, ptr @stderr, align 8
-  %115 = call ptr @jvmtiErrorText(i32 noundef 181) #18
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %114, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %115, i32 noundef 181, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.1, i32 noundef 734) #18
+  %115 = call ptr @jvmtiErrorText(i32 noundef 181) #17
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %114, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %115, i32 noundef 181, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.1, i32 noundef 734) #17
   call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.121)
   unreachable
 
@@ -2970,8 +2966,8 @@ signalInitComplete.exit:                          ; preds = %70, %76
   br i1 %.not59, label %121, label %120
 
 120:                                              ; preds = %116
-  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 736) #18
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.122) #18
+  call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 736) #17
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.122) #17
   br label %121
 
 121:                                              ; preds = %116, %120
@@ -2979,7 +2975,7 @@ signalInitComplete.exit:                          ; preds = %70, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i8 @getFirstTransport(ptr noundef %0, ptr nocapture noundef writeonly %1) #8 {
+define internal noundef zeroext i8 @getFirstTransport(ptr noundef %0, ptr nocapture noundef writeonly %1) #7 {
   store ptr %0, ptr %1, align 8
   ret i8 0
 }
@@ -2997,7 +2993,7 @@ declare zeroext i8 @isVThread(ptr noundef) local_unnamed_addr #1
 declare i32 @classSignature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
 
@@ -3008,25 +3004,25 @@ declare ptr @jdwpErrorText(i16 noundef zeroext) local_unnamed_addr #1
 declare void @debugMonitorNotifyAll(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
 
 declare ptr @bagCreateBag(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @bagAdd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #13 {
+define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 {
   %3 = alloca [80 x i8], align 16
   store i8 0, ptr %1, align 1
   %4 = load ptr, ptr %0, align 8
@@ -3084,16 +3080,16 @@ get_tok.exit.thread:                              ; preds = %7, %get_tok.exit.th
 declare void @do_pause() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
 
 declare void @setup_logging(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #15
+declare i32 @atexit(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define internal void @atexit_finish_logging() #0 {
-  tail call void (...) @finish_logging() #18
+  tail call void (...) @finish_logging() #17
   ret void
 }
 
@@ -3115,14 +3111,14 @@ define internal zeroext range(i8 0, 2) i8 @checkAddress(ptr nocapture noundef re
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %6
-  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 920) #18
+  tail call void @log_message_begin(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 920) #17
   %12 = load ptr, ptr %0, align 8
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.104, ptr noundef %12) #18
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.104, ptr noundef %12) #17
   br label %13
 
 13:                                               ; preds = %6, %11
   %14 = load ptr, ptr %0, align 8
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.104, ptr noundef %14) #18
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.104, ptr noundef %14) #17
   br label %15
 
 15:                                               ; preds = %2, %13
@@ -3133,10 +3129,10 @@ define internal zeroext range(i8 0, 2) i8 @checkAddress(ptr nocapture noundef re
 declare void @tty_message(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 declare void @commonRef_initialize() local_unnamed_addr #1
 
@@ -3177,13 +3173,13 @@ declare signext i8 @eventHelper_reportEvents(i8 noundef signext, ptr noundef) lo
 declare void @bagDestroyBag(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3192,21 +3188,20 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { cold noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { noreturn nounwind }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { cold noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

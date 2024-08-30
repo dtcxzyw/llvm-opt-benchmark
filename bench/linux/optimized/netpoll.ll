@@ -1005,8 +1005,8 @@ define dso_local void @netpoll_print_options(ptr noundef %0) #5 align 16 {
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef %0, ptr noundef %1) #5 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load i8, ptr %1, align 1

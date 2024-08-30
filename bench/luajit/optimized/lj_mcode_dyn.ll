@@ -28,8 +28,8 @@ while.body:                                       ; preds = %entry, %while.body
   %size = getelementptr inbounds i8, ptr %mc.011, i64 8
   %2 = load i64, ptr %size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %mc.011, i64 16
-  tail call void @lj_err_deregister_mcode(ptr noundef nonnull %mc.011, i64 noundef %2, ptr noundef nonnull %add.ptr) #8
-  %call.i = tail call i32 @munmap(ptr noundef nonnull %mc.011, i64 noundef %2) #8
+  tail call void @lj_err_deregister_mcode(ptr noundef nonnull %mc.011, i64 noundef %2, ptr noundef nonnull %add.ptr) #7
+  %call.i = tail call i32 @munmap(ptr noundef nonnull %mc.011, i64 noundef %2) #7
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !3
 
@@ -60,12 +60,12 @@ if.else:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.else
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 3) #8
+  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 3) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #8
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -110,7 +110,7 @@ for.body.i:                                       ; preds = %entry, %do.end.i
 
 if.then.i:                                        ; preds = %for.body.i
   %3 = inttoptr i64 %hint.024.i to ptr
-  %call.i.i = tail call ptr @mmap64(ptr noundef nonnull %3, i64 noundef %and, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
+  %call.i.i = tail call ptr @mmap64(ptr noundef nonnull %3, i64 noundef %and, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
   %magicptr.i = ptrtoint ptr %call.i.i to i64
   switch i64 %magicptr.i, label %land.lhs.true.i [
     i64 -1, label %do.body.i.preheader
@@ -126,14 +126,14 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   br i1 %or.cond.i, label %mcode_alloc.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %call.i21.i = tail call i32 @munmap(ptr noundef nonnull %call.i.i, i64 noundef %and) #8
+  %call.i21.i = tail call i32 @munmap(ptr noundef nonnull %call.i.i, i64 noundef %and) #7
   br label %do.body.i.preheader
 
 do.body.i.preheader:                              ; preds = %if.then10.i, %if.then.i, %if.then.i, %for.body.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %do.body.i
-  %call13.i = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng.i) #8
+  %call13.i = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng.i) #7
   %and14.i = and i64 %call13.i, 2147418112
   %add15.i = add nsw i64 %and14.i, %and
   %cmp16.i = icmp ugt i64 %add15.i, 2143289343
@@ -146,7 +146,7 @@ do.end.i:                                         ; preds = %do.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %do.end.i
-  tail call void @lj_trace_err(ptr noundef %J, i32 noundef 27) #10
+  tail call void @lj_trace_err(ptr noundef %J, i32 noundef 27) #9
   unreachable
 
 mcode_alloc.exit:                                 ; preds = %land.lhs.true.i
@@ -171,7 +171,7 @@ mcode_alloc.exit:                                 ; preds = %land.lhs.true.i
   store i64 %add8, ptr %szallmcarea, align 8
   %6 = load ptr, ptr %mcarea, align 8
   %7 = load ptr, ptr %mcbot, align 8
-  %call11 = tail call ptr @lj_err_register_mcode(ptr noundef %6, i64 noundef %and, ptr noundef %7) #8
+  %call11 = tail call ptr @lj_err_register_mcode(ptr noundef %6, i64 noundef %and, ptr noundef %7) #7
   store ptr %call11, ptr %mcbot, align 8
   ret void
 }
@@ -191,12 +191,12 @@ if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %mcarea.i, align 8
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef %1, i64 noundef %2, i32 noundef 5) #8
+  %call.i.i = tail call i32 @mprotect(ptr noundef %1, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #8
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -224,12 +224,12 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #8
+  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #8
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -261,12 +261,12 @@ if.then1:                                         ; preds = %if.then
 if.then.i:                                        ; preds = %if.then1
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef %0, i64 noundef %2, i32 noundef 5) #8
+  %call.i.i = tail call i32 @mprotect(ptr noundef %0, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #8
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -276,12 +276,12 @@ if.end.i:                                         ; preds = %if.then.i
 if.else:                                          ; preds = %if.then
   %size = getelementptr inbounds i8, ptr %ptr, i64 8
   %3 = load i64, ptr %size, align 8
-  %call.i = tail call i32 @mprotect(ptr noundef %ptr, i64 noundef %3, i32 noundef 5) #8
+  %call.i = tail call i32 @mprotect(ptr noundef %ptr, i64 noundef %3, i32 noundef 5) #7
   %tobool2.not = icmp eq i32 %call.i, 0
   br i1 %tobool2.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #8
   unreachable
 
 if.else7:                                         ; preds = %entry
@@ -305,12 +305,12 @@ if.then13:                                        ; preds = %land.lhs.true
   br i1 %cmp.not.i24, label %return, label %if.then.i25
 
 if.then.i25:                                      ; preds = %if.then13
-  %call.i.i28 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %4, i32 noundef 3) #8
+  %call.i.i28 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %4, i32 noundef 3) #7
   %tobool.not.i29 = icmp eq i32 %call.i.i28, 0
   br i1 %tobool.not.i29, label %if.end.i31, label %if.then3.i30
 
 if.then3.i30:                                     ; preds = %if.then.i25
-  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #8
   unreachable
 
 if.end.i31:                                       ; preds = %if.then.i25
@@ -334,12 +334,12 @@ for.cond.backedge:                                ; preds = %land.lhs.true17, %f
   br label %for.cond
 
 if.then22:                                        ; preds = %land.lhs.true17
-  %call.i33 = tail call i32 @mprotect(ptr noundef nonnull %6, i64 noundef %7, i32 noundef 3) #8
+  %call.i33 = tail call i32 @mprotect(ptr noundef nonnull %6, i64 noundef %7, i32 noundef 3) #7
   %tobool25.not = icmp eq i32 %call.i33, 0
   br i1 %tobool25.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %if.then22
-  tail call fastcc void @mcode_protfail(ptr noundef %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef %J) #8
   unreachable
 
 return:                                           ; preds = %if.end.i31, %if.then13, %if.end.i, %if.then1, %if.then22, %if.else
@@ -347,7 +347,7 @@ return:                                           ; preds = %if.end.i31, %if.the
   ret ptr %retval.0
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @mcode_protfail(ptr nocapture noundef readonly %J) unnamed_addr #3 {
 entry:
   %panic1 = getelementptr inbounds i8, ptr %J, i64 -376
@@ -362,20 +362,20 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %top, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
-  %call = tail call ptr @lj_err_str(ptr noundef %1, i32 noundef 2003) #8
+  %call = tail call ptr @lj_err_str(ptr noundef %1, i32 noundef 2003) #7
   %3 = ptrtoint ptr %call to i64
   %or.i = or i64 %3, -703687441776640
   store i64 %or.i, ptr %2, align 8
-  %call3 = tail call i32 %0(ptr noundef %1) #8
+  %call3 = tail call i32 %0(ptr noundef %1) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @exit(i32 noundef 1) #11
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_mcode_limiterr(ptr noundef %J, i64 noundef %need) local_unnamed_addr #4 {
+define hidden void @lj_mcode_limiterr(ptr noundef %J, i64 noundef %need) local_unnamed_addr #3 {
 entry:
   %mcarea.i = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea.i, align 8
@@ -391,12 +391,12 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %szmcarea.i.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i.i, align 8
-  %call.i.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #8
+  %call.i.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #9
+  tail call fastcc void @mcode_protfail(ptr noundef nonnull %J) #8
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -414,7 +414,7 @@ lj_mcode_abort.exit:                              ; preds = %entry, %if.then.i, 
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lj_mcode_abort.exit
-  tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 28) #10
+  tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 28) #9
   unreachable
 
 if.end:                                           ; preds = %lj_mcode_abort.exit
@@ -429,48 +429,47 @@ if.end:                                           ; preds = %lj_mcode_abort.exit
   br i1 %cmp7, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 27) #10
+  tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 27) #9
   unreachable
 
 if.end10:                                         ; preds = %if.end
   tail call fastcc void @mcode_allocarea(ptr noundef nonnull %J)
-  tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 29) #10
+  tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 29) #9
   unreachable
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 declare hidden ptr @lj_err_register_mcode(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 declare hidden ptr @lj_err_str(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { cold noreturn nounwind }
+attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -281,11 +281,11 @@ define internal i32 @ahci_pmp_qc_defer(ptr noundef %0) #0 align 16 {
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %6, %1
-  %13 = tail call i32 @ata_std_qc_defer(ptr noundef %0) #13
+  %13 = tail call i32 @ata_std_qc_defer(ptr noundef %0) #12
   br label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @sata_pmp_qc_defer_cmd_switch(ptr noundef %0) #13
+  %15 = tail call i32 @sata_pmp_qc_defer_cmd_switch(ptr noundef %0) #12
   br label %16
 
 16:                                               ; preds = %14, %12
@@ -316,7 +316,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = trunc i32 %21 to i8
-  tail call void @ata_tf_to_fis(ptr noundef %5, i8 noundef zeroext %22, i32 noundef 1, ptr noundef %16) #13
+  tail call void @ata_tf_to_fis(ptr noundef %5, i8 noundef zeroext %22, i32 noundef 1, ptr noundef %16) #12
   br i1 %9, label %30, label %23
 
 23:                                               ; preds = %1
@@ -367,7 +367,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %56 = getelementptr inbounds i8, ptr %51, i64 12
   store i32 %55, ptr %56, align 4
   %57 = add nuw nsw i64 %44, 1
-  %58 = tail call ptr @sg_next(ptr noundef %45) #13
+  %58 = tail call ptr @sg_next(ptr noundef %45) #12
   %59 = load i32, ptr %37, align 8
   %60 = zext i32 %59 to i64
   %61 = icmp ult i64 %57, %60
@@ -452,7 +452,7 @@ define dso_local noundef i32 @ahci_qc_issue(ptr nocapture noundef readonly %0) #
   %26 = load i32, ptr %25, align 4
   %27 = shl nuw i32 1, %26
   %28 = getelementptr i8, ptr %14, i64 52
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %27, ptr elementtype(i32) %28) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %27, ptr elementtype(i32) %28) #12, !srcloc !10
   br label %29
 
 29:                                               ; preds = %24, %1
@@ -473,7 +473,7 @@ define dso_local noundef i32 @ahci_qc_issue(ptr nocapture noundef readonly %0) #
 
 41:                                               ; preds = %33
   %42 = getelementptr i8, ptr %14, i64 64
-  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #13, !srcloc !11
+  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #12, !srcloc !11
   %44 = and i32 %43, -3843
   %45 = load ptr, ptr %17, align 8
   %46 = load ptr, ptr %45, align 64
@@ -481,7 +481,7 @@ define dso_local noundef i32 @ahci_qc_issue(ptr nocapture noundef readonly %0) #
   %48 = load i32, ptr %47, align 8
   %49 = shl i32 %48, 8
   %50 = or i32 %49, %44
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(i32) %42) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(i32) %42) #12, !srcloc !10
   %51 = load ptr, ptr %17, align 8
   %52 = load ptr, ptr %51, align 64
   %53 = getelementptr inbounds i8, ptr %52, i64 8
@@ -494,7 +494,7 @@ define dso_local noundef i32 @ahci_qc_issue(ptr nocapture noundef readonly %0) #
   %57 = load i32, ptr %56, align 4
   %58 = shl nuw i32 1, %57
   %59 = getelementptr i8, ptr %14, i64 56
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %58, ptr elementtype(i32) %59) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %58, ptr elementtype(i32) %59) #12, !srcloc !10
   %60 = load ptr, ptr %17, align 8
   %61 = load ptr, ptr %60, align 64
   %62 = getelementptr inbounds i8, ptr %61, i64 752
@@ -525,7 +525,7 @@ define dso_local noundef i32 @ahci_qc_issue(ptr nocapture noundef readonly %0) #
   %82 = getelementptr inbounds i8, ptr %74, i64 8
   %83 = load volatile i64, ptr @jiffies, align 64
   %84 = add i64 %83, 10
-  %85 = tail call i32 @mod_timer(ptr noundef %82, i64 noundef %84) #13
+  %85 = tail call i32 @mod_timer(ptr noundef %82, i64 noundef %84) #12
   br label %86
 
 86:                                               ; preds = %81, %66, %55
@@ -581,7 +581,7 @@ define internal void @ahci_qc_fill_rtf(ptr noundef %0) #0 align 16 {
 36:                                               ; preds = %29
   %37 = getelementptr i8, ptr %25, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @ata_tf_from_fis(ptr noundef %37, ptr noundef %38) #13
+  tail call void @ata_tf_from_fis(ptr noundef %37, ptr noundef %38) #12
   %39 = getelementptr i8, ptr %25, i64 47
   %40 = load i8, ptr %39, align 1
   %41 = getelementptr inbounds i8, ptr %0, i64 205
@@ -608,7 +608,7 @@ define internal void @ahci_qc_fill_rtf(ptr noundef %0) #0 align 16 {
 .thread:                                          ; preds = %29, %43
   %53 = getelementptr i8, ptr %25, i64 64
   %54 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @ata_tf_from_fis(ptr noundef %53, ptr noundef %54) #13
+  tail call void @ata_tf_from_fis(ptr noundef %53, ptr noundef %54) #12
   %55 = load i64, ptr %7, align 8
   br label %56
 
@@ -669,7 +669,7 @@ define internal void @ahci_qc_ncq_fill_rtf(ptr noundef %0, i64 noundef %1) #1 al
 
 32:                                               ; preds = %.thread, %30
   %33 = phi i64 [ %1, %30 ], [ %57, %.thread ]
-  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %33) #14, !srcloc !12
+  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %33) #13, !srcloc !12
   %35 = trunc i64 %34 to i32
   %36 = icmp ugt i32 %35, 32
   %37 = and i64 %34, 4294967295
@@ -710,7 +710,7 @@ define internal void @ahci_qc_ncq_fill_rtf(ptr noundef %0, i64 noundef %1) #1 al
 
 59:                                               ; preds = %.thread11, %14
   %60 = phi i64 [ %1, %14 ], [ %97, %.thread11 ]
-  %61 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %60) #14, !srcloc !12
+  %61 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %60) #13, !srcloc !12
   %62 = trunc i64 %61 to i32
   %63 = icmp ugt i32 %62, 32
   %64 = and i64 %61, 4294967295
@@ -790,7 +790,7 @@ define internal void @ahci_dev_config(ptr nocapture noundef %0) #0 align 16 {
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, %17
-  %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.80, i32 noundef %15, i32 noundef %20) #15
+  %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.80, i32 noundef %15, i32 noundef %20) #14
   br label %22
 
 22:                                               ; preds = %11, %1
@@ -812,7 +812,7 @@ define internal void @ahci_freeze(ptr nocapture noundef readonly %0) #0 align 16
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %14) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %14) #12, !srcloc !10
   ret void
 }
 
@@ -833,16 +833,16 @@ define internal void @ahci_thaw(ptr nocapture noundef readonly %0) #0 align 16 {
   %14 = getelementptr inbounds i8, ptr %0, i64 15888
   %15 = load ptr, ptr %14, align 16
   %16 = getelementptr i8, ptr %13, i64 16
-  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #13, !srcloc !11
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %17, ptr elementtype(i32) %16) #13, !srcloc !10
+  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #12, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %17, ptr elementtype(i32) %16) #12, !srcloc !10
   %18 = load i32, ptr %8, align 4
   %19 = shl nuw i32 1, %18
   %20 = getelementptr i8, ptr %7, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, ptr elementtype(i32) %20) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, ptr elementtype(i32) %20) #12, !srcloc !10
   %21 = getelementptr inbounds i8, ptr %15, i64 64
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr i8, ptr %13, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, ptr elementtype(i32) %23) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, ptr elementtype(i32) %23) #12, !srcloc !10
   ret void
 }
 
@@ -880,10 +880,10 @@ define internal noundef i32 @ahci_softreset(ptr noundef %0, ptr nocapture nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ahci_hardreset(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
   store i8 0, ptr %4, align 1, !annotation !16
   %5 = call i32 @ahci_do_hardreset(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
   ret i32 %5
 }
 
@@ -902,9 +902,9 @@ define internal void @ahci_postreset(ptr noundef %0, ptr noundef %1) #0 align 16
   %13 = shl i32 %9, 7
   %14 = zext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  tail call void @ata_std_postreset(ptr noundef %0, ptr noundef %1) #13
+  tail call void @ata_std_postreset(ptr noundef %0, ptr noundef %1) #12
   %16 = getelementptr i8, ptr %15, i64 24
-  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #13, !srcloc !11
+  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #12, !srcloc !11
   %18 = load i32, ptr %1, align 4
   %19 = icmp eq i32 %18, 3
   %20 = and i32 %17, -16777217
@@ -914,8 +914,8 @@ define internal void @ahci_postreset(ptr noundef %0, ptr noundef %1) #0 align 16
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, ptr elementtype(i32) %16) #13, !srcloc !10
-  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, ptr elementtype(i32) %16) #12, !srcloc !10
+  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #12, !srcloc !11
   br label %26
 
 26:                                               ; preds = %24, %2
@@ -937,14 +937,14 @@ define dso_local void @ahci_error_handler(ptr noundef %0) #0 align 16 {
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %5, i64 288
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %0) #13
+  %13 = tail call i32 %12(ptr noundef %0) #12
   %14 = getelementptr inbounds i8, ptr %5, i64 280
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef %0) #13
+  tail call void %15(ptr noundef %0) #12
   br label %16
 
 16:                                               ; preds = %10, %1
-  tail call void @sata_pmp_error_handler(ptr noundef %0) #13
+  tail call void @sata_pmp_error_handler(ptr noundef %0) #12
   %17 = getelementptr inbounds i8, ptr %0, i64 10208
   %18 = load i32, ptr %17, align 32
   switch i32 %18, label %19 [
@@ -958,7 +958,7 @@ define dso_local void @ahci_error_handler(ptr noundef %0) #0 align 16 {
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %5, i64 288
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #13
+  %22 = tail call i32 %21(ptr noundef %0) #12
   br label %23
 
 23:                                               ; preds = %19, %16, %16, %16, %16, %16
@@ -988,10 +988,10 @@ define internal void @ahci_post_internal_cmd(ptr nocapture noundef readonly %0) 
   %18 = zext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
   %20 = getelementptr i8, ptr %19, i64 32
-  %21 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #13, !srcloc !11
+  %21 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #12, !srcloc !11
   %22 = getelementptr inbounds i8, ptr %11, i64 288
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %7) #13
+  %24 = tail call i32 %23(ptr noundef %7) #12
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %43
 
@@ -1015,16 +1015,16 @@ define internal void @ahci_post_internal_cmd(ptr nocapture noundef readonly %0) 
 
 38:                                               ; preds = %33
   %39 = getelementptr i8, ptr %19, i64 24
-  %40 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %39) #13, !srcloc !11
+  %40 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %39) #12, !srcloc !11
   %41 = or i32 %40, 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %41, ptr elementtype(i32) %39) #13, !srcloc !10
-  %42 = tail call i32 @ata_wait_register(ptr noundef %7, ptr noundef %39, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %41, ptr elementtype(i32) %39) #12, !srcloc !10
+  %42 = tail call i32 @ata_wait_register(ptr noundef %7, ptr noundef %39, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #12
   br label %43
 
 43:                                               ; preds = %38, %33, %29, %6
   %44 = getelementptr inbounds i8, ptr %11, i64 280
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef %7) #13
+  tail call void %45(ptr noundef %7) #12
   br label %46
 
 46:                                               ; preds = %43, %1
@@ -1066,7 +1066,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr nocapture nound
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %16, i64 %29
-  %31 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30) #13, !srcloc !11
+  %31 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30) #12, !srcloc !11
   store i32 %31, ptr %2, align 4
   br label %.thread
 
@@ -1110,7 +1110,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_write(ptr nocapture noun
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %16, i64 %29
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %30) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %30) #12, !srcloc !10
   br label %.thread
 
 .thread:                                          ; preds = %3, %21, %26
@@ -1135,9 +1135,9 @@ define internal void @ahci_pmp_attach(ptr noundef %0) #0 align 16 {
   %14 = getelementptr inbounds i8, ptr %0, i64 15888
   %15 = load ptr, ptr %14, align 16
   %16 = getelementptr i8, ptr %13, i64 24
-  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #13, !srcloc !11
+  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #12, !srcloc !11
   %18 = or i32 %17, 131072
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %18, ptr elementtype(i32) %16) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %18, ptr elementtype(i32) %16) #12, !srcloc !10
   %19 = load ptr, ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -1156,7 +1156,7 @@ define internal void @ahci_pmp_attach(ptr noundef %0) #0 align 16 {
   %32 = zext i32 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
   %34 = getelementptr i8, ptr %33, i64 64
-  %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #13, !srcloc !11
+  %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #12, !srcloc !11
   %36 = and i32 %35, 1
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %41, label %38
@@ -1171,14 +1171,14 @@ define internal void @ahci_pmp_attach(ptr noundef %0) #0 align 16 {
 41:                                               ; preds = %26
   %42 = getelementptr inbounds i8, ptr %21, i64 288
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 %43(ptr noundef %0) #13
+  %44 = tail call i32 %43(ptr noundef %0) #12
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %ahci_enable_fbs.exit
 
 46:                                               ; preds = %41
   %47 = or disjoint i32 %35, 1
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %34) #13, !srcloc !10
-  %48 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %34) #12, !srcloc !10
+  %48 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #12, !srcloc !11
   %49 = and i32 %48, 1
   %50 = icmp eq i32 %49, 0
   %51 = load ptr, ptr %2, align 8
@@ -1187,7 +1187,7 @@ define internal void @ahci_pmp_attach(ptr noundef %0) #0 align 16 {
   br i1 %50, label %57, label %54
 
 54:                                               ; preds = %46
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %53, ptr noundef nonnull @.str.92) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %53, ptr noundef nonnull @.str.92) #14
   %55 = getelementptr inbounds i8, ptr %22, i64 69
   store i8 1, ptr %55, align 1
   %56 = getelementptr inbounds i8, ptr %22, i64 72
@@ -1195,13 +1195,13 @@ define internal void @ahci_pmp_attach(ptr noundef %0) #0 align 16 {
   br label %58
 
 57:                                               ; preds = %46
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %53, ptr noundef nonnull @.str.93) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %53, ptr noundef nonnull @.str.93) #14
   br label %58
 
 58:                                               ; preds = %57, %54
   %59 = getelementptr inbounds i8, ptr %21, i64 280
   %60 = load ptr, ptr %59, align 8
-  tail call void %60(ptr noundef %0) #13
+  tail call void %60(ptr noundef %0) #12
   br label %ahci_enable_fbs.exit
 
 ahci_enable_fbs.exit:                             ; preds = %1, %38, %41, %58
@@ -1217,7 +1217,7 @@ ahci_enable_fbs.exit:                             ; preds = %1, %38, %41, %58
 
 68:                                               ; preds = %ahci_enable_fbs.exit
   %69 = getelementptr i8, ptr %13, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %63, ptr elementtype(i32) %69) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %63, ptr elementtype(i32) %69) #12, !srcloc !10
   br label %70
 
 70:                                               ; preds = %68, %ahci_enable_fbs.exit
@@ -1247,7 +1247,7 @@ define internal void @ahci_pmp_detach(ptr noundef %0) #0 align 16 {
 
 19:                                               ; preds = %1
   %20 = getelementptr i8, ptr %13, i64 64
-  %21 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #13, !srcloc !11
+  %21 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #12, !srcloc !11
   %22 = and i32 %21, 1
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %26
@@ -1260,14 +1260,14 @@ define internal void @ahci_pmp_detach(ptr noundef %0) #0 align 16 {
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %5, i64 288
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(ptr noundef %0) #13
+  %29 = tail call i32 %28(ptr noundef %0) #12
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %ahci_disable_fbs.exit
 
 31:                                               ; preds = %26
   %32 = and i32 %21, -2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %32, ptr elementtype(i32) %20) #13, !srcloc !10
-  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %32, ptr elementtype(i32) %20) #12, !srcloc !10
+  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #12, !srcloc !11
   %34 = and i32 %33, 1
   %35 = icmp eq i32 %34, 0
   %36 = load ptr, ptr %2, align 8
@@ -1276,11 +1276,11 @@ define internal void @ahci_pmp_detach(ptr noundef %0) #0 align 16 {
   br i1 %35, label %40, label %39
 
 39:                                               ; preds = %31
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.94) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.94) #14
   br label %42
 
 40:                                               ; preds = %31
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %38, ptr noundef nonnull @.str.95) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %38, ptr noundef nonnull @.str.95) #14
   %41 = getelementptr inbounds i8, ptr %15, i64 69
   store i8 0, ptr %41, align 1
   br label %42
@@ -1288,14 +1288,14 @@ define internal void @ahci_pmp_detach(ptr noundef %0) #0 align 16 {
 42:                                               ; preds = %40, %39
   %43 = getelementptr inbounds i8, ptr %5, i64 280
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef %0) #13
+  tail call void %44(ptr noundef %0) #12
   br label %ahci_disable_fbs.exit
 
 ahci_disable_fbs.exit:                            ; preds = %1, %24, %26, %42
   %45 = getelementptr i8, ptr %13, i64 24
-  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #13, !srcloc !11
+  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #12, !srcloc !11
   %47 = and i32 %46, -131073
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %45) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %45) #12, !srcloc !10
   %48 = getelementptr inbounds i8, ptr %15, i64 64
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, -8388609
@@ -1308,7 +1308,7 @@ ahci_disable_fbs.exit:                            ; preds = %1, %24, %26, %42
 
 55:                                               ; preds = %ahci_disable_fbs.exit
   %56 = getelementptr i8, ptr %13, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(i32) %56) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(i32) %56) #12, !srcloc !10
   br label %57
 
 57:                                               ; preds = %55, %ahci_disable_fbs.exit
@@ -1342,8 +1342,8 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
   %24 = and i32 %23, -4194305
   store i32 %24, ptr %22, align 8
   %25 = getelementptr i8, ptr %18, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %24, ptr elementtype(i32) %25) #13, !srcloc !10
-  %26 = tail call i32 @sata_link_scr_lpm(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %24, ptr elementtype(i32) %25) #12, !srcloc !10
+  %26 = tail call i32 @sata_link_scr_lpm(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false) #12
   br label %27
 
 27:                                               ; preds = %20, %3
@@ -1356,7 +1356,7 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
 
 33:                                               ; preds = %27
   %34 = getelementptr i8, ptr %18, i64 24
-  %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #13, !srcloc !11
+  %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #12, !srcloc !11
   %36 = and i32 %28, 2
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %19, %37
@@ -1368,9 +1368,9 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
   %42 = and i32 %35, -469762049
   %43 = select i1 %41, i32 %42, i32 %35
   %44 = or i32 %43, 268435456
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %34) #13, !srcloc !10
-  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #13, !srcloc !11
-  tail call void @ata_msleep(ptr noundef %4, i32 noundef 10) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %34) #12, !srcloc !10
+  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #12, !srcloc !11
+  tail call void @ata_msleep(ptr noundef %4, i32 noundef 10) #12
   br i1 %41, label %54, label %ahci_set_aggressive_devslp.exit.thread
 
 46:                                               ; preds = %33
@@ -1390,7 +1390,7 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
 
 52:                                               ; preds = %50, %48, %46
   %53 = phi i32 [ %49, %48 ], [ %51, %50 ], [ %47, %46 ]
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(i32) %34) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(i32) %34) #12, !srcloc !10
   br label %54
 
 54:                                               ; preds = %52, %39, %27
@@ -1420,7 +1420,7 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
   %74 = getelementptr i8, ptr %71, i64 %73
   %75 = getelementptr inbounds i8, ptr %4, i64 9408
   %76 = getelementptr i8, ptr %74, i64 68
-  %77 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %76) #13, !srcloc !11
+  %77 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %76) #12, !srcloc !11
   %78 = and i32 %77, 2
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %84
@@ -1429,7 +1429,7 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
   %81 = load ptr, ptr %5, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %83, ptr noundef nonnull @.str.72) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %83, ptr noundef nonnull @.str.72) #14
   br label %ahci_set_aggressive_devslp.exit
 
 84:                                               ; preds = %64
@@ -1444,8 +1444,8 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
 
 90:                                               ; preds = %87
   %91 = and i32 %77, -2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %91, ptr elementtype(i32) %76) #13, !srcloc !10
-  %92 = tail call i32 @ata_dev_set_feature(ptr noundef %75, i8 noundef zeroext -112, i8 noundef zeroext 9) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %91, ptr elementtype(i32) %76) #12, !srcloc !10
+  %92 = tail call i32 @ata_dev_set_feature(ptr noundef %75, i8 noundef zeroext -112, i8 noundef zeroext 9) #12
   %93 = icmp ugt i32 %92, 1
   br i1 %93, label %94, label %ahci_set_aggressive_devslp.exit
 
@@ -1459,7 +1459,7 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
   %101 = getelementptr inbounds i8, ptr %4, i64 9416
   %102 = load i32, ptr %101, align 8
   %103 = add i32 %102, %100
-  %104 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.73, i32 noundef %98, i32 noundef %103) #15
+  %104 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.73, i32 noundef %98, i32 noundef %103) #14
   br label %ahci_set_aggressive_devslp.exit
 
 105:                                              ; preds = %84
@@ -1482,7 +1482,7 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
 118:                                              ; preds = %114, %105
   %119 = getelementptr inbounds i8, ptr %67, i64 288
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call i32 %120(ptr noundef %4) #13
+  %121 = tail call i32 %120(ptr noundef %4) #12
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %ahci_set_aggressive_devslp.exit.thread
 
@@ -1516,11 +1516,11 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
   %146 = or disjoint i32 %145, %144
   %147 = or disjoint i32 %146, 1
   %148 = or i32 %143, %147
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %148, ptr elementtype(i32) %76) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %148, ptr elementtype(i32) %76) #12, !srcloc !10
   %149 = getelementptr inbounds i8, ptr %67, i64 280
   %150 = load ptr, ptr %149, align 8
-  tail call void %150(ptr noundef %4) #13
-  %151 = tail call i32 @ata_dev_set_feature(ptr noundef %75, i8 noundef zeroext 16, i8 noundef zeroext 9) #13
+  tail call void %150(ptr noundef %4) #12
+  %151 = tail call i32 @ata_dev_set_feature(ptr noundef %75, i8 noundef zeroext 16, i8 noundef zeroext 9) #12
   %152 = icmp ugt i32 %151, 1
   br i1 %152, label %153, label %ahci_set_aggressive_devslp.exit.thread
 
@@ -1534,20 +1534,20 @@ define internal noundef i32 @ahci_set_lpm(ptr noundef %0, i32 noundef %1, i32 no
   %160 = getelementptr inbounds i8, ptr %4, i64 9416
   %161 = load i32, ptr %160, align 8
   %162 = add i32 %161, %159
-  %163 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.74, i32 noundef %157, i32 noundef %162) #15
+  %163 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.74, i32 noundef %157, i32 noundef %162) #14
   br label %ahci_set_aggressive_devslp.exit.thread
 
 ahci_set_aggressive_devslp.exit:                  ; preds = %94, %90, %87, %80, %59, %54
   br i1 %19, label %164, label %ahci_set_aggressive_devslp.exit.thread
 
 164:                                              ; preds = %ahci_set_aggressive_devslp.exit
-  %165 = tail call i32 @sata_link_scr_lpm(ptr noundef %0, i32 noundef 1, i1 noundef zeroext false) #13
+  %165 = tail call i32 @sata_link_scr_lpm(ptr noundef %0, i32 noundef 1, i1 noundef zeroext false) #12
   %166 = getelementptr inbounds i8, ptr %10, i64 64
   %167 = load i32, ptr %166, align 8
   %168 = or i32 %167, 4194304
   store i32 %168, ptr %166, align 8
   %169 = getelementptr i8, ptr %18, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %168, ptr elementtype(i32) %169) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %168, ptr elementtype(i32) %169) #12, !srcloc !10
   br label %ahci_set_aggressive_devslp.exit.thread
 
 ahci_set_aggressive_devslp.exit.thread:           ; preds = %114, %118, %142, %153, %164, %ahci_set_aggressive_devslp.exit, %39
@@ -1562,7 +1562,7 @@ define internal noundef i32 @ahci_port_suspend(ptr noundef %0, i32 %1) #0 align 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 288
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #13
+  %9 = tail call i32 %8(ptr noundef %0) #12
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %51
 
@@ -1579,10 +1579,10 @@ define internal noundef i32 @ahci_port_suspend(ptr noundef %0, i32 %1) #0 align 
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 24
-  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #13, !srcloc !11
+  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #12, !srcloc !11
   %25 = and i32 %24, -17
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %25, ptr elementtype(i32) %23) #13, !srcloc !10
-  %26 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %23, i32 noundef 16384, i32 noundef 16384, i32 noundef 10, i32 noundef 1000) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %25, ptr elementtype(i32) %23) #12, !srcloc !10
+  %26 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %23, i32 noundef 16384, i32 noundef 16384, i32 noundef 10, i32 noundef 1000) #12
   %27 = and i32 %26, 16384
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %51
@@ -1606,13 +1606,13 @@ define internal noundef i32 @ahci_port_suspend(ptr noundef %0, i32 %1) #0 align 
   %43 = zext i32 %42 to i64
   %44 = getelementptr i8, ptr %40, i64 %43
   %45 = getelementptr i8, ptr %44, i64 44
-  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #13, !srcloc !11
+  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #12, !srcloc !11
   %47 = and i32 %46, -16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %45) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %45) #12, !srcloc !10
   %48 = getelementptr i8, ptr %44, i64 24
-  %49 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #13, !srcloc !11
+  %49 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #12, !srcloc !11
   %50 = and i32 %49, 268435453
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(i32) %48) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(i32) %48) #12, !srcloc !10
   br label %56
 
 51:                                               ; preds = %2, %11
@@ -1620,8 +1620,8 @@ define internal noundef i32 @ahci_port_suspend(ptr noundef %0, i32 %1) #0 align 
   %.ph2 = phi i32 [ -16, %11 ], [ %9, %2 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 36
   %53 = load i32, ptr %52, align 4
-  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.96, i32 noundef %53, ptr noundef nonnull %.ph, i32 noundef %.ph2) #15
-  %55 = tail call i32 @ata_port_freeze(ptr noundef %0) #13
+  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.96, i32 noundef %53, ptr noundef nonnull %.ph, i32 noundef %.ph2) #14
+  %55 = tail call i32 @ata_port_freeze(ptr noundef %0) #12
   br label %56
 
 56:                                               ; preds = %51, %37, %29
@@ -1629,7 +1629,7 @@ define internal noundef i32 @ahci_port_suspend(ptr noundef %0, i32 %1) #0 align 
   %58 = load ptr, ptr %3, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call zeroext i1 @acpi_storage_d3(ptr noundef %60) #13
+  %61 = tail call zeroext i1 @acpi_storage_d3(ptr noundef %60) #12
   br i1 %61, label %62, label %84
 
 62:                                               ; preds = %56
@@ -1651,20 +1651,20 @@ define internal noundef i32 @ahci_port_suspend(ptr noundef %0, i32 %1) #0 align 
   %76 = zext i32 %75 to i64
   %77 = getelementptr i8, ptr %72, i64 %76
   %78 = getelementptr i8, ptr %77, i64 68
-  %79 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78) #13, !srcloc !11
+  %79 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78) #12, !srcloc !11
   %80 = and i32 %79, 1
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %66
   %83 = load i32, ptr @devslp_idle_timeout, align 4
-  tail call void @ata_msleep(ptr noundef %0, i32 noundef %83) #13
+  tail call void @ata_msleep(ptr noundef %0, i32 noundef %83) #12
   br label %84
 
 84:                                               ; preds = %82, %66, %62, %56
   %85 = getelementptr inbounds i8, ptr %0, i64 14784
   %86 = load ptr, ptr %85, align 64
-  %87 = tail call i32 @__pm_runtime_idle(ptr noundef %86, i32 noundef 5) #13
+  %87 = tail call i32 @__pm_runtime_idle(ptr noundef %86, i32 noundef 5) #12
   ret i32 %57
 }
 
@@ -1672,7 +1672,7 @@ define internal noundef i32 @ahci_port_suspend(ptr noundef %0, i32 %1) #0 align 
 define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 14784
   %3 = load ptr, ptr %2, align 64
-  %4 = tail call i32 @__pm_runtime_resume(ptr noundef %3, i32 noundef 4) #13
+  %4 = tail call i32 @__pm_runtime_resume(ptr noundef %3, i32 noundef 4) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 14776
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
@@ -1686,7 +1686,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %15 = zext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 24
-  %18 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17) #13, !srcloc !11
+  %18 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17) #12, !srcloc !11
   %19 = and i32 %18, 268435455
   %20 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = load i32, ptr %20, align 8
@@ -1696,13 +1696,13 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
 
 24:                                               ; preds = %1
   %25 = or i32 %19, 2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %25, ptr elementtype(i32) %17) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %25, ptr elementtype(i32) %17) #12, !srcloc !10
   br label %26
 
 26:                                               ; preds = %24, %1
   %27 = phi i32 [ %25, %24 ], [ %19, %1 ]
   %28 = or i32 %27, 268435456
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %17) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %17) #12, !srcloc !10
   %29 = load ptr, ptr %5, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
@@ -1726,14 +1726,14 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %47 = lshr i64 %46, 32
   %48 = trunc nuw i64 %47 to i32
   %49 = getelementptr i8, ptr %40, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %48, ptr elementtype(i32) %49) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %48, ptr elementtype(i32) %49) #12, !srcloc !10
   br label %50
 
 50:                                               ; preds = %44, %26
   %51 = getelementptr inbounds i8, ptr %33, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = trunc i64 %52 to i32
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(i32) %40) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(i32) %40) #12, !srcloc !10
   %54 = load i32, ptr %41, align 8
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %62, label %56
@@ -1744,7 +1744,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %59 = lshr i64 %58, 32
   %60 = trunc nuw i64 %59 to i32
   %61 = getelementptr i8, ptr %40, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %60, ptr elementtype(i32) %61) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %60, ptr elementtype(i32) %61) #12, !srcloc !10
   br label %62
 
 62:                                               ; preds = %56, %50
@@ -1752,12 +1752,12 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %64 = load i64, ptr %63, align 8
   %65 = trunc i64 %64 to i32
   %66 = getelementptr i8, ptr %40, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %65, ptr elementtype(i32) %66) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %65, ptr elementtype(i32) %66) #12, !srcloc !10
   %67 = getelementptr i8, ptr %40, i64 24
-  %68 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67) #13, !srcloc !11
+  %68 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67) #12, !srcloc !11
   %69 = or i32 %68, 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %69, ptr elementtype(i32) %67) #13, !srcloc !10
-  %70 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %69, ptr elementtype(i32) %67) #12, !srcloc !10
+  %70 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67) #12, !srcloc !11
   %71 = load i32, ptr %31, align 8
   %72 = and i32 %71, 32768
   %73 = icmp eq i32 %72, 0
@@ -1766,7 +1766,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
 74:                                               ; preds = %62
   %75 = getelementptr inbounds i8, ptr %31, i64 280
   %76 = load ptr, ptr %75, align 8
-  tail call void %76(ptr noundef %0) #13
+  tail call void %76(ptr noundef %0) #12
   br label %77
 
 77:                                               ; preds = %74, %62
@@ -1777,7 +1777,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   br i1 %81, label %.loopexit5, label %82
 
 82:                                               ; preds = %77
-  %83 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #13
+  %83 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #12
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.loopexit5, label %85
 
@@ -1801,18 +1801,18 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %98 = load ptr, ptr %97, align 8
   %99 = load i64, ptr %93, align 8
   %100 = trunc i64 %99 to i32
-  %101 = tail call i64 %98(ptr noundef %0, i32 noundef %100, i64 noundef 4) #13
+  %101 = tail call i64 %98(ptr noundef %0, i32 noundef %100, i64 noundef 4) #12
   %102 = icmp eq i64 %101, -16
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %94
-  tail call void @msleep(i32 noundef 1) #13
+  tail call void @msleep(i32 noundef 1) #12
   %104 = add nuw nsw i32 %95, 1
   %105 = icmp eq i32 %104, 5
   br i1 %105, label %106, label %94, !llvm.loop !17
 
 106:                                              ; preds = %103, %94
-  %107 = tail call ptr @ata_link_next(ptr noundef nonnull %89, ptr noundef %0, i32 noundef 0) #13
+  %107 = tail call ptr @ata_link_next(ptr noundef nonnull %89, ptr noundef %0, i32 noundef 0) #12
   %108 = icmp eq ptr %107, null
   br i1 %108, label %.loopexit5, label %88, !llvm.loop !18
 
@@ -1823,7 +1823,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   br i1 %111, label %.loopexit, label %112
 
 112:                                              ; preds = %.loopexit5
-  %113 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #13
+  %113 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #12
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.loopexit, label %.preheader
 
@@ -1842,7 +1842,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   store ptr %115, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %123, i64 8
-  tail call void @init_timer_key(ptr noundef %126, ptr noundef nonnull @ahci_sw_activity_blink, i32 noundef 0, ptr noundef null, ptr noundef null) #13
+  tail call void @init_timer_key(ptr noundef %126, ptr noundef nonnull @ahci_sw_activity_blink, i32 noundef 0, ptr noundef null, ptr noundef null) #12
   %127 = load i32, ptr %123, align 8
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %133, label %129
@@ -1855,7 +1855,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   br label %133
 
 133:                                              ; preds = %129, %.preheader
-  %134 = tail call ptr @ata_link_next(ptr noundef nonnull %115, ptr noundef %0, i32 noundef 0) #13
+  %134 = tail call ptr @ata_link_next(ptr noundef nonnull %115, ptr noundef %0, i32 noundef 0) #12
   %135 = icmp eq ptr %134, null
   br i1 %135, label %.loopexit, label %.preheader, !llvm.loop !19
 
@@ -1880,9 +1880,9 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
 
 152:                                              ; preds = %.loopexit
   %153 = getelementptr i8, ptr %148, i64 24
-  %154 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %153) #13, !srcloc !11
+  %154 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %153) #12, !srcloc !11
   %155 = or i32 %154, 131072
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %155, ptr elementtype(i32) %153) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %155, ptr elementtype(i32) %153) #12, !srcloc !10
   %156 = load ptr, ptr %5, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 32
   %158 = load ptr, ptr %157, align 8
@@ -1901,7 +1901,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %169 = zext i32 %168 to i64
   %170 = getelementptr i8, ptr %166, i64 %169
   %171 = getelementptr i8, ptr %170, i64 64
-  %172 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %171) #13, !srcloc !11
+  %172 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %171) #12, !srcloc !11
   %173 = and i32 %172, 1
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %178, label %175
@@ -1916,14 +1916,14 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
 178:                                              ; preds = %163
   %179 = getelementptr inbounds i8, ptr %158, i64 288
   %180 = load ptr, ptr %179, align 8
-  %181 = tail call i32 %180(ptr noundef %0) #13
+  %181 = tail call i32 %180(ptr noundef %0) #12
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %ahci_enable_fbs.exit
 
 183:                                              ; preds = %178
   %184 = or disjoint i32 %172, 1
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %184, ptr elementtype(i32) %171) #13, !srcloc !10
-  %185 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %171) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %184, ptr elementtype(i32) %171) #12, !srcloc !10
+  %185 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %171) #12, !srcloc !11
   %186 = and i32 %185, 1
   %187 = icmp eq i32 %186, 0
   %188 = load ptr, ptr %5, align 8
@@ -1932,7 +1932,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   br i1 %187, label %194, label %191
 
 191:                                              ; preds = %183
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %190, ptr noundef nonnull @.str.92) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %190, ptr noundef nonnull @.str.92) #14
   %192 = getelementptr inbounds i8, ptr %159, i64 69
   store i8 1, ptr %192, align 1
   %193 = getelementptr inbounds i8, ptr %159, i64 72
@@ -1940,13 +1940,13 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   br label %195
 
 194:                                              ; preds = %183
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %190, ptr noundef nonnull @.str.93) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %190, ptr noundef nonnull @.str.93) #14
   br label %195
 
 195:                                              ; preds = %194, %191
   %196 = getelementptr inbounds i8, ptr %158, i64 280
   %197 = load ptr, ptr %196, align 8
-  tail call void %197(ptr noundef %0) #13
+  tail call void %197(ptr noundef %0) #12
   br label %ahci_enable_fbs.exit
 
 ahci_enable_fbs.exit:                             ; preds = %152, %175, %178, %195
@@ -1960,7 +1960,7 @@ ahci_enable_fbs.exit:                             ; preds = %152, %175, %178, %1
 
 203:                                              ; preds = %ahci_enable_fbs.exit
   %204 = getelementptr i8, ptr %148, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %199, ptr elementtype(i32) %204) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %199, ptr elementtype(i32) %204) #12, !srcloc !10
   br label %245
 
 205:                                              ; preds = %.loopexit
@@ -1971,7 +1971,7 @@ ahci_enable_fbs.exit:                             ; preds = %152, %175, %178, %1
 
 209:                                              ; preds = %205
   %210 = getelementptr i8, ptr %148, i64 64
-  %211 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %210) #13, !srcloc !11
+  %211 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %210) #12, !srcloc !11
   %212 = and i32 %211, 1
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %214, label %216
@@ -1984,14 +1984,14 @@ ahci_enable_fbs.exit:                             ; preds = %152, %175, %178, %1
 216:                                              ; preds = %209
   %217 = getelementptr inbounds i8, ptr %141, i64 288
   %218 = load ptr, ptr %217, align 8
-  %219 = tail call i32 %218(ptr noundef %0) #13
+  %219 = tail call i32 %218(ptr noundef %0) #12
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %221, label %ahci_disable_fbs.exit
 
 221:                                              ; preds = %216
   %222 = and i32 %211, -2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %222, ptr elementtype(i32) %210) #13, !srcloc !10
-  %223 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %210) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %222, ptr elementtype(i32) %210) #12, !srcloc !10
+  %223 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %210) #12, !srcloc !11
   %224 = and i32 %223, 1
   %225 = icmp eq i32 %224, 0
   %226 = load ptr, ptr %5, align 8
@@ -2000,11 +2000,11 @@ ahci_enable_fbs.exit:                             ; preds = %152, %175, %178, %1
   br i1 %225, label %230, label %229
 
 229:                                              ; preds = %221
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %228, ptr noundef nonnull @.str.94) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %228, ptr noundef nonnull @.str.94) #14
   br label %232
 
 230:                                              ; preds = %221
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %228, ptr noundef nonnull @.str.95) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %228, ptr noundef nonnull @.str.95) #14
   %231 = getelementptr inbounds i8, ptr %149, i64 69
   store i8 0, ptr %231, align 1
   br label %232
@@ -2012,14 +2012,14 @@ ahci_enable_fbs.exit:                             ; preds = %152, %175, %178, %1
 232:                                              ; preds = %230, %229
   %233 = getelementptr inbounds i8, ptr %141, i64 280
   %234 = load ptr, ptr %233, align 8
-  tail call void %234(ptr noundef %0) #13
+  tail call void %234(ptr noundef %0) #12
   br label %ahci_disable_fbs.exit
 
 ahci_disable_fbs.exit:                            ; preds = %205, %214, %216, %232
   %235 = getelementptr i8, ptr %148, i64 24
-  %236 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %235) #13, !srcloc !11
+  %236 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %235) #12, !srcloc !11
   %237 = and i32 %236, -131073
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %237, ptr elementtype(i32) %235) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %237, ptr elementtype(i32) %235) #12, !srcloc !10
   %238 = load i32, ptr %150, align 8
   %239 = and i32 %238, -8388609
   store i32 %239, ptr %150, align 8
@@ -2030,7 +2030,7 @@ ahci_disable_fbs.exit:                            ; preds = %205, %214, %216, %2
 
 243:                                              ; preds = %ahci_disable_fbs.exit
   %244 = getelementptr i8, ptr %148, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %239, ptr elementtype(i32) %244) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %239, ptr elementtype(i32) %244) #12, !srcloc !10
   br label %245
 
 245:                                              ; preds = %243, %ahci_disable_fbs.exit, %203, %ahci_enable_fbs.exit
@@ -2046,8 +2046,8 @@ define internal noundef range(i32 -12, 1) i32 @ahci_port_start(ptr noundef %0) #
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
-  %9 = tail call noalias dereferenceable_or_null(1288) ptr @devm_kmalloc(ptr noundef %8, i64 noundef 1288, i32 noundef 3520) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  %9 = tail call noalias dereferenceable_or_null(1288) ptr @devm_kmalloc(ptr noundef %8, i64 noundef 1288, i32 noundef 3520) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %92, label %11
 
@@ -2059,21 +2059,21 @@ define internal noundef range(i32 -12, 1) i32 @ahci_port_start(ptr noundef %0) #
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %11
-  %17 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef %8, i64 noundef 8, i32 noundef 3520) #16
+  %17 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef %8, i64 noundef 8, i32 noundef 3520) #15
   %18 = getelementptr inbounds i8, ptr %9, i64 1280
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %17, null
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @devm_kfree(ptr noundef %8, ptr noundef nonnull %9) #13
+  tail call void @devm_kfree(ptr noundef %8, ptr noundef nonnull %9) #12
   br label %92
 
 21:                                               ; preds = %16
-  %22 = tail call ptr @dev_driver_string(ptr noundef %8) #13
+  %22 = tail call ptr @dev_driver_string(ptr noundef %8) #12
   %23 = getelementptr inbounds i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4
-  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 8, ptr noundef nonnull @.str.97, ptr noundef %22, i32 noundef %24) #13
+  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 8, ptr noundef nonnull @.str.97, ptr noundef %22, i32 noundef %24) #12
   br label %26
 
 26:                                               ; preds = %21, %11
@@ -2104,7 +2104,7 @@ define internal noundef range(i32 -12, 1) i32 @ahci_port_start(ptr noundef %0) #
   %46 = zext i32 %45 to i64
   %47 = getelementptr i8, ptr %44, i64 %46
   %48 = getelementptr i8, ptr %47, i64 24
-  %49 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #13, !srcloc !11
+  %49 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #12, !srcloc !11
   %50 = and i32 %49, 4194304
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %54, label %52
@@ -2122,13 +2122,13 @@ define internal noundef range(i32 -12, 1) i32 @ahci_port_start(ptr noundef %0) #
   br i1 %57, label %61, label %59
 
 59:                                               ; preds = %54
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %8, ptr noundef nonnull @.str.98, i32 noundef %58) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %8, ptr noundef nonnull @.str.98, i32 noundef %58) #14
   %60 = getelementptr inbounds i8, ptr %9, i64 68
   store i8 1, ptr %60, align 4
   br label %62
 
 61:                                               ; preds = %54
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %8, ptr noundef nonnull @.str.99, i32 noundef %58) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %8, ptr noundef nonnull @.str.99, i32 noundef %58) #14
   br label %62
 
 62:                                               ; preds = %61, %59, %52, %31, %26
@@ -2136,7 +2136,7 @@ define internal noundef range(i32 -12, 1) i32 @ahci_port_start(ptr noundef %0) #
   %64 = load i8, ptr %63, align 4, !range !5, !noundef !6
   %65 = icmp eq i8 %64, 0
   %66 = select i1 %65, i64 91392, i64 95232
-  %67 = call ptr @dmam_alloc_attrs(ptr noundef %8, i64 noundef %66, ptr noundef nonnull %2, i32 noundef 3264, i64 noundef 0) #13
+  %67 = call ptr @dmam_alloc_attrs(ptr noundef %8, i64 noundef %66, ptr noundef nonnull %2, i32 noundef 3264, i64 noundef 0) #12
   %68 = icmp eq ptr %67, null
   br i1 %68, label %92, label %69
 
@@ -2182,7 +2182,7 @@ define internal noundef range(i32 -12, 1) i32 @ahci_port_start(ptr noundef %0) #
 
 92:                                               ; preds = %89, %62, %20, %1
   %93 = phi i32 [ 0, %89 ], [ -12, %20 ], [ -12, %1 ], [ -12, %62 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   ret i32 %93
 }
 
@@ -2196,7 +2196,7 @@ define internal void @ahci_port_stop(ptr noundef %0) #0 align 16 {
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 288
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0) #13
+  %10 = tail call i32 %9(ptr noundef %0) #12
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %30
 
@@ -2213,10 +2213,10 @@ define internal void @ahci_port_stop(ptr noundef %0) #0 align 16 {
   %22 = zext i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
   %24 = getelementptr i8, ptr %23, i64 24
-  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #13, !srcloc !11
+  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #12, !srcloc !11
   %26 = and i32 %25, -17
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, ptr elementtype(i32) %24) #13, !srcloc !10
-  %27 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %24, i32 noundef 16384, i32 noundef 16384, i32 noundef 10, i32 noundef 1000) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, ptr elementtype(i32) %24) #12, !srcloc !10
+  %27 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %24, i32 noundef 16384, i32 noundef 16384, i32 noundef 10, i32 noundef 1000) #12
   %28 = and i32 %27, 16384
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %34, label %30
@@ -2226,7 +2226,7 @@ define internal void @ahci_port_stop(ptr noundef %0) #0 align 16 {
   %.ph2 = phi i32 [ -16, %12 ], [ %10, %1 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 36
   %32 = load i32, ptr %31, align 4
-  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.100, i32 noundef %32, ptr noundef nonnull %.ph, i32 noundef %.ph2) #15
+  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.100, i32 noundef %32, ptr noundef nonnull %.ph, i32 noundef %.ph2) #14
   br label %34
 
 34:                                               ; preds = %12, %30
@@ -2234,10 +2234,10 @@ define internal void @ahci_port_stop(ptr noundef %0) #0 align 16 {
   %36 = load i32, ptr %35, align 4
   %37 = shl nuw i32 1, %36
   %38 = getelementptr i8, ptr %7, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %37, ptr elementtype(i32) %38) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %37, ptr elementtype(i32) %38) #12, !srcloc !10
   %39 = getelementptr inbounds i8, ptr %0, i64 14784
   %40 = load ptr, ptr %39, align 64
-  %41 = tail call i32 @__pm_runtime_idle(ptr noundef %40, i32 noundef 5) #13
+  %41 = tail call i32 @__pm_runtime_idle(ptr noundef %40, i32 noundef 5) #12
   ret void
 }
 
@@ -2245,7 +2245,7 @@ define internal void @ahci_port_stop(ptr noundef %0) #0 align 16 {
 define internal range(i64 -2147483648, 2147483648) i64 @ahci_led_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 15888
   %4 = load ptr, ptr %3, align 16
-  %5 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #13
+  %5 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %23, label %7
 
@@ -2261,9 +2261,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @ahci_led_show(ptr nounde
   %14 = sext i32 %13 to i64
   %15 = getelementptr [15 x %struct.ahci_em_priv], ptr %8, i64 0, i64 %14, i32 4
   %16 = load i64, ptr %15, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.75, i64 noundef %16) #13
+  %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.75, i64 noundef %16) #12
   %18 = add i32 %17, %10
-  %19 = tail call ptr @ata_link_next(ptr noundef nonnull %11, ptr noundef %0, i32 noundef 0) #13
+  %19 = tail call ptr @ata_link_next(ptr noundef nonnull %11, ptr noundef %0, i32 noundef 0) #12
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %9, !llvm.loop !20
 
@@ -2279,11 +2279,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @ahci_led_show(ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @ahci_led_store(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 0, ptr %4, align 4, !annotation !16
   %5 = getelementptr inbounds i8, ptr %0, i64 15888
   %6 = load ptr, ptr %5, align 16
-  %7 = call i32 @kstrtouint(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #13
+  %7 = call i32 @kstrtouint(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #12
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %33, label %9
 
@@ -2296,7 +2296,7 @@ define internal i64 @ahci_led_store(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 14:                                               ; preds = %9
   %15 = zext nneg i32 %12 to i64
-  %16 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 15, i64 %15) #13, !srcloc !21
+  %16 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 15, i64 %15) #12, !srcloc !21
   %17 = trunc i64 %16 to i32
   %18 = and i32 %12, %17
   %19 = getelementptr inbounds i8, ptr %6, i64 80
@@ -2318,12 +2318,12 @@ define internal i64 @ahci_led_store(ptr noundef %0, ptr noundef %1, i64 noundef 
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 464
   %31 = load ptr, ptr %30, align 8
-  %32 = call i64 %31(ptr noundef %0, i32 noundef %27, i64 noundef %2) #13
+  %32 = call i64 %31(ptr noundef %0, i32 noundef %27, i64 noundef %2) #12
   br label %33
 
 33:                                               ; preds = %26, %9, %3
   %34 = phi i64 [ %32, %26 ], [ -22, %3 ], [ -22, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   ret i64 %34
 }
 
@@ -2339,7 +2339,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_activity_sh
   %10 = sext i32 %9 to i64
   %11 = getelementptr [15 x %struct.ahci_em_priv], ptr %7, i64 0, i64 %10
   %12 = load i32, ptr %11, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.76, i32 noundef %12) #13
+  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.76, i32 noundef %12) #12
   %14 = sext i32 %13 to i64
   ret i64 %14
 }
@@ -2396,7 +2396,7 @@ define internal noundef i64 @ahci_activity_store(ptr nocapture noundef readonly 
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 464
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i64 %42(ptr noundef %4, i32 noundef %38, i64 noundef 4) #13
+  %43 = tail call i64 %42(ptr noundef %4, i32 noundef %38, i64 noundef 4) #12
   br label %44
 
 44:                                               ; preds = %37, %26
@@ -2424,12 +2424,12 @@ define internal noundef i64 @ahci_transmit_led_message(ptr nocapture noundef rea
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 14784
   %19 = load ptr, ptr %18, align 64
-  %20 = tail call i32 @__pm_runtime_resume(ptr noundef %19, i32 noundef 4) #13
+  %20 = tail call i32 @__pm_runtime_resume(ptr noundef %19, i32 noundef 4) #12
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 16
-  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %22) #13
+  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %22) #12
   %24 = getelementptr i8, ptr %9, i64 32
-  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #13, !srcloc !11
+  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #12, !srcloc !11
   %26 = and i32 %25, 256
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %50
@@ -2450,14 +2450,14 @@ define internal noundef i64 @ahci_transmit_led_message(ptr nocapture noundef rea
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr i8, ptr %9, i64 %40
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1024, ptr elementtype(i32) %41) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1024, ptr elementtype(i32) %41) #12, !srcloc !10
   %42 = load i32, ptr %38, align 4
   %43 = zext i32 %42 to i64
   %44 = getelementptr i8, ptr %9, i64 %43
   %45 = getelementptr i8, ptr %44, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %37, ptr elementtype(i32) %45) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %37, ptr elementtype(i32) %45) #12, !srcloc !10
   %46 = or disjoint i32 %25, 256
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %46, ptr elementtype(i32) %24) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %46, ptr elementtype(i32) %24) #12, !srcloc !10
   br label %47
 
 47:                                               ; preds = %33, %28
@@ -2469,9 +2469,9 @@ define internal noundef i64 @ahci_transmit_led_message(ptr nocapture noundef rea
 50:                                               ; preds = %47, %13
   %51 = phi i64 [ %2, %47 ], [ -16, %13 ]
   %52 = load ptr, ptr %21, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %52, i64 noundef %23) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %52, i64 noundef %23) #12
   %53 = load ptr, ptr %18, align 64
-  %54 = tail call i32 @__pm_runtime_idle(ptr noundef %53, i32 noundef 5) #13
+  %54 = tail call i32 @__pm_runtime_idle(ptr noundef %53, i32 noundef 5) #12
   br label %55
 
 55:                                               ; preds = %50, %3
@@ -2524,7 +2524,7 @@ define internal noundef i32 @ahci_pmp_retry_softreset(ptr noundef %0, ptr nocapt
 
 35:                                               ; preds = %31
   %36 = getelementptr i8, ptr %16, i64 16
-  %37 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36) #13, !srcloc !11
+  %37 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36) #12, !srcloc !11
   %38 = and i32 %37, 8388608
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %61, label %40
@@ -2547,13 +2547,13 @@ define internal noundef i32 @ahci_pmp_retry_softreset(ptr noundef %0, ptr nocapt
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = load i32, ptr %52, align 8
-  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.81, i32 noundef %51, i32 noundef %53) #15
+  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.81, i32 noundef %51, i32 noundef %53) #14
   br label %59
 
 55:                                               ; preds = %45
   %56 = getelementptr inbounds i8, ptr %41, i64 36
   %57 = load i32, ptr %56, align 4
-  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.82, i32 noundef %57) #15
+  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.82, i32 noundef %57) #14
   br label %59
 
 59:                                               ; preds = %55, %49
@@ -2570,7 +2570,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
-  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #13, !srcloc !11
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #12, !srcloc !11
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %.preheader11, label %.loopexit
 
@@ -2578,25 +2578,25 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   %8 = phi i32 [ %14, %13 ], [ 0, %2 ]
   %9 = phi i32 [ %11, %13 ], [ %6, %2 ]
   %10 = or i32 %9, -2147483648
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %5) #13, !srcloc !10
-  %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %5) #12, !srcloc !10
+  %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #12, !srcloc !11
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %.preheader11
-  tail call void @msleep(i32 noundef 10) #13
+  tail call void @msleep(i32 noundef 10) #12
   %14 = add nuw nsw i32 %8, 1
   %15 = icmp eq i32 %14, 5
   br i1 %15, label %16, label %.preheader11, !llvm.loop !22
 
 16:                                               ; preds = %13
-  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #13, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 232, i32 2305, i64 12) #13, !srcloc !24
-  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_end\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #13, !srcloc !25
+  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #12, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 232, i32 2305, i64 12) #12, !srcloc !24
+  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_end\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #12, !srcloc !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader11, %16, %2
-  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #13, !srcloc !11
+  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #12, !srcloc !11
   %18 = getelementptr inbounds i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
@@ -2605,7 +2605,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   %23 = select i1 %20, i32 %17, i32 %22
   store i32 %23, ptr %18, align 8
   %24 = getelementptr i8, ptr %4, i64 16
-  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #13, !srcloc !11
+  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #12, !srcloc !11
   %26 = icmp ugt i32 %25, 131071
   br i1 %26, label %32, label %27
 
@@ -2618,7 +2618,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
 
 32:                                               ; preds = %27, %.loopexit
   %33 = getelementptr i8, ptr %4, i64 36
-  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #13, !srcloc !11
+  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #12, !srcloc !11
   br label %35
 
 35:                                               ; preds = %32, %27
@@ -2635,7 +2635,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %39
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str) #14
   %44 = and i32 %23, 2147483647
   br label %45
 
@@ -2652,7 +2652,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %49
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.1) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.1) #14
   %54 = and i32 %46, -1073741825
   br label %55
 
@@ -2669,7 +2669,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %59
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.2) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.2) #14
   %64 = or disjoint i32 %56, 1073741824
   br label %65
 
@@ -2686,7 +2686,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %72, label %75, label %73
 
 73:                                               ; preds = %69
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.3) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.3) #14
   %74 = and i32 %66, -131073
   br label %75
 
@@ -2703,7 +2703,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %79
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.4) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.4) #14
   %84 = and i32 %76, -536870913
   br label %85
 
@@ -2720,7 +2720,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %92, label %95, label %93
 
 93:                                               ; preds = %89
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.5) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.5) #14
   %94 = and i32 %36, -25
   br label %95
 
@@ -2737,7 +2737,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %102, label %111, label %103
 
 103:                                              ; preds = %99
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.6) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.6) #14
   %104 = or disjoint i32 %86, 65536
   br label %105
 
@@ -2749,7 +2749,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %105
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.7) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.7) #14
   %110 = and i32 %.ph, -65537
   br label %111
 
@@ -2766,7 +2766,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %115
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.8) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.8) #14
   %120 = or disjoint i32 %112, 67108864
   br label %121
 
@@ -2783,14 +2783,14 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %128, label %131, label %129
 
 129:                                              ; preds = %125
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.9) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.9) #14
   %130 = and i32 %122, -33
   br label %131
 
 131:                                              ; preds = %129, %125, %121
   %132 = phi i32 [ %130, %129 ], [ %122, %125 ], [ %122, %121 ]
   %133 = getelementptr i8, ptr %4, i64 12
-  %134 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %133) #13, !srcloc !11
+  %134 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %133) #12, !srcloc !11
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds i8, ptr %1, i64 40
   %137 = load i32, ptr %136, align 8
@@ -2800,7 +2800,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %140, label %144, label %141
 
 141:                                              ; preds = %131
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %135, i32 noundef %137) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %135, i32 noundef %137) #14
   %142 = load i32, ptr %136, align 8
   %143 = zext i32 %142 to i64
   br label %145
@@ -2819,7 +2819,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
 150:                                              ; preds = %145
   %151 = zext i32 %148 to i64
   %152 = and i64 %146, %151
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef %146, i64 noundef %152) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef %146, i64 noundef %152) #14
   %153 = load i32, ptr %147, align 4
   %154 = zext i32 %153 to i64
   %155 = and i64 %146, %154
@@ -2850,7 +2850,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %169
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %157, i32 noundef %171) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %157, i32 noundef %171) #14
   br label %174
 
 174:                                              ; preds = %173, %169, %156
@@ -2865,7 +2865,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   %181 = shl nsw i32 -2, %180
   %182 = xor i32 %181, -1
   %183 = zext nneg i32 %182 to i64
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %183) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %183) #14
   store i32 %182, ptr %136, align 8
   br label %184
 
@@ -2883,7 +2883,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %192, label %.thread, label %193
 
 193:                                              ; preds = %188
-  %194 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %191) #14, !srcloc !12
+  %194 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %191) #13, !srcloc !12
   %195 = trunc i64 %194 to i32
   %196 = icmp slt i32 %195, 32
   br i1 %196, label %197, label %.thread
@@ -2903,7 +2903,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   %207 = and i64 %206, 4294967168
   %208 = getelementptr i8, ptr %205, i64 %207
   %209 = getelementptr i8, ptr %208, i64 24
-  %210 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %209) #13, !srcloc !11
+  %210 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %209) #12, !srcloc !11
   %211 = and i32 %210, 8126464
   store i32 %211, ptr %200, align 4
   br label %212
@@ -2984,10 +2984,10 @@ define dso_local void @ahci_start_engine(ptr nocapture noundef readonly %0) #0 a
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 24
-  %15 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14) #13, !srcloc !11
+  %15 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14) #12, !srcloc !11
   %16 = or i32 %15, 1
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr elementtype(i32) %14) #13, !srcloc !10
-  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr elementtype(i32) %14) #12, !srcloc !10
+  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14) #12, !srcloc !11
   ret void
 }
 
@@ -3023,7 +3023,7 @@ define dso_local range(i32 -19, 1) i32 @ahci_stop_engine(ptr noundef %0) #0 alig
 
 24:                                               ; preds = %21, %17, %1
   %25 = getelementptr i8, ptr %13, i64 24
-  %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #13, !srcloc !11
+  %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #12, !srcloc !11
   %27 = and i32 %26, 32769
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %41, label %29
@@ -3036,13 +3036,13 @@ define dso_local range(i32 -19, 1) i32 @ahci_stop_engine(ptr noundef %0) #0 alig
   %32 = load ptr, ptr %2, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.15) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.15) #14
   br label %41
 
 35:                                               ; preds = %29
   %36 = and i32 %26, -2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %36, ptr elementtype(i32) %25) #13, !srcloc !10
-  %37 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %25, i32 noundef 32768, i32 noundef 32768, i32 noundef 1, i32 noundef 500) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %36, ptr elementtype(i32) %25) #12, !srcloc !10
+  %37 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %25, i32 noundef 32768, i32 noundef 32768, i32 noundef 1, i32 noundef 500) #12
   %38 = and i32 %37, 32768
   %39 = icmp eq i32 %38, 0
   %40 = select i1 %39, i32 0, i32 -5
@@ -3060,14 +3060,14 @@ define internal range(i32 0, 2) i32 @ahci_single_level_irq_intr(i32 %0, ptr noun
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 8
-  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #13, !srcloc !11
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #12, !srcloc !11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %58, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
-  tail call void @_raw_spin_lock(ptr noundef %1) #13
+  tail call void @_raw_spin_lock(ptr noundef %1) #12
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
@@ -3108,19 +3108,19 @@ define internal range(i32 0, 2) i32 @ahci_single_level_irq_intr(i32 %0, ptr noun
   %42 = zext i32 %41 to i64
   %43 = getelementptr i8, ptr %40, i64 %42
   %44 = getelementptr i8, ptr %43, i64 16
-  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44) #13, !srcloc !11
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %45, ptr elementtype(i32) %44) #13, !srcloc !10
+  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44) #12, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %45, ptr elementtype(i32) %44) #12, !srcloc !10
   tail call fastcc void @ahci_handle_port_interrupt(ptr noundef nonnull %29, ptr noundef %43, i32 noundef %45)
   br label %51
 
 46:                                               ; preds = %27
-  %47 = tail call i32 @ata_ratelimit() #13
+  %47 = tail call i32 @ata_ratelimit() #12
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %18, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %50, ptr noundef nonnull @.str.26, i32 noundef %22) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %50, ptr noundef nonnull @.str.26, i32 noundef %22) #14
   br label %51
 
 51:                                               ; preds = %49, %46, %31, %19
@@ -3133,8 +3133,8 @@ define internal range(i32 0, 2) i32 @ahci_single_level_irq_intr(i32 %0, ptr noun
 
 .loopexit:                                        ; preds = %51, %10
   %57 = phi i32 [ 0, %10 ], [ %52, %51 ]
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, ptr elementtype(i32) %7) #13, !srcloc !10
-  tail call void @_raw_spin_unlock(ptr noundef %1) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, ptr elementtype(i32) %7) #12, !srcloc !10
+  tail call void @_raw_spin_unlock(ptr noundef %1) #12
   br label %58
 
 58:                                               ; preds = %.loopexit, %2
@@ -3175,14 +3175,14 @@ define dso_local void @ahci_start_fis_rx(ptr nocapture noundef readonly %0) #0 a
   %22 = lshr i64 %21, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = getelementptr i8, ptr %13, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %23, ptr elementtype(i32) %24) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %23, ptr elementtype(i32) %24) #12, !srcloc !10
   br label %25
 
 25:                                               ; preds = %19, %1
   %26 = getelementptr inbounds i8, ptr %15, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %13) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %13) #12, !srcloc !10
   %29 = load i32, ptr %16, align 8
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %37, label %31
@@ -3193,7 +3193,7 @@ define dso_local void @ahci_start_fis_rx(ptr nocapture noundef readonly %0) #0 a
   %34 = lshr i64 %33, 32
   %35 = trunc nuw i64 %34 to i32
   %36 = getelementptr i8, ptr %13, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %36) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %36) #12, !srcloc !10
   br label %37
 
 37:                                               ; preds = %31, %25
@@ -3201,12 +3201,12 @@ define dso_local void @ahci_start_fis_rx(ptr nocapture noundef readonly %0) #0 a
   %39 = load i64, ptr %38, align 8
   %40 = trunc i64 %39 to i32
   %41 = getelementptr i8, ptr %13, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %40, ptr elementtype(i32) %41) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %40, ptr elementtype(i32) %41) #12, !srcloc !10
   %42 = getelementptr i8, ptr %13, i64 24
-  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #13, !srcloc !11
+  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #12, !srcloc !11
   %44 = or i32 %43, 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %42) #13, !srcloc !10
-  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %42) #12, !srcloc !10
+  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #12, !srcloc !11
   ret void
 }
 
@@ -3217,7 +3217,7 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
-  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #13, !srcloc !11
+  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #12, !srcloc !11
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %.preheader9, label %.loopexit10
 
@@ -3225,21 +3225,21 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
   %9 = phi i32 [ %15, %14 ], [ 0, %1 ]
   %10 = phi i32 [ %12, %14 ], [ %7, %1 ]
   %11 = or i32 %10, -2147483648
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %11, ptr elementtype(i32) %6) #13, !srcloc !10
-  %12 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %11, ptr elementtype(i32) %6) #12, !srcloc !10
+  %12 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #12, !srcloc !11
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %14, label %.loopexit10
 
 14:                                               ; preds = %.preheader9
-  tail call void @msleep(i32 noundef 10) #13
+  tail call void @msleep(i32 noundef 10) #12
   %15 = add nuw nsw i32 %9, 1
   %16 = icmp eq i32 %15, 5
   br i1 %16, label %17, label %.preheader9, !llvm.loop !22
 
 17:                                               ; preds = %14
-  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #13, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 232, i32 2305, i64 12) #13, !srcloc !24
-  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_end\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #13, !srcloc !25
+  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #12, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 232, i32 2305, i64 12) #12, !srcloc !24
+  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_end\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #12, !srcloc !25
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %.preheader9, %17, %1
@@ -3250,23 +3250,23 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
 20:                                               ; preds = %.loopexit10
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %22, ptr noundef nonnull @.str.16) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %22, ptr noundef nonnull @.str.16) #14
   br label %.thread
 
 23:                                               ; preds = %.loopexit10
-  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #13, !srcloc !11
+  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #12, !srcloc !11
   %25 = and i32 %24, 1
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
   %28 = or disjoint i32 %24, 1
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %6) #13, !srcloc !10
-  %29 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %6) #12, !srcloc !10
+  %29 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #12, !srcloc !11
   br label %30
 
 30:                                               ; preds = %27, %23
-  %31 = tail call i32 @ata_wait_register(ptr noundef null, ptr noundef %6, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 1000) #13
+  %31 = tail call i32 @ata_wait_register(ptr noundef null, ptr noundef %6, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 1000) #12
   %32 = and i32 %31, 1
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %37, label %34
@@ -3274,11 +3274,11 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %36, ptr noundef nonnull @.str.17, i32 noundef %31) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %36, ptr noundef nonnull @.str.17, i32 noundef %31) #14
   br label %.thread
 
 37:                                               ; preds = %30
-  %38 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #13, !srcloc !11
+  %38 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #12, !srcloc !11
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %.preheader, label %.loopexit
 
@@ -3286,21 +3286,21 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
   %40 = phi i32 [ %46, %45 ], [ 0, %37 ]
   %41 = phi i32 [ %43, %45 ], [ %38, %37 ]
   %42 = or i32 %41, -2147483648
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %42, ptr elementtype(i32) %6) #13, !srcloc !10
-  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %42, ptr elementtype(i32) %6) #12, !srcloc !10
+  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #12, !srcloc !11
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %.preheader
-  tail call void @msleep(i32 noundef 10) #13
+  tail call void @msleep(i32 noundef 10) #12
   %46 = add nuw nsw i32 %40, 1
   %47 = icmp eq i32 %46, 5
   br i1 %47, label %48, label %.preheader, !llvm.loop !22
 
 48:                                               ; preds = %45
-  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #13, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 232, i32 2305, i64 12) #13, !srcloc !24
-  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_end\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #13, !srcloc !25
+  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #12, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 232, i32 2305, i64 12) #12, !srcloc !24
+  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_end\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #12, !srcloc !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %48, %37
@@ -3318,7 +3318,7 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %53, i64 32
   %60 = load i32, ptr %59, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %60, ptr elementtype(i32) %58) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %60, ptr elementtype(i32) %58) #12, !srcloc !10
   %61 = getelementptr inbounds i8, ptr %53, i64 36
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
@@ -3326,15 +3326,15 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
 
 64:                                               ; preds = %52
   %65 = getelementptr i8, ptr %58, i64 36
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %62, ptr elementtype(i32) %65) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %62, ptr elementtype(i32) %65) #12, !srcloc !10
   br label %66
 
 66:                                               ; preds = %64, %52
   %67 = getelementptr inbounds i8, ptr %53, i64 40
   %68 = load i32, ptr %67, align 8
   %69 = getelementptr i8, ptr %58, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %69) #13, !srcloc !10
-  %70 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %69) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %69) #12, !srcloc !10
+  %70 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %69) #12, !srcloc !11
   %71 = getelementptr inbounds i8, ptr %53, i64 44
   br label %72
 
@@ -3346,7 +3346,7 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
   br i1 %76, label %.thread, label %77
 
 77:                                               ; preds = %72
-  %78 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %75) #14, !srcloc !12
+  %78 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %75) #13, !srcloc !12
   %79 = trunc i64 %78 to i32
   %80 = icmp slt i32 %79, 32
   br i1 %80, label %81, label %.thread
@@ -3362,7 +3362,7 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
   %89 = getelementptr [32 x i32], ptr %71, i64 0, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr i8, ptr %86, i64 24
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %90, ptr elementtype(i32) %91) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %90, ptr elementtype(i32) %91) #12, !srcloc !10
   %92 = add i64 %87, 4294967296
   %93 = ashr exact i64 %92, 32
   %94 = icmp ugt i64 %93, 31
@@ -3380,14 +3380,14 @@ define dso_local noundef range(i32 -22, 1) i32 @ahci_reset_em(ptr nocapture noun
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 32
-  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #13, !srcloc !11
+  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #12, !srcloc !11
   %8 = and i32 %7, 768
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
   %11 = or disjoint i32 %7, 512
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %11, ptr elementtype(i32) %6) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %11, ptr elementtype(i32) %6) #12, !srcloc !10
   br label %12
 
 12:                                               ; preds = %10, %1
@@ -3437,7 +3437,7 @@ define dso_local void @ahci_init_controller(ptr nocapture noundef readonly %0) #
   %33 = load ptr, ptr %11, align 8
   %34 = getelementptr inbounds i8, ptr %20, i64 288
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 %35(ptr noundef %16) #13
+  %36 = tail call i32 %35(ptr noundef %16) #12
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %55
 
@@ -3453,10 +3453,10 @@ define dso_local void @ahci_init_controller(ptr nocapture noundef readonly %0) #
   %47 = zext i32 %46 to i64
   %48 = getelementptr i8, ptr %45, i64 %47
   %49 = getelementptr i8, ptr %48, i64 24
-  %50 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %49) #13, !srcloc !11
+  %50 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %49) #12, !srcloc !11
   %51 = and i32 %50, -17
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, ptr elementtype(i32) %49) #13, !srcloc !10
-  %52 = tail call i32 @ata_wait_register(ptr noundef %16, ptr noundef %49, i32 noundef 16384, i32 noundef 16384, i32 noundef 10, i32 noundef 1000) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, ptr elementtype(i32) %49) #12, !srcloc !10
+  %52 = tail call i32 @ata_wait_register(ptr noundef %16, ptr noundef %49, i32 noundef 16384, i32 noundef 16384, i32 noundef 10, i32 noundef 1000) #12
   %53 = and i32 %52, 16384
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %56, label %55
@@ -3464,7 +3464,7 @@ define dso_local void @ahci_init_controller(ptr nocapture noundef readonly %0) #
 55:                                               ; preds = %32, %38
   %.ph = phi ptr [ @.str.79, %38 ], [ @.str.78, %32 ]
   %.ph4 = phi i32 [ -16, %38 ], [ %36, %32 ]
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %33, ptr noundef nonnull @.str.77, ptr noundef nonnull %.ph, i32 noundef %.ph4) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %33, ptr noundef nonnull @.str.77, ptr noundef nonnull %.ph, i32 noundef %.ph4) #14
   br label %56
 
 56:                                               ; preds = %38, %55
@@ -3479,15 +3479,15 @@ define dso_local void @ahci_init_controller(ptr nocapture noundef readonly %0) #
   %65 = zext i32 %64 to i64
   %66 = getelementptr i8, ptr %63, i64 %65
   %67 = getelementptr i8, ptr %66, i64 48
-  %68 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67) #13, !srcloc !11
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %67) #13, !srcloc !10
+  %68 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67) #12, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %67) #12, !srcloc !10
   %69 = getelementptr i8, ptr %66, i64 16
-  %70 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %69) #13, !srcloc !11
+  %70 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %69) #12, !srcloc !11
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %56
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %70, ptr elementtype(i32) %69) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %70, ptr elementtype(i32) %69) #12, !srcloc !10
   br label %73
 
 73:                                               ; preds = %72, %56
@@ -3495,9 +3495,9 @@ define dso_local void @ahci_init_controller(ptr nocapture noundef readonly %0) #
   %75 = shl nuw i32 1, %74
   %76 = load ptr, ptr %61, align 8
   %77 = getelementptr i8, ptr %76, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, ptr elementtype(i32) %77) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, ptr elementtype(i32) %77) #12, !srcloc !10
   %78 = getelementptr i8, ptr %28, i64 24
-  %79 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78) #13, !srcloc !11
+  %79 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78) #12, !srcloc !11
   %80 = and i32 %79, 2097152
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %91, label %82
@@ -3524,10 +3524,10 @@ define dso_local void @ahci_init_controller(ptr nocapture noundef readonly %0) #
 
 .loopexit:                                        ; preds = %91, %1
   %95 = getelementptr i8, ptr %5, i64 4
-  %96 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %95) #13, !srcloc !11
+  %96 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %95) #12, !srcloc !11
   %97 = or i32 %96, 2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %97, ptr elementtype(i32) %95) #13, !srcloc !10
-  %98 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %95) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %97, ptr elementtype(i32) %95) #12, !srcloc !10
+  %98 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %95) #12, !srcloc !11
   ret void
 }
 
@@ -3546,10 +3546,10 @@ define dso_local i32 @ahci_dev_classify(ptr noundef %0) #0 align 16 {
   %12 = shl i32 %8, 7
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !16
   %15 = getelementptr i8, ptr %14, i64 36
-  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #13, !srcloc !11
+  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #12, !srcloc !11
   %17 = lshr i32 %16, 24
   %18 = trunc nuw i32 %17 to i8
   %19 = getelementptr inbounds i8, ptr %2, i64 19
@@ -3565,8 +3565,8 @@ define dso_local i32 @ahci_dev_classify(ptr noundef %0) #0 align 16 {
   %26 = trunc i32 %16 to i8
   %27 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 %26, ptr %27, align 8
-  %28 = call i32 @ata_port_classify(ptr noundef %0, ptr noundef nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
+  %28 = call i32 @ata_port_classify(ptr noundef %0, ptr noundef nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
   ret i32 %28
 }
 
@@ -3618,10 +3618,10 @@ define dso_local i32 @ahci_kick_engine(ptr noundef %0) #0 align 16 {
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 32
-  %15 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14) #13, !srcloc !11
+  %15 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14) #12, !srcloc !11
   %16 = getelementptr inbounds i8, ptr %5, i64 288
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %0) #13
+  %18 = tail call i32 %17(ptr noundef %0) #12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %40
 
@@ -3645,10 +3645,10 @@ define dso_local i32 @ahci_kick_engine(ptr noundef %0) #0 align 16 {
 
 32:                                               ; preds = %27
   %33 = getelementptr i8, ptr %13, i64 24
-  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #13, !srcloc !11
+  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #12, !srcloc !11
   %35 = or i32 %34, 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %33) #13, !srcloc !10
-  %36 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %33, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %33) #12, !srcloc !10
+  %36 = tail call i32 @ata_wait_register(ptr noundef %0, ptr noundef %33, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #12
   %37 = and i32 %36, 8
   %38 = icmp eq i32 %37, 0
   %39 = select i1 %38, i32 0, i32 -5
@@ -3658,7 +3658,7 @@ define dso_local i32 @ahci_kick_engine(ptr noundef %0) #0 align 16 {
   %41 = phi i32 [ %18, %1 ], [ 0, %23 ], [ -95, %27 ], [ %39, %32 ]
   %42 = getelementptr inbounds i8, ptr %5, i64 280
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef %0) #13
+  tail call void %43(ptr noundef %0) #12
   ret i32 %41
 }
 
@@ -3673,7 +3673,7 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 15888
   %14 = load ptr, ptr %13, align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !16
   %15 = getelementptr inbounds i8, ptr %8, i64 44
   %16 = load i32, ptr %15, align 4
@@ -3684,10 +3684,10 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 32
-  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #13, !srcloc !11
+  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #12, !srcloc !11
   %25 = getelementptr inbounds i8, ptr %12, i64 288
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %8) #13
+  %27 = tail call i32 %26(ptr noundef %8) #12
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %52
 
@@ -3711,10 +3711,10 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
 
 41:                                               ; preds = %36
   %42 = getelementptr i8, ptr %22, i64 24
-  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #13, !srcloc !11
+  %43 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42) #12, !srcloc !11
   %44 = or i32 %43, 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %42) #13, !srcloc !10
-  %45 = tail call i32 @ata_wait_register(ptr noundef %8, ptr noundef %42, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #13
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %42) #12, !srcloc !10
+  %45 = tail call i32 @ata_wait_register(ptr noundef %8, ptr noundef %42, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #12
   %46 = and i32 %45, 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.thread, label %.thread4
@@ -3722,19 +3722,19 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
 .thread4:                                         ; preds = %41
   %48 = getelementptr inbounds i8, ptr %12, i64 280
   %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef %8) #13
+  tail call void %49(ptr noundef %8) #12
   br label %55
 
 .thread:                                          ; preds = %32, %36, %41
   %50 = getelementptr inbounds i8, ptr %12, i64 280
   %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef %8) #13
+  tail call void %51(ptr noundef %8) #12
   br label %75
 
 52:                                               ; preds = %5
   %53 = getelementptr inbounds i8, ptr %12, i64 280
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef %8) #13
+  tail call void %54(ptr noundef %8) #12
   %cond = icmp eq i32 %27, -95
   br i1 %cond, label %75, label %55
 
@@ -3757,13 +3757,13 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr inbounds i8, ptr %0, i64 8
   %69 = load i32, ptr %68, align 8
-  %70 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, i32 noundef %67, i32 noundef %69, i32 noundef %56) #15
+  %70 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, i32 noundef %67, i32 noundef %69, i32 noundef %56) #14
   br label %75
 
 71:                                               ; preds = %61
   %72 = getelementptr inbounds i8, ptr %57, i64 36
   %73 = load i32, ptr %72, align 4
-  %74 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, i32 noundef %73, i32 noundef %56) #15
+  %74 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, i32 noundef %73, i32 noundef %56) #14
   br label %75
 
 75:                                               ; preds = %52, %.thread, %71, %65
@@ -3803,7 +3803,7 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
   %101 = zext i32 %100 to i64
   %102 = getelementptr i8, ptr %98, i64 %101
   %103 = getelementptr i8, ptr %102, i64 64
-  %104 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103) #13, !srcloc !11
+  %104 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103) #12, !srcloc !11
   %105 = and i32 %104, 1
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %109
@@ -3816,14 +3816,14 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
 109:                                              ; preds = %95
   %110 = getelementptr inbounds i8, ptr %90, i64 288
   %111 = load ptr, ptr %110, align 8
-  %112 = tail call i32 %111(ptr noundef %8) #13
+  %112 = tail call i32 %111(ptr noundef %8) #12
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %ahci_disable_fbs.exit
 
 114:                                              ; preds = %109
   %115 = and i32 %104, -2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %115, ptr elementtype(i32) %103) #13, !srcloc !10
-  %116 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %115, ptr elementtype(i32) %103) #12, !srcloc !10
+  %116 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103) #12, !srcloc !11
   %117 = and i32 %116, 1
   %118 = icmp eq i32 %117, 0
   %119 = load ptr, ptr %9, align 8
@@ -3832,11 +3832,11 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
   br i1 %118, label %123, label %122
 
 122:                                              ; preds = %114
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %121, ptr noundef nonnull @.str.94) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %121, ptr noundef nonnull @.str.94) #14
   br label %125
 
 123:                                              ; preds = %114
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %121, ptr noundef nonnull @.str.95) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %121, ptr noundef nonnull @.str.95) #14
   %124 = getelementptr inbounds i8, ptr %91, i64 69
   store i8 0, ptr %124, align 1
   br label %125
@@ -3844,7 +3844,7 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture no
 125:                                              ; preds = %123, %122
   %126 = getelementptr inbounds i8, ptr %90, i64 280
   %127 = load ptr, ptr %126, align 8
-  tail call void %127(ptr noundef %8) #13
+  tail call void %127(ptr noundef %8) #12
   br label %ahci_disable_fbs.exit
 
 ahci_disable_fbs.exit:                            ; preds = %125, %109, %107, %87, %83, %79, %75
@@ -3869,7 +3869,7 @@ ahci_disable_fbs.exit:                            ; preds = %125, %109, %107, %8
 
 143:                                              ; preds = %ahci_disable_fbs.exit
   %144 = sub i64 %3, %140
-  %145 = tail call i32 @jiffies_to_msecs(i64 noundef %144) #13
+  %145 = tail call i32 @jiffies_to_msecs(i64 noundef %144) #12
   br label %146
 
 146:                                              ; preds = %143, %ahci_disable_fbs.exit
@@ -3890,7 +3890,7 @@ ahci_disable_fbs.exit:                            ; preds = %125, %109, %107, %8
   %160 = getelementptr inbounds i8, ptr %149, i64 24
   %161 = load ptr, ptr %160, align 8
   %162 = trunc i32 %2 to i8
-  call void @ata_tf_to_fis(ptr noundef nonnull %7, i8 noundef zeroext %162, i32 noundef 0, ptr noundef %161) #13
+  call void @ata_tf_to_fis(ptr noundef nonnull %7, i8 noundef zeroext %162, i32 noundef 0, ptr noundef %161) #12
   %163 = shl i32 %2, 12
   %164 = or disjoint i32 %163, 1285
   %165 = getelementptr inbounds i8, ptr %149, i64 32
@@ -3923,22 +3923,22 @@ ahci_disable_fbs.exit:                            ; preds = %125, %109, %107, %8
 
 185:                                              ; preds = %181
   %186 = getelementptr i8, ptr %159, i64 64
-  %187 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %186) #13, !srcloc !11
+  %187 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %186) #12, !srcloc !11
   %188 = and i32 %187, -3843
   %189 = shl i32 %2, 8
   %190 = or i32 %188, %189
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %190, ptr elementtype(i32) %186) #13, !srcloc !10
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %190, ptr elementtype(i32) %186) #12, !srcloc !10
   store i32 %2, ptr %182, align 8
   br label %191
 
 191:                                              ; preds = %185, %181, %146
   %192 = getelementptr i8, ptr %159, i64 56
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %192) #13, !srcloc !10
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %192) #12, !srcloc !10
   %193 = icmp eq i32 %147, 0
   br i1 %193, label %232, label %194
 
 194:                                              ; preds = %191
-  %195 = call i32 @ata_wait_register(ptr noundef %8, ptr noundef %192, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef %147) #13
+  %195 = call i32 @ata_wait_register(ptr noundef %8, ptr noundef %192, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef %147) #12
   %196 = and i32 %195, 1
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %236, label %198
@@ -3955,10 +3955,10 @@ ahci_disable_fbs.exit:                            ; preds = %125, %109, %107, %8
   %207 = zext i32 %206 to i64
   %208 = getelementptr i8, ptr %205, i64 %207
   %209 = getelementptr i8, ptr %208, i64 32
-  %210 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %209) #13, !srcloc !11
+  %210 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %209) #12, !srcloc !11
   %211 = getelementptr inbounds i8, ptr %201, i64 288
   %212 = load ptr, ptr %211, align 8
-  %213 = call i32 %212(ptr noundef %8) #13
+  %213 = call i32 %212(ptr noundef %8) #12
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %ahci_exec_polled_cmd.exit
 
@@ -3982,24 +3982,24 @@ ahci_disable_fbs.exit:                            ; preds = %125, %109, %107, %8
 
 227:                                              ; preds = %222
   %228 = getelementptr i8, ptr %208, i64 24
-  %229 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %228) #13, !srcloc !11
+  %229 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %228) #12, !srcloc !11
   %230 = or i32 %229, 8
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %230, ptr elementtype(i32) %228) #13, !srcloc !10
-  %231 = call i32 @ata_wait_register(ptr noundef %8, ptr noundef %228, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #13
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %230, ptr elementtype(i32) %228) #12, !srcloc !10
+  %231 = call i32 @ata_wait_register(ptr noundef %8, ptr noundef %228, i32 noundef 8, i32 noundef 8, i32 noundef 1, i32 noundef 500) #12
   br label %ahci_exec_polled_cmd.exit
 
 232:                                              ; preds = %191
-  %233 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %192) #13, !srcloc !11
+  %233 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %192) #12, !srcloc !11
   br label %236
 
 ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %227
   %234 = getelementptr inbounds i8, ptr %201, i64 280
   %235 = load ptr, ptr %234, align 8
-  call void %235(ptr noundef %8) #13
+  call void %235(ptr noundef %8) #12
   br label %376
 
 236:                                              ; preds = %194, %232
-  call void @ata_msleep(ptr noundef %8, i32 noundef 1) #13
+  call void @ata_msleep(ptr noundef %8, i32 noundef 1) #12
   %237 = load i8, ptr %134, align 1
   %238 = and i8 %237, -5
   store i8 %238, ptr %134, align 1
@@ -4016,7 +4016,7 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %249 = getelementptr i8, ptr %246, i64 %248
   %250 = getelementptr inbounds i8, ptr %239, i64 24
   %251 = load ptr, ptr %250, align 8
-  call void @ata_tf_to_fis(ptr noundef nonnull %7, i8 noundef zeroext %162, i32 noundef 0, ptr noundef %251) #13
+  call void @ata_tf_to_fis(ptr noundef nonnull %7, i8 noundef zeroext %162, i32 noundef 0, ptr noundef %251) #12
   %252 = or disjoint i32 %163, 5
   %253 = getelementptr inbounds i8, ptr %239, i64 32
   %254 = load i64, ptr %253, align 8
@@ -4048,19 +4048,19 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
 
 273:                                              ; preds = %269
   %274 = getelementptr i8, ptr %249, i64 64
-  %275 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %274) #13, !srcloc !11
+  %275 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %274) #12, !srcloc !11
   %276 = and i32 %275, -3843
   %277 = shl i32 %2, 8
   %278 = or i32 %276, %277
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %278, ptr elementtype(i32) %274) #13, !srcloc !10
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %278, ptr elementtype(i32) %274) #12, !srcloc !10
   store i32 %2, ptr %270, align 8
   br label %279
 
 279:                                              ; preds = %273, %269, %236
   %280 = getelementptr i8, ptr %249, i64 56
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %280) #13, !srcloc !10
-  %281 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %280) #13, !srcloc !11
-  %282 = call i32 @ata_wait_after_reset(ptr noundef %0, i64 noundef %3, ptr noundef %4) #13
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %280) #12, !srcloc !10
+  %281 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %280) #12, !srcloc !11
+  %282 = call i32 @ata_wait_after_reset(ptr noundef %0, i64 noundef %3, ptr noundef %4) #12
   switch i32 %282, label %376 [
     i32 -16, label %283
     i32 0, label %306
@@ -4090,13 +4090,13 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %298 = load i32, ptr %297, align 4
   %299 = getelementptr inbounds i8, ptr %0, i64 8
   %300 = load i32, ptr %299, align 8
-  %301 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %298, i32 noundef %300) #15
+  %301 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %298, i32 noundef %300) #14
   br label %331
 
 302:                                              ; preds = %292
   %303 = getelementptr inbounds i8, ptr %288, i64 36
   %304 = load i32, ptr %303, align 4
-  %305 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %304) #15
+  %305 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %304) #14
   br label %331
 
 306:                                              ; preds = %279
@@ -4110,10 +4110,10 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %314 = shl i32 %310, 7
   %315 = zext i32 %314 to i64
   %316 = getelementptr i8, ptr %313, i64 %315
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !16
   %317 = getelementptr i8, ptr %316, i64 36
-  %318 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %317) #13, !srcloc !11
+  %318 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %317) #12, !srcloc !11
   %319 = lshr i32 %318, 24
   %320 = trunc nuw i32 %319 to i8
   %321 = getelementptr inbounds i8, ptr %6, i64 19
@@ -4129,8 +4129,8 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %328 = trunc i32 %318 to i8
   %329 = getelementptr inbounds i8, ptr %6, i64 16
   store i8 %328, ptr %329, align 8
-  %330 = call i32 @ata_port_classify(ptr noundef %8, ptr noundef nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  %330 = call i32 @ata_port_classify(ptr noundef %8, ptr noundef nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
   br label %331
 
 331:                                              ; preds = %306, %302, %296
@@ -4157,7 +4157,7 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %347 = zext i32 %346 to i64
   %348 = getelementptr i8, ptr %344, i64 %347
   %349 = getelementptr i8, ptr %348, i64 64
-  %350 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %349) #13, !srcloc !11
+  %350 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %349) #12, !srcloc !11
   %351 = and i32 %350, 1
   %352 = icmp eq i32 %351, 0
   br i1 %352, label %356, label %353
@@ -4172,14 +4172,14 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
 356:                                              ; preds = %341
   %357 = getelementptr inbounds i8, ptr %336, i64 288
   %358 = load ptr, ptr %357, align 8
-  %359 = call i32 %358(ptr noundef %8) #13
+  %359 = call i32 %358(ptr noundef %8) #12
   %360 = icmp eq i32 %359, 0
   br i1 %360, label %361, label %ahci_enable_fbs.exit
 
 361:                                              ; preds = %356
   %362 = or disjoint i32 %350, 1
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %362, ptr elementtype(i32) %349) #13, !srcloc !10
-  %363 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %349) #13, !srcloc !11
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %362, ptr elementtype(i32) %349) #12, !srcloc !10
+  %363 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %349) #12, !srcloc !11
   %364 = and i32 %363, 1
   %365 = icmp eq i32 %364, 0
   %366 = load ptr, ptr %9, align 8
@@ -4188,7 +4188,7 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   br i1 %365, label %372, label %369
 
 369:                                              ; preds = %361
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %368, ptr noundef nonnull @.str.92) #15
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %368, ptr noundef nonnull @.str.92) #14
   %370 = getelementptr inbounds i8, ptr %337, i64 69
   store i8 1, ptr %370, align 1
   %371 = getelementptr inbounds i8, ptr %337, i64 72
@@ -4196,13 +4196,13 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   br label %373
 
 372:                                              ; preds = %361
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %368, ptr noundef nonnull @.str.93) #15
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %368, ptr noundef nonnull @.str.93) #14
   br label %373
 
 373:                                              ; preds = %372, %369
   %374 = getelementptr inbounds i8, ptr %336, i64 280
   %375 = load ptr, ptr %374, align 8
-  call void %375(ptr noundef %8) #13
+  call void %375(ptr noundef %8) #12
   br label %ahci_enable_fbs.exit
 
 376:                                              ; preds = %ahci_exec_polled_cmd.exit, %283, %279
@@ -4225,18 +4225,18 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %389 = load i32, ptr %388, align 4
   %390 = getelementptr inbounds i8, ptr %0, i64 8
   %391 = load i32, ptr %390, align 8
-  %392 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %389, i32 noundef %391, ptr noundef nonnull %378) #15
+  %392 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %389, i32 noundef %391, ptr noundef nonnull %378) #14
   br label %ahci_enable_fbs.exit
 
 393:                                              ; preds = %383
   %394 = getelementptr inbounds i8, ptr %379, i64 36
   %395 = load i32, ptr %394, align 4
-  %396 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %395, ptr noundef nonnull %378) #15
+  %396 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %395, ptr noundef nonnull %378) #14
   br label %ahci_enable_fbs.exit
 
 ahci_enable_fbs.exit:                             ; preds = %373, %356, %353, %333, %393, %387, %331
   %397 = phi i32 [ 0, %331 ], [ %377, %393 ], [ %377, %387 ], [ 0, %333 ], [ 0, %353 ], [ 0, %356 ], [ 0, %373 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
   ret i32 %397
 }
 
@@ -4268,7 +4268,7 @@ define dso_local range(i32 -19, 2) i32 @ahci_check_ready(ptr nocapture noundef r
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 32
-  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #13, !srcloc !11
+  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #12, !srcloc !11
   %17 = trunc i32 %16 to i8
   %18 = icmp sgt i8 %17, -1
   %19 = icmp eq i8 %17, -1
@@ -4296,10 +4296,10 @@ define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %19 = getelementptr inbounds i8, ptr %14, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
   %22 = getelementptr inbounds i8, ptr %18, i64 288
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %12) #13
+  %24 = tail call i32 %23(ptr noundef %12) #12
   %25 = getelementptr inbounds i8, ptr %0, i64 1152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %26 = load ptr, ptr %25, align 64
@@ -4316,7 +4316,7 @@ define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef wr
   store i8 %35, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %6, i64 21
   store i8 -128, ptr %36, align 1
-  call void @ata_tf_to_fis(ptr noundef nonnull %6, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %21) #13
+  call void @ata_tf_to_fis(ptr noundef nonnull %6, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %21) #12
   %37 = load ptr, ptr %15, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -4329,15 +4329,15 @@ define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %46 = zext i32 %45 to i64
   %47 = getelementptr i8, ptr %44, i64 %46
   %48 = getelementptr i8, ptr %47, i64 48
-  %49 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #13, !srcloc !11
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %48) #13, !srcloc !10
+  %49 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #12, !srcloc !11
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %48) #12, !srcloc !10
   %50 = getelementptr i8, ptr %47, i64 16
-  %51 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50) #13, !srcloc !11
+  %51 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50) #12, !srcloc !11
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %4
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, ptr elementtype(i32) %50) #13, !srcloc !10
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, ptr elementtype(i32) %50) #12, !srcloc !10
   br label %54
 
 54:                                               ; preds = %53, %4
@@ -4345,11 +4345,11 @@ define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %56 = shl nuw i32 1, %55
   %57 = load ptr, ptr %42, align 8
   %58 = getelementptr i8, ptr %57, i64 8
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %56, ptr elementtype(i32) %58) #13, !srcloc !10
-  %59 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %2, ptr noundef %3, ptr noundef nonnull @ahci_check_ready) #13
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %56, ptr elementtype(i32) %58) #12, !srcloc !10
+  %59 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %2, ptr noundef %3, ptr noundef nonnull @ahci_check_ready) #12
   %60 = getelementptr inbounds i8, ptr %18, i64 280
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef %12) #13
+  call void %61(ptr noundef %12) #12
   %62 = load i8, ptr %3, align 1, !range !5, !noundef !6
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %89, label %64
@@ -4365,10 +4365,10 @@ define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %72 = shl i32 %68, 7
   %73 = zext i32 %72 to i64
   %74 = getelementptr i8, ptr %71, i64 %73
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !16
   %75 = getelementptr i8, ptr %74, i64 36
-  %76 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75) #13, !srcloc !11
+  %76 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75) #12, !srcloc !11
   %77 = lshr i32 %76, 24
   %78 = trunc nuw i32 %77 to i8
   %79 = getelementptr inbounds i8, ptr %5, i64 19
@@ -4384,13 +4384,13 @@ define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %86 = trunc i32 %76 to i8
   %87 = getelementptr inbounds i8, ptr %5, i64 16
   store i8 %86, ptr %87, align 8
-  %88 = call i32 @ata_port_classify(ptr noundef %12, ptr noundef nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  %88 = call i32 @ata_port_classify(ptr noundef %12, ptr noundef nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
   store i32 %88, ptr %1, align 4
   br label %89
 
 89:                                               ; preds = %64, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
   ret i32 %59
 }
 
@@ -4441,19 +4441,19 @@ define dso_local range(i32 0, 2) i32 @ahci_handle_port_intr(ptr nocapture nounde
   %31 = zext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
   %33 = getelementptr i8, ptr %32, i64 16
-  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #13, !srcloc !11
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, ptr elementtype(i32) %33) #13, !srcloc !10
+  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #12, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, ptr elementtype(i32) %33) #12, !srcloc !10
   tail call fastcc void @ahci_handle_port_interrupt(ptr noundef nonnull %18, ptr noundef %32, i32 noundef %34)
   br label %40
 
 35:                                               ; preds = %16
-  %36 = tail call i32 @ata_ratelimit() #13
+  %36 = tail call i32 @ata_ratelimit() #12
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %8, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %39, ptr noundef nonnull @.str.26, i32 noundef %12) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %39, ptr noundef nonnull @.str.26, i32 noundef %12) #14
   br label %40
 
 40:                                               ; preds = %38, %35, %20, %9
@@ -4475,8 +4475,8 @@ declare dso_local i32 @ata_ratelimit() local_unnamed_addr #5
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sata_pmp_error_handler(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ahci_print_info(ptr nocapture noundef readonly %0, ptr noundef %1) #8 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @ahci_print_info(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -4519,7 +4519,7 @@ define dso_local void @ahci_print_info(ptr nocapture noundef readonly %0, ptr no
   %30 = add nuw nsw i32 %29, 1
   %31 = and i32 %8, 31
   %32 = add nuw nsw i32 %31, 1
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %21, ptr noundef nonnull @.str.31, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef %27, i32 noundef %30, i32 noundef %32, ptr noundef nonnull %19, i32 noundef %12, ptr noundef %1) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %21, ptr noundef nonnull @.str.31, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef %27, i32 noundef %30, i32 noundef %32, ptr noundef nonnull %19, i32 noundef %12, ptr noundef %1) #14
   %33 = load ptr, ptr %20, align 8
   %34 = icmp sgt i32 %8, -1
   %35 = select i1 %34, ptr @.str.34, ptr @.str.33
@@ -4589,7 +4589,7 @@ define dso_local void @ahci_print_info(ptr nocapture noundef readonly %0, ptr no
   %99 = and i32 %10, 1
   %100 = icmp eq i32 %99, 0
   %101 = select i1 %100, ptr @.str.34, ptr @.str.56
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.32, ptr noundef nonnull %35, ptr noundef nonnull %38, ptr noundef nonnull %41, ptr noundef nonnull %44, ptr noundef nonnull %47, ptr noundef nonnull %50, ptr noundef nonnull %53, ptr noundef nonnull %56, ptr noundef nonnull %59, ptr noundef nonnull %62, ptr noundef nonnull %65, ptr noundef nonnull %68, ptr noundef nonnull %71, ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef nonnull %80, ptr noundef nonnull %83, ptr noundef nonnull %86, ptr noundef nonnull %89, ptr noundef nonnull %92, ptr noundef nonnull %95, ptr noundef nonnull %98, ptr noundef nonnull %101) #15
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.32, ptr noundef nonnull %35, ptr noundef nonnull %38, ptr noundef nonnull %41, ptr noundef nonnull %44, ptr noundef nonnull %47, ptr noundef nonnull %50, ptr noundef nonnull %53, ptr noundef nonnull %56, ptr noundef nonnull %59, ptr noundef nonnull %62, ptr noundef nonnull %65, ptr noundef nonnull %68, ptr noundef nonnull %71, ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef nonnull %80, ptr noundef nonnull %83, ptr noundef nonnull %86, ptr noundef nonnull %89, ptr noundef nonnull %92, ptr noundef nonnull %95, ptr noundef nonnull %98, ptr noundef nonnull %101) #14
   ret void
 }
 
@@ -4598,9 +4598,9 @@ define dso_local void @ahci_set_em_messages(ptr nocapture noundef %0, ptr nocapt
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 28
-  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #13, !srcloc !11
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #12, !srcloc !11
   %7 = getelementptr i8, ptr %4, i64 32
-  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #13, !srcloc !11
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #12, !srcloc !11
   %9 = load i8, ptr @ahci_em_messages, align 1, !range !5, !noundef !6
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %35, label %11
@@ -4664,7 +4664,7 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %16, ptr noundef nonnull @.str.57) #15
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %16, ptr noundef nonnull @.str.57) #14
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -4676,12 +4676,12 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.58) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.58) #14
   br label %.loopexit
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %3, align 8
-  %26 = tail call i32 @ata_host_start(ptr noundef %0) #13
+  %26 = tail call i32 @ata_host_start(ptr noundef %0) #12
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.loopexit
 
@@ -4705,12 +4705,12 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
   %41 = getelementptr inbounds i8, ptr %40, i64 15888
   %42 = load ptr, ptr %41, align 16
   %43 = load ptr, ptr %34, align 8
-  %44 = tail call i32 %43(ptr noundef %0, i32 noundef %37) #13
+  %44 = tail call i32 %43(ptr noundef %0, i32 noundef %37) #12
   %45 = icmp eq ptr %42, null
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %36
-  tail call void @disable_irq(i32 noundef %44) #13
+  tail call void @disable_irq(i32 noundef %44) #12
   br label %58
 
 47:                                               ; preds = %36
@@ -4718,16 +4718,16 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
   %49 = getelementptr inbounds i8, ptr %42, i64 1280
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %39, align 8
-  %52 = tail call i32 @devm_request_threaded_irq(ptr noundef %48, i32 noundef %44, ptr noundef nonnull @ahci_multi_irqs_intr_hard, ptr noundef null, i64 noundef 0, ptr noundef %50, ptr noundef %51) #13
+  %52 = tail call i32 @devm_request_threaded_irq(ptr noundef %48, i32 noundef %44, ptr noundef nonnull @ahci_multi_irqs_intr_hard, ptr noundef null, i64 noundef 0, ptr noundef %50, ptr noundef %51) #12
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %.loopexit
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr %39, align 8
-  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %55, ptr noundef nonnull @.str.101, i32 noundef %44) #13
+  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %55, ptr noundef nonnull @.str.101, i32 noundef %44) #12
   %56 = getelementptr inbounds i8, ptr %55, i64 15820
   %57 = load i32, ptr %56, align 4
-  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %55, ptr noundef nonnull @.str.102, i32 noundef %57) #13
+  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %55, ptr noundef nonnull @.str.102, i32 noundef %57) #12
   br label %58
 
 58:                                               ; preds = %54, %46
@@ -4737,7 +4737,7 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
   br i1 %61, label %36, label %.loopexit4, !llvm.loop !32
 
 .loopexit4:                                       ; preds = %58, %28
-  %62 = tail call i32 @ata_host_register(ptr noundef %0, ptr noundef %1) #13
+  %62 = tail call i32 @ata_host_register(ptr noundef %0, ptr noundef %1) #12
   br label %.loopexit
 
 63:                                               ; preds = %2
@@ -4745,7 +4745,7 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
   %65 = load i32, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %4, i64 296
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 @ata_host_activate(ptr noundef %0, i32 noundef %65, ptr noundef %67, i64 noundef 128, ptr noundef %1) #13
+  %68 = tail call i32 @ata_host_activate(ptr noundef %0, i32 noundef %65, ptr noundef %67, i64 noundef 128, ptr noundef %1) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %63, %.loopexit4, %24, %21
@@ -4766,13 +4766,13 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_c
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %11) #13
+  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %11) #12
   %13 = sext i32 %12 to i64
   ret i64 %13
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_cap2(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
@@ -4784,7 +4784,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_c
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4
-  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %11) #13
+  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %11) #12
   %13 = sext i32 %12 to i64
   ret i64 %13
 }
@@ -4799,7 +4799,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_v
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %11) #13
+  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %11) #12
   %13 = sext i32 %12 to i64
   ret i64 %13
 }
@@ -4822,13 +4822,13 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_port_c
   %17 = getelementptr i8, ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %5, i64 14784
   %19 = load ptr, ptr %18, align 64
-  %20 = tail call i32 @__pm_runtime_resume(ptr noundef %19, i32 noundef 4) #13
+  %20 = tail call i32 @__pm_runtime_resume(ptr noundef %19, i32 noundef 4) #12
   %21 = getelementptr i8, ptr %17, i64 24
-  %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21) #13, !srcloc !11
-  %23 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %22) #13
+  %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21) #12, !srcloc !11
+  %23 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %22) #12
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %18, align 64
-  %26 = tail call i32 @__pm_runtime_idle(ptr noundef %25, i32 noundef 5) #13
+  %26 = tail call i32 @__pm_runtime_idle(ptr noundef %25, i32 noundef 5) #12
   ret i64 %24
 }
 
@@ -4851,12 +4851,12 @@ define internal i64 @ahci_read_em_buffer(ptr nocapture noundef readonly %0, ptr 
   %15 = getelementptr i8, ptr %11, i64 %14
   %16 = getelementptr inbounds i8, ptr %5, i64 14784
   %17 = load ptr, ptr %16, align 64
-  %18 = tail call i32 @__pm_runtime_resume(ptr noundef %17, i32 noundef 4) #13
+  %18 = tail call i32 @__pm_runtime_resume(ptr noundef %17, i32 noundef 4) #12
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   %20 = load ptr, ptr %19, align 16
-  %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %20) #13
+  %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %20) #12
   %22 = getelementptr i8, ptr %11, i64 32
-  %23 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #13, !srcloc !11
+  %23 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #12, !srcloc !11
   %24 = getelementptr inbounds i8, ptr %5, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2097152
@@ -4891,7 +4891,7 @@ define internal i64 @ahci_read_em_buffer(ptr nocapture noundef readonly %0, ptr 
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge
-  %48 = tail call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.ahci_read_em_buffer) #13
+  %48 = tail call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.ahci_read_em_buffer) #12
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.preheader.preheader, label %50
 
@@ -4899,7 +4899,7 @@ define internal i64 @ahci_read_em_buffer(ptr nocapture noundef readonly %0, ptr 
   %51 = getelementptr inbounds i8, ptr %5, i64 36
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %45, align 8
-  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.65, i32 noundef %52, i32 noundef %53, i64 noundef 4096) #15
+  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.65, i32 noundef %52, i32 noundef %53, i64 noundef 4096) #14
   br label %.preheader.preheader
 
 55:                                               ; preds = %._crit_edge
@@ -4914,7 +4914,7 @@ define internal i64 @ahci_read_em_buffer(ptr nocapture noundef readonly %0, ptr 
   %58 = phi i64 [ %80, %.preheader ], [ 0, %.preheader.preheader ]
   %59 = phi i32 [ %79, %.preheader ], [ 0, %.preheader.preheader ]
   %60 = getelementptr i8, ptr %44, i64 %58
-  %61 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60) #13, !srcloc !11
+  %61 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60) #12, !srcloc !11
   %62 = trunc i32 %61 to i8
   %63 = getelementptr i8, ptr %2, i64 %58
   store i8 %62, ptr %63, align 1
@@ -4944,9 +4944,9 @@ define internal i64 @ahci_read_em_buffer(ptr nocapture noundef readonly %0, ptr 
 .loopexit:                                        ; preds = %.preheader, %55, %36, %31, %3
   %82 = phi i64 [ -22, %31 ], [ -22, %3 ], [ -11, %36 ], [ 0, %55 ], [ %80, %.preheader ]
   %83 = load ptr, ptr %19, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %83, i64 noundef %21) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %83, i64 noundef %21) #12
   %84 = load ptr, ptr %16, align 64
-  %85 = tail call i32 @__pm_runtime_idle(ptr noundef %84, i32 noundef 5) #13
+  %85 = tail call i32 @__pm_runtime_idle(ptr noundef %84, i32 noundef 5) #12
   ret i64 %82
 }
 
@@ -4990,12 +4990,12 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %6, i64 14784
   %36 = load ptr, ptr %35, align 64
-  %37 = tail call i32 @__pm_runtime_resume(ptr noundef %36, i32 noundef 4) #13
+  %37 = tail call i32 @__pm_runtime_resume(ptr noundef %36, i32 noundef 4) #12
   %38 = getelementptr inbounds i8, ptr %6, i64 16
   %39 = load ptr, ptr %38, align 16
-  %40 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %39) #13
+  %40 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %39) #12
   %41 = getelementptr i8, ptr %12, i64 32
-  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #13, !srcloc !11
+  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #12, !srcloc !11
   %43 = and i32 %42, 256
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %78
@@ -5032,7 +5032,7 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
   %71 = shl nuw i32 %70, 24
   %72 = or disjoint i32 %65, %71
   %73 = getelementptr i8, ptr %16, i64 %47
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %73) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %73) #12, !srcloc !10
   %74 = add i32 %48, 4
   %75 = sext i32 %74 to i64
   %76 = icmp ugt i64 %3, %75
@@ -5040,15 +5040,15 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
 
 .loopexit:                                        ; preds = %.preheader, %45
   %77 = or disjoint i32 %42, 256
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %77, ptr elementtype(i32) %41) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %77, ptr elementtype(i32) %41) #12, !srcloc !10
   br label %78
 
 78:                                               ; preds = %.loopexit, %34
   %79 = phi i64 [ %3, %.loopexit ], [ -16, %34 ]
   %80 = load ptr, ptr %38, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %80, i64 noundef %40) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %80, i64 noundef %40) #12
   %81 = load ptr, ptr %35, align 64
-  %82 = tail call i32 @__pm_runtime_idle(ptr noundef %81, i32 noundef 5) #13
+  %82 = tail call i32 @__pm_runtime_idle(ptr noundef %81, i32 noundef 5) #12
   br label %83
 
 83:                                               ; preds = %78, %29, %21, %4
@@ -5077,11 +5077,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_em_sup
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 14784
   %13 = load ptr, ptr %12, align 64
-  %14 = tail call i32 @__pm_runtime_resume(ptr noundef %13, i32 noundef 4) #13
+  %14 = tail call i32 @__pm_runtime_resume(ptr noundef %13, i32 noundef 4) #12
   %15 = getelementptr i8, ptr %11, i64 32
-  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #13, !srcloc !11
+  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #12, !srcloc !11
   %17 = load ptr, ptr %12, align 64
-  %18 = tail call i32 @__pm_runtime_idle(ptr noundef %17, i32 noundef 5) #13
+  %18 = tail call i32 @__pm_runtime_idle(ptr noundef %17, i32 noundef 5) #12
   %19 = and i32 %16, 65536
   %20 = icmp eq i32 %19, 0
   %21 = select i1 %20, ptr @.str.34, ptr @.str.40
@@ -5094,7 +5094,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_em_sup
   %28 = and i32 %16, 524288
   %29 = icmp eq i32 %28, 0
   %30 = select i1 %29, ptr @.str.34, ptr @.str.70
-  %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.67, ptr noundef nonnull %21, ptr noundef nonnull %24, ptr noundef nonnull %27, ptr noundef nonnull %30) #13
+  %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.67, ptr noundef nonnull %21, ptr noundef nonnull %24, ptr noundef nonnull %27, ptr noundef nonnull %30) #12
   %32 = sext i32 %31 to i64
   ret i64 %32
 }
@@ -5130,9 +5130,9 @@ define internal range(i32 -19, 2) i32 @ahci_bad_pmp_check_ready(ptr nocapture no
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 32
-  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #13, !srcloc !11
+  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #12, !srcloc !11
   %17 = getelementptr i8, ptr %14, i64 16
-  %18 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17) #13, !srcloc !11
+  %18 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17) #12, !srcloc !11
   %19 = and i32 %18, 8388608
   %20 = icmp eq i32 %19, 0
   %21 = trunc i32 %16 to i8
@@ -5154,7 +5154,7 @@ declare dso_local i32 @ata_std_qc_defer(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @sata_pmp_qc_defer_cmd_switch(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #5
@@ -5180,7 +5180,7 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
 16:                                               ; preds = %14, %3
   %17 = phi i32 [ %15, %14 ], [ %2, %3 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 8256
-  %19 = tail call zeroext i1 @sata_lpm_ignore_phy_events(ptr noundef %18) #13
+  %19 = tail call zeroext i1 @sata_lpm_ignore_phy_events(ptr noundef %18) #12
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %16
@@ -5199,7 +5199,7 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
   %33 = zext i32 %32 to i64
   %34 = getelementptr i8, ptr %31, i64 %33
   %35 = getelementptr i8, ptr %34, i64 48
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %35) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %35) #12, !srcloc !10
   br label %36
 
 36:                                               ; preds = %20, %16
@@ -5226,7 +5226,7 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %44
-  %50 = tail call i32 @sata_async_notification(ptr noundef %0) #13
+  %50 = tail call i32 @sata_async_notification(ptr noundef %0) #12
   br label %65
 
 51:                                               ; preds = %44
@@ -5236,9 +5236,9 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
   br i1 %54, label %56, label %55
 
 55:                                               ; preds = %51
-  tail call void asm sideeffect "492: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 492b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 492) #13, !srcloc !36
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1944, i32 2307, i64 12) #13, !srcloc !37
-  tail call void asm sideeffect "493: nop\0A\09.pushsection .discard.instr_end\0A\09.long 493b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 493) #13, !srcloc !38
+  tail call void asm sideeffect "492: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 492b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 492) #12, !srcloc !36
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1944, i32 2307, i64 12) #12, !srcloc !37
+  tail call void asm sideeffect "493: nop\0A\09.pushsection .discard.instr_end\0A\09.long 493b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 493) #12, !srcloc !38
   br label %65
 
 56:                                               ; preds = %51
@@ -5251,7 +5251,7 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %56
-  %64 = tail call i32 @sata_async_notification(ptr noundef %0) #13
+  %64 = tail call i32 @sata_async_notification(ptr noundef %0) #12
   br label %65
 
 65:                                               ; preds = %63, %56, %55, %49, %41
@@ -5269,9 +5269,9 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
 
 74:                                               ; preds = %73
   %75 = getelementptr i8, ptr %1, i64 52
-  %76 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75) #13, !srcloc !11
+  %76 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75) #12, !srcloc !11
   %77 = getelementptr i8, ptr %1, i64 56
-  %78 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %77) #13, !srcloc !11
+  %78 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %77) #12, !srcloc !11
   %79 = or i32 %78, %76
   br label %92
 
@@ -5287,18 +5287,18 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
 
 86:                                               ; preds = %81
   %87 = getelementptr i8, ptr %1, i64 52
-  %88 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %87) #13, !srcloc !11
+  %88 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %87) #12, !srcloc !11
   br label %92
 
 89:                                               ; preds = %81, %80
   %90 = getelementptr i8, ptr %1, i64 56
-  %91 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90) #13, !srcloc !11
+  %91 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90) #12, !srcloc !11
   br label %92
 
 92:                                               ; preds = %89, %86, %74, %73
   %93 = phi i32 [ %79, %74 ], [ 0, %73 ], [ %88, %86 ], [ %91, %89 ]
   %94 = zext i32 %93 to i64
-  %95 = tail call i32 @ata_qc_complete_multiple(ptr noundef %0, i64 noundef %94) #13
+  %95 = tail call i32 @ata_qc_complete_multiple(ptr noundef %0, i64 noundef %94) #12
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %109
 
@@ -5317,7 +5317,7 @@ define internal fastcc void @ahci_handle_port_interrupt(ptr noundef %0, ptr noun
   %106 = load i32, ptr %105, align 8
   %107 = or i32 %106, 6
   store i32 %107, ptr %105, align 8
-  %108 = tail call i32 @ata_port_freeze(ptr noundef %0) #13
+  %108 = tail call i32 @ata_port_freeze(ptr noundef %0) #12
   br label %109
 
 109:                                              ; preds = %101, %97, %92, %40
@@ -5344,9 +5344,9 @@ define internal fastcc void @ahci_qc_complete(ptr noundef %0, ptr noundef %1) un
 
 12:                                               ; preds = %11
   %13 = getelementptr i8, ptr %1, i64 52
-  %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #13, !srcloc !11
+  %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #12, !srcloc !11
   %15 = getelementptr i8, ptr %1, i64 56
-  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #13, !srcloc !11
+  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #12, !srcloc !11
   %17 = or i32 %16, %14
   br label %30
 
@@ -5362,18 +5362,18 @@ define internal fastcc void @ahci_qc_complete(ptr noundef %0, ptr noundef %1) un
 
 24:                                               ; preds = %19
   %25 = getelementptr i8, ptr %1, i64 52
-  %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #13, !srcloc !11
+  %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #12, !srcloc !11
   br label %30
 
 27:                                               ; preds = %19, %18
   %28 = getelementptr i8, ptr %1, i64 56
-  %29 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28) #13, !srcloc !11
+  %29 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28) #12, !srcloc !11
   br label %30
 
 30:                                               ; preds = %27, %24, %12, %11
   %31 = phi i32 [ %17, %12 ], [ 0, %11 ], [ %26, %24 ], [ %29, %27 ]
   %32 = zext i32 %31 to i64
-  %33 = tail call i32 @ata_qc_complete_multiple(ptr noundef %0, i64 noundef %32) #13
+  %33 = tail call i32 @ata_qc_complete_multiple(ptr noundef %0, i64 noundef %32) #12
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %48
 
@@ -5393,7 +5393,7 @@ define internal fastcc void @ahci_qc_complete(ptr noundef %0, ptr noundef %1) un
   %45 = load i32, ptr %44, align 8
   %46 = or i32 %45, 6
   store i32 %46, ptr %44, align 8
-  %47 = tail call i32 @ata_port_freeze(ptr noundef %0) #13
+  %47 = tail call i32 @ata_port_freeze(ptr noundef %0) #12
   br label %48
 
 48:                                               ; preds = %40, %35, %30
@@ -5425,7 +5425,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 64
-  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #13, !srcloc !11
+  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #12, !srcloc !11
   %25 = lshr i32 %24, 16
   %26 = and i32 %24, 4
   %27 = icmp eq i32 %26, 0
@@ -5445,7 +5445,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   br label %.thread
 
 37:                                               ; preds = %2
-  %38 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #13
+  %38 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #12
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %.preheader5
 
@@ -5463,7 +5463,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not, label %47, label %.thread
 
 47:                                               ; preds = %44
-  %48 = tail call ptr @ata_link_next(ptr noundef nonnull %40, ptr noundef %0, i32 noundef 0) #13
+  %48 = tail call ptr @ata_link_next(ptr noundef nonnull %40, ptr noundef %0, i32 noundef 0) #12
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread, label %.preheader5, !llvm.loop !39
 
@@ -5493,8 +5493,8 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
 68:                                               ; preds = %62, %.thread
   %69 = phi ptr [ null, %.thread ], [ %67, %62 ]
   %70 = getelementptr inbounds i8, ptr %53, i64 776
-  tail call void @ata_ehi_clear_desc(ptr noundef %10) #13
-  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.83, i32 noundef %1) #13
+  tail call void @ata_ehi_clear_desc(ptr noundef %10) #12
+  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.83, i32 noundef %1) #12
   %71 = load ptr, ptr %9, align 64
   %72 = getelementptr inbounds i8, ptr %71, i64 14776
   %73 = load ptr, ptr %72, align 8
@@ -5509,7 +5509,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %82 = zext i32 %81 to i64
   %83 = getelementptr i8, ptr %80, i64 %82
   %84 = getelementptr i8, ptr %83, i64 48
-  %85 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %84) #13, !srcloc !11
+  %85 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %84) #12, !srcloc !11
   %86 = load ptr, ptr %9, align 64
   %87 = getelementptr inbounds i8, ptr %86, i64 14776
   %88 = load ptr, ptr %87, align 8
@@ -5524,7 +5524,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %97 = zext i32 %96 to i64
   %98 = getelementptr i8, ptr %95, i64 %97
   %99 = getelementptr i8, ptr %98, i64 48
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %85, ptr elementtype(i32) %99) #13, !srcloc !10
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %85, ptr elementtype(i32) %99) #12, !srcloc !10
   %100 = getelementptr inbounds i8, ptr %0, i64 9040
   %101 = load i32, ptr %100, align 8
   %102 = or i32 %101, %85
@@ -5581,7 +5581,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %140 = load i32, ptr %139, align 4
   %141 = getelementptr i8, ptr %128, i64 108
   %142 = load i32, ptr %141, align 4
-  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %70, ptr noundef nonnull @.str.84, i32 noundef %136, i32 noundef %138, i32 noundef %140, i32 noundef %142) #13
+  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %70, ptr noundef nonnull @.str.84, i32 noundef %136, i32 noundef %138, i32 noundef %140, i32 noundef %142) #12
   br label %143
 
 143:                                              ; preds = %126, %123
@@ -5602,7 +5602,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %155 = load i32, ptr %154, align 8
   %156 = or i32 %155, 6
   store i32 %156, ptr %154, align 8
-  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %70, ptr noundef nonnull @.str.85) #13
+  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %70, ptr noundef nonnull @.str.85) #12
   br label %157
 
 157:                                              ; preds = %150, %143
@@ -5619,7 +5619,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %165 = load i32, ptr %164, align 8
   %166 = or i32 %165, 6
   store i32 %166, ptr %164, align 8
-  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.86) #13
+  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.86) #12
   br label %167
 
 167:                                              ; preds = %160, %157
@@ -5649,7 +5649,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   br label %182
 
 182:                                              ; preds = %175, %171
-  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.87) #13
+  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.87) #12
   br label %183
 
 183:                                              ; preds = %182, %167
@@ -5677,7 +5677,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %199 = and i32 %107, 64
   %200 = icmp eq i32 %199, 0
   %201 = select i1 %200, ptr @.str.90, ptr @.str.89
-  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.88, ptr noundef nonnull %201) #13
+  tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.88, ptr noundef nonnull %201) #12
   br label %202
 
 202:                                              ; preds = %186, %183
@@ -5686,14 +5686,14 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   br i1 %204, label %207, label %205
 
 205:                                              ; preds = %202
-  %206 = tail call i32 @ata_port_freeze(ptr noundef %0) #13
+  %206 = tail call i32 @ata_port_freeze(ptr noundef %0) #12
   br label %.critedge
 
 207:                                              ; preds = %202
   br i1 %51, label %208, label %245
 
 208:                                              ; preds = %207
-  %209 = tail call i32 @ata_link_abort(ptr noundef %53) #13
+  %209 = tail call i32 @ata_link_abort(ptr noundef %53) #12
   %210 = load ptr, ptr %7, align 16
   %211 = load ptr, ptr %3, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 32
@@ -5707,21 +5707,21 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %220 = zext i32 %219 to i64
   %221 = getelementptr i8, ptr %218, i64 %220
   %222 = getelementptr i8, ptr %221, i64 64
-  %223 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %222) #13, !srcloc !11
+  %223 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %222) #12, !srcloc !11
   %224 = getelementptr inbounds i8, ptr %210, i64 69
   %225 = load i8, ptr %224, align 1, !range !5, !noundef !6
   %226 = icmp eq i8 %225, 0
   br i1 %226, label %227, label %228, !prof !13
 
 227:                                              ; preds = %208
-  tail call void asm sideeffect "491: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 491b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 491) #13, !srcloc !40
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1736, i32 0, i64 12) #13, !srcloc !41
+  tail call void asm sideeffect "491: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 491b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 491) #12, !srcloc !40
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1736, i32 0, i64 12) #12, !srcloc !41
   unreachable
 
 228:                                              ; preds = %208
   %229 = or i32 %223, 2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %229, ptr elementtype(i32) %222) #13, !srcloc !10
-  %230 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %222) #13, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %229, ptr elementtype(i32) %222) #12, !srcloc !10
+  %230 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %222) #12, !srcloc !11
   %231 = and i32 %230, 2
   %232 = icmp eq i32 %231, 0
   br i1 %232, label %.critedge, label %.preheader
@@ -5729,8 +5729,8 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
 .preheader:                                       ; preds = %228, %.preheader
   %233 = phi i32 [ %234, %.preheader ], [ 3, %228 ]
   %234 = add nsw i32 %233, -1
-  tail call void @__const_udelay(i64 noundef 4295) #13
-  %235 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %222) #13, !srcloc !11
+  tail call void @__const_udelay(i64 noundef 4295) #12
+  %235 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %222) #12, !srcloc !11
   %236 = and i32 %235, 2
   %237 = icmp eq i32 %236, 0
   %238 = icmp eq i32 %234, 0
@@ -5744,11 +5744,11 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %242 = load ptr, ptr %3, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %244, ptr noundef nonnull @.str.91) #15
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %244, ptr noundef nonnull @.str.91) #14
   br label %.critedge
 
 245:                                              ; preds = %207
-  %246 = tail call i32 @ata_port_abort(ptr noundef %0) #13
+  %246 = tail call i32 @ata_port_abort(ptr noundef %0) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %228, %245, %241, %240, %205
@@ -5815,7 +5815,7 @@ define internal void @ahci_sw_activity_blink(ptr noundef %0) #0 align 16 {
   %15 = or i64 %7, %14
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 16
-  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %17) #13
+  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %17) #12
   %19 = getelementptr i8, ptr %0, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr i8, ptr %0, i64 48
@@ -5829,7 +5829,7 @@ define internal void @ahci_sw_activity_blink(ptr noundef %0) #0 align 16 {
   %26 = xor i64 %25, 65536
   %27 = load volatile i64, ptr @jiffies, align 64
   %28 = add i64 %27, 100
-  %29 = tail call i32 @mod_timer(ptr noundef %0, i64 noundef %28) #13
+  %29 = tail call i32 @mod_timer(ptr noundef %0, i64 noundef %28) #12
   br label %37
 
 30:                                               ; preds = %1
@@ -5844,13 +5844,13 @@ define internal void @ahci_sw_activity_blink(ptr noundef %0) #0 align 16 {
 37:                                               ; preds = %30, %24
   %38 = phi i64 [ %26, %24 ], [ %36, %30 ]
   %39 = load ptr, ptr %16, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %39, i64 noundef %18) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %39, i64 noundef %18) #12
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 464
   %43 = load ptr, ptr %42, align 8
   %44 = trunc nuw i64 %38 to i32
-  %45 = tail call i64 %43(ptr noundef %4, i32 noundef %44, i64 noundef 4) #13
+  %45 = tail call i64 %43(ptr noundef %4, i32 noundef %44, i64 noundef 4) #12
   ret void
 }
 
@@ -5861,13 +5861,13 @@ declare dso_local zeroext i1 @acpi_storage_d3(ptr noundef) local_unnamed_addr #5
 declare dso_local void @devm_kfree(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #11
+declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dmam_alloc_attrs(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
@@ -5893,14 +5893,14 @@ define internal noundef i32 @ahci_multi_irqs_intr_hard(i32 %0, ptr noundef %1) #
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 16
-  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #13, !srcloc !11
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr elementtype(i32) %15) #13, !srcloc !10
+  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #12, !srcloc !11
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr elementtype(i32) %15) #12, !srcloc !10
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 16
-  tail call void @_raw_spin_lock(ptr noundef %18) #13
+  tail call void @_raw_spin_lock(ptr noundef %18) #12
   tail call fastcc void @ahci_handle_port_interrupt(ptr noundef %1, ptr noundef %14, i32 noundef %16)
   %19 = load ptr, ptr %17, align 16
-  tail call void @_raw_spin_unlock(ptr noundef %19) #13
+  tail call void @_raw_spin_unlock(ptr noundef %19) #12
   ret i32 1
 }
 
@@ -5914,7 +5914,7 @@ declare dso_local i32 @devm_request_threaded_irq(ptr noundef, i32 noundef, ptr n
 declare dso_local void @ata_port_desc(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -5924,15 +5924,14 @@ attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-pr
 attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind memory(read) }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind allocsize(1) }
+attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind memory(read) }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
