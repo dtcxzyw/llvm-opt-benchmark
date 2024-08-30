@@ -9,7 +9,7 @@ abc/FxchSCHashTable.c.ll 345451891
 abc/Glucose.cpp.ll 2659658810
 abc/Glucose2.cpp.ll 3467713860
 abc/Options.cpp.ll 162904210
-abc/Options2.cpp.ll 163069550
+abc/Options2.cpp.ll 162874857
 abc/SimpSolver.cpp.ll 1747064389
 abc/SimpSolver2.cpp.ll 1757105393
 abc/System.cpp.ll 55728695
@@ -17,7 +17,7 @@ abc/System2.cpp.ll 55727462
 abc/abc.c.ll 12592022360
 abc/abcAig.c.ll 1090132350
 abc/abcAttach.c.ll 269221092
-abc/abcAuto.c.ll 152015514
+abc/abcAuto.c.ll 151790976
 abc/abcBalance.c.ll 376905669
 abc/abcBarBuf.c.ll 574104973
 abc/abcBidec.c.ll 137383331
@@ -196,7 +196,7 @@ abc/bacCom.c.ll 438110998
 abc/bacNtk.c.ll 1092550029
 abc/bacPrsBuild.c.ll 876463250
 abc/bacPrsTrans.c.ll 67001950
-abc/bacPtr.c.ll 365961399
+abc/bacPtr.c.ll 366402897
 abc/bacReadBlif.c.ll 1015329466
 abc/bacReadVer.c.ll 2115776680
 abc/bacWriteBlif.c.ll 325920378
@@ -250,7 +250,7 @@ abc/cbaCom.c.ll 1915888286
 abc/cbaNtk.c.ll 3213352025
 abc/cbaReadBlif.c.ll 1858221344
 abc/cbaReadVer.c.ll 3832415228
-abc/cbaWriteBlif.c.ll 378248119
+abc/cbaWriteBlif.c.ll 378716268
 abc/cbaWriteVer.c.ll 1291307185
 abc/cecCec.c.ll 264117614
 abc/cecChoice.c.ll 425740460
@@ -294,9 +294,9 @@ abc/cnfMap.c.ll 117699058
 abc/cnfPost.c.ll 134496727
 abc/cnfUtil.c.ll 601824671
 abc/cnfWrite.c.ll 613631609
-abc/cnf_reader.c.ll 146441509
+abc/cnf_reader.c.ll 146654535
 abc/combination.c.ll 423285917
-abc/compress.c.ll 2090655718
+abc/compress.c.ll 2087721361
 abc/covBuild.c.ll 261462875
 abc/covCore.c.ll 574342694
 abc/covMinEsop.c.ll 410155035
@@ -381,7 +381,7 @@ abc/darRefact.c.ll 429529710
 abc/darScript.c.ll 249160214
 abc/dauCanon.c.ll 3854284468
 abc/dauCount.c.ll 170279766
-abc/dauDivs.c.ll 202072955
+abc/dauDivs.c.ll 201786655
 abc/dauDsd.c.ll 3829680905
 abc/dauEnum.c.ll 382750802
 abc/dauGia.c.ll 774813920
@@ -610,7 +610,7 @@ abc/ifCore.c.ll 86814572
 abc/ifCut.c.ll 744945078
 abc/ifDec07.c.ll 1207207008
 abc/ifDec08.c.ll 676262242
-abc/ifDec10.c.ll 753045906
+abc/ifDec10.c.ll 752157371
 abc/ifDec16.c.ll 2838013069
 abc/ifDec75.c.ll 515164531
 abc/ifDelay.c.ll 755096054
@@ -632,7 +632,7 @@ abc/infback.c.ll 483346970
 abc/inffast.c.ll 167403583
 abc/inflate.c.ll 1018397180
 abc/inftrees.c.ll 147685024
-abc/intCheck.c.ll 216955844
+abc/intCheck.c.ll 217210851
 abc/intContain.c.ll 245396958
 abc/intCore.c.ll 255472267
 abc/intCtrex.c.ll 141983492
@@ -667,7 +667,7 @@ abc/ioWriteEqn.c.ll 179073000
 abc/ioWritePla.c.ll 356906527
 abc/ioWriteSmv.c.ll 236327399
 abc/ioWriteVerilog.c.ll 1294483552
-abc/ioaReadAig.c.ll 307435619
+abc/ioaReadAig.c.ll 307901196
 abc/ioaUtil.c.ll 56332063
 abc/ioaWriteAig.c.ll 342432317
 abc/ivyBalance.c.ll 318335667
@@ -709,14 +709,14 @@ abc/llb1Core.c.ll 88579476
 abc/llb1Group.c.ll 346607909
 abc/llb1Hint.c.ll 190096022
 abc/llb1Man.c.ll 240086500
-abc/llb1Matrix.c.ll 221674914
+abc/llb1Matrix.c.ll 221328091
 abc/llb1Pivot.c.ll 208557439
 abc/llb1Reach.c.ll 476869557
 abc/llb1Sched.c.ll 172538694
 abc/llb2Bad.c.ll 102409572
 abc/llb2Core.c.ll 470998902
 abc/llb2Driver.c.ll 159008297
-abc/llb2Flow.c.ll 937240875
+abc/llb2Flow.c.ll 936093838
 abc/llb2Image.c.ll 360697892
 abc/llb3Image.c.ll 734956312
 abc/llb3Nonlin.c.ll 522770322
@@ -764,7 +764,7 @@ abc/mapperUtils.c.ll 321485596
 abc/mapperVec.c.ll 90593570
 abc/mem.c.ll 175145101
 abc/mfsCore.c.ll 297294970
-abc/mfsDiv.c.ll 319118498
+abc/mfsDiv.c.ll 319574846
 abc/mfsInter.c.ll 183159738
 abc/mfsMan.c.ll 153746776
 abc/mfsResub.c.ll 475953142
@@ -772,7 +772,7 @@ abc/mfsSat.c.ll 125063479
 abc/mfsStrash.c.ll 238818610
 abc/mio.c.ll 125296923
 abc/mioApi.c.ll 129127813
-abc/mioFunc.c.ll 286809414
+abc/mioFunc.c.ll 286390628
 abc/mioParse.c.ll 739202622
 abc/mioRead.c.ll 353436461
 abc/mioSop.c.ll 397235164
@@ -839,7 +839,7 @@ abc/plaHash.c.ll 452590713
 abc/plaMan.c.ll 463007042
 abc/plaRead.c.ll 271520519
 abc/plaSimple.c.ll 511553569
-abc/plaWrite.c.ll 156444401
+abc/plaWrite.c.ll 156049086
 abc/reoProfile.c.ll 185196730
 abc/reoShuffle.c.ll 101452017
 abc/reoSift.c.ll 192450671
@@ -941,7 +941,7 @@ abc/simMan.c.ll 249945793
 abc/simSeq.c.ll 118224465
 abc/simSupp.c.ll 592251153
 abc/simSym.c.ll 83122783
-abc/simSymSat.c.ll 186866292
+abc/simSymSat.c.ll 186528401
 abc/simSymSim.c.ll 181273425
 abc/simSymStr.c.ll 481636399
 abc/simUtils.c.ll 421153535
@@ -995,7 +995,7 @@ abc/verStream.c.ll 134694559
 abc/wlcAbc.c.ll 270386660
 abc/wlcAbs.c.ll 2320162821
 abc/wlcAbs2.c.ll 496623575
-abc/wlcBlast.c.ll 5141385923
+abc/wlcBlast.c.ll 5146768483
 abc/wlcCom.c.ll 601602687
 abc/wlcGraft.c.ll 822059333
 abc/wlcMem.c.ll 1854057248
@@ -1007,12 +1007,12 @@ abc/wlcReadVer.c.ll 1935188437
 abc/wlcShow.c.ll 306881918
 abc/wlcSim.c.ll 424179418
 abc/wlcStdin.c.ll 209850366
-abc/wlcUif.c.ll 402675110
+abc/wlcUif.c.ll 402020993
 abc/wlcWin.c.ll 218729663
 abc/wlcWriteVer.c.ll 719991015
 abc/wlnBlast.c.ll 367460088
 abc/wlnCom.c.ll 143068004
-abc/wlnNdr.c.ll 2085419764
+abc/wlnNdr.c.ll 2082706548
 abc/wlnNtk.c.ll 648787989
 abc/wlnObj.c.ll 338777232
 abc/wlnRead.c.ll 3118418028
@@ -1233,7 +1233,7 @@ abseil-cpp/pcg_engine_test.cc.ll 3439232283
 abseil-cpp/per_thread_sem.cc.ll 62516553
 abseil-cpp/per_thread_sem_test.cc.ll 622869699
 abseil-cpp/periodic_sampler_test.cc.ll 3107691663
-abseil-cpp/poisson_distribution_test.cc.ll 8780763121
+abseil-cpp/poisson_distribution_test.cc.ll 8789831624
 abseil-cpp/pool_urbg.cc.ll 213390375
 abseil-cpp/pool_urbg_test.cc.ll 3451962201
 abseil-cpp/pow10_helper_test.cc.ll 203613133
@@ -1515,7 +1515,7 @@ actix-rs/5dylu5g0crehei80.ll 4587319488
 actix-rs/5exjy6cnl9lyqzk8.ll 36733987
 actix-rs/5f3qk1oomglisntr.ll 239148421
 actix-rs/5fq30pux2xo60hzk.ll 38946569
-actix-rs/5g1vgjexs3y2qadw.ll 251228211
+actix-rs/5g1vgjexs3y2qadw.ll 250967885
 actix-rs/5gtrut5e3cfvsh71.ll 105310687
 actix-rs/5k5ycrtlwwxldg7.ll 2933222132
 actix-rs/7rz97b55rz3o3h7.ll 4076128541
@@ -1779,7 +1779,7 @@ assimp/D3MFOpcPackage.cpp.ll 2319770614
 assimp/DDLNode.cpp.ll 295164838
 assimp/DXFLoader.cpp.ll 2838623657
 assimp/DeboneProcess.cpp.ll 1360918584
-assimp/DefaultIOStream.cpp.ll 56853021
+assimp/DefaultIOStream.cpp.ll 56794179
 assimp/DefaultIOSystem.cpp.ll 230561497
 assimp/DefaultLogger.cpp.ll 354806749
 assimp/DropFaceNormalsProcess.cpp.ll 68341885
@@ -1877,7 +1877,7 @@ assimp/ProcessHelper.cpp.ll 636348333
 assimp/Q3BSPFileImporter.cpp.ll 1031418784
 assimp/Q3BSPFileParser.cpp.ll 827659077
 assimp/Q3DLoader.cpp.ll 1781717252
-assimp/RawLoader.cpp.ll 1275160856
+assimp/RawLoader.cpp.ll 1273765544
 assimp/RemoveComments.cpp.ll 74939365
 assimp/RemoveRedundantMaterials.cpp.ll 306759967
 assimp/RemoveVCProcess.cpp.ll 461574234
@@ -1993,7 +1993,7 @@ box2d/b2_motor_joint.cpp.ll 162064180
 box2d/b2_mouse_joint.cpp.ll 128914121
 box2d/b2_polygon_circle_contact.cpp.ll 43747148
 box2d/b2_polygon_contact.cpp.ll 43729100
-box2d/b2_polygon_shape.cpp.ll 212213248
+box2d/b2_polygon_shape.cpp.ll 212426488
 box2d/b2_prismatic_joint.cpp.ll 304054271
 box2d/b2_pulley_joint.cpp.ll 174706545
 box2d/b2_revolute_joint.cpp.ll 243785530
@@ -2133,7 +2133,7 @@ bullet3/btDeformableMultiBodyDynamicsWorld.ll 2680886324
 bullet3/btDiscreteDynamicsWorld.ll 1626522641
 bullet3/btDiscreteDynamicsWorldMt.ll 263900104
 bullet3/btEmptyCollisionAlgorithm.ll 41407776
-bullet3/btEmptyShape.ll 64388589
+bullet3/btEmptyShape.ll 64462844
 bullet3/btFixedConstraint.ll 189594367
 bullet3/btGImpactBvh.ll 603061701
 bullet3/btGImpactCollisionAlgorithm.ll 1036538436
@@ -2165,7 +2165,7 @@ bullet3/btMultiBody.ll 3692451378
 bullet3/btMultiBodyConstraint.ll 389731570
 bullet3/btMultiBodyConstraintSolver.ll 1510902909
 bullet3/btMultiBodyDynamicsWorld.ll 2078952028
-bullet3/btMultiBodyFixedConstraint.ll 401290520
+bullet3/btMultiBodyFixedConstraint.ll 401923816
 bullet3/btMultiBodyGearConstraint.ll 224210490
 bullet3/btMultiBodyJointLimitConstraint.ll 224833103
 bullet3/btMultiBodyJointMotor.ll 218253919
@@ -2750,7 +2750,7 @@ clamav/bytecode_api.c.ll 983525621
 clamav/bytecode_detect.c.ll 100078072
 clamav/bytecode_nojit.c.ll 49718256
 clamav/bytecode_vm.c.ll 6439915747
-clamav/bzlib.c.ll 1857767809
+clamav/bzlib.c.ll 1861291100
 clamav/cabc.c.ll 34496444
 clamav/cabd.c.ll 530181396
 clamav/cache.c.ll 233256923
@@ -2769,7 +2769,7 @@ clamav/clamfi.c.ll 288794200
 clamav/clamonacc.c.ll 105580823
 clamav/clamscan.c.ll 88358345
 clamav/clamsubmit.c.ll 197854642
-clamav/client.c.ll 160258739
+clamav/client.c.ll 160067822
 clamav/cmddata.cpp.ll 498710982
 clamav/communication.c.ll 111124357
 clamav/connpool.c.ll 135451916
@@ -2864,7 +2864,7 @@ clamav/matcher.c.ll 538691173
 clamav/mbox.c.ll 1478369269
 clamav/mbr.c.ll 234974448
 clamav/message.c.ll 955439932
-clamav/mew.c.ll 766830233
+clamav/mew.c.ll 766037498
 clamav/misc.c.ll 140254172
 clamav/mpool.c.ll 181222204
 clamav/msdoc.c.ll 328453922
@@ -2925,7 +2925,7 @@ clamav/rtf.c.ll 344882123
 clamav/scanner.c.ll 191292899
 clamav/scanners.c.ll 1616940185
 clamav/scantree.cpp.ll 207980798
-clamav/secpassword.cpp.ll 165184673
+clamav/secpassword.cpp.ll 165016921
 clamav/server-th.c.ll 593461881
 clamav/session.c.ll 171483259
 clamav/sf_base64decode.c.ll 59176818
@@ -2968,7 +2968,7 @@ clamav/unicode.cpp.ll 267361282
 clamav/uniq.c.ll 74660746
 clamav/unpack.cpp.ll 2729228488
 clamav/unrar_iface.cpp.ll 146007490
-clamav/unsp.c.ll 578927093
+clamav/unsp.c.ll 579927977
 clamav/untar.c.ll 144764240
 clamav/unzip.c.ll 462982661
 clamav/upack.c.ll 465602512
@@ -3019,7 +3019,7 @@ cmake/Base64.c.ll 131139913
 cmake/CommandLineArguments.cxx.ll 1423703058
 cmake/Directory.cxx.ll 208991993
 cmake/DynamicLoader.cxx.ll 42730393
-cmake/EncodingCXX.cxx.ll 296159275
+cmake/EncodingCXX.cxx.ll 295861370
 cmake/FStream.cxx.ll 52674749
 cmake/Glob.cxx.ll 652286300
 cmake/MD5.c.ll 395927674
@@ -3130,7 +3130,7 @@ cmake/archive_write_set_format_iso9660.c.ll 2993230465
 cmake/archive_write_set_format_mtree.c.ll 1053790161
 cmake/archive_write_set_format_pax.c.ll 541920489
 cmake/archive_write_set_format_raw.c.ll 46300635
-cmake/archive_write_set_format_shar.c.ll 226735270
+cmake/archive_write_set_format_shar.c.ll 226379345
 cmake/archive_write_set_format_ustar.c.ll 291572550
 cmake/archive_write_set_format_v7tar.c.ll 178866054
 cmake/archive_write_set_format_warc.c.ll 87826374
@@ -3138,7 +3138,7 @@ cmake/archive_write_set_format_zip.c.ll 634307349
 cmake/archive_write_set_options.c.ll 57254399
 cmake/archive_write_set_passphrase.c.ll 44904073
 cmake/armthumb.c.ll 67874782
-cmake/async.c.ll 94066131
+cmake/async.c.ll 93970957
 cmake/auto_decoder.c.ll 67280371
 cmake/base64.c.ll 96589565
 cmake/bindexplib.cxx.ll 347171516
@@ -3148,7 +3148,7 @@ cmake/block_decoder.c.ll 82273763
 cmake/block_header_decoder.c.ll 66195546
 cmake/block_header_encoder.c.ll 65511176
 cmake/block_util.c.ll 61181697
-cmake/blocksort.c.ll 1159221747
+cmake/blocksort.c.ll 1160476772
 cmake/bufq.c.ll 293865120
 cmake/bufref.c.ll 45901737
 cmake/byte_order.c.ll 76063500
@@ -3265,7 +3265,7 @@ cmake/cmCTestUploadCommand.cxx.ll 578260705
 cmake/cmCTestUploadHandler.cxx.ll 262901640
 cmake/cmCTestVC.cxx.ll 313105718
 cmake/cmCacheManager.cxx.ll 1302177026
-cmake/cmCommandArgumentLexer.cxx.ll 476745785
+cmake/cmCommandArgumentLexer.cxx.ll 477701422
 cmake/cmCommandArgumentParser.cxx.ll 186032751
 cmake/cmCommandArgumentParserHelper.cxx.ll 418384039
 cmake/cmCommands.cxx.ll 549169582
@@ -3352,7 +3352,7 @@ cmake/cmExtraKateGenerator.cxx.ll 605467490
 cmake/cmExtraSublimeTextGenerator.cxx.ll 1047650254
 cmake/cmFLTKWrapUICommand.cxx.ll 793562690
 cmake/cmFileAPI.cxx.ll 2200963109
-cmake/cmFileAPICMakeFiles.cxx.ll 172878009
+cmake/cmFileAPICMakeFiles.cxx.ll 172227372
 cmake/cmFileAPICache.cxx.ll 404924161
 cmake/cmFileAPICodemodel.cxx.ll 8942819544
 cmake/cmFileAPICommand.cxx.ll 704682784
@@ -3436,7 +3436,7 @@ cmake/cmJSONState.cxx.ll 549105959
 cmake/cmLDConfigLDConfigTool.cxx.ll 566763144
 cmake/cmLDConfigTool.cxx.ll 36563708
 cmake/cmLinkDirectoriesCommand.cxx.ll 249794416
-cmake/cmLinkItem.cxx.ll 152173535
+cmake/cmLinkItem.cxx.ll 152021236
 cmake/cmLinkItemGraphVisitor.cxx.ll 684024603
 cmake/cmLinkLibrariesCommand.cxx.ll 94899815
 cmake/cmLinkLineComputer.cxx.ll 587471385
@@ -3684,7 +3684,7 @@ cmake/huf_decompress.c.ll 2620622194
 cmake/huffman.c.ll 171720062
 cmake/ia64.c.ll 75761721
 cmake/idn.c.ll 63348204
-cmake/idna.c.ll 238420416
+cmake/idna.c.ll 238660562
 cmake/if2ip.c.ll 91936733
 cmake/index.c.ll 352448509
 cmake/index_decoder.c.ll 97753153
@@ -3800,7 +3800,7 @@ cmake/testEncoding.cxx.ll 377086091
 cmake/testFStream.cxx.ll 95736741
 cmake/testProcess.c.ll 190878446
 cmake/testStatus.cxx.ll 57274251
-cmake/testSystemTools.cxx.ll 1786100604
+cmake/testSystemTools.cxx.ll 1783102831
 cmake/test_int_C.c.ll 338024758
 cmake/test_int_CXX.cxx.ll 338133779
 cmake/thread.c.ll 162657897
@@ -4203,7 +4203,7 @@ coreutils-rs/2x98xec166x5zhu2.ll 209073872
 coreutils-rs/2xc9maxrha8hrmco.ll 298787978
 coreutils-rs/2xf0tcanjahg0sla.ll 1120307205
 coreutils-rs/2xsrw03u1322q72m.ll 481826130
-coreutils-rs/2xw9hbhiafufcrup.ll 106990715
+coreutils-rs/2xw9hbhiafufcrup.ll 106849737
 coreutils-rs/2xz679u8qys6rpys.ll 98589190
 coreutils-rs/2y94il9ncyebrpt0.ll 810529949
 coreutils-rs/2ykgsbxnobewq59u.ll 182773119
@@ -4321,7 +4321,7 @@ coreutils-rs/3lsmiuav4aqbsnni.ll 40364013
 coreutils-rs/3lu37jco8djk97ff.ll 381359200
 coreutils-rs/3m1smiyhplnzbj8w.ll 326744236
 coreutils-rs/3m6l3i3rkevqy8m4.ll 50662415
-coreutils-rs/3mcap5ib5r2yxefa.ll 406247281
+coreutils-rs/3mcap5ib5r2yxefa.ll 405839531
 coreutils-rs/3ms5p9zlkfwhzgd5.ll 137487471
 coreutils-rs/3ms64fx2j1h00m7c.ll 434336605
 coreutils-rs/3ms9mtxsiecx0uas.ll 39958990
@@ -4355,7 +4355,7 @@ coreutils-rs/3rajw6q0dpsvfeg2.ll 566938178
 coreutils-rs/3ri12qup21vdgfw4.ll 481632571
 coreutils-rs/3rr5b3ksrrnbn54h.ll 189844206
 coreutils-rs/3s0ca3tmdoo7ci22.ll 158737079
-coreutils-rs/3sf1vst33rd7hdrp.ll 106986215
+coreutils-rs/3sf1vst33rd7hdrp.ll 106845815
 coreutils-rs/3sl862deah2458pu.ll 357426664
 coreutils-rs/3soei3ium361wr6q.ll 57094687
 coreutils-rs/3stdugogn8b6evb1.ll 1456393817
@@ -4399,7 +4399,7 @@ coreutils-rs/41fncqbjna39q7zc.ll 85578767
 coreutils-rs/41kb8bho3z5ma4kx.ll 178348032
 coreutils-rs/420s040g7rwxzzqz.ll 425354006
 coreutils-rs/424qq45zde9500rw.ll 211201188
-coreutils-rs/42lmwach5re7evzy.ll 361539651
+coreutils-rs/42lmwach5re7evzy.ll 361175806
 coreutils-rs/42mdia1i938lxfrs.ll 303086678
 coreutils-rs/42tk4bi79ez614n3.ll 83525366
 coreutils-rs/42z9ytlgskwt7sja.ll 772168522
@@ -4891,7 +4891,7 @@ cpython/_localemodule.ll 402321434
 cpython/_lsprof.ll 358964252
 cpython/_lzmamodule.ll 566662190
 cpython/_opcode.ll 299443434
-cpython/_operator.ll 654569899
+cpython/_operator.ll 653913425
 cpython/_pickle.ll 4651674829
 cpython/_posixsubprocess.ll 417124937
 cpython/_queuemodule.ll 161182506
@@ -5170,7 +5170,7 @@ csmith/CGOptions.cpp.ll 786587825
 csmith/CVQualifiers.cpp.ll 1445032449
 csmith/CompatibleChecker.cpp.ll 40757126
 csmith/Constant.cpp.ll 436796455
-csmith/CoverageTestExtension.cpp.ll 192347173
+csmith/CoverageTestExtension.cpp.ll 192154028
 csmith/CrestExtension.cpp.ll 96967792
 csmith/DFSOutputMgr.cpp.ll 59056400
 csmith/DFSProgramGenerator.cpp.ll 62604711
@@ -5222,7 +5222,7 @@ csmith/Type.cpp.ll 2056436622
 csmith/Variable.cpp.ll 1768842878
 csmith/VariableSelector.cpp.ll 2144549921
 csmith/VectorFilter.cpp.ll 256639924
-curl/libcurl_la-altsvc.ll 275349826
+curl/libcurl_la-altsvc.ll 275665658
 curl/libcurl_la-asyn-thread.ll 134874003
 curl/libcurl_la-base64.ll 97611110
 curl/libcurl_la-bufq.ll 297499408
@@ -5256,7 +5256,7 @@ curl/libcurl_la-escape.ll 142510707
 curl/libcurl_la-file.ll 136624886
 curl/libcurl_la-formdata.ll 479724779
 curl/libcurl_la-ftp.ll 1047549847
-curl/libcurl_la-ftplistparser.ll 299977675
+curl/libcurl_la-ftplistparser.ll 299667256
 curl/libcurl_la-getenv.ll 38152983
 curl/libcurl_la-getinfo.ll 136229472
 curl/libcurl_la-hash.ll 119361456
@@ -5921,7 +5921,7 @@ cvc5/type_info.cpp.ll 2769357192
 cvc5/type_matcher.cpp.ll 539268253
 cvc5/type_node.cpp.ll 1963335264
 cvc5/type_node_id_trie.cpp.ll 525820851
-cvc5/type_properties.cpp.ll 216342962
+cvc5/type_properties.cpp.ll 216593927
 cvc5/type_set.cpp.ll 931582080
 cvc5/uf_options.cpp.ll 82581767
 cvc5/unconstrained_simplifier.cpp.ll 3103227113
@@ -5930,7 +5930,7 @@ cvc5/unsat_core.cpp.ll 248360299
 cvc5/unsat_core_manager.cpp.ll 2252089978
 cvc5/util.cpp.ll 190412514
 cvc5/utility.cpp.ll 94106622
-cvc5/valuation.cpp.ll 164260392
+cvc5/valuation.cpp.ll 164093864
 cvc5/var_match_generator.cpp.ll 692885339
 cvc5/variadic_trie.cpp.ll 335848605
 cvc5/vts_term_cache.cpp.ll 1813891022
@@ -6429,7 +6429,7 @@ diesel-rs/3hbywg7swws1iy6v.ll 481231958
 diesel-rs/3iqa5s4rcitpn2nv.ll 708135134
 diesel-rs/3ixl5a0bpbqloe3y.ll 95628907
 diesel-rs/3jhw2tk3zxwz1fei.ll 488659305
-diesel-rs/3jq7xxeb4n5sqs48.ll 448514370
+diesel-rs/3jq7xxeb4n5sqs48.ll 448065150
 diesel-rs/3k6gak4fsx54o1kk.ll 322812953
 diesel-rs/3lx59a59a7ugwakh.ll 233499951
 diesel-rs/3m3thlacm054fq83.ll 67017416
@@ -6545,7 +6545,7 @@ diesel-rs/gepqftqgym352s.ll 708101457
 diesel-rs/hcabtpzc2789gsv.ll 165408630
 diesel-rs/hznnvx0rqzdhedj.ll 504607603
 diesel-rs/hzs18qosoh3soq6.ll 672195809
-diesel-rs/ivb4nc5xs1gnmkx.ll 4679566025
+diesel-rs/ivb4nc5xs1gnmkx.ll 4685938625
 diesel-rs/j37a14ywgmm1lay.ll 294618322
 diesel-rs/jrwozg4p14xnxt2.ll 198501144
 diesel-rs/kfsmzrv9s6bcc4a.ll 354962420
@@ -6891,7 +6891,7 @@ eastl/TestMemory.cpp.ll 1435356041
 eastl/TestOptional.cpp.ll 1086912408
 eastl/TestRandom.cpp.ll 304820365
 eastl/TestRingBuffer.cpp.ll 19136691073
-eastl/TestSList.cpp.ll 3642974121
+eastl/TestSList.cpp.ll 3648713682
 eastl/TestSegmentedVector.cpp.ll 598245639
 eastl/TestSet.cpp.ll 9169350745
 eastl/TestSmartPtr.cpp.ll 3574657539
@@ -6996,9 +6996,9 @@ faiss/AdditiveQuantizer.cpp.ll 1369281660
 faiss/AutoTune.cpp.ll 2019489430
 faiss/AuxIndexStructures.cpp.ll 428541340
 faiss/BlockInvertedLists.cpp.ll 652793726
-faiss/Clustering.cpp.ll 1268448474
+faiss/Clustering.cpp.ll 1270378012
 faiss/CodePacker.cpp.ll 56974806
-faiss/DirectMap.cpp.ll 776721736
+faiss/DirectMap.cpp.ll 777928221
 faiss/FaissException.cpp.ll 87057999
 faiss/HNSW.cpp.ll 3289547603
 faiss/Heap.cpp.ll 1975174707
@@ -7019,10 +7019,10 @@ faiss/IndexFlat.cpp.ll 575803035
 faiss/IndexFlatCodes.cpp.ll 242897527
 faiss/IndexHNSW.cpp.ll 2651324033
 faiss/IndexIDMap.cpp.ll 805566424
-faiss/IndexIVF.cpp.ll 2334640244
-faiss/IndexIVFAdditiveQuantizer.cpp.ll 723074298
+faiss/IndexIVF.cpp.ll 2330893433
+faiss/IndexIVFAdditiveQuantizer.cpp.ll 720896467
 faiss/IndexIVFAdditiveQuantizerFastScan.cpp.ll 796579420
-faiss/IndexIVFFastScan.cpp.ll 7209186094
+faiss/IndexIVFFastScan.cpp.ll 7111062419
 faiss/IndexIVFFlat.cpp.ll 1721724083
 faiss/IndexIVFIndependentQuantizer.cpp.ll 291269701
 faiss/IndexIVFPQ.cpp.ll 81445988454
@@ -7049,12 +7049,12 @@ faiss/MatrixStats.cpp.ll 465678408
 faiss/MetaIndexes.cpp.ll 1141995432
 faiss/NNDescent.cpp.ll 2009843146
 faiss/NSG.cpp.ll 2226646365
-faiss/OnDiskInvertedLists.cpp.ll 1681949682
+faiss/OnDiskInvertedLists.cpp.ll 1680230760
 faiss/PolysemousTraining.cpp.ll 1678590087
 faiss/ProductAdditiveQuantizer.cpp.ll 986243487
 faiss/ProductQuantizer.cpp.ll 2491534157
 faiss/ResidualQuantizer.cpp.ll 1204891385
-faiss/ScalarQuantizer.cpp.ll 6203324414
+faiss/ScalarQuantizer.cpp.ll 6194967919
 faiss/VectorTransform.cpp.ll 1753564659
 faiss/WorkerThread.cpp.ll 887345117
 faiss/clone_index.cpp.ll 2322062705
@@ -7078,7 +7078,7 @@ faiss/residual_quantizer_encode_steps.cpp.ll 1792245793
 faiss/sorting.cpp.ll 2820425160
 faiss/utils.cpp.ll 1256739277
 flac/alloc.c.ll 37541042
-flac/analyze.c.ll 205563473
+flac/analyze.c.ll 205215720
 flac/bitmath.c.ll 38270108
 flac/bitreader.c.ll 415618345
 flac/bitwriter.c.ll 333264267
@@ -7118,7 +7118,7 @@ flac/operations_shorthand_seektable.c.ll 85237596
 flac/operations_shorthand_streaminfo.c.ll 54196090
 flac/operations_shorthand_vorbiscomment.c.ll 172472753
 flac/options.c.ll 583137761
-flac/picture.c.ll 245848898
+flac/picture.c.ll 246104696
 flac/replaygain.c.ll 217312905
 flac/replaygain_analysis.c.ll 260283223
 flac/replaygain_synthesis.c.ll 246125558
@@ -7189,7 +7189,7 @@ fmt/os-test.cc.ll 3212509055
 fmt/os.cc.ll 7696769073
 fmt/ostream-test.cc.ll 4795544371
 fmt/posix-mock-test.cc.ll 1636077871
-fmt/printf-test.cc.ll 30150685329
+fmt/printf-test.cc.ll 30080898855
 fmt/ranges-odr-test.cc.ll 1366919334
 fmt/ranges-test.cc.ll 9718589447
 fmt/scan-test.cc.ll 1167958113
@@ -7645,7 +7645,7 @@ git/pack-bitmap.ll 1537278011
 git/pack-check.ll 156124643
 git/pack-mtimes.ll 95894719
 git/pack-objects.ll 150464604
-git/pack-redundant.ll 922867933
+git/pack-redundant.ll 924495947
 git/pack-refs.ll 63433593
 git/pack-revindex.ll 284298058
 git/pack-write.ll 318800569
@@ -7657,7 +7657,7 @@ git/parse-options-cb.ll 143301499
 git/parse-options.ll 812255922
 git/parse.ll 88005855
 git/patch-delta.ll 104587333
-git/patch-id.ll 280060454
+git/patch-id.ll 280911854
 git/patch-ids.ll 92154974
 git/path.ll 743153891
 git/pathspec.ll 509682346
@@ -7693,7 +7693,7 @@ git/refs.ll 1175445348
 git/refspec.ll 151160896
 git/remote-curl.ll 854710388
 git/remote.ll 1622711071
-git/repack.ll 1066662864
+git/repack.ll 1067860194
 git/replace-object.ll 59814783
 git/replace.ll 369002881
 git/replay.ll 440207256
@@ -7709,7 +7709,7 @@ git/run-command.ll 780765023
 git/scalar.ll 377697386
 git/send-pack.ll 373951786
 git/sequencer.ll 3648627966
-git/serve.ll 146905881
+git/serve.ll 147137154
 git/server-info.ll 216202020
 git/setup.ll 803408439
 git/sh-i18n--envsubst.ll 195853736
@@ -7759,7 +7759,7 @@ git/trailer.ll 865387362
 git/transport-helper.ll 744261368
 git/transport.ll 668028649
 git/tree-diff.ll 293195195
-git/tree-walk.ll 567876026
+git/tree-walk.ll 568569655
 git/unix-socket.ll 66328598
 git/unix-stream-server.ll 56748229
 git/unpack-file.ll 47505604
@@ -7773,7 +7773,7 @@ git/url.ll 110903241
 git/urlmatch.ll 323656753
 git/usage.ll 121839969
 git/userdiff.ll 128983047
-git/utf8.ll 474692528
+git/utf8.ll 475435325
 git/var.ll 93034209
 git/verify-commit.ll 63154353
 git/verify-pack.ll 92899520
@@ -7789,8 +7789,8 @@ git/ws.ll 288987601
 git/wt-status.ll 1715642527
 git/xdiff-interface.ll 199895288
 git/xdiffi.ll 659853578
-git/xemit.ll 366875857
-git/xhistogram.ll 340865310
+git/xemit.ll 365972822
+git/xhistogram.ll 341272742
 git/xmerge.ll 716219210
 git/xpatience.ll 238955468
 git/xprepare.ll 322762083
@@ -7803,7 +7803,7 @@ glog/flags.cc.ll 215649653
 glog/logging.cc.ll 7307698418
 glog/logging_unittest.cc.ll 5389671943
 glog/mock-log_unittest.cc.ll 1810066920
-glog/raw_logging.cc.ll 119571701
+glog/raw_logging.cc.ll 119450366
 glog/signalhandler.cc.ll 475558957
 glog/signalhandler_unittest.cc.ll 157927971
 glog/stacktrace.cc.ll 43809618
@@ -7936,7 +7936,7 @@ graphviz/dttree.c.ll 201942938
 graphviz/dtview.c.ll 93485555
 graphviz/dtwalk.c.ll 37955126
 graphviz/edge.c.ll 248991369
-graphviz/edge_distinct_coloring.c.ll 282785484
+graphviz/edge_distinct_coloring.c.ll 282273891
 graphviz/edgelist.c.ll 49039530
 graphviz/edgepaintmain.c.ll 135573842
 graphviz/edges.c.ll 80296600
@@ -7950,7 +7950,7 @@ graphviz/exerror.c.ll 49105590
 graphviz/exeval.c.ll 901450216
 graphviz/exopen.c.ll 50581237
 graphviz/exparse.c.ll 1159148012
-graphviz/extoken.c.ll 624246869
+graphviz/extoken.c.ll 625568439
 graphviz/exzero.c.ll 35894009
 graphviz/fPQ.c.ll 90298609
 graphviz/fastgr.c.ll 214622462
@@ -7987,14 +7987,14 @@ graphviz/gvgen.c.ll 252921253
 graphviz/gvgetfontlist_pango.c.ll 453433248
 graphviz/gvjobs.c.ll 66851371
 graphviz/gvlayout.c.ll 53836469
-graphviz/gvloadimage.c.ll 104490511
+graphviz/gvloadimage.c.ll 104615877
 graphviz/gvloadimage_core.c.ll 82411540
 graphviz/gvloadimage_pango.c.ll 78809305
 graphviz/gvmap.c.ll 228033071
 graphviz/gvpack.cpp.ll 894879233
 graphviz/gvplugin.c.ll 481993942
 graphviz/gvplugin_vt.c.ll 85733356
-graphviz/gvpr.c.ll 1068187547
+graphviz/gvpr.c.ll 1066375601
 graphviz/gvprmain.c.ll 37084087
 graphviz/gvrender.c.ll 343165905
 graphviz/gvrender_core_dot.c.ll 633582234
@@ -8069,7 +8069,7 @@ graphviz/patchworkinit.c.ll 130863546
 graphviz/pathaccess.c.ll 101491956
 graphviz/pathcat.c.ll 107318293
 graphviz/pathfind.c.ll 135038526
-graphviz/pathpath.c.ll 129051235
+graphviz/pathpath.c.ll 128879015
 graphviz/pca.c.ll 131654774
 graphviz/pointset.c.ll 79626857
 graphviz/poly.c.ll 286636565
@@ -8120,10 +8120,10 @@ graphviz/stuff.c.ll 747127990
 graphviz/subg.c.ll 60293864
 graphviz/taper.c.ll 169801169
 graphviz/textspan.c.ll 83717056
-graphviz/textspan_lut.c.ll 231040967
+graphviz/textspan_lut.c.ll 231359951
 graphviz/timing.c.ll 37021742
 graphviz/tlayout.c.ll 383532330
-graphviz/trapezoid.c.ll 585433321
+graphviz/trapezoid.c.ll 586137795
 graphviz/tred.c.ll 170320722
 graphviz/tree_map.c.ll 109427257
 graphviz/triang.c.ll 135652234
@@ -8308,7 +8308,7 @@ gromacs/datafilefinder.cpp.ll 794723238
 gromacs/dataframe.cpp.ll 123609130
 gromacs/datamodule.cpp.ll 42669450
 gromacs/datamodulemanager.cpp.ll 549919155
-gromacs/dataproxy.cpp.ll 105720509
+gromacs/dataproxy.cpp.ll 105613743
 gromacs/datastorage.cpp.ll 1137927203
 gromacs/daxpy.cpp.ll 62986356
 gromacs/dbdsdc.cpp.ll 164873541
@@ -8514,7 +8514,7 @@ gromacs/freeenergydispatch.cpp.ll 686902247
 gromacs/freeenergyparameters.cpp.ll 93830149
 gromacs/freeenergyperturbationdata.cpp.ll 1402952715
 gromacs/freevolume.cpp.ll 916140094
-gromacs/functions.cpp.ll 92088450
+gromacs/functions.cpp.ll 91995548
 gromacs/futil.cpp.ll 522697048
 gromacs/g96io.cpp.ll 322729621
 gromacs/ga2la.cpp.ll 206094768
@@ -8563,7 +8563,7 @@ gromacs/gmx_lie.cpp.ll 199867469
 gromacs/gmx_lmcurve.cpp.ll 81142096
 gromacs/gmx_make_edi.cpp.ll 476929562
 gromacs/gmx_mdmat.cpp.ll 435796605
-gromacs/gmx_mindist.cpp.ll 1191016657
+gromacs/gmx_mindist.cpp.ll 1188638352
 gromacs/gmx_nmeig.cpp.ll 742735943
 gromacs/gmx_nmens.cpp.ll 558701134
 gromacs/gmx_nmr.cpp.ll 1075988783
@@ -8920,7 +8920,7 @@ gromacs/pme_pp_comm_gpu_impl.cpp.ll 62916559
 gromacs/pme_redistribute.cpp.ll 1040749240
 gromacs/pme_solve.cpp.ll 1301626750
 gromacs/pme_spline_work.cpp.ll 63737874
-gromacs/pme_spread.cpp.ll 1378269244
+gromacs/pme_spread.cpp.ll 1376105463
 gromacs/pmeloadbalancehelper.cpp.ll 125098826
 gromacs/pointstate.cpp.ll 42223216
 gromacs/polynomials.cpp.ll 67722581
@@ -9086,7 +9086,7 @@ gromacs/slasdq.cpp.ll 126250528
 gromacs/slasdt.cpp.ll 65938374
 gromacs/slaset.cpp.ll 68963593
 gromacs/slasq1.cpp.ll 66604895
-gromacs/slasq2.cpp.ll 267556893
+gromacs/slasq2.cpp.ll 267261076
 gromacs/slasq3.cpp.ll 126888465
 gromacs/slasq4.cpp.ll 138792920
 gromacs/slasq5.cpp.ll 123971107
@@ -9228,7 +9228,7 @@ gromacs/version.cpp.ll 62653849
 gromacs/viewit.cpp.ll 98176794
 gromacs/virials.cpp.ll 109164245
 gromacs/vsite.cpp.ll 5301686621
-gromacs/vsite_parm.cpp.ll 3109740703
+gromacs/vsite_parm.cpp.ll 3113132166
 gromacs/wall.cpp.ll 529821356
 gromacs/wallcycle.cpp.ll 655239131
 gromacs/walltime_accounting.cpp.ll 63673729
@@ -9258,7 +9258,7 @@ grpc/alts_grpc_integrity_only_record_protocol.cc.ll 97679789
 grpc/alts_grpc_privacy_integrity_record_protocol.cc.ll 65388237
 grpc/alts_grpc_record_protocol_common.cc.ll 92675932
 grpc/alts_handshaker_client.cc.ll 781077606
-grpc/alts_iovec_record_protocol.cc.ll 183874410
+grpc/alts_iovec_record_protocol.cc.ll 183665789
 grpc/alts_record_protocol_crypter_common.cc.ll 56548391
 grpc/alts_seal_privacy_integrity_crypter.cc.ll 54017227
 grpc/alts_security_connector.cc.ll 335233707
@@ -9293,7 +9293,7 @@ grpc/call.cc.ll 9813459535
 grpc/call_combiner.cc.ll 168674285
 grpc/call_creds_util.cc.ll 208410824
 grpc/call_details.cc.ll 94998156
-grpc/call_log_batch.cc.ll 373650035
+grpc/call_log_batch.cc.ll 373007479
 grpc/call_trace.cc.ll 3253086994
 grpc/call_tracer.cc.ll 597408531
 grpc/cds.cc.ll 4809163848
@@ -9311,7 +9311,7 @@ grpc/channel_stack.cc.ll 1259688685
 grpc/channel_stack_builder.cc.ll 165319222
 grpc/channel_stack_builder_impl.cc.ll 243855335
 grpc/channel_stack_type.cc.ll 38552896
-grpc/channel_trace.cc.ll 1192902099
+grpc/channel_trace.cc.ll 1190596805
 grpc/channelz.cc.ll 3264970750
 grpc/channelz_registry.cc.ll 1812307860
 grpc/check_gcp_environment.cc.ll 57123423
@@ -9428,7 +9428,7 @@ grpc/insecure_security_connector.cc.ll 198071358
 grpc/internal_errqueue.cc.ll 44726489
 grpc/iomgr.cc.ll 158278281
 grpc/iomgr_posix.cc.ll 190040739
-grpc/json_object_loader.cc.ll 1542653012
+grpc/json_object_loader.cc.ll 1540572608
 grpc/json_reader.cc.ll 1967949150
 grpc/json_token.cc.ll 1196007749
 grpc/json_util.cc.ll 268254572
@@ -9545,9 +9545,9 @@ grpc/tcp_connect_handshaker.cc.ll 335499840
 grpc/tcp_posix.cc.ll 1756358340
 grpc/tcp_server_posix.cc.ll 2277674228
 grpc/tcp_server_utils_posix_common.cc.ll 254241130
-grpc/tcp_server_utils_posix_ifaddrs.cc.ll 307100268
+grpc/tcp_server_utils_posix_ifaddrs.cc.ll 306746908
 grpc/tcp_socket_utils.cc.ll 513212325
-grpc/thread_pool_factory.cc.ll 152069582
+grpc/thread_pool_factory.cc.ll 151883047
 grpc/thread_quota.cc.ll 59420227
 grpc/thready_event_engine.cc.ll 1424961173
 grpc/time.cc.ll 246185236
@@ -9787,7 +9787,7 @@ hdf5/H5HFsection.c.ll 695809917
 hdf5/H5HFspace.c.ll 86323400
 hdf5/H5HFstat.c.ll 53142624
 hdf5/H5HFtest.c.ll 98010334
-hdf5/H5HFtiny.c.ll 65754370
+hdf5/H5HFtiny.c.ll 65685553
 hdf5/H5HG.c.ll 320078949
 hdf5/H5HGcache.c.ll 158350734
 hdf5/H5HGdbg.c.ll 85822097
@@ -9961,7 +9961,7 @@ hdf5/H5Zshuffle.c.ll 84809536
 hdf5/H5Ztrans.c.ll 1783747543
 hdf5/H5checksum.c.ll 158809344
 hdf5/H5dbg.c.ll 57679755
-hdf5/H5system.c.ll 171079093
+hdf5/H5system.c.ll 171338375
 hdf5/H5timer.c.ll 91556015
 hdf5/H5trace.c.ll 1046785438
 hdf5/h5clear.c.ll 100457873
@@ -10056,7 +10056,7 @@ hermes/Date.cpp.ll 616888084
 hermes/DateUtil.cpp.ll 1324931140
 hermes/DebugInfo.cpp.ll 1247345014
 hermes/DecoratedObject.cpp.ll 319394698
-hermes/DependencyExtractor.cpp.ll 4418029390
+hermes/DependencyExtractor.cpp.ll 4423332866
 hermes/DictPropertyMap.cpp.ll 361623088
 hermes/Domain.cpp.ll 789774602
 hermes/DummyObject.cpp.ll 235477281
@@ -10192,12 +10192,12 @@ hermes/ScopeTransformations.cpp.ll 566247981
 hermes/SegmentedArray.cpp.ll 1252309334
 hermes/SemValidate.cpp.ll 47094345
 hermes/SemanticValidator.cpp.ll 5374085288
-hermes/SerializedLiteralGenerator.cpp.ll 413941691
+hermes/SerializedLiteralGenerator.cpp.ll 413100386
 hermes/Set.cpp.ll 568136329
 hermes/Signals.cpp.ll 495378976
 hermes/SimpleBytecodeBuilder.cpp.ll 420546578
 hermes/SimpleCallGraphProvider.cpp.ll 1201295082
-hermes/SimpleDiagHandler.cpp.ll 375296861
+hermes/SimpleDiagHandler.cpp.ll 374920539
 hermes/SimpleStackPromotion.cpp.ll 528891972
 hermes/SimplifyCFG.cpp.ll 932113183
 hermes/SingleObject.cpp.ll 48369610
@@ -10234,7 +10234,7 @@ hermes/TraceInterpreter.cpp.ll 6866456856
 hermes/TracingRuntime.cpp.ll 3916581743
 hermes/TraverseLiteralStrings.cpp.ll 224402741
 hermes/Triple.cpp.ll 1936282799
-hermes/Twine.cpp.ll 220212164
+hermes/Twine.cpp.ll 219902595
 hermes/TypeInference.cpp.ll 2143790741
 hermes/TypedArray.cpp.ll 3491399306
 hermes/UTF16Stream.cpp.ll 183728661
@@ -10271,7 +10271,7 @@ hermes/jsi.cpp.ll 674673865
 hermes/not.cpp.ll 202527484
 hermes/raw_os_ostream.cpp.ll 46955632
 hermes/raw_ostream.cpp.ll 786521826
-hermes/regcomp.c.ll 1370137249
+hermes/regcomp.c.ll 1368745803
 hermes/regerror.c.ll 55217535
 hermes/regexec.c.ll 1014119511
 hermes/regstrlcpy.c.ll 43715832
@@ -10288,7 +10288,7 @@ html5ever-rs/19ci5iy6gkdi8zuj.ll 222459973
 html5ever-rs/1c9wisiomueezeur.ll 546589891
 html5ever-rs/1gn06q17cru09u2n.ll 96392994
 html5ever-rs/1l7aj4ykki4ycs65.ll 148875465
-html5ever-rs/1mf2h4bh94yx6is.ll 488190414
+html5ever-rs/1mf2h4bh94yx6is.ll 487701973
 html5ever-rs/1nd47j9hksokf3br.ll 54941242
 html5ever-rs/1sultj07k5ig1zv3.ll 114919813
 html5ever-rs/1vtnstivsebrhjt9.ll 234162831
@@ -10340,8 +10340,8 @@ hwloc/hwloc-annotate.ll 769087974
 hwloc/hwloc-bind.ll 1045635508
 hwloc/hwloc-calc.ll 1056177110
 hwloc/hwloc-diff.ll 91467281
-hwloc/hwloc-distrib.ll 410503211
-hwloc/hwloc-gather-cpuid.ll 669916754
+hwloc/hwloc-distrib.ll 410012654
+hwloc/hwloc-gather-cpuid.ll 671122532
 hwloc/hwloc-info.ll 1073388872
 hwloc/hwloc-patch.ll 96703949
 hwloc/hwloc-ps.ll 351836079
@@ -10376,7 +10376,7 @@ hwloc/topology-opencl.ll 113721684
 hwloc/topology-pci.ll 169861460
 hwloc/topology-synthetic.ll 861615924
 hwloc/topology-x86.ll 1198199726
-hwloc/topology-xml-libxml.ll 155644366
+hwloc/topology-xml-libxml.ll 155388694
 hwloc/topology-xml-nolibxml.ll 285920993
 hwloc/topology-xml.ll 1994892021
 hwloc/topology.ll 2038386771
@@ -11007,7 +11007,7 @@ icu/umsg.ll 238845495
 icu/umutablecptrie.ll 2240249130
 icu/umutex.ll 110515108
 icu/unames.ll 1246893962
-icu/unesctrn.ll 201529233
+icu/unesctrn.ll 201277043
 icu/uni2name.ll 89409438
 icu/unifiedcache.ll 261977691
 icu/unifilt.ll 58858930
@@ -11077,7 +11077,7 @@ icu/uvectr32.ll 237716920
 icu/uvectr64.ll 140830818
 icu/uwmsg.ll 73253676
 icu/vtzone.ll 1673390741
-icu/vzone.ll 97242351
+icu/vzone.ll 97143398
 icu/writesrc.ll 239307711
 icu/wrtjava.ll 423994342
 icu/wrtxml.ll 742361523
@@ -11095,7 +11095,7 @@ image-rs/2ndzmzcdt55acj4k.ll 8410662108
 image-rs/2s4mh02dvph60euq.ll 11055162560
 image-rs/30755d6iao7ojcvl.ll 6708140005
 image-rs/34r8dryqmufipcqz.ll 13902179379
-image-rs/4srzh4wujeew249y.ll 11725221159
+image-rs/4srzh4wujeew249y.ll 11737795557
 image-rs/5ez7udly19o3uj1p.ll 8764672415
 image-rs/5oy2v8fghrh79s8.ll 10945994907
 image-rs/8143hfqbwzfmz2f.ll 12086949499
@@ -11123,7 +11123,7 @@ influxdb-rs/2aae49ekit6jj1ha.ll 80887483
 influxdb-rs/2du585cd6kvsz0m5.ll 582996480
 influxdb-rs/2g8nrbnslhx52xx1.ll 4990585997
 influxdb-rs/2gpesx480dqhic68.ll 6755552235
-influxdb-rs/2hwft84a2d6liqrp.ll 117645135
+influxdb-rs/2hwft84a2d6liqrp.ll 117781575
 influxdb-rs/2i5qqg1f0a0eo8eq.ll 7099370504
 influxdb-rs/2kt1dw25zk3iqboc.ll 6755478515
 influxdb-rs/2mf2u0nbrvn1e67i.ll 102963653
@@ -11283,8 +11283,8 @@ jemalloc/background_thread.ll 341595092
 jemalloc/background_thread.pic.ll 341309387
 jemalloc/background_thread.sym.ll 341308696
 jemalloc/base.ll 394234286
-jemalloc/base.pic.ll 394616935
-jemalloc/base.sym.ll 394617032
+jemalloc/base.pic.ll 394220078
+jemalloc/base.sym.ll 394220037
 jemalloc/bin.ll 83752306
 jemalloc/bin.pic.ll 83680223
 jemalloc/bin.sym.ll 83680223
@@ -11652,7 +11652,7 @@ libphonenumber/geocoding_data_test.cc.ll 1370504922
 libphonenumber/geocoding_test_program.cc.ll 66199644
 libphonenumber/logger_test.cc.ll 671892288
 libphonenumber/mapping_file_provider.cc.ll 187720472
-libphonenumber/mapping_file_provider_test.cc.ll 429439306
+libphonenumber/mapping_file_provider_test.cc.ll 428819326
 libphonenumber/matcher_test.cc.ll 329088379
 libphonenumber/phonemetadata.pb.cc.ll 2432924865
 libphonenumber/phonenumber.cc.ll 126156984
@@ -11950,7 +11950,7 @@ libquic/prime.c.ll 260021651
 libquic/print.c.ll 193231148
 libquic/printf.c.ll 41455849
 libquic/process_handle_linux.cc.ll 41584630
-libquic/process_linux.cc.ll 66042616
+libquic/process_linux.cc.ll 65975363
 libquic/process_metrics_linux.cc.ll 534622376
 libquic/process_metrics_posix.cc.ll 52497341
 libquic/proof_source.cc.ll 121821412
@@ -11989,7 +11989,7 @@ libquic/quic_session.cc.ll 1875972466
 libquic/quic_socket_address_coder.cc.ll 168518596
 libquic/quic_spdy_session.cc.ll 1075832530
 libquic/quic_spdy_stream.cc.ll 293195710
-libquic/quic_stream_sequencer.cc.ll 139378359
+libquic/quic_stream_sequencer.cc.ll 139232151
 libquic/quic_stream_sequencer_buffer.cc.ll 693674711
 libquic/quic_sustained_bandwidth_recorder.cc.ll 54603926
 libquic/quic_time.cc.ll 56590250
@@ -12022,7 +12022,7 @@ libquic/s3_pkt.c.ll 200891770
 libquic/s3_srvr.c.ll 553138310
 libquic/sample_map.cc.ll 280713651
 libquic/sample_vector.cc.ll 249023479
-libquic/secure_hash.cc.ll 101275083
+libquic/secure_hash.cc.ll 101171124
 libquic/sequence_token.cc.ll 93577763
 libquic/server.cc.ll 282952012
 libquic/sha1.c.ll 78511065
@@ -12054,7 +12054,7 @@ libquic/ssl_aead_ctx.c.ll 117069511
 libquic/ssl_asn1.c.ll 187178053
 libquic/ssl_buffer.c.ll 124707004
 libquic/ssl_cert.c.ll 166866420
-libquic/ssl_cipher.c.ll 970752207
+libquic/ssl_cipher.c.ll 969484269
 libquic/ssl_decrepit.c.ll 64033446
 libquic/ssl_ecdh.c.ll 103292480
 libquic/ssl_file.c.ll 116766822
@@ -12379,7 +12379,7 @@ libwebp/ssim_sse2.c.ll 144156185
 libwebp/syntax_enc.c.ll 246594536
 libwebp/thread_utils.c.ll 77086506
 libwebp/tiffdec.c.ll 119520424
-libwebp/token_enc.c.ll 293578052
+libwebp/token_enc.c.ll 293076224
 libwebp/tree_dec.c.ll 340332558
 libwebp/tree_enc.c.ll 111729084
 libwebp/upsampling.c.ll 1142781515
@@ -12516,7 +12516,7 @@ lief/BindingInfo.cpp.ll 87158896
 lief/BuildToolVersion.cpp.ll 6885416598
 lief/BuildVersion.cpp.ll 370233740
 lief/Builder.cpp.ll 17308657579
-lief/ChainedBindingInfo.cpp.ll 101259525
+lief/ChainedBindingInfo.cpp.ll 101152306
 lief/ChainedBindingInfoList.cpp.ll 76453036
 lief/ChainedFixup.cpp.ll 12112183712
 lief/Class.cpp.ll 1316078568
@@ -12755,7 +12755,7 @@ lightgbm/c_api.cpp.ll 13038439072
 lightgbm/config.cpp.ll 2995892164
 lightgbm/config_auto.cpp.ll 5144877956
 lightgbm/data_parallel_tree_learner.cpp.ll 3500119413
-lightgbm/dataset.cpp.ll 10649088897
+lightgbm/dataset.cpp.ll 10675002253
 lightgbm/dataset_loader.cpp.ll 7329282318
 lightgbm/dcg_calculator.cpp.ll 915403549
 lightgbm/feature_histogram.cpp.ll 72047063411
@@ -12778,11 +12778,11 @@ lightgbm/openmp_wrapper.cpp.ll 41111024
 lightgbm/parser.cpp.ll 1632417379
 lightgbm/prediction_early_stop.cpp.ll 360592878
 lightgbm/sample_strategy.cpp.ll 968646534
-lightgbm/serial_tree_learner.cpp.ll 50989329436
+lightgbm/serial_tree_learner.cpp.ll 50695258406
 lightgbm/train_share_states.cpp.ll 1596297288
 lightgbm/tree.cpp.ll 14622138173
 lightgbm/tree_learner.cpp.ll 225925959
-lightgbm/voting_parallel_tree_learner.cpp.ll 46709706053
+lightgbm/voting_parallel_tree_learner.cpp.ll 47268719019
 linux/80003es2lan.ll 239422017
 linux/8139too.ll 380444271
 linux/8250_core.ll 348675573
@@ -13151,7 +13151,7 @@ linux/drm_framebuffer.ll 335646391
 linux/drm_gem.ll 352691591
 linux/drm_gem_atomic_helper.ll 85374046
 linux/drm_gem_framebuffer_helper.ll 168546231
-linux/drm_gem_shmem_helper.ll 193454012
+linux/drm_gem_shmem_helper.ll 193659641
 linux/drm_hdcp_helper.ll 116617096
 linux/drm_hdmi_helper.ll 55084798
 linux/drm_ioc32.ll 84120924
@@ -13463,7 +13463,7 @@ linux/hpet.ll 282038900
 linux/hrtimer.ll 510561916
 linux/hsu.ll 153199841
 linux/hsw_ips.ll 110455550
-linux/ht.ll 165654045
+linux/ht.ll 165488005
 linux/hub.ll 1400188410
 linux/huf_decompress.ll 2229900941
 linux/hugetlb.ll 2422706672
@@ -14376,7 +14376,7 @@ linux/rw.ll 362513356
 linux/rwsem.ll 300901180
 linux/rx.ll 1620261358
 linux/s1g.ll 94075591
-linux/s2idle.ll 201992867
+linux/s2idle.ll 201779286
 linux/sbitmap.ll 282773230
 linux/scan.ll 599756743
 linux/scatterlist.ll 546916393
@@ -14857,7 +14857,7 @@ linux/zstd_decompress.ll 638257714
 linux/zstd_decompress_block.ll 2837996514
 llama.cpp/common.cpp.ll 8332816634
 llama.cpp/console.cpp.ll 289383084
-llama.cpp/ggml-alloc.c.ll 383040639
+llama.cpp/ggml-alloc.c.ll 383535284
 llama.cpp/ggml-backend.c.ll 709625278
 llama.cpp/ggml-quants.c.ll 1569906023
 llama.cpp/ggml.c.ll 18666043555
@@ -15072,8 +15072,8 @@ luajit/lj_opt_mem.ll 654885094
 luajit/lj_opt_mem_dyn.ll 655149536
 luajit/lj_opt_narrow.ll 239454979
 luajit/lj_opt_narrow_dyn.ll 239554458
-luajit/lj_opt_sink.ll 222641846
-luajit/lj_opt_sink_dyn.ll 222955435
+luajit/lj_opt_sink.ll 222946566
+luajit/lj_opt_sink_dyn.ll 222728866
 luajit/lj_parse.ll 2081913951
 luajit/lj_parse_dyn.ll 2081745615
 luajit/lj_prng.ll 63987339
@@ -15137,7 +15137,7 @@ luau/Clone.cpp.ll 2265137213
 luau/CodeAllocator.cpp.ll 217735936
 luau/CodeAllocator.test.cpp.ll 1394762937
 luau/CodeBlockUnwind.cpp.ll 51811697
-luau/CodeGen.cpp.ll 105280653
+luau/CodeGen.cpp.ll 105174212
 luau/CodeGenA64.cpp.ll 141189074
 luau/CodeGenAssembly.cpp.ll 1831768713
 luau/CodeGenContext.cpp.ll 1495728764
@@ -15392,7 +15392,7 @@ meilisearch-rs/4rynht2gwvphprvy.ll 17525532529
 meilisearch-rs/4spgntyrk3g2e624.ll 1650617716
 meilisearch-rs/4tsjgmg5dc8wpnes.ll 3599316160
 meilisearch-rs/50l87gnpqq82g6pe.ll 1038174547
-meilisearch-rs/54ajasddlqavlxt2.ll 2058401196
+meilisearch-rs/54ajasddlqavlxt2.ll 2065394118
 meilisearch-rs/55beptyn1v6yeqaz.ll 15592286221
 meilisearch-rs/564p8f6yhi59w8h9.ll 1219257701
 meilisearch-rs/5788mfqwwp628q0b.ll 1063271677
@@ -15574,7 +15574,7 @@ meshlab/gpuProgram.cpp.ll 321096415
 meshlab/gpuShader.cpp.ll 106143802
 meshlab/handle.cpp.ll 63368783
 meshlab/int_value.cpp.ll 139152757
-meshlab/intersection.cpp.ll 1174988632
+meshlab/intersection.cpp.ll 1173733758
 meshlab/io_bre.cpp.ll 5694089189
 meshlab/io_collada.cpp.ll 13650311017
 meshlab/io_ctm.cpp.ll 4760842667
@@ -15590,7 +15590,7 @@ meshlab/io_txt.cpp.ll 3578577203
 meshlab/io_u3d.cpp.ll 5616511853
 meshlab/io_x3d.cpp.ll 16491857109
 meshlab/layerDialog.cpp.ll 4429703827
-meshlab/levmarmethods.cpp.ll 254308219
+meshlab/levmarmethods.cpp.ll 253951885
 meshlab/load_project.cpp.ll 5981003885
 meshlab/load_save.cpp.ll 5335529549
 meshlab/logging.cpp.ll 369221622
@@ -15665,7 +15665,7 @@ meshlab/rich_matrix44.cpp.ll 80991922
 meshlab/rich_mesh.cpp.ll 62383412
 meshlab/rich_parameter.cpp.ll 1946019678
 meshlab/rich_parameter_list.cpp.ll 1994657639
-meshlab/rich_parameters.cpp.ll 523052906
+meshlab/rich_parameters.cpp.ll 522411319
 meshlab/rich_percentage.cpp.ll 87025055
 meshlab/rich_position.cpp.ll 65790207
 meshlab/rich_shot.cpp.ll 61788393
@@ -15698,7 +15698,7 @@ meshlab/variance_shadow_mapping.cpp.ll 1936257357
 meshlab/variance_shadow_mapping_blur.cpp.ll 1953088941
 meshlab/xmldocumentmanaging.cpp.ll 125692194
 meshoptimizer/clusterizer.cpp.ll 482467008
-meshoptimizer/indexcodec.cpp.ll 370081784
+meshoptimizer/indexcodec.cpp.ll 370455514
 meshoptimizer/indexgenerator.cpp.ll 458122148
 meshoptimizer/overdrawanalyzer.cpp.ll 211099730
 meshoptimizer/overdrawoptimizer.cpp.ll 260024237
@@ -15834,7 +15834,7 @@ minetest/core.cpp.ll 52003248
 minetest/craftdef.cpp.ll 3116086480
 minetest/database-dummy.cpp.ll 609270494
 minetest/database-files.cpp.ll 2033434454
-minetest/database-sqlite3.cpp.ll 2213062542
+minetest/database-sqlite3.cpp.ll 2216065232
 minetest/database.cpp.ll 50296567
 minetest/debug.cpp.ll 132786554
 minetest/defaultsettings.cpp.ll 3434719283
@@ -16095,7 +16095,7 @@ minetest/texturepaths.cpp.ll 363543666
 minetest/texturesource.cpp.ll 3434289210
 minetest/thread.cpp.ll 87696689
 minetest/tile.cpp.ll 46324767
-minetest/tileanimation.cpp.ll 107275923
+minetest/tileanimation.cpp.ll 107479303
 minetest/timetaker.cpp.ll 74672195
 minetest/tool.cpp.ll 869447986
 minetest/touchscreengui.cpp.ll 1392330034
@@ -16660,7 +16660,7 @@ msdfgen/edge-segments.cpp.ll 565085834
 msdfgen/edge-selectors.cpp.ll 263695414
 msdfgen/equation-solver.cpp.ll 60282428
 msdfgen/import-font.cpp.ll 351730362
-msdfgen/import-svg.cpp.ll 764291159
+msdfgen/import-svg.cpp.ll 765120083
 msdfgen/main.cpp.ll 1727789803
 msdfgen/msdf-error-correction.cpp.ll 915048436
 msdfgen/msdfgen.cpp.ll 883048895
@@ -16722,7 +16722,7 @@ nghttp2/nghttp2_session.c.ll 2331396904
 nghttp2/nghttp2_stream.c.ll 309649043
 nghttp2/nghttp2_submit.c.ll 168874664
 nghttp2/sfparse.c.ll 324119645
-nghttp2/url_parser.c.ll 244145569
+nghttp2/url_parser.c.ll 244508205
 ninja/browse.cc.ll 152178531
 ninja/build.cc.ll 2631164209
 ninja/build_log.cc.ll 618788248
@@ -16885,7 +16885,7 @@ nix/local-fs-store.ll 2791984421
 nix/local-keys.ll 2255658102
 nix/local-store.ll 10701496530
 nix/lock.ll 2935425676
-nix/lockfile.ll 12922615721
+nix/lockfile.ll 12936908392
 nix/log-store.ll 125232530
 nix/log.ll 3684178389
 nix/loggers.ll 2044397496
@@ -16971,7 +16971,7 @@ nix/substitution-goal.ll 4674600935
 nix/suggestions.ll 2063761807
 nix/tarball.ll 5881492409
 nix/tarfile.ll 2425523576
-nix/terminal.ll 363158548
+nix/terminal.ll 362780173
 nix/tests.ll 5829181132
 nix/thread-pool.ll 2745835530
 nix/trivial.ll 6526970240
@@ -16993,7 +16993,7 @@ nix/worker.ll 6834521352
 nix/xml-writer.ll 805958517
 nlohmann_json/unit-algorithms.cpp.ll 6496943905
 nlohmann_json/unit-allocator.cpp.ll 3139908372
-nlohmann_json/unit-alt-string.cpp.ll 5742471882
+nlohmann_json/unit-alt-string.cpp.ll 5748227418
 nlohmann_json/unit-assert_macro.cpp.ll 1325909290
 nlohmann_json/unit-binary_formats.cpp.ll 6467347944
 nlohmann_json/unit-bjdata.cpp.ll 29990032845
@@ -17193,7 +17193,7 @@ node/libnode.packet.ll 1055726518
 node/libnode.permission.ll 758032868
 node/libnode.pipe_wrap.ll 481789202
 node/libnode.preferredaddress.ll 269339655
-node/libnode.process_wrap.ll 633033295
+node/libnode.process_wrap.ll 634549063
 node/libnode.queue.ll 4365246939
 node/libnode.runtime_agent.ll 176411765
 node/libnode.session.ll 4475687234
@@ -17366,7 +17366,7 @@ nuttx/fs_pread.c.ll 45502679
 nuttx/fs_procfs.c.ll 146793163
 nuttx/fs_procfs_mount.c.ll 80461266
 nuttx/fs_procfsmeminfo.c.ll 68979632
-nuttx/fs_procfsproc.c.ll 221722141
+nuttx/fs_procfsproc.c.ll 221499774
 nuttx/fs_procfstcbinfo.c.ll 48480374
 nuttx/fs_procfsuptime.c.ll 48868032
 nuttx/fs_procfsutil.c.ll 49847820
@@ -17958,7 +17958,7 @@ ocio/Transform.cpp.ll 1054549061
 ocio/ViewTransform.cpp.ll 759852436
 ocio/ViewingRules.cpp.ll 1668934168
 ocio/XMLReaderHelper.cpp.ll 831650365
-ocio/XMLReaderUtils.cpp.ll 181090505
+ocio/XMLReaderUtils.cpp.ll 181273395
 ocio/XMLWriterUtils.cpp.ll 129064968
 ockam-rs/102n9ex6731b1fnk.ll 4113827557
 ockam-rs/10ibqeca0q5t101b.ll 2173833746
@@ -18017,7 +18017,7 @@ ockam-rs/1webxc5tel1wnzl3.ll 1708104332
 ockam-rs/1wrronmd8fr7c13v.ll 808526525
 ockam-rs/1xbvysxu5b6y4517.ll 52727280
 ockam-rs/1y67jc2e8hldxzxu.ll 1885783130
-ockam-rs/1ybc3zt4ylwuzsl9.ll 5638939532
+ockam-rs/1ybc3zt4ylwuzsl9.ll 5648389547
 ockam-rs/1ybu237lwdn3r9dv.ll 5898957759
 ockam-rs/1z7cyf6rmx8jvemg.ll 512061074
 ockam-rs/1znr2e86bp785yod.ll 495503157
@@ -18417,7 +18417,7 @@ oniguruma/unicode_fold3_key.ll 42132004
 oniguruma/unicode_unfold_key.ll 84147116
 oniguruma/utf16_be.ll 86289581
 oniguruma/utf16_le.ll 86457321
-oniguruma/utf32_be.ll 56064475
+oniguruma/utf32_be.ll 56007625
 oniguruma/utf32_le.ll 55968929
 oniguruma/utf8.ll 86363815
 openblas/blas_server.c.ll 158138853
@@ -19023,7 +19023,7 @@ opencv/Drawing_2.cpp.ll 367169166
 opencv/EqualizeHist_Demo.cpp.ll 74372224
 opencv/FilterTIG.cpp.ll 231295362
 opencv/Geometric_Transforms_Demo.cpp.ll 131797004
-opencv/HitMiss.cpp.ll 376247159
+opencv/HitMiss.cpp.ll 375787382
 opencv/HoughCircle_Demo.cpp.ll 150205938
 opencv/HoughLines_Demo.cpp.ll 178244507
 opencv/KAZEFeatures.cpp.ll 1417073354
@@ -19147,7 +19147,7 @@ opencv/bindings_utils.cpp.ll 244812299
 opencv/bitarray.cpp.ll 400440895
 opencv/bitmatrix.cpp.ll 802253961
 opencv/bitmatrixparser.cpp.ll 386793993
-opencv/bitsource.cpp.ll 85298211
+opencv/bitsource.cpp.ll 85211120
 opencv/bitstrm.cpp.ll 313753575
 opencv/blank_layer.cpp.ll 501656879
 opencv/blend.cpp.ll 149909987
@@ -19193,7 +19193,7 @@ opencv/cap_images.cpp.ll 572343200
 opencv/cap_mjpeg_decoder.cpp.ll 457942069
 opencv/cap_mjpeg_encoder.cpp.ll 1532750685
 opencv/cap_obsensor_capture.cpp.ll 492625274
-opencv/cap_pattern.cpp.ll 330942619
+opencv/cap_pattern.cpp.ll 331379936
 opencv/cap_v4l.cpp.ll 1660019550
 opencv/capsinpattern.cpp.ll 870803145
 opencv/cascade_detect_camera.cpp.ll 301850940
@@ -19283,7 +19283,7 @@ opencv/core_mat_checkVector.cpp.ll 54668922
 opencv/core_merge.cpp.ll 153096839
 opencv/core_reduce.cpp.ll 217933808
 opencv/core_split.cpp.ll 44831200
-opencv/core_various.cpp.ll 221191826
+opencv/core_various.cpp.ll 220970470
 opencv/coreml_ep.cpp.ll 35600693
 opencv/corner.cpp.ll 335452675
 opencv/cornerDetector_Demo.cpp.ll 196801877
@@ -19360,7 +19360,7 @@ opencv/detect_blob.cpp.ll 867699861
 opencv/detect_board.cpp.ll 459169818
 opencv/detect_board_charuco.cpp.ll 448056903
 opencv/detect_diamonds.cpp.ll 783673757
-opencv/detect_markers.cpp.ll 517333883
+opencv/detect_markers.cpp.ll 516761660
 opencv/detect_mser.cpp.ll 907785773
 opencv/detection_based_tracker.cpp.ll 1561061053
 opencv/detection_output_layer.cpp.ll 3946137939
@@ -19942,7 +19942,7 @@ opencv/ocl_test.cpp.ll 199003110
 opencv/ocr_beamsearch_decoder.cpp.ll 3160699658
 opencv/ocr_hmm_decoder.cpp.ll 4303520621
 opencv/ocr_holistic.cpp.ll 644105153
-opencv/ocr_tesseract.cpp.ll 278934461
+opencv/ocr_tesseract.cpp.ll 278619671
 opencv/odometry.cpp.ll 3030453621
 opencv/odometry_evaluation.cpp.ll 665657068
 opencv/oil.cpp.ll 188515016
@@ -20348,7 +20348,7 @@ opencv/spatialgradient.cpp.ll 124241321
 opencv/speech_recognition.cpp.ll 1633490815
 opencv/split.dispatch.cpp.ll 442456830
 opencv/split_layer.cpp.ll 244021016
-opencv/spv_shader.cpp.ll 156793205
+opencv/spv_shader.cpp.ll 156635080
 opencv/sqpnp.cpp.ll 1359209488
 opencv/squares.cpp.ll 452542012
 opencv/sr_bsds.cpp.ll 484565664
@@ -20403,7 +20403,7 @@ opencv/text_detection.cpp.ll 632301750
 opencv/text_detectorCNN.cpp.ll 538094675
 opencv/text_detector_swt.cpp.ll 6000829056
 opencv/text_recognition_cnn.cpp.ll 293161978
-opencv/text_skewness_correction.cpp.ll 148489436
+opencv/text_skewness_correction.cpp.ll 148339917
 opencv/textbox_demo.cpp.ll 235188921
 opencv/textdetection.cpp.ll 599774716
 opencv/textdetection_swt.cpp.ll 140678273
@@ -20458,7 +20458,7 @@ opencv/tracker_feature_set.cpp.ll 315727330
 opencv/tracker_goturn.cpp.ll 384086979
 opencv/tracker_mil.cpp.ll 1494479777
 opencv/tracker_mil_model.cpp.ll 584780446
-opencv/tracker_mil_state.cpp.ll 547309888
+opencv/tracker_mil_state.cpp.ll 547891583
 opencv/tracker_model.cpp.ll 767667872
 opencv/tracker_nano.cpp.ll 892383220
 opencv/tracker_sampler.cpp.ll 367023632
@@ -20532,7 +20532,7 @@ opencv/videoio_c.cpp.ll 70407803
 opencv/videoio_registry.cpp.ll 1515331542
 opencv/videostab.cpp.ll 3605416984
 opencv/videowriter_basic.cpp.ll 72477130
-opencv/vit_tracker.cpp.ll 346878462
+opencv/vit_tracker.cpp.ll 346501362
 opencv/vk_functions.cpp.ll 35594430
 opencv/vk_loader.cpp.ll 35600339
 opencv/volume.cpp.ll 277781868
@@ -20692,7 +20692,7 @@ openjdk/ArrayTypeImpl.ll 145749676
 openjdk/Blit.ll 68164888
 openjdk/BlitBg.ll 69891937
 openjdk/BootLoader.ll 36547501
-openjdk/BufImgSurfaceData.ll 203911958
+openjdk/BufImgSurfaceData.ll 203650366
 openjdk/BufferedMaskBlit.ll 131599639
 openjdk/BufferedRenderPipe.ll 54816762
 openjdk/ByteBinary1Bit.ll 597481205
@@ -20770,7 +20770,7 @@ openjdk/GarbageCollectorExtImpl.ll 37087048
 openjdk/GarbageCollectorImpl.ll 35786462
 openjdk/GcInfoBuilder.ll 116301842
 openjdk/GraphicsPrimitiveMgr.ll 208488149
-openjdk/HBShaper.ll 124135541
+openjdk/HBShaper.ll 124347385
 openjdk/HBShaper_Panama.ll 56230685
 openjdk/HeadlessToolkit.ll 34174348
 openjdk/HotSpotDiagnostic.ll 34885849
@@ -21014,7 +21014,7 @@ openjdk/barrierSetNMethod.ll 543463693
 openjdk/barrierSetNMethod_x86.ll 129008350
 openjdk/barrierSetStackChunk.ll 150196510
 openjdk/basicLock.ll 67815640
-openjdk/bcEscapeAnalyzer.ll 2050263644
+openjdk/bcEscapeAnalyzer.ll 2053112697
 openjdk/bfsClosure.ll 1616808580
 openjdk/bitMap.ll 628326001
 openjdk/block.ll 1827893586
@@ -21028,7 +21028,7 @@ openjdk/bytecodeInfo.ll 480635666
 openjdk/bytecodeStream.ll 53201916
 openjdk/bytecodeTracer.ll 884834362
 openjdk/bytecodeUtils.ll 805102009
-openjdk/bytecodes.ll 262083613
+openjdk/bytecodes.ll 261821029
 openjdk/c1_Canonicalizer.ll 871746621
 openjdk/c1_CodeStubs_x86.ll 445174724
 openjdk/c1_Compilation.ll 764925763
@@ -21112,7 +21112,7 @@ openjdk/ciMethodBlocks.ll 374168486
 openjdk/ciMethodData.ll 1189492325
 openjdk/ciMethodHandle.ll 107901041
 openjdk/ciMethodType.ll 129865325
-openjdk/ciNullObject.ll 55498786
+openjdk/ciNullObject.ll 55440547
 openjdk/ciObjArray.ll 576186260
 openjdk/ciObjArrayKlass.ll 209188955
 openjdk/ciObject.ll 829495290
@@ -21240,7 +21240,7 @@ openjdk/dependencyContext.ll 207287284
 openjdk/dfa_x86.ll 23755565884
 openjdk/dfsClosure.ll 1876046144
 openjdk/dgif_lib.ll 443708580
-openjdk/diagnosticArgument.ll 251173736
+openjdk/diagnosticArgument.ll 250869988
 openjdk/diagnosticCommand.ll 2136911416
 openjdk/diagnosticFramework.ll 630777637
 openjdk/dict.ll 205135459
@@ -21304,7 +21304,7 @@ openjdk/g1Allocator.ll 2788528997
 openjdk/g1Analytics.ll 153635609
 openjdk/g1Arguments.ll 2550537997
 openjdk/g1BarrierSet.ll 2556330780
-openjdk/g1BarrierSetAssembler_x86.ll 299250779
+openjdk/g1BarrierSetAssembler_x86.ll 298949849
 openjdk/g1BarrierSetC1.ll 397157518
 openjdk/g1BarrierSetC2.ll 476066367
 openjdk/g1BarrierSetRuntime.ll 75383501
@@ -21389,7 +21389,7 @@ openjdk/g1RootProcessor.ll 2589595927
 openjdk/g1SATBMarkQueueSet.ll 2511606362
 openjdk/g1ServiceThread.ll 153841500
 openjdk/g1StringDedup.ll 2478173976
-openjdk/g1SurvRateGroup.ll 100100974
+openjdk/g1SurvRateGroup.ll 99998098
 openjdk/g1SurvivorRegions.ll 111496340
 openjdk/g1Trace.ll 1309040501
 openjdk/g1UncommitRegionTask.ll 2536814612
@@ -21411,7 +21411,7 @@ openjdk/gcLocker.ll 133303788
 openjdk/gcLogPrecious.ll 68199634
 openjdk/gcNotifier.ll 714944866
 openjdk/gcOverheadChecker.ll 63147986
-openjdk/gcPolicyCounters.ll 76562228
+openjdk/gcPolicyCounters.ll 76484657
 openjdk/gcTimer.ll 247919463
 openjdk/gcTrace.ll 121359123
 openjdk/gcTraceSend.ll 2149767040
@@ -21462,7 +21462,7 @@ openjdk/hb-ot-color.ll 2791576413
 openjdk/hb-ot-face.ll 650679038
 openjdk/hb-ot-font.ll 10970974336
 openjdk/hb-ot-layout.ll 26843185783
-openjdk/hb-ot-map.ll 1044115522
+openjdk/hb-ot-map.ll 1045326402
 openjdk/hb-ot-math.ll 1642451456
 openjdk/hb-ot-meta.ll 453312800
 openjdk/hb-ot-metrics.ll 1166616203
@@ -21500,7 +21500,7 @@ openjdk/heapShared.ll 4282419747
 openjdk/hugepages.ll 180384926
 openjdk/icache.ll 80082862
 openjdk/icache_x86.ll 56319242
-openjdk/idealKit.ll 771221519
+openjdk/idealKit.ll 772068566
 openjdk/ifg.ll 1090688134
 openjdk/ifnode.ll 1291107821
 openjdk/imageDecompressor.ll 200898729
@@ -21600,7 +21600,7 @@ openjdk/jfrDeprecationEventWriter.ll 1342912107
 openjdk/jfrDeprecationManager.ll 395059083
 openjdk/jfrEmergencyDump.ll 1017985153
 openjdk/jfrEvent.ll 47882509
-openjdk/jfrEventClassTransformer.ll 4352190793
+openjdk/jfrEventClassTransformer.ll 4357017542
 openjdk/jfrEventSetting.ll 44406405
 openjdk/jfrEventThrottler.ll 113297747
 openjdk/jfrFinalizerStatisticsEvent.ll 647339286
@@ -21671,7 +21671,7 @@ openjdk/jidctint.ll 163986269
 openjdk/jidctred.ll 153399930
 openjdk/jimage.ll 72268118
 openjdk/jio.ll 36713742
-openjdk/jli_util.ll 116360503
+openjdk/jli_util.ll 116242396
 openjdk/jmemmgr.ll 314533412
 openjdk/jmemnobs.ll 43362927
 openjdk/jni.ll 6957987562
@@ -21855,9 +21855,9 @@ openjdk/mlib_ImageConvMxN_ext.ll 199628775
 openjdk/mlib_ImageConv_16ext.ll 1537162346
 openjdk/mlib_ImageConv_16nw.ll 1296548728
 openjdk/mlib_ImageConv_32nw.ll 680709202
-openjdk/mlib_ImageConv_8ext.ll 1541619180
+openjdk/mlib_ImageConv_8ext.ll 1544043065
 openjdk/mlib_ImageConv_8nw.ll 1303657910
-openjdk/mlib_ImageConv_D64nw.ll 699571008
+openjdk/mlib_ImageConv_D64nw.ll 698267081
 openjdk/mlib_ImageConv_F32nw.ll 708656998
 openjdk/mlib_ImageConv_u16ext.ll 1548557359
 openjdk/mlib_ImageConv_u16nw.ll 1312205158
@@ -21874,7 +21874,7 @@ openjdk/mlib_c_ImageAffine_BL.ll 344827598
 openjdk/mlib_c_ImageAffine_BL_S16.ll 379147592
 openjdk/mlib_c_ImageAffine_BL_U16.ll 396691770
 openjdk/mlib_c_ImageAffine_NN.ll 307948458
-openjdk/mlib_c_ImageConvClearEdge.ll 280019990
+openjdk/mlib_c_ImageConvClearEdge.ll 279569015
 openjdk/mlib_c_ImageConvCopyEdge.ll 418490529
 openjdk/mlib_c_ImageConvVersion.ll 38395776
 openjdk/mlib_c_ImageConv_f.ll 40253060
@@ -21972,9 +21972,9 @@ openjdk/parse3.ll 410258456
 openjdk/parseHelper.ll 236083693
 openjdk/parse_manifest.ll 286336302
 openjdk/parserTests.ll 1430640601
-openjdk/partialArrayTaskStepper.ll 42307824
+openjdk/partialArrayTaskStepper.ll 42263854
 openjdk/pathToGcRootsOperation.ll 164285880
-openjdk/path_util.ll 100546727
+openjdk/path_util.ll 100424171
 openjdk/pcDesc.ll 42059467
 openjdk/pcsc.ll 167733847
 openjdk/pcsc_md.ll 65893090
@@ -22164,7 +22164,7 @@ openjdk/spaceCounters.ll 96736270
 openjdk/spinYield.ll 67941009
 openjdk/splashscreen_gfx_impl.ll 303294527
 openjdk/splashscreen_gif.ll 144260738
-openjdk/splashscreen_impl.ll 293731657
+openjdk/splashscreen_impl.ll 294109543
 openjdk/splashscreen_jpeg.ll 83644865
 openjdk/splashscreen_png.ll 73760791
 openjdk/splashscreen_stubs.ll 51941042
@@ -22189,7 +22189,7 @@ openjdk/stringDedup.ll 419931184
 openjdk/stringDedupConfig.ll 77418778
 openjdk/stringDedupProcessor.ll 1044494770
 openjdk/stringDedupStat.ll 183382808
-openjdk/stringDedupStorageUse.ll 77918070
+openjdk/stringDedupStorageUse.ll 77799487
 openjdk/stringDedupTable.ll 1893570645
 openjdk/stringDedupThread.ll 60323032
 openjdk/stringTable.ll 3005692815
@@ -22390,7 +22390,7 @@ openjdk/xRelocationSetSelector.ll 799655924
 openjdk/xResurrection.ll 39039186
 openjdk/xRootsIterator.ll 816488776
 openjdk/xRuntimeWorkers.ll 74240736
-openjdk/xServiceability.ll 100326939
+openjdk/xServiceability.ll 100427402
 openjdk/xStackWatermark.ll 96066684
 openjdk/xStat.ll 973332913
 openjdk/xSyscall_linux.ll 38359108
@@ -22412,7 +22412,7 @@ openjdk/zAbort.ll 38400459
 openjdk/zAddress.ll 94423515
 openjdk/zAddressSpaceLimit.ll 44822267
 openjdk/zAddress_x86.ll 57349550
-openjdk/zAllocator.ll 55873064
+openjdk/zAllocator.ll 55815569
 openjdk/zArguments.ll 99220517
 openjdk/zArguments_posix.ll 35382195
 openjdk/zBarrier.ll 398968458
@@ -22623,7 +22623,7 @@ openmpi/coll_base_exscan.ll 137360123
 openmpi/coll_base_find_available.ll 68432190
 openmpi/coll_base_frame.ll 84111751
 openmpi/coll_base_gather.ll 193980746
-openmpi/coll_base_reduce.ll 447720446
+openmpi/coll_base_reduce.ll 448195142
 openmpi/coll_base_reduce_scatter.ll 382950037
 openmpi/coll_base_reduce_scatter_block.ll 485781568
 openmpi/coll_base_scan.ll 141919408
@@ -22729,7 +22729,7 @@ openmpi/coll_tuned_alltoall_decision.ll 63546924
 openmpi/coll_tuned_alltoallv_decision.ll 54726714
 openmpi/coll_tuned_barrier_decision.ll 54748022
 openmpi/coll_tuned_bcast_decision.ll 62342389
-openmpi/coll_tuned_component.ll 51989730
+openmpi/coll_tuned_component.ll 51937091
 openmpi/coll_tuned_decision_dynamic.ll 141947856
 openmpi/coll_tuned_decision_fixed.ll 371652147
 openmpi/coll_tuned_dynamic_file.ll 87234021
@@ -22917,7 +22917,7 @@ openmpi/iof_prted_read.ll 126957227
 openmpi/iof_prted_receive.ll 62879582
 openmpi/k-partitioning.ll 297822055
 openmpi/keyval_lex.ll 396816881
-openmpi/keyval_parse.ll 205698483
+openmpi/keyval_parse.ll 205930214
 openmpi/libdatatype_reliable_la-opal_datatype_pack.ll 4605115027
 openmpi/libdatatype_reliable_la-opal_datatype_unpack.ll 2852527211
 openmpi/libdebuggers_la-ompi_debuggers.ll 50309626
@@ -23000,7 +23000,7 @@ openmpi/libmpi_c_profile_la-comm_set_name.ll 69775805
 openmpi/libmpi_c_profile_la-comm_size.ll 47975167
 openmpi/libmpi_c_profile_la-comm_spawn.ll 117513446
 openmpi/libmpi_c_profile_la-comm_spawn_multiple.ll 149489385
-openmpi/libmpi_c_profile_la-comm_split.ll 80930019
+openmpi/libmpi_c_profile_la-comm_split.ll 80846676
 openmpi/libmpi_c_profile_la-comm_split_type.ll 94030686
 openmpi/libmpi_c_profile_la-comm_test_inter.ll 47832759
 openmpi/libmpi_c_profile_la-compare_and_swap.ll 85051430
@@ -23263,7 +23263,7 @@ openmpi/libmpi_c_profile_la-status_f2c.ll 48062217
 openmpi/libmpi_c_profile_la-status_f2f08.ll 44184784
 openmpi/libmpi_c_profile_la-status_set_cancelled.ll 41966246
 openmpi/libmpi_c_profile_la-status_set_elements.ll 50238850
-openmpi/libmpi_c_profile_la-status_set_elements_x.ll 50204893
+openmpi/libmpi_c_profile_la-status_set_elements_x.ll 50154304
 openmpi/libmpi_c_profile_la-test.ll 44553556
 openmpi/libmpi_c_profile_la-test_cancelled.ll 41807592
 openmpi/libmpi_c_profile_la-testall.ll 58269029
@@ -23404,7 +23404,7 @@ openmpi/libprrte_la-prte_data_server.ll 607990912
 openmpi/libprrte_la-prte_dt_copy_fns.ll 113927045
 openmpi/libprrte_la-prte_dt_print_fns.ll 237483601
 openmpi/libprrte_la-prte_dt_unpacking_fns.ll 674958078
-openmpi/libprrte_la-prte_finalize.ll 151385345
+openmpi/libprrte_la-prte_finalize.ll 151189654
 openmpi/libprrte_la-prte_globals.ll 475606723
 openmpi/libprrte_la-prte_init.ll 210120537
 openmpi/libprrte_la-prte_mca_params.ll 92173270
@@ -23429,7 +23429,7 @@ openmpi/mca_base_components_open.ll 144350796
 openmpi/mca_base_components_register.ll 75444469
 openmpi/mca_base_components_select.ll 52457194
 openmpi/mca_base_framework.ll 129742613
-openmpi/mca_base_open.ll 105936387
+openmpi/mca_base_open.ll 105736298
 openmpi/mca_base_parse_paramfile.ll 60109972
 openmpi/mca_base_pvar.ll 401808358
 openmpi/mca_base_var.ll 791429140
@@ -23482,7 +23482,7 @@ openmpi/nbc_ibarrier.ll 158679660
 openmpi/nbc_ibcast.ll 287968704
 openmpi/nbc_iexscan.ll 153451460
 openmpi/nbc_igather.ll 157323592
-openmpi/nbc_igatherv.ll 155323895
+openmpi/nbc_igatherv.ll 155153358
 openmpi/nbc_ineighbor_allgather.ll 105113542
 openmpi/nbc_ineighbor_allgatherv.ll 104956439
 openmpi/nbc_ineighbor_alltoall.ll 107246132
@@ -23490,7 +23490,7 @@ openmpi/nbc_ineighbor_alltoallv.ll 107221136
 openmpi/nbc_ineighbor_alltoallw.ll 101841143
 openmpi/nbc_ireduce.ll 535293087
 openmpi/nbc_ireduce_scatter.ll 274937276
-openmpi/nbc_ireduce_scatter_block.ll 268287291
+openmpi/nbc_ireduce_scatter_block.ll 268851719
 openmpi/nbc_iscan.ll 144808470
 openmpi/nbc_iscatter.ll 154662566
 openmpi/nbc_iscatterv.ll 148457616
@@ -23550,7 +23550,7 @@ openmpi/opal_copy_functions.ll 158125109
 openmpi/opal_copy_functions_heterogeneous.ll 778024275
 openmpi/opal_cstring.ll 80481544
 openmpi/opal_datatype_add.ll 149577468
-openmpi/opal_datatype_copy.ll 273649948
+openmpi/opal_datatype_copy.ll 273324878
 openmpi/opal_datatype_create.ll 63882017
 openmpi/opal_datatype_destroy.ll 47630637
 openmpi/opal_datatype_dump.ll 134357692
@@ -23558,7 +23558,7 @@ openmpi/opal_datatype_fake_stack.ll 107029393
 openmpi/opal_datatype_get_count.ll 126157013
 openmpi/opal_datatype_monotonic.ll 63224998
 openmpi/opal_datatype_optimize.ll 324163197
-openmpi/opal_datatype_pack.ll 4592116420
+openmpi/opal_datatype_pack.ll 4598957615
 openmpi/opal_datatype_position.ll 137100692
 openmpi/opal_datatype_unpack.ll 2847315674
 openmpi/opal_environ.ll 76713155
@@ -23586,7 +23586,7 @@ openmpi/opal_rb_tree.ll 308732233
 openmpi/opal_ring_buffer.ll 100821938
 openmpi/opal_value_array.ll 44197287
 openmpi/opal_wrapper.ll 377347653
-openmpi/os_dirpath.ll 120897041
+openmpi/os_dirpath.ll 121075845
 openmpi/os_path.ll 63988342
 openmpi/osc_base_frame.ll 73204988
 openmpi/osc_base_init.ll 50544876
@@ -23596,7 +23596,7 @@ openmpi/osc_rdma_accumulate.ll 1137198756
 openmpi/osc_rdma_active_target.ll 604955121
 openmpi/osc_rdma_btl_comm.ll 65293555
 openmpi/osc_rdma_comm.ll 644162011
-openmpi/osc_rdma_component.ll 642616025
+openmpi/osc_rdma_component.ll 643297711
 openmpi/osc_rdma_dynamic.ll 572070152
 openmpi/osc_rdma_module.ll 149800799
 openmpi/osc_rdma_passive_target.ll 484245270
@@ -23647,7 +23647,7 @@ openmpi/pdl_pdlopen_component.ll 40325646
 openmpi/pdl_pdlopen_module.ll 104701333
 openmpi/perror_string_f.ll 63287339
 openmpi/pevent.ll 149346571
-openmpi/pfexec_base_default_fns.ll 464814402
+openmpi/pfexec_base_default_fns.ll 465678601
 openmpi/pfexec_base_frame.ll 122280354
 openmpi/pfexec_base_select.ll 37384446
 openmpi/pfexec_linux.ll 244936519
@@ -23661,7 +23661,7 @@ openmpi/pgpu_base_frame.ll 97473784
 openmpi/pgpu_base_select.ll 83659346
 openmpi/pgroup_from_session_pset_f.ll 65339785
 openmpi/pif_base_components.ll 70708505
-openmpi/pif_posix.ll 152356857
+openmpi/pif_posix.ll 152614227
 openmpi/pinfo_delete_f.ll 63570972
 openmpi/pinfo_get_f.ll 84358813
 openmpi/pinfo_get_nthkey_f.ll 73534810
@@ -23737,7 +23737,7 @@ openmpi/pmix_if.ll 275431144
 openmpi/pmix_info.ll 130366459
 openmpi/pmix_init.ll 238253374
 openmpi/pmix_iof.ll 1663642230
-openmpi/pmix_keyval_parse.ll 205488767
+openmpi/pmix_keyval_parse.ll 205132747
 openmpi/pmix_list.ll 83114351
 openmpi/pmix_log.ll 302416906
 openmpi/pmix_mca_base_alias.ll 150080109
@@ -23902,7 +23902,7 @@ openmpi/pwaitsome_f.ll 61504201
 openmpi/pwin_set_name_f.ll 63580045
 openmpi/queries.ll 460160469
 openmpi/ras_base_allocate.ll 723856167
-openmpi/ras_base_frame.ll 38893453
+openmpi/ras_base_frame.ll 38853557
 openmpi/ras_base_node.ll 141267138
 openmpi/ras_base_select.ll 37100557
 openmpi/ras_pbs_component.ll 40202058
@@ -23938,7 +23938,7 @@ openmpi/rmaps_base_map_job.ll 738124834
 openmpi/rmaps_base_ranking.ll 253200830
 openmpi/rmaps_base_select.ll 82393021
 openmpi/rmaps_base_support_fns.ll 451641852
-openmpi/rmaps_ppr.ll 246113192
+openmpi/rmaps_ppr.ll 246422802
 openmpi/rmaps_rank_file.ll 489034102
 openmpi/rmaps_rank_file_lex.ll 406563947
 openmpi/rmaps_rr.ll 116676863
@@ -24058,7 +24058,7 @@ openmpi/tsd.ll 96926256
 openmpi/unpack.ll 858277917
 openmpi/uri.ll 68941879
 openmpi/utils.ll 61791292
-openmpi/version.ll 124241253
+openmpi/version.ll 124374670
 openmpi/vprotocol_base_parasite.ll 54189586
 openmpi/vprotocol_base_request.ll 66057200
 openmpi/vprotocol_base_select.ll 84042747
@@ -24532,7 +24532,7 @@ openssl/libcrypto-lib-dh_lib.ll 98977329
 openssl/libcrypto-lib-dh_meth.ll 58425362
 openssl/libcrypto-lib-dh_pmeth.ll 123031974
 openssl/libcrypto-lib-digest.ll 403463257
-openssl/libcrypto-lib-dsa_ameth.ll 136600004
+openssl/libcrypto-lib-dsa_ameth.ll 136773829
 openssl/libcrypto-lib-dsa_asn1.ll 47553896
 openssl/libcrypto-lib-dsa_backend.ll 73815409
 openssl/libcrypto-lib-dsa_check.ll 50026241
@@ -24711,7 +24711,7 @@ openssl/libcrypto-lib-p12_utl.ll 146432407
 openssl/libcrypto-lib-p5_crpt.ll 60339722
 openssl/libcrypto-lib-p5_crpt2.ll 85560308
 openssl/libcrypto-lib-p5_pbe.ll 59242722
-openssl/libcrypto-lib-p8_pkey.ll 56431171
+openssl/libcrypto-lib-p8_pkey.ll 56371886
 openssl/libcrypto-lib-p_legacy.ll 51477005
 openssl/libcrypto-lib-p_lib.ll 606224240
 openssl/libcrypto-lib-p_open.ll 46766901
@@ -24860,7 +24860,7 @@ openssl/libcrypto-lib-v3_admis.ll 148918789
 openssl/libcrypto-lib-v3_akeya.ll 39374745
 openssl/libcrypto-lib-v3_asid.ll 337097902
 openssl/libcrypto-lib-v3_bcons.ll 57217355
-openssl/libcrypto-lib-v3_conf.ll 187981644
+openssl/libcrypto-lib-v3_conf.ll 187792722
 openssl/libcrypto-lib-v3_cpols.ll 315945164
 openssl/libcrypto-lib-v3_crld.ll 220369012
 openssl/libcrypto-lib-v3_genn.ll 88928378
@@ -24936,7 +24936,7 @@ openssl/libcrypto-shlib-a_verify.ll 76753696
 openssl/libcrypto-shlib-aes_ige.ll 158597836
 openssl/libcrypto-shlib-aes_misc.ll 33739660
 openssl/libcrypto-shlib-ameth_lib.ll 128814442
-openssl/libcrypto-shlib-api.ll 39442146
+openssl/libcrypto-shlib-api.ll 39402447
 openssl/libcrypto-shlib-arch.ll 62238647
 openssl/libcrypto-shlib-aria.ll 681671908
 openssl/libcrypto-shlib-asn1_dsa.ll 132618307
@@ -25122,7 +25122,7 @@ openssl/libcrypto-shlib-dh_lib.ll 98945616
 openssl/libcrypto-shlib-dh_meth.ll 58425753
 openssl/libcrypto-shlib-dh_pmeth.ll 123032607
 openssl/libcrypto-shlib-digest.ll 403228615
-openssl/libcrypto-shlib-dsa_ameth.ll 136597742
+openssl/libcrypto-shlib-dsa_ameth.ll 136772232
 openssl/libcrypto-shlib-dsa_asn1.ll 47557018
 openssl/libcrypto-shlib-dsa_backend.ll 73815651
 openssl/libcrypto-shlib-dsa_check.ll 50026783
@@ -25592,7 +25592,7 @@ openssl/libdefault-lib-md5_prov.ll 45843039
 openssl/libdefault-lib-md5_sha1_prov.ll 53926933
 openssl/libdefault-lib-null_prov.ll 46716393
 openssl/libdefault-lib-pbkdf2.ll 175596367
-openssl/libdefault-lib-pkcs12kdf.ll 166634811
+openssl/libdefault-lib-pkcs12kdf.ll 166838013
 openssl/libdefault-lib-poly1305_prov.ll 60586632
 openssl/libdefault-lib-provider_seeding.ll 79304343
 openssl/libdefault-lib-provider_util.ll 112487413
@@ -25921,7 +25921,7 @@ openssl/quic-lcidm-test-bin-quic-lcidm.ll 148606033
 openssl/quic-srtm-test-bin-fuzz_rand.ll 58688757
 openssl/quic-srtm-test-bin-quic-srtm.ll 135651022
 openssl/quic_ackm_test-bin-cc_dummy.ll 55677649
-openssl/quic_ackm_test-bin-quic_ackm_test.ll 328720332
+openssl/quic_ackm_test-bin-quic_ackm_test.ll 328334176
 openssl/quic_cc_test-bin-quic_cc_test.ll 186746526
 openssl/quic_cfq_test-bin-quic_cfq_test.ll 99002350
 openssl/quic_client_test-bin-quic_client_test.ll 93309737
@@ -26004,14 +26004,14 @@ openssl/ssl_old_test-bin-ssl_old_test.ll 1192126653
 openssl/ssl_test-bin-handshake.ll 445752665
 openssl/ssl_test-bin-handshake_srp.ll 52453903
 openssl/ssl_test-bin-ssl_test.ll 231530287
-openssl/ssl_test-bin-ssl_test_ctx.ll 324807638
+openssl/ssl_test-bin-ssl_test_ctx.ll 325203395
 openssl/ssl_test_ctx_test-bin-ssl_test_ctx.ll 325151586
 openssl/ssl_test_ctx_test-bin-ssl_test_ctx_test.ll 119106085
 openssl/sslapitest-bin-filterprov.ll 88181778
 openssl/sslapitest-bin-sslapitest.ll 2787731577
 openssl/sslapitest-bin-ssltestlib.ll 456957662
 openssl/sslapitest-bin-tls-provider.ll 965569138
-openssl/sslbuffertest-bin-sslbuffertest.ll 137076047
+openssl/sslbuffertest-bin-sslbuffertest.ll 137354474
 openssl/sslbuffertest-bin-ssltestlib.ll 456959304
 openssl/sslcorrupttest-bin-sslcorrupttest.ll 113192794
 openssl/sslcorrupttest-bin-ssltestlib.ll 456960873
@@ -26849,7 +26849,7 @@ postgres/dict_snowball.ll 105883317
 postgres/dict_synonym.ll 107242204
 postgres/dict_thesaurus.ll 487526046
 postgres/domains.ll 112087176
-postgres/dropcmds.ll 301826832
+postgres/dropcmds.ll 301414364
 postgres/dropdb.ll 64056656
 postgres/dropuser.ll 60888983
 postgres/dsa.ll 470962908
@@ -26902,7 +26902,7 @@ postgres/execute.ll 852739879
 postgres/expandedrecord.ll 310358065
 postgres/explain.ll 1717971284
 postgres/exprparse.ll 267022053
-postgres/exprscan.ll 531607062
+postgres/exprscan.ll 530931085
 postgres/extended_stats.ll 902594885
 postgres/extensible.ll 50988365
 postgres/extension.ll 1058483559
@@ -26921,7 +26921,7 @@ postgres/fe-misc.ll 236313845
 postgres/fe-print.ll 387635541
 postgres/fe-protocol3.ll 579643700
 postgres/fe-secure.ll 76279162
-postgres/fe-trace.ll 310341233
+postgres/fe-trace.ll 309931752
 postgres/fe_memutils.ll 92276335
 postgres/fe_memutils_shlib.ll 92256851
 postgres/file.ll 143786802
@@ -26961,11 +26961,11 @@ postgres/getpeereid.ll 37294934
 postgres/getpeereid_shlib.ll 37272209
 postgres/getpeereid_srv.ll 37273315
 postgres/ginarrayproc.ll 96811988
-postgres/ginbtree.ll 285398307
+postgres/ginbtree.ll 285726295
 postgres/ginbulk.ll 106869515
 postgres/gindatapage.ll 770216935
 postgres/gindesc.ll 77132274
-postgres/ginentrypage.ll 283315506
+postgres/ginentrypage.ll 283606224
 postgres/ginfast.ll 347547561
 postgres/ginget.ll 1246699841
 postgres/gininsert.ll 144669076
@@ -26999,7 +26999,7 @@ postgres/hashfn.ll 293742215
 postgres/hashfn_shlib.ll 293560898
 postgres/hashfn_srv.ll 293742896
 postgres/hashfunc.ll 139728169
-postgres/hashinsert.ll 168484919
+postgres/hashinsert.ll 168285678
 postgres/hashovfl.ll 349250864
 postgres/hashpage.ll 363349245
 postgres/hashsearch.ll 214927911
@@ -27166,7 +27166,7 @@ postgres/nodeHashjoin.ll 356474803
 postgres/nodeIncrementalSort.ll 232780542
 postgres/nodeIndexonlyscan.ll 133698619
 postgres/nodeIndexscan.ll 447259724
-postgres/nodeLimit.ll 122465217
+postgres/nodeLimit.ll 122342585
 postgres/nodeLockRows.ll 118607900
 postgres/nodeMaterial.ll 71239960
 postgres/nodeMemoize.ll 565408855
@@ -27389,8 +27389,8 @@ postgres/psqlscanslash.ll 533933785
 postgres/publicationcmds.ll 595686530
 postgres/qsort.ll 166390567
 postgres/qsort_arg.ll 166767659
-postgres/qsort_arg_shlib.ll 166653009
-postgres/qsort_arg_srv.ll 166616074
+postgres/qsort_arg_shlib.ll 166380892
+postgres/qsort_arg_srv.ll 167164630
 postgres/qsort_interruptible.ll 157553188
 postgres/qsort_shlib.ll 166270203
 postgres/qsort_srv.ll 166391199
@@ -27406,7 +27406,7 @@ postgres/rangetypes_typanalyze.ll 122879879
 postgres/rbtree.ll 293762507
 postgres/read.ll 145069857
 postgres/readfuncs.ll 3034745815
-postgres/receivelog.ll 394478272
+postgres/receivelog.ll 395208448
 postgres/reconstruct.ll 241379878
 postgres/recovery_gen.ll 60771515
 postgres/refint.ll 210271339
@@ -27489,7 +27489,7 @@ postgres/smgr.ll 156730116
 postgres/snapbuild.ll 353507631
 postgres/snapmgr.ll 427480715
 postgres/snprintf.ll 542122827
-postgres/snprintf_shlib.ll 541030944
+postgres/snprintf_shlib.ll 541675417
 postgres/snprintf_srv.ll 542123655
 postgres/sortsupport.ll 62917576
 postgres/spccache.ll 61411291
@@ -27497,14 +27497,14 @@ postgres/specparse.ll 138661790
 postgres/specscanner.ll 428358167
 postgres/spell.ll 1268464670
 postgres/spgdesc.ll 57342320
-postgres/spgdoinsert.ll 1085036276
+postgres/spgdoinsert.ll 1086520188
 postgres/spgkdtreeproc.ll 136845701
 postgres/spgproc.ll 63183295
 postgres/spgquadtreeproc.ll 157458081
 postgres/spgscan.ll 430590944
 postgres/spgtextproc.ll 323054773
 postgres/spgutils.ll 376741665
-postgres/spgvacuum.ll 379157767
+postgres/spgvacuum.ll 379875674
 postgres/spgvalidate.ll 144777654
 postgres/spgxlog.ll 393283708
 postgres/spi.ll 729707735
@@ -27604,7 +27604,7 @@ postgres/tid.ll 151717618
 postgres/tidbitmap.ll 735706444
 postgres/tidpath.ll 177599501
 postgres/timeline.ll 65308155
-postgres/timeout.ll 181185970
+postgres/timeout.ll 181002336
 postgres/timestamp.ll 254219037
 postgres/tlist.ll 519303073
 postgres/to_tsany.ll 248766451
@@ -27692,7 +27692,7 @@ postgres/visibilitymap.ll 152681293
 postgres/wait_error.ll 52927277
 postgres/wait_error_shlib.ll 52862150
 postgres/wait_error_srv.ll 52886159
-postgres/wait_event.ll 166998599
+postgres/wait_event.ll 166569649
 postgres/walmethods.ll 225304680
 postgres/walreceiver.ll 411587497
 postgres/walreceiverfuncs.ll 95228580
@@ -27803,7 +27803,7 @@ proj/geod_interface.cpp.ll 42483750
 proj/geod_set.cpp.ll 72528914
 proj/geodesic.c.ll 1048017060
 proj/geos.cpp.ll 81736799
-proj/gie.cpp.ll 1313403055
+proj/gie.cpp.ll 1315148500
 proj/gins8.cpp.ll 42396569
 proj/gn_sinu.cpp.ll 101159801
 proj/gnom.cpp.ll 90174869
@@ -28007,7 +28007,7 @@ protobuf/helpers.cc.ll 8360274881
 protobuf/implicit_weak_message.cc.ll 92371931
 protobuf/import_writer.cc.ll 1273444796
 protobuf/importer.cc.ll 664528081
-protobuf/internal_message_util.cc.ll 197406028
+protobuf/internal_message_util.cc.ll 197154604
 protobuf/java_features.pb.cc.ll 159364690
 protobuf/json.cc.ll 78370157
 protobuf/kotlin_generator.cc.ll 1300154364
@@ -28123,7 +28123,7 @@ proxygen/HTTPChecks.cpp.ll 202430871
 proxygen/HTTPCodecFactory.cpp.ll 102035339
 proxygen/HTTPCodecFilter.cpp.ll 359607502
 proxygen/HTTPCodecPrinter.cpp.ll 568209861
-proxygen/HTTPCommonHeaders.cpp.ll 112561583
+proxygen/HTTPCommonHeaders.cpp.ll 112707230
 proxygen/HTTPConnectorWithFizz.cpp.ll 3811359341
 proxygen/HTTPConstants.cpp.ll 36725409
 proxygen/HTTPDefaultSessionCodecFactory.cpp.ll 248670413
@@ -28432,7 +28432,7 @@ qdrant-rs/my4kurw7kfuilbb.ll 76669257
 qdrant-rs/pgs97hhgng8x0qz.ll 1437957294
 qdrant-rs/sedbj8nhra2xwht.ll 151179750
 qdrant-rs/sj5of5lm3ht37k.ll 50106896
-qdrant-rs/uatwcg08ml5doso.ll 265962614
+qdrant-rs/uatwcg08ml5doso.ll 266409941
 qdrant-rs/uu41ry9raefz17n.ll 38618985
 qdrant-rs/yy4gik10e8xjuga.ll 69044505
 qemu/.._libqmp.c.ll 116761619
@@ -28445,7 +28445,7 @@ qemu/accel_tcg_cpu-exec.c.ll 462237661
 qemu/accel_tcg_cputlb.c.ll 2974942392
 qemu/accel_tcg_icount-common.c.ll 208098190
 qemu/accel_tcg_monitor.c.ll 106404216
-qemu/accel_tcg_perf.c.ll 162763031
+qemu/accel_tcg_perf.c.ll 162933628
 qemu/accel_tcg_plugin-gen.c.ll 423946458
 qemu/accel_tcg_tb-maint.c.ll 216765874
 qemu/accel_tcg_tcg-accel-ops-icount.c.ll 58608934
@@ -28753,7 +28753,7 @@ qemu/hw_net_can_can_kvaser_pci.c.ll 70015332
 qemu/hw_net_can_can_sja1000.c.ll 369684277
 qemu/hw_net_can_ctucan_core.c.ll 272491859
 qemu/hw_net_can_ctucan_pci.c.ll 78304161
-qemu/hw_net_e1000.c.ll 1012617153
+qemu/hw_net_e1000.c.ll 1014232723
 qemu/hw_net_e1000e.c.ll 329902003
 qemu/hw_net_e1000e_core.c.ll 2762182248
 qemu/hw_net_e1000x_common.c.ll 299128422
@@ -28932,7 +28932,7 @@ qemu/link-test.c.ll 39521736
 qemu/linux-user_elfload.c.ll 654395188
 qemu/linux-user_fd-trans.c.ll 934544253
 qemu/linux-user_linuxload.c.ll 119665898
-qemu/linux-user_main.c.ll 248627974
+qemu/linux-user_main.c.ll 248379007
 qemu/linux-user_mmap.c.ll 412957624
 qemu/linux-user_riscv_signal.c.ll 118811347
 qemu/linux-user_signal.c.ll 453901104
@@ -29000,7 +29000,7 @@ qemu/meson-generated_.._qapi_qapi-visit-compat.c.ll 52486442
 qemu/meson-generated_.._qapi_qapi-visit-control.c.ll 89920778
 qemu/meson-generated_.._qapi_qapi-visit-crypto.c.ll 290810427
 qemu/meson-generated_.._qapi_qapi-visit-cxl.c.ll 102517633
-qemu/meson-generated_.._qapi_qapi-visit-dump.c.ll 74564190
+qemu/meson-generated_.._qapi_qapi-visit-dump.c.ll 74487037
 qemu/meson-generated_.._qapi_qapi-visit-introspect.c.ll 189157174
 qemu/meson-generated_.._qapi_qapi-visit-job.c.ll 69806975
 qemu/meson-generated_.._qapi_qapi-visit-machine-target.c.ll 78283204
@@ -29086,7 +29086,7 @@ qemu/net_stream.c.ll 107902009
 qemu/net_tap-linux.c.ll 100398502
 qemu/net_tap.c.ll 355115341
 qemu/net_util.c.ll 48150328
-qemu/net_vhost-user.c.ll 160200443
+qemu/net_vhost-user.c.ll 160027603
 qemu/net_vhost-vdpa.c.ll 504780340
 qemu/optimize.c.ll 1671173267
 qemu/page-vary-common.c.ll 38538321
@@ -29111,7 +29111,7 @@ qemu/qapi_string-output-visitor.c.ll 132529164
 qemu/qemu-io-cmds.c.ll 789948714
 qemu/qgraph.c.ll 255181419
 qemu/qobject_block-qdict.c.ll 286096290
-qemu/qobject_json-parser.c.ll 383632987
+qemu/qobject_json-parser.c.ll 384083856
 qemu/qobject_json-writer.c.ll 110102600
 qemu/qobject_qbool.c.ll 56948023
 qemu/qobject_qdict.c.ll 329755635
@@ -29157,7 +29157,7 @@ qemu/source_s_shiftRightJam256M.c.ll 71425846
 qemu/source_s_shiftRightJam32.c.ll 37313323
 qemu/source_s_subMagsF16.c.ll 94715223
 qemu/stats_stats-hmp-cmds.c.ll 159619702
-qemu/stats_stats-qmp-cmds.c.ll 90569808
+qemu/stats_stats-qmp-cmds.c.ll 90698579
 qemu/stubs_bdrv-next-monitor-owned.c.ll 33941973
 qemu/stubs_blk-commit-all.c.ll 33680840
 qemu/stubs_change-state-handler.c.ll 34671484
@@ -29288,7 +29288,7 @@ qemu/util_bitmap.c.ll 247799006
 qemu/util_bitops.c.ll 96145210
 qemu/util_block-helpers.c.ll 38302056
 qemu/util_buffer.c.ll 132437103
-qemu/util_cacheflush.c.ll 50152304
+qemu/util_cacheflush.c.ll 50100748
 qemu/util_compatfd.c.ll 46642207
 qemu/util_coroutine-ucontext.c.ll 63819850
 qemu/util_cpuinfo-i386.c.ll 76011960
@@ -29350,7 +29350,7 @@ qemu/virtio-9p-client.c.ll 527551475
 qemu/virtio-9p.c.ll 86082882
 qemu/virtio-mmio.c.ll 104469118
 qemu/virtio-pci-modern.c.ll 158286490
-qemu/virtio-pci.c.ll 146180023
+qemu/virtio-pci.c.ll 146031900
 qemu/virtio.c.ll 196763390
 qoi/qoi.ll 202915165
 quest/QuEST.c.ll 474766913
@@ -29378,7 +29378,7 @@ rand-rs/2wmck7c19vohagqu.ll 104225596
 rand-rs/34yh0c028yq5fj4d.ll 126255488
 rand-rs/3a37va2ifhzer5u4.ll 65683264
 rand-rs/3wentbx1vl0iwznb.ll 36592368
-rand-rs/41f1i7a67rmtb216.ll 114913312
+rand-rs/41f1i7a67rmtb216.ll 114795524
 rand-rs/4i6e8x5bs8w1jqsk.ll 67454664
 rand-rs/qpqwmytuo9t2y51.ll 5512072972
 raylib/raudio.c.ll 25905875965
@@ -29420,7 +29420,7 @@ re2/dfa.cc.ll 3030258743
 re2/filtered_re2.cc.ll 375934328
 re2/mimics_pcre.cc.ll 338697207
 re2/nfa.cc.ll 852768256
-re2/onepass.cc.ll 717938713
+re2/onepass.cc.ll 718880142
 re2/parse.cc.ll 1800759556
 re2/prefilter.cc.ll 920113152
 re2/prefilter_tree.cc.ll 2710090974
@@ -29471,7 +29471,7 @@ recastnavigation/RecastRasterization.cpp.ll 245984213
 recastnavigation/RecastRegion.cpp.ll 3025305720
 recastnavigation/Sample.cpp.ll 195911903
 recastnavigation/SampleInterfaces.cpp.ll 142938915
-recastnavigation/Sample_Debug.cpp.ll 83055854
+recastnavigation/Sample_Debug.cpp.ll 82969945
 recastnavigation/Sample_SoloMesh.cpp.ll 299458401
 recastnavigation/Sample_TempObstacles.cpp.ll 642588141
 recastnavigation/Sample_TileMesh.cpp.ll 477855207
@@ -29658,7 +29658,7 @@ redis/rdb.ll 2032777129
 redis/read.ll 777966339
 redis/redis-benchmark.ll 1737461812
 redis/redis-check-aof.ll 168688802
-redis/redis-check-rdb.ll 154981858
+redis/redis-check-rdb.ll 154826643
 redis/redis-cli.ll 5474371206
 redis/redisassert.ll 37496612
 redis/release.ll 39035446
@@ -29722,7 +29722,7 @@ regex-rs/1ezs5fkqov3a1527.ll 1815423227
 regex-rs/1hmlfcakzz33fnei.ll 206098567
 regex-rs/1hv7a9vv5ulvjrv1.ll 2748004911
 regex-rs/1pxsmct4oxs5dlep.ll 1615358030
-regex-rs/1rguw48xrsv49k4z.ll 5795905727
+regex-rs/1rguw48xrsv49k4z.ll 5789628998
 regex-rs/1ri0nxve2ijarfwj.ll 191057975
 regex-rs/1wjkhjqt3xgxgj7z.ll 1298817267
 regex-rs/1x04d8372kemp7hd.ll 3220180207
@@ -29799,7 +29799,7 @@ ripgrep-rs/20vllb8f66lp502b.ll 413469794
 ripgrep-rs/22j6dvsf1p76hecq.ll 386278270
 ripgrep-rs/2425miidforqaenw.ll 2303669363
 ripgrep-rs/24qzgyq9sz17vf3i.ll 347774616
-ripgrep-rs/27iy5ui86mv5cpfs.ll 385671921
+ripgrep-rs/27iy5ui86mv5cpfs.ll 385274334
 ripgrep-rs/28mzza0gv2cfa8xl.ll 42651396
 ripgrep-rs/2byk283iafgd1x3i.ll 662239681
 ripgrep-rs/2em4rg5w0gfs6ula.ll 243746718
@@ -29876,7 +29876,7 @@ ripgrep-rs/xsy92yht9pszz6p.ll 38684514
 ripgrep-rs/zkmvc8t0ugwyp2g.ll 362400867
 rocksdb/adaptive_table_factory.cc.ll 585416079
 rocksdb/agg_merge.cc.ll 697776947
-rocksdb/alloc_tracker.cc.ll 71262107
+rocksdb/alloc_tracker.cc.ll 71189851
 rocksdb/arena.cc.ll 452181464
 rocksdb/arena_wrapped_db_iter.cc.ll 781281919
 rocksdb/auto_roll_logger.cc.ll 1131736318
@@ -30033,7 +30033,7 @@ rocksdb/io_tracer_parser_tool.cc.ll 232712975
 rocksdb/iostats_context.cc.ll 95795228
 rocksdb/iterator.cc.ll 237136996
 rocksdb/jemalloc_nodump_allocator.cc.ll 1021632040
-rocksdb/keyrange.cc.ll 105594842
+rocksdb/keyrange.cc.ll 105722243
 rocksdb/ldb_cmd.cc.ll 11198155315
 rocksdb/ldb_tool.cc.ll 1039267351
 rocksdb/leveldb_options.cc.ll 630001363
@@ -30256,7 +30256,7 @@ ruby/eval.ll 1288118826
 ruby/eventids1.ll 150202631
 ruby/eventids2.ll 85522892
 ruby/extension.ll 398039656
-ruby/fiddle.ll 103502957
+ruby/fiddle.ll 103612147
 ruby/file.ll 1623279030
 ruby/foreach.ll 90683866
 ruby/fs.ll 47232160
@@ -30274,7 +30274,7 @@ ruby/instrumentation.ll 112713069
 ruby/intpack.ll 101395614
 ruby/io.ll 4588780790
 ruby/io_buffer.ll 1017793755
-ruby/ipsocket.ll 151294349
+ruby/ipsocket.ll 151142394
 ruby/iseq.ll 2195942717
 ruby/iso2022.ll 128458165
 ruby/iso_8859_1.ll 94582669
@@ -30348,7 +30348,7 @@ ruby/parser.ll 735608998
 ruby/parser_st.ll 803325048
 ruby/pathname.ll 416359135
 ruby/pinned.ll 57859673
-ruby/pm_buffer.ll 236146422
+ruby/pm_buffer.ll 236569042
 ruby/pm_char.ll 113663799
 ruby/pm_constant_pool.ll 133886520
 ruby/pm_integer.ll 132665267
@@ -30754,7 +30754,7 @@ rust-analyzer-rs/4cr05weuwzevn2i6.ll 5659771598
 rust-analyzer-rs/4dgdxz5jrjr067x9.ll 189296545
 rust-analyzer-rs/4dj9fscdf5c509wz.ll 142666501
 rust-analyzer-rs/4dy7ijwwbie8y9pm.ll 1503000043
-rust-analyzer-rs/4edzq05522y1zalf.ll 617243831
+rust-analyzer-rs/4edzq05522y1zalf.ll 617883667
 rust-analyzer-rs/4ef8b8f84sqnmkiy.ll 984153601
 rust-analyzer-rs/4fgqknclgy72z7pw.ll 1229288524
 rust-analyzer-rs/4fo6e09jeifrbt47.ll 10429460435
@@ -31118,7 +31118,7 @@ slurm/cgroup_dbus.ll 110944627
 slurm/cgroup_v1.ll 342619320
 slurm/cgroup_v2.ll 466022615
 slurm/cli_filter.ll 91580531
-slurm/cli_filter_user_defaults.ll 187635128
+slurm/cli_filter_user_defaults.ll 188027330
 slurm/client.ll 336519799
 slurm/cluster_info.ll 52475040
 slurm/cluster_report_functions.ll 166842538
@@ -31177,7 +31177,7 @@ slurm/eval_nodes_block.ll 490974064
 slurm/eval_nodes_tree.ll 1263639097
 slurm/event_functions.ll 276411314
 slurm/ext_sensors.ll 61776136
-slurm/extra_constraints.ll 215654915
+slurm/extra_constraints.ll 216048439
 slurm/fair_tree.ll 136365392
 slurm/fd.ll 164892955
 slurm/fed_mgr.ll 2354812441
@@ -31355,7 +31355,7 @@ slurm/scancel.ll 566441507
 slurm/sched_plugin.ll 42646960
 slurm/schedutils.ll 47953069
 slurm/scontrol.ll 682412449
-slurm/scrontab.ll 276509231
+slurm/scrontab.ll 275969380
 slurm/sdiag.ll 418030085
 slurm/select.ll 234700465
 slurm/select_cons_tres.ll 305235374
@@ -31500,13 +31500,13 @@ softposit-rs/3x9ny7yhpewmwf1y.ll 231011000
 softposit-rs/3yl6353p3hwrtv6y.ll 121063122
 softposit-rs/4kf6wfleft5henpt.ll 144697766
 softposit-rs/4wrr62dd33canpwl.ll 141077448
-softposit-rs/4x7uq85ym1obejw4.ll 145389074
+softposit-rs/4x7uq85ym1obejw4.ll 145565648
 softposit-rs/5az6c15ag5q4gib5.ll 1661040159
 softposit-rs/8mae6k72v4zmmji.ll 907375388
 softposit-rs/coljvwkn4d5o904.ll 137744111
 softposit-rs/kf9u47qfx5x7qom.ll 194412706
 softposit-rs/m1vpptg00bzmp9y.ll 841171588
-softposit-rs/oveg98n4r9tnk39.ll 169237239
+softposit-rs/oveg98n4r9tnk39.ll 169019730
 softposit-rs/xadcarspawrhwb8.ll 303831914
 spdlog/async.cpp.ll 1643473517
 spdlog/bundled_fmtlib_format.cpp.ll 7764652397
@@ -32128,7 +32128,7 @@ spike/or.ll 418739225
 spike/ori.ll 409468323
 spike/orn.ll 458984129
 spike/pack.ll 479996213
-spike/packh.ll 460623102
+spike/packh.ll 461090886
 spike/packu.ll 462858960
 spike/packw.ll 435401128
 spike/pbsad.ll 585811147
@@ -32343,9 +32343,9 @@ spike/srai8_u.ll 669444863
 spike/srai_u.ll 520221791
 spike/sraiw.ll 379852493
 spike/sraiw_u.ll 445119143
-spike/sraw.ll 384356786
+spike/sraw.ll 383964402
 spike/sret.ll 409435184
-spike/srl.ll 426635838
+spike/srl.ll 427071932
 spike/srl16.ll 579685377
 spike/srl16_u.ll 652010289
 spike/srl32.ll 463446641
@@ -32360,7 +32360,7 @@ spike/srli32_u.ll 492032895
 spike/srli8.ll 564484458
 spike/srli8_u.ll 638000868
 spike/srliw.ll 379698648
-spike/srlw.ll 384203335
+spike/srlw.ll 383807464
 spike/stas16.ll 682487410
 spike/stas32.ll 482801971
 spike/stsa16.ll 682443387
@@ -32903,7 +32903,7 @@ stb/stb_hexwave.c.ll 274200723
 stb/stb_image.c.ll 5483375309
 stb/stb_image_resize2.c.ll 5187851941
 stb/stb_image_write.c.ll 1401135975
-stb/stb_include.c.ll 169241766
+stb/stb_include.c.ll 169467019
 stb/stb_rect_pack.c.ll 177125346
 stb/stb_sprintf.c.ll 1182511932
 stb/stb_tilemap_editor.c.ll 2068776109
@@ -33175,7 +33175,7 @@ tokio-rs/40sgumesnmyyffj3.ll 66221233
 tokio-rs/46apu3hqx0w07xoc.ll 2308582211
 tokio-rs/4aboxy60mzv2bdkc.ll 54496516
 tokio-rs/4brh9kql6tjayli1.ll 2830329192
-tokio-rs/4gjrbuf5539hrqh6.ll 476977624
+tokio-rs/4gjrbuf5539hrqh6.ll 477463474
 tokio-rs/4m84bfwgyol2phw0.ll 41492102
 tokio-rs/4mr1mvhll2ekuv31.ll 255486892
 tokio-rs/4ni18r7xt9z3j0r8.ll 203371186
@@ -33186,7 +33186,7 @@ tokio-rs/58zica37k9qw0rn.ll 1791211989
 tokio-rs/5cdni0zdopovrkgi.ll 2166472387
 tokio-rs/5fqt3exrqd05oqq2.ll 341285886
 tokio-rs/akiz5wks12hp4ug.ll 41226208
-tokio-rs/k2uhbjhe54a6089.ll 44069961
+tokio-rs/k2uhbjhe54a6089.ll 44023107
 tokio-rs/qqq7nw5h0oohsoh.ll 56435139
 tokio-rs/r9h5225tdo2hxm6.ll 2104734296
 tokio-rs/rq81hdouiclvz49.ll 63582026
@@ -33488,7 +33488,7 @@ velox/ArraySort.cpp.ll 15988725331
 velox/ArraySum.cpp.ll 21067282759
 velox/AsyncDataCache.cpp.ll 6015863820
 velox/AverageAggregateBase.cpp.ll 47559785
-velox/Base64.cpp.ll 509703159
+velox/Base64.cpp.ll 510391221
 velox/BaseVector.cpp.ll 60949365827
 velox/BiasCorrection.cpp.ll 507979805
 velox/BitUtil.cpp.ll 349756693
@@ -33647,7 +33647,7 @@ velox/URLFunctions.cpp.ll 7203462792
 velox/UnsafeRowFast.cpp.ll 1115848626
 velox/UnsafeRowSerializer.cpp.ll 11620099070
 velox/Utf8Utils.cpp.ll 66638504
-velox/Utils.cpp.ll 291935833
+velox/Utils.cpp.ll 291641661
 velox/ValueSet.cpp.ll 86834079
 velox/Variant.cpp.ll 3671817842
 velox/VariantToVector.cpp.ll 3186361532
@@ -33763,7 +33763,7 @@ verilator/V3Os.cpp.ll 291041508
 verilator/V3Param.cpp.ll 6356412215
 verilator/V3ParseGrammar.cpp.ll 34975532760
 verilator/V3ParseImp.cpp.ll 4785485306
-verilator/V3ParseLex.cpp.ll 3230283296
+verilator/V3ParseLex.cpp.ll 3233866161
 verilator/V3PreProc.cpp.ll 7910904420
 verilator/V3PreShell.cpp.ll 585305612
 verilator/V3Premit.cpp.ll 947835649
@@ -33935,7 +33935,7 @@ wasmtime-rs/1bmc0pjvdnh09g73.ll 3551019166
 wasmtime-rs/1bqsn358t432cezc.ll 47424339
 wasmtime-rs/1bz8ofzmdclmzhoz.ll 10180207232
 wasmtime-rs/1c3cg8um0sf9gqvu.ll 38321039
-wasmtime-rs/1c4ff84ffafijwgv.ll 76345941
+wasmtime-rs/1c4ff84ffafijwgv.ll 76520682
 wasmtime-rs/1cda9wfsketmhpd8.ll 54200838
 wasmtime-rs/1ceg4kzfgmy987r1.ll 44428835
 wasmtime-rs/1ciz0r2wgkmnwx4v.ll 37608523
@@ -34345,7 +34345,7 @@ wasmtime-rs/46uei6dnv71pnxd1.ll 35796343
 wasmtime-rs/47hgs4eifsow3k34.ll 1120188386
 wasmtime-rs/47hxazw7irev64or.ll 35328302
 wasmtime-rs/47jrn73ttlkllmrg.ll 2228469421
-wasmtime-rs/47m1yyqgmixai7xb.ll 108802579
+wasmtime-rs/47m1yyqgmixai7xb.ll 108692444
 wasmtime-rs/47nrdncov7567v7m.ll 909097881
 wasmtime-rs/48lomr9v9m6r2wab.ll 36239177
 wasmtime-rs/48myxw210mngc99c.ll 6643185480
@@ -34497,7 +34497,7 @@ wasmtime-rs/5bnmgwn9lrqkuyf1.ll 451292132
 wasmtime-rs/5bvnre2gcspkvcte.ll 73933031
 wasmtime-rs/5cc5ck0u9xe2seu7.ll 44398460
 wasmtime-rs/5cg4tioh62hln65r.ll 1608731930
-wasmtime-rs/5cs3qs8jm0fk99uv.ll 56436329
+wasmtime-rs/5cs3qs8jm0fk99uv.ll 56377460
 wasmtime-rs/5dd000dqv9jg6s81.ll 616138246
 wasmtime-rs/5dheicv8h8x61a9w.ll 3586678198
 wasmtime-rs/5e2z31r2jar7kj8n.ll 40039090
@@ -34548,7 +34548,7 @@ wasmtime-rs/enal6epyb0tyurl.ll 11180705443
 wasmtime-rs/ewlntngq58zlnfs.ll 36501009
 wasmtime-rs/ex4d8g71lp2ekn9.ll 485556490
 wasmtime-rs/fh4iuwjsba78q5z.ll 314470810
-wasmtime-rs/fhugawvdzmyefe9.ll 145031423
+wasmtime-rs/fhugawvdzmyefe9.ll 145202590
 wasmtime-rs/fn3cxi5qpl58ixq.ll 7740135105
 wasmtime-rs/fo0z8lsyuh8ov7a.ll 40826606
 wasmtime-rs/fxdx5znsuraig6y.ll 34758825
@@ -34561,7 +34561,7 @@ wasmtime-rs/hthkfh93zq6xng7.ll 106076024
 wasmtime-rs/htjc1uvg1e5mxes.ll 72599531
 wasmtime-rs/hxqh9elqnq6j966.ll 38072591
 wasmtime-rs/i5u7vsclgey2ddj.ll 678674849
-wasmtime-rs/ik84o2k0wlq2iqv.ll 87635510
+wasmtime-rs/ik84o2k0wlq2iqv.ll 87546949
 wasmtime-rs/ikljeakuo7p4s4j.ll 40745943
 wasmtime-rs/j0yk3zmzo17fnmy.ll 36071998
 wasmtime-rs/j1ejlm038aqxv7c.ll 43722813
@@ -34646,7 +34646,7 @@ wireshark/asn1.c.ll 122719472
 wireshark/astringlist_list_model.cpp.ll 1479356996
 wireshark/atap_data_model.cpp.ll 1679128101
 wireshark/atm.c.ll 48179721
-wireshark/autosar_dlt.c.ll 99900258
+wireshark/autosar_dlt.c.ll 99800165
 wireshark/base32.c.ll 58541331
 wireshark/ber.c.ll 62897143
 wireshark/blf.c.ll 887669028
@@ -34719,7 +34719,7 @@ wireshark/credentials_model.cpp.ll 357140785
 wireshark/csids.c.ll 73650079
 wireshark/curve25519.c.ll 58436782
 wireshark/daintree-sna.c.ll 74634307
-wireshark/data_printer.cpp.ll 501840458
+wireshark/data_printer.cpp.ll 502378560
 wireshark/dbs-etherwatch.c.ll 197704941
 wireshark/dct3trace.c.ll 144204064
 wireshark/decode_as.c.ll 122529868
@@ -34735,7 +34735,7 @@ wireshark/dfilter.c.ll 281720825
 wireshark/dftest.c.ll 138324802
 wireshark/dfunctions.c.ll 198297681
 wireshark/dfvm.c.ll 1052976844
-wireshark/diam_dict.c.ll 808253040
+wireshark/diam_dict.c.ll 809141444
 wireshark/disabled_protos.c.ll 254540463
 wireshark/display_filter_combo.cpp.ll 203714258
 wireshark/display_filter_edit.cpp.ll 1371169624
@@ -34755,8 +34755,8 @@ wireshark/dpa400.c.ll 95444057
 wireshark/drag_drop_toolbar.cpp.ll 477445258
 wireshark/drag_label.cpp.ll 52028875
 wireshark/drange.c.ll 148364542
-wireshark/dtd_parse.c.ll 577390516
-wireshark/dtd_preparse.c.ll 496371005
+wireshark/dtd_parse.c.ll 578181481
+wireshark/dtd_preparse.c.ll 495793085
 wireshark/dvb_chartbl.c.ll 64878631
 wireshark/eax.c.ll 104174061
 wireshark/editcap.c.ll 881537768
@@ -35042,7 +35042,7 @@ wireshark/packet-ax25-kiss.c.ll 75559398
 wireshark/packet-ax25-nol3.c.ll 60729091
 wireshark/packet-ax25.c.ll 82873956
 wireshark/packet-ayiya.c.ll 51484837
-wireshark/packet-babel.c.ll 211158084
+wireshark/packet-babel.c.ll 210928000
 wireshark/packet-bacapp.c.ll 4850911266
 wireshark/packet-bacnet.c.ll 241743362
 wireshark/packet-banana.c.ll 87926347
@@ -35330,7 +35330,7 @@ wireshark/packet-fr.c.ll 180744556
 wireshark/packet-fractalgeneratorprotocol.c.ll 123147120
 wireshark/packet-frame.c.ll 407112491
 wireshark/packet-ftdi-ft.c.ll 274719752
-wireshark/packet-ftdi-mpsse.c.ll 573585183
+wireshark/packet-ftdi-mpsse.c.ll 574322513
 wireshark/packet-ftp.c.ll 465776472
 wireshark/packet-fw1.c.ll 79153744
 wireshark/packet-gadu-gadu.c.ll 403414921
@@ -35417,7 +35417,7 @@ wireshark/packet-hdfsdata.c.ll 146471285
 wireshark/packet-hdmi.c.ll 69767629
 wireshark/packet-hip.c.ll 341597691
 wireshark/packet-hislip.c.ll 170399918
-wireshark/packet-hl7.c.ll 230843155
+wireshark/packet-hl7.c.ll 231082153
 wireshark/packet-hnbap.c.ll 359195807
 wireshark/packet-homeplug-av.c.ll 1153416487
 wireshark/packet-homeplug.c.ll 332592435
@@ -35522,7 +35522,7 @@ wireshark/packet-kink.c.ll 179364838
 wireshark/packet-kismet.c.ll 103141206
 wireshark/packet-knet.c.ll 121201470
 wireshark/packet-knxip.c.ll 1182656061
-wireshark/packet-knxip_decrypt.c.ll 366156684
+wireshark/packet-knxip_decrypt.c.ll 366528466
 wireshark/packet-kpasswd.c.ll 71039850
 wireshark/packet-kpm-v2.c.ll 284331725
 wireshark/packet-kt.c.ll 293008905
@@ -35536,11 +35536,11 @@ wireshark/packet-laplink.c.ll 53149683
 wireshark/packet-lapsat.c.ll 106171675
 wireshark/packet-lat.c.ll 578800249
 wireshark/packet-lbm.c.ll 75853112
-wireshark/packet-lbmc.c.ll 2536344351
+wireshark/packet-lbmc.c.ll 2539413978
 wireshark/packet-lbmpdm.c.ll 409407554
 wireshark/packet-lbmpdmtcp.c.ll 170259809
 wireshark/packet-lbmr.c.ll 1321737289
-wireshark/packet-lbmsrs.c.ll 851507046
+wireshark/packet-lbmsrs.c.ll 850547049
 wireshark/packet-lbtrm.c.ll 490571092
 wireshark/packet-lbtru.c.ll 504061388
 wireshark/packet-lbttcp.c.ll 274028572
@@ -35861,7 +35861,7 @@ wireshark/packet-rtps-virtual-transport.c.ll 173706049
 wireshark/packet-rtps.c.ll 3577906335
 wireshark/packet-rtse.c.ll 143850719
 wireshark/packet-rtsp.c.ll 529548324
-wireshark/packet-rua.c.ll 190350001
+wireshark/packet-rua.c.ll 190549150
 wireshark/packet-rx.c.ll 134662151
 wireshark/packet-s101.c.ll 212279946
 wireshark/packet-s1ap.c.ll 2712762462
@@ -35964,7 +35964,7 @@ wireshark/packet-sysex_digitech.c.ll 180512475
 wireshark/packet-syslog.c.ll 138526762
 wireshark/packet-systemd-journal.c.ll 535214953
 wireshark/packet-t124.c.ll 320575891
-wireshark/packet-t125.c.ll 96370451
+wireshark/packet-t125.c.ll 96273622
 wireshark/packet-t30.c.ll 225218017
 wireshark/packet-t38.c.ll 274459168
 wireshark/packet-tacacs.c.ll 301611739
@@ -36165,9 +36165,9 @@ wireshark/persfilepath_opt.c.ll 43054148
 wireshark/plugin_if.c.ll 185135119
 wireshark/plugins.c.ll 117736599
 wireshark/pppdump.c.ll 156108901
-wireshark/pref_delegate.cpp.ll 111434793
+wireshark/pref_delegate.cpp.ll 111612642
 wireshark/pref_models.cpp.ll 1197807002
-wireshark/pref_module_view.cpp.ll 148463775
+wireshark/pref_module_view.cpp.ll 148279285
 wireshark/preference_editor_frame.cpp.ll 671453091
 wireshark/preference_manager.cpp.ll 291143163
 wireshark/preference_utils.c.ll 100356924
@@ -36357,7 +36357,7 @@ wireshark/uat.c.ll 376873983
 wireshark/uat_delegate.cpp.ll 250089033
 wireshark/uat_dialog.cpp.ll 774045020
 wireshark/uat_frame.cpp.ll 720219925
-wireshark/uat_load.c.ll 579908675
+wireshark/uat_load.c.ll 579022920
 wireshark/uat_model.cpp.ll 1855147816
 wireshark/udpdump.c.ll 146831001
 wireshark/url_link_delegate.cpp.ll 102072262
@@ -36692,7 +36692,7 @@ yosys/celledges.ll 1924336595
 yosys/check.ll 5989676360
 yosys/chformal.ll 5924544387
 yosys/chtype.ll 1273440134
-yosys/clean_zerowidth.ll 13711061803
+yosys/clean_zerowidth.ll 13696022166
 yosys/clk2fflogic.ll 5394270401
 yosys/clkbufmap.ll 6908085261
 yosys/connect.ll 13231053756
@@ -36735,7 +36735,7 @@ yosys/expose.ll 20821464010
 yosys/extract.ll 9004934279
 yosys/extract_counter.ll 5883428976
 yosys/extract_fa.ll 16980551888
-yosys/extract_reduce.ll 5783807373
+yosys/extract_reduce.ll 5791328520
 yosys/extractinv.ll 1824880221
 yosys/ezminisat.ll 960492450
 yosys/ezsat.ll 4376049348
@@ -36773,7 +36773,7 @@ yosys/ice40_braminit.ll 1106000787
 yosys/ice40_dsp.ll 12370658485
 yosys/ice40_opt.ll 3199951844
 yosys/ice40_wrapcarry.ll 6507631711
-yosys/insbuf.ll 2837909916
+yosys/insbuf.ll 2835043471
 yosys/intersynth.ll 13593076589
 yosys/iopadmap.ll 8304861579
 yosys/jny.ll 1927827955
@@ -36811,7 +36811,7 @@ yosys/muxpack.ll 7280380771
 yosys/nlutmap.ll 4812220959
 yosys/opt.ll 219850971
 yosys/opt_clean.ll 23520776184
-yosys/opt_demorgan.ll 5148769518
+yosys/opt_demorgan.ll 5143615167
 yosys/opt_dff.ll 23053145126
 yosys/opt_expr.ll 36367408361
 yosys/opt_ffinv.ll 5280782024
@@ -37003,7 +37003,7 @@ z3/asserted_formulas.cpp.ll 10005559317
 z3/ast.cpp.ll 7734729437
 z3/ast_counter.cpp.ll 574878385
 z3/ast_ll_pp.cpp.ll 514269126
-z3/ast_lt.cpp.ll 430025090
+z3/ast_lt.cpp.ll 430505965
 z3/ast_pp_dot.cpp.ll 446360885
 z3/ast_pp_util.cpp.ll 805265858
 z3/ast_printer.cpp.ll 228786277
@@ -37108,7 +37108,7 @@ z3/dl_context.cpp.ll 3817486368
 z3/dl_costs.cpp.ll 110501328
 z3/dl_decl_plugin.cpp.ll 1179375879
 z3/dl_external_relation.cpp.ll 1225629875
-z3/dl_finite_product_relation.cpp.ll 4965094166
+z3/dl_finite_product_relation.cpp.ll 4970588041
 z3/dl_instruction.cpp.ll 2423101710
 z3/dl_interval_relation.cpp.ll 2051046272
 z3/dl_lazy_table.cpp.ll 949033943
@@ -37147,7 +37147,7 @@ z3/dl_rule.cpp.ll 4858917971
 z3/dl_rule_set.cpp.ll 2987562800
 z3/dl_rule_subsumption_index.cpp.ll 402870996
 z3/dl_rule_transformer.cpp.ll 627683473
-z3/dl_sieve_relation.cpp.ll 2797753298
+z3/dl_sieve_relation.cpp.ll 2794694761
 z3/dl_sparse_table.cpp.ll 3570423443
 z3/dl_table.cpp.ll 1109136539
 z3/dl_table_relation.cpp.ll 716337360
@@ -37214,7 +37214,7 @@ z3/factor_equivs.cpp.ll 742370028
 z3/factor_rewriter.cpp.ll 2600905954
 z3/factor_tactic.cpp.ll 2627705757
 z3/factorization.cpp.ll 534019387
-z3/factorization_factory_imp.cpp.ll 58993080
+z3/factorization_factory_imp.cpp.ll 58932239
 z3/fingerprints.cpp.ll 634290588
 z3/fix_dl_var_tactic.cpp.ll 1226341526
 z3/fixed_bit_vector.cpp.ll 138513299
@@ -37237,7 +37237,7 @@ z3/goal.cpp.ll 2451275445
 z3/goal2nlsat.cpp.ll 1236832887
 z3/goal2sat.cpp.ll 2530537100
 z3/goal_num_occurs.cpp.ll 335874864
-z3/goal_shared_occs.cpp.ll 308211727
+z3/goal_shared_occs.cpp.ll 308529137
 z3/goal_util.cpp.ll 493022965
 z3/gomory.cpp.ll 1592407118
 z3/gparams.cpp.ll 880688273
@@ -37298,7 +37298,7 @@ z3/mbp_arrays_tg.cpp.ll 1539291595
 z3/mbp_basic_tg.cpp.ll 653699525
 z3/mbp_datatypes.cpp.ll 743786147
 z3/mbp_dt_tg.cpp.ll 521783918
-z3/mbp_plugin.cpp.ll 975180053
+z3/mbp_plugin.cpp.ll 974150470
 z3/mbp_qel.cpp.ll 715053342
 z3/mbp_qel_util.cpp.ll 589015691
 z3/mbp_solve_plugin.cpp.ll 1157220865
@@ -37355,7 +37355,7 @@ z3/nnf.cpp.ll 1386931357
 z3/nnf_tactic.cpp.ll 962345528
 z3/normalize_bounds_tactic.cpp.ll 1108675232
 z3/nra_solver.cpp.ll 2972976568
-z3/num_occurs.cpp.ll 367668065
+z3/num_occurs.cpp.ll 368076096
 z3/numeral_factory.cpp.ll 787987407
 z3/occf_tactic.cpp.ll 1113884503
 z3/occurs.cpp.ll 1000739123
@@ -37777,9 +37777,9 @@ zstd/zstd_decompress_block.c.ll 4812455051
 zstd/zstd_double_fast.c.ll 4279748857
 zstd/zstd_fast.c.ll 3941012273
 zstd/zstd_lazy.c.ll 14876349719
-zstd/zstd_ldm.c.ll 652819805
+zstd/zstd_ldm.c.ll 653917061
 zstd/zstd_opt.c.ll 2561527566
-zstd/zstd_v01.c.ll 2960564158
+zstd/zstd_v01.c.ll 2955774333
 zstd/zstd_v02.c.ll 2899950822
 zstd/zstd_v03.c.ll 2366837881
 zstd/zstd_v04.c.ll 2454382585
@@ -37813,7 +37813,7 @@ zxing/DMHighLevelEncoder.cpp.ll 572946879
 zxing/DMReader.cpp.ll 320720712
 zxing/DMSymbolInfo.cpp.ll 99541168
 zxing/DMVersion.cpp.ll 45600287
-zxing/DMWriter.cpp.ll 258392300
+zxing/DMWriter.cpp.ll 258837889
 zxing/DecodeHints.cpp.ll 36171787
 zxing/ECI.cpp.ll 239148286
 zxing/Error.cpp.ll 124099178
