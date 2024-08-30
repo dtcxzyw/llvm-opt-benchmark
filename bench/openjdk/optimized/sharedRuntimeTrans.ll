@@ -757,8 +757,8 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   %.sroa.0.4.insert.ext.i220.i = zext nneg i32 %178 to i64
   %.sroa.0.4.insert.shift.i221.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i220.i, 32
   %179 = bitcast i64 %.sroa.0.4.insert.shift.i221.i to double
-  %180 = fsub double %179, %167
-  %181 = fsub double %164, %180
+  %180 = fsub double %167, %179
+  %181 = fadd double %180, %164
   %182 = fmul double %179, %173
   %183 = fsub double %168, %182
   %184 = fmul double %181, %173
