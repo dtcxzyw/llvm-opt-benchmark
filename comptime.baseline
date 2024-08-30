@@ -35041,7 +35041,7 @@ wireshark/packet-awdl.c.ll 314972223
 wireshark/packet-ax25-kiss.c.ll 75559398
 wireshark/packet-ax25-nol3.c.ll 60729091
 wireshark/packet-ax25.c.ll 82873956
-wireshark/packet-ayiya.c.ll 51484837
+wireshark/packet-ayiya.c.ll 51433333
 wireshark/packet-babel.c.ll 210928000
 wireshark/packet-bacapp.c.ll 4850911266
 wireshark/packet-bacnet.c.ll 241743362
