@@ -10591,7 +10591,7 @@ hyperscan/stream_compress.c.ll 3022157660
 hyperscan/stream_op.cpp.ll 3326689842
 hyperscan/tamarama.c.ll 251884650
 hyperscan/tamaramacompile.cpp.ll 791994123
-hyperscan/target_info.cpp.ll 46085371
+hyperscan/target_info.cpp.ll 46039123
 hyperscan/teddy.c.ll 7036196710
 hyperscan/teddy_avx2.c.ll 11587839600
 hyperscan/teddy_compile.cpp.ll 3189552005
