@@ -1115,9 +1115,6 @@ define hidden noundef i32 @_Z12luaG_getlineP5Protoi(ptr nocapture noundef readon
 
 declare hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) local_unnamed_addr #7
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_Z12luaG_onbreakP9lua_State(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1319,31 +1316,23 @@ define dso_local void @_Z15lua_getcoverageP9lua_StateiPvPFvS1_PKciiPKimE(ptr nou
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %8)
   %10 = add nsw i32 %9, 1
-  %11 = sext i32 %10 to i64
-  %12 = icmp eq i32 %10, 0
-  br i1 %12, label %19, label %13
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %16, label %12
 
-13:                                               ; preds = %4
-  %14 = icmp sgt i32 %9, -2
-  br i1 %14, label %15, label %18
+12:                                               ; preds = %4
+  %13 = zext nneg i32 %10 to i64
+  %14 = shl nuw nsw i64 %13, 2
+  %15 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %14, i8 noundef zeroext 0)
+  tail call fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %8, i32 noundef 0, ptr noundef %15, i64 noundef %13, ptr noundef %2, ptr noundef %3)
+  tail call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %0, ptr noundef %15, i64 noundef %14, i8 noundef zeroext 0)
+  br label %16
 
-15:                                               ; preds = %13
-  %16 = shl nuw nsw i64 %11, 2
-  %17 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %16, i8 noundef zeroext 0)
-  tail call fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %8, i32 noundef 0, ptr noundef %17, i64 noundef %11, ptr noundef %2, ptr noundef %3)
-  tail call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %0, ptr noundef %17, i64 noundef %16, i8 noundef zeroext 0)
-  br label %19
-
-18:                                               ; preds = %13
-  tail call void @_Z11luaM_toobigP9lua_State(ptr noundef %0) #14
-  unreachable
-
-19:                                               ; preds = %4, %15
+16:                                               ; preds = %4, %12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL10getmaxlineP5Proto(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZL10getmaxlineP5Proto(ptr nocapture noundef readonly %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0

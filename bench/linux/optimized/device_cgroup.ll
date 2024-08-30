@@ -560,7 +560,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %31 = getelementptr inbounds i8, ptr %8, i64 216
   store i32 1, ptr %31, align 8
   tail call fastcc void @dev_exception_clean(ptr noundef %8)
-  br label %.thread15
+  br label %.thread16
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %7, i64 200
@@ -608,7 +608,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %56 = getelementptr inbounds i8, ptr %8, i64 216
   store i32 1, ptr %56, align 8
   call fastcc void @dev_exception_clean(ptr noundef nonnull %7)
-  br label %.thread15
+  br label %.thread16
 
 57:                                               ; preds = %21
   %58 = tail call zeroext i1 @css_has_online_children(ptr noundef %8) #9
@@ -618,7 +618,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %60 = getelementptr inbounds i8, ptr %8, i64 200
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %60
-  br i1 %62, label %.loopexit16, label %.preheader
+  br i1 %62, label %.loopexit18, label %.preheader
 
 .preheader:                                       ; preds = %59, %72
   %63 = phi ptr [ %65, %72 ], [ %61, %59 ]
@@ -640,12 +640,12 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 
 72:                                               ; preds = %70, %.preheader
   %73 = icmp eq ptr %65, %60
-  br i1 %73, label %.loopexit16, label %.preheader, !llvm.loop !9
+  br i1 %73, label %.loopexit18, label %.preheader, !llvm.loop !9
 
-.loopexit16:                                      ; preds = %72, %59
+.loopexit18:                                      ; preds = %72, %59
   %74 = getelementptr inbounds i8, ptr %8, i64 216
   store i32 2, ptr %74, align 8
-  br label %.thread15
+  br label %.thread16
 
 75:                                               ; preds = %19
   br label %76
@@ -817,7 +817,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 
 174:                                              ; preds = %172
   call fastcc void @dev_exception_rm(ptr noundef %8, ptr noundef nonnull %6)
-  br label %.thread15
+  br label %.thread16
 
 175:                                              ; preds = %168
   %176 = call fastcc i32 @parent_has_perm(ptr noundef %8, ptr noundef nonnull %6), !range !19
@@ -845,6 +845,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 
 187:                                              ; preds = %.thread11, %184
   %188 = call fastcc i32 @propagate_exception(ptr noundef %8, ptr noundef nonnull %6)
+  %189 = freeze i32 %188
   br label %.loopexit
 
 .thread13:                                        ; preds = %157, %4, %22, %26, %32, %57, %21, %19, %76, %110, %92, %113, %142, %124, %146, %172, %175, %184, %.thread, %42
@@ -853,10 +854,10 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
   call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
-  %189 = sext i32 %.ph to i64
+  %190 = sext i32 %.ph to i64
   br label %194
 
-.thread15:                                        ; preds = %.loopexit16, %55, %30, %174
+.thread16:                                        ; preds = %.loopexit18, %55, %30, %174
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
@@ -864,20 +865,20 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %193
 
 .loopexit:                                        ; preds = %47, %187, %178
-  %190 = phi i32 [ %188, %187 ], [ %179, %178 ], [ %40, %47 ]
+  %.fr = phi i32 [ %189, %187 ], [ %179, %178 ], [ %40, %47 ]
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
   call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
-  %191 = icmp eq i32 %190, 0
-  %192 = sext i32 %190 to i64
+  %191 = icmp eq i32 %.fr, 0
+  %192 = sext i32 %.fr to i64
   br i1 %191, label %193, label %194
 
-193:                                              ; preds = %.thread15, %.loopexit
+193:                                              ; preds = %.thread16, %.loopexit
   br label %194
 
 194:                                              ; preds = %.thread13, %.loopexit, %193
-  %195 = phi i64 [ %2, %193 ], [ %192, %.loopexit ], [ %189, %.thread13 ]
+  %195 = phi i64 [ %2, %193 ], [ %192, %.loopexit ], [ %190, %.thread13 ]
   ret i64 %195
 }
 
@@ -1727,7 +1728,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @propagate_exception(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %3 = tail call ptr @css_next_descendant_pre(ptr noundef null, ptr noundef %0) #9
   %4 = icmp eq ptr %3, null

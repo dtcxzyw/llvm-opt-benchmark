@@ -59181,7 +59181,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %call.i.i51 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i50, i8 noundef zeroext %conv1.i.i49)
   %conv4.i.i52 = and i16 %18, 15
   %shr.i.i53 = lshr i16 %19, %conv4.i.i52
-  %conv5.i.i54 = zext i8 %call.i.i51 to i16
+  %conv5.i.i54 = zext nneg i8 %call.i.i51 to i16
   %add.i.i55 = add i16 %shr.i.i53, %conv5.i.i54
   %add.ptr4.i56 = getelementptr i16, ptr %vd, i64 %idx.ext.i46
   store i16 %add.i.i55, ptr %add.ptr4.i56, align 2
@@ -59210,7 +59210,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %call.i.i40 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i39, i8 noundef zeroext %conv1.i.i38)
   %conv4.i.i41 = and i16 %21, 15
   %shr.i.i42 = lshr i16 %22, %conv4.i.i41
-  %conv5.i.i43 = zext i8 %call.i.i40 to i16
+  %conv5.i.i43 = zext nneg i8 %call.i.i40 to i16
   %add.i.i44 = add i16 %shr.i.i42, %conv5.i.i43
   %add.ptr4.i45 = getelementptr i16, ptr %vd, i64 %idx.ext.i35
   store i16 %add.i.i44, ptr %add.ptr4.i45, align 2
@@ -59536,7 +59536,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %call.i.i51 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i50, i8 noundef zeroext %conv.i.i49)
   %conv2.i.i52 = and i32 %16, 31
   %shr.i.i53 = lshr i32 %17, %conv2.i.i52
-  %conv3.i.i54 = zext i8 %call.i.i51 to i32
+  %conv3.i.i54 = zext nneg i8 %call.i.i51 to i32
   %add.i.i55 = add i32 %shr.i.i53, %conv3.i.i54
   %add.ptr4.i56 = getelementptr i32, ptr %vd, i64 %idx.ext.i46
   store i32 %add.i.i55, ptr %add.ptr4.i56, align 4
@@ -59565,7 +59565,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %call.i.i40 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i39, i8 noundef zeroext %conv.i.i38)
   %conv2.i.i41 = and i32 %19, 31
   %shr.i.i42 = lshr i32 %20, %conv2.i.i41
-  %conv3.i.i43 = zext i8 %call.i.i40 to i32
+  %conv3.i.i43 = zext nneg i8 %call.i.i40 to i32
   %add.i.i44 = add i32 %shr.i.i42, %conv3.i.i43
   %add.ptr4.i45 = getelementptr i32, ptr %vd, i64 %idx.ext.i35
   store i32 %add.i.i44, ptr %add.ptr4.i45, align 4
@@ -59896,7 +59896,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %call.i.i47 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %15, i8 noundef zeroext %conv.i.i46)
   %sh_prom.i.i48 = and i64 %14, 63
   %shr.i.i49 = lshr i64 %15, %sh_prom.i.i48
-  %conv2.i.i50 = zext i8 %call.i.i47 to i64
+  %conv2.i.i50 = zext nneg i8 %call.i.i47 to i64
   %add.i.i51 = add i64 %shr.i.i49, %conv2.i.i50
   %add.ptr4.i52 = getelementptr i64, ptr %vd, i64 %idx.ext.i43
   store i64 %add.i.i51, ptr %add.ptr4.i52, align 8
@@ -59924,7 +59924,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %call.i.i37 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %18, i8 noundef zeroext %conv.i.i36)
   %sh_prom.i.i38 = and i64 %17, 63
   %shr.i.i39 = lshr i64 %18, %sh_prom.i.i38
-  %conv2.i.i40 = zext i8 %call.i.i37 to i64
+  %conv2.i.i40 = zext nneg i8 %call.i.i37 to i64
   %add.i.i41 = add i64 %shr.i.i39, %conv2.i.i40
   %add.ptr4.i42 = getelementptr i64, ptr %vd, i64 %idx.ext.i33
   store i64 %add.i.i41, ptr %add.ptr4.i42, align 8
@@ -60582,7 +60582,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %conv2.i.i51 = zext i16 %16 to i64
   %call.i.i52 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i51, i8 noundef zeroext %conv1.i.i50)
   %shr.i.i54 = lshr i16 %16, %conv4.i.i53
-  %conv5.i.i55 = zext i8 %call.i.i52 to i16
+  %conv5.i.i55 = zext nneg i8 %call.i.i52 to i16
   %add.i.i56 = add i16 %shr.i.i54, %conv5.i.i55
   %add.ptr2.i57 = getelementptr i16, ptr %vd, i64 %idx.ext.i47
   store i16 %add.i.i56, ptr %add.ptr2.i57, align 2
@@ -60606,7 +60606,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %conv2.i.i40 = zext i16 %17 to i64
   %call.i.i41 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i40, i8 noundef zeroext %conv1.i.i50)
   %shr.i.i43 = lshr i16 %17, %conv4.i.i53
-  %conv5.i.i44 = zext i8 %call.i.i41 to i16
+  %conv5.i.i44 = zext nneg i8 %call.i.i41 to i16
   %add.i.i45 = add i16 %shr.i.i43, %conv5.i.i44
   %add.ptr2.i46 = getelementptr i16, ptr %vd, i64 %idx.ext.i36
   store i16 %add.i.i45, ptr %add.ptr2.i46, align 2
@@ -60939,7 +60939,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %conv1.i.i51 = zext i32 %16 to i64
   %call.i.i52 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i51, i8 noundef zeroext %conv.i.i50)
   %shr.i.i54 = lshr i32 %16, %conv2.i.i53
-  %conv3.i.i55 = zext i8 %call.i.i52 to i32
+  %conv3.i.i55 = zext nneg i8 %call.i.i52 to i32
   %add.i.i56 = add i32 %shr.i.i54, %conv3.i.i55
   %add.ptr2.i57 = getelementptr i32, ptr %vd, i64 %idx.ext.i47
   store i32 %add.i.i56, ptr %add.ptr2.i57, align 4
@@ -60963,7 +60963,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %conv1.i.i40 = zext i32 %17 to i64
   %call.i.i41 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i40, i8 noundef zeroext %conv.i.i50)
   %shr.i.i43 = lshr i32 %17, %conv2.i.i53
-  %conv3.i.i44 = zext i8 %call.i.i41 to i32
+  %conv3.i.i44 = zext nneg i8 %call.i.i41 to i32
   %add.i.i45 = add i32 %shr.i.i43, %conv3.i.i44
   %add.ptr2.i46 = getelementptr i32, ptr %vd, i64 %idx.ext.i36
   store i32 %add.i.i45, ptr %add.ptr2.i46, align 4
@@ -61288,7 +61288,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %14 = load i64, ptr %add.ptr.i40, align 8
   %call.i.i42 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %14, i8 noundef zeroext %conv.i.i41)
   %shr.i.i44 = lshr i64 %14, %sh_prom.i.i43
-  %conv2.i.i45 = zext i8 %call.i.i42 to i64
+  %conv2.i.i45 = zext nneg i8 %call.i.i42 to i64
   %add.i.i46 = add i64 %shr.i.i44, %conv2.i.i45
   %add.ptr2.i47 = getelementptr i64, ptr %vd, i64 %idx.ext.i39
   store i64 %add.i.i46, ptr %add.ptr2.i47, align 8
@@ -61311,7 +61311,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %15 = load i64, ptr %add.ptr.i31, align 8
   %call.i.i33 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %15, i8 noundef zeroext %conv.i.i41)
   %shr.i.i35 = lshr i64 %15, %sh_prom.i.i43
-  %conv2.i.i36 = zext i8 %call.i.i33 to i64
+  %conv2.i.i36 = zext nneg i8 %call.i.i33 to i64
   %add.i.i37 = add i64 %shr.i.i35, %conv2.i.i36
   %add.ptr2.i38 = getelementptr i64, ptr %vd, i64 %idx.ext.i30
   store i64 %add.i.i37, ptr %add.ptr2.i38, align 8
@@ -61966,7 +61966,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %call.i.i51 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i50, i8 noundef zeroext %conv1.i.i49)
   %conv4.i.i52 = and i16 %18, 15
   %shr.i.i53 = ashr i16 %19, %conv4.i.i52
-  %conv5.i.i54 = zext i8 %call.i.i51 to i16
+  %conv5.i.i54 = zext nneg i8 %call.i.i51 to i16
   %add.i.i55 = add i16 %shr.i.i53, %conv5.i.i54
   %add.ptr4.i56 = getelementptr i16, ptr %vd, i64 %idx.ext.i46
   store i16 %add.i.i55, ptr %add.ptr4.i56, align 2
@@ -61995,7 +61995,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %call.i.i40 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i39, i8 noundef zeroext %conv1.i.i38)
   %conv4.i.i41 = and i16 %21, 15
   %shr.i.i42 = ashr i16 %22, %conv4.i.i41
-  %conv5.i.i43 = zext i8 %call.i.i40 to i16
+  %conv5.i.i43 = zext nneg i8 %call.i.i40 to i16
   %add.i.i44 = add i16 %shr.i.i42, %conv5.i.i43
   %add.ptr4.i45 = getelementptr i16, ptr %vd, i64 %idx.ext.i35
   store i16 %add.i.i44, ptr %add.ptr4.i45, align 2
@@ -62321,7 +62321,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %call.i.i51 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i50, i8 noundef zeroext %conv.i.i49)
   %conv2.i.i52 = and i32 %16, 31
   %shr.i.i53 = ashr i32 %17, %conv2.i.i52
-  %conv3.i.i54 = zext i8 %call.i.i51 to i32
+  %conv3.i.i54 = zext nneg i8 %call.i.i51 to i32
   %add.i.i55 = add i32 %shr.i.i53, %conv3.i.i54
   %add.ptr4.i56 = getelementptr i32, ptr %vd, i64 %idx.ext.i46
   store i32 %add.i.i55, ptr %add.ptr4.i56, align 4
@@ -62350,7 +62350,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %call.i.i40 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i39, i8 noundef zeroext %conv.i.i38)
   %conv2.i.i41 = and i32 %19, 31
   %shr.i.i42 = ashr i32 %20, %conv2.i.i41
-  %conv3.i.i43 = zext i8 %call.i.i40 to i32
+  %conv3.i.i43 = zext nneg i8 %call.i.i40 to i32
   %add.i.i44 = add i32 %shr.i.i42, %conv3.i.i43
   %add.ptr4.i45 = getelementptr i32, ptr %vd, i64 %idx.ext.i35
   store i32 %add.i.i44, ptr %add.ptr4.i45, align 4
@@ -62681,7 +62681,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %call.i.i47 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %15, i8 noundef zeroext %conv.i.i46)
   %sh_prom.i.i48 = and i64 %14, 63
   %shr.i.i49 = ashr i64 %15, %sh_prom.i.i48
-  %conv2.i.i50 = zext i8 %call.i.i47 to i64
+  %conv2.i.i50 = zext nneg i8 %call.i.i47 to i64
   %add.i.i51 = add i64 %shr.i.i49, %conv2.i.i50
   %add.ptr4.i52 = getelementptr i64, ptr %vd, i64 %idx.ext.i43
   store i64 %add.i.i51, ptr %add.ptr4.i52, align 8
@@ -62709,7 +62709,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %call.i.i37 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %18, i8 noundef zeroext %conv.i.i36)
   %sh_prom.i.i38 = and i64 %17, 63
   %shr.i.i39 = ashr i64 %18, %sh_prom.i.i38
-  %conv2.i.i40 = zext i8 %call.i.i37 to i64
+  %conv2.i.i40 = zext nneg i8 %call.i.i37 to i64
   %add.i.i41 = add i64 %shr.i.i39, %conv2.i.i40
   %add.ptr4.i42 = getelementptr i64, ptr %vd, i64 %idx.ext.i33
   store i64 %add.i.i41, ptr %add.ptr4.i42, align 8
@@ -63367,7 +63367,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %conv2.i.i51 = sext i16 %16 to i64
   %call.i.i52 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i51, i8 noundef zeroext %conv1.i.i50)
   %shr.i.i54 = ashr i16 %16, %conv4.i.i53
-  %conv5.i.i55 = zext i8 %call.i.i52 to i16
+  %conv5.i.i55 = zext nneg i8 %call.i.i52 to i16
   %add.i.i56 = add i16 %shr.i.i54, %conv5.i.i55
   %add.ptr2.i57 = getelementptr i16, ptr %vd, i64 %idx.ext.i47
   store i16 %add.i.i56, ptr %add.ptr2.i57, align 2
@@ -63391,7 +63391,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %conv2.i.i40 = sext i16 %17 to i64
   %call.i.i41 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv2.i.i40, i8 noundef zeroext %conv1.i.i50)
   %shr.i.i43 = ashr i16 %17, %conv4.i.i53
-  %conv5.i.i44 = zext i8 %call.i.i41 to i16
+  %conv5.i.i44 = zext nneg i8 %call.i.i41 to i16
   %add.i.i45 = add i16 %shr.i.i43, %conv5.i.i44
   %add.ptr2.i46 = getelementptr i16, ptr %vd, i64 %idx.ext.i36
   store i16 %add.i.i45, ptr %add.ptr2.i46, align 2
@@ -63724,7 +63724,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %conv1.i.i51 = sext i32 %16 to i64
   %call.i.i52 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i51, i8 noundef zeroext %conv.i.i50)
   %shr.i.i54 = ashr i32 %16, %conv2.i.i53
-  %conv3.i.i55 = zext i8 %call.i.i52 to i32
+  %conv3.i.i55 = zext nneg i8 %call.i.i52 to i32
   %add.i.i56 = add i32 %shr.i.i54, %conv3.i.i55
   %add.ptr2.i57 = getelementptr i32, ptr %vd, i64 %idx.ext.i47
   store i32 %add.i.i56, ptr %add.ptr2.i57, align 4
@@ -63748,7 +63748,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %conv1.i.i40 = sext i32 %17 to i64
   %call.i.i41 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %conv1.i.i40, i8 noundef zeroext %conv.i.i50)
   %shr.i.i43 = ashr i32 %17, %conv2.i.i53
-  %conv3.i.i44 = zext i8 %call.i.i41 to i32
+  %conv3.i.i44 = zext nneg i8 %call.i.i41 to i32
   %add.i.i45 = add i32 %shr.i.i43, %conv3.i.i44
   %add.ptr2.i46 = getelementptr i32, ptr %vd, i64 %idx.ext.i36
   store i32 %add.i.i45, ptr %add.ptr2.i46, align 4
@@ -64073,7 +64073,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %14 = load i64, ptr %add.ptr.i40, align 8
   %call.i.i42 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %14, i8 noundef zeroext %conv.i.i41)
   %shr.i.i44 = ashr i64 %14, %sh_prom.i.i43
-  %conv2.i.i45 = zext i8 %call.i.i42 to i64
+  %conv2.i.i45 = zext nneg i8 %call.i.i42 to i64
   %add.i.i46 = add i64 %shr.i.i44, %conv2.i.i45
   %add.ptr2.i47 = getelementptr i64, ptr %vd, i64 %idx.ext.i39
   store i64 %add.i.i46, ptr %add.ptr2.i47, align 8
@@ -64096,7 +64096,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %15 = load i64, ptr %add.ptr.i31, align 8
   %call.i.i33 = tail call fastcc zeroext i8 @get_round(i32 noundef 1, i64 noundef %15, i8 noundef zeroext %conv.i.i41)
   %shr.i.i35 = ashr i64 %15, %sh_prom.i.i43
-  %conv2.i.i36 = zext i8 %call.i.i33 to i64
+  %conv2.i.i36 = zext nneg i8 %call.i.i33 to i64
   %add.i.i37 = add i64 %shr.i.i35, %conv2.i.i36
   %add.ptr2.i38 = getelementptr i64, ptr %vd, i64 %idx.ext.i30
   store i64 %add.i.i37, ptr %add.ptr2.i38, align 8
@@ -64296,7 +64296,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %2)
   %conv4.i = zext nneg i8 %2 to i16
   %shr.i = ashr i16 %1, %conv4.i
-  %conv5.i = zext i8 %call.i to i16
+  %conv5.i = zext nneg i8 %call.i to i16
   %add.i = add i16 %shr.i, %conv5.i
   %cmp.i = icmp sgt i16 %add.i, 127
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64347,7 +64347,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %conv1.i)
   %conv3.i = zext nneg i8 %conv1.i to i32
   %shr.i = ashr i32 %1, %conv3.i
-  %conv4.i = zext i8 %call.i to i32
+  %conv4.i = zext nneg i8 %call.i to i32
   %add.i = add i32 %shr.i, %conv4.i
   %cmp.i = icmp sgt i32 %add.i, 32767
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64398,7 +64398,7 @@ entry:
   %conv1.i = and i32 %0, 63
   %sh_prom.i = zext nneg i32 %conv1.i to i64
   %shr.i = ashr i64 %1, %sh_prom.i
-  %conv2.i = zext i8 %call.i to i64
+  %conv2.i = zext nneg i8 %call.i to i64
   %add.i = add i64 %shr.i, %conv2.i
   %cmp.i = icmp sgt i64 %add.i, 2147483647
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64447,7 +64447,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %1)
   %conv4.i = zext nneg i8 %1 to i16
   %shr.i = ashr i16 %0, %conv4.i
-  %conv5.i = zext i8 %call.i to i16
+  %conv5.i = zext nneg i8 %call.i to i16
   %add.i = add i16 %shr.i, %conv5.i
   %cmp.i = icmp sgt i16 %add.i, 127
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64496,7 +64496,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %conv1.i)
   %conv3.i = zext nneg i8 %conv1.i to i32
   %shr.i = ashr i32 %0, %conv3.i
-  %conv4.i = zext i8 %call.i to i32
+  %conv4.i = zext nneg i8 %call.i to i32
   %add.i = add i32 %shr.i, %conv4.i
   %cmp.i = icmp sgt i32 %add.i, 32767
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64544,7 +64544,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %0, i8 noundef zeroext %conv.i)
   %conv1.i = and i64 %s1, 63
   %shr.i = ashr i64 %0, %conv1.i
-  %conv2.i = zext i8 %call.i to i64
+  %conv2.i = zext nneg i8 %call.i to i64
   %add.i = add i64 %shr.i, %conv2.i
   %cmp.i = icmp sgt i64 %add.i, 2147483647
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64594,7 +64594,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %2)
   %conv4.i = zext nneg i8 %2 to i16
   %shr.i = lshr i16 %1, %conv4.i
-  %conv5.i = zext i8 %call.i to i16
+  %conv5.i = zext nneg i8 %call.i to i16
   %add.i = add i16 %shr.i, %conv5.i
   %cmp.i = icmp ugt i16 %add.i, 255
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64636,7 +64636,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %conv1.i)
   %conv3.i = zext nneg i8 %conv1.i to i32
   %shr.i = lshr i32 %1, %conv3.i
-  %conv4.i = zext i8 %call.i to i32
+  %conv4.i = zext nneg i8 %call.i to i32
   %add.i = add i32 %shr.i, %conv4.i
   %cmp.i = icmp ugt i32 %add.i, 65535
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64678,7 +64678,7 @@ entry:
   %conv1.i = and i32 %0, 63
   %sh_prom.i = zext nneg i32 %conv1.i to i64
   %shr.i = lshr i64 %1, %sh_prom.i
-  %conv2.i = zext i8 %call.i to i64
+  %conv2.i = zext nneg i8 %call.i to i64
   %add.i = add i64 %shr.i, %conv2.i
   %cmp.i = icmp ugt i64 %add.i, 4294967295
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64718,7 +64718,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %1)
   %conv4.i = zext nneg i8 %1 to i16
   %shr.i = lshr i16 %0, %conv4.i
-  %conv5.i = zext i8 %call.i to i16
+  %conv5.i = zext nneg i8 %call.i to i16
   %add.i = add i16 %shr.i, %conv5.i
   %cmp.i = icmp ugt i16 %add.i, 255
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64758,7 +64758,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %conv2.i, i8 noundef zeroext %conv1.i)
   %conv3.i = zext nneg i8 %conv1.i to i32
   %shr.i = lshr i32 %0, %conv3.i
-  %conv4.i = zext i8 %call.i to i32
+  %conv4.i = zext nneg i8 %call.i to i32
   %add.i = add i32 %shr.i, %conv4.i
   %cmp.i = icmp ugt i32 %add.i, 65535
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -64797,7 +64797,7 @@ entry:
   %call.i = tail call fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %0, i8 noundef zeroext %conv.i)
   %conv1.i = and i64 %s1, 63
   %shr.i = lshr i64 %0, %conv1.i
-  %conv2.i = zext i8 %call.i to i64
+  %conv2.i = zext nneg i8 %call.i to i64
   %add.i = add i64 %shr.i, %conv2.i
   %cmp.i = icmp ugt i64 %add.i, 4294967295
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -99988,7 +99988,7 @@ declare zeroext i1 @page_check_range(i64 noundef, i64 noundef, i32 noundef) loca
 declare ptr @probe_access(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i8 @get_round(i32 noundef %vxrm, i64 noundef %v, i8 noundef zeroext %shift) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @get_round(i32 noundef %vxrm, i64 noundef %v, i8 noundef zeroext %shift) unnamed_addr #1 {
 entry:
   %conv = zext nneg i8 %shift to i32
   %sub.i = sub nuw nsw i32 64, %conv

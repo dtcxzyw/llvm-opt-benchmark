@@ -4634,7 +4634,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17hb3d5d2528ffde33aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17hb3d5d2528ffde33aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !1249, !noalias !1252, !nonnull !22, !noundef !22
   %4 = load ptr, ptr %0, align 8, !alias.scope !1249, !noalias !1252, !nonnull !22, !noundef !22
@@ -38325,7 +38325,7 @@ define hidden void @"_ZN102_$LT$ide..status..AttrsStats$u20$as$u20$ide..status..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN3ide19syntax_highlighting9highlight5token17hfd22595712d99418E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden range(i64 0, 17592186044416) i64 @_ZN3ide19syntax_highlighting9highlight5token17hfd22595712d99418E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -38592,7 +38592,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2274688034147933536.ex
 
 106:                                              ; preds = %208, %_ZN3ide19syntax_highlighting9highlight11punctuation17h7177bb82a18f5099E.exit
   %.sroa.038.0.in = phi i64 [ %.sroa.0.0119.i, %_ZN3ide19syntax_highlighting9highlight11punctuation17h7177bb82a18f5099E.exit ], [ %209, %208 ]
-  %.sroa.9.0 = phi i8 [ %.sroa.4107.0.extract.trunc, %_ZN3ide19syntax_highlighting9highlight11punctuation17h7177bb82a18f5099E.exit ], [ %.sroa.4104.0.extract.trunc, %208 ]
+  %.sroa.9.0.in = phi i64 [ %.sroa.4107.0.extract.shift, %_ZN3ide19syntax_highlighting9highlight11punctuation17h7177bb82a18f5099E.exit ], [ %.sroa.4104.0.extract.shift, %208 ]
+  %.sroa.9.0 = trunc i64 %.sroa.9.0.in to i8
   %.sroa.11.0.in = lshr i64 %.sroa.038.0.in, 40
   %.sroa.038.0 = trunc i64 %.sroa.038.0.in to i32
   br label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE.exit"
@@ -38974,15 +38975,14 @@ _ZN4core3ops8function6FnOnce9call_once17h3c7a7630d0f5ce3bE.exit.i: ; preds = %16
 208:                                              ; preds = %207
   %209 = tail call fastcc i64 @_ZN3ide19syntax_highlighting9highlight7keyword17hfad0894d1b0ccd98E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1, i16 noundef %34)
   %.sroa.4104.0.extract.shift = lshr i64 %209, 32
-  %.sroa.4104.0.extract.trunc = trunc i64 %.sroa.4104.0.extract.shift to i8
-  %210 = icmp eq i8 %.sroa.4104.0.extract.trunc, 17
+  %210 = icmp eq i64 %.sroa.4104.0.extract.shift, 17
   br i1 %210, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE.exit", label %106
 
 "_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE.exit": ; preds = %219, %215, %214, %.thread165, %106, %208
   %.sroa.5.sroa.0.1 = phi i64 [ %.sroa.11.0.in, %106 ], [ 0, %208 ], [ 0, %.thread165 ], [ 0, %214 ], [ %.sroa.038.0.in.ph, %215 ], [ %.sroa.038.0.in.ph, %219 ]
   %.sroa.3.1 = phi i8 [ %.sroa.9.0, %106 ], [ 17, %208 ], [ %.sroa.3.0163, %.thread165 ], [ %.sroa.3.0163, %214 ], [ %.sroa.9.0.ph, %215 ], [ %.sroa.9.0.ph, %219 ]
   %.sroa.0.1 = phi i32 [ %.sroa.038.0, %106 ], [ undef, %208 ], [ %.sroa.0.0164, %.thread165 ], [ %.sroa.0.0164, %214 ], [ 0, %215 ], [ 0, %219 ]
-  %.sroa.5.0.insert.ext = shl nuw i64 %.sroa.5.sroa.0.1, 40
+  %.sroa.5.0.insert.ext = shl nuw nsw i64 %.sroa.5.sroa.0.1, 40
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.1 to i64
   %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.5.0.insert.ext
@@ -39005,7 +39005,6 @@ _ZN4core3ops8function6FnOnce9call_once17h3c7a7630d0f5ce3bE.exit.i: ; preds = %16
 
 _ZN3ide19syntax_highlighting9highlight11punctuation17h7177bb82a18f5099E.exit: ; preds = %194, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$GT$17hd8ed5e6419c64147E.exit96.i"
   %.sroa.4107.0.extract.shift = lshr i64 %.sroa.0.0119.i, 32
-  %.sroa.4107.0.extract.trunc = trunc i64 %.sroa.4107.0.extract.shift to i8
   br label %106
 
 215:                                              ; preds = %109, %108, %107, %105, %35, %"_ZN4core3ptr315drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17h5e8f8cb769d829dfE.exit125", %118, %113
@@ -39196,9 +39195,7 @@ define hidden void @_ZN3ide19syntax_highlighting9highlight9name_like17h4c34d1423
 .thread206.i:                                     ; preds = %87
   %.sroa.0.0210.i = trunc i64 %71 to i32
   %.sroa.10.0.in211.i = lshr i64 %71, 40
-  %.sroa.10.0212.i = trunc i64 %.sroa.10.0.in211.i to i8
-  %.sroa.12.0.in213.i = lshr i64 %71, 48
-  %.sroa.12.0214.i = trunc nuw i64 %.sroa.12.0.in213.i to i16
+  %.sroa.10.0212.i = trunc nuw nsw i64 %.sroa.10.0.in211.i to i8
   br label %455
 
 88:                                               ; preds = %87, %.thread201.i
@@ -39996,9 +39993,7 @@ _ZN4core3ops8function6FnOnce9call_once17h76e3b9296b37c4a5E.exit.thread.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46), !noalias !10206
   %.sroa.0.0224.i = trunc i64 %.sroa.0.8.i.i to i32
   %.sroa.10.0.in225.i = lshr i64 %.sroa.0.8.i.i, 40
-  %.sroa.10.0226.i = trunc i64 %.sroa.10.0.in225.i to i8
-  %.sroa.12.0.in227.i = lshr i64 %.sroa.0.8.i.i, 48
-  %.sroa.12.0228.i = trunc nuw i64 %.sroa.12.0.in227.i to i16
+  %.sroa.10.0226.i = trunc nuw nsw i64 %.sroa.10.0.in225.i to i8
   br label %_ZN3ide19syntax_highlighting9highlight18highlight_name_ref17h5d1d4314faf1a677E.exit
 
 377:                                              ; preds = %97
@@ -40188,7 +40183,6 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2274688034147933536.ex
   unreachable
 
 455:                                              ; preds = %.loopexit.i, %.thread206.i
-  %.sroa.12.0218.i = phi i16 [ %.sroa.12.0214.i, %.thread206.i ], [ 0, %.loopexit.i ]
   %.sroa.10.0217.i = phi i8 [ %.sroa.10.0212.i, %.thread206.i ], [ 0, %.loopexit.i ]
   %.sroa.0.0216.i = phi i32 [ %.sroa.0.0210.i, %.thread206.i ], [ 0, %.loopexit.i ]
   %.sroa.8.0215.i = phi i8 [ %.sroa.482.0.extract.trunc.i, %.thread206.i ], [ %.sroa.12.2.in.in.i, %.loopexit.i ]
@@ -40394,9 +40388,7 @@ default.unreachable:                              ; preds = %.thread64.i, %636, 
   %.sroa.12.0.extract.shift.i = lshr i64 %468, 32
   %.sroa.12.0.extract.trunc.i = trunc i64 %.sroa.12.0.extract.shift.i to i8
   %.sroa.13.0.extract.shift.i = lshr i64 %468, 40
-  %.sroa.13.0.extract.trunc.i = trunc i64 %.sroa.13.0.extract.shift.i to i8
-  %.sroa.14.0.extract.shift.i = lshr i64 %468, 48
-  %.sroa.14.0.extract.trunc.i = trunc nuw i64 %.sroa.14.0.extract.shift.i to i16
+  %.sroa.13.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.13.0.extract.shift.i to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %40), !noalias !10206
   %517 = load i8, ptr %45, align 4, !range !3289, !noalias !10206, !noundef !22
   switch i8 %517, label %.thread240.i [
@@ -40584,7 +40576,6 @@ switch.early.test.i:                              ; preds = %564
 591:                                              ; preds = %599, %595, %.thread240.i
   %.sroa.6.1 = phi i64 [ undef, %599 ], [ undef, %595 ], [ %.sroa.6.2, %.thread240.i ]
   %.sroa.0.1 = phi i64 [ 0, %599 ], [ 0, %595 ], [ %.sroa.0.2, %.thread240.i ]
-  %.sroa.12.3.i = phi i16 [ 0, %599 ], [ %.sroa.6100.0.extract.trunc.i, %595 ], [ %.sroa.14.0.extract.trunc.i, %.thread240.i ]
   %.sroa.10.3.i = phi i8 [ 16, %599 ], [ %.sroa.599.0.extract.trunc.i, %595 ], [ %.sroa.13.0.extract.trunc.i, %.thread240.i ]
   %.sroa.8.3.i = phi i8 [ 0, %599 ], [ %.sroa.498.0.extract.trunc.i, %595 ], [ %.sroa.12.0.extract.trunc.i, %.thread240.i ]
   %.sroa.0.3.i = phi i32 [ %602, %599 ], [ %.sroa.097.0.extract.trunc.i, %595 ], [ %.sroa.0.0182.i, %.thread240.i ]
@@ -40600,9 +40591,7 @@ switch.early.test.i:                              ; preds = %564
   %.sroa.498.0.extract.shift.i = lshr i64 %594, 32
   %.sroa.498.0.extract.trunc.i = trunc i64 %.sroa.498.0.extract.shift.i to i8
   %.sroa.599.0.extract.shift.i = lshr i64 %594, 40
-  %.sroa.599.0.extract.trunc.i = trunc i64 %.sroa.599.0.extract.shift.i to i8
-  %.sroa.6100.0.extract.shift.i = lshr i64 %594, 48
-  %.sroa.6100.0.extract.trunc.i = trunc nuw i64 %.sroa.6100.0.extract.shift.i to i16
+  %.sroa.599.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.599.0.extract.shift.i to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %37), !noalias !10206
   br label %591
 
@@ -40692,18 +40681,14 @@ common.resume:                                    ; preds = %796, %789, %"_ZN4co
 _ZN3ide19syntax_highlighting9highlight18highlight_name_ref17h5d1d4314faf1a677E.exit: ; preds = %.thread219.i, %455, %461, %607, %613
   %.sroa.6.3 = phi i64 [ undef, %.thread219.i ], [ undef, %461 ], [ undef, %455 ], [ %.sroa.6.1, %613 ], [ %.sroa.6.1, %607 ]
   %.sroa.0.3 = phi i64 [ 0, %.thread219.i ], [ 0, %461 ], [ 0, %455 ], [ %.sroa.0.1, %613 ], [ %.sroa.0.1, %607 ]
-  %.sroa.12.1.i = phi i16 [ %.sroa.12.0228.i, %.thread219.i ], [ %.sroa.12.0218.i, %461 ], [ %.sroa.12.0218.i, %455 ], [ %.sroa.12.3.i, %613 ], [ %.sroa.12.3.i, %607 ]
   %.sroa.10.1.i = phi i8 [ %.sroa.10.0226.i, %.thread219.i ], [ %.sroa.10.0217.i, %461 ], [ %.sroa.10.0217.i, %455 ], [ %.sroa.767.0.i, %613 ], [ %.sroa.767.0.i, %607 ]
   %.sroa.8.1.i = phi i8 [ %.sroa.8.2223.i, %.thread219.i ], [ %.sroa.8.0215.i, %461 ], [ %.sroa.8.0215.i, %455 ], [ %.sroa.066.0.i, %613 ], [ %.sroa.066.0.i, %607 ]
   %.sroa.0.1.i = phi i32 [ %.sroa.0.0224.i, %.thread219.i ], [ %.sroa.0.0216.i, %461 ], [ %.sroa.0.0216.i, %455 ], [ %.sroa.0.3.i, %613 ], [ %.sroa.0.3.i, %607 ]
-  %.sroa.12.0.insert.ext.i = zext i16 %.sroa.12.1.i to i64
-  %.sroa.12.0.insert.shift.i = shl nuw i64 %.sroa.12.0.insert.ext.i, 48
   %.sroa.10.0.insert.ext.i = zext i8 %.sroa.10.1.i to i64
   %.sroa.10.0.insert.shift.i = shl nuw nsw i64 %.sroa.10.0.insert.ext.i, 40
-  %.sroa.10.0.insert.insert.i = or disjoint i64 %.sroa.10.0.insert.shift.i, %.sroa.12.0.insert.shift.i
   %.sroa.8.0.insert.ext.i = zext i8 %.sroa.8.1.i to i64
   %.sroa.8.0.insert.shift.i = shl nuw nsw i64 %.sroa.8.0.insert.ext.i, 32
-  %.sroa.8.0.insert.insert.i = or disjoint i64 %.sroa.10.0.insert.insert.i, %.sroa.8.0.insert.shift.i
+  %.sroa.8.0.insert.insert.i = or disjoint i64 %.sroa.8.0.insert.shift.i, %.sroa.10.0.insert.shift.i
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.1.i to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.8.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %36)
@@ -41135,7 +41120,7 @@ _ZN3ide19syntax_highlighting9highlight18highlight_name_ref17h5d1d4314faf1a677E.e
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13), !noalias !10680
   %757 = trunc i64 %753 to i32
   %.sroa.0.0.extract.trunc.i21 = or i32 %757, 512
-  %.sroa.6.0.extract.shift.i = and i64 %753, -4294967296
+  %.sroa.6.0.extract.shift.i = and i64 %753, 35180077121536
   %758 = load i8, ptr %14, align 4, !range !3289, !noalias !10680, !noundef !22
   %759 = icmp eq i8 %758, 9
   br i1 %759, label %760, label %764
@@ -41713,7 +41698,7 @@ define internal fastcc { i64, ptr } @"_ZN3ide19syntax_highlighting9highlight11pu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN3ide19syntax_highlighting9highlight7keyword17hfad0894d1b0ccd98E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1, i16 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc range(i64 8589934592, 73014444033) i64 @_ZN3ide19syntax_highlighting9highlight7keyword17hfad0894d1b0ccd98E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1, i16 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   switch i16 %2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he9722ed8ca47f137E.exit.thread" [
     i16 56, label %12
@@ -42554,7 +42539,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf90c940d10eb7b82E.exit: ; preds = %._ZN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN3ide19syntax_highlighting9highlight13highlight_def17hb3df72e100768562E(ptr nocapture noundef nonnull readonly align 8 %0, i32 noundef %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden range(i64 0, 35184372088832) i64 @_ZN3ide19syntax_highlighting9highlight13highlight_def17hb3df72e100768562E(ptr nocapture noundef nonnull readonly align 8 %0, i32 noundef %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i32, [1 x i32] }, i32 }, align 4
   %5 = alloca { { i32, [1 x i32] }, i32 }, align 4
   %6 = alloca { { i32, [1 x i32] }, i32 }, align 4
@@ -43034,7 +43019,7 @@ switch.lookup183:                                 ; preds = %81
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN3ide19syntax_highlighting9highlight21highlight_method_call17hfc957037ad27520bE(ptr noundef nonnull align 8 %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc range(i64 73014444032, 9899899617280) i64 @_ZN3ide19syntax_highlighting9highlight21highlight_method_call17hfc957037ad27520bE(ptr noundef nonnull align 8 %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { { ptr, ptr }, { ptr, [1 x i64] } }, align 8
@@ -43241,7 +43226,7 @@ common.resume:                                    ; preds = %82, %61, %"_ZN4core
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @"_ZN3ide19syntax_highlighting9highlight28highlight_name_ref_by_syntax28_$u7b$$u7b$closure$u7d$$u7d$17h9c7b37192171e00cE"(ptr nonnull %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc range(i64 17592186044416, 21990232555521) i64 @"_ZN3ide19syntax_highlighting9highlight28highlight_name_ref_by_syntax28_$u7b$$u7b$closure$u7d$$u7d$17h9c7b37192171e00cE"(ptr nonnull %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { { ptr, [1 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   call void @"_ZN6syntax3ast8node_ext56_$LT$impl$u20$syntax..ast..generated..nodes..NameRef$GT$4text17h3d087c8fd572870dE"(ptr noalias nocapture noundef nonnull sret({ { ptr, [1 x i64] } }) align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0.val)

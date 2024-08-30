@@ -1593,7 +1593,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN3net22QuicCryptoServerConfig14GenerateConfigEPNS_10QuicRandomEPKNS_9QuicClockERKNS0_13ConfigOptionsE(ptr noundef %rand, ptr noundef %clock, ptr noundef nonnull align 8 dereferenceable(105) %options) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN3net22QuicCryptoServerConfig14GenerateConfigEPNS_10QuicRandomEPKNS_9QuicClockERKNS0_13ConfigOptionsE(ptr noundef %rand, ptr noundef %clock, ptr noundef nonnull align 8 dereferenceable(105) %options) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config.i = alloca %"class.base::BasicStringPiece", align 8
   %retval.i = alloca %"class.base::BasicStringPiece", align 8
@@ -4925,19 +4925,12 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call6 = invoke noundef ptr @_ZN3net22QuicCryptoServerConfig9AddConfigEPNS_24QuicServerConfigProtobufENS_12QuicWallTimeE(ptr noundef nonnull align 8 dereferenceable(405) %this, ptr noundef %call, i64 %call3)
-          to label %invoke.cont5 unwind label %lpad
+  %call6 = invoke noundef ptr @_ZN3net22QuicCryptoServerConfig9AddConfigEPNS_24QuicServerConfigProtobufENS_12QuicWallTimeE(ptr noundef nonnull align 8 dereferenceable(405) %this, ptr noundef nonnull %call, i64 %call3)
+          to label %_ZNSt10unique_ptrIN3net24QuicServerConfigProtobufESt14default_deleteIS1_EED2Ev.exit unwind label %lpad
 
-invoke.cont5:                                     ; preds = %invoke.cont
-  %cmp.not.i = icmp eq ptr %call, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net24QuicServerConfigProtobufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net24QuicServerConfigProtobufEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN3net24QuicServerConfigProtobufEEclEPS1_.exit.i: ; preds = %invoke.cont5
+_ZNSt10unique_ptrIN3net24QuicServerConfigProtobufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont
   tail call void @_ZN3net24QuicServerConfigProtobufD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %call) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call) #24
-  br label %_ZNSt10unique_ptrIN3net24QuicServerConfigProtobufESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN3net24QuicServerConfigProtobufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont5, %_ZNKSt14default_deleteIN3net24QuicServerConfigProtobufEEclEPS1_.exit.i
   ret ptr %call6
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -10355,7 +10348,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3net22QuicCryptoServerConfig27ValidateSourceAddressTokensERKNS_19SourceAddressTokensERKNS_9IPAddressENS_12QuicWallTimeEPNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(405) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %source_address_tokens, ptr noundef nonnull align 8 dereferenceable(24) %ip, i64 %now.coerce, ptr noundef %cached_network_params) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 20) i32 @_ZNK3net22QuicCryptoServerConfig27ValidateSourceAddressTokensERKNS_19SourceAddressTokensERKNS_9IPAddressENS_12QuicWallTimeEPNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(405) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %source_address_tokens, ptr noundef nonnull align 8 dereferenceable(24) %ip, i64 %now.coerce, ptr noundef %cached_network_params) local_unnamed_addr #0 align 2 {
 entry:
   %rep_.i.i = getelementptr inbounds i8, ptr %source_address_tokens, i64 48
   %0 = load ptr, ptr %rep_.i.i, align 8

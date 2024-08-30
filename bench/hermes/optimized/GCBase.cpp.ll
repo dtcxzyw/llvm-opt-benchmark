@@ -3279,7 +3279,7 @@ cleanup:                                          ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNumberIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 2, 0) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNumberIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_.i, align 8
@@ -3297,7 +3297,7 @@ _ZN6hermes2vm6GCBase9IDTracker12nextObjectIDEv.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm6GCBase9IDTracker14getObjectForIDEj(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %id) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm6GCBase9IDTracker14getObjectForIDEj(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %id) local_unnamed_addr #0 align 2 {
 entry:
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #27
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
@@ -3524,7 +3524,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm6GCBase9IDTracker12nextObjectIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 2, 0) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextObjectIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_, align 8
@@ -3708,7 +3708,7 @@ entry:
 declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm6GCBase13getSnapshotIDENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(741) %this, i64 %val.coerce) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm6GCBase13getSnapshotIDENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(741) %this, i64 %val.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %val.coerce, -844424930131969
   br i1 %cmp.i, label %land.lhs.true, label %if.else
@@ -3783,17 +3783,16 @@ define hidden noundef ptr @_ZN6hermes2vm6GCBase14getObjectForIDEj(ptr noundef no
 entry:
   %idTracker_ = getelementptr inbounds i8, ptr %this, i64 488
   %call = tail call i64 @_ZN6hermes2vm6GCBase9IDTracker14getObjectForIDEj(ptr noundef nonnull align 8 dereferenceable(192) %idTracker_, i32 noundef %id)
-  %0 = and i64 %call, 4294967296
-  %tobool.i.not = icmp eq i64 %0, 0
+  %tobool.i.not = icmp ult i64 %call, 4294967296
   %pointerBase_ = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %pointerBase_, align 8
-  %2 = and i64 %call, 4294967295
-  %cmp.i.not.i.i.i = icmp eq i64 %2, 0
-  %3 = ptrtoint ptr %1 to i64
-  %add.i.i.i.i = add i64 %2, %3
-  %4 = inttoptr i64 %add.i.i.i.i to ptr
-  %5 = or i1 %tobool.i.not, %cmp.i.not.i.i.i
-  %retval.0 = select i1 %5, ptr null, ptr %4
+  %0 = load ptr, ptr %pointerBase_, align 8
+  %1 = and i64 %call, 4294967295
+  %cmp.i.not.i.i.i = icmp eq i64 %1, 0
+  %2 = ptrtoint ptr %0 to i64
+  %add.i.i.i.i = add i64 %1, %2
+  %3 = inttoptr i64 %add.i.i.i.i to ptr
+  %4 = or i1 %tobool.i.not, %cmp.i.not.i.i.i
+  %retval.0 = select i1 %4, ptr null, ptr %3
   ret ptr %retval.0
 }
 

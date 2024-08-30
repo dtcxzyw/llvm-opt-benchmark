@@ -4522,7 +4522,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucnv_MBCSFromUChar32_75(ptr nocapture noundef readonly %sharedData, i32 noundef %c, ptr noundef %pValue, i8 noundef signext %useFallback) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @ucnv_MBCSFromUChar32_75(ptr nocapture noundef readonly %sharedData, i32 noundef %c, ptr noundef %pValue, i8 noundef signext %useFallback) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %c, 65536
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -5333,7 +5333,7 @@ for.end59.i:                                      ; preds = %for.inc57.i, %if.en
   br i1 %cmp2.not.i.i, label %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.end59.i, %for.inc.i.i
-  %82 = phi i8 [ %86, %for.inc.i.i ], [ %81, %for.end59.i ]
+  %82 = phi i8 [ %85, %for.inc.i.i ], [ %81, %for.end59.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %for.end59.i ]
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %stateProps.i.i, i64 0, i64 %indvars.iv.i.i
   %83 = load i8, ptr %arrayidx.i.i, align 1
@@ -5342,15 +5342,15 @@ for.body.i.i:                                     ; preds = %for.end59.i, %for.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %84 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %85 = call fastcc noundef signext i8 @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef nonnull readonly %mbcs, ptr noundef nonnull %stateProps.i.i, i32 noundef %84, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly %mbcs)
+  call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef nonnull readonly %mbcs, ptr noundef nonnull %stateProps.i.i, i32 noundef %84, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly %mbcs)
   %.pre.i.i = load i8, ptr %mbcs, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
-  %86 = phi i8 [ %82, %for.body.i.i ], [ %.pre.i.i, %if.then.i.i ]
+  %85 = phi i8 [ %82, %for.body.i.i ], [ %.pre.i.i, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %87 = zext i8 %86 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %87
+  %86 = zext i8 %85 to i64
+  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %86
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i, !llvm.loop !42
 
 _ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i: ; preds = %for.inc.i.i, %for.end59.i
@@ -5359,13 +5359,13 @@ _ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit
 
 if.end315:                                        ; preds = %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i, %if.then.i, %do.body, %for.end301, %land.lhs.true84, %if.else112, %land.lhs.true117, %land.lhs.true122, %land.lhs.true126, %for.end162, %if.then93, %land.lhs.true102, %if.then106
   %utf8Friendly316 = getelementptr inbounds i8, ptr %sharedData, i64 254
-  %88 = load i8, ptr %utf8Friendly316, align 2
-  %tobool317.not = icmp eq i8 %88, 0
+  %87 = load i8, ptr %utf8Friendly316, align 2
+  %tobool317.not = icmp eq i8 %87, 0
   br i1 %tobool317.not, label %if.end331thread-pre-split, label %if.then318
 
 if.then318:                                       ; preds = %if.end315
-  %89 = load i8, ptr %mbcs, align 8
-  %cmp321 = icmp eq i8 %89, 1
+  %88 = load i8, ptr %mbcs, align 8
+  %cmp321 = icmp eq i8 %88, 1
   br i1 %cmp321, label %if.then322, label %if.else323
 
 if.then322:                                       ; preds = %if.then318
@@ -5374,8 +5374,8 @@ if.then322:                                       ; preds = %if.then318
   br label %if.end331thread-pre-split
 
 if.else323:                                       ; preds = %if.then318
-  %90 = load i8, ptr %outputType191, align 4
-  %cmp326 = icmp eq i8 %90, 1
+  %89 = load i8, ptr %outputType191, align 4
+  %cmp326 = icmp eq i8 %89, 1
   br i1 %cmp326, label %if.end331.thread, label %if.end331
 
 if.end331.thread:                                 ; preds = %if.else323
@@ -5388,8 +5388,8 @@ if.end331thread-pre-split:                        ; preds = %if.end315, %if.then
   br label %if.end331
 
 if.end331:                                        ; preds = %if.end331thread-pre-split, %if.else323
-  %91 = phi i8 [ %.pr, %if.end331thread-pre-split ], [ %90, %if.else323 ]
-  switch i8 %91, label %if.end341 [
+  %90 = phi i8 [ %.pr, %if.end331thread-pre-split ], [ %89, %if.else323 ]
+  switch i8 %90, label %if.end341 [
     i8 -37, label %if.then339
     i8 12, label %if.then339
   ]
@@ -6682,7 +6682,7 @@ return:                                           ; preds = %if.end103, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr nocapture noundef readonly %mbcsTable, ptr nocapture noundef readonly %stateProps, i32 noundef %state, i32 noundef %offset, i32 noundef %value, ptr nocapture noundef readonly %context) unnamed_addr #5 {
+define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr nocapture noundef readonly %mbcsTable, ptr nocapture noundef readonly %stateProps, i32 noundef %state, i32 noundef %offset, i32 noundef %value, ptr nocapture noundef readonly %context) unnamed_addr #5 {
 entry:
   %codePoints = alloca [32 x i32], align 16
   %stateTable = getelementptr inbounds i8, ptr %mbcsTable, i64 8
@@ -6756,9 +6756,8 @@ if.then25:                                        ; preds = %if.then20
   %add27 = add i32 %and26, %offset
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %or = or i32 %shl, %9
-  %call = tail call fastcc noundef signext i8 @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef %mbcsTable, ptr noundef nonnull %stateProps, i32 noundef %shr, i32 noundef %add27, i32 noundef %or, ptr noundef %context)
-  %tobool.not = icmp eq i8 %call, 0
-  br i1 %tobool.not, label %return, label %if.end30
+  tail call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef %mbcsTable, ptr noundef nonnull %stateProps, i32 noundef %shr, i32 noundef %add27, i32 noundef %or, ptr noundef %context)
+  br label %if.end30
 
 if.end30:                                         ; preds = %if.then20, %if.then25
   %and31 = and i64 %indvars.iv, 31
@@ -6976,9 +6975,8 @@ if.end113:                                        ; preds = %for.inc.i, %if.end9
   %cmp15 = icmp ult i64 %indvars.iv.next, %6
   br i1 %cmp15, label %while.body, label %return, !llvm.loop !51
 
-return:                                           ; preds = %if.then25, %if.end113, %if.end
-  %retval.0 = phi i8 [ 1, %if.end ], [ 1, %if.end113 ], [ 0, %if.then25 ]
-  ret i8 %retval.0
+return:                                           ; preds = %if.end113, %if.end
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -8131,7 +8131,7 @@ _ZN4Luau10TempVectorIPNS_7AstExprEED2Ev.exit59:   ; preds = %_ZN4Luau10TempVecto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZN4Luau6Parser15parseCompoundOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser15parseCompoundOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   %switch.tableidx = add i32 %2, -270
   %3 = icmp ult i32 %switch.tableidx, 8
@@ -10417,131 +10417,129 @@ _ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE.exit: ; preds = %_ZN4Luau6Parser25in
 _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit: ; preds = %27
   %44 = call i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i32 noundef %1)
   %.sroa.0.0.extract.trunc17 = trunc i64 %44 to i32
-  %45 = and i64 %44, 4294967296
-  %.sroa.7.0.extract.trunc22 = icmp ne i64 %45, 0
+  %.sroa.7.0.extract.trunc22 = icmp ugt i64 %44, 4294967295
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread
 
 _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread: ; preds = %27, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit
   %.sroa.7.0 = phi i1 [ %.sroa.7.0.extract.trunc22, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit ], [ true, %43 ], [ true, %42 ], [ true, %41 ], [ true, %40 ], [ true, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ], [ true, %33 ], [ true, %32 ], [ true, %31 ], [ true, %30 ], [ true, %29 ], [ true, %27 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.extract.trunc17, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit ], [ 15, %43 ], [ 14, %42 ], [ 13, %41 ], [ 12, %40 ], [ 11, %39 ], [ 10, %38 ], [ 9, %37 ], [ 8, %36 ], [ 7, %35 ], [ 6, %34 ], [ 5, %33 ], [ 4, %32 ], [ 3, %31 ], [ 2, %30 ], [ 1, %29 ], [ 0, %27 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 128
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 128
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13
 
 _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13: ; preds = %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread
   %.sroa.7.1 = phi i1 [ %.sroa.7.0, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread ], [ %.sroa.7.2, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread ], [ %.sroa.0.2, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread ]
-  %.0 = phi ptr [ %storemerge, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread ], [ %62, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread ]
-  br i1 %.sroa.7.1, label %48, label %.critedge
+  %.0 = phi ptr [ %storemerge, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread ], [ %61, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread ]
+  br i1 %.sroa.7.1, label %47, label %.critedge
 
-48:                                               ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13
-  %49 = zext i32 %.sroa.0.1 to i64
-  %50 = getelementptr inbounds [16 x %"struct.Luau::Parser::BinaryOpPriority"], ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 2
-  %52 = zext i8 %51 to i32
-  %53 = icmp ult i32 %1, %52
-  br i1 %53, label %54, label %.critedge
+47:                                               ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13
+  %48 = zext i32 %.sroa.0.1 to i64
+  %49 = getelementptr inbounds [16 x %"struct.Luau::Parser::BinaryOpPriority"], ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 0, i64 %48
+  %50 = load i8, ptr %49, align 2
+  %51 = zext i8 %50 to i32
+  %52 = icmp ult i32 %1, %51
+  br i1 %52, label %53, label %.critedge
 
-54:                                               ; preds = %48
+53:                                               ; preds = %47
   call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
-  %55 = getelementptr inbounds [16 x %"struct.Luau::Parser::BinaryOpPriority"], ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 0, i64 %49, i32 1
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = call noundef ptr @_ZN4Luau6Parser9parseExprEj(ptr noundef nonnull align 8 dereferenceable(840) %0, i32 noundef %57)
-  %59 = load ptr, ptr %46, align 8
+  %54 = getelementptr inbounds [16 x %"struct.Luau::Parser::BinaryOpPriority"], ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 0, i64 %48, i32 1
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = call noundef ptr @_ZN4Luau6Parser9parseExprEj(ptr noundef nonnull align 8 dereferenceable(840) %0, i32 noundef %56)
+  %58 = load ptr, ptr %45, align 8
   store i64 %.sroa.043.0.copyload, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 20
-  %61 = load i64, ptr %60, align 4
-  store i64 %61, ptr %47, align 8
-  %62 = call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef 48)
-  call void @_ZN4Luau13AstExprBinaryC1ERKNS_8LocationENS0_2OpEPNS_7AstExprES6_(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef %.sroa.0.1, ptr noundef %.0, ptr noundef %58)
-  %63 = load i32, ptr %13, align 8
-  switch i32 %63, label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12 [
+  %59 = getelementptr inbounds i8, ptr %57, i64 20
+  %60 = load i64, ptr %59, align 4
+  store i64 %60, ptr %46, align 8
+  %61 = call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef 48)
+  call void @_ZN4Luau13AstExprBinaryC1ERKNS_8LocationENS0_2OpEPNS_7AstExprES6_(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef %.sroa.0.1, ptr noundef %.0, ptr noundef %57)
+  %62 = load i32, ptr %13, align 8
+  switch i32 %62, label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12 [
     i32 43, label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
-    i32 45, label %64
-    i32 42, label %65
-    i32 47, label %66
-    i32 265, label %67
-    i32 37, label %68
-    i32 94, label %69
-    i32 261, label %70
-    i32 260, label %71
-    i32 257, label %72
-    i32 60, label %73
-    i32 258, label %74
-    i32 62, label %75
-    i32 259, label %76
-    i32 290, label %77
-    i32 304, label %78
+    i32 45, label %63
+    i32 42, label %64
+    i32 47, label %65
+    i32 265, label %66
+    i32 37, label %67
+    i32 94, label %68
+    i32 261, label %69
+    i32 260, label %70
+    i32 257, label %71
+    i32 60, label %72
+    i32 258, label %73
+    i32 62, label %74
+    i32 259, label %75
+    i32 290, label %76
+    i32 304, label %77
   ]
 
-64:                                               ; preds = %54
+63:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-65:                                               ; preds = %54
+64:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-66:                                               ; preds = %54
+65:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-67:                                               ; preds = %54
+66:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-68:                                               ; preds = %54
+67:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-69:                                               ; preds = %54
+68:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-70:                                               ; preds = %54
+69:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-71:                                               ; preds = %54
+70:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-72:                                               ; preds = %54
+71:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-73:                                               ; preds = %54
+72:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-74:                                               ; preds = %54
+73:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-75:                                               ; preds = %54
+74:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-76:                                               ; preds = %54
+75:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-77:                                               ; preds = %54
+76:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-78:                                               ; preds = %54
+77:                                               ; preds = %53
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12: ; preds = %54
-  %79 = call i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i32 noundef %1)
-  %.sroa.0.0.extract.trunc = trunc i64 %79 to i32
-  %80 = and i64 %79, 4294967296
-  %.sroa.7.0.extract.trunc = icmp ne i64 %80, 0
+_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12: ; preds = %53
+  %78 = call i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i32 noundef %1)
+  %.sroa.0.0.extract.trunc = trunc i64 %78 to i32
+  %.sroa.7.0.extract.trunc = icmp ugt i64 %78, 4294967295
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
-_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread: ; preds = %54, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12
-  %.sroa.7.2 = phi i1 [ %.sroa.7.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12 ], [ true, %78 ], [ true, %77 ], [ true, %76 ], [ true, %75 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %71 ], [ true, %70 ], [ true, %69 ], [ true, %68 ], [ true, %67 ], [ true, %66 ], [ true, %65 ], [ true, %64 ], [ true, %54 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12 ], [ 15, %78 ], [ 14, %77 ], [ 13, %76 ], [ 12, %75 ], [ 11, %74 ], [ 10, %73 ], [ 9, %72 ], [ 8, %71 ], [ 7, %70 ], [ 6, %69 ], [ 5, %68 ], [ 4, %67 ], [ 3, %66 ], [ 2, %65 ], [ 1, %64 ], [ 0, %54 ]
-  %81 = load i32, ptr %6, align 4
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %6, align 4
-  %83 = load i32, ptr @_ZN4FInt18LuauRecursionLimitE, align 8
-  %84 = icmp ugt i32 %82, %83
-  br i1 %84, label %85, label %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13, !llvm.loop !137
+_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread: ; preds = %53, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12
+  %.sroa.7.2 = phi i1 [ %.sroa.7.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12 ], [ true, %77 ], [ true, %76 ], [ true, %75 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %71 ], [ true, %70 ], [ true, %69 ], [ true, %68 ], [ true, %67 ], [ true, %66 ], [ true, %65 ], [ true, %64 ], [ true, %63 ], [ true, %53 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12 ], [ 15, %77 ], [ 14, %76 ], [ 13, %75 ], [ 12, %74 ], [ 11, %73 ], [ 10, %72 ], [ 9, %71 ], [ 8, %70 ], [ 7, %69 ], [ 6, %68 ], [ 5, %67 ], [ 4, %66 ], [ 3, %65 ], [ 2, %64 ], [ 1, %63 ], [ 0, %53 ]
+  %79 = load i32, ptr %6, align 4
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %6, align 4
+  %81 = load i32, ptr @_ZN4FInt18LuauRecursionLimitE, align 8
+  %82 = icmp ugt i32 %80, %81
+  br i1 %82, label %83, label %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13, !llvm.loop !137
 
-85:                                               ; preds = %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
+83:                                               ; preds = %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
   call void (ptr, ptr, ...) @_ZN4Luau10ParseError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.150) #27
   unreachable
 
-.critedge:                                        ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13, %48
+.critedge:                                        ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13, %47
   store i32 %7, ptr %6, align 4
   ret ptr %.0
 }
@@ -19774,7 +19772,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser22reportMissingTypeErrorERKNS_8Loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %5 [
     i32 303, label %6
@@ -19799,7 +19797,7 @@ define dso_local i64 @_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %18 [
     i32 43, label %19
@@ -19876,7 +19874,7 @@ define dso_local i64 @_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4Luau6Parser21checkUnaryConfusablesEv(ptr noundef nonnull align 8 dereferenceable(840) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967297) i64 @_ZN4Luau6Parser21checkUnaryConfusablesEv(ptr noundef nonnull align 8 dereferenceable(840) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Luau::Location", align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -19895,7 +19893,7 @@ define dso_local noundef i64 @_ZN4Luau6Parser21checkUnaryConfusablesEv(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::Lexeme", align 8
   %5 = alloca %"struct.Luau::Location", align 8
   %6 = alloca %"struct.Luau::Location", align 8

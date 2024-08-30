@@ -5297,7 +5297,7 @@ Vec_IntFill.exit:                                 ; preds = %61, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManSifMapComb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManSifMapComb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add nsw i32 %3, 1
   %6 = getelementptr i8, ptr %0, i64 24
   %.val65 = load i32, ptr %6, align 8
@@ -6136,14 +6136,14 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
   %45 = getelementptr i8, ptr %0, i64 16
   %.val95113 = load i32, ptr %45, align 8
   %46 = icmp sgt i32 %.val95113, 0
-  %47 = icmp sgt i32 %38, 1
-  %48 = and i1 %46, %47
+  %47 = icmp ugt i32 %38, 1
+  %48 = select i1 %46, i1 %47, i1 false
   br i1 %48, label %.lr.ph, label %._crit_edge
 
 .critedge.thread:                                 ; preds = %Vec_IntAlloc.exit
   %49 = icmp sgt i32 %.val95113117, 0
-  %50 = icmp sgt i32 %38, 1
-  %51 = and i1 %49, %50
+  %50 = icmp ugt i32 %38, 1
+  %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph.split.us.preheader, label %.critedge92.thread
 
 .lr.ph:                                           ; preds = %.critedge
@@ -6156,8 +6156,8 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %.080115.us = phi i32 [ %..080.us, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %.081114.us = phi i32 [ %.081..us, %.lr.ph.split.us ], [ %38, %.lr.ph.split.us.preheader ]
-  %53 = add nsw i32 %.080115.us, %.081114.us
-  %54 = sdiv i32 %53, 2
+  %53 = add nuw nsw i32 %.080115.us, %.081114.us
+  %54 = lshr i32 %53, 1
   %55 = call i32 @Gia_ManSifCheckPeriod(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %54, ptr noundef nonnull %7)
   %.not88.us = icmp eq i32 %55, 0
   %.081..us = select i1 %.not88.us, i32 %.081114.us, i32 %54
@@ -6172,8 +6172,8 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.080115 = phi i32 [ %..080, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.081114 = phi i32 [ %.081., %.lr.ph.split ], [ %38, %.lr.ph ]
-  %60 = add nsw i32 %.080115, %.081114
-  %61 = sdiv i32 %60, 2
+  %60 = add nuw nsw i32 %.080115, %.081114
+  %61 = lshr i32 %60, 1
   %62 = call i32 @Gia_ManSifCheckPeriod(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %61, ptr noundef nonnull %7)
   %.not88 = icmp eq i32 %62, 0
   %.081. = select i1 %.not88, i32 %.081114, i32 %61
@@ -6196,7 +6196,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
   %70 = sub nsw i32 %38, %.081.lcssa
   %71 = sitofp i32 %70 to double
   %72 = fmul double %71, 1.000000e+02
-  %73 = sitofp i32 %38 to double
+  %73 = uitofp nneg i32 %38 to double
   %74 = fdiv double %72, %73
   %75 = fptrunc double %74 to float
   %76 = fpext float %75 to double
@@ -6272,7 +6272,7 @@ Vec_IntFree.exit103:                              ; preds = %Vec_IntFree.exit, %
   %108 = sub nsw i32 %38, %.081.lcssa
   %109 = sitofp i32 %108 to double
   %110 = fmul double %109, 1.000000e+02
-  %111 = sitofp i32 %38 to double
+  %111 = uitofp nneg i32 %38 to double
   %112 = fdiv double %110, %111
   %113 = fptrunc double %112 to float
   %114 = fpext float %113 to double

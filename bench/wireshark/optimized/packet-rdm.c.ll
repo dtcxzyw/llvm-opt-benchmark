@@ -2963,7 +2963,7 @@ dissect_manufacturer_specific_pid.exit:           ; preds = %436, %435, %398, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %22 [
     i8 32, label %5
     i8 48, label %5
@@ -3008,7 +3008,7 @@ define internal fastcc i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_device_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 43) i32 @dissect_rdm_pd_device_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %5, label %26
 
@@ -3044,7 +3044,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_device_info(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 48, label %5
     i8 33, label %5
@@ -3063,7 +3063,7 @@ define internal fastcc i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_sensor_definition(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_sensor_definition(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %32 [
     i8 32, label %5
     i8 33, label %8
@@ -3106,7 +3106,7 @@ define internal fastcc i32 @dissect_rdm_pd_sensor_definition(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_disc_unique_branch(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 36) i32 @dissect_rdm_pd_disc_unique_branch(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 16
   br i1 %cond, label %4, label %9
 
@@ -3123,7 +3123,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_disc_unique_branch(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_disc_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 17
   br i1 %cond, label %5, label %12
 
@@ -3144,7 +3144,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_disc_mute(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_disc_un_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_un_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 17
   br i1 %cond, label %5, label %12
 
@@ -3187,7 +3187,7 @@ define internal fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_proxied_device_count(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_proxied_device_count(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %9
 
@@ -3204,7 +3204,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_proxied_device_count(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %11
 
@@ -3266,7 +3266,7 @@ define internal fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_status_id_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_status_id_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 32, label %5
     i8 33, label %8
@@ -3331,7 +3331,7 @@ define internal fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_parameter_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_parameter_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
   switch i8 %2, label %41 [
     i8 32, label %6
     i8 33, label %12
@@ -3432,7 +3432,7 @@ define internal fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dmx_personality(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_dmx_personality(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 48, label %.sink.split
     i8 33, label %4
@@ -3457,7 +3457,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_dmx_personality(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_dmx_personality_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dmx_personality_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %18 [
     i8 32, label %5
     i8 33, label %8
@@ -3514,7 +3514,7 @@ define internal fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_slot_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_slot_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3566,7 +3566,7 @@ define internal fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dmx_block_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_dmx_block_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3590,7 +3590,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_dmx_block_address(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dmx_fail_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_fail_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 33, label %4
     i8 48, label %4
@@ -3613,7 +3613,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_dmx_fail_mode(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dmx_startup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_startup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 33, label %4
     i8 48, label %4
@@ -3636,7 +3636,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_dmx_startup_mode(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_record_sensors(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_record_sensors(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %32 [
     i8 32, label %5
     i8 33, label %8
@@ -3679,7 +3679,7 @@ define internal fastcc i32 @dissect_rdm_pd_record_sensors(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dimmer_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 35) i32 @dissect_rdm_pd_dimmer_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %19
 
@@ -3706,7 +3706,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_dimmer_info(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_minimum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_minimum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %11 [
     i8 33, label %4
     i8 48, label %4
@@ -3727,7 +3727,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_minimum_level(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3752,7 +3752,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3779,7 +3779,7 @@ define internal fastcc i32 @dissect_rdm_pd_curve_description(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_output_response_time(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_output_response_time(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3804,7 +3804,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_output_response_time(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_output_response_time_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_output_response_time_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3831,7 +3831,7 @@ define internal fastcc i32 @dissect_rdm_pd_output_response_time_description(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_modulation_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_modulation_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3856,7 +3856,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_modulation_frequency(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_modulation_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_modulation_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3883,7 +3883,7 @@ define internal fastcc i32 @dissect_rdm_pd_modulation_frequency_description(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_real_time_clock(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_real_time_clock(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %17 [
     i8 48, label %4
     i8 33, label %4
@@ -3910,7 +3910,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_real_time_clock(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_lock_pin(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_lock_pin(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %.sink.split
     i8 48, label %4
@@ -3934,7 +3934,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_lock_pin(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_lock_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_lock_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %.sink.split
     i8 48, label %4
@@ -3961,7 +3961,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_lock_state(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_lock_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_lock_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4013,7 +4013,7 @@ define internal fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_interface_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_interface_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4040,7 +4040,7 @@ define internal fastcc i32 @dissect_rdm_pd_interface_label(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_hardware_address_type1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_hardware_address_type1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4064,7 +4064,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_hardware_address_type1(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dhcp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dhcp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4089,7 +4089,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_dhcp_mode(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_zeroconf_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_zeroconf_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4114,7 +4114,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_zeroconf_mode(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_current_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_current_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %4
     i8 33, label %7
@@ -4142,7 +4142,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_current_address(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_static_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_static_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %14 [
     i8 32, label %4
     i8 33, label %7
@@ -4169,7 +4169,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_static_address(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_ipv4_default_route(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_ipv4_default_route(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %4
@@ -4188,7 +4188,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_ipv4_default_route(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dns_ipv4_name_server(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dns_ipv4_name_server(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4213,7 +4213,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_dns_ipv4_name_server(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_dns_hostname(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_hostname(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 33, label %5
     i8 48, label %5
@@ -4232,7 +4232,7 @@ define internal fastcc i32 @dissect_rdm_pd_dns_hostname(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 33, label %5
     i8 48, label %5
@@ -4251,7 +4251,7 @@ define internal fastcc i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_self_test_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_self_test_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4278,7 +4278,7 @@ define internal fastcc i32 @dissect_rdm_pd_self_test_description(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_capture_preset(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_capture_preset(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 48
   br i1 %cond, label %4, label %13
 
@@ -4299,7 +4299,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_capture_preset(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_preset_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_preset_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 48, label %4
     i8 33, label %4
@@ -4318,7 +4318,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_preset_playback(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_preset_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 56) i32 @dissect_rdm_pd_preset_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %43
 
@@ -4369,7 +4369,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_preset_info(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_preset_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_preset_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %29 [
     i8 32, label %4
     i8 33, label %7
@@ -4413,7 +4413,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_preset_status(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_background_queued_status_policy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_background_queued_status_policy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -4438,7 +4438,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_background_queued_status_poli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_background_queued_status_policy_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_background_queued_status_policy_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4495,7 +4495,7 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_search_domain(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_search_domain(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 33, label %5
     i8 48, label %5
@@ -4514,7 +4514,7 @@ define internal fastcc i32 @dissect_rdm_pd_search_domain(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_endpoint_to_universe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_to_universe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 32, label %.sink.split
     i8 49, label %.sink.split
@@ -4541,7 +4541,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_endpoint_to_universe(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_rdm_traffic_enable(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_rdm_traffic_enable(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4566,7 +4566,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_rdm_traffic_enable(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_endpoint_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_endpoint_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 49, label %4
@@ -4592,7 +4592,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_endpoint_mode(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_endpoint_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 49, label %5
@@ -4621,7 +4621,7 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_label(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_discovery_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_discovery_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %19 [
     i8 32, label %4
     i8 49, label %4
@@ -4656,7 +4656,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_discovery_state(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_endpoint_timing(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_timing(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %19 [
     i8 32, label %4
     i8 49, label %4
@@ -4691,7 +4691,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_endpoint_timing(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_endpoint_timing_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_timing_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4718,7 +4718,7 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_timing_description(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_binding_control_fields(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 40) i32 @dissect_rdm_pd_binding_control_fields(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 32, label %.sink.split
     i8 33, label %4
@@ -4749,7 +4749,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_binding_control_fields(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_identify_endpoint(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_identify_endpoint(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 49, label %4
@@ -4775,7 +4775,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_identify_endpoint(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_background_discovery(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_background_discovery(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 49, label %4
@@ -4801,7 +4801,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_background_discovery(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_endpoint_responder_list_change(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_endpoint_responder_list_change(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4904,7 +4904,7 @@ define internal fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_component_scope(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 112) i32 @dissect_rdm_pd_component_scope(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %17 [
     i8 32, label %.sink.split
     i8 33, label %4
@@ -4938,7 +4938,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_component_scope(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_broker_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_broker_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -4962,7 +4962,7 @@ define internal fastcc noundef i32 @dissect_rdm_pd_broker_status(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_led_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4989,7 +4989,7 @@ define internal fastcc i32 @dissect_etc_pd_led_curve_description(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_led_output_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_output_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5016,7 +5016,7 @@ define internal fastcc i32 @dissect_etc_pd_led_output_mode_description(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_led_white_point_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_white_point_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5043,7 +5043,7 @@ define internal fastcc i32 @dissect_etc_pd_led_white_point_description(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_dmx_data_loss_behavior_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5070,7 +5070,7 @@ define internal fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_led_strobe_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_strobe_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5097,7 +5097,7 @@ define internal fastcc i32 @dissect_etc_pd_led_strobe_description(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_red_shift_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_red_shift_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5124,7 +5124,7 @@ define internal fastcc i32 @dissect_etc_pd_red_shift_description(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_plus_seven_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_plus_seven_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5151,7 +5151,7 @@ define internal fastcc i32 @dissect_etc_pd_plus_seven_description(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_backlight_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_backlight_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5178,7 +5178,7 @@ define internal fastcc i32 @dissect_etc_pd_backlight_timeout_description(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_simple_setup_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_simple_setup_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5205,7 +5205,7 @@ define internal fastcc i32 @dissect_etc_pd_simple_setup_mode_description(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_overtemp_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_overtemp_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5232,7 +5232,7 @@ define internal fastcc i32 @dissect_etc_pd_overtemp_mode_description(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_requested_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_requested_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %9
 
@@ -5249,7 +5249,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_led_requested_xy(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_current_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_current_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %9
 
@@ -5266,7 +5266,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_led_current_xy(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_current_pwm(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_current_pwm(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -5290,7 +5290,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_current_pwm(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_tristimulus(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 37) i32 @dissect_etc_pd_tristimulus(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %4
     i8 33, label %7
@@ -5318,7 +5318,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_tristimulus(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_information(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_etc_pd_led_information(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %17 [
     i8 32, label %.sink.split
     i8 33, label %4
@@ -5351,7 +5351,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_led_information(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %22 [
     i8 32, label %4
     i8 33, label %7
@@ -5386,7 +5386,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_preset_config(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_sequence_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 101) i32 @dissect_etc_pd_sequence_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %33 [
     i8 32, label %4
     i8 33, label %7
@@ -5445,7 +5445,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_sequence_config(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_low_power_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_low_power_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5472,7 +5472,7 @@ define internal fastcc i32 @dissect_etc_pd_low_power_timeout_description(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_led_enum_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_enum_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5499,7 +5499,7 @@ define internal fastcc i32 @dissect_etc_pd_led_enum_frequency_description(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_rgbi_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_rgbi_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %24 [
     i8 32, label %4
     i8 33, label %7
@@ -5536,7 +5536,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_rgbi_preset_config(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_cct_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 42) i32 @dissect_etc_pd_cct_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %26 [
     i8 32, label %4
     i8 33, label %7
@@ -5575,7 +5575,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_cct_preset_config(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_supplementary_device_version(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_supplementary_device_version(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5602,7 +5602,7 @@ define internal fastcc i32 @dissect_etc_pd_supplementary_device_version(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_power_command_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_power_command_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5629,7 +5629,7 @@ define internal fastcc i32 @dissect_etc_pd_power_command_description(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_has_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_has_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -5653,7 +5653,7 @@ define internal fastcc noundef i32 @dissect_etc_pd_has_enum_text(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etc_pd_get_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_get_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %20 [
     i8 32, label %5
     i8 33, label %10

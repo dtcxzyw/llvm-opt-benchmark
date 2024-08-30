@@ -3406,7 +3406,7 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
 
 Fx_ManComputeLevelDiv.exit:                       ; preds = %108, %101
   %.0.lcssa.i = phi i32 [ 0, %101 ], [ %115, %108 ]
-  %116 = tail call noundef i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 800)
+  %116 = tail call noundef range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 800)
   %117 = uitofp nneg i32 %116 to double
   %118 = tail call double @llvm.fmuladd.f64(double %117, double -1.000000e-03, double -1.100000e+00)
   %119 = fptrunc double %118 to float
@@ -4849,7 +4849,7 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
 
 Fx_ManComputeLevelDiv.exit:                       ; preds = %165, %155
   %.0.lcssa.i = phi i32 [ 0, %155 ], [ %172, %165 ]
-  %173 = tail call noundef i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 800)
+  %173 = tail call noundef range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 800)
   %174 = uitofp nneg i32 %173 to double
   %175 = tail call double @llvm.fmuladd.f64(double %174, double -9.000000e-04, double %160)
   %176 = fptrunc double %175 to float

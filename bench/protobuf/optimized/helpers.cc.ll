@@ -7322,7 +7322,7 @@ for.cond4.preheader:                              ; preds = %for.inc, %entry
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
   %nested_types_.i = getelementptr inbounds i8, ptr %descriptor, i64 72
-  br label %for.body7
+  br label %for.cond4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
@@ -7404,23 +7404,19 @@ for.inc:                                          ; preds = %if.then5.i.i.i.i13.
   %cmp = icmp slt i64 %indvars.iv.next, %16
   br i1 %cmp, label %for.body, label %for.cond4.preheader, !llvm.loop !189
 
-for.cond4:                                        ; preds = %for.body7
-  %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
-  %17 = load i32, ptr %nested_type_count_.i, align 8
-  %18 = sext i32 %17 to i64
-  %cmp6 = icmp slt i64 %indvars.iv.next9, %18
-  br i1 %cmp6, label %for.body7, label %return, !llvm.loop !190
-
-for.body7:                                        ; preds = %for.body7.lr.ph, %for.cond4
+for.cond4:                                        ; preds = %for.cond4, %for.body7.lr.ph
   %indvars.iv8 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next9, %for.cond4 ]
-  %19 = load ptr, ptr %nested_types_.i, align 8
-  %add.ptr.i10 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %19, i64 %indvars.iv8
+  %17 = load ptr, ptr %nested_types_.i, align 8
+  %add.ptr.i10 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %17, i64 %indvars.iv8
   %call9 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i10)
-  br i1 %call9, label %return, label %for.cond4
+  %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
+  %18 = load i32, ptr %nested_type_count_.i, align 8
+  %19 = sext i32 %18 to i64
+  %cmp6 = icmp slt i64 %indvars.iv.next9, %19
+  br i1 %cmp6, label %for.cond4, label %return, !llvm.loop !190
 
-return:                                           ; preds = %for.body7, %for.cond4, %for.cond4.preheader
-  %cmp6.lcssa = phi i1 [ false, %for.cond4.preheader ], [ %call9, %for.cond4 ], [ %call9, %for.body7 ]
-  ret i1 %cmp6.lcssa
+return:                                           ; preds = %for.cond4, %for.cond4.preheader
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable

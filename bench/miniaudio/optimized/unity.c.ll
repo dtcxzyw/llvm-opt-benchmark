@@ -2956,7 +2956,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_slot_allocator_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_slot_allocator_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -2995,7 +2995,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_slot_allocator_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef writeonly %pAllocator) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_slot_allocator_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef writeonly %pAllocator) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pAllocator, null
   br i1 %cmp, label %return, label %if.then2.i14
@@ -3052,7 +3052,7 @@ return:                                           ; preds = %if.end.i, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_slot_allocator_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef writeonly %pAllocator) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_slot_allocator_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef writeonly %pAllocator) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -3438,7 +3438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_job_queue_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_job_queue_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -3480,7 +3480,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_job_queue_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pQueue) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @ma_job_queue_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pQueue) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pQueue, null
   br i1 %cmp, label %return, label %if.then2.i29
@@ -3706,7 +3706,7 @@ return:                                           ; preds = %ma_zero_memory_defa
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_job_queue_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pQueue) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_job_queue_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pQueue) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -5802,7 +5802,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_device_job_thread_init(ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pJobThread) local_unnamed_addr #4 {
+define i32 @ma_device_job_thread_init(ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pJobThread) local_unnamed_addr #4 {
 entry:
   %jobQueueConfig = alloca %struct.ma_job_queue_config, align 8
   %cmp = icmp eq ptr %pJobThread, null
@@ -6151,7 +6151,7 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_device_job_thread_post(ptr noundef %pJobThread, ptr noundef %pJob) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_device_job_thread_post(ptr noundef %pJobThread, ptr noundef %pJob) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pJobThread, null
   %cmp1 = icmp eq ptr %pJob, null
@@ -6524,7 +6524,7 @@ return:                                           ; preds = %land.lhs.true5.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_init__pulse(ptr noundef %pContext, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef writeonly %pCallbacks) #4 {
+define internal range(i32 -400, 1) i32 @ma_context_init__pulse(ptr noundef %pContext, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef writeonly %pCallbacks) #4 {
 entry:
   %cmp.i = icmp eq ptr %pContext, null
   %pLog.i = getelementptr inbounds i8, ptr %pContext, i64 112
@@ -12906,7 +12906,7 @@ for.end:                                          ; preds = %ma_device_get_state
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_duplex_rb_init(i32 noundef %captureFormat, i32 noundef %captureChannels, i32 noundef %sampleRate, i32 noundef %captureInternalSampleRate, i32 noundef %captureInternalPeriodSizeInFrames, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pRB) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_duplex_rb_init(i32 noundef %captureFormat, i32 noundef %captureChannels, i32 noundef %sampleRate, i32 noundef %captureInternalSampleRate, i32 noundef %captureInternalPeriodSizeInFrames, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pRB) local_unnamed_addr #4 {
 entry:
   %mul = mul i32 %captureInternalPeriodSizeInFrames, 5
   %conv = zext i32 %mul to i64
@@ -19210,7 +19210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_biquad_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_biquad_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -19238,7 +19238,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ma_biquad_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pBQ) local_unnamed_addr #11 {
+define range(i32 -3, 1) i32 @ma_biquad_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pBQ) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pBQ, null
   br i1 %cmp, label %return, label %if.then2.i11
@@ -19413,7 +19413,7 @@ return:                                           ; preds = %if.end9, %if.then31
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_biquad_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pBQ) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_biquad_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pBQ) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -19805,7 +19805,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_lpf1_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_lpf1_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   %cmp.i = icmp eq ptr %pConfig, null
@@ -19832,7 +19832,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_lpf1_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_lpf1_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pLPF, null
   br i1 %cmp, label %return, label %if.then2.i10
@@ -19995,7 +19995,7 @@ return:                                           ; preds = %if.end6, %if.then29
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_lpf1_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_lpf1_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -20349,7 +20349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_lpf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
+define range(i32 -2, 1) i32 @ma_lpf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
 entry:
   %cutoffFrequency.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %0 = load double, ptr %cutoffFrequency.i, align 8, !noalias !143
@@ -20399,7 +20399,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end11, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_lpf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_lpf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pLPF, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -20536,7 +20536,7 @@ return:                                           ; preds = %if.then2.i11.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_lpf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_lpf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
 entry:
   %cutoffFrequency.i.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %0 = load double, ptr %cutoffFrequency.i.i, align 8, !noalias !150
@@ -20860,7 +20860,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_lpf_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #33 {
+define range(i32 -2, 1) i32 @ma_lpf_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #33 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -20953,7 +20953,7 @@ return:                                           ; preds = %cdce.end11.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_lpf_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_lpf_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pLPF, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -20969,7 +20969,7 @@ return:                                           ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_lpf_reinit__internal(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF, i32 noundef %isNew) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF, i32 noundef %isNew) unnamed_addr #4 {
 entry:
   %lpf2Config = alloca %struct.ma_lpf1_config, align 8
   %cmp = icmp eq ptr %pLPF, null
@@ -21464,7 +21464,7 @@ return:                                           ; preds = %cdce.end11.i.i, %ma
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_lpf_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_lpf_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -21779,7 +21779,7 @@ if.end11:                                         ; preds = %if.else7.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_lpf_reinit(ptr noundef %pConfig, ptr noundef %pLPF) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_lpf_reinit(ptr noundef %pConfig, ptr noundef %pLPF) local_unnamed_addr #4 {
 entry:
   %call = tail call fastcc i32 @ma_lpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef %pLPF, i32 noundef 0)
   ret i32 %call
@@ -22440,7 +22440,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_hpf1_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_hpf1_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   %cmp.i = icmp eq ptr %pConfig, null
@@ -22467,7 +22467,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_hpf1_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_hpf1_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pLPF, null
   br i1 %cmp, label %return, label %if.then2.i10
@@ -22630,7 +22630,7 @@ return:                                           ; preds = %if.end6, %if.then29
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_hpf1_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_hpf1_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pLPF) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -22961,7 +22961,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_hpf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
+define range(i32 -2, 1) i32 @ma_hpf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
 entry:
   %cutoffFrequency.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %0 = load double, ptr %cutoffFrequency.i, align 8, !noalias !188
@@ -23011,7 +23011,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end11, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_hpf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pHPF) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_hpf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pHPF) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pHPF, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -23149,7 +23149,7 @@ return:                                           ; preds = %if.then2.i11.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_hpf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pHPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_hpf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pHPF) local_unnamed_addr #4 {
 entry:
   %cutoffFrequency.i.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %0 = load double, ptr %cutoffFrequency.i.i, align 8, !noalias !194
@@ -23443,7 +23443,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_hpf_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #33 {
+define range(i32 -2, 1) i32 @ma_hpf_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #33 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -23536,7 +23536,7 @@ return:                                           ; preds = %cdce.end11.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_hpf_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_hpf_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pLPF) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pLPF, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -23552,7 +23552,7 @@ return:                                           ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_hpf_reinit__internal(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pHPF, i32 noundef %isNew) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @ma_hpf_reinit__internal(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pHPF, i32 noundef %isNew) unnamed_addr #4 {
 entry:
   %hpf2Config = alloca %struct.ma_hpf1_config, align 8
   %cmp = icmp eq ptr %pHPF, null
@@ -24047,7 +24047,7 @@ return:                                           ; preds = %cdce.end11.i.i, %ma
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_hpf_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pHPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_hpf_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pHPF) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -24362,7 +24362,7 @@ if.end11:                                         ; preds = %if.else7.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_hpf_reinit(ptr noundef %pConfig, ptr noundef %pHPF) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_hpf_reinit(ptr noundef %pConfig, ptr noundef %pHPF) local_unnamed_addr #4 {
 entry:
   %call = tail call fastcc i32 @ma_hpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef %pHPF, i32 noundef 0)
   ret i32 %call
@@ -24900,7 +24900,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_bpf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
+define range(i32 -2, 1) i32 @ma_bpf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
 entry:
   %cutoffFrequency.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %0 = load double, ptr %cutoffFrequency.i, align 8, !noalias !225
@@ -24950,7 +24950,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end12, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_bpf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pBPF) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_bpf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pBPF) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pBPF, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -25093,7 +25093,7 @@ return:                                           ; preds = %if.then2.i11.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_bpf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pBPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_bpf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pBPF) local_unnamed_addr #4 {
 entry:
   %cutoffFrequency.i.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %0 = load double, ptr %cutoffFrequency.i.i, align 8, !noalias !231
@@ -25392,7 +25392,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_bpf_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #33 {
+define range(i32 -2, 1) i32 @ma_bpf_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #33 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -25474,7 +25474,7 @@ return:                                           ; preds = %cdce.end12.i.i, %if
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define i32 @ma_bpf_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pBPF) local_unnamed_addr #34 {
+define range(i32 -3, 1) i32 @ma_bpf_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pBPF) local_unnamed_addr #34 {
 entry:
   %cmp = icmp eq ptr %pBPF, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -25490,7 +25490,7 @@ return:                                           ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc i32 @ma_bpf_reinit__internal(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pBPF, i32 noundef %isNew) unnamed_addr #34 {
+define internal fastcc range(i32 -3, 1) i32 @ma_bpf_reinit__internal(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pBPF, i32 noundef %isNew) unnamed_addr #34 {
 entry:
   %bpf2Config = alloca %struct.ma_bpf2_config, align 8
   %cmp = icmp eq ptr %pBPF, null
@@ -25781,7 +25781,7 @@ return:                                           ; preds = %cdce.end12.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_bpf_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pBPF) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_bpf_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pBPF) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -26023,7 +26023,7 @@ if.end3:                                          ; preds = %if.else7.i, %if.the
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define i32 @ma_bpf_reinit(ptr noundef %pConfig, ptr noundef %pBPF) local_unnamed_addr #34 {
+define range(i32 -3, 1) i32 @ma_bpf_reinit(ptr noundef %pConfig, ptr noundef %pBPF) local_unnamed_addr #34 {
 entry:
   %call = tail call fastcc i32 @ma_bpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef %pBPF, i32 noundef 0)
   ret i32 %call
@@ -26278,7 +26278,7 @@ return:                                           ; preds = %for.end60, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ma_bpf_get_latency(ptr noundef readonly %pBPF) local_unnamed_addr #15 {
+define range(i32 0, -1) i32 @ma_bpf_get_latency(ptr noundef readonly %pBPF) local_unnamed_addr #15 {
 entry:
   %cmp = icmp eq ptr %pBPF, null
   br i1 %cmp, label %return, label %if.end
@@ -26327,7 +26327,7 @@ if.end:                                           ; preds = %if.then, %ma_zero_m
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_notch2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
+define range(i32 -2, 1) i32 @ma_notch2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
 entry:
   %frequency.i = getelementptr inbounds i8, ptr %pConfig, i64 24
   %0 = load double, ptr %frequency.i, align 8, !noalias !257
@@ -26377,7 +26377,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end9, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_notch2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_notch2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pFilter, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -26507,7 +26507,7 @@ return:                                           ; preds = %if.then2.i11.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_notch2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_notch2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
 entry:
   %frequency.i.i = getelementptr inbounds i8, ptr %pConfig, i64 24
   %0 = load double, ptr %frequency.i.i, align 8, !noalias !263
@@ -26802,7 +26802,7 @@ if.end:                                           ; preds = %if.then, %ma_zero_m
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_peak2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
+define range(i32 -2, 1) i32 @ma_peak2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
 entry:
   %frequency.i = getelementptr inbounds i8, ptr %pConfig, i64 32
   %0 = load double, ptr %frequency.i, align 8, !noalias !269
@@ -26863,7 +26863,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end17, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_peak2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_peak2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pFilter, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -27006,7 +27006,7 @@ return:                                           ; preds = %if.then2.i11.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_peak2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_peak2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
 entry:
   %frequency.i.i = getelementptr inbounds i8, ptr %pConfig, i64 32
   %0 = load double, ptr %frequency.i.i, align 8, !noalias !275
@@ -27317,7 +27317,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_loshelf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
+define range(i32 -2, 1) i32 @ma_loshelf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
 entry:
   %frequency.i = getelementptr inbounds i8, ptr %pConfig, i64 32
   %0 = load double, ptr %frequency.i, align 8, !noalias !281
@@ -27394,7 +27394,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end37, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_loshelf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_loshelf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pFilter, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -27561,7 +27561,7 @@ return:                                           ; preds = %if.then2.i11.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_loshelf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_loshelf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
 entry:
   %frequency.i.i = getelementptr inbounds i8, ptr %pConfig, i64 32
   %0 = load double, ptr %frequency.i.i, align 8, !noalias !287
@@ -27912,7 +27912,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_hishelf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
+define range(i32 -2, 1) i32 @ma_hishelf2_get_heap_size(ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #32 {
 entry:
   %frequency.i = getelementptr inbounds i8, ptr %pConfig, i64 32
   %0 = load double, ptr %frequency.i, align 8, !noalias !293
@@ -27989,7 +27989,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end37, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @ma_hishelf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
+define range(i32 -3, 1) i32 @ma_hishelf2_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pFilter) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %pFilter, null
   br i1 %cmp, label %return, label %if.then2.i
@@ -28156,7 +28156,7 @@ return:                                           ; preds = %if.then2.i11.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_hishelf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_hishelf2_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pFilter) local_unnamed_addr #4 {
 entry:
   %frequency.i.i = getelementptr inbounds i8, ptr %pConfig, i64 32
   %0 = load double, ptr %frequency.i.i, align 8, !noalias !299
@@ -28883,7 +28883,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ma_gainer_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pGainer) local_unnamed_addr #28 {
+define range(i32 -2, 1) i32 @ma_gainer_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pGainer) local_unnamed_addr #28 {
 entry:
   %cmp = icmp eq ptr %pGainer, null
   br i1 %cmp, label %return, label %if.then2.i19
@@ -28942,7 +28942,7 @@ return:                                           ; preds = %for.body, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_gainer_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pGainer) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_gainer_init(ptr noundef readonly %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pGainer) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -30899,7 +30899,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_spatializer_listener_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_spatializer_listener_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -30927,7 +30927,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_spatializer_listener_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pListener) local_unnamed_addr #38 {
+define range(i32 -2, 1) i32 @ma_spatializer_listener_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pListener) local_unnamed_addr #38 {
 entry:
   %cmp = icmp eq ptr %pListener, null
   br i1 %cmp, label %return, label %if.then2.i39
@@ -31174,7 +31174,7 @@ return:                                           ; preds = %entry, %ma_atomic_v
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_spatializer_listener_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pListener) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_spatializer_listener_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pListener) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -31692,7 +31692,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_spatializer_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_spatializer_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -31737,7 +31737,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_spatializer_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pSpatializer) local_unnamed_addr #38 {
+define range(i32 -2, 1) i32 @ma_spatializer_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pSpatializer) local_unnamed_addr #38 {
 entry:
   %cmp = icmp eq ptr %pSpatializer, null
   br i1 %cmp, label %return, label %if.then2.i62
@@ -32086,7 +32086,7 @@ return:                                           ; preds = %entry, %ma_atomic_v
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_spatializer_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pSpatializer) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_spatializer_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pSpatializer) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -35672,7 +35672,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_linear_resampler_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_linear_resampler_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -35741,7 +35741,7 @@ return:                                           ; preds = %if.end5.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_linear_resampler_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pResampler) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_linear_resampler_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pResampler) local_unnamed_addr #4 {
 entry:
   %heapLayout = alloca %struct.ma_linear_resampler_heap_layout, align 8
   %cmp = icmp eq ptr %pResampler, null
@@ -35849,7 +35849,7 @@ return:                                           ; preds = %if.end5.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_linear_resampler_set_rate_internal(ptr noundef %pResampler, ptr noundef %pHeap, ptr nocapture noundef readonly %pHeapLayout, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut, i32 noundef %isResamplerAlreadyInitialized) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef %pResampler, ptr noundef %pHeap, ptr nocapture noundef readonly %pHeapLayout, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut, i32 noundef %isResamplerAlreadyInitialized) unnamed_addr #4 {
 entry:
   %lpfConfig = alloca %struct.ma_lpf_config, align 8
   %cmp = icmp eq ptr %pResampler, null
@@ -35913,7 +35913,7 @@ if.end22:                                         ; preds = %ma_gcf_u32.exit
 
 if.then51:                                        ; preds = %if.end22
   %lpf = getelementptr inbounds i8, ptr %pResampler, i64 64
-  %call.i = call fastcc i32 @ma_lpf_reinit__internal(ptr noundef nonnull %lpfConfig, ptr noundef null, ptr noundef nonnull %lpf, i32 noundef 0)
+  %call.i = call fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef nonnull %lpfConfig, ptr noundef null, ptr noundef nonnull %lpf, i32 noundef 0)
   br label %if.end55
 
 if.else:                                          ; preds = %if.end22
@@ -35962,7 +35962,7 @@ return:                                           ; preds = %if.end55, %ma_gcf_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_linear_resampler_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pResampler) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_linear_resampler_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pResampler) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -37359,14 +37359,14 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_linear_resampler_set_rate(ptr noundef %pResampler, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_linear_resampler_set_rate(ptr noundef %pResampler, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut) local_unnamed_addr #4 {
 entry:
   %call = tail call fastcc i32 @ma_linear_resampler_set_rate_internal(ptr noundef %pResampler, ptr noundef null, ptr noundef null, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_linear_resampler_set_rate_ratio(ptr noundef %pResampler, float noundef %ratioInOut) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_ratio(ptr noundef %pResampler, float noundef %ratioInOut) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ne ptr %pResampler, null
   %cmp1 = fcmp ugt float %ratioInOut, 0.000000e+00
@@ -37380,7 +37380,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end3
-  %call.i = tail call fastcc i32 @ma_linear_resampler_set_rate_internal(ptr noundef nonnull %pResampler, ptr noundef null, ptr noundef null, i32 noundef %conv4, i32 noundef 1000000, i32 noundef 1)
+  %call.i = tail call fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef nonnull %pResampler, ptr noundef null, ptr noundef null, i32 noundef %conv4, i32 noundef 1000000, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end3, %entry, %if.end8
@@ -40228,7 +40228,7 @@ if.end2:                                          ; preds = %if.else7.i, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ma_channel_converter_process_pcm_frames(ptr noundef readonly %pConverter, ptr noundef %pFramesOut, ptr noundef %pFramesIn, i64 noundef %frameCount) local_unnamed_addr #27 {
+define range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr noundef readonly %pConverter, ptr noundef %pFramesOut, ptr noundef %pFramesIn, i64 noundef %frameCount) local_unnamed_addr #27 {
 entry:
   %cmp = icmp eq ptr %pConverter, null
   %cmp1 = icmp eq ptr %pFramesOut, null
@@ -48757,7 +48757,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %if.then2.i3, %land.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -4, 1) i32 @ma_audio_buffer_init(ptr noundef readonly %pConfig, ptr noundef %pAudioBuffer) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_audio_buffer_init(ptr noundef readonly %pConfig, ptr noundef %pAudioBuffer) local_unnamed_addr #11 {
 entry:
   %cmp.i = icmp eq ptr %pAudioBuffer, null
   br i1 %cmp.i, label %ma_audio_buffer_init_ex.exit, label %if.then2.i.i
@@ -52192,7 +52192,7 @@ return:                                           ; preds = %if.end6.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file(ptr noundef %pWav, ptr noundef readonly %filename, ptr noundef readonly %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file(ptr noundef %pWav, ptr noundef readonly %filename, ptr noundef readonly %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %cmp1.i.i = icmp eq ptr %filename, null
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_ex.exit, label %if.end6.i.i
@@ -52407,7 +52407,7 @@ return:                                           ; preds = %if.end48.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_w(ptr noundef %pWav, ptr noundef %filename, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_w(ptr noundef %pWav, ptr noundef %filename, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %pFile.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pFile.i)
@@ -52879,7 +52879,7 @@ if.then75:                                        ; preds = %if.then70
   %add1.i81 = add i64 %24, 72
   %add2.i82 = add i64 %add1.i81, %conv.i.i80
   %add4.i83 = add i64 %add2.i82, %call.i79
-  %spec.store.select.i84 = call i64 @llvm.umin.i64(i64 %add4.i83, i64 4294967295)
+  %spec.store.select.i84 = call range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %add4.i83, i64 4294967295)
   %pWav.val63 = load ptr, ptr %onWrite, align 8
   %pWav.val64 = load ptr, ptr %pUserData72, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i85)
@@ -55525,7 +55525,7 @@ return:                                           ; preds = %if.end48, %while.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_wav_get_cursor_in_pcm_frames(ptr noundef readonly %pWav, ptr noundef writeonly %pCursor) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_wav_get_cursor_in_pcm_frames(ptr noundef readonly %pWav, ptr noundef writeonly %pCursor) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pCursor, null
   br i1 %cmp, label %return, label %if.end
@@ -55569,7 +55569,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_wav_get_length_in_pcm_frames(ptr noundef readonly %pWav, ptr noundef writeonly %pLength) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_wav_get_length_in_pcm_frames(ptr noundef readonly %pWav, ptr noundef writeonly %pLength) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pLength, null
   br i1 %cmp, label %return, label %if.end
@@ -63559,7 +63559,7 @@ return:                                           ; preds = %ma_decoder__init_da
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @ma_decoder__preinit_memory_wrapper(ptr noundef %pData, i64 noundef %dataSize, ptr nocapture noundef readonly %pConfig, ptr noundef %pDecoder) unnamed_addr #11 {
+define internal fastcc range(i32 -2, 1) i32 @ma_decoder__preinit_memory_wrapper(ptr noundef %pData, i64 noundef %dataSize, ptr nocapture noundef readonly %pConfig, ptr noundef %pDecoder) unnamed_addr #11 {
 entry:
   %cmp.i = icmp eq ptr %pDecoder, null
   br i1 %cmp.i, label %return, label %if.end4.i
@@ -68140,7 +68140,7 @@ return:                                           ; preds = %if.else20.i, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_encoder_init__internal(ptr noundef %onWrite, ptr noundef %onSeek, ptr noundef %pUserData, ptr noundef %pEncoder) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_encoder_init__internal(ptr noundef %onWrite, ptr noundef %onSeek, ptr noundef %pUserData, ptr noundef %pEncoder) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %onWrite, null
   %cmp1 = icmp eq ptr %onSeek, null
@@ -68895,7 +68895,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_encoder_init(ptr noundef %onWrite, ptr noundef %onSeek, ptr noundef %pUserData, ptr noundef readonly %pConfig, ptr noundef %pEncoder) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_encoder_init(ptr noundef %onWrite, ptr noundef %onSeek, ptr noundef %pUserData, ptr noundef readonly %pConfig, ptr noundef %pEncoder) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %pEncoder, null
   br i1 %cmp.i, label %return, label %if.then2.i.i
@@ -70488,7 +70488,7 @@ if.end:                                           ; preds = %if.then, %ma_zero_m
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ma_noise_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
+define range(i32 -2, 1) i32 @ma_noise_get_heap_size(ptr noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
   br i1 %cmp, label %return, label %if.end
@@ -70535,7 +70535,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ma_noise_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pNoise) local_unnamed_addr #28 {
+define range(i32 -2, 1) i32 @ma_noise_init_preallocated(ptr noundef readonly %pConfig, ptr noundef %pHeap, ptr noundef %pNoise) local_unnamed_addr #28 {
 entry:
   %cmp = icmp eq ptr %pNoise, null
   br i1 %cmp, label %return, label %if.then2.i66
@@ -70691,7 +70691,7 @@ return:                                           ; preds = %for.body52, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_noise_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pNoise) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_noise_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pNoise) local_unnamed_addr #4 {
 entry:
   %cmp.i.i = icmp eq ptr %pConfig, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -72109,7 +72109,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_resource_manager_init(ptr noundef readonly %pConfig, ptr noundef %pResourceManager) local_unnamed_addr #4 {
+define i32 @ma_resource_manager_init(ptr noundef readonly %pConfig, ptr noundef %pResourceManager) local_unnamed_addr #4 {
 entry:
   %jobQueueConfig = alloca %struct.ma_job_queue_config, align 4
   %cmp = icmp eq ptr %pResourceManager, null
@@ -72772,7 +72772,7 @@ if.end17:                                         ; preds = %entry, %if.then15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_resource_manager_post_job_quit(ptr noundef %pResourceManager) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_resource_manager_post_job_quit(ptr noundef %pResourceManager) local_unnamed_addr #4 {
 entry:
   %job = alloca %struct.ma_job, align 8
   %slot.i = getelementptr inbounds i8, ptr %job, i64 2
@@ -73607,7 +73607,7 @@ return:                                           ; preds = %if.end.i, %if.end8.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_resource_manager_post_job(ptr noundef %pResourceManager, ptr noundef %pJob) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_resource_manager_post_job(ptr noundef %pResourceManager, ptr noundef %pJob) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pResourceManager, null
   br i1 %cmp, label %return, label %if.end
@@ -76475,7 +76475,7 @@ return:                                           ; preds = %ma_async_notificati
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_resource_manager_data_stream_read_pcm_frames(ptr noundef %pDataStream, ptr noundef writeonly %pFramesOut, i64 noundef %frameCount, ptr noundef writeonly %pFramesRead) local_unnamed_addr #4 {
+define range(i32 -19, 1) i32 @ma_resource_manager_data_stream_read_pcm_frames(ptr noundef %pDataStream, ptr noundef writeonly %pFramesOut, i64 noundef %frameCount, ptr noundef writeonly %pFramesRead) local_unnamed_addr #4 {
 entry:
   %job.i = alloca %struct.ma_job, align 8
   %format.i.i = alloca i32, align 4
@@ -76897,7 +76897,7 @@ return:                                           ; preds = %ma_resource_manager
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_resource_manager_data_stream_seek_to_pcm_frame(ptr noundef %pDataStream, i64 noundef %frameIndex) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_resource_manager_data_stream_seek_to_pcm_frame(ptr noundef %pDataStream, i64 noundef %frameIndex) local_unnamed_addr #4 {
 entry:
   %job = alloca %struct.ma_job, align 8
   %cmp.i = icmp eq ptr %pDataStream, null
@@ -77650,7 +77650,7 @@ return:                                           ; preds = %if.end30.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_resource_manager_data_source_unmap(ptr noundef %pDataSource, i64 noundef %frameCount) local_unnamed_addr #4 {
+define range(i32 -29, 1) i32 @ma_resource_manager_data_source_unmap(ptr noundef %pDataSource, i64 noundef %frameCount) local_unnamed_addr #4 {
 entry:
   %job.i = alloca %struct.ma_job, align 8
   %cmp = icmp eq ptr %pDataSource, null
@@ -78342,7 +78342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ma_node_graph_config_init(i32 noundef %channels) local_unnamed_addr #1 {
+define range(i64 2061584302080, 2065879269376) i64 @ma_node_graph_config_init(i32 noundef %channels) local_unnamed_addr #1 {
 entry:
   %retval.sroa.0.0.insert.ext = zext i32 %channels to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.0.0.insert.ext, 2061584302080
@@ -78350,7 +78350,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_node_graph_init(ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNodeGraph) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_node_graph_init(ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNodeGraph) local_unnamed_addr #4 {
 entry:
   %baseConfig = alloca %struct.ma_node_config, align 8
   %endpointConfig = alloca %struct.ma_node_config, align 8
@@ -78429,7 +78429,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %heapLayout.i = alloca %struct.ma_node_heap_layout, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i)
@@ -79753,7 +79753,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ma_node_get_heap_size(ptr nocapture noundef readonly %pNodeGraph, ptr noundef %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #17 {
+define range(i32 -2, 1) i32 @ma_node_get_heap_size(ptr nocapture noundef readonly %pNodeGraph, ptr noundef %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #17 {
 entry:
   %heapLayout = alloca %struct.ma_node_heap_layout, align 8
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
@@ -79776,7 +79776,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ma_node_get_heap_layout(ptr nocapture noundef readonly %pNodeGraph, ptr noundef readonly %pConfig, ptr nocapture noundef writeonly %pHeapLayout) unnamed_addr #17 {
+define internal fastcc range(i32 -2, 1) i32 @ma_node_get_heap_layout(ptr nocapture noundef readonly %pNodeGraph, ptr noundef readonly %pConfig, ptr nocapture noundef writeonly %pHeapLayout) unnamed_addr #17 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %pHeapLayout, i8 0, i64 40, i1 false)
   %cmp = icmp eq ptr %pConfig, null
@@ -80000,7 +80000,7 @@ return:                                           ; preds = %if.end83.i, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ma_node_init_preallocated(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pNode) local_unnamed_addr #27 {
+define range(i32 -2, 1) i32 @ma_node_init_preallocated(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pNode) local_unnamed_addr #27 {
 entry:
   %heapLayout = alloca %struct.ma_node_heap_layout, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -81214,7 +81214,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_splitter_node_init(ptr noundef %pNodeGraph, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pSplitterNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_splitter_node_init(ptr noundef %pNodeGraph, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pSplitterNode) local_unnamed_addr #4 {
 entry:
   %baseConfig = alloca %struct.ma_node_config, align 8
   %pInputChannels = alloca [1 x i32], align 4
@@ -81314,7 +81314,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_biquad_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_biquad_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -81510,7 +81510,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_lpf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_lpf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -81557,14 +81557,14 @@ return:                                           ; preds = %if.end11, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_lpf_node_reinit(ptr noundef %pConfig, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_lpf_node_reinit(ptr noundef %pConfig, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pNode, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %lpf = getelementptr inbounds i8, ptr %pNode, i64 360
-  %call.i = tail call fastcc i32 @ma_lpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef nonnull %lpf, i32 noundef 0)
+  %call.i = tail call fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef nonnull %lpf, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -81619,7 +81619,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_hpf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_hpf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -81666,14 +81666,14 @@ return:                                           ; preds = %if.end11, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_hpf_node_reinit(ptr noundef %pConfig, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_hpf_node_reinit(ptr noundef %pConfig, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pNode, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %hpf = getelementptr inbounds i8, ptr %pNode, i64 360
-  %call.i = tail call fastcc i32 @ma_hpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef nonnull %hpf, i32 noundef 0)
+  %call.i = tail call fastcc range(i32 -3, 1) i32 @ma_hpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef nonnull %hpf, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -81728,7 +81728,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_bpf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_bpf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -81775,14 +81775,14 @@ return:                                           ; preds = %if.end11, %if.end6,
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define i32 @ma_bpf_node_reinit(ptr noundef %pConfig, ptr noundef %pNode) local_unnamed_addr #34 {
+define range(i32 -3, 1) i32 @ma_bpf_node_reinit(ptr noundef %pConfig, ptr noundef %pNode) local_unnamed_addr #34 {
 entry:
   %cmp = icmp eq ptr %pNode, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %bpf = getelementptr inbounds i8, ptr %pNode, i64 360
-  %call.i = tail call fastcc i32 @ma_bpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef nonnull %bpf, i32 noundef 0)
+  %call.i = tail call fastcc range(i32 -3, 1) i32 @ma_bpf_reinit__internal(ptr noundef %pConfig, ptr noundef null, ptr noundef nonnull %bpf, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -81835,7 +81835,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_notch_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_notch_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -81970,7 +81970,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_peak_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_peak_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -82107,7 +82107,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_loshelf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_loshelf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -82240,7 +82240,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_hishelf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_hishelf_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pNode) local_unnamed_addr #4 {
 entry:
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pNode, null
@@ -82376,7 +82376,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_delay_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pDelayNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_delay_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr noundef %pDelayNode) local_unnamed_addr #4 {
 entry:
   %baseConfig = alloca %struct.ma_node_config, align 8
   %cmp = icmp eq ptr %pDelayNode, null
@@ -82656,7 +82656,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ma_engine_node_get_heap_size(ptr noundef %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #27 {
+define range(i32 -2, 1) i32 @ma_engine_node_get_heap_size(ptr noundef %pConfig, ptr noundef writeonly %pHeapSizeInBytes) local_unnamed_addr #27 {
 entry:
   %heapLayout = alloca %struct.ma_engine_node_heap_layout, align 8
   %cmp = icmp eq ptr %pHeapSizeInBytes, null
@@ -82679,7 +82679,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ma_engine_node_get_heap_layout(ptr noundef readonly %pConfig, ptr nocapture noundef writeonly %pHeapLayout) unnamed_addr #27 {
+define internal fastcc range(i32 -2, 1) i32 @ma_engine_node_get_heap_layout(ptr noundef readonly %pConfig, ptr nocapture noundef writeonly %pHeapLayout) unnamed_addr #27 {
 entry:
   %heapLayout.i = alloca %struct.ma_node_heap_layout, align 8
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
@@ -82835,7 +82835,7 @@ return:                                           ; preds = %if.end30, %if.end5.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_engine_node_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pEngineNode) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @ma_engine_node_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pEngineNode) local_unnamed_addr #4 {
 entry:
   %heapLayout = alloca %struct.ma_engine_node_heap_layout, align 8
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
@@ -83285,7 +83285,7 @@ ma_node_graph_get_channels.exit:                  ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_engine_node_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pEngineNode) local_unnamed_addr #4 {
+define range(i32 -4, 1) i32 @ma_engine_node_init(ptr noundef %pConfig, ptr noundef readonly %pAllocationCallbacks, ptr noundef %pEngineNode) local_unnamed_addr #4 {
 entry:
   %heapLayout.i = alloca %struct.ma_engine_node_heap_layout, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i)
@@ -94223,7 +94223,7 @@ if.then16:                                        ; preds = %entry
   %add1.i15 = add i64 %conv4, 72
   %add2.i16 = add i64 %add1.i15, %conv.i.i14
   %add4.i17 = add i64 %add2.i16, %call.i13
-  %spec.store.select.i18 = tail call i64 @llvm.umin.i64(i64 %add4.i17, i64 4294967295)
+  %spec.store.select.i18 = tail call range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %add4.i17, i64 4294967295)
   %add18 = add nuw nsw i64 %spec.store.select.i18, 8
   br label %if.end20
 
@@ -94233,7 +94233,7 @@ if.end20:                                         ; preds = %entry, %if.then10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_ex(ptr noundef %pWav, ptr noundef readonly %filename, ptr noundef %onChunk, ptr noundef %pChunkUserData, i32 noundef %flags, ptr noundef readonly %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_ex(ptr noundef %pWav, ptr noundef readonly %filename, ptr noundef %onChunk, ptr noundef %pChunkUserData, i32 noundef %flags, ptr noundef readonly %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %cmp1.i = icmp eq ptr %filename, null
   br i1 %cmp1.i, label %return, label %if.end6.i
@@ -94307,7 +94307,7 @@ return:                                           ; preds = %if.end6.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_ex_w(ptr noundef %pWav, ptr noundef %filename, ptr noundef %onChunk, ptr noundef %pChunkUserData, i32 noundef %flags, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_ex_w(ptr noundef %pWav, ptr noundef %filename, ptr noundef %onChunk, ptr noundef %pChunkUserData, i32 noundef %flags, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %pFile = alloca ptr, align 8
   %call = call i32 @ma_wfopen(ptr noundef nonnull %pFile, ptr noundef %filename, ptr noundef nonnull @.str.177, ptr noundef %pAllocationCallbacks)
@@ -94379,7 +94379,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_with_metadata(ptr noundef %pWav, ptr noundef readonly %filename, i32 noundef %flags, ptr noundef readonly %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_with_metadata(ptr noundef %pWav, ptr noundef readonly %filename, i32 noundef %flags, ptr noundef readonly %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %cmp1.i = icmp eq ptr %filename, null
   br i1 %cmp1.i, label %return, label %if.end6.i
@@ -94454,7 +94454,7 @@ return:                                           ; preds = %if.end6.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_with_metadata_w(ptr noundef %pWav, ptr noundef %filename, i32 noundef %flags, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_with_metadata_w(ptr noundef %pWav, ptr noundef %filename, i32 noundef %flags, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %pFile = alloca ptr, align 8
   %call = call i32 @ma_wfopen(ptr noundef nonnull %pFile, ptr noundef %filename, ptr noundef nonnull @.str.177, ptr noundef %pAllocationCallbacks)
@@ -94527,7 +94527,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_write(ptr noundef %pWav, ptr noundef readonly %filename, ptr nocapture noundef readonly %pFormat, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_write(ptr noundef %pWav, ptr noundef readonly %filename, ptr nocapture noundef readonly %pFormat, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %cmp1.i.i = icmp eq ptr %filename, null
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end6.i.i
@@ -94547,7 +94547,7 @@ ma_dr_wav_init_file_write__internal.exit:         ; preds = %entry, %if.end6.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_write_sequential(ptr noundef %pWav, ptr noundef readonly %filename, ptr nocapture noundef readonly %pFormat, i64 noundef %totalSampleCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_write_sequential(ptr noundef %pWav, ptr noundef readonly %filename, ptr nocapture noundef readonly %pFormat, i64 noundef %totalSampleCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %cmp1.i.i = icmp eq ptr %filename, null
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end6.i.i
@@ -94567,7 +94567,7 @@ ma_dr_wav_init_file_write__internal.exit:         ; preds = %entry, %if.end6.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_write_sequential_pcm_frames(ptr noundef %pWav, ptr noundef readonly %filename, ptr noundef readonly %pFormat, i64 noundef %totalPCMFrameCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_write_sequential_pcm_frames(ptr noundef %pWav, ptr noundef readonly %filename, ptr noundef readonly %pFormat, i64 noundef %totalPCMFrameCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pFormat, null
   br i1 %cmp, label %return, label %if.end
@@ -94595,7 +94595,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_write_w(ptr noundef %pWav, ptr noundef %filename, ptr nocapture noundef readonly %pFormat, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_write_w(ptr noundef %pWav, ptr noundef %filename, ptr nocapture noundef readonly %pFormat, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %pFile.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pFile.i)
@@ -94615,7 +94615,7 @@ ma_dr_wav_init_file_write_w__internal.exit:       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_write_sequential_w(ptr noundef %pWav, ptr noundef %filename, ptr nocapture noundef readonly %pFormat, i64 noundef %totalSampleCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_write_sequential_w(ptr noundef %pWav, ptr noundef %filename, ptr nocapture noundef readonly %pFormat, i64 noundef %totalSampleCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %pFile.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pFile.i)
@@ -94635,7 +94635,7 @@ ma_dr_wav_init_file_write_w__internal.exit:       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_dr_wav_init_file_write_sequential_pcm_frames_w(ptr noundef %pWav, ptr noundef %filename, ptr noundef readonly %pFormat, i64 noundef %totalPCMFrameCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ma_dr_wav_init_file_write_sequential_pcm_frames_w(ptr noundef %pWav, ptr noundef %filename, ptr noundef readonly %pFormat, i64 noundef %totalPCMFrameCount, ptr noundef %pAllocationCallbacks) local_unnamed_addr #4 {
 entry:
   %pFile.i.i = alloca ptr, align 8
   %cmp = icmp eq ptr %pFormat, null
@@ -96276,7 +96276,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ma_dr_wav_write_pcm_frames_le(ptr noundef %pWav, i64 noundef %framesToWrite, ptr noundef %pData) local_unnamed_addr #4 {
+define range(i64 0, -7) i64 @ma_dr_wav_write_pcm_frames_le(ptr noundef %pWav, i64 noundef %framesToWrite, ptr noundef %pData) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pWav, null
   %cmp1 = icmp eq i64 %framesToWrite, 0
@@ -96351,7 +96351,7 @@ return:                                           ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ma_dr_wav_write_pcm_frames_be(ptr noundef %pWav, i64 noundef %framesToWrite, ptr noundef readonly %pData) local_unnamed_addr #4 {
+define range(i64 0, -7) i64 @ma_dr_wav_write_pcm_frames_be(ptr noundef %pWav, i64 noundef %framesToWrite, ptr noundef readonly %pData) local_unnamed_addr #4 {
 entry:
   %temp = alloca [4096 x i8], align 16
   %cmp = icmp eq ptr %pWav, null
@@ -96533,7 +96533,7 @@ return:                                           ; preds = %ma_dr_wav_get_bytes
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ma_dr_wav_write_pcm_frames(ptr noundef %pWav, i64 noundef %framesToWrite, ptr noundef %pData) local_unnamed_addr #4 {
+define range(i64 0, -7) i64 @ma_dr_wav_write_pcm_frames(ptr noundef %pWav, i64 noundef %framesToWrite, ptr noundef %pData) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %pWav, null
   %cmp1.i = icmp eq i64 %framesToWrite, 0
@@ -109910,7 +109910,7 @@ return:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_job_process__resource_manager__free_data_buffer_node(ptr noundef %pJob) #4 {
+define internal range(i32 -4, 1) i32 @ma_job_process__resource_manager__free_data_buffer_node(ptr noundef %pJob) #4 {
 entry:
   %data = getelementptr inbounds i8, ptr %pJob, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -110405,7 +110405,7 @@ return:                                           ; preds = %if.end.i52, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_job_process__resource_manager__free_data_buffer(ptr noundef %pJob) #4 {
+define internal range(i32 -4, 1) i32 @ma_job_process__resource_manager__free_data_buffer(ptr noundef %pJob) #4 {
 entry:
   %data = getelementptr inbounds i8, ptr %pJob, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -110906,7 +110906,7 @@ return:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_job_process__resource_manager__free_data_stream(ptr noundef %pJob) #4 {
+define internal range(i32 -4, 1) i32 @ma_job_process__resource_manager__free_data_stream(ptr noundef %pJob) #4 {
 entry:
   %data = getelementptr inbounds i8, ptr %pJob, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -111028,7 +111028,7 @@ return:                                           ; preds = %if.else.i, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_job_process__resource_manager__page_data_stream(ptr noundef %pJob) #4 {
+define internal range(i32 -4, 1) i32 @ma_job_process__resource_manager__page_data_stream(ptr noundef %pJob) #4 {
 entry:
   %data = getelementptr inbounds i8, ptr %pJob, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -111073,7 +111073,7 @@ return:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_job_process__resource_manager__seek_data_stream(ptr noundef %pJob) #4 {
+define internal range(i32 -4, 1) i32 @ma_job_process__resource_manager__seek_data_stream(ptr noundef %pJob) #4 {
 entry:
   %data = getelementptr inbounds i8, ptr %pJob, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -112397,7 +112397,7 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #10
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #59
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_init_pa_mainloop_and_pa_context__pulse(ptr nocapture noundef readonly %pContext, ptr noundef %pApplicationName, ptr noundef %pServerName, i32 noundef %tryAutoSpawn, ptr nocapture noundef writeonly %ppMainLoop, ptr nocapture noundef writeonly %ppPulseContext) unnamed_addr #4 {
+define internal fastcc range(i32 -400, 1) i32 @ma_init_pa_mainloop_and_pa_context__pulse(ptr nocapture noundef readonly %pContext, ptr noundef %pApplicationName, ptr noundef %pServerName, i32 noundef %tryAutoSpawn, ptr nocapture noundef writeonly %ppMainLoop, ptr nocapture noundef writeonly %ppPulseContext) unnamed_addr #4 {
 entry:
   %pa_mainloop_new = getelementptr inbounds i8, ptr %pContext, i64 432
   %0 = load ptr, ptr %pa_mainloop_new, align 8
@@ -112572,7 +112572,7 @@ ma_context_get_log.exit:                          ; preds = %ma_free.exit, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_enumerate_devices__pulse(ptr noundef %pContext, ptr noundef %callback, ptr noundef %pUserData) #4 {
+define internal range(i32 -1, 1) i32 @ma_context_enumerate_devices__pulse(ptr noundef %pContext, ptr noundef %callback, ptr noundef %pUserData) #4 {
 entry:
   %sourceInfo.i = alloca %struct.ma_pa_source_info, align 8
   %sinkInfo.i = alloca %struct.ma_pa_sink_info, align 8
@@ -112749,7 +112749,7 @@ done:                                             ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_context_get_device_info__pulse(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr noundef %pDeviceID, ptr noundef %pDeviceInfo) #4 {
+define internal range(i32 -204, 1) i32 @ma_context_get_device_info__pulse(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr noundef %pDeviceID, ptr noundef %pDeviceInfo) #4 {
 entry:
   %callbackData = alloca %struct.ma_context_get_device_info_callback_data__pulse, align 8
   store ptr %pDeviceInfo, ptr %callbackData, align 8
@@ -112802,7 +112802,7 @@ done:                                             ; preds = %ma_wait_for_operati
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_device_init__pulse(ptr noundef %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
+define internal range(i32 -400, 1) i32 @ma_device_init__pulse(ptr noundef %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
 entry:
   %actualStreamName.i = alloca [256 x i8], align 16
   %sinkInfo = alloca %struct.ma_pa_sink_info, align 8
@@ -114191,7 +114191,7 @@ switch.lookup697:                                 ; preds = %ma_device_get_log.e
   br label %on_error3thread-pre-split
 
 on_error3thread-pre-split:                        ; preds = %switch.lookup697, %if.end397, %if.then580, %ma_device_get_log.exit508
-  %result.4.ph = phi i32 [ -1, %ma_device_get_log.exit508 ], [ %call401, %if.end397 ], [ %result.3, %if.then580 ], [ %switch.load700, %switch.lookup697 ]
+  %result.4.ph = phi i32 [ -1, %ma_device_get_log.exit508 ], [ -1, %if.end397 ], [ %result.3, %if.then580 ], [ %switch.load700, %switch.lookup697 ]
   %.pr656 = load i32, ptr %pConfig, align 8
   br label %on_error3
 
@@ -114213,7 +114213,7 @@ if.then592:                                       ; preds = %on_error3, %on_erro
   br label %on_error2
 
 on_error2:                                        ; preds = %if.then287, %ma_device_get_context.exit.i434, %for.end.i456, %ma_device_get_log.exit439, %on_error3, %if.then592, %if.end152, %ma_device_get_log.exit501
-  %result.2 = phi i32 [ %call156, %if.end152 ], [ %result.4, %if.then592 ], [ -1, %ma_device_get_log.exit501 ], [ %result.4, %on_error3 ], [ -1, %ma_device_get_log.exit439 ], [ -1, %for.end.i456 ], [ -1, %if.then287 ], [ -1, %ma_device_get_context.exit.i434 ]
+  %result.2 = phi i32 [ -1, %if.end152 ], [ %result.4, %if.then592 ], [ -1, %ma_device_get_log.exit501 ], [ %result.4, %on_error3 ], [ -1, %ma_device_get_log.exit439 ], [ -1, %for.end.i456 ], [ -1, %if.then287 ], [ -1, %ma_device_get_context.exit.i434 ]
   %244 = load i32, ptr %pConfig, align 8
   %245 = and i32 %244, -2
   %switch265 = icmp eq i32 %245, 2
@@ -114345,7 +114345,7 @@ if.end20:                                         ; preds = %if.end, %if.then4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_start__pulse(ptr noundef %pDevice) #4 {
+define internal range(i32 -1, 1) i32 @ma_device_start__pulse(ptr noundef %pDevice) #4 {
 entry:
   %type = getelementptr inbounds i8, ptr %pDevice, i64 8
   %0 = load i32, ptr %type, align 8
@@ -114381,12 +114381,12 @@ if.end17:                                         ; preds = %if.end5, %if.then11
   br label %return
 
 return:                                           ; preds = %if.then11, %if.then, %if.end17
-  %retval.0 = phi i32 [ 0, %if.end17 ], [ %call, %if.then ], [ %call13, %if.then11 ]
+  %retval.0 = phi i32 [ 0, %if.end17 ], [ -1, %if.then ], [ -1, %if.then11 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_stop__pulse(ptr nocapture noundef readonly %pDevice) #4 {
+define internal range(i32 -1, 1) i32 @ma_device_stop__pulse(ptr nocapture noundef readonly %pDevice) #4 {
 entry:
   %type = getelementptr inbounds i8, ptr %pDevice, i64 8
   %0 = load i32, ptr %type, align 8
@@ -114419,7 +114419,7 @@ if.end16:                                         ; preds = %if.end5, %if.then11
   br label %return
 
 return:                                           ; preds = %if.then11, %if.then, %if.end16
-  %retval.0 = phi i32 [ 0, %if.end16 ], [ %call, %if.then ], [ %call12, %if.then11 ]
+  %retval.0 = phi i32 [ 0, %if.end16 ], [ -1, %if.then ], [ -1, %if.then11 ]
   ret i32 %retval.0
 }
 
@@ -114465,7 +114465,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_context_get_default_device_index__pulse(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr nocapture noundef writeonly %pIndex) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @ma_context_get_default_device_index__pulse(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr nocapture noundef writeonly %pIndex) unnamed_addr #4 {
 entry:
   %sinkInfo = alloca %struct.ma_pa_sink_info, align 8
   %sourceInfo = alloca %struct.ma_pa_source_info, align 8
@@ -115543,7 +115543,7 @@ ma_device__on_notification_rerouted.exit:         ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -204, 1) i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr nocapture noundef readonly %pContext, ptr noundef %pMainLoop, ptr noundef %pStream) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr nocapture noundef readonly %pContext, ptr noundef %pMainLoop, ptr noundef %pStream) unnamed_addr #4 {
 entry:
   %pa_stream_get_state = getelementptr inbounds i8, ptr %pContext, i64 744
   %pa_mainloop_iterate = getelementptr inbounds i8, ptr %pContext, i64 464
@@ -115645,7 +115645,7 @@ while.end:                                        ; preds = %if.end18, %ma_devic
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -204, 1) i32 @ma_device_write_to_stream__pulse(ptr noundef %pDevice, ptr noundef %pStream, ptr noundef writeonly %pFramesProcessed) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @ma_device_write_to_stream__pulse(ptr noundef %pDevice, ptr noundef %pStream, ptr noundef writeonly %pFramesProcessed) unnamed_addr #4 {
 ma_device_get_state.exit:
   %bytesMapped = alloca i64, align 8
   %pMappedPCMFrames = alloca ptr, align 8
@@ -115766,7 +115766,7 @@ if.end35:                                         ; preds = %if.then34, %done
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_device__cork_stream__pulse(ptr nocapture noundef readonly %pDevice, i32 noundef %deviceType, i32 noundef %cork) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @ma_device__cork_stream__pulse(ptr nocapture noundef readonly %pDevice, i32 noundef %deviceType, i32 noundef %cork) unnamed_addr #4 {
 entry:
   %wasSuccessful = alloca i32, align 4
   %0 = load ptr, ptr %pDevice, align 8
@@ -120691,7 +120691,7 @@ if.end10:                                         ; preds = %ma_strncpy_s.exit23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_get_device_info__jack(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr noundef readonly %pDeviceID, ptr nocapture noundef %pDeviceInfo) #4 {
+define internal range(i32 -401, 1) i32 @ma_context_get_device_info__jack(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr noundef readonly %pDeviceID, ptr nocapture noundef %pDeviceInfo) #4 {
 entry:
   %clientName.i = alloca [256 x i8], align 16
   %status.i = alloca i32, align 4
@@ -120855,7 +120855,7 @@ return:                                           ; preds = %land.lhs.true, %whi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_init__jack(ptr noundef %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
+define internal range(i32 -401, 1) i32 @ma_device_init__jack(ptr noundef %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
 entry:
   %clientName.i = alloca [256 x i8], align 16
   %status.i = alloca i32, align 4
@@ -124180,7 +124180,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare double @sqrt(double noundef) local_unnamed_addr #64
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_resampling_backend_get_heap_size__linear(ptr nocapture readnone %pUserData, ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) #11 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_heap_size__linear(ptr nocapture readnone %pUserData, ptr nocapture noundef readonly %pConfig, ptr noundef writeonly %pHeapSizeInBytes) #11 {
 entry:
   %0 = load i32, ptr %pConfig, align 8, !noalias !930
   %channels.i = getelementptr inbounds i8, ptr %pConfig, i64 4
@@ -124245,7 +124245,7 @@ ma_linear_resampler_get_heap_size.exit:           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_resampling_backend_init__linear(ptr noundef %pUserData, ptr nocapture noundef readonly %pConfig, ptr noundef %pHeap, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -3, 1) i32 @ma_resampling_backend_init__linear(ptr noundef %pUserData, ptr nocapture noundef readonly %pConfig, ptr noundef %pHeap, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %linearConfig = alloca %struct.ma_linear_resampler_config, align 8
   %0 = load i32, ptr %pConfig, align 8, !noalias !933
@@ -124333,9 +124333,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_resampling_backend_set_rate__linear(ptr nocapture readnone %pUserData, ptr noundef %pBackend, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut) #4 {
+define internal range(i32 -3, 1) i32 @ma_resampling_backend_set_rate__linear(ptr nocapture readnone %pUserData, ptr noundef %pBackend, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut) #4 {
 entry:
-  %call.i = tail call fastcc i32 @ma_linear_resampler_set_rate_internal(ptr noundef %pBackend, ptr noundef null, ptr noundef null, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut, i32 noundef 1)
+  %call.i = tail call fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef %pBackend, ptr noundef null, ptr noundef null, i32 noundef %sampleRateIn, i32 noundef %sampleRateOut, i32 noundef 1)
   ret i32 %call.i
 }
 
@@ -125851,7 +125851,7 @@ ma_wav_get_data_format.exit:                      ; preds = %if.end7.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_wav_ds_get_cursor(ptr noundef readonly %pDataSource, ptr noundef writeonly %pCursor) #11 {
+define internal range(i32 -2, 1) i32 @ma_wav_ds_get_cursor(ptr noundef readonly %pDataSource, ptr noundef writeonly %pCursor) #11 {
 entry:
   %cmp.i = icmp eq ptr %pCursor, null
   br i1 %cmp.i, label %ma_wav_get_cursor_in_pcm_frames.exit, label %if.end.i
@@ -125873,7 +125873,7 @@ ma_wav_get_cursor_in_pcm_frames.exit:             ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_wav_ds_get_length(ptr noundef readonly %pDataSource, ptr noundef writeonly %pLength) #11 {
+define internal range(i32 -2, 1) i32 @ma_wav_ds_get_length(ptr noundef readonly %pDataSource, ptr noundef writeonly %pLength) #11 {
 entry:
   %cmp.i = icmp eq ptr %pLength, null
   br i1 %cmp.i, label %ma_wav_get_length_in_pcm_frames.exit, label %if.end.i
@@ -126397,7 +126397,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init__wav(ptr nocapture readnone %pUserData, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onTell, ptr noundef %pReadSeekTellUserData, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init__wav(ptr nocapture readnone %pUserData, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onTell, ptr noundef %pReadSeekTellUserData, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -126455,7 +126455,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init_file__wav(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file__wav(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -126513,7 +126513,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init_file_w__wav(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file_w__wav(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -126571,7 +126571,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init_memory__wav(ptr nocapture readnone %pUserData, ptr noundef %pData, i64 noundef %dataSize, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_memory__wav(ptr nocapture readnone %pUserData, ptr noundef %pData, i64 noundef %dataSize, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -126660,7 +126660,7 @@ ma_free.exit:                                     ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_decoding_backend_init__flac(ptr nocapture readnone %pUserData, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onTell, ptr noundef %pReadSeekTellUserData, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init__flac(ptr nocapture readnone %pUserData, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onTell, ptr noundef %pReadSeekTellUserData, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -126769,7 +126769,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_decoding_backend_init_file__flac(ptr nocapture readnone %pUserData, ptr noundef readonly %pFilePath, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file__flac(ptr nocapture readnone %pUserData, ptr noundef readonly %pFilePath, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -126878,7 +126878,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_decoding_backend_init_file_w__flac(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file_w__flac(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %pFile.i.i = alloca ptr, align 8
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
@@ -126989,7 +126989,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_decoding_backend_init_memory__flac(ptr nocapture readnone %pUserData, ptr noundef %pData, i64 noundef %dataSize, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_memory__flac(ptr nocapture readnone %pUserData, ptr noundef %pData, i64 noundef %dataSize, ptr noundef readonly %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %memoryStream.i.i = alloca %struct.ma_dr_flac__memory_stream, align 8
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
@@ -127192,7 +127192,7 @@ ma_free.exit:                                     ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init__mp3(ptr nocapture readnone %pUserData, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onTell, ptr noundef %pReadSeekTellUserData, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init__mp3(ptr nocapture readnone %pUserData, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onTell, ptr noundef %pReadSeekTellUserData, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -127250,7 +127250,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init_file__mp3(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file__mp3(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -127308,7 +127308,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init_file_w__mp3(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file_w__mp3(ptr nocapture readnone %pUserData, ptr noundef %pFilePath, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -127366,7 +127366,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoding_backend_init_memory__mp3(ptr nocapture readnone %pUserData, ptr noundef %pData, i64 noundef %dataSize, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
+define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_memory__mp3(ptr nocapture readnone %pUserData, ptr noundef %pData, i64 noundef %dataSize, ptr noundef %pConfig, ptr noundef %pAllocationCallbacks, ptr nocapture noundef writeonly %ppBackend) #4 {
 entry:
   %cmp.not.i = icmp eq ptr %pAllocationCallbacks, null
   br i1 %cmp.not.i, label %if.else4.i, label %if.then.i
@@ -128410,14 +128410,14 @@ ma_hash_32.exit:                                  ; preds = %for.end.i, %sw.bb15
 declare i32 @llvm.bswap.i32(i32) #35
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_resource_manager_data_stream_cb__read_pcm_frames(ptr noundef %pDataSource, ptr noundef %pFramesOut, i64 noundef %frameCount, ptr noundef %pFramesRead) #4 {
+define internal range(i32 -19, 1) i32 @ma_resource_manager_data_stream_cb__read_pcm_frames(ptr noundef %pDataSource, ptr noundef %pFramesOut, i64 noundef %frameCount, ptr noundef %pFramesRead) #4 {
 entry:
   %call = tail call i32 @ma_resource_manager_data_stream_read_pcm_frames(ptr noundef %pDataSource, ptr noundef %pFramesOut, i64 noundef %frameCount, ptr noundef %pFramesRead)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_resource_manager_data_stream_cb__seek_to_pcm_frame(ptr noundef %pDataSource, i64 noundef %frameIndex) #4 {
+define internal range(i32 -4, 1) i32 @ma_resource_manager_data_stream_cb__seek_to_pcm_frame(ptr noundef %pDataSource, i64 noundef %frameIndex) #4 {
 entry:
   %job.i = alloca %struct.ma_job, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %job.i)
@@ -129677,7 +129677,7 @@ if.end22.i:                                       ; preds = %ma_gcf_u32.exit.i
   %tmp.sroa.7.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 28
   store i32 0, ptr %tmp.sroa.7.0.lpfConfig.sroa_idx.i, align 4
   %lpf.i = getelementptr inbounds i8, ptr %pEngineNode, i64 488
-  %call.i.i20 = call fastcc i32 @ma_lpf_reinit__internal(ptr noundef nonnull %lpfConfig.i, ptr noundef null, ptr noundef nonnull %lpf.i, i32 noundef 0)
+  %call.i.i20 = call fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef nonnull %lpfConfig.i, ptr noundef null, ptr noundef nonnull %lpf.i, i32 noundef 0)
   %cmp56.not.i = icmp eq i32 %call.i.i20, 0
   br i1 %cmp56.not.i, label %if.end59.i, label %ma_linear_resampler_set_rate_internal.exit
 
@@ -133865,7 +133865,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %pFile, ptr nocapture noundef readonly %pFormat, i64 noundef %totalSampleCount, i32 noundef %isSequential, ptr noundef readonly %pAllocationCallbacks) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %pFile, ptr nocapture noundef readonly %pFormat, i64 noundef %totalSampleCount, i32 noundef %isSequential, ptr noundef readonly %pAllocationCallbacks) unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %pWav, null
   br i1 %cmp.i, label %return.sink.split, label %if.end.i

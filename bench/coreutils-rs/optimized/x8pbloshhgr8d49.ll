@@ -1939,7 +1939,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %50
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.034.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.034.i, i32 6)
   %57 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i17.i = icmp eq i32 %.034.i, 0
   br i1 %.not.i17.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge, label %.lr.ph.i18.i
@@ -1972,7 +1972,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %68, label %76, label %69
 
 69:                                               ; preds = %66
-  %.0.sroa.speculated.i.i21.i = call noundef i32 @llvm.umin.i32(i32 %.034.i, i32 6)
+  %.0.sroa.speculated.i.i21.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.034.i, i32 6)
   %70 = mul nuw nsw i32 %.0.sroa.speculated.i.i21.i, %.0.sroa.speculated.i.i21.i
   %.not.i22.i = icmp eq i32 %.034.i, 0
   br i1 %.not.i22.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge, label %.lr.ph.i23.i
@@ -2318,7 +2318,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %51
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.034.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.034.i, i32 6)
   %58 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i17.i = icmp eq i32 %.034.i, 0
   br i1 %.not.i17.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge, label %.lr.ph.i18.i
@@ -2351,7 +2351,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %69, label %78, label %70
 
 70:                                               ; preds = %67
-  %.0.sroa.speculated.i.i21.i = call noundef i32 @llvm.umin.i32(i32 %.034.i, i32 6)
+  %.0.sroa.speculated.i.i21.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.034.i, i32 6)
   %71 = mul nuw nsw i32 %.0.sroa.speculated.i.i21.i, %.0.sroa.speculated.i.i21.i
   %.not.i22.i = icmp eq i32 %.034.i, 0
   br i1 %.not.i22.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge, label %.lr.ph.i23.i
@@ -2705,7 +2705,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %50
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.034.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.034.i, i32 6)
   %57 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i17.i = icmp eq i32 %.034.i, 0
   br i1 %.not.i17.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge, label %.lr.ph.i18.i
@@ -2738,7 +2738,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %68, label %76, label %69
 
 69:                                               ; preds = %66
-  %.0.sroa.speculated.i.i21.i = call noundef i32 @llvm.umin.i32(i32 %.034.i, i32 6)
+  %.0.sroa.speculated.i.i21.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.034.i, i32 6)
   %70 = mul nuw nsw i32 %.0.sroa.speculated.i.i21.i, %.0.sroa.speculated.i.i21.i
   %.not.i22.i = icmp eq i32 %.034.i, 0
   br i1 %.not.i22.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge, label %.lr.ph.i23.i
@@ -3508,7 +3508,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %62, label %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$10start_send17hb1737d1ec1734d59E.exit", label %63
 
 63:                                               ; preds = %58
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
   %64 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i17.i = icmp eq i32 %.03439.i, 0
   br i1 %.not.i17.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i, label %.lr.ph.i18.i
@@ -3548,7 +3548,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   br i1 %78, label %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$5write17hd3f167441a14c2eaE.exit.thread", label %79
 
 79:                                               ; preds = %76
-  %.0.sroa.speculated.i.i21.i = call noundef i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
+  %.0.sroa.speculated.i.i21.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
   %80 = mul nuw nsw i32 %.0.sroa.speculated.i.i21.i, %.0.sroa.speculated.i.i21.i
   %.not.i22.i = icmp eq i32 %.03439.i, 0
   br i1 %.not.i22.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i, label %.lr.ph.i23.i
@@ -3943,7 +3943,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %61, label %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$10start_send17h4ce74cdca87753c5E.exit", label %62
 
 62:                                               ; preds = %57
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
   %63 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i17.i = icmp eq i32 %.03439.i, 0
   br i1 %.not.i17.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i, label %.lr.ph.i18.i
@@ -3983,7 +3983,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   br i1 %77, label %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$5write17haccf3cc0a8e414d5E.exit.thread", label %78
 
 78:                                               ; preds = %75
-  %.0.sroa.speculated.i.i21.i = call noundef i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
+  %.0.sroa.speculated.i.i21.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
   %79 = mul nuw nsw i32 %.0.sroa.speculated.i.i21.i, %.0.sroa.speculated.i.i21.i
   %.not.i22.i = icmp eq i32 %.03439.i, 0
   br i1 %.not.i22.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i, label %.lr.ph.i23.i
@@ -4370,7 +4370,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %61, label %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$10start_send17h4f3dac6ee87420bdE.exit", label %62
 
 62:                                               ; preds = %57
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
   %63 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i17.i = icmp eq i32 %.03439.i, 0
   br i1 %.not.i17.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i, label %.lr.ph.i18.i
@@ -4410,7 +4410,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   br i1 %77, label %84, label %78
 
 78:                                               ; preds = %75
-  %.0.sroa.speculated.i.i21.i = call noundef i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
+  %.0.sroa.speculated.i.i21.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.03439.i, i32 6)
   %79 = mul nuw nsw i32 %.0.sroa.speculated.i.i21.i, %.0.sroa.speculated.i.i21.i
   %.not.i22.i = icmp eq i32 %.03439.i, 0
   br i1 %.not.i22.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i, label %.lr.ph.i23.i

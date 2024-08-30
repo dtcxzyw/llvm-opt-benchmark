@@ -391,7 +391,7 @@ _parse_integer.exit:                              ; preds = %45, %50, %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtoll(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoll(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = load i8, ptr %0, align 1
@@ -551,7 +551,7 @@ _parse_integer.exit:                              ; preds = %46, %51, %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @_kstrtoul(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @_kstrtoul(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -570,7 +570,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @_kstrtoul(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @_kstrtol(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @_kstrtol(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -589,7 +589,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @_kstrtol(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtouint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtouint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -614,7 +614,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtouint(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtoint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -640,7 +640,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtoint(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtou16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -665,7 +665,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou16(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtos16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtos16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -691,7 +691,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtos16(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtou8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -716,7 +716,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou8(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtos8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtos8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !6
@@ -877,7 +877,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoull_from_user(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kstrtoll_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoll_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca [67 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(67) %5, i8 0, i64 67, i1 false), !annotation !6
@@ -921,7 +921,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoul_from_user(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kstrtol_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtol_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca [67 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(67) %5, i8 0, i64 67, i1 false), !annotation !6
@@ -943,7 +943,7 @@ define dso_local noundef i32 @kstrtol_from_user(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtouint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtouint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [35 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %6) #7
@@ -984,7 +984,7 @@ kstrtouint.exit:                                  ; preds = %10, %14, %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtoint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [35 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %6) #7
@@ -1026,7 +1026,7 @@ kstrtoint.exit:                                   ; preds = %10, %14, %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtou16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [19 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %6) #7
@@ -1067,7 +1067,7 @@ kstrtou16.exit:                                   ; preds = %10, %14, %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtos16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtos16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [19 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %6) #7
@@ -1109,7 +1109,7 @@ kstrtos16.exit:                                   ; preds = %10, %14, %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtou8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [11 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6) #7
@@ -1150,7 +1150,7 @@ kstrtou8.exit:                                    ; preds = %10, %14, %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtos8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtos8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [11 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6) #7

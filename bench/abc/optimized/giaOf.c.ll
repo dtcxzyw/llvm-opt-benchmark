@@ -2305,8 +2305,8 @@ Of_SetCutIsContainedOrder.exit.thread.thread.i.i.us.us.us: ; preds = %812, %802
   br i1 %exitcond.not67.i.i.us.us.us, label %.preheader.i.i318.us.us.us, label %.outer.i.i.us.us.us, !llvm.loop !21
 
 .preheader.i.i318.us.us.us:                       ; preds = %Of_SetCutIsContainedOrder.exit.thread.thread.i.i.us.us.us, %._crit_edge.i.i317.us.us.us
-  %820 = add nuw i32 %.4555.us.us.us, 1
-  %wide.trip.count62.i.i.us.us.us = zext i32 %820 to i64
+  %820 = add nuw nsw i32 %.4555.us.us.us, 1
+  %wide.trip.count62.i.i.us.us.us = zext nneg i32 %820 to i64
   br label %.lr.ph55.i.i.us.us.us
 
 .lr.ph55.i.i.us.us.us:                            ; preds = %834, %.preheader.i.i318.us.us.us
@@ -3268,8 +3268,8 @@ Of_SetCutIsContainedOrder.exit.thread.thread.i.i447.us: ; preds = %1282, %1272
   br i1 %exitcond.not67.i.i451.us, label %.preheader.i.i424.us, label %.outer.i.i415.us, !llvm.loop !21
 
 .preheader.i.i424.us:                             ; preds = %Of_SetCutIsContainedOrder.exit.thread.thread.i.i447.us, %._crit_edge.i.i423.us
-  %1290 = add nuw i32 %.8573.us, 1
-  %wide.trip.count62.i.i425.us = zext i32 %1290 to i64
+  %1290 = add nuw nsw i32 %.8573.us, 1
+  %wide.trip.count62.i.i425.us = zext nneg i32 %1290 to i64
   br label %.lr.ph55.i.i426.us
 
 .lr.ph55.i.i426.us:                               ; preds = %1304, %.preheader.i.i424.us
@@ -3574,7 +3574,7 @@ Of_ManSaveCuts.exit:                              ; preds = %.lr.ph51.i, %1404
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Of_SetAddCut(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @Of_SetAddCut(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %105, label %5
 
@@ -6256,7 +6256,7 @@ Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %62, %84, %Gia_ObjIs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Of_ManComputeForwardDirconObj(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 1000000001) i32 @Of_ManComputeForwardDirconObj(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %0, i64 32

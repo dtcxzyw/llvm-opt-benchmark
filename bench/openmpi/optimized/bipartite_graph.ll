@@ -1295,7 +1295,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph122, %pmix_po
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_bipartite_to_flow(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -14, 1) i32 @prte_bp_graph_bipartite_to_flow(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = tail call i32 @prte_bp_graph_add_vertex(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %3)
@@ -1493,10 +1493,8 @@ define i32 @prte_bp_graph_solve_bipartite_assignment(ptr nocapture noundef reado
 9:                                                ; preds = %7
   %10 = load ptr, ptr %4, align 8
   %11 = call i32 @prte_bp_graph_bipartite_to_flow(ptr noundef %10)
-  switch i32 %11, label %12 [
-    i32 0, label %14
-    i32 -43, label %190
-  ]
+  %cond = icmp eq i32 %11, 0
+  br i1 %cond, label %14, label %12
 
 12:                                               ; preds = %9
   %13 = call ptr @prte_strerror(i32 noundef %11) #13
@@ -1963,8 +1961,8 @@ shrink_flow_matrix.exit:                          ; preds = %._crit_edge.us.i
   %189 = call i32 @prte_bp_graph_free(ptr noundef %188)
   br label %190
 
-190:                                              ; preds = %min_cost_flow_ssp.exit, %12, %9, %3, %.loopexit
-  %.0 = phi i32 [ %.051, %.loopexit ], [ -5, %3 ], [ %11, %9 ], [ %11, %12 ], [ -2, %min_cost_flow_ssp.exit ]
+190:                                              ; preds = %min_cost_flow_ssp.exit, %12, %3, %.loopexit
+  %.0 = phi i32 [ %.051, %.loopexit ], [ -5, %3 ], [ %11, %12 ], [ -2, %min_cost_flow_ssp.exit ]
   ret i32 %.0
 }
 

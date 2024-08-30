@@ -303,7 +303,7 @@ define void @Prs_NtkAddVerilogDirectives(ptr nocapture noundef readonly %0) loca
 declare i32 @Abc_NamStrFindOrAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @Prs_ManReadSignalList(ptr noundef %0, ptr nocapture noundef %1, i8 noundef signext %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Prs_ManReadSignalList(ptr noundef %0, ptr nocapture noundef %1, i8 noundef signext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call fastcc i32 @Prs_ManReadSignal(ptr noundef %0)
@@ -4990,7 +4990,7 @@ Cba_NtkRangeRight.exit112:                        ; preds = %54, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Prs_CreateBitSignal(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483645) i32 @Prs_CreateBitSignal(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = ashr i32 %1, 2
   %4 = and i32 %1, 3
   %or.cond = icmp ult i32 %4, 2
@@ -12219,7 +12219,7 @@ define noundef ptr @Cba_ManReadVerilog(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @Prs_ManUtilSkipSpaces(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManUtilSkipSpaces(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -13973,7 +13973,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @Prs_ManReadArguments(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadArguments(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [3 x ptr], align 16
   %3 = alloca [3 x ptr], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -15150,7 +15150,7 @@ Prs_ManUtilSkipSpaces.exit281:                    ; preds = %353, %355, %360, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @Prs_ManReadDeclaration(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadDeclaration(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [4 x ptr], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -16538,7 +16538,7 @@ Prs_ManUtilSkipName.exit:                         ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @Prs_ManReadExpression(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadExpression(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 0, ptr %4, align 4
@@ -17692,7 +17692,7 @@ Prs_ManUtilSkipUntilWord.exit:                    ; preds = %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @Prs_ManReadAlways(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadAlways(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -18362,7 +18362,7 @@ Prs_ManUtilSkipComments.exit.i179:                ; preds = %.lr.ph38.i.i181, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @Prs_ManReadFunction(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadFunction(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 212
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -18604,7 +18604,7 @@ Prs_ManUtilSkipUntilWord.exit41:                  ; preds = %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @Prs_ManReadInstance(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadInstance(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8

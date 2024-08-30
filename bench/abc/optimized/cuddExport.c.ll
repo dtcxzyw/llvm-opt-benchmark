@@ -408,7 +408,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #2
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef null) #9
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %69, label %9
@@ -433,7 +433,6 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
   %20 = udiv i64 %19, 40
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.62, i64 noundef %20) #9
   %22 = icmp ne i32 %21, -1
-  %. = zext i1 %22 to i32
   br label %69
 
 23:                                               ; preds = %14
@@ -449,7 +448,6 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = select i1 %.not72, ptr @.str.12, ptr @.str.64
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.63, i64 noundef %29, ptr noundef nonnull %30) #9
   %32 = icmp ne i32 %31, -1
-  %.73 = zext i1 %32 to i32
   br label %69
 
 33:                                               ; preds = %23
@@ -461,8 +459,8 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call fastcc i32 @ddDoDumpBlif(ptr noundef nonnull %0, ptr noundef %38, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  %.not = icmp eq i32 %39, 1
-  br i1 %.not, label %40, label %69
+  %.not.not = icmp eq i32 %39, 0
+  br i1 %.not.not, label %69, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %1, i64 24
@@ -471,8 +469,8 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
   %46 = tail call fastcc i32 @ddDoDumpBlif(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  %.not67 = icmp eq i32 %46, 1
-  br i1 %.not67, label %47, label %69
+  %.not67.not = icmp eq i32 %46, 0
+  br i1 %.not67.not, label %69, label %47
 
 47:                                               ; preds = %40
   %.not68 = icmp eq ptr %4, null
@@ -511,11 +509,11 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
   %.str.69.sink = select i1 %.not69, ptr %.str.70..str.69, ptr %.str.68..str.67
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull %.str.69.sink, i64 noundef %63, i64 noundef %64, i64 noundef %66) #9
   %68 = icmp ne i32 %67, -1
-  %.74 = zext i1 %68 to i32
   br label %69
 
 69:                                               ; preds = %58, %56, %40, %36, %33, %27, %18, %11, %9, %6
-  %.062 = phi i32 [ 1, %6 ], [ 0, %9 ], [ 0, %11 ], [ %., %18 ], [ %.73, %27 ], [ 0, %33 ], [ %39, %36 ], [ %46, %40 ], [ 0, %56 ], [ %.74, %58 ]
+  %.062.shrunk = phi i1 [ true, %6 ], [ false, %9 ], [ false, %11 ], [ %22, %18 ], [ %32, %27 ], [ false, %33 ], [ false, %36 ], [ false, %40 ], [ false, %56 ], [ %68, %58 ]
+  %.062 = zext i1 %.062.shrunk to i32
   ret i32 %.062
 }
 
@@ -1321,7 +1319,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %4, %6
   %8 = udiv i64 %7, 40
@@ -1333,7 +1331,6 @@ define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr 
   %12 = inttoptr i64 %8 to ptr
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, ptr noundef %12) #9
   %14 = icmp ne i32 %13, -1
-  %. = zext i1 %14 to i32
   br label %65
 
 15:                                               ; preds = %5
@@ -1358,7 +1355,6 @@ define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr 
   %28 = load double, ptr %27, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.72, ptr noundef %26, double noundef %28) #9
   %30 = icmp ne i32 %29, -1
-  %.55 = zext i1 %30 to i32
   br label %65
 
 31:                                               ; preds = %20
@@ -1387,8 +1383,8 @@ define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr 
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call fastcc i32 @ddDoDumpDaVinci(ptr noundef %46, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
-  %.not52 = icmp eq i32 %47, 1
-  br i1 %.not52, label %48, label %65
+  %.not52.not = icmp eq i32 %47, 0
+  br i1 %.not52.not, label %65, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1407,17 +1403,17 @@ define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr 
   %59 = and i64 %58, -2
   %60 = inttoptr i64 %59 to ptr
   %61 = tail call fastcc i32 @ddDoDumpDaVinci(ptr noundef %60, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
-  %.not54 = icmp eq i32 %61, 1
-  br i1 %.not54, label %62, label %65
+  %.not54.not = icmp eq i32 %61, 0
+  br i1 %.not54.not, label %65, label %62
 
 62:                                               ; preds = %56
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.78) #9
   %64 = icmp ne i32 %63, -1
-  %.56 = zext i1 %64 to i32
   br label %65
 
 65:                                               ; preds = %62, %56, %48, %44, %41, %25, %17, %15, %11
-  %.0 = phi i32 [ %., %11 ], [ 0, %15 ], [ 0, %17 ], [ %.55, %25 ], [ 0, %41 ], [ %47, %44 ], [ 0, %48 ], [ %61, %56 ], [ %.56, %62 ]
+  %.0.shrunk = phi i1 [ %14, %11 ], [ false, %15 ], [ false, %17 ], [ %30, %25 ], [ false, %41 ], [ false, %44 ], [ false, %48 ], [ false, %56 ], [ %64, %62 ]
+  %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
 

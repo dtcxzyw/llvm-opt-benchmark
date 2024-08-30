@@ -3070,7 +3070,11 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 258:                                              ; preds = %256, %251, %243
   %259 = phi i32 [ %257, %256 ], [ 0, %243 ], [ -19, %251 ]
   %260 = icmp eq i32 %259, 0
-  br i1 %260, label %261, label %303
+  br i1 %260, label %261, label %.thread55
+
+.thread55:                                        ; preds = %258
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #18
+  br label %305
 
 261:                                              ; preds = %258
   store i16 0, ptr %3, align 2
@@ -3144,105 +3148,104 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %302 = phi i32 [ -19, %211 ], [ -19, %.thread25 ], [ %.fr, %.loopexit34 ], [ -19, %.thread27 ], [ -19, %200 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  br label %306
+  br label %305
 
 .thread54:                                        ; preds = %277, %274, %294, %297, %301, %285, %289
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #18
-  br label %310
+  br label %309
 
-303:                                              ; preds = %264, %268, %258
-  %304 = phi i32 [ %259, %258 ], [ %262, %268 ], [ %262, %264 ]
+303:                                              ; preds = %264, %268
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #18
-  %305 = icmp slt i32 %304, 0
-  br i1 %305, label %306, label %310
+  %304 = icmp slt i32 %262, 0
+  br i1 %304, label %305, label %309
 
-306:                                              ; preds = %.thread53, %303
-  %307 = phi i32 [ %302, %.thread53 ], [ %304, %303 ]
-  %308 = call fastcc i32 @hub_port_disable(ptr noundef %25, i32 noundef %30, i32 noundef 1)
-  %309 = getelementptr inbounds i8, ptr %25, i64 96
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %309, i64 %31) #18, !srcloc !14
+305:                                              ; preds = %.thread55, %.thread53, %303
+  %306 = phi i32 [ %302, %.thread53 ], [ %262, %303 ], [ %259, %.thread55 ]
+  %307 = call fastcc i32 @hub_port_disable(ptr noundef %25, i32 noundef %30, i32 noundef 1)
+  %308 = getelementptr inbounds i8, ptr %25, i64 96
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %308, i64 %31) #18, !srcloc !14
   call fastcc void @kick_hub_wq(ptr noundef %25)
-  br label %359
+  br label %358
 
-310:                                              ; preds = %.thread54, %303
-  %311 = phi i32 [ 0, %.thread54 ], [ %304, %303 ]
-  %312 = call i32 @usb_enable_usb2_hardware_lpm(ptr noundef %0) #18
-  %313 = getelementptr inbounds i8, ptr %0, i64 80
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 96
-  %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 28
-  %318 = load i32, ptr %317, align 4
-  %319 = icmp ult i32 %318, 5
-  br i1 %319, label %359, label %320
+309:                                              ; preds = %.thread54, %303
+  %310 = phi i32 [ 0, %.thread54 ], [ %262, %303 ]
+  %311 = call i32 @usb_enable_usb2_hardware_lpm(ptr noundef %0) #18
+  %312 = getelementptr inbounds i8, ptr %0, i64 80
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 96
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 28
+  %317 = load i32, ptr %316, align 4
+  %318 = icmp ult i32 %317, 5
+  br i1 %318, label %358, label %319
 
-320:                                              ; preds = %310
-  %321 = getelementptr inbounds i8, ptr %316, i64 920
-  %322 = load ptr, ptr %321, align 8
-  %323 = icmp eq ptr %322, null
-  br i1 %323, label %359, label %324
+319:                                              ; preds = %309
+  %320 = getelementptr inbounds i8, ptr %315, i64 920
+  %321 = load ptr, ptr %320, align 8
+  %322 = icmp eq ptr %321, null
+  br i1 %322, label %358, label %323
 
-324:                                              ; preds = %320
-  %325 = getelementptr inbounds i8, ptr %322, i64 16
-  %326 = load ptr, ptr %325, align 8
-  %327 = icmp eq ptr %326, null
-  br i1 %327, label %359, label %328
+323:                                              ; preds = %319
+  %324 = getelementptr inbounds i8, ptr %321, i64 16
+  %325 = load ptr, ptr %324, align 8
+  %326 = icmp eq ptr %325, null
+  br i1 %326, label %358, label %327
 
-328:                                              ; preds = %324
-  %329 = getelementptr inbounds i8, ptr %326, i64 3
-  %330 = load i8, ptr %329, align 1
-  %331 = and i8 %330, 2
-  %332 = icmp eq i8 %331, 0
-  br i1 %332, label %359, label %333
+327:                                              ; preds = %323
+  %328 = getelementptr inbounds i8, ptr %325, i64 3
+  %329 = load i8, ptr %328, align 1
+  %330 = and i8 %329, 2
+  %331 = icmp eq i8 %330, 0
+  br i1 %331, label %358, label %332
 
-333:                                              ; preds = %328
-  %334 = getelementptr inbounds i8, ptr %0, i64 28
-  %335 = load i32, ptr %334, align 4
-  %336 = icmp ult i32 %335, 5
-  br i1 %336, label %359, label %337
+332:                                              ; preds = %327
+  %333 = getelementptr inbounds i8, ptr %0, i64 28
+  %334 = load i32, ptr %333, align 4
+  %335 = icmp ult i32 %334, 5
+  br i1 %335, label %358, label %336
 
-337:                                              ; preds = %333
-  %338 = getelementptr inbounds i8, ptr %0, i64 920
-  %339 = load ptr, ptr %338, align 8
-  %340 = icmp eq ptr %339, null
-  br i1 %340, label %359, label %341
+336:                                              ; preds = %332
+  %337 = getelementptr inbounds i8, ptr %0, i64 920
+  %338 = load ptr, ptr %337, align 8
+  %339 = icmp eq ptr %338, null
+  br i1 %339, label %358, label %340
 
-341:                                              ; preds = %337
-  %342 = getelementptr inbounds i8, ptr %339, i64 16
-  %343 = load ptr, ptr %342, align 8
-  %344 = icmp eq ptr %343, null
-  br i1 %344, label %359, label %345
+340:                                              ; preds = %336
+  %341 = getelementptr inbounds i8, ptr %338, i64 16
+  %342 = load ptr, ptr %341, align 8
+  %343 = icmp eq ptr %342, null
+  br i1 %343, label %358, label %344
 
-345:                                              ; preds = %341
-  %346 = getelementptr inbounds i8, ptr %343, i64 3
-  %347 = load i8, ptr %346, align 1
-  %348 = and i8 %347, 2
-  %349 = icmp eq i8 %348, 0
-  br i1 %349, label %359, label %350
+344:                                              ; preds = %340
+  %345 = getelementptr inbounds i8, ptr %342, i64 3
+  %346 = load i8, ptr %345, align 1
+  %347 = and i8 %346, 2
+  %348 = icmp eq i8 %347, 0
+  br i1 %348, label %358, label %349
 
-350:                                              ; preds = %345
-  %351 = getelementptr inbounds i8, ptr %0, i64 936
-  %352 = load ptr, ptr %351, align 8
-  %353 = icmp eq ptr %352, null
-  br i1 %353, label %359, label %354
+349:                                              ; preds = %344
+  %350 = getelementptr inbounds i8, ptr %0, i64 936
+  %351 = load ptr, ptr %350, align 8
+  %352 = icmp eq ptr %351, null
+  br i1 %352, label %358, label %353
 
-354:                                              ; preds = %350
-  %355 = load i32, ptr %0, align 8
-  %356 = shl i32 %355, 8
-  %357 = or i32 %356, -2147483648
-  %358 = call i32 @usb_control_msg(ptr noundef %0, i32 noundef %357, i8 noundef zeroext 3, i8 noundef zeroext 0, i16 noundef zeroext 50, i16 noundef zeroext 0, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000) #18
-  br label %359
+353:                                              ; preds = %349
+  %354 = load i32, ptr %0, align 8
+  %355 = shl i32 %354, 8
+  %356 = or i32 %355, -2147483648
+  %357 = call i32 @usb_control_msg(ptr noundef %0, i32 noundef %356, i8 noundef zeroext 3, i8 noundef zeroext 0, i16 noundef zeroext 50, i16 noundef zeroext 0, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000) #18
+  br label %358
 
-359:                                              ; preds = %354, %350, %345, %341, %337, %333, %328, %324, %320, %310, %306
-  %360 = phi i32 [ %311, %354 ], [ %311, %350 ], [ %311, %345 ], [ %311, %341 ], [ %311, %337 ], [ %311, %333 ], [ %311, %328 ], [ %311, %324 ], [ %311, %320 ], [ %311, %310 ], [ %307, %306 ]
+358:                                              ; preds = %353, %349, %344, %340, %336, %332, %327, %323, %319, %309, %305
+  %359 = phi i32 [ %310, %353 ], [ %310, %349 ], [ %310, %344 ], [ %310, %340 ], [ %310, %336 ], [ %310, %332 ], [ %310, %327 ], [ %310, %323 ], [ %310, %319 ], [ %310, %309 ], [ %306, %305 ]
   call void @mutex_unlock(ptr noundef %56) #18
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %53, %43, %359
-  %361 = phi i32 [ %360, %359 ], [ %41, %43 ], [ %41, %53 ], [ %41, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %53, %43, %358
+  %360 = phi i32 [ %359, %358 ], [ %41, %43 ], [ %41, %53 ], [ %41, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #18
-  ret i32 %361
+  ret i32 %360
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4121,7 +4124,7 @@ define dso_local void @usb_hub_cleanup() local_unnamed_addr #1 align 16 {
 declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_reset_device(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -115, 1) i32 @usb_reset_device(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -4344,7 +4347,7 @@ define dso_local i32 @usb_reset_device(ptr noundef %0) #1 align 16 {
 declare dso_local void @usb_forced_unbind_intf(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @usb_reset_and_verify_device(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @usb_reset_and_verify_device(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca %struct.usb_device_descriptor, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8

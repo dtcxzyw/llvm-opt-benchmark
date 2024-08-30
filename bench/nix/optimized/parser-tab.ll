@@ -1779,7 +1779,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_Z7yyparsePvPN3nix11ParserStateE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define noundef range(i32 0, 2) i32 @_Z7yyparsePvPN3nix11ParserStateE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.yyGLRStack, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 276
   store i32 -2, ptr %4, align 4
@@ -25511,256 +25511,236 @@ define internal fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRSt
   %7 = alloca %"struct.nix::ParserLocation", align 4
   %8 = alloca %union.YYSTYPE, align 8
   %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %10, label %117
+  br i1 %9, label %10, label %115
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %1, -1
   %14 = tail call fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %12, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %117
+  %15 = getelementptr inbounds i8, ptr %0, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %115, label %18
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %117, label %19
-
-19:                                               ; preds = %15
+18:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %21, i64 80
-  %.pr = load ptr, ptr %23, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds i8, ptr %20, i64 80
+  %.pr = load ptr, ptr %22, align 8
   %.not.i32 = icmp eq ptr %.pr, null
-  br i1 %.not.i32, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i32, label %.loopexit43, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 4
-  %25 = getelementptr i8, ptr %21, i64 8
-  br label %26
+.lr.ph:                                           ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %20, i64 4
+  %24 = getelementptr i8, ptr %20, i64 8
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit
-  %27 = phi ptr [ %.pr, %.lr.ph ], [ %90, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit ]
-  %28 = load i32, ptr %24, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %28, %30
-  br i1 %31, label %32, label %_ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit
+25:                                               ; preds = %.lr.ph, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit
+  %26 = phi ptr [ %.pr, %.lr.ph ], [ %89, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit ]
+  %27 = load i32, ptr %23, align 4
+  %28 = getelementptr inbounds i8, ptr %26, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %27, %29
+  br i1 %30, label %31, label %_ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit
 
-32:                                               ; preds = %26
-  %33 = sext i32 %28 to i64
-  %34 = getelementptr inbounds [88 x i8], ptr @_ZL4yyr2, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp sgt i8 %35, 0
-  br i1 %36, label %.lr.ph.preheader.i, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit
+31:                                               ; preds = %25
+  %32 = sext i32 %27 to i64
+  %33 = getelementptr inbounds [88 x i8], ptr @_ZL4yyr2, i64 0, i64 %32
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp sgt i8 %34, 0
+  br i1 %35, label %.lr.ph.preheader.i, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit
 
-.lr.ph.preheader.i:                               ; preds = %32
-  %37 = zext nneg i8 %35 to i32
+.lr.ph.preheader.i:                               ; preds = %31
+  %36 = zext nneg i8 %34 to i32
   br label %.lr.ph.i22
 
-38:                                               ; preds = %.lr.ph.i22
-  %39 = add nsw i32 %.020.i, -1
-  %40 = icmp sgt i32 %.020.i, 1
-  br i1 %40, label %.lr.ph.i22, label %.loopexit, !llvm.loop !195
+37:                                               ; preds = %.lr.ph.i22
+  %38 = add nsw i32 %.020.i, -1
+  %39 = icmp sgt i32 %.020.i, 1
+  br i1 %39, label %.lr.ph.i22, label %.loopexit, !llvm.loop !195
 
-.lr.ph.i22:                                       ; preds = %38, %.lr.ph.preheader.i
-  %.pn.pn.i = phi ptr [ %.01222.i, %38 ], [ %21, %.lr.ph.preheader.i ]
-  %.pn15.pn.i = phi ptr [ %.01121.i, %38 ], [ %27, %.lr.ph.preheader.i ]
-  %.020.i = phi i32 [ %39, %38 ], [ %37, %.lr.ph.preheader.i ]
+.lr.ph.i22:                                       ; preds = %37, %.lr.ph.preheader.i
+  %.pn.pn.i = phi ptr [ %.01222.i, %37 ], [ %20, %.lr.ph.preheader.i ]
+  %.pn15.pn.i = phi ptr [ %.01121.i, %37 ], [ %26, %.lr.ph.preheader.i ]
+  %.020.i = phi i32 [ %38, %37 ], [ %36, %.lr.ph.preheader.i ]
   %.01121.in.i = getelementptr inbounds i8, ptr %.pn15.pn.i, i64 8
   %.01121.i = load ptr, ptr %.01121.in.i, align 8
   %.01222.in.i = getelementptr inbounds i8, ptr %.pn.pn.i, i64 8
   %.01222.i = load ptr, ptr %.01222.in.i, align 8
-  %41 = getelementptr inbounds i8, ptr %.01222.i, i64 16
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.01121.i, i64 16
-  %44 = load i64, ptr %43, align 8
-  %.not.i23 = icmp eq i64 %42, %44
-  br i1 %.not.i23, label %38, label %_ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit
+  %40 = getelementptr inbounds i8, ptr %.01222.i, i64 16
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %.01121.i, i64 16
+  %43 = load i64, ptr %42, align 8
+  %.not.i23 = icmp eq i64 %41, %43
+  br i1 %.not.i23, label %37, label %_ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit
 
-.loopexit:                                        ; preds = %38
-  %.val73.i = load ptr, ptr %25, align 8
-  %45 = getelementptr i8, ptr %27, i64 8
-  %.val74.i = load ptr, ptr %45, align 8
-  %46 = icmp eq ptr %.val73.i, %.val74.i
-  br i1 %46, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, label %.lr.ph12.preheader.i
+.loopexit:                                        ; preds = %37
+  %.val73.i = load ptr, ptr %24, align 8
+  %44 = getelementptr i8, ptr %26, i64 8
+  %.val74.i = load ptr, ptr %44, align 8
+  %45 = icmp eq ptr %.val73.i, %.val74.i
+  br i1 %45, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, label %.lr.ph12.preheader.i
 
 .lr.ph12.preheader.i:                             ; preds = %.loopexit
-  %47 = zext nneg i8 %35 to i32
+  %46 = zext nneg i8 %34 to i32
   br label %.lr.ph12.i
 
-.lr.ph12.i:                                       ; preds = %81, %.lr.ph12.preheader.i
-  %.011.i = phi ptr [ %83, %81 ], [ %.val73.i, %.lr.ph12.preheader.i ]
-  %.03810.i = phi i32 [ %86, %81 ], [ %47, %.lr.ph12.preheader.i ]
-  %.0399.i = phi ptr [ %85, %81 ], [ %.val74.i, %.lr.ph12.preheader.i ]
-  %48 = getelementptr inbounds i8, ptr %.011.i, i64 1
-  %49 = load i8, ptr %48, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = getelementptr inbounds i8, ptr %.0399.i, i64 1
-  %52 = getelementptr inbounds i8, ptr %.0399.i, i64 24
-  br i1 %50, label %53, label %55
+.lr.ph12.i:                                       ; preds = %80, %.lr.ph12.preheader.i
+  %.011.i = phi ptr [ %82, %80 ], [ %.val73.i, %.lr.ph12.preheader.i ]
+  %.03810.i = phi i32 [ %85, %80 ], [ %46, %.lr.ph12.preheader.i ]
+  %.0399.i = phi ptr [ %84, %80 ], [ %.val74.i, %.lr.ph12.preheader.i ]
+  %47 = getelementptr inbounds i8, ptr %.011.i, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = trunc i8 %48 to i1
+  %50 = getelementptr inbounds i8, ptr %.0399.i, i64 1
+  %51 = getelementptr inbounds i8, ptr %.0399.i, i64 24
+  br i1 %49, label %52, label %54
 
-53:                                               ; preds = %.lr.ph12.i
-  store i8 1, ptr %51, align 1
-  %54 = getelementptr inbounds i8, ptr %.011.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false)
-  br label %81
+52:                                               ; preds = %.lr.ph12.i
+  store i8 1, ptr %50, align 1
+  %53 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
+  br label %80
 
-55:                                               ; preds = %.lr.ph12.i
-  %56 = load i8, ptr %51, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %60
+54:                                               ; preds = %.lr.ph12.i
+  %55 = load i8, ptr %50, align 1
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %59
 
-58:                                               ; preds = %55
-  store i8 1, ptr %48, align 1
-  %59 = getelementptr inbounds i8, ptr %.011.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
-  br label %81
+57:                                               ; preds = %54
+  store i8 1, ptr %47, align 1
+  %58 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
+  br label %80
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %.011.i, i64 24
-  %62 = load ptr, ptr %52, align 8
-  %63 = load ptr, ptr %61, align 8
-  %64 = icmp eq ptr %62, %63
-  %65 = icmp eq ptr %62, null
-  %or.cond5.i = or i1 %65, %64
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  %61 = load ptr, ptr %51, align 8
+  %62 = load ptr, ptr %60, align 8
+  %63 = icmp eq ptr %61, %62
+  %64 = icmp eq ptr %61, null
+  %or.cond5.i = or i1 %64, %63
   br i1 %or.cond5.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %60, %74
-  %66 = phi ptr [ %77, %74 ], [ %63, %60 ]
-  %.0367.i = phi ptr [ %.1.i, %74 ], [ %62, %60 ]
-  %.0376.i = phi ptr [ %76, %74 ], [ %61, %60 ]
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %69
+.lr.ph.i:                                         ; preds = %59, %73
+  %65 = phi ptr [ %76, %73 ], [ %62, %59 ]
+  %.0367.i = phi ptr [ %.1.i, %73 ], [ %61, %59 ]
+  %.0376.i = phi ptr [ %75, %73 ], [ %60, %59 ]
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %68
 
-68:                                               ; preds = %.lr.ph.i
+67:                                               ; preds = %.lr.ph.i
   store ptr %.0367.i, ptr %.0376.i, align 8
   br label %.loopexit.i
 
-69:                                               ; preds = %.lr.ph.i
-  %70 = icmp ult ptr %66, %.0367.i
-  br i1 %70, label %71, label %74
+68:                                               ; preds = %.lr.ph.i
+  %69 = icmp ult ptr %65, %.0367.i
+  br i1 %69, label %70, label %73
 
-71:                                               ; preds = %69
+70:                                               ; preds = %68
   store ptr %.0367.i, ptr %.0376.i, align 8
-  %72 = getelementptr inbounds i8, ptr %.0367.i, i64 80
-  %73 = load ptr, ptr %72, align 8
-  store ptr %66, ptr %72, align 8
+  %71 = getelementptr inbounds i8, ptr %.0367.i, i64 80
+  %72 = load ptr, ptr %71, align 8
+  store ptr %65, ptr %71, align 8
   %.pre.i = load ptr, ptr %.0376.i, align 8
-  br label %74
+  br label %73
 
-74:                                               ; preds = %71, %69
-  %75 = phi ptr [ %.pre.i, %71 ], [ %66, %69 ]
-  %.1.i = phi ptr [ %73, %71 ], [ %.0367.i, %69 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 80
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %.1.i, %77
-  %79 = icmp eq ptr %.1.i, null
-  %or.cond.i = or i1 %79, %78
+73:                                               ; preds = %70, %68
+  %74 = phi ptr [ %.pre.i, %70 ], [ %65, %68 ]
+  %.1.i = phi ptr [ %72, %70 ], [ %.0367.i, %68 ]
+  %75 = getelementptr inbounds i8, ptr %74, i64 80
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %.1.i, %76
+  %78 = icmp eq ptr %.1.i, null
+  %or.cond.i = or i1 %78, %77
   br i1 %or.cond.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !196
 
-.loopexit.i:                                      ; preds = %74, %68, %60
-  %80 = load ptr, ptr %61, align 8
-  store ptr %80, ptr %52, align 8
-  br label %81
+.loopexit.i:                                      ; preds = %73, %67, %59
+  %79 = load ptr, ptr %60, align 8
+  store ptr %79, ptr %51, align 8
+  br label %80
 
-81:                                               ; preds = %.loopexit.i, %58, %53
-  %82 = getelementptr inbounds i8, ptr %.011.i, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.0399.i, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = add nsw i32 %.03810.i, -1
-  %87 = icmp slt i32 %.03810.i, 2
-  %88 = icmp eq ptr %83, %85
-  %or.cond41.i = select i1 %87, i1 true, i1 %88
+80:                                               ; preds = %.loopexit.i, %57, %52
+  %81 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %.0399.i, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = add nsw i32 %.03810.i, -1
+  %86 = icmp slt i32 %.03810.i, 2
+  %87 = icmp eq ptr %82, %84
+  %or.cond41.i = select i1 %86, i1 true, i1 %87
   br i1 %or.cond41.i, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, label %.lr.ph12.i, !llvm.loop !197
 
-_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit: ; preds = %81, %32, %.loopexit
-  %89 = getelementptr inbounds i8, ptr %27, i64 80
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %23, align 8
-  %.not.i = icmp eq ptr %90, null
-  br i1 %.not.i, label %._crit_edge, label %26, !llvm.loop !198
+_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit: ; preds = %80, %31, %.loopexit
+  %88 = getelementptr inbounds i8, ptr %26, i64 80
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %22, align 8
+  %.not.i = icmp eq ptr %89, null
+  br i1 %.not.i, label %.loopexit43, label %25, !llvm.loop !198
 
-_ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit: ; preds = %26, %.lr.ph.i22
+_ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit: ; preds = %25, %.lr.ph.i22
   tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %0, i32 noundef 1)
-  tail call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %22, ptr readnone poison, ptr noundef %4, ptr noundef nonnull @.str.126)
+  tail call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %21, ptr readnone poison, ptr noundef %4, ptr noundef nonnull @.str.126)
   unreachable
 
-._crit_edge:                                      ; preds = %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, %19
+.loopexit43:                                      ; preds = %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, %18
   call void @llvm.lifetime.start.p0(i64 704, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %91 = getelementptr inbounds i8, ptr %21, i64 4
-  %92 = load i32, ptr %91, align 4
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [88 x i8], ptr @_ZL4yyr2, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = sext i8 %95 to i32
-  %97 = getelementptr inbounds i8, ptr %21, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = tail call fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %98, i32 noundef %96, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not.i19 = icmp eq i32 %99, 0
-  br i1 %.not.i19, label %100, label %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit
+  %90 = getelementptr inbounds i8, ptr %20, i64 4
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds [88 x i8], ptr @_ZL4yyr2, i64 0, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = sext i8 %94 to i32
+  %96 = getelementptr inbounds i8, ptr %20, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %97, i32 noundef %95, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %99 = load ptr, ptr %96, align 8
+  %100 = getelementptr inbounds i8, ptr %6, i64 624
+  store ptr %99, ptr %100, align 16
+  %101 = icmp eq i8 %94, 0
+  br i1 %101, label %102, label %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread
 
-100:                                              ; preds = %._crit_edge
-  %101 = load ptr, ptr %97, align 8
-  %102 = getelementptr inbounds i8, ptr %6, i64 624
-  store ptr %101, ptr %102, align 16
-  %103 = icmp eq i8 %95, 0
-  br i1 %103, label %104, label %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread
-
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %101, i64 48
-  %106 = getelementptr inbounds i8, ptr %6, i64 576
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false)
+102:                                              ; preds = %.loopexit43
+  %103 = getelementptr inbounds i8, ptr %99, i64 48
+  %104 = getelementptr inbounds i8, ptr %6, i64 576
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %103, i64 32, i1 false)
   br label %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread
 
-_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread: ; preds = %100, %104
-  %107 = getelementptr inbounds i8, ptr %2, i64 276
-  %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %2, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
-  %110 = getelementptr inbounds i8, ptr %2, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %110, i64 32, i1 false)
-  %111 = getelementptr inbounds i8, ptr %21, i64 16
-  %112 = load i32, ptr %111, align 8
-  store i32 %112, ptr %107, align 4
-  %113 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %21, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %114, i64 32, i1 false)
-  %115 = load i32, ptr %91, align 4
-  %116 = getelementptr inbounds i8, ptr %6, i64 528
-  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %115, i32 noundef %96, ptr noundef nonnull %116, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %22, ptr noundef %4)
-  store i32 %108, ptr %107, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false)
+_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread: ; preds = %.loopexit43, %102
+  %105 = getelementptr inbounds i8, ptr %2, i64 276
+  %106 = load i32, ptr %105, align 4
+  %107 = getelementptr inbounds i8, ptr %2, i64 280
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
+  %108 = getelementptr inbounds i8, ptr %2, i64 304
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %108, i64 32, i1 false)
+  %109 = getelementptr inbounds i8, ptr %20, i64 16
+  %110 = load i32, ptr %109, align 8
+  store i32 %110, ptr %105, align 4
+  %111 = getelementptr inbounds i8, ptr %20, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %111, i64 24, i1 false)
+  %112 = getelementptr inbounds i8, ptr %20, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 32, i1 false)
+  %113 = load i32, ptr %90, align 4
+  %114 = getelementptr inbounds i8, ptr %6, i64 528
+  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %113, i32 noundef %95, ptr noundef nonnull %114, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %21, ptr noundef %4)
+  store i32 %106, ptr %105, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  store i8 1, ptr %16, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  br label %.sink.split
-
-_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit: ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  store ptr null, ptr %20, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread
-  %.0.ph = phi i32 [ 0, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread ], [ %99, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit ]
+  store i8 1, ptr %15, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %117
+  br label %115
 
-117:                                              ; preds = %.sink.split, %5, %15, %10
-  %.0 = phi i32 [ %14, %10 ], [ 0, %15 ], [ 0, %5 ], [ %.0.ph, %.sink.split ]
-  ret i32 %.0
+115:                                              ; preds = %5, %10, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

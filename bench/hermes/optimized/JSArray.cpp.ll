@@ -150,7 +150,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_ZN6hermes2vm9ArrayImpl31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #2 align 2 {
+define hidden range(i32 0, 131072) i32 @_ZN6hermes2vm9ArrayImpl31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #2 align 2 {
 entry:
   %beginIndex_ = getelementptr inbounds i8, ptr %selfObj, i64 20
   %0 = load i32, ptr %beginIndex_, align 4
@@ -618,7 +618,7 @@ declare void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE20resizeWit
 declare noundef i32 @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE6resizeERNS0_13MutableHandleIS3_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index, ptr %value.coerce) #0 align 2 {
+define hidden range(i32 0, 258) i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index, ptr %value.coerce) #0 align 2 {
 entry:
   %indexedStorageHandle = alloca %"class.hermes::vm::MutableHandle", align 8
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
@@ -2435,7 +2435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZN6hermes2vm7JSArray9setLengthENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %newLength.coerce, i32 %opFlags.coerce) local_unnamed_addr #0 align 2 {
+define hidden range(i32 0, 258) i32 @_ZN6hermes2vm7JSArray9setLengthENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %newLength.coerce, i32 %opFlags.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp35 = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = load i64, ptr %newLength.coerce, align 8
@@ -2495,21 +2495,17 @@ if.then34:                                        ; preds = %if.end32
 
 if.end37:                                         ; preds = %if.end32
   %call43 = tail call i32 @_ZN6hermes2vm7JSArray9setLengthENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %ulen.0, i32 %opFlags.coerce)
-  %retval.sroa.8.0.extract.shift = and i32 %call43, -65536
-  %10 = and i32 %call43, 65535
   br label %return
 
 return:                                           ; preds = %if.then19, %if.else, %if.end37, %if.then34
-  %retval.sroa.0.0 = phi i32 [ %bf.value.i, %if.then34 ], [ %10, %if.end37 ], [ 0, %if.else ], [ 0, %if.then19 ]
-  %retval.sroa.8.0 = phi i32 [ 0, %if.then34 ], [ %retval.sroa.8.0.extract.shift, %if.end37 ], [ 0, %if.else ], [ 0, %if.then19 ]
-  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.8.0, %retval.sroa.0.0
-  ret i32 %retval.sroa.0.0.insert.insert
+  %retval.sroa.0.0 = phi i32 [ %bf.value.i, %if.then34 ], [ %call43, %if.end37 ], [ 0, %if.else ], [ 0, %if.then19 ]
+  ret i32 %retval.sroa.0.0
 }
 
 declare { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7JSArray9setLengthENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %newLength, i32 %opFlags.coerce) local_unnamed_addr #0 align 2 {
+define hidden range(i32 0, 258) i32 @_ZN6hermes2vm7JSArray9setLengthENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %newLength, i32 %opFlags.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %toBeDeleted = alloca %"class.llvh::SmallVector.193", align 8
   %scope = alloca %"class.hermes::vm::GCScope", align 8

@@ -515,17 +515,15 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %call2 = call noundef signext i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEPKDsi9UProperty(ptr noundef nonnull align 8 dereferenceable(64) %call, ptr noundef %s, i32 noundef %length, i32 noundef %which)
-  %tobool3 = icmp ne i8 %call2, 0
-  %1 = zext i1 %tobool3 to i8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %conv = phi i8 [ 0, %entry ], [ %1, %land.rhs ]
+  %conv = phi i8 [ 0, %entry ], [ %call2, %land.rhs ]
   ret i8 %conv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEPKDsi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEPKDsi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %trie = alloca %"class.icu_75::UCharsTrie", align 8
   %agg.tmp20 = alloca %"class.icu_75::ConstChar16Ptr", align 8

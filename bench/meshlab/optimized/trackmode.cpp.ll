@@ -408,22 +408,21 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i:      ; preds = %56, %_ZN3vcg10track
   %68 = getelementptr inbounds i8, ptr %13, i64 20
   store float %.sroa.15.0.i, ptr %68, align 4
   %69 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %13, ptr noundef nonnull readonly align 4 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11)
-  %70 = and i64 %69, 4294967296
-  %.not.i = icmp eq i64 %70, 0
-  br i1 %.not.i, label %71, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
+  %.not.i = icmp ult i64 %69, 4294967296
+  br i1 %.not.i, label %70, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
 
-71:                                               ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i
-  %72 = load float, ptr %12, align 4
-  %73 = fcmp oeq float %72, %.sroa.019.0.vec.extract.i
-  %74 = load float, ptr %62, align 4
-  %75 = fcmp oeq float %74, %.sroa.019.4.vec.extract.i
-  %or.cond.i = select i1 %73, i1 %75, i1 false
-  %76 = load float, ptr %63, align 4
-  %77 = fcmp oeq float %76, %.fca.1.extract10.sink.i.i
-  %or.cond37.i = select i1 %or.cond.i, i1 %77, i1 false
+70:                                               ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i
+  %71 = load float, ptr %12, align 4
+  %72 = fcmp oeq float %71, %.sroa.019.0.vec.extract.i
+  %73 = load float, ptr %62, align 4
+  %74 = fcmp oeq float %73, %.sroa.019.4.vec.extract.i
+  %or.cond.i = select i1 %72, i1 %74, i1 false
+  %75 = load float, ptr %63, align 4
+  %76 = fcmp oeq float %75, %.fca.1.extract10.sink.i.i
+  %or.cond37.i = select i1 %or.cond.i, i1 %76, i1 false
   br i1 %or.cond37.i, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit, label %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i
 
-_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i:         ; preds = %71
+_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i:         ; preds = %70
   %.sroa.0.0.copyload.i5.i = load <2 x float>, ptr %11, align 8
   %.sroa.2.0.copyload.i7.i = load i32, ptr %61, align 8
   %.sroa.2.0.insert.ext.i8.i = zext i32 %.sroa.2.0.copyload.i7.i to i64
@@ -432,188 +431,187 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i:         ; preds = %71
   %.fca.1.insert.i13.i = insertvalue { <2 x float>, i64 } %.fca.0.insert.i12.i, i64 %.sroa.2.12.insert.insert.i11.i, 1
   br label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
 
-_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit: ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i, %71, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i
-  %.pn.i = phi { <2 x float>, i64 } [ %.fca.1.insert.i13.i, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i ], [ zeroinitializer, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i ], [ zeroinitializer, %71 ]
+_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit: ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i, %70, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i
+  %.pn.i = phi { <2 x float>, i64 } [ %.fca.1.insert.i13.i, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i ], [ zeroinitializer, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i ], [ zeroinitializer, %70 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %78 = extractvalue { <2 x float>, i64 } %.pn.i, 0
-  %79 = extractvalue { <2 x float>, i64 } %.pn.i, 1
-  %.sroa.378.8.extract.trunc = trunc i64 %79 to i32
-  %80 = bitcast i32 %.sroa.378.8.extract.trunc to float
-  %81 = load float, ptr %15, align 8
-  %82 = load float, ptr %17, align 4
-  %83 = load float, ptr %19, align 8
-  %84 = load float, ptr %21, align 4
-  %85 = load float, ptr %23, align 8
-  %86 = load float, ptr %25, align 4
+  %77 = extractvalue { <2 x float>, i64 } %.pn.i, 0
+  %78 = extractvalue { <2 x float>, i64 } %.pn.i, 1
+  %.sroa.378.8.extract.trunc = trunc i64 %78 to i32
+  %79 = bitcast i32 %.sroa.378.8.extract.trunc to float
+  %80 = load float, ptr %15, align 8
+  %81 = load float, ptr %17, align 4
+  %82 = load float, ptr %19, align 8
+  %83 = load float, ptr %21, align 4
+  %84 = load float, ptr %23, align 8
+  %85 = load float, ptr %25, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store float %81, ptr %9, align 8
+  store float %80, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 4
-  store float %82, ptr %.sroa.2.0..sroa_idx, align 4
+  store float %81, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  store float %83, ptr %.sroa.3.0..sroa_idx, align 8
+  store float %82, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 12
-  store float %84, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %83, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
-  store float %85, ptr %.sroa.5.0..sroa_idx, align 8
+  store float %84, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 20
-  store float %86, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %85, ptr %.sroa.6.0..sroa_idx, align 4
   store <2 x float> %2, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %5, i64 8
   store float %3, ptr %.sroa.2.0..sroa_idx.i21, align 8
-  %87 = call { <2 x float>, float } @_ZNK3vcg4ViewIfE9ViewPointEv(ptr noundef nonnull align 4 dereferenceable(273) %28), !noalias !8
-  %.fca.0.extract9.i.i22 = extractvalue { <2 x float>, float } %87, 0
-  %.fca.1.extract10.i.i23 = extractvalue { <2 x float>, float } %87, 1
-  %88 = call { <2 x float>, float } @_ZNK3vcg4ViewIfE9UnProjectERKNS_6Point3IfEE(ptr noundef nonnull align 4 dereferenceable(273) %28, ptr noundef nonnull align 4 dereferenceable(12) %5), !noalias !8
-  %.fca.0.extract5.i.i24 = extractvalue { <2 x float>, float } %88, 0
-  %.fca.1.extract6.i.i25 = extractvalue { <2 x float>, float } %88, 1
-  %89 = load i8, ptr %31, align 4, !noalias !8
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %91, label %95
+  %86 = call { <2 x float>, float } @_ZNK3vcg4ViewIfE9ViewPointEv(ptr noundef nonnull align 4 dereferenceable(273) %28), !noalias !8
+  %.fca.0.extract9.i.i22 = extractvalue { <2 x float>, float } %86, 0
+  %.fca.1.extract10.i.i23 = extractvalue { <2 x float>, float } %86, 1
+  %87 = call { <2 x float>, float } @_ZNK3vcg4ViewIfE9UnProjectERKNS_6Point3IfEE(ptr noundef nonnull align 4 dereferenceable(273) %28, ptr noundef nonnull align 4 dereferenceable(12) %5), !noalias !8
+  %.fca.0.extract5.i.i24 = extractvalue { <2 x float>, float } %87, 0
+  %.fca.1.extract6.i.i25 = extractvalue { <2 x float>, float } %87, 1
+  %88 = load i8, ptr %31, align 4, !noalias !8
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %94
 
-91:                                               ; preds = %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
+90:                                               ; preds = %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
   %.sroa.022.0.vec.extract.i.i64 = extractelement <2 x float> %.fca.0.extract9.i.i22, i64 0
-  %92 = fneg float %.sroa.022.0.vec.extract.i.i64
+  %91 = fneg float %.sroa.022.0.vec.extract.i.i64
   %.sroa.022.4.vec.extract.i.i65 = extractelement <2 x float> %.fca.0.extract9.i.i22, i64 1
-  %93 = fneg float %.sroa.022.4.vec.extract.i.i65
-  %94 = fneg float %.fca.1.extract10.i.i23
+  %92 = fneg float %.sroa.022.4.vec.extract.i.i65
+  %93 = fneg float %.fca.1.extract10.i.i23
   br label %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30
 
-95:                                               ; preds = %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
-  %96 = fsub <2 x float> %.fca.0.extract5.i.i24, %.fca.0.extract9.i.i22
-  %97 = extractelement <2 x float> %96, i64 0
-  %98 = fsub <2 x float> %.fca.0.extract5.i.i24, %.fca.0.extract9.i.i22
-  %99 = extractelement <2 x float> %98, i64 1
-  %100 = fsub float %.fca.1.extract6.i.i25, %.fca.1.extract10.i.i23
+94:                                               ; preds = %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
+  %95 = fsub <2 x float> %.fca.0.extract5.i.i24, %.fca.0.extract9.i.i22
+  %96 = extractelement <2 x float> %95, i64 0
+  %97 = fsub <2 x float> %.fca.0.extract5.i.i24, %.fca.0.extract9.i.i22
+  %98 = extractelement <2 x float> %97, i64 1
+  %99 = fsub float %.fca.1.extract6.i.i25, %.fca.1.extract10.i.i23
   br label %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30
 
-_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30: ; preds = %95, %91
-  %.sink29.i.i31 = phi float [ %97, %95 ], [ %92, %91 ]
-  %.sink28.i.i32 = phi float [ %99, %95 ], [ %93, %91 ]
-  %.fca.0.extract9.sink.i.i33 = phi <2 x float> [ %.fca.0.extract9.i.i22, %95 ], [ %.fca.0.extract5.i.i24, %91 ]
-  %.fca.1.extract10.sink.i.i34 = phi float [ %.fca.1.extract10.i.i23, %95 ], [ %.fca.1.extract6.i.i25, %91 ]
-  %.sink.i.i35 = phi float [ %100, %95 ], [ %94, %91 ]
+_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30: ; preds = %94, %90
+  %.sink29.i.i31 = phi float [ %96, %94 ], [ %91, %90 ]
+  %.sink28.i.i32 = phi float [ %98, %94 ], [ %92, %90 ]
+  %.fca.0.extract9.sink.i.i33 = phi <2 x float> [ %.fca.0.extract9.i.i22, %94 ], [ %.fca.0.extract5.i.i24, %90 ]
+  %.fca.1.extract10.sink.i.i34 = phi float [ %.fca.1.extract10.i.i23, %94 ], [ %.fca.1.extract6.i.i25, %90 ]
+  %.sink.i.i35 = phi float [ %99, %94 ], [ %93, %90 ]
   %.sroa.0.0.vec.insert.i14.i.i36 = insertelement <2 x float> poison, float %.sink29.i.i31, i64 0
   %.sroa.0.4.vec.insert.i15.i.i37 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14.i.i36, float %.sink28.i.i32, i64 1
-  %101 = fmul float %.sink28.i.i32, %.sink28.i.i32
-  %102 = call float @llvm.fmuladd.f32(float %.sink29.i.i31, float %.sink29.i.i31, float %101)
-  %103 = call float @llvm.fmuladd.f32(float %.sink.i.i35, float %.sink.i.i35, float %102)
-  %104 = fcmp ogt float %103, 0.000000e+00
-  br i1 %104, label %105, label %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38
+  %100 = fmul float %.sink28.i.i32, %.sink28.i.i32
+  %101 = call float @llvm.fmuladd.f32(float %.sink29.i.i31, float %.sink29.i.i31, float %100)
+  %102 = call float @llvm.fmuladd.f32(float %.sink.i.i35, float %.sink.i.i35, float %101)
+  %103 = fcmp ogt float %102, 0.000000e+00
+  br i1 %103, label %104, label %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38
 
-105:                                              ; preds = %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30
-  %sqrt.i.i.i.i61 = call float @llvm.sqrt.f32(float %103)
-  %106 = fdiv float %.sink29.i.i31, %sqrt.i.i.i.i61
-  %.sroa.521.12.vec.insert.i62 = insertelement <2 x float> poison, float %106, i64 0
-  %107 = fdiv float %.sink28.i.i32, %sqrt.i.i.i.i61
-  %.sroa.521.16.vec.insert.i63 = insertelement <2 x float> %.sroa.521.12.vec.insert.i62, float %107, i64 1
-  %108 = fdiv float %.sink.i.i35, %sqrt.i.i.i.i61
+104:                                              ; preds = %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30
+  %sqrt.i.i.i.i61 = call float @llvm.sqrt.f32(float %102)
+  %105 = fdiv float %.sink29.i.i31, %sqrt.i.i.i.i61
+  %.sroa.521.12.vec.insert.i62 = insertelement <2 x float> poison, float %105, i64 0
+  %106 = fdiv float %.sink28.i.i32, %sqrt.i.i.i.i61
+  %.sroa.521.16.vec.insert.i63 = insertelement <2 x float> %.sroa.521.12.vec.insert.i62, float %106, i64 1
+  %107 = fdiv float %.sink.i.i35, %sqrt.i.i.i.i61
   br label %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38
 
-_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38: ; preds = %105, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30
-  %.sroa.521.0.i39 = phi <2 x float> [ %.sroa.521.16.vec.insert.i63, %105 ], [ %.sroa.0.4.vec.insert.i15.i.i37, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30 ]
-  %.sroa.12.0.i40 = phi float [ %108, %105 ], [ %.sink.i.i35, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30 ]
+_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38: ; preds = %104, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30
+  %.sroa.521.0.i39 = phi <2 x float> [ %.sroa.521.16.vec.insert.i63, %104 ], [ %.sroa.0.4.vec.insert.i15.i.i37, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30 ]
+  %.sroa.12.0.i40 = phi float [ %107, %104 ], [ %.sink.i.i35, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30 ]
   %.sroa.019.0.vec.extract.i41 = extractelement <2 x float> %.fca.0.extract9.sink.i.i33, i64 0
   %.sroa.019.4.vec.extract.i42 = extractelement <2 x float> %.fca.0.extract9.sink.i.i33, i64 1
   %.sroa.521.12.vec.extract24.i43 = extractelement <2 x float> %.sroa.521.0.i39, i64 0
   %.sroa.521.16.vec.extract27.i44 = extractelement <2 x float> %.sroa.521.0.i39, i64 1
-  %109 = fmul float %.sroa.521.16.vec.extract27.i44, %.sroa.521.16.vec.extract27.i44
-  %110 = call float @llvm.fmuladd.f32(float %.sroa.521.12.vec.extract24.i43, float %.sroa.521.12.vec.extract24.i43, float %109)
-  %111 = call float @llvm.fmuladd.f32(float %.sroa.12.0.i40, float %.sroa.12.0.i40, float %110)
-  %112 = fcmp ogt float %111, 0.000000e+00
-  br i1 %112, label %113, label %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45
+  %108 = fmul float %.sroa.521.16.vec.extract27.i44, %.sroa.521.16.vec.extract27.i44
+  %109 = call float @llvm.fmuladd.f32(float %.sroa.521.12.vec.extract24.i43, float %.sroa.521.12.vec.extract24.i43, float %108)
+  %110 = call float @llvm.fmuladd.f32(float %.sroa.12.0.i40, float %.sroa.12.0.i40, float %109)
+  %111 = fcmp ogt float %110, 0.000000e+00
+  br i1 %111, label %112, label %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45
 
-113:                                              ; preds = %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38
-  %sqrt.i.i.i4.i60 = call float @llvm.sqrt.f32(float %111)
-  %114 = fdiv float %.sroa.521.12.vec.extract24.i43, %sqrt.i.i.i4.i60
-  %115 = fdiv float %.sroa.521.16.vec.extract27.i44, %sqrt.i.i.i4.i60
-  %116 = fdiv float %.sroa.12.0.i40, %sqrt.i.i.i4.i60
+112:                                              ; preds = %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38
+  %sqrt.i.i.i4.i60 = call float @llvm.sqrt.f32(float %110)
+  %113 = fdiv float %.sroa.521.12.vec.extract24.i43, %sqrt.i.i.i4.i60
+  %114 = fdiv float %.sroa.521.16.vec.extract27.i44, %sqrt.i.i.i4.i60
+  %115 = fdiv float %.sroa.12.0.i40, %sqrt.i.i.i4.i60
   br label %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45
 
-_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45:    ; preds = %113, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38
-  %.sroa.9.0.i46 = phi float [ %114, %113 ], [ %.sroa.521.12.vec.extract24.i43, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38 ]
-  %.sroa.1234.0.i47 = phi float [ %115, %113 ], [ %.sroa.521.16.vec.extract27.i44, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38 ]
-  %.sroa.15.0.i48 = phi float [ %116, %113 ], [ %.sroa.12.0.i40, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38 ]
+_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45:    ; preds = %112, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38
+  %.sroa.9.0.i46 = phi float [ %113, %112 ], [ %.sroa.521.12.vec.extract24.i43, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38 ]
+  %.sroa.1234.0.i47 = phi float [ %114, %112 ], [ %.sroa.521.16.vec.extract27.i44, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38 ]
+  %.sroa.15.0.i48 = phi float [ %115, %112 ], [ %.sroa.12.0.i40, %_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE.exit.i38 ]
   store float 0.000000e+00, ptr %6, align 8
-  %117 = getelementptr inbounds i8, ptr %6, i64 4
-  store float 0.000000e+00, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %6, i64 8
-  store float 0.000000e+00, ptr %118, align 8
+  %116 = getelementptr inbounds i8, ptr %6, i64 4
+  store float 0.000000e+00, ptr %116, align 4
+  %117 = getelementptr inbounds i8, ptr %6, i64 8
+  store float 0.000000e+00, ptr %117, align 8
   store float 0.000000e+00, ptr %7, align 4
-  %119 = getelementptr inbounds i8, ptr %7, i64 4
+  %118 = getelementptr inbounds i8, ptr %7, i64 4
+  store float 0.000000e+00, ptr %118, align 4
+  %119 = getelementptr inbounds i8, ptr %7, i64 8
   store float 0.000000e+00, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %7, i64 8
-  store float 0.000000e+00, ptr %120, align 4
   store float %.sroa.019.0.vec.extract.i41, ptr %8, align 4
-  %121 = getelementptr inbounds i8, ptr %8, i64 4
-  store float %.sroa.019.4.vec.extract.i42, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %8, i64 8
-  store float %.fca.1.extract10.sink.i.i34, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %8, i64 12
-  store float %.sroa.9.0.i46, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %8, i64 16
-  store float %.sroa.1234.0.i47, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %8, i64 20
-  store float %.sroa.15.0.i48, ptr %125, align 4
-  %126 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull readonly align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  %127 = and i64 %126, 4294967296
-  %.not.i49 = icmp eq i64 %127, 0
-  br i1 %.not.i49, label %128, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
+  %120 = getelementptr inbounds i8, ptr %8, i64 4
+  store float %.sroa.019.4.vec.extract.i42, ptr %120, align 4
+  %121 = getelementptr inbounds i8, ptr %8, i64 8
+  store float %.fca.1.extract10.sink.i.i34, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %8, i64 12
+  store float %.sroa.9.0.i46, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %8, i64 16
+  store float %.sroa.1234.0.i47, ptr %123, align 4
+  %124 = getelementptr inbounds i8, ptr %8, i64 20
+  store float %.sroa.15.0.i48, ptr %124, align 4
+  %125 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull readonly align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  %.not.i49 = icmp ult i64 %125, 4294967296
+  br i1 %.not.i49, label %126, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
 
-128:                                              ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45
-  %129 = load float, ptr %7, align 4
-  %130 = fcmp oeq float %129, %.sroa.019.0.vec.extract.i41
+126:                                              ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45
+  %127 = load float, ptr %7, align 4
+  %128 = fcmp oeq float %127, %.sroa.019.0.vec.extract.i41
+  %129 = load float, ptr %118, align 4
+  %130 = fcmp oeq float %129, %.sroa.019.4.vec.extract.i42
+  %or.cond.i51 = select i1 %128, i1 %130, i1 false
   %131 = load float, ptr %119, align 4
-  %132 = fcmp oeq float %131, %.sroa.019.4.vec.extract.i42
-  %or.cond.i51 = select i1 %130, i1 %132, i1 false
-  %133 = load float, ptr %120, align 4
-  %134 = fcmp oeq float %133, %.fca.1.extract10.sink.i.i34
-  %or.cond37.i52 = select i1 %or.cond.i51, i1 %134, i1 false
+  %132 = fcmp oeq float %131, %.fca.1.extract10.sink.i.i34
+  %or.cond37.i52 = select i1 %or.cond.i51, i1 %132, i1 false
   br i1 %or.cond37.i52, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66, label %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i53
 
-_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i53:       ; preds = %128
+_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i53:       ; preds = %126
   %.sroa.0.0.copyload.i5.i54 = load <2 x float>, ptr %6, align 8
-  %.sroa.2.0.copyload.i7.i55 = load i32, ptr %118, align 8
+  %.sroa.2.0.copyload.i7.i55 = load i32, ptr %117, align 8
   %.sroa.2.0.insert.ext.i8.i56 = zext i32 %.sroa.2.0.copyload.i7.i55 to i64
   %.sroa.2.12.insert.insert.i11.i57 = or disjoint i64 %.sroa.2.0.insert.ext.i8.i56, 4294967296
   %.fca.0.insert.i12.i58 = insertvalue { <2 x float>, i64 } poison, <2 x float> %.sroa.0.0.copyload.i5.i54, 0
   %.fca.1.insert.i13.i59 = insertvalue { <2 x float>, i64 } %.fca.0.insert.i12.i58, i64 %.sroa.2.12.insert.insert.i11.i57, 1
   br label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
 
-_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66: ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45, %128, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i53
-  %.pn.i50 = phi { <2 x float>, i64 } [ %.fca.1.insert.i13.i59, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i53 ], [ zeroinitializer, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45 ], [ zeroinitializer, %128 ]
+_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66: ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45, %126, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i53
+  %.pn.i50 = phi { <2 x float>, i64 } [ %.fca.1.insert.i13.i59, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread.i53 ], [ zeroinitializer, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45 ], [ zeroinitializer, %126 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %135 = extractvalue { <2 x float>, i64 } %.pn.i50, 1
-  %136 = and i64 %79, 4294967296
-  %.not = icmp eq i64 %136, 0
-  %137 = and i64 %135, 4294967296
-  %.not81 = icmp eq i64 %137, 0
+  %133 = extractvalue { <2 x float>, i64 } %.pn.i50, 1
+  %134 = and i64 %78, 4294967296
+  %.not = icmp eq i64 %134, 0
+  %135 = and i64 %133, 4294967296
+  %.not81 = icmp eq i64 %135, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not81
-  br i1 %or.cond, label %144, label %138
+  br i1 %or.cond, label %142, label %136
 
-138:                                              ; preds = %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
-  %.sroa.368.8.extract.trunc = trunc i64 %135 to i32
-  %139 = bitcast i32 %.sroa.368.8.extract.trunc to float
-  %140 = extractvalue { <2 x float>, i64 } %.pn.i50, 0
-  %141 = fsub <2 x float> %140, %78
-  %142 = fsub <2 x float> %140, %78
-  %143 = fsub float %139, %80
-  %.sroa.0.4.vec.insert.i = shufflevector <2 x float> %141, <2 x float> %142, <2 x i32> <i32 0, i32 3>
-  call void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(597) %1, <2 x float> %.sroa.0.4.vec.insert.i, float %143)
-  br label %144
+136:                                              ; preds = %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
+  %.sroa.368.8.extract.trunc = trunc i64 %133 to i32
+  %137 = bitcast i32 %.sroa.368.8.extract.trunc to float
+  %138 = extractvalue { <2 x float>, i64 } %.pn.i50, 0
+  %139 = fsub <2 x float> %138, %77
+  %140 = fsub <2 x float> %138, %77
+  %141 = fsub float %137, %79
+  %.sroa.0.4.vec.insert.i = shufflevector <2 x float> %139, <2 x float> %140, <2 x i32> <i32 0, i32 3>
+  call void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(597) %1, <2 x float> %.sroa.0.4.vec.insert.i, float %141)
+  br label %142
 
-144:                                              ; preds = %138, %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
+142:                                              ; preds = %136, %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
   ret void
 }
 
@@ -5156,7 +5154,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #16
 declare float @acosf(float noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN3vcg10trackutils16LineLineDistanceERKNS_5Line3IfLb0EEES4_RNS_6Point3IfEES7_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1, ptr nocapture noundef nonnull align 4 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %3) local_unnamed_addr #18 {
+define range(i64 0, 8589934592) i64 @_ZN3vcg10trackutils16LineLineDistanceERKNS_5Line3IfLb0EEES4_RNS_6Point3IfEES7_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1, ptr nocapture noundef nonnull align 4 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %3) local_unnamed_addr #18 {
   %.sroa.0123.0.copyload = load float, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -5280,7 +5278,7 @@ define i64 @_ZN3vcg10trackutils16LineLineDistanceERKNS_5Line3IfLb0EEES4_RNS_6Poi
 declare float @llvm.fabs.f32(float) #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1, ptr nocapture noundef nonnull align 4 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %3) local_unnamed_addr #18 {
+define range(i64 0, 8589934592) i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1, ptr nocapture noundef nonnull align 4 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %3) local_unnamed_addr #18 {
   %.sroa.0133.0.copyload = load float, ptr %0, align 4
   %.sroa.6138.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.6138.0.copyload = load float, ptr %.sroa.6138.0..sroa_idx, align 4
@@ -5555,32 +5553,31 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit:        ; preds = %_ZN3vcg10trackutils
   %49 = getelementptr inbounds i8, ptr %8, i64 20
   store float %.sroa.15.0, ptr %49, align 4
   %50 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  %51 = and i64 %50, 4294967296
-  %.not = icmp eq i64 %51, 0
-  br i1 %.not, label %52, label %59
+  %.not = icmp ult i64 %50, 4294967296
+  br i1 %.not, label %51, label %58
 
-52:                                               ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit
-  %53 = load float, ptr %7, align 4
-  %54 = fcmp oeq float %53, %.sroa.019.0.vec.extract
-  %55 = load float, ptr %43, align 4
-  %56 = fcmp oeq float %55, %.sroa.019.4.vec.extract
-  %or.cond = select i1 %54, i1 %56, i1 false
-  %57 = load float, ptr %44, align 4
-  %58 = fcmp oeq float %57, %.fca.1.extract10.sink.i
-  %or.cond37 = select i1 %or.cond, i1 %58, i1 false
-  br i1 %or.cond37, label %59, label %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread
+51:                                               ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit
+  %52 = load float, ptr %7, align 4
+  %53 = fcmp oeq float %52, %.sroa.019.0.vec.extract
+  %54 = load float, ptr %43, align 4
+  %55 = fcmp oeq float %54, %.sroa.019.4.vec.extract
+  %or.cond = select i1 %53, i1 %55, i1 false
+  %56 = load float, ptr %44, align 4
+  %57 = fcmp oeq float %56, %.fca.1.extract10.sink.i
+  %or.cond37 = select i1 %or.cond, i1 %57, i1 false
+  br i1 %or.cond37, label %58, label %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread
 
-_ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %52
+_ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %51
   %.sroa.0.0.copyload.i5 = load <2 x float>, ptr %6, align 8
   %.sroa.2.0.copyload.i7 = load i32, ptr %42, align 8
   %.sroa.2.0.insert.ext.i8 = zext i32 %.sroa.2.0.copyload.i7 to i64
   %.sroa.2.12.insert.insert.i11 = or disjoint i64 %.sroa.2.0.insert.ext.i8, 4294967296
   %.fca.0.insert.i12 = insertvalue { <2 x float>, i64 } poison, <2 x float> %.sroa.0.0.copyload.i5, 0
   %.fca.1.insert.i13 = insertvalue { <2 x float>, i64 } %.fca.0.insert.i12, i64 %.sroa.2.12.insert.insert.i11, 1
-  br label %59
+  br label %58
 
-59:                                               ; preds = %52, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread
-  %.pn = phi { <2 x float>, i64 } [ %.fca.1.insert.i13, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread ], [ zeroinitializer, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit ], [ zeroinitializer, %52 ]
+58:                                               ; preds = %51, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread
+  %.pn = phi { <2 x float>, i64 } [ %.fca.1.insert.i13, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread ], [ zeroinitializer, %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit ], [ zeroinitializer, %51 ]
   ret { <2 x float>, i64 } %.pn
 }
 

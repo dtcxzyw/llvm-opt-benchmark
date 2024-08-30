@@ -181,7 +181,7 @@ define range(i32 0, 2) i32 @stmm_lookup(ptr nocapture noundef readonly %0, ptr n
 17:                                               ; preds = %15
   %18 = ptrtoint ptr %1 to i64
   %19 = trunc i64 %18 to i32
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = srem i32 %20, %22
@@ -273,10 +273,10 @@ define noundef i32 @stmm_ptrhash(ptr noundef %0, i32 noundef %1) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stmm_numhash(ptr noundef %0, i32 noundef %1) #4 {
+define range(i32 0, -2147483648) i32 @stmm_numhash(ptr noundef %0, i32 noundef %1) #4 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
+  %5 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %4, i1 true)
   %6 = srem i32 %5, %1
   ret i32 %6
 }
@@ -319,7 +319,7 @@ define range(i32 0, 2) i32 @stmm_lookup_int(ptr nocapture noundef readonly %0, p
 17:                                               ; preds = %15
   %18 = ptrtoint ptr %1 to i64
   %19 = trunc i64 %18 to i32
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = srem i32 %20, %22
@@ -426,7 +426,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr nocapture noundef %0, ptr nound
 17:                                               ; preds = %15
   %18 = ptrtoint ptr %1 to i64
   %19 = trunc i64 %18 to i32
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = srem i32 %20, %22
@@ -529,7 +529,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr nocapture noundef %0, ptr nound
 76:                                               ; preds = %74
   %77 = ptrtoint ptr %1 to i64
   %78 = trunc i64 %77 to i32
-  %79 = tail call i32 @llvm.abs.i32(i32 %78, i1 true)
+  %79 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %78, i1 true)
   %80 = load i32, ptr %56, align 8
   %81 = srem i32 %79, %80
   br label %85
@@ -661,7 +661,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
 44:                                               ; preds = %41
   %45 = ptrtoint ptr %43 to i64
   %46 = trunc i64 %45 to i32
-  %47 = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
+  %47 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %46, i1 true)
   %48 = load i32, ptr %4, align 8
   %49 = srem i32 %47, %48
   br label %53
@@ -759,7 +759,7 @@ define range(i32 -10000, 2) i32 @stmm_add_direct(ptr nocapture noundef %0, ptr n
 35:                                               ; preds = %33
   %36 = ptrtoint ptr %1 to i64
   %37 = trunc i64 %36 to i32
-  %38 = tail call i32 @llvm.abs.i32(i32 %37, i1 true)
+  %38 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %37, i1 true)
   %39 = load i32, ptr %15, align 8
   %40 = srem i32 %38, %39
   br label %44
@@ -825,7 +825,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr 
 17:                                               ; preds = %15
   %18 = ptrtoint ptr %1 to i64
   %19 = trunc i64 %18 to i32
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = srem i32 %20, %22
@@ -928,7 +928,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr 
 76:                                               ; preds = %74
   %77 = ptrtoint ptr %1 to i64
   %78 = trunc i64 %77 to i32
-  %79 = tail call i32 @llvm.abs.i32(i32 %78, i1 true)
+  %79 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %78, i1 true)
   %80 = load i32, ptr %56, align 8
   %81 = srem i32 %79, %80
   br label %85
@@ -1008,7 +1008,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr nocapture noundef readonly %0, ptr nou
 17:                                               ; preds = %15
   %18 = ptrtoint ptr %1 to i64
   %19 = trunc i64 %18 to i32
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = srem i32 %20, %22
@@ -1193,7 +1193,7 @@ define range(i32 0, 2) i32 @stmm_delete(ptr nocapture noundef %0, ptr nocapture 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %4 to i64
   %20 = trunc i64 %19 to i32
-  %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
+  %21 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %20, i1 true)
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = srem i32 %21, %23
@@ -1315,7 +1315,7 @@ define range(i32 0, 2) i32 @stmm_delete_int(ptr nocapture noundef %0, ptr nocapt
 
 18:                                               ; preds = %16
   %19 = trunc i64 %4 to i32
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = srem i32 %20, %22
@@ -1490,7 +1490,7 @@ define range(i32 0, 2) i32 @stmm_foreach(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stmm_strhash(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, -2147483648) i32 @stmm_strhash(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   %.not8 = icmp eq i8 %3, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph

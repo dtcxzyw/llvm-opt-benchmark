@@ -2969,7 +2969,7 @@ stat_to_v9stat_dotl.exit:                         ; preds = %if.end9, %if.end.i.
   store i64 %28, ptr %st_ctime_nsec.i, align 8
   store i64 2047, ptr %v9stat_dotl, align 8
   %qid.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 8
-  %call16.i = call fastcc noundef i32 @stat_to_qid(ptr noundef nonnull readonly %opaque, ptr noundef nonnull readonly %stbuf, ptr noundef nonnull %qid.i)
+  %call16.i = call fastcc range(i32 -23, 1) i32 @stat_to_qid(ptr noundef nonnull readonly %opaque, ptr noundef nonnull readonly %stbuf, ptr noundef nonnull %qid.i)
   %conv11 = sext i32 %call16.i to i64
   %cmp12 = icmp slt i32 %call16.i, 0
   br i1 %cmp12, label %out, label %if.end15
@@ -6370,7 +6370,7 @@ if.end158:                                        ; preds = %if.end155, %lor.lhs
   %96 = phi i16 [ %93, %if.end155 ], [ %75, %lor.lhs.false141.tail ]
   %97 = phi ptr [ %call.i122, %if.end155 ], [ %74, %lor.lhs.false141.tail ]
   %any_err.3 = phi i32 [ %or151, %if.end155 ], [ %any_err.1194, %lor.lhs.false141.tail ]
-  %err.7 = phi i32 [ %call150, %if.end155 ], [ %err.5195, %lor.lhs.false141.tail ]
+  %err.7 = phi i32 [ 0, %if.end155 ], [ %err.5195, %lor.lhs.false141.tail ]
   %arrayidx160 = getelementptr %struct.V9fsQID, ptr %qids.2, i64 %indvars.iv216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx160, ptr noundef nonnull align 8 dereferenceable(16) %qid, i64 16, i1 false)
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
@@ -9162,7 +9162,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 declare i32 @v9fs_co_lstat(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @stat_to_qid(ptr nocapture noundef readonly %pdu, ptr nocapture noundef readonly %stbuf, ptr nocapture noundef writeonly %qidp) unnamed_addr #0 {
+define internal fastcc range(i32 -23, 1) i32 @stat_to_qid(ptr nocapture noundef readonly %pdu, ptr nocapture noundef readonly %stbuf, ptr nocapture noundef writeonly %qidp) unnamed_addr #0 {
 entry:
   %lookup.i24 = alloca %struct.QpfEntry, align 8
   %lookup.i.i = alloca %struct.QpdEntry, align 8
@@ -10110,11 +10110,11 @@ entry:
   %tobool = icmp ne i32 %and, 0
   %call = call i32 @v9fs_co_readdir_many(ptr noundef %pdu, ptr noundef %fidp, ptr noundef nonnull %entries, i64 noundef %offset, i32 noundef %max_count, i1 noundef zeroext %tobool) #23
   %cmp = icmp slt i32 %call, 0
-  %.pre34 = load ptr, ptr %entries, align 8
+  %.pre33 = load ptr, ptr %entries, align 8
   br i1 %cmp, label %out, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %tobool2.not23 = icmp eq ptr %.pre34, null
+  %tobool2.not23 = icmp eq ptr %.pre33, null
   br i1 %tobool2.not23, label %v9fs_free_dirents.exit.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -10124,10 +10124,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end27
-  %e.026 = phi ptr [ %.pre34, %for.body.lr.ph ], [ %e.0, %if.end27 ]
-  %err.125 = phi i32 [ 0, %for.body.lr.ph ], [ %err.2, %if.end27 ]
+  %e.025 = phi ptr [ %.pre33, %for.body.lr.ph ], [ %e.0, %if.end27 ]
   %count.124 = phi i32 [ 0, %for.body.lr.ph ], [ %add28, %if.end27 ]
-  %2 = load ptr, ptr %e.026, align 8
+  %2 = load ptr, ptr %e.025, align 8
   %3 = load ptr, ptr %s, align 8
   %export_flags6 = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load i32, ptr %export_flags6, align 8
@@ -10136,7 +10135,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %st10 = getelementptr inbounds i8, ptr %e.026, i64 8
+  %st10 = getelementptr inbounds i8, ptr %e.025, i64 8
   %5 = load ptr, ptr %st10, align 8
   %tobool11.not = icmp eq ptr %5, null
   br i1 %tobool11.not, label %out.loopexit, label %if.end13
@@ -10154,7 +10153,6 @@ if.else:                                          ; preds = %for.body
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end13, %if.else
-  %err.2 = phi i32 [ %call14, %if.end13 ], [ %err.125, %if.else ]
   %7 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %7, align 8
   store ptr null, ptr %data.i, align 8
@@ -10174,19 +10172,19 @@ if.end19:                                         ; preds = %if.end13, %if.else
 
 if.end27:                                         ; preds = %if.end19
   %add28 = add i32 %count.124, %conv23
-  %next = getelementptr inbounds i8, ptr %e.026, i64 16
+  %next = getelementptr inbounds i8, ptr %e.025, i64 16
   %e.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %e.0, null
   br i1 %tobool2.not, label %out.loopexit, label %for.body, !llvm.loop !35
 
 out.loopexit:                                     ; preds = %if.end19, %if.then9, %if.end27, %if.end13
   %count.0.ph = phi i32 [ %count.124, %if.end19 ], [ %count.124, %if.then9 ], [ %add28, %if.end27 ], [ %count.124, %if.end13 ]
-  %err.0.ph = phi i32 [ %conv23, %if.end19 ], [ -1, %if.then9 ], [ %err.2, %if.end27 ], [ %call14, %if.end13 ]
+  %err.0.ph = phi i32 [ %conv23, %if.end19 ], [ -1, %if.then9 ], [ 0, %if.end27 ], [ %call14, %if.end13 ]
   %.pre = load ptr, ptr %entries, align 8
   br label %out
 
 out:                                              ; preds = %out.loopexit, %entry
-  %9 = phi ptr [ %.pre34, %entry ], [ %.pre, %out.loopexit ]
+  %9 = phi ptr [ %.pre33, %entry ], [ %.pre, %out.loopexit ]
   %count.0 = phi i32 [ 0, %entry ], [ %count.0.ph, %out.loopexit ]
   %err.0 = phi i32 [ %call, %entry ], [ %err.0.ph, %out.loopexit ]
   %err.0.fr = freeze i32 %err.0

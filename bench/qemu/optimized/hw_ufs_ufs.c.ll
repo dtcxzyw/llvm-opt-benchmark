@@ -1643,9 +1643,10 @@ trace_ufs_err_query_invalid_opcode.exit.i17.i.i:  ; preds = %if.else.i.i.i23.i.i
 
 ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query_invalid_opcode.exit.i17.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb2.i11.i.i, %sw.bb1.i12.i.i, %if.then7.i.i, %trace_ufs_err_query_invalid_opcode.exit.i.i.i, %sw.bb4.i.i.i, %sw.bb2.i.i.i, %ufs_read_desc.exit.i.i.i, %if.then.i38.i, %trace_ufs_exec_query_cmd.exit.i.i
   %status.0.i.i = phi i32 [ 255, %trace_ufs_exec_query_cmd.exit.i.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i.i.i ], [ %call5.i.i.i, %sw.bb4.i.i.i ], [ %call3.i.i.i, %sw.bb2.i.i.i ], [ %status.0.i.i.i.i, %ufs_read_desc.exit.i.i.i ], [ 0, %if.then.i38.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i17.i.i ], [ %call8.i.i.i, %sw.bb7.i.i.i ], [ %call6.i.i.i, %sw.bb5.i.i.i ], [ %call4.i.i.i, %sw.bb3.i.i.i ], [ %call.i.i.i, %sw.bb2.i11.i.i ], [ 247, %sw.bb1.i12.i.i ], [ 0, %if.then7.i.i ]
+  %status.0.fr.i.i = freeze i32 %status.0.i.i
   %length.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 354
   %150 = load i16, ptr %length.i.i, align 2
-  %conv12.i.i = trunc i32 %status.0.i.i to i8
+  %conv12.i.i = trunc i32 %status.0.fr.i.i to i8
   %rsp_upiu.i.i32.i = getelementptr inbounds i8, ptr %arrayidx, i64 336
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rsp_upiu.i.i32.i, ptr noundef nonnull align 8 dereferenceable(12) %req_upiu1.i.i.i, i64 12, i1 false)
   store i8 54, ptr %rsp_upiu.i.i32.i, align 8
@@ -1657,7 +1658,7 @@ ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query
   store i8 0, ptr %scsi_status13.i.i36.i, align 1
   %data_segment_length16.i.i37.i = getelementptr inbounds i8, ptr %arrayidx, i64 346
   store i16 %150, ptr %data_segment_length16.i.i37.i, align 2
-  %cmp13.not.i.i = icmp ne i32 %status.0.i.i, 0
+  %cmp13.not.i.i = icmp ne i32 %status.0.fr.i.i, 0
   %spec.select.i.i = zext i1 %cmp13.not.i.i to i32
   br label %if.then10.i
 
@@ -2020,7 +2021,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @ufs_exec_query_attr(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
+define internal fastcc range(i32 0, 254) i32 @ufs_exec_query_attr(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
 entry:
   %_now.i.i5.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -2430,7 +2431,7 @@ return:                                           ; preds = %entry, %trace_ufs_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @ufs_exec_query_flag(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
+define internal fastcc range(i32 0, 255) i32 @ufs_exec_query_flag(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i5.i = alloca %struct.timeval, align 8

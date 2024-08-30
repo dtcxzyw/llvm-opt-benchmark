@@ -24657,7 +24657,7 @@ define noundef i32 @_ZN7glslang13TIntermediate30computeTypeUniformLocationSizeER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang13TIntermediate18addXfbBufferOffsetERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN7glslang13TIntermediate18addXfbBufferOffsetERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -25110,7 +25110,7 @@ define noundef range(i32 1, 9) i32 @_ZN7glslang13TIntermediate22getBaseAlignment
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.glslang::TType", align 8
   %8 = alloca i32, align 4
@@ -25121,298 +25121,298 @@ define noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS
   %12 = getelementptr inbounds i8, ptr %11, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br i1 %14, label %15, label %41
+  br i1 %14, label %15, label %42
 
 15:                                               ; preds = %5
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 0, i1 noundef zeroext false)
   %16 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %4)
-  %.sroa.speculated88 = call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %.097 = select i1 %10, i32 %.sroa.speculated88, i32 %16
-  %17 = load i32, ptr %1, align 4
-  %18 = add i32 %17, -1
-  %19 = add i32 %18, %.097
-  %20 = sub i32 0, %.097
-  %21 = and i32 %19, %20
-  store i32 %21, ptr %1, align 4
-  store i32 %21, ptr %2, align 4
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 248
-  %24 = load ptr, ptr %23, align 8
-  %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br i1 %25, label %26, label %32
+  %17 = call i32 @llvm.umax.i32(i32 %16, i32 16)
+  %.097 = select i1 %10, i32 %17, i32 %16
+  %18 = load i32, ptr %1, align 4
+  %19 = add i32 %18, -1
+  %20 = add i32 %19, %.097
+  %21 = sub nsw i32 0, %.097
+  %22 = and i32 %20, %21
+  store i32 %22, ptr %1, align 4
+  store i32 %22, ptr %2, align 4
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 248
+  %25 = load ptr, ptr %24, align 8
+  %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  br i1 %26, label %27, label %33
 
-26:                                               ; preds = %15
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 120
-  %29 = load ptr, ptr %28, align 8
-  %30 = call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %37, label %32
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 120
+  %30 = load ptr, ptr %29, align 8
+  %31 = call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %38, label %33
 
-32:                                               ; preds = %26, %15
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 120
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br label %37
+33:                                               ; preds = %27, %15
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 120
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  br label %38
 
-37:                                               ; preds = %26, %32
-  %38 = phi i32 [ %36, %32 ], [ 1, %26 ]
-  %39 = load i32, ptr %2, align 4
-  %40 = mul nsw i32 %39, %38
-  store i32 %40, ptr %1, align 4
-  br label %178
+38:                                               ; preds = %27, %33
+  %39 = phi i32 [ %37, %33 ], [ 1, %27 ]
+  %40 = load i32, ptr %2, align 4
+  %41 = mul nsw i32 %40, %39
+  store i32 %41, ptr %1, align 4
+  br label %180
 
-41:                                               ; preds = %5
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %46 = icmp eq i32 %45, 15
-  br i1 %46, label %53, label %47
+42:                                               ; preds = %5
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %47 = icmp eq i32 %46, 15
+  br i1 %47, label %54, label %48
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef i32 %50(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %52 = icmp eq i32 %51, 16
-  br i1 %52, label %53, label %99
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %53 = icmp eq i32 %52, 16
+  br i1 %53, label %54, label %100
 
-53:                                               ; preds = %47, %41
-  %54 = getelementptr inbounds i8, ptr %0, i64 104
-  %55 = load ptr, ptr %54, align 8
+54:                                               ; preds = %48, %42
+  %55 = getelementptr inbounds i8, ptr %0, i64 104
+  %56 = load ptr, ptr %55, align 8
   store i32 0, ptr %1, align 4
-  %56 = select i1 %10, i32 16, i32 0
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %57, align 8
-  %.not101 = icmp eq ptr %59, %60
+  %57 = select i1 %10, i32 16, i32 0
+  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %59 = getelementptr inbounds i8, ptr %56, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %58, align 8
+  %.not101 = icmp eq ptr %60, %61
   br i1 %.not101, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %61 = phi ptr [ %88, %.lr.ph ], [ %60, %53 ]
-  %.067100 = phi i64 [ %86, %.lr.ph ], [ 0, %53 ]
-  %.09899 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %56, %53 ]
-  %62 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %61, i64 %.067100
-  %63 = load ptr, ptr %62, align 8
+.lr.ph:                                           ; preds = %54, %.lr.ph
+  %62 = phi ptr [ %89, %.lr.ph ], [ %61, %54 ]
+  %.067100 = phi i64 [ %87, %.lr.ph ], [ 0, %54 ]
+  %.09899 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %57, %54 ]
+  %63 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %62, i64 %.067100
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 80
-  %66 = load ptr, ptr %65, align 8
-  %67 = call noundef nonnull align 8 dereferenceable(80) ptr %66(ptr noundef nonnull align 8 dereferenceable(152) %63) #18
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
-  %69 = load i64, ptr %68, align 8
-  %70 = lshr i64 %69, 60
-  %71 = trunc nuw nsw i64 %70 to i32
-  %72 = and i32 %71, 7
-  %73 = load ptr, ptr %57, align 8
-  %74 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %73, i64 %.067100
-  %75 = load ptr, ptr %74, align 8
-  %.not = icmp eq i32 %72, 0
-  %76 = icmp eq i32 %72, 1
-  %77 = select i1 %.not, i1 %4, i1 %76
-  %78 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %75, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %77)
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.09899, i32 %78)
-  %79 = load i32, ptr %1, align 4
-  %80 = add i32 %78, -1
-  %81 = add i32 %80, %79
-  %82 = sub i32 0, %78
-  %83 = and i32 %81, %82
-  %84 = load i32, ptr %8, align 4
-  %85 = add nsw i32 %83, %84
-  store i32 %85, ptr %1, align 4
-  %86 = add nuw i64 %.067100, 1
-  %87 = load ptr, ptr %58, align 8
-  %88 = load ptr, ptr %57, align 8
-  %89 = ptrtoint ptr %87 to i64
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 80
+  %67 = load ptr, ptr %66, align 8
+  %68 = call noundef nonnull align 8 dereferenceable(80) ptr %67(ptr noundef nonnull align 8 dereferenceable(152) %64) #18
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = load i64, ptr %69, align 8
+  %71 = lshr i64 %70, 60
+  %72 = trunc nuw nsw i64 %71 to i32
+  %73 = and i32 %72, 7
+  %74 = load ptr, ptr %58, align 8
+  %75 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %74, i64 %.067100
+  %76 = load ptr, ptr %75, align 8
+  %.not = icmp eq i32 %73, 0
+  %77 = icmp eq i32 %73, 1
+  %78 = select i1 %.not, i1 %4, i1 %77
+  %79 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %76, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %78)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.09899, i32 %79)
+  %80 = load i32, ptr %1, align 4
+  %81 = add nsw i32 %79, -1
+  %82 = add i32 %81, %80
+  %83 = sub nsw i32 0, %79
+  %84 = and i32 %82, %83
+  %85 = load i32, ptr %8, align 4
+  %86 = add nsw i32 %84, %85
+  store i32 %86, ptr %1, align 4
+  %87 = add nuw i64 %.067100, 1
+  %88 = load ptr, ptr %59, align 8
+  %89 = load ptr, ptr %58, align 8
   %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %89, %90
-  %92 = ashr exact i64 %91, 5
-  %93 = icmp ult i64 %86, %92
-  br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !231
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = ashr exact i64 %92, 5
+  %94 = icmp ult i64 %87, %93
+  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !231
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %94 = phi i32 [ 0, %53 ], [ %85, %.lr.ph ]
-  %.098.lcssa = phi i32 [ %56, %53 ], [ %.sroa.speculated, %.lr.ph ]
-  %95 = add nsw i32 %.098.lcssa, -1
-  %96 = add i32 %95, %94
-  %97 = sub nsw i32 0, %.098.lcssa
-  %98 = and i32 %96, %97
-  store i32 %98, ptr %1, align 4
-  br label %178
+._crit_edge:                                      ; preds = %.lr.ph, %54
+  %95 = phi i32 [ 0, %54 ], [ %86, %.lr.ph ]
+  %.098.lcssa = phi i32 [ %57, %54 ], [ %.sroa.speculated, %.lr.ph ]
+  %96 = add nsw i32 %.098.lcssa, -1
+  %97 = add i32 %96, %95
+  %98 = sub nsw i32 0, %.098.lcssa
+  %99 = and i32 %97, %98
+  store i32 %99, ptr %1, align 4
+  br label %180
 
-99:                                               ; preds = %47
-  %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 192
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %104 = load ptr, ptr %0, align 8
-  br i1 %103, label %105, label %123
+100:                                              ; preds = %48
+  %101 = load ptr, ptr %0, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 192
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %105 = load ptr, ptr %0, align 8
+  br i1 %104, label %106, label %124
 
-105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %104, i64 56
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef i32 %107(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  switch i32 %108, label %122 [
+106:                                              ; preds = %100
+  %107 = getelementptr inbounds i8, ptr %105, i64 56
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call noundef i32 %108(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  switch i32 %109, label %123 [
     i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
     i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
     i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
-    i32 3, label %109
-    i32 4, label %110
-    i32 5, label %110
-    i32 6, label %111
-    i32 7, label %111
+    i32 3, label %110
+    i32 4, label %111
+    i32 5, label %111
+    i32 6, label %112
+    i32 7, label %112
     i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
-    i32 14, label %112
+    i32 14, label %113
   ]
 
-109:                                              ; preds = %105
+110:                                              ; preds = %106
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
 
-110:                                              ; preds = %105, %105
+111:                                              ; preds = %106, %106
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
 
-111:                                              ; preds = %105, %105
+112:                                              ; preds = %106, %106
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
 
-112:                                              ; preds = %105
-  %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 368
-  %115 = load ptr, ptr %114, align 8
-  %116 = tail call noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br i1 %116, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, label %117
+113:                                              ; preds = %106
+  %114 = load ptr, ptr %0, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 368
+  %116 = load ptr, ptr %115, align 8
+  %117 = tail call noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  br i1 %117, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, label %118
 
-117:                                              ; preds = %112
-  %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 376
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %spec.select.i = select i1 %121, i32 8, i32 4
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %0, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 376
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %spec.select.i = select i1 %122, i32 8, i32 4
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
 
-122:                                              ; preds = %105
+123:                                              ; preds = %106
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
 
-_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit: ; preds = %105, %105, %105, %105, %109, %110, %111, %112, %117, %122
-  %.sink.i = phi i32 [ 4, %122 ], [ 2, %111 ], [ 1, %110 ], [ 2, %109 ], [ 8, %105 ], [ 8, %105 ], [ 8, %105 ], [ 8, %105 ], [ 8, %112 ], [ %spec.select.i, %117 ]
+_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit: ; preds = %106, %106, %106, %106, %110, %111, %112, %113, %118, %123
+  %.sink.i = phi i32 [ 4, %123 ], [ 2, %112 ], [ 1, %111 ], [ 2, %110 ], [ 8, %106 ], [ 8, %106 ], [ 8, %106 ], [ 8, %106 ], [ 8, %113 ], [ %spec.select.i, %118 ]
   store i32 %.sink.i, ptr %1, align 4
-  br label %178
+  br label %180
 
-123:                                              ; preds = %99
-  %124 = getelementptr inbounds i8, ptr %104, i64 216
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %127 = load ptr, ptr %0, align 8
-  br i1 %126, label %128, label %162
+124:                                              ; preds = %100
+  %125 = getelementptr inbounds i8, ptr %105, i64 216
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call noundef zeroext i1 %126(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %128 = load ptr, ptr %0, align 8
+  br i1 %127, label %129, label %163
 
-128:                                              ; preds = %123
-  %129 = getelementptr inbounds i8, ptr %127, i64 56
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call noundef i32 %130(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  switch i32 %131, label %145 [
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds i8, ptr %128, i64 56
+  %131 = load ptr, ptr %130, align 8
+  %132 = tail call noundef i32 %131(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  switch i32 %132, label %146 [
     i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
     i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
     i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
-    i32 3, label %132
-    i32 4, label %133
-    i32 5, label %133
-    i32 6, label %134
-    i32 7, label %134
+    i32 3, label %133
+    i32 4, label %134
+    i32 5, label %134
+    i32 6, label %135
+    i32 7, label %135
     i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
-    i32 14, label %135
+    i32 14, label %136
   ]
 
-132:                                              ; preds = %128
+133:                                              ; preds = %129
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
 
-133:                                              ; preds = %128, %128
+134:                                              ; preds = %129, %129
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
 
-134:                                              ; preds = %128, %128
+135:                                              ; preds = %129, %129
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
 
-135:                                              ; preds = %128
-  %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 368
-  %138 = load ptr, ptr %137, align 8
-  %139 = tail call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br i1 %139, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71, label %140
+136:                                              ; preds = %129
+  %137 = load ptr, ptr %0, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 368
+  %139 = load ptr, ptr %138, align 8
+  %140 = tail call noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  br i1 %140, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71, label %141
 
-140:                                              ; preds = %135
-  %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 376
-  %143 = load ptr, ptr %142, align 8
-  %144 = tail call noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %spec.select.i69 = select i1 %144, i32 8, i32 4
+141:                                              ; preds = %136
+  %142 = load ptr, ptr %0, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 376
+  %144 = load ptr, ptr %143, align 8
+  %145 = tail call noundef zeroext i1 %144(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %spec.select.i69 = select i1 %145, i32 8, i32 4
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
 
-145:                                              ; preds = %128
+146:                                              ; preds = %129
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
 
-_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71: ; preds = %128, %128, %128, %128, %132, %133, %134, %135, %140, %145
-  %.sink.i70 = phi i32 [ 4, %145 ], [ 2, %134 ], [ 1, %133 ], [ 2, %132 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 8, %135 ], [ %spec.select.i69, %140 ]
+_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71: ; preds = %129, %129, %129, %129, %133, %134, %135, %136, %141, %146
+  %.sink.i70 = phi i32 [ 4, %146 ], [ 2, %135 ], [ 1, %134 ], [ 2, %133 ], [ 8, %129 ], [ 8, %129 ], [ 8, %129 ], [ 8, %129 ], [ 8, %136 ], [ %spec.select.i69, %141 ]
   store i32 %.sink.i70, ptr %1, align 4
-  %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 96
-  %148 = load ptr, ptr %147, align 8
-  %149 = tail call noundef i32 %148(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  switch i32 %149, label %154 [
-    i32 1, label %178
-    i32 2, label %150
+  %147 = load ptr, ptr %0, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 96
+  %149 = load ptr, ptr %148, align 8
+  %150 = tail call noundef i32 %149(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  switch i32 %150, label %155 [
+    i32 1, label %180
+    i32 2, label %151
   ]
 
-150:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
-  %151 = load i32, ptr %1, align 4
-  %152 = shl nsw i32 %151, 1
-  store i32 %152, ptr %1, align 4
-  %153 = shl nuw nsw i32 %.sink.i70, 1
-  br label %178
+151:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+  %152 = load i32, ptr %1, align 4
+  %153 = shl nsw i32 %152, 1
+  store i32 %153, ptr %1, align 4
+  %154 = shl nuw nsw i32 %.sink.i70, 1
+  br label %180
 
-154:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
-  %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 96
-  %157 = load ptr, ptr %156, align 8
-  %158 = tail call noundef i32 %157(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %159 = load i32, ptr %1, align 4
-  %160 = mul nsw i32 %159, %158
-  store i32 %160, ptr %1, align 4
-  %161 = shl nuw nsw i32 %.sink.i70, 2
-  br label %178
+155:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+  %156 = load ptr, ptr %0, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 96
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call noundef i32 %158(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %160 = load i32, ptr %1, align 4
+  %161 = mul nsw i32 %160, %159
+  store i32 %161, ptr %1, align 4
+  %162 = shl nuw nsw i32 %.sink.i70, 2
+  br label %180
 
-162:                                              ; preds = %123
-  %163 = getelementptr inbounds i8, ptr %127, i64 224
-  %164 = load ptr, ptr %163, align 8
-  %165 = tail call noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br i1 %165, label %166, label %177
+163:                                              ; preds = %124
+  %164 = getelementptr inbounds i8, ptr %128, i64 224
+  %165 = load ptr, ptr %164, align 8
+  %166 = tail call noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  br i1 %166, label %167, label %179
 
-166:                                              ; preds = %162
+167:                                              ; preds = %163
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 0, i1 noundef zeroext %4)
-  %167 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %4)
-  %.sroa.speculated85 = call i32 @llvm.smax.i32(i32 %167, i32 16)
-  %.1 = select i1 %10, i32 %.sroa.speculated85, i32 %167
-  %168 = load i32, ptr %1, align 4
-  %169 = add i32 %168, -1
-  %170 = add i32 %169, %.1
-  %171 = sub i32 0, %.1
-  %172 = and i32 %170, %171
-  store i32 %172, ptr %1, align 4
-  store i32 %172, ptr %2, align 4
-  %173 = load ptr, ptr %0, align 8
+  %168 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %4)
+  %169 = call i32 @llvm.umax.i32(i32 %168, i32 16)
+  %.1 = select i1 %10, i32 %169, i32 %168
+  %170 = load i32, ptr %1, align 4
+  %171 = add i32 %170, -1
+  %172 = add i32 %171, %.1
+  %173 = sub nsw i32 0, %.1
+  %174 = and i32 %172, %173
+  store i32 %174, ptr %1, align 4
+  store i32 %174, ptr %2, align 4
+  %175 = load ptr, ptr %0, align 8
   %. = select i1 %4, i64 112, i64 104
-  %174 = getelementptr inbounds i8, ptr %173, i64 %.
-  %175 = load ptr, ptr %174, align 8
-  %176 = call noundef i32 %175(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  %storemerge = mul nsw i32 %176, %172
+  %176 = getelementptr inbounds i8, ptr %175, i64 %.
+  %177 = load ptr, ptr %176, align 8
+  %178 = call noundef i32 %177(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
+  %storemerge = mul nsw i32 %178, %174
   store i32 %storemerge, ptr %1, align 4
-  br label %178
+  br label %180
 
-177:                                              ; preds = %162
+179:                                              ; preds = %163
   store i32 16, ptr %1, align 4
-  br label %178
+  br label %180
 
-178:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71, %177, %166, %154, %150, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, %._crit_edge, %37
-  %.0 = phi i32 [ %.097, %37 ], [ %.098.lcssa, %._crit_edge ], [ %.sink.i, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit ], [ %161, %154 ], [ %153, %150 ], [ %.1, %166 ], [ 16, %177 ], [ %.sink.i70, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71 ]
+180:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71, %179, %167, %155, %151, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, %._crit_edge, %38
+  %.0 = phi i32 [ %.097, %38 ], [ %.098.lcssa, %._crit_edge ], [ %.sink.i, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit ], [ %162, %155 ], [ %154, %151 ], [ %.1, %167 ], [ 16, %179 ], [ %.sink.i70, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71 ]
   ret i32 %.0
 }
 
@@ -25450,7 +25450,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate16improperStraddleERKNS_5TT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeERiS4_b(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeERiS4_b(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.glslang::TType", align 8
   %7 = alloca i32, align 4
@@ -25466,9 +25466,9 @@ define noundef i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeER
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 0, i1 noundef zeroext false)
   %14 = call noundef i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeERiS4_b(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext %3)
   %15 = load i32, ptr %1, align 4
-  %16 = add i32 %14, -1
+  %16 = add nsw i32 %14, -1
   %17 = add i32 %16, %15
-  %18 = sub i32 0, %14
+  %18 = sub nsw i32 0, %14
   %19 = and i32 %17, %18
   store i32 %19, ptr %2, align 4
   %20 = load ptr, ptr %0, align 8
@@ -25524,9 +25524,9 @@ define noundef i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeER
   %58 = call noundef i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeERiS4_b(ptr noundef nonnull align 8 dereferenceable(152) %55, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext %57)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06465, i32 %58)
   %59 = load i32, ptr %1, align 4
-  %60 = add i32 %58, -1
+  %60 = add nsw i32 %58, -1
   %61 = add i32 %60, %59
-  %62 = sub i32 0, %58
+  %62 = sub nsw i32 0, %58
   %63 = and i32 %61, %62
   %64 = load i32, ptr %7, align 4
   %65 = add nsw i32 %63, %64
@@ -25686,7 +25686,7 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang13TIntermediate18getMemberAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate18getMemberAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq i32 %3, 5
   br i1 %6, label %7, label %9
 
@@ -25757,9 +25757,9 @@ define void @_ZN7glslang13TIntermediate12updateOffsetERKNS_5TTypeES3_RiS4_(ptr n
 _ZN7glslang13TIntermediate18getMemberAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb.exit: ; preds = %36, %38
   %.0.i = phi i32 [ %37, %36 ], [ %40, %38 ]
   %41 = load i32, ptr %2, align 4
-  %42 = add i32 %.0.i, -1
+  %42 = add nsw i32 %.0.i, -1
   %43 = add i32 %42, %41
-  %44 = sub i32 0, %.0.i
+  %44 = sub nsw i32 0, %.0.i
   %45 = and i32 %43, %44
   store i32 %45, ptr %2, align 4
   ret void
@@ -25866,7 +25866,7 @@ _ZN7glslang13TIntermediate12updateOffsetERKNS_5TTypeES3_RiS4_.exit: ; preds = %6
   %.0.i.i = phi i32 [ %63, %62 ], [ %66, %64 ]
   %67 = add i32 %.01922, -1
   %68 = add i32 %67, %.0.i.i
-  %69 = sub i32 0, %.0.i.i
+  %69 = sub nsw i32 0, %.0.i.i
   %70 = and i32 %68, %69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %71 = icmp slt i64 %indvars.iv, %7

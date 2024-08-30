@@ -2187,10 +2187,11 @@ define noundef i32 @_ZN7glslang10TPpContext11evalToTokenEibRiRbPNS_8TPpTokenE(pt
 
 23:                                               ; preds = %.preheader.split
   %24 = tail call noundef i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext false)
-  switch i32 %24, label %46 [
+  switch i32 %24, label %default.unreachable [
     i32 0, label %25
     i32 1, label %25
     i32 3, label %30
+    i32 2, label %46
   ]
 
 25:                                               ; preds = %23, %23
@@ -2230,7 +2231,10 @@ define noundef i32 @_ZN7glslang10TPpContext11evalToTokenEibRiRbPNS_8TPpTokenE(pt
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %45(ptr noundef nonnull align 8 dereferenceable(1280) %31, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.27, ptr noundef nonnull %7) #17
   br label %46
 
-46:                                               ; preds = %30, %43, %40, %25, %23
+default.unreachable:                              ; preds = %23
+  unreachable
+
+46:                                               ; preds = %23, %30, %43, %40, %25
   %47 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %5)
   %48 = load i8, ptr %4, align 1
   %49 = trunc i8 %48 to i1
@@ -2276,7 +2280,7 @@ define internal noundef i32 @_ZN7glslang12_GLOBAL__N_16op_modEii(i32 noundef %0,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string.26", align 8
   %6 = alloca %"struct.glslang::TSourceLoc", align 8
   %7 = alloca %"class.glslang::TPpToken", align 8
@@ -4785,7 +4789,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang10TPpContext9CPPpragmaEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext9CPPpragmaEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [2 x i8], align 1
   %4 = alloca %"class.glslang::TVector.44", align 8
   %5 = alloca %"struct.glslang::TSourceLoc", align 8
@@ -5591,10 +5595,11 @@ _ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit: ; preds = %16, %_ZNSt6vect
 
 50:                                               ; preds = %.lr.ph
   %51 = tail call noundef i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext %3)
-  switch i32 %51, label %.thread [
+  switch i32 %51, label %default.unreachable [
     i32 3, label %.backedge
     i32 1, label %.preheader
     i32 2, label %.backedge
+    i32 0, label %.thread
   ]
 
 .preheader:                                       ; preds = %50, %.preheader
@@ -5613,6 +5618,9 @@ _ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit: ; preds = %16, %_ZNSt6vect
   %.pre32 = and i32 %48, -3
   %or.cond = icmp eq i32 %.pre32, -3
   br i1 %or.cond, label %._crit_edge, label %.thread
+
+default.unreachable:                              ; preds = %50
+  unreachable
 
 .thread:                                          ; preds = %50, %.loopexit
   tail call void @_ZN7glslang10TPpContext11TokenStream8putTokenEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %48, ptr noundef nonnull %2) #17

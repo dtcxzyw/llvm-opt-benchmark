@@ -522,13 +522,13 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_try_variants(ptr nocapture n
   %11 = getelementptr inbounds i8, ptr %8, i64 12
   br label %13
 
-.lr.ph42:                                         ; preds = %28
+.lr.ph44:                                         ; preds = %28
   %12 = getelementptr inbounds i8, ptr %8, i64 12
   br label %30
 
 13:                                               ; preds = %.lr.ph, %28
-  %.02939 = phi i64 [ 0, %.lr.ph ], [ %29, %28 ]
-  %14 = getelementptr i32, ptr %1, i64 %.02939
+  %.02941 = phi i64 [ 0, %.lr.ph ], [ %29, %28 ]
+  %14 = getelementptr i32, ptr %1, i64 %.02941
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %11, align 4
   %16 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
@@ -538,27 +538,29 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_try_variants(ptr nocapture n
 17:                                               ; preds = %.preheader.i
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 3
-  br i1 %exitcond.not.i, label %libpcap_try.exit.thread, label %.preheader.i, !llvm.loop !4
-
-libpcap_try.exit.thread:                          ; preds = %17
-  %19 = load ptr, ptr %0, align 8
-  %20 = tail call i64 @file_seek(ptr noundef %19, i64 noundef %10, i32 noundef 0, ptr noundef %3) #7
-  %21 = icmp ne i64 %20, -1
-  %. = zext i1 %21 to i32
-  br label %.loopexit
+  br i1 %exitcond.not.i, label %.loopexit36, label %.preheader.i, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %13, %17
   %.016.i = phi i32 [ %18, %17 ], [ 1, %13 ]
-  %22 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
-  %.not15.i = icmp eq i32 %22, 0
+  %19 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
+  %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %17, label %libpcap_try.exit
 
 libpcap_try.exit:                                 ; preds = %.preheader.i, %13
-  %.012.i = phi i32 [ %16, %13 ], [ %22, %.preheader.i ]
-  %23 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.02939
-  store i32 %.012.i, ptr %23, align 4
-  %cond = icmp eq i32 %.012.i, -1
-  br i1 %cond, label %.loopexit, label %24
+  %.012.i = phi i32 [ %16, %13 ], [ %19, %.preheader.i ]
+  %20 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.02941
+  store i32 %.012.i, ptr %20, align 4
+  switch i32 %.012.i, label %24 [
+    i32 -1, label %.loopexit
+    i32 0, label %.loopexit36
+  ]
+
+.loopexit36:                                      ; preds = %libpcap_try.exit, %17
+  %21 = load ptr, ptr %0, align 8
+  %22 = tail call i64 @file_seek(ptr noundef %21, i64 noundef %10, i32 noundef 0, ptr noundef %3) #7
+  %23 = icmp ne i64 %22, -1
+  %. = zext i1 %23 to i32
+  br label %.loopexit
 
 24:                                               ; preds = %libpcap_try.exit
   %25 = load ptr, ptr %0, align 8
@@ -567,32 +569,32 @@ libpcap_try.exit:                                 ; preds = %.preheader.i, %13
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %24
-  %29 = add nuw i64 %.02939, 1
+  %29 = add nuw i64 %.02941, 1
   %exitcond.not = icmp eq i64 %29, %2
-  br i1 %exitcond.not, label %.lr.ph42, label %13, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph44, label %13, !llvm.loop !6
 
-30:                                               ; preds = %.lr.ph42, %37
-  %.041 = phi i64 [ 0, %.lr.ph42 ], [ %38, %37 ]
-  %.03140 = phi i32 [ 2147483647, %.lr.ph42 ], [ %.1, %37 ]
-  %31 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.041
+30:                                               ; preds = %.lr.ph44, %37
+  %.043 = phi i64 [ 0, %.lr.ph44 ], [ %38, %37 ]
+  %.03142 = phi i32 [ 2147483647, %.lr.ph44 ], [ %.1, %37 ]
+  %31 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.043
   %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %32, %.03140
+  %33 = icmp slt i32 %32, %.03142
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %30
-  %35 = getelementptr i32, ptr %1, i64 %.041
+  %35 = getelementptr i32, ptr %1, i64 %.043
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %12, align 4
   br label %37
 
 37:                                               ; preds = %30, %34
-  %.1 = phi i32 [ %32, %34 ], [ %.03140, %30 ]
-  %38 = add nuw nsw i64 %.041, 1
-  %exitcond48.not = icmp eq i64 %38, %2
-  br i1 %exitcond48.not, label %.loopexit, label %30, !llvm.loop !7
+  %.1 = phi i32 [ %32, %34 ], [ %.03142, %30 ]
+  %38 = add nuw nsw i64 %.043, 1
+  %exitcond51.not = icmp eq i64 %38, %2
+  br i1 %exitcond51.not, label %.loopexit, label %30, !llvm.loop !7
 
-.loopexit:                                        ; preds = %libpcap_try.exit, %24, %37, %5, %libpcap_try.exit.thread
-  %.030 = phi i32 [ %., %libpcap_try.exit.thread ], [ 1, %5 ], [ 1, %37 ], [ 0, %24 ], [ 0, %libpcap_try.exit ]
+.loopexit:                                        ; preds = %24, %libpcap_try.exit, %37, %5, %.loopexit36
+  %.030 = phi i32 [ %., %.loopexit36 ], [ 1, %5 ], [ 1, %37 ], [ 0, %libpcap_try.exit ], [ 0, %24 ]
   ret i32 %.030
 }
 
@@ -656,7 +658,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @libpcap_try_record(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 6) i32 @libpcap_try_record(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pcaprec_ss990915_hdr, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %0, i64 96

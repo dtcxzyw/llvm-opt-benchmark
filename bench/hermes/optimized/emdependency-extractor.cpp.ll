@@ -151,7 +151,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @switch.table.hermesExtractDependencies = private unnamed_addr constant [7 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @hermesExtractDependencies(ptr noundef %source, i64 noundef %sourceSize) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @hermesExtractDependencies(ptr noundef %source, i64 noundef %sourceSize) local_unnamed_addr #0 {
 entry:
   %fileBuf = alloca %"class.std::unique_ptr.41", align 8
   %agg.tmp9 = alloca %"class.std::unique_ptr.41", align 8
@@ -485,17 +485,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define hidden noundef i32 @main() local_unnamed_addr #4 {
 entry:
   %call = tail call ptr @hermesExtractDependencies(ptr noundef nonnull @_ZZ4mainE4src1, i64 noundef 16)
-  %isnull.i = icmp eq ptr %call, null
-  br i1 %isnull.i, label %hermesDependencies_free.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %entry
   %deps_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %deps_.i.i) #12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #12
   tail call void @_ZdlPv(ptr noundef nonnull %call) #14
-  br label %hermesDependencies_free.exit
-
-hermesDependencies_free.exit:                     ; preds = %entry, %delete.notnull.i
   ret i32 0
 }
 

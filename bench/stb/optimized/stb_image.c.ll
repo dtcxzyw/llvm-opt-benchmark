@@ -15668,7 +15668,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbi__process_frame_header(ptr nocapture noundef %z, i32 noundef %scan) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__process_frame_header(ptr nocapture noundef %z, i32 noundef %scan) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %call = tail call i32 @stbi__get16be(ptr noundef %0)
@@ -16452,12 +16452,10 @@ while.end31:                                      ; preds = %while.cond.loopexit
   %progressive = getelementptr inbounds i8, ptr %z, i64 18480
   store i32 %conv33, ptr %progressive, align 8
   %call34 = tail call i32 @stbi__process_frame_header(ptr noundef %z, i32 noundef %scan)
-  %tobool35.not = icmp ne i32 %call34, 0
-  %. = zext i1 %tobool35.not to i32
   br label %return
 
 return:                                           ; preds = %while.body, %while.end31, %if.end, %if.then26, %if.then
-  %retval.0 = phi i32 [ 0, %if.then26 ], [ 0, %if.then ], [ 1, %if.end ], [ %., %while.end31 ], [ 0, %while.body ]
+  %retval.0 = phi i32 [ 0, %if.then26 ], [ 0, %if.then ], [ 1, %if.end ], [ %call34, %while.end31 ], [ 0, %while.body ]
   ret i32 %retval.0
 }
 
@@ -19036,7 +19034,7 @@ do.end:                                           ; preds = %stbi__zget8.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__zreceive(ptr nocapture noundef %z, i32 noundef %n) local_unnamed_addr #18 {
+define range(i32 0, -2147483648) i32 @stbi__zreceive(ptr nocapture noundef %z, i32 noundef %n) local_unnamed_addr #18 {
 entry:
   %num_bits = getelementptr inbounds i8, ptr %z, i64 16
   %0 = load i32, ptr %num_bits, align 8
@@ -24438,7 +24436,7 @@ return:                                           ; preds = %if.end.i16, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__high_bit(i32 noundef %z) local_unnamed_addr #0 {
+define range(i32 -1, 33) i32 @stbi__high_bit(i32 noundef %z) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %z, 0
   br i1 %cmp, label %return, label %if.end
@@ -24474,7 +24472,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 256) i32 @stbi__bitcount(i32 noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 64) i32 @stbi__bitcount(i32 noundef %a) local_unnamed_addr #0 {
 entry:
   %and = and i32 %a, 1431655765
   %shr = lshr i32 %a, 1
@@ -24974,7 +24972,7 @@ return:                                           ; preds = %if.else11.i, %if.th
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -268435456, 268435456) i32 @stbi__tga_get_comp(i32 noundef %bits_per_pixel, i32 noundef %is_grey, ptr noundef writeonly %is_rgb16) local_unnamed_addr #1 {
+define range(i32 0, 32) i32 @stbi__tga_get_comp(i32 noundef %bits_per_pixel, i32 noundef %is_grey, ptr noundef writeonly %is_rgb16) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %is_rgb16, null
   br i1 %tobool.not, label %if.end, label %if.then

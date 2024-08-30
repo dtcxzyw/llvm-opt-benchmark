@@ -30,12 +30,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.parser_byteseq = private unnamed_addr constant [44 x i8] c"int parser_byteseq(sf_parser *, sf_value *)\00", align 1
 @.str.10 = private unnamed_addr constant [17 x i8] c"'?' == *sfp->pos\00", align 1
 @__PRETTY_FUNCTION__.parser_boolean = private unnamed_addr constant [44 x i8] c"int parser_boolean(sf_parser *, sf_value *)\00", align 1
-@__PRETTY_FUNCTION__.parser_skip_params = private unnamed_addr constant [36 x i8] c"int parser_skip_params(sf_parser *)\00", align 1
 @__PRETTY_FUNCTION__.parser_skip_inner_list = private unnamed_addr constant [40 x i8] c"int parser_skip_inner_list(sf_parser *)\00", align 1
 @switch.table.parser_number = private unnamed_addr constant [3 x i64] [i64 10, i64 100, i64 1000], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_param(ptr nocapture noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_param(ptr nocapture noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -278,7 +277,7 @@ return:                                           ; preds = %for.end, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parser_bare_item(ptr nocapture noundef %sfp, ptr noundef %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr nocapture noundef %sfp, ptr noundef %dest) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sfp, align 8
   %1 = load i8, ptr %0, align 1
@@ -496,12 +495,12 @@ return:                                           ; preds = %if.then.i, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_inner_list(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_inner_list(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   %and = and i32 %0, 3
-  switch i32 %and, label %default.unreachable48 [
+  switch i32 %and, label %default.unreachable49 [
     i32 0, label %sw.bb
     i32 1, label %for.cond.i
     i32 3, label %sw.bb5
@@ -534,15 +533,11 @@ parser_discard_sp.exit:                           ; preds = %land.rhs.i, %for.in
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
   %call.i = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
-  switch i32 %call.i, label %sw.default.i [
+  switch i32 %call.i, label %default.unreachable49 [
     i32 0, label %for.cond.i
     i32 -2, label %sw.bb5
     i32 -1, label %return
   ]
-
-sw.default.i:                                     ; preds = %for.cond.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 697, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_params) #7
-  unreachable
 
 sw.bb5:                                           ; preds = %for.cond.i, %entry
   %sfp.val18 = load ptr, ptr %sfp, align 8
@@ -564,8 +559,8 @@ land.rhs.i28thread-pre-split:                     ; preds = %for.inc.i31
   br i1 %cmp.i30, label %for.inc.i31, label %parser_discard_sp.exit34
 
 for.inc.i31:                                      ; preds = %if.end9, %land.rhs.i28thread-pre-split
-  %sfp.val46.i2944 = phi ptr [ %incdec.ptr.i32, %land.rhs.i28thread-pre-split ], [ %sfp.val18, %if.end9 ]
-  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %sfp.val46.i2944, i64 1
+  %sfp.val46.i2945 = phi ptr [ %incdec.ptr.i32, %land.rhs.i28thread-pre-split ], [ %sfp.val18, %if.end9 ]
+  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %sfp.val46.i2945, i64 1
   store ptr %incdec.ptr.i32, ptr %sfp, align 8
   %cmp.i.not.i33 = icmp eq ptr %incdec.ptr.i32, %sfp.val19
   br i1 %cmp.i.not.i33, label %parser_discard_sp.exit34, label %land.rhs.i28thread-pre-split, !llvm.loop !4
@@ -574,7 +569,7 @@ parser_discard_sp.exit34:                         ; preds = %land.rhs.i28thread-
   %cmp.i35.not = icmp eq ptr %incdec.ptr.i32, %sfp.val19
   br i1 %cmp.i35.not, label %return, label %sw.epilog17
 
-default.unreachable48:                            ; preds = %entry
+default.unreachable49:                            ; preds = %for.cond.i, %entry
   unreachable
 
 sw.default16:                                     ; preds = %entry
@@ -583,8 +578,8 @@ sw.default16:                                     ; preds = %entry
 
 sw.epilog17:                                      ; preds = %parser_discard_sp.exit34, %parser_discard_sp.exit
   %.ph = phi ptr [ %sfp.val20, %parser_discard_sp.exit ], [ %incdec.ptr.i32, %parser_discard_sp.exit34 ]
-  %.pr49 = load i8, ptr %.ph, align 1
-  %cmp20 = icmp eq i8 %.pr49, 41
+  %.pr50 = load i8, ptr %.ph, align 1
+  %cmp20 = icmp eq i8 %.pr50, 41
   br i1 %cmp20, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %if.end9, %sw.epilog17
@@ -599,21 +594,21 @@ if.end24:                                         ; preds = %sw.epilog17
   br i1 %cmp26.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end24, %if.then22
-  %.sink51 = phi i32 [ -8, %if.then22 ], [ -4, %if.end24 ]
+  %.sink52 = phi i32 [ -8, %if.then22 ], [ -4, %if.end24 ]
   %retval.0.ph = phi i32 [ -2, %if.then22 ], [ 0, %if.end24 ]
   %6 = load i32, ptr %state, align 8
-  %and.i40 = and i32 %6, %.sink51
+  %and.i40 = and i32 %6, %.sink52
   %or.i41 = or disjoint i32 %and.i40, 1
   store i32 %or.i41, ptr %state, align 8
   br label %return
 
 return:                                           ; preds = %for.cond.i, %return.sink.split, %if.end24, %if.end9, %parser_discard_sp.exit34, %sw.bb5, %parser_discard_sp.exit
-  %retval.0 = phi i32 [ -1, %parser_discard_sp.exit ], [ -1, %sw.bb5 ], [ -1, %parser_discard_sp.exit34 ], [ -1, %if.end9 ], [ %call25, %if.end24 ], [ %retval.0.ph, %return.sink.split ], [ %call.i, %for.cond.i ]
+  %retval.0 = phi i32 [ -1, %parser_discard_sp.exit ], [ -1, %sw.bb5 ], [ -1, %parser_discard_sp.exit34 ], [ -1, %if.end9 ], [ -1, %if.end24 ], [ %retval.0.ph, %return.sink.split ], [ %call.i, %for.cond.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_dict(ptr nocapture noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_dict(ptr nocapture noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -629,27 +624,22 @@ for.cond.i16.preheader:                           ; preds = %for.cond.i, %entry
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
   %call.i = tail call i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef null)
-  switch i32 %call.i, label %sw.default.i [
+  switch i32 %call.i, label %default.unreachable [
     i32 0, label %for.cond.i
     i32 -2, label %for.cond.i16.preheader
     i32 -1, label %return
   ]
 
-sw.default.i:                                     ; preds = %for.cond.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_inner_list) #7
+default.unreachable:                              ; preds = %for.cond.i, %for.cond.i16
   unreachable
 
 for.cond.i16:                                     ; preds = %for.cond.i16.preheader, %for.cond.i16
   %call.i17 = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
-  switch i32 %call.i17, label %sw.default.i20 [
+  switch i32 %call.i17, label %default.unreachable [
     i32 0, label %for.cond.i16
     i32 -2, label %sw.bb6
     i32 -1, label %return
   ]
-
-sw.default.i20:                                   ; preds = %for.cond.i16
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 697, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_params) #7
-  unreachable
 
 sw.bb6:                                           ; preds = %for.cond.i16, %entry
   %1 = getelementptr i8, ptr %sfp, i64 8
@@ -801,12 +791,12 @@ return.sink.split.i:                              ; preds = %if.end23.i, %if.end
   br label %return
 
 return:                                           ; preds = %for.inc.i, %for.cond.i, %for.cond.i16, %for.inc.i14.i, %sw.bb11, %if.end3.i, %if.end.i, %parser_discard_ows.exit.i, %return.sink.split.i, %if.end23.i, %if.end4.i, %sw.epilog, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %retval.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %sw.epilog ], [ -1, %if.end4.i ], [ %call24.i, %if.end23.i ], [ 0, %return.sink.split.i ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %if.end3.i ], [ -2, %sw.bb11 ], [ -1, %for.inc.i14.i ], [ %call.i17, %for.cond.i16 ], [ %call.i, %for.cond.i ], [ -2, %for.inc.i ]
+  %retval.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %sw.epilog ], [ -1, %if.end4.i ], [ -1, %if.end23.i ], [ 0, %return.sink.split.i ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %if.end3.i ], [ -2, %sw.bb11 ], [ -1, %for.inc.i14.i ], [ %call.i17, %for.cond.i16 ], [ %call.i, %for.cond.i ], [ -2, %for.inc.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_list(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_list(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -822,27 +812,22 @@ for.cond.i22.preheader:                           ; preds = %for.cond.i, %entry
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
   %call.i = tail call i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef null)
-  switch i32 %call.i, label %sw.default.i [
+  switch i32 %call.i, label %default.unreachable [
     i32 0, label %for.cond.i
     i32 -2, label %for.cond.i22.preheader
     i32 -1, label %return
   ]
 
-sw.default.i:                                     ; preds = %for.cond.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_inner_list) #7
+default.unreachable:                              ; preds = %for.cond.i, %for.cond.i22
   unreachable
 
 for.cond.i22:                                     ; preds = %for.cond.i22.preheader, %for.cond.i22
   %call.i23 = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
-  switch i32 %call.i23, label %sw.default.i26 [
+  switch i32 %call.i23, label %default.unreachable [
     i32 0, label %for.cond.i22
     i32 -2, label %sw.bb6
     i32 -1, label %return
   ]
-
-sw.default.i26:                                   ; preds = %for.cond.i22
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 697, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_params) #7
-  unreachable
 
 sw.bb6:                                           ; preds = %for.cond.i22, %entry
   %1 = getelementptr i8, ptr %sfp, i64 8
@@ -965,12 +950,12 @@ return.sink.split:                                ; preds = %if.end23, %if.end20
   br label %return
 
 return:                                           ; preds = %for.cond.i, %for.cond.i22, %for.inc.i14.i, %return.sink.split, %if.end3.i, %if.end.i, %parser_discard_ows.exit.i, %if.end23, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %retval.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ %call24, %if.end23 ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %if.end3.i ], [ 0, %return.sink.split ], [ -1, %for.inc.i14.i ], [ %call.i23, %for.cond.i22 ], [ %call.i, %for.cond.i ]
+  %retval.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %if.end23 ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %if.end3.i ], [ 0, %return.sink.split ], [ -1, %for.inc.i14.i ], [ %call.i23, %for.cond.i22 ], [ %call.i, %for.cond.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_item(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_item(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -1010,27 +995,22 @@ parser_discard_sp.exit:                           ; preds = %land.rhs.i, %for.in
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
   %call.i = tail call i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef null)
-  switch i32 %call.i, label %sw.default.i [
+  switch i32 %call.i, label %default.unreachable [
     i32 0, label %for.cond.i
     i32 -2, label %for.cond.i24.preheader
     i32 -1, label %return
   ]
 
-sw.default.i:                                     ; preds = %for.cond.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_inner_list) #7
+default.unreachable:                              ; preds = %for.cond.i, %for.cond.i24
   unreachable
 
 for.cond.i24:                                     ; preds = %for.cond.i24.preheader, %for.cond.i24
   %call.i25 = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
-  switch i32 %call.i25, label %sw.default.i28 [
+  switch i32 %call.i25, label %default.unreachable [
     i32 0, label %for.cond.i24
     i32 -2, label %sw.bb10
     i32 -1, label %return
   ]
-
-sw.default.i28:                                   ; preds = %for.cond.i24
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 697, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_params) #7
-  unreachable
 
 sw.bb10:                                          ; preds = %for.cond.i24, %entry
   %3 = getelementptr i8, ptr %sfp, i64 8
@@ -1094,7 +1074,7 @@ if.end28:                                         ; preds = %if.end23
   br label %return
 
 return:                                           ; preds = %for.cond.i, %for.cond.i24, %if.end23, %parser_discard_sp.exit38, %parser_discard_sp.exit, %if.end28, %if.end20
-  %retval.0 = phi i32 [ 0, %if.end20 ], [ 0, %if.end28 ], [ -1, %parser_discard_sp.exit ], [ %., %parser_discard_sp.exit38 ], [ %call24, %if.end23 ], [ %call.i25, %for.cond.i24 ], [ %call.i, %for.cond.i ]
+  %retval.0 = phi i32 [ 0, %if.end20 ], [ 0, %if.end28 ], [ -1, %parser_discard_sp.exit ], [ %., %parser_discard_sp.exit38 ], [ -1, %if.end23 ], [ %call.i25, %for.cond.i24 ], [ %call.i, %for.cond.i ]
   ret i32 %retval.0
 }
 
@@ -1669,7 +1649,7 @@ return:                                           ; preds = %sw.bb, %sw.bb52, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parser_date(ptr nocapture noundef %sfp, ptr noundef writeonly %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_date(ptr nocapture noundef %sfp, ptr noundef writeonly %dest) unnamed_addr #0 {
 entry:
   %val = alloca %struct.sf_value, align 8
   %0 = load ptr, ptr %sfp, align 8

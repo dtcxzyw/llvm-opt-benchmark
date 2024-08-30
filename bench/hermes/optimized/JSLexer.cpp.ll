@@ -4144,8 +4144,7 @@ if.end:                                           ; preds = %entry
 if.then18:                                        ; preds = %if.end
   %call19 = tail call i64 @_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb(ptr noundef nonnull align 8 dereferenceable(1128) %this, i1 noundef zeroext true)
   %cp.sroa.0.0.extract.trunc = trunc i64 %call19 to i32
-  %7 = and i64 %call19, 4294967296
-  %tobool.i.not = icmp eq i64 %7, 0
+  %tobool.i.not = icmp ult i64 %call19, 4294967296
   %spec.select = select i1 %tobool.i.not, i32 65533, i32 %cp.sroa.0.0.extract.trunc
   br label %return
 
@@ -4154,13 +4153,13 @@ if.end25:                                         ; preds = %if.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end15.i, %if.end25
-  %8 = phi ptr [ %incdec.ptr14, %if.end25 ], [ %incdec.ptr.i, %if.end15.i ]
+  %7 = phi ptr [ %incdec.ptr14, %if.end25 ], [ %incdec.ptr.i, %if.end15.i ]
   %i.016.i = phi i32 [ 0, %if.end25 ], [ %inc.i, %if.end15.i ]
   %cp.015.i = phi i32 [ 0, %if.end25 ], [ %add.i, %if.end15.i ]
-  %9 = load i8, ptr %8, align 1
-  %conv.i = sext i8 %9 to i32
-  %10 = add i8 %9, -48
-  %or.cond.i = icmp ult i8 %10, 10
+  %8 = load i8, ptr %7, align 1
+  %conv.i = sext i8 %8 to i32
+  %9 = add i8 %8, -48
+  %or.cond.i = icmp ult i8 %9, 10
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -4169,8 +4168,8 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.else.i:                                        ; preds = %for.body.i
   %or.i = or i32 %conv.i, 32
-  %11 = add nsw i32 %or.i, -97
-  %or.cond1.i = icmp ult i32 %11, 6
+  %10 = add nsw i32 %or.i, -97
+  %or.cond1.i = icmp ult i32 %10, 6
   br i1 %or.cond1.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -4183,25 +4182,25 @@ if.else9.i:                                       ; preds = %if.else.i
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.55, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
+  %11 = load ptr, ptr %this, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %11, i32 noundef 0, ptr nonnull %7, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 1) #21
   %12 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %12, i32 noundef 0, ptr nonnull %8, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 1) #21
-  %13 = load ptr, ptr %this, align 8
-  %errorLimitReached_.i.i.i = getelementptr inbounds i8, ptr %13, i64 316
-  %14 = load i8, ptr %errorLimitReached_.i.i.i, align 4
-  %tobool.i.i.i = trunc i8 %14 to i1
+  %errorLimitReached_.i.i.i = getelementptr inbounds i8, ptr %12, i64 316
+  %13 = load i8, ptr %errorLimitReached_.i.i.i, align 4
+  %tobool.i.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN6hermes6parser7JSLexer10consumeHexEjb.exit
 
 if.end.i.i:                                       ; preds = %if.else9.i
   %bufferEnd_.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  %15 = load ptr, ptr %bufferEnd_.i.i.i, align 8
-  store ptr %15, ptr %curCharPtr_, align 8
+  %14 = load ptr, ptr %bufferEnd_.i.i.i, align 8
+  store ptr %14, ptr %curCharPtr_, align 8
   br label %_ZN6hermes6parser7JSLexer10consumeHexEjb.exit
 
 if.end15.i:                                       ; preds = %if.then7.i, %if.then.i
   %ch.0.i = phi i32 [ %sub.i, %if.then.i ], [ %sub8.i, %if.then7.i ]
   %shl.i = shl i32 %cp.015.i, 4
   %add.i = add i32 %ch.0.i, %shl.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %curCharPtr_, align 8
   %inc.i = add nuw nsw i32 %i.016.i, 1
   %cmp.not.i = icmp eq i32 %inc.i, 4
@@ -5985,8 +5984,7 @@ if.else:                                          ; preds = %for.cond18
 if.then28:                                        ; preds = %if.else
   %call30 = call i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
   %codePoint.sroa.0.0.extract.trunc = trunc i64 %call30 to i32
-  %17 = and i64 %call30, 4294967296
-  %tobool.i.not = icmp eq i64 %17, 0
+  %tobool.i.not = icmp ult i64 %call30, 4294967296
   br i1 %tobool.i.not, label %if.end60, label %if.then32
 
 if.then32:                                        ; preds = %if.then28
@@ -6009,13 +6007,13 @@ if.else.i.i17:                                    ; preds = %if.then32
 if.end.i.i24:                                     ; preds = %if.else.i.i17, %if.then32
   %add2.sink.i.i25 = phi i32 [ %add2.i.i23, %if.else.i.i17 ], [ %codePoint.sroa.0.0.extract.trunc, %if.then32 ]
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i14, i32 noundef %add2.sink.i.i25) #21
-  %18 = load ptr, ptr %d.i.i14, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i26 = ptrtoint ptr %18 to i64
+  %17 = load ptr, ptr %d.i.i14, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i26 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i.i.i28 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i26, %sub.ptr.rhs.cast.i.i.i.i.i27
-  %19 = load i32, ptr %Capacity.i.i.i.i29, align 4
-  %conv.i.i.i.i30 = zext i32 %19 to i64
-  %20 = load i32, ptr %Size.i.i, align 8
-  %conv.i5.i.i.i32 = zext i32 %20 to i64
+  %18 = load i32, ptr %Capacity.i.i.i.i29, align 4
+  %conv.i.i.i.i30 = zext i32 %18 to i64
+  %19 = load i32, ptr %Size.i.i, align 8
+  %conv.i5.i.i.i32 = zext i32 %19 to i64
   %sub.i.i.i33 = sub nsw i64 %conv.i.i.i.i30, %conv.i5.i.i.i32
   %cmp.i.i.i34 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i28, %sub.i.i.i33
   br i1 %cmp.i.i.i34, label %if.then.i.i.i43, label %if.end.i.i.i35
@@ -6027,33 +6025,33 @@ if.then.i.i.i43:                                  ; preds = %if.end.i.i24
   br label %if.end.i.i.i35
 
 if.end.i.i.i35:                                   ; preds = %if.then.i.i.i43, %if.end.i.i24
-  %.pre13.i.i.i36 = phi i32 [ %.pre13.pre.i.i.i46, %if.then.i.i.i43 ], [ %20, %if.end.i.i24 ]
-  %cmp.not.i.i.i.i37 = icmp eq ptr %buf.i.i13, %18
+  %.pre13.i.i.i36 = phi i32 [ %.pre13.pre.i.i.i46, %if.then.i.i.i43 ], [ %19, %if.end.i.i24 ]
+  %cmp.not.i.i.i.i37 = icmp eq ptr %buf.i.i13, %17
   br i1 %cmp.not.i.i.i.i37, label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit47, label %if.then.i.i.i.i38
 
 if.then.i.i.i.i38:                                ; preds = %if.end.i.i.i35
-  %21 = load ptr, ptr %tmpStorage_, align 8
+  %20 = load ptr, ptr %tmpStorage_, align 8
   %conv.i9.i.i.i39 = zext i32 %.pre13.i.i.i36 to i64
-  %add.ptr.i.i.i.i40 = getelementptr inbounds i8, ptr %21, i64 %conv.i9.i.i.i39
+  %add.ptr.i.i.i.i40 = getelementptr inbounds i8, ptr %20, i64 %conv.i9.i.i.i39
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i40, ptr nonnull align 1 %buf.i.i13, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
   %.pre.i.i.i41 = load i32, ptr %Size.i.i, align 8
   br label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit47
 
 _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit47: ; preds = %if.end.i.i.i35, %if.then.i.i.i.i38
-  %22 = phi i32 [ %.pre13.i.i.i36, %if.end.i.i.i35 ], [ %.pre.i.i.i41, %if.then.i.i.i.i38 ]
-  %23 = trunc i64 %sub.ptr.sub.i.i.i.i.i28 to i32
-  %conv.i12.i.i.i42 = add i32 %22, %23
+  %21 = phi i32 [ %.pre13.i.i.i36, %if.end.i.i.i35 ], [ %.pre.i.i.i41, %if.then.i.i.i.i38 ]
+  %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i28 to i32
+  %conv.i12.i.i.i42 = add i32 %21, %22
   store i32 %conv.i12.i.i.i42, ptr %Size.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i14)
-  %24 = load ptr, ptr %curCharPtr_, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %24 to i64
+  %23 = load ptr, ptr %curCharPtr_, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %25 = load i32, ptr %Capacity.i.i.i48, align 4
-  %conv.i.i.i49 = zext i32 %25 to i64
-  %26 = load i32, ptr %Size.i.i6, align 8
-  %conv.i5.i.i51 = zext i32 %26 to i64
+  %24 = load i32, ptr %Capacity.i.i.i48, align 4
+  %conv.i.i.i49 = zext i32 %24 to i64
+  %25 = load i32, ptr %Size.i.i6, align 8
+  %conv.i5.i.i51 = zext i32 %25 to i64
   %sub.i.i52 = sub nsw i64 %conv.i.i.i49, %conv.i5.i.i51
   %cmp.i.i53 = icmp ugt i64 %sub.ptr.sub, %sub.i.i52
   br i1 %cmp.i.i53, label %if.end.i.thread.i, label %if.end.i.i54
@@ -6066,38 +6064,38 @@ if.end.i.thread.i:                                ; preds = %_ZN6hermes6parser7J
   br label %if.then.i.i.i56
 
 if.end.i.i54:                                     ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit47
-  %cmp.not.i.i.i55 = icmp eq ptr %24, %3
+  %cmp.not.i.i.i55 = icmp eq ptr %23, %3
   br i1 %cmp.not.i.i.i55, label %_ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %if.end.i.i54, %if.end.i.thread.i
   %conv.i9.i.i57.pre-phi = phi i64 [ %conv.i5.i.i51, %if.end.i.i54 ], [ %.pre92, %if.end.i.thread.i ]
-  %27 = load ptr, ptr %rawStorage_, align 8
-  %add.ptr.i.i.i58 = getelementptr inbounds i8, ptr %27, i64 %conv.i9.i.i57.pre-phi
+  %26 = load ptr, ptr %rawStorage_, align 8
+  %add.ptr.i.i.i58 = getelementptr inbounds i8, ptr %26, i64 %conv.i9.i.i57.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i58, ptr nonnull align 1 %3, i64 %sub.ptr.sub, i1 false)
   %.pre.i.i59 = load i32, ptr %Size.i.i6, align 8
   br label %_ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit
 
 _ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit: ; preds = %if.end.i.i54, %if.then.i.i.i56
-  %28 = phi i32 [ %26, %if.end.i.i54 ], [ %.pre.i.i59, %if.then.i.i.i56 ]
-  %29 = trunc i64 %sub.ptr.sub to i32
-  %conv.i12.i.i60 = add i32 %28, %29
+  %27 = phi i32 [ %25, %if.end.i.i54 ], [ %.pre.i.i59, %if.then.i.i.i56 ]
+  %28 = trunc i64 %sub.ptr.sub to i32
+  %conv.i12.i.i60 = add i32 %27, %28
   store i32 %conv.i12.i.i60, ptr %Size.i.i6, align 8
   br label %for.cond18.backedge
 
 land.lhs.true:                                    ; preds = %if.else
-  %30 = load ptr, ptr %bufferEnd_41, align 8
-  %cmp42 = icmp eq ptr %3, %30
+  %29 = load ptr, ptr %bufferEnd_41, align 8
+  %cmp42 = icmp eq ptr %3, %29
   br i1 %cmp42, label %if.then48, label %if.end60
 
 if.then48:                                        ; preds = %if.else, %if.else, %land.lhs.true
-  %31 = load ptr, ptr %tmpStorage_, align 8
-  %32 = load i32, ptr %Size.i.i, align 8
-  %conv.i.i = zext i32 %32 to i64
-  %call53 = call noundef ptr @_ZN6hermes6parser7JSLexer16getStringLiteralEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr %31, i64 %conv.i.i)
-  %33 = load ptr, ptr %rawStorage_, align 8
-  %34 = load i32, ptr %Size.i.i6, align 8
-  %conv.i.i66 = zext i32 %34 to i64
-  %call57 = call noundef ptr @_ZN6hermes6parser7JSLexer16getStringLiteralEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr %33, i64 %conv.i.i66)
+  %30 = load ptr, ptr %tmpStorage_, align 8
+  %31 = load i32, ptr %Size.i.i, align 8
+  %conv.i.i = zext i32 %31 to i64
+  %call53 = call noundef ptr @_ZN6hermes6parser7JSLexer16getStringLiteralEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr %30, i64 %conv.i.i)
+  %32 = load ptr, ptr %rawStorage_, align 8
+  %33 = load i32, ptr %Size.i.i6, align 8
+  %conv.i.i66 = zext i32 %33 to i64
+  %call57 = call noundef ptr @_ZN6hermes6parser7JSLexer16getStringLiteralEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr %32, i64 %conv.i.i66)
   store i32 114, ptr %token_, align 8
   %stringLiteral_.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %call53, ptr %stringLiteral_.i, align 8
@@ -6107,9 +6105,9 @@ if.then48:                                        ; preds = %if.else, %if.else, 
   br label %for.end65
 
 if.end60:                                         ; preds = %if.else, %land.lhs.true, %if.then28
-  %35 = load i32, ptr %Size.i.i, align 8
-  %36 = load i32, ptr %Capacity.i.i.i.i29, align 4
-  %cmp.not.i = icmp ult i32 %35, %36
+  %34 = load i32, ptr %Size.i.i, align 8
+  %35 = load i32, ptr %Capacity.i.i.i.i29, align 4
+  %cmp.not.i = icmp ult i32 %34, %35
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end60
@@ -6118,17 +6116,17 @@ if.then.i:                                        ; preds = %if.end60
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.end60, %if.then.i
-  %37 = phi i32 [ %.pre.i, %if.then.i ], [ %35, %if.end60 ]
-  %38 = load ptr, ptr %tmpStorage_, align 8
-  %conv.i3.i = zext i32 %37 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %38, i64 %conv.i3.i
+  %36 = phi i32 [ %.pre.i, %if.then.i ], [ %34, %if.end60 ]
+  %37 = load ptr, ptr %tmpStorage_, align 8
+  %conv.i3.i = zext i32 %36 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 %conv.i3.i
   store i8 %4, ptr %add.ptr.i.i, align 1
-  %39 = load i32, ptr %Size.i.i, align 8
-  %add.i72 = add i32 %39, 1
+  %38 = load i32, ptr %Size.i.i, align 8
+  %add.i72 = add i32 %38, 1
   store i32 %add.i72, ptr %Size.i.i, align 8
-  %40 = load i32, ptr %Size.i.i6, align 8
-  %41 = load i32, ptr %Capacity.i.i.i48, align 4
-  %cmp.not.i75 = icmp ult i32 %40, %41
+  %39 = load i32, ptr %Size.i.i6, align 8
+  %40 = load i32, ptr %Capacity.i.i.i48, align 4
+  %cmp.not.i75 = icmp ult i32 %39, %40
   br i1 %cmp.not.i75, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit83, label %if.then.i76
 
 if.then.i76:                                      ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit
@@ -6137,29 +6135,29 @@ if.then.i76:                                      ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit83
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit83: ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %if.then.i76
-  %42 = phi i32 [ %.pre.i78, %if.then.i76 ], [ %40, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
-  %43 = load ptr, ptr %rawStorage_, align 8
-  %conv.i3.i80 = zext i32 %42 to i64
-  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %43, i64 %conv.i3.i80
+  %41 = phi i32 [ %.pre.i78, %if.then.i76 ], [ %39, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
+  %42 = load ptr, ptr %rawStorage_, align 8
+  %conv.i3.i80 = zext i32 %41 to i64
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %42, i64 %conv.i3.i80
   store i8 %4, ptr %add.ptr.i.i81, align 1
-  %44 = load i32, ptr %Size.i.i6, align 8
-  %add.i82 = add i32 %44, 1
+  %43 = load i32, ptr %Size.i.i6, align 8
+  %add.i82 = add i32 %43, 1
   store i32 %add.i82, ptr %Size.i.i6, align 8
-  %45 = load ptr, ptr %curCharPtr_, align 8
-  %incdec.ptr64 = getelementptr inbounds i8, ptr %45, i64 1
+  %44 = load ptr, ptr %curCharPtr_, align 8
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %44, i64 1
   store ptr %incdec.ptr64, ptr %curCharPtr_, align 8
   br label %for.cond18.backedge
 
 for.end65:                                        ; preds = %sw.bb, %sw.bb7, %if.then, %if.then48
-  %46 = phi ptr [ %incdec.ptr, %sw.bb ], [ %incdec.ptr12, %sw.bb7 ], [ %0, %if.then ], [ %.pre91, %if.then48 ]
+  %45 = phi ptr [ %incdec.ptr, %sw.bb ], [ %incdec.ptr12, %sw.bb7 ], [ %0, %if.then ], [ %.pre91, %if.then48 ]
   %End.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %End.i.i, align 8
   %prevTokenEndLoc_.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %retval.sroa.0.0.copyload.i.i, ptr %prevTokenEndLoc_.i, align 8
-  store ptr %46, ptr %End.i.i, align 8
+  store ptr %45, ptr %End.i.i, align 8
   %storeTokens_.i = getelementptr inbounds i8, ptr %this, i64 50
-  %47 = load i8, ptr %storeTokens_.i, align 2
-  %tobool.i84 = trunc i8 %47 to i1
+  %46 = load i8, ptr %storeTokens_.i, align 2
+  %tobool.i84 = trunc i8 %46 to i1
   br i1 %tobool.i84, label %if.then.i86, label %_ZN6hermes6parser7JSLexer11finishTokenEPKc.exit
 
 if.then.i86:                                      ; preds = %for.end65
@@ -6171,7 +6169,7 @@ _ZN6hermes6parser7JSLexer11finishTokenEPKc.exit:  ; preds = %for.end65, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
 entry:
   %TheBucket.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.llvh::StringRef", align 8
@@ -6626,7 +6624,7 @@ _ZN6hermes6parser7JSLexer11finishTokenEPKc.exit:  ; preds = %if.end, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i64 %expectedToken.coerce) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i64 %expectedToken.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %token_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %token_, align 8
@@ -6765,7 +6763,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp37 = alloca %"class.llvh::Twine", align 8
@@ -7012,7 +7010,7 @@ return:                                           ; preds = %if.end82, %if.end82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes6parser7JSLexer10consumeHexEjb(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %requiredLen, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer10consumeHexEjb(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %requiredLen, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %cmp.not14 = icmp eq i32 %requiredLen, 0
@@ -7089,7 +7087,7 @@ return:                                           ; preds = %if.end15, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @_ZN6hermes6parser7JSLexer28consumeUnicodeEscapeOptionalEv(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #7 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer28consumeUnicodeEscapeOptionalEv(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #7 align 2 {
 entry:
   %curCharPtr_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %curCharPtr_, align 8
@@ -8234,7 +8232,7 @@ return:                                           ; preds = %if.else23.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, ptr nocapture noundef readonly %start, i32 noundef %length) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 1, 48) i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, ptr nocapture noundef readonly %start, i32 noundef %length) local_unnamed_addr #9 align 2 {
 entry:
   switch i32 %length, label %if.end [
     i32 8, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1596.i
@@ -16422,16 +16420,16 @@ if.else.lr.ph:                                    ; preds = %entry
   br label %if.else
 
 if.then:                                          ; preds = %if.end63, %entry
-  %3 = phi i32 [ 0, %entry ], [ %42, %if.end63 ]
-  %.lcssa = phi ptr [ %incdec.ptr, %entry ], [ %43, %if.end63 ]
+  %3 = phi i32 [ 0, %entry ], [ %41, %if.end63 ]
+  %.lcssa = phi ptr [ %incdec.ptr, %entry ], [ %42, %if.end63 ]
   %incdec.ptr5 = getelementptr inbounds i8, ptr %.lcssa, i64 1
   store ptr %incdec.ptr5, ptr %curCharPtr_, align 8
   br label %breakLoop
 
 if.else:                                          ; preds = %if.else.lr.ph, %if.end63
-  %4 = phi i32 [ 0, %if.else.lr.ph ], [ %42, %if.end63 ]
-  %5 = phi i8 [ %2, %if.else.lr.ph ], [ %44, %if.end63 ]
-  %6 = phi ptr [ %incdec.ptr, %if.else.lr.ph ], [ %43, %if.end63 ]
+  %4 = phi i32 [ 0, %if.else.lr.ph ], [ %41, %if.end63 ]
+  %5 = phi i8 [ %2, %if.else.lr.ph ], [ %43, %if.end63 ]
+  %6 = phi ptr [ %incdec.ptr, %if.else.lr.ph ], [ %42, %if.end63 ]
   switch i8 %5, label %if.else48 [
     i8 10, label %if.then13
     i8 13, label %if.then13
@@ -16466,8 +16464,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.then1
 if.then22:                                        ; preds = %if.else
   %call = call i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
   %codePoint.sroa.0.0.extract.trunc = trunc i64 %call to i32
-  %12 = and i64 %call, 4294967296
-  %tobool.i.not = icmp eq i64 %12, 0
+  %tobool.i.not = icmp ult i64 %call, 4294967296
   br i1 %tobool.i.not, label %if.else26, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
@@ -16490,13 +16487,13 @@ if.else.i.i:                                      ; preds = %if.then24
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then24
   %add2.sink.i.i = phi i32 [ %add2.i.i, %if.else.i.i ], [ %codePoint.sroa.0.0.extract.trunc, %if.then24 ]
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i, i32 noundef %add2.sink.i.i) #21
-  %13 = load ptr, ptr %d.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %13 to i64
+  %12 = load ptr, ptr %d.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %14 = load i32, ptr %Capacity.i.i.i.i, align 4
-  %conv.i.i.i.i = zext i32 %14 to i64
-  %15 = load i32, ptr %Size.i.i, align 8
-  %conv.i5.i.i.i = zext i32 %15 to i64
+  %13 = load i32, ptr %Capacity.i.i.i.i, align 4
+  %conv.i.i.i.i = zext i32 %13 to i64
+  %14 = load i32, ptr %Size.i.i, align 8
+  %conv.i5.i.i.i = zext i32 %14 to i64
   %sub.i.i.i = sub nsw i64 %conv.i.i.i.i, %conv.i5.i.i.i
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, %sub.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -16508,34 +16505,34 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.end.i.i
-  %.pre13.i.i.i = phi i32 [ %.pre13.pre.i.i.i, %if.then.i.i.i ], [ %15, %if.end.i.i ]
-  %cmp.not.i.i.i.i = icmp eq ptr %buf.i.i, %13
+  %.pre13.i.i.i = phi i32 [ %.pre13.pre.i.i.i, %if.then.i.i.i ], [ %14, %if.end.i.i ]
+  %cmp.not.i.i.i.i = icmp eq ptr %buf.i.i, %12
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %16 = load ptr, ptr %tmpStorage_, align 8
+  %15 = load ptr, ptr %tmpStorage_, align 8
   %conv.i9.i.i.i = zext i32 %.pre13.i.i.i to i64
-  %add.ptr.i.i.i.i2 = getelementptr inbounds i8, ptr %16, i64 %conv.i9.i.i.i
+  %add.ptr.i.i.i.i2 = getelementptr inbounds i8, ptr %15, i64 %conv.i9.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i2, ptr nonnull align 1 %buf.i.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
 
 _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i.i
-  %17 = phi i32 [ %.pre13.i.i.i, %if.end.i.i.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
-  %18 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
-  %conv.i12.i.i.i = add i32 %17, %18
+  %16 = phi i32 [ %.pre13.i.i.i, %if.end.i.i.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
+  %17 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
+  %conv.i12.i.i.i = add i32 %16, %17
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
   br label %if.end63
 
 if.else26:                                        ; preds = %if.then22
-  %19 = load ptr, ptr %curCharPtr_, align 8
-  %incdec.ptr29 = getelementptr inbounds i8, ptr %19, i64 1
+  %18 = load ptr, ptr %curCharPtr_, align 8
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %18, i64 1
   store ptr %incdec.ptr29, ptr %curCharPtr_, align 8
-  %20 = load i32, ptr %Size.i.i, align 8
-  %21 = load i32, ptr %Capacity.i.i.i.i, align 4
-  %cmp.not.i5 = icmp ult i32 %20, %21
+  %19 = load i32, ptr %Size.i.i, align 8
+  %20 = load i32, ptr %Capacity.i.i.i.i, align 4
+  %cmp.not.i5 = icmp ult i32 %19, %20
   br i1 %cmp.not.i5, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit12, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.else26
@@ -16544,20 +16541,20 @@ if.then.i6:                                       ; preds = %if.else26
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit12
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit12: ; preds = %if.else26, %if.then.i6
-  %22 = phi i32 [ %.pre.i8, %if.then.i6 ], [ %20, %if.else26 ]
-  %23 = load ptr, ptr %tmpStorage_, align 8
-  %conv.i3.i9 = zext i32 %22 to i64
-  %add.ptr.i.i10 = getelementptr inbounds i8, ptr %23, i64 %conv.i3.i9
-  %24 = load i8, ptr %19, align 1
-  store i8 %24, ptr %add.ptr.i.i10, align 1
-  %25 = load i32, ptr %Size.i.i, align 8
-  %add.i11 = add i32 %25, 1
+  %21 = phi i32 [ %.pre.i8, %if.then.i6 ], [ %19, %if.else26 ]
+  %22 = load ptr, ptr %tmpStorage_, align 8
+  %conv.i3.i9 = zext i32 %21 to i64
+  %add.ptr.i.i10 = getelementptr inbounds i8, ptr %22, i64 %conv.i3.i9
+  %23 = load i8, ptr %18, align 1
+  store i8 %23, ptr %add.ptr.i.i10, align 1
+  %24 = load i32, ptr %Size.i.i, align 8
+  %add.i11 = add i32 %24, 1
   store i32 %add.i11, ptr %Size.i.i, align 8
   br label %if.end63
 
 land.rhs:                                         ; preds = %if.else
-  %26 = load ptr, ptr %bufferEnd_, align 8
-  %cmp35 = icmp eq ptr %6, %26
+  %25 = load ptr, ptr %bufferEnd_, align 8
+  %cmp35 = icmp eq ptr %6, %25
   br i1 %cmp35, label %if.then37, label %if.else55
 
 if.then37:                                        ; preds = %land.rhs
@@ -16566,17 +16563,17 @@ if.then37:                                        ; preds = %land.rhs
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.415, ptr %ref.tmp, align 8
   store i8 3, ptr %LHSKind.i, align 8
+  %26 = load ptr, ptr %this, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %26, i32 noundef 0, ptr nonnull %6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1) #21
   %27 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %27, i32 noundef 0, ptr nonnull %6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1) #21
-  %28 = load ptr, ptr %this, align 8
-  %errorLimitReached_.i.i = getelementptr inbounds i8, ptr %28, i64 316
-  %29 = load i8, ptr %errorLimitReached_.i.i, align 4
-  %tobool.i.i = trunc i8 %29 to i1
+  %errorLimitReached_.i.i = getelementptr inbounds i8, ptr %27, i64 316
+  %28 = load i8, ptr %errorLimitReached_.i.i, align 4
+  %tobool.i.i = trunc i8 %28 to i1
   br i1 %tobool.i.i, label %if.end.i, label %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit
 
 if.end.i:                                         ; preds = %if.then37
-  %30 = load ptr, ptr %bufferEnd_, align 8
-  store ptr %30, ptr %curCharPtr_, align 8
+  %29 = load ptr, ptr %bufferEnd_, align 8
+  store ptr %29, ptr %curCharPtr_, align 8
   br label %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit
 
 _ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit: ; preds = %if.then37, %if.end.i
@@ -16587,7 +16584,7 @@ _ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit: ; preds = %if.t
   store i8 1, ptr %RHSKind.i15, align 1
   store ptr @.str.416, ptr %ref.tmp46, align 8
   store i8 3, ptr %LHSKind.i14, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %28, i32 noundef 3, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp46, i32 noundef 0) #21
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %27, i32 noundef 3, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp46, i32 noundef 0) #21
   %.pre = load i32, ptr %Size.i.i, align 8
   br label %breakLoop
 
@@ -16616,13 +16613,13 @@ if.else.i.i22:                                    ; preds = %if.then52
 if.end.i.i29:                                     ; preds = %if.else.i.i22, %if.then52
   %add2.sink.i.i30 = phi i32 [ %add2.i.i28, %if.else.i.i22 ], [ %call.i, %if.then52 ]
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i19, i32 noundef %add2.sink.i.i30) #21
-  %31 = load ptr, ptr %d.i.i19, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i31 = ptrtoint ptr %31 to i64
+  %30 = load ptr, ptr %d.i.i19, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i31 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i31, %sub.ptr.rhs.cast.i.i.i.i.i32
-  %32 = load i32, ptr %Capacity.i.i.i.i, align 4
-  %conv.i.i.i.i35 = zext i32 %32 to i64
-  %33 = load i32, ptr %Size.i.i, align 8
-  %conv.i5.i.i.i37 = zext i32 %33 to i64
+  %31 = load i32, ptr %Capacity.i.i.i.i, align 4
+  %conv.i.i.i.i35 = zext i32 %31 to i64
+  %32 = load i32, ptr %Size.i.i, align 8
+  %conv.i5.i.i.i37 = zext i32 %32 to i64
   %sub.i.i.i38 = sub nsw i64 %conv.i.i.i.i35, %conv.i5.i.i.i37
   %cmp.i.i.i39 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i33, %sub.i.i.i38
   br i1 %cmp.i.i.i39, label %if.then.i.i.i48, label %if.end.i.i.i40
@@ -16634,22 +16631,22 @@ if.then.i.i.i48:                                  ; preds = %if.end.i.i29
   br label %if.end.i.i.i40
 
 if.end.i.i.i40:                                   ; preds = %if.then.i.i.i48, %if.end.i.i29
-  %.pre13.i.i.i41 = phi i32 [ %.pre13.pre.i.i.i51, %if.then.i.i.i48 ], [ %33, %if.end.i.i29 ]
-  %cmp.not.i.i.i.i42 = icmp eq ptr %buf.i.i18, %31
+  %.pre13.i.i.i41 = phi i32 [ %.pre13.pre.i.i.i51, %if.then.i.i.i48 ], [ %32, %if.end.i.i29 ]
+  %cmp.not.i.i.i.i42 = icmp eq ptr %buf.i.i18, %30
   br i1 %cmp.not.i.i.i.i42, label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52, label %if.then.i.i.i.i43
 
 if.then.i.i.i.i43:                                ; preds = %if.end.i.i.i40
-  %34 = load ptr, ptr %tmpStorage_, align 8
+  %33 = load ptr, ptr %tmpStorage_, align 8
   %conv.i9.i.i.i44 = zext i32 %.pre13.i.i.i41 to i64
-  %add.ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %34, i64 %conv.i9.i.i.i44
+  %add.ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %33, i64 %conv.i9.i.i.i44
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i45, ptr nonnull align 1 %buf.i.i18, i64 %sub.ptr.sub.i.i.i.i.i33, i1 false)
   %.pre.i.i.i46 = load i32, ptr %Size.i.i, align 8
   br label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52
 
 _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52: ; preds = %if.end.i.i.i40, %if.then.i.i.i.i43
-  %35 = phi i32 [ %.pre13.i.i.i41, %if.end.i.i.i40 ], [ %.pre.i.i.i46, %if.then.i.i.i.i43 ]
-  %36 = trunc i64 %sub.ptr.sub.i.i.i.i.i33 to i32
-  %conv.i12.i.i.i47 = add i32 %35, %36
+  %34 = phi i32 [ %.pre13.i.i.i41, %if.end.i.i.i40 ], [ %.pre.i.i.i46, %if.then.i.i.i.i43 ]
+  %35 = trunc i64 %sub.ptr.sub.i.i.i.i.i33 to i32
+  %conv.i12.i.i.i47 = add i32 %34, %35
   store i32 %conv.i12.i.i.i47, ptr %Size.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i19)
@@ -16658,8 +16655,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52: ; preds = %if.end.i.
 if.else55:                                        ; preds = %land.rhs, %if.else48
   %incdec.ptr58 = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr58, ptr %curCharPtr_, align 8
-  %37 = load i32, ptr %Capacity.i.i.i.i, align 4
-  %cmp.not.i55 = icmp ult i32 %4, %37
+  %36 = load i32, ptr %Capacity.i.i.i.i, align 4
+  %cmp.not.i55 = icmp ult i32 %4, %36
   br i1 %cmp.not.i55, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit63, label %if.then.i56
 
 if.then.i56:                                      ; preds = %if.else55
@@ -16668,30 +16665,30 @@ if.then.i56:                                      ; preds = %if.else55
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit63
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit63: ; preds = %if.else55, %if.then.i56
-  %38 = phi i32 [ %.pre.i58, %if.then.i56 ], [ %4, %if.else55 ]
-  %39 = load ptr, ptr %tmpStorage_, align 8
-  %conv.i3.i60 = zext i32 %38 to i64
-  %add.ptr.i.i61 = getelementptr inbounds i8, ptr %39, i64 %conv.i3.i60
-  %40 = load i8, ptr %6, align 1
-  store i8 %40, ptr %add.ptr.i.i61, align 1
-  %41 = load i32, ptr %Size.i.i, align 8
-  %add.i62 = add i32 %41, 1
+  %37 = phi i32 [ %.pre.i58, %if.then.i56 ], [ %4, %if.else55 ]
+  %38 = load ptr, ptr %tmpStorage_, align 8
+  %conv.i3.i60 = zext i32 %37 to i64
+  %add.ptr.i.i61 = getelementptr inbounds i8, ptr %38, i64 %conv.i3.i60
+  %39 = load i8, ptr %6, align 1
+  store i8 %39, ptr %add.ptr.i.i61, align 1
+  %40 = load i32, ptr %Size.i.i, align 8
+  %add.i62 = add i32 %40, 1
   store i32 %add.i62, ptr %Size.i.i, align 8
   br label %if.end63
 
 if.end63:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit63, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit12
-  %42 = phi i32 [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %add.i62, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit63 ], [ %conv.i12.i.i.i47, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52 ], [ %conv.i12.i.i.i, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit ], [ %add.i11, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit12 ]
-  %43 = load ptr, ptr %curCharPtr_, align 8
-  %44 = load i8, ptr %43, align 1
-  %cmp = icmp eq i8 %44, %1
+  %41 = phi i32 [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %add.i62, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit63 ], [ %conv.i12.i.i.i47, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52 ], [ %conv.i12.i.i.i, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit ], [ %add.i11, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit12 ]
+  %42 = load ptr, ptr %curCharPtr_, align 8
+  %43 = load i8, ptr %42, align 1
+  %cmp = icmp eq i8 %43, %1
   br i1 %cmp, label %if.then, label %if.else, !llvm.loop !1400
 
 breakLoop:                                        ; preds = %if.then, %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit
-  %45 = phi i32 [ %3, %if.then ], [ %.pre, %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit ]
+  %44 = phi i32 [ %3, %if.then ], [ %.pre, %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit ]
   %token_64 = getelementptr inbounds i8, ptr %this, i64 56
-  %46 = load ptr, ptr %tmpStorage_, align 8
-  %conv.i.i = zext i32 %45 to i64
-  %call68 = call noundef ptr @_ZN6hermes6parser7JSLexer16getStringLiteralEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr %46, i64 %conv.i.i)
+  %45 = load ptr, ptr %tmpStorage_, align 8
+  %conv.i.i = zext i32 %44 to i64
+  %call68 = call noundef ptr @_ZN6hermes6parser7JSLexer16getStringLiteralEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr %45, i64 %conv.i.i)
   store i32 112, ptr %token_64, align 8
   %stringLiteral_.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %call68, ptr %stringLiteral_.i, align 8

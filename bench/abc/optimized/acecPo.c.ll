@@ -1201,7 +1201,7 @@ define void @Acec_PrintSignature(ptr nocapture noundef readonly %0) local_unname
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   %15 = select i1 %14, ptr @.str.3, ptr @.str.4
-  %16 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
+  %16 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %13, i1 true)
   %17 = add nsw i32 %16, -1
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %15, i32 noundef %17)
   %.val2127 = load i32, ptr %8, align 4
@@ -1298,7 +1298,7 @@ define void @Gia_PolynPrintMono(ptr nocapture noundef readonly %0, ptr nocapture
   %4 = getelementptr i8, ptr %0, i64 8
   %.val19 = load ptr, ptr %4, align 8
   %5 = load i32, ptr %.val19, align 4
-  %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
+  %6 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %5, i1 true)
   %.not = icmp eq i32 %2, %6
   %7 = select i1 %.not, i32 32, i32 124
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %7)
@@ -1324,7 +1324,7 @@ define void @Gia_PolynPrintMono(ptr nocapture noundef readonly %0, ptr nocapture
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 0
   %17 = select i1 %16, ptr @.str.4, ptr @.str.3
-  %18 = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
+  %18 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %15, i1 true)
   %19 = add nsw i32 %18, -1
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef nonnull %17, i32 noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1377,7 +1377,7 @@ define void @Gia_PolynPrint(ptr nocapture noundef readonly %0) local_unnamed_add
   %12 = getelementptr i8, ptr %9, i64 8
   %.val15 = load ptr, ptr %12, align 8
   %13 = load i32, ptr %.val15, align 4
-  %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
+  %14 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %13, i1 true)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %2, align 4
   %15 = sdiv i32 %.val, 2
@@ -1413,7 +1413,7 @@ define void @Gia_PolynPrintStats(ptr nocapture noundef readonly %0) local_unname
   %10 = getelementptr %struct.Vec_Int_t_, ptr %.val49, i64 %9, i32 2
   %.val55 = load ptr, ptr %10, align 8
   %11 = load i32, ptr %.val55, align 4
-  %12 = tail call i32 @llvm.abs.i32(i32 %11, i1 true)
+  %12 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %11, i1 true)
   %13 = tail call noundef i32 @llvm.smax.i32(i32 %.069, i32 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1589,7 +1589,7 @@ define noalias noundef ptr @Gia_PolynGetResult(ptr nocapture noundef %0, ptr noc
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %29, ptr %12, align 8
   %30 = load i32, ptr %29, align 4
-  %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
+  %31 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %30, i1 true)
   %32 = tail call noundef i32 @llvm.smax.i32(i32 %.070145, i32 %31)
   %33 = add nsw i32 %.0146, 1
   %.val87.pre = load i32, ptr %4, align 4
@@ -1671,7 +1671,7 @@ Vec_WecStart.exit:                                ; preds = %.critedge, %.crited
   %75 = getelementptr inbounds i8, ptr %73, i64 8
   store ptr %75, ptr %53, align 8
   %76 = load i32, ptr %75, align 4
-  %77 = tail call i32 @llvm.abs.i32(i32 %76, i1 true)
+  %77 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %76, i1 true)
   %.val80 = load ptr, ptr %46, align 8
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val80, i64 %78
@@ -3906,7 +3906,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val69.i.i = phi i32 [ %.val.i.i, %tailrecurse.backedge.i.i ], [ %.val67.i.i, %134 ]
   %.tr4368.i.i = phi i32 [ %.tr43.be.i.i, %tailrecurse.backedge.i.i ], [ %138, %134 ]
   %.val34.i.i = load ptr, ptr %133, align 8
-  %140 = tail call i32 @llvm.abs.i32(i32 %.tr4368.i.i, i1 true)
+  %140 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %.tr4368.i.i, i1 true)
   %wide.trip.count.i.i = zext nneg i32 %.val69.i.i to i64
   br label %141
 
@@ -3951,7 +3951,7 @@ tailrecurse.backedge.i.i:                         ; preds = %Vec_IntDrop.exit42.
   br i1 %157, label %.lr.ph.i.i, label %.critedge.i.i
 
 158:                                              ; preds = %141
-  %159 = tail call i32 @llvm.abs.i32(i32 %143, i1 true)
+  %159 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %143, i1 true)
   %160 = icmp eq i32 %159, %140
   br i1 %160, label %161, label %172
 
@@ -5162,7 +5162,7 @@ Vec_IntGrow.exit26.i37.i:                         ; preds = %Vec_IntGrow.exit26t
   br i1 %371, label %.lr.ph.i39.i, label %Vec_IntPushOrderAbs.exit49.i
 
 .lr.ph.i39.i:                                     ; preds = %Vec_IntGrow.exit26.i37.i
-  %372 = call i32 @llvm.abs.i32(i32 %348, i1 true)
+  %372 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %348, i1 true)
   %373 = zext nneg i32 %369 to i64
   br label %374
 
@@ -5172,7 +5172,7 @@ Vec_IntGrow.exit26.i37.i:                         ; preds = %Vec_IntGrow.exit26t
   %375 = load ptr, ptr %346, align 8
   %376 = getelementptr inbounds i32, ptr %375, i64 %indvars.iv.next.i41.i
   %377 = load i32, ptr %376, align 4
-  %378 = call i32 @llvm.abs.i32(i32 %377, i1 true)
+  %378 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %377, i1 true)
   %379 = icmp ult i32 %378, %372
   br i1 %379, label %380, label %._crit_edge.loopexit.split.loop.exit.i42.i
 
@@ -5255,7 +5255,7 @@ Vec_IntGrow.exit26.i.i:                           ; preds = %Vec_IntGrow.exit26t
   br i1 %412, label %.lr.ph.i32.i, label %Vec_IntPushOrderAbs.exit.i
 
 .lr.ph.i32.i:                                     ; preds = %Vec_IntGrow.exit26.i.i
-  %413 = call i32 @llvm.abs.i32(i32 %388, i1 true)
+  %413 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %388, i1 true)
   %414 = zext nneg i32 %410 to i64
   br label %415
 
@@ -5265,7 +5265,7 @@ Vec_IntGrow.exit26.i.i:                           ; preds = %Vec_IntGrow.exit26t
   %416 = load ptr, ptr %346, align 8
   %417 = getelementptr inbounds i32, ptr %416, i64 %indvars.iv.next.i34.i
   %418 = load i32, ptr %417, align 4
-  %419 = call i32 @llvm.abs.i32(i32 %418, i1 true)
+  %419 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %418, i1 true)
   %420 = icmp ult i32 %419, %413
   br i1 %420, label %421, label %._crit_edge.loopexit.split.loop.exit.i.i334
 
@@ -6685,7 +6685,7 @@ Vec_IntPush.exit113:                              ; preds = %.Vec_IntGrow.exit10
   %208 = getelementptr i8, ptr %205, i64 8
   %.val15.i = load ptr, ptr %208, align 8
   %209 = load i32, ptr %.val15.i, align 4
-  %210 = tail call i32 @llvm.abs.i32(i32 %209, i1 true)
+  %210 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %209, i1 true)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
   br i1 %exitcond.not, label %Gia_PolynPrint.exit, label %203, !llvm.loop !21
@@ -7002,7 +7002,7 @@ Vec_IntGrow.exit26:                               ; preds = %Vec_IntGrow.exit26t
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_IntGrow.exit26
-  %33 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
+  %33 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %1, i1 true)
   %34 = zext nneg i32 %29 to i64
   br label %35
 
@@ -7012,7 +7012,7 @@ Vec_IntGrow.exit26:                               ; preds = %Vec_IntGrow.exit26t
   %36 = load ptr, ptr %31, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next
   %38 = load i32, ptr %37, align 4
-  %39 = tail call i32 @llvm.abs.i32(i32 %38, i1 true)
+  %39 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %38, i1 true)
   %40 = icmp ult i32 %39, %33
   br i1 %40, label %41, label %._crit_edge.loopexit.split.loop.exit
 

@@ -2365,12 +2365,12 @@ define dso_local range(i32 5, 4) i32 @FilePrefetch(i32 noundef %0, i64 noundef %
   br i1 %15, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %8, %4
-  %.0 = phi i32 [ %5, %4 ], [ %13, %8 ]
+  %.0 = phi i32 [ -1, %4 ], [ %13, %8 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @FileAccess(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @FileAccess(i32 noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @VfdCache, align 8
   %3 = sext i32 %0 to i64
   %4 = getelementptr %struct.vfd, ptr %2, i64 %3
@@ -2511,56 +2511,52 @@ define dso_local void @FileWriteback(i32 noundef %0, i64 noundef %1, i64 noundef
 define dso_local i64 @FileReadV(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %10
+  br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = sext i32 %6 to i64
-  br label %.loopexit
+  %9 = load ptr, ptr @VfdCache, align 8
+  %10 = sext i32 %0 to i64
+  %11 = getelementptr %struct.vfd, ptr %9, i64 %10
+  %12 = icmp eq i32 %2, 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %12, label %pg_preadv.exit.us, label %pg_preadv.exit
 
-10:                                               ; preds = %5
-  %11 = load ptr, ptr @VfdCache, align 8
-  %12 = sext i32 %0 to i64
-  %13 = getelementptr %struct.vfd, ptr %11, i64 %12
-  %14 = icmp eq i32 %2, 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %14, label %pg_preadv.exit.us, label %pg_preadv.exit
+pg_preadv.exit.us:                                ; preds = %8, %21
+  %14 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %14, align 4
+  %15 = load i32, ptr %11, align 8
+  %16 = load ptr, ptr %1, align 8
+  %17 = load i64, ptr %13, align 8
+  %18 = tail call i64 @pread(i32 noundef %15, ptr noundef %16, i64 noundef %17, i64 noundef %3) #25
+  %19 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %19, align 4
+  %20 = icmp slt i64 %18, 0
+  br i1 %20, label %21, label %.loopexit
 
-pg_preadv.exit.us:                                ; preds = %10, %23
-  %16 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %16, align 4
-  %17 = load i32, ptr %13, align 8
-  %18 = load ptr, ptr %1, align 8
-  %19 = load i64, ptr %15, align 8
-  %20 = tail call i64 @pread(i32 noundef %17, ptr noundef %18, i64 noundef %19, i64 noundef %3) #25
-  %21 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %21, align 4
-  %22 = icmp slt i64 %20, 0
-  br i1 %22, label %23, label %.loopexit
+21:                                               ; preds = %pg_preadv.exit.us
+  %22 = tail call ptr @__errno_location() #26
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %23, 4
+  br i1 %24, label %pg_preadv.exit.us, label %.loopexit
 
-23:                                               ; preds = %pg_preadv.exit.us
-  %24 = tail call ptr @__errno_location() #26
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 4
-  br i1 %26, label %pg_preadv.exit.us, label %.loopexit
+pg_preadv.exit:                                   ; preds = %8, %30
+  %25 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %25, align 4
+  %26 = load i32, ptr %11, align 8
+  %27 = tail call i64 @preadv(i32 noundef %26, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
+  %28 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %28, align 4
+  %29 = icmp slt i64 %27, 0
+  br i1 %29, label %30, label %.loopexit
 
-pg_preadv.exit:                                   ; preds = %10, %32
-  %27 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %27, align 4
-  %28 = load i32, ptr %13, align 8
-  %29 = tail call i64 @preadv(i32 noundef %28, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
-  %30 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %30, align 4
-  %31 = icmp slt i64 %29, 0
-  br i1 %31, label %32, label %.loopexit
+30:                                               ; preds = %pg_preadv.exit
+  %31 = tail call ptr @__errno_location() #26
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %32, 4
+  br i1 %33, label %pg_preadv.exit, label %.loopexit
 
-32:                                               ; preds = %pg_preadv.exit
-  %33 = tail call ptr @__errno_location() #26
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 4
-  br i1 %35, label %pg_preadv.exit, label %.loopexit
-
-.loopexit:                                        ; preds = %32, %pg_preadv.exit, %23, %pg_preadv.exit.us, %8
-  %.0 = phi i64 [ %9, %8 ], [ %20, %pg_preadv.exit.us ], [ %20, %23 ], [ %29, %pg_preadv.exit ], [ %29, %32 ]
+.loopexit:                                        ; preds = %30, %pg_preadv.exit, %21, %pg_preadv.exit.us, %5
+  %.0 = phi i64 [ -1, %5 ], [ %18, %pg_preadv.exit.us ], [ %18, %21 ], [ %27, %pg_preadv.exit ], [ %27, %30 ]
   ret i64 %.0
 }
 
@@ -2568,30 +2564,26 @@ pg_preadv.exit:                                   ; preds = %10, %32
 define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %10
+  br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = sext i32 %6 to i64
-  br label %.loopexit
+  %9 = load ptr, ptr @VfdCache, align 8
+  %10 = sext i32 %0 to i64
+  %11 = getelementptr %struct.vfd, ptr %9, i64 %10
+  %12 = load i32, ptr @temp_file_limit, align 4
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %37
 
-10:                                               ; preds = %5
-  %11 = load ptr, ptr @VfdCache, align 8
-  %12 = sext i32 %0 to i64
-  %13 = getelementptr %struct.vfd, ptr %11, i64 %12
-  %14 = load i32, ptr @temp_file_limit, align 4
-  %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %39
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %16 = load i16, ptr %15, align 4
+  %17 = and i16 %16, 4
+  %.not = icmp eq i16 %17, 0
+  br i1 %.not, label %37, label %.preheader
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %13, i64 4
-  %18 = load i16, ptr %17, align 4
-  %19 = and i16 %18, 4
-  %.not = icmp eq i16 %19, 0
-  br i1 %.not, label %39, label %.preheader
-
-.preheader:                                       ; preds = %16
-  %20 = icmp sgt i32 %2, 0
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
+.preheader:                                       ; preds = %14
+  %18 = icmp sgt i32 %2, 0
+  br i1 %18, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -2599,105 +2591,105 @@ define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03544 = phi i64 [ %3, %.lr.ph.preheader ], [ %23, %.lr.ph ]
-  %21 = getelementptr %struct.iovec, ptr %1, i64 %indvars.iv, i32 1
-  %22 = load i64, ptr %21, align 8
-  %23 = add i64 %22, %.03544
+  %.03544 = phi i64 [ %3, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+  %19 = getelementptr %struct.iovec, ptr %1, i64 %indvars.iv, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %20, %.03544
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.035.lcssa = phi i64 [ %3, %.preheader ], [ %23, %.lr.ph ]
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp sgt i64 %.035.lcssa, %25
-  br i1 %26, label %27, label %39
+  %.035.lcssa = phi i64 [ %3, %.preheader ], [ %21, %.lr.ph ]
+  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp sgt i64 %.035.lcssa, %23
+  br i1 %24, label %25, label %37
 
-27:                                               ; preds = %._crit_edge
-  %28 = load i64, ptr @temporary_files_size, align 8
-  %29 = sub i64 %.035.lcssa, %25
-  %30 = add i64 %29, %28
-  %31 = zext nneg i32 %14 to i64
-  %32 = shl nuw nsw i64 %31, 10
-  %33 = icmp ugt i64 %30, %32
-  br i1 %33, label %34, label %39
+25:                                               ; preds = %._crit_edge
+  %26 = load i64, ptr @temporary_files_size, align 8
+  %27 = sub i64 %.035.lcssa, %23
+  %28 = add i64 %27, %26
+  %29 = zext nneg i32 %12 to i64
+  %30 = shl nuw nsw i64 %29, 10
+  %31 = icmp ugt i64 %28, %30
+  br i1 %31, label %32, label %37
 
-34:                                               ; preds = %27
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 16581) #25
-  %37 = load i32, ptr @temp_file_limit, align 4
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %37) #25
+32:                                               ; preds = %25
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  tail call void @llvm.assume(i1 %33)
+  %34 = tail call i32 @errcode(i32 noundef 16581) #25
+  %35 = load i32, ptr @temp_file_limit, align 4
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %35) #25
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2235, ptr noundef nonnull @__func__.FileWriteV) #25
   unreachable
 
-39:                                               ; preds = %._crit_edge, %27, %16, %10
-  %40 = icmp eq i32 %2, 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %40, label %pg_pwritev.exit.us, label %pg_pwritev.exit
+37:                                               ; preds = %._crit_edge, %25, %14, %8
+  %38 = icmp eq i32 %2, 1
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %38, label %pg_pwritev.exit.us, label %pg_pwritev.exit
 
-pg_pwritev.exit.us:                               ; preds = %39, %49
-  %42 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %42, align 4
-  %43 = load i32, ptr %13, align 8
-  %44 = load ptr, ptr %1, align 8
-  %45 = load i64, ptr %41, align 8
-  %46 = tail call i64 @pwrite(i32 noundef %43, ptr noundef %44, i64 noundef %45, i64 noundef %3) #25
-  %47 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %47, align 4
-  %48 = icmp sgt i64 %46, -1
-  br i1 %48, label %.split47.us, label %49
+pg_pwritev.exit.us:                               ; preds = %37, %47
+  %40 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %40, align 4
+  %41 = load i32, ptr %11, align 8
+  %42 = load ptr, ptr %1, align 8
+  %43 = load i64, ptr %39, align 8
+  %44 = tail call i64 @pwrite(i32 noundef %41, ptr noundef %42, i64 noundef %43, i64 noundef %3) #25
+  %45 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %45, align 4
+  %46 = icmp sgt i64 %44, -1
+  br i1 %46, label %.split47.us, label %47
 
-49:                                               ; preds = %pg_pwritev.exit.us
-  %50 = tail call ptr @__errno_location() #26
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, 4
-  br i1 %52, label %pg_pwritev.exit.us, label %.loopexit
+47:                                               ; preds = %pg_pwritev.exit.us
+  %48 = tail call ptr @__errno_location() #26
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 4
+  br i1 %50, label %pg_pwritev.exit.us, label %.loopexit
 
-pg_pwritev.exit:                                  ; preds = %39, %71
-  %53 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %53, align 4
-  %54 = load i32, ptr %13, align 8
-  %55 = tail call i64 @pwritev(i32 noundef %54, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
-  %56 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %56, align 4
-  %57 = icmp sgt i64 %55, -1
-  br i1 %57, label %.split47.us, label %71
+pg_pwritev.exit:                                  ; preds = %37, %69
+  %51 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %51, align 4
+  %52 = load i32, ptr %11, align 8
+  %53 = tail call i64 @pwritev(i32 noundef %52, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
+  %54 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %54, align 4
+  %55 = icmp sgt i64 %53, -1
+  br i1 %55, label %.split47.us, label %69
 
 .split47.us:                                      ; preds = %pg_pwritev.exit, %pg_pwritev.exit.us
-  %.us-phi = phi i64 [ %46, %pg_pwritev.exit.us ], [ %55, %pg_pwritev.exit ]
-  %58 = tail call ptr @__errno_location() #26
-  store i32 28, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %13, i64 4
-  %60 = load i16, ptr %59, align 4
-  %61 = and i16 %60, 4
-  %.not41 = icmp eq i16 %61, 0
-  br i1 %.not41, label %.loopexit, label %62
+  %.us-phi = phi i64 [ %44, %pg_pwritev.exit.us ], [ %53, %pg_pwritev.exit ]
+  %56 = tail call ptr @__errno_location() #26
+  store i32 28, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %11, i64 4
+  %58 = load i16, ptr %57, align 4
+  %59 = and i16 %58, 4
+  %.not41 = icmp eq i16 %59, 0
+  br i1 %.not41, label %.loopexit, label %60
 
-62:                                               ; preds = %.split47.us
-  %63 = add i64 %.us-phi, %3
-  %64 = getelementptr inbounds i8, ptr %13, i64 32
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp sgt i64 %63, %65
-  br i1 %66, label %67, label %.loopexit
+60:                                               ; preds = %.split47.us
+  %61 = add i64 %.us-phi, %3
+  %62 = getelementptr inbounds i8, ptr %11, i64 32
+  %63 = load i64, ptr %62, align 8
+  %64 = icmp sgt i64 %61, %63
+  br i1 %64, label %65, label %.loopexit
 
-67:                                               ; preds = %62
-  %68 = sub i64 %63, %65
-  %69 = load i64, ptr @temporary_files_size, align 8
-  %70 = add i64 %68, %69
-  store i64 %70, ptr @temporary_files_size, align 8
-  store i64 %63, ptr %64, align 8
+65:                                               ; preds = %60
+  %66 = sub i64 %61, %63
+  %67 = load i64, ptr @temporary_files_size, align 8
+  %68 = add i64 %66, %67
+  store i64 %68, ptr @temporary_files_size, align 8
+  store i64 %61, ptr %62, align 8
   br label %.loopexit
 
-71:                                               ; preds = %pg_pwritev.exit
-  %72 = tail call ptr @__errno_location() #26
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 4
-  br i1 %74, label %pg_pwritev.exit, label %.loopexit
+69:                                               ; preds = %pg_pwritev.exit
+  %70 = tail call ptr @__errno_location() #26
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, 4
+  br i1 %72, label %pg_pwritev.exit, label %.loopexit
 
-.loopexit:                                        ; preds = %71, %49, %62, %67, %.split47.us, %8
-  %.0 = phi i64 [ %9, %8 ], [ %.us-phi, %.split47.us ], [ %.us-phi, %67 ], [ %.us-phi, %62 ], [ %46, %49 ], [ %55, %71 ]
+.loopexit:                                        ; preds = %69, %47, %5, %60, %65, %.split47.us
+  %.0 = phi i64 [ %.us-phi, %.split47.us ], [ %.us-phi, %65 ], [ %.us-phi, %60 ], [ -1, %5 ], [ %44, %47 ], [ %53, %69 ]
   ret i64 %.0
 }
 
@@ -2736,12 +2728,12 @@ pg_fsync.exit:                                    ; preds = %.preheader.i.i, %15
   br label %20
 
 20:                                               ; preds = %2, %pg_fsync.exit
-  %.0 = phi i32 [ %.0.i.i, %pg_fsync.exit ], [ %3, %2 ]
+  %.0 = phi i32 [ %.0.i.i, %pg_fsync.exit ], [ -1, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @FileZero(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @FileZero(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %22, label %7
@@ -2774,14 +2766,14 @@ define dso_local range(i32 -2147483648, 1) i32 @FileZero(i32 noundef %0, i64 nou
   br label %22
 
 22:                                               ; preds = %16, %17, %21, %7, %4
-  %.0 = phi i32 [ %5, %4 ], [ -1, %7 ], [ -1, %21 ], [ -1, %17 ], [ 0, %16 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ -1, %21 ], [ -1, %17 ], [ 0, %16 ]
   ret i32 %.0
 }
 
 declare i64 @pg_pwrite_zeros(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @FileFallocate(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @FileFallocate(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %FileZero.exit, label %.preheader
@@ -2843,7 +2835,7 @@ define dso_local range(i32 -2147483648, 1) i32 @FileFallocate(i32 noundef %0, i6
   br label %FileZero.exit
 
 FileZero.exit:                                    ; preds = %8, %32, %29, %28, %20, %17, %15, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %15 ], [ %18, %17 ], [ -1, %20 ], [ -1, %32 ], [ -1, %29 ], [ 0, %28 ], [ %13, %8 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %15 ], [ -1, %17 ], [ -1, %20 ], [ -1, %32 ], [ -1, %29 ], [ 0, %28 ], [ %13, %8 ]
   ret i32 %.0
 }
 
@@ -2935,7 +2927,7 @@ pg_ftruncate.exit:                                ; preds = %12
   br label %30
 
 30:                                               ; preds = %pg_ftruncate.exit.thread, %pg_ftruncate.exit, %22, %27, %3
-  %.0 = phi i32 [ %4, %3 ], [ 0, %27 ], [ 0, %22 ], [ %13, %pg_ftruncate.exit ], [ -1, %pg_ftruncate.exit.thread ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %27 ], [ 0, %22 ], [ %13, %pg_ftruncate.exit ], [ -1, %pg_ftruncate.exit.thread ]
   ret i32 %.0
 }
 

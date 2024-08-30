@@ -5180,7 +5180,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal7Minisat6Solver7analyzeEjRNS1_3vecINS1_3LitEEERi(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %confl, ptr nocapture noundef nonnull align 8 dereferenceable(16) %out_learnt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_btlevel) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN4cvc58internal7Minisat6Solver7analyzeEjRNS1_3vecINS1_3LitEEERi(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %confl, ptr nocapture noundef nonnull align 8 dereferenceable(16) %out_learnt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_btlevel) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %ref.tmp395 = alloca %"class.cvc5::internal::FatalStream", align 1
   %sz.i = getelementptr inbounds i8, ptr %out_learnt, i64 8
@@ -8819,7 +8819,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i8 @_ZN4cvc58internal7Minisat6Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %nof_conflicts) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i8 0, 3) i8 @_ZN4cvc58internal7Minisat6Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %nof_conflicts) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp121.i466 = alloca %"class.cvc5::internal::prop::SatLiteral", align 8
   %ref.tmp121.i52 = alloca %"class.cvc5::internal::prop::SatLiteral", align 8
@@ -10023,7 +10023,7 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit26: ; preds = %lor.lhs.false.i.i15
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i8 @_ZN4cvc58internal7Minisat6Solver6solve_Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i8 0, 3) i8 @_ZN4cvc58internal7Minisat6Solver6solve_Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %minisat_busy = getelementptr inbounds i8, ptr %this, i64 97
   %0 = load i8, ptr %minisat_busy, align 1
@@ -10119,14 +10119,8 @@ if.end26:                                         ; preds = %if.then17, %invoke.
   %propagations.i = getelementptr inbounds i8, ptr %this, i64 280
   br label %while.body
 
-while.cond:                                       ; preds = %land.rhs.i
-  %inc50 = add nuw nsw i32 %curr_restarts.0184, 1
-  %and53.i = and i8 %call44, 2
-  %tobool16.i.not = icmp eq i8 %and53.i, 0
-  br i1 %tobool16.i.not, label %while.end, label %while.body, !llvm.loop !59
-
-while.body:                                       ; preds = %if.end26, %while.cond
-  %curr_restarts.0184 = phi i32 [ 0, %if.end26 ], [ %inc50, %while.cond ]
+while.body:                                       ; preds = %land.rhs.i, %if.end26
+  %curr_restarts.0184 = phi i32 [ 0, %if.end26 ], [ %inc50, %land.rhs.i ]
   %9 = load i8, ptr %luby_restart, align 8
   %tobool30 = trunc i8 %9 to i1
   %10 = load double, ptr %restart_inc35, align 8
@@ -10149,7 +10143,7 @@ for.inc.i:                                        ; preds = %cond.true31, %for.i
   %mul.i = shl nsw i32 %size.010.i, 1
   %add1.i = or disjoint i32 %mul.i, 1
   %cmp.not.not.i = icmp slt i32 %mul.i, %curr_restarts.0184
-  br i1 %cmp.not.not.i, label %for.inc.i, label %while.cond.preheader.i, !llvm.loop !60
+  br i1 %cmp.not.not.i, label %for.inc.i, label %while.cond.preheader.i, !llvm.loop !59
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %sub17.i = phi i32 [ %sub.i, %while.body.i ], [ %size.0.lcssa.i, %while.cond.preheader.i ]
@@ -10160,7 +10154,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %rem.i = srem i32 %x.addr.015.i, %shr.i
   %sub.i = add nsw i32 %shr.i, -1
   %cmp2.not.i = icmp eq i32 %sub.i, %rem.i
-  br i1 %cmp2.not.i, label %_ZN4cvc58internal7MinisatL4lubyEdi.exit, label %while.body.i, !llvm.loop !61
+  br i1 %cmp2.not.i, label %_ZN4cvc58internal7MinisatL4lubyEdi.exit, label %while.body.i, !llvm.loop !60
 
 _ZN4cvc58internal7MinisatL4lubyEdi.exit:          ; preds = %while.body.i, %while.cond.preheader.i
   %seq.1.lcssa.i = phi i32 [ %seq.0.lcssa.i, %while.cond.preheader.i ], [ %dec.i, %while.body.i ]
@@ -10201,13 +10195,16 @@ land.lhs.true.i:                                  ; preds = %.noexc
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %16 = load i64, ptr %propagation_budget.i, align 8
-  %cmp4.i53 = icmp slt i64 %16, 0
+  %cmp4.i53 = icmp sgt i64 %16, -1
   %17 = load i64, ptr %propagations.i, align 8
-  %cmp6.i = icmp slt i64 %17, %16
-  %or.cond = select i1 %cmp4.i53, i1 true, i1 %cmp6.i
-  br i1 %or.cond, label %while.cond, label %while.end
+  %cmp6.i = icmp sge i64 %17, %16
+  %or.cond.not190 = select i1 %cmp4.i53, i1 %cmp6.i, i1 false
+  %inc50 = add nuw nsw i32 %curr_restarts.0184, 1
+  %tobool16.i.not = icmp ult i8 %call44, 2
+  %or.cond189 = select i1 %or.cond.not190, i1 true, i1 %tobool16.i.not
+  br i1 %or.cond189, label %while.end, label %while.body, !llvm.loop !61
 
-while.end:                                        ; preds = %land.rhs.i, %land.lhs.true.i, %.noexc, %while.cond
+while.end:                                        ; preds = %land.rhs.i, %land.lhs.true.i, %.noexc
   %18 = load ptr, ptr %d_proxy.i, align 8
   invoke void @_ZN4cvc58internal4prop11TheoryProxy13spendResourceENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(521) %18, i32 noundef 14)
           to label %.noexc69 unwind label %lpad.loopexit.split-lp
@@ -10292,7 +10289,7 @@ if.then115:                                       ; preds = %land.lhs.true
   br label %cleanup
 
 cleanup:                                          ; preds = %cond.true86, %invoke.cont73.preheader, %if.end62, %if.then115, %land.lhs.true, %if.then
-  %retval.sroa.0.0 = phi i8 [ 1, %if.then115 ], [ 1, %land.lhs.true ], [ 1, %if.then ], [ %retval.sroa.0.3, %if.end62 ], [ 0, %invoke.cont73.preheader ], [ 0, %cond.true86 ]
+  %retval.sroa.0.0 = phi i8 [ 1, %if.then115 ], [ 1, %land.lhs.true ], [ 1, %if.then ], [ 2, %if.end62 ], [ 0, %invoke.cont73.preheader ], [ 0, %cond.true86 ]
   store i8 %frombool2.i, ptr %minisat_busy, align 1
   ret i8 %retval.sroa.0.0
 }

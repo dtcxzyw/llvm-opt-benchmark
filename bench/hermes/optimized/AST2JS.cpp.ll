@@ -3746,8 +3746,7 @@ if.end79:                                         ; preds = %if.end76
   br i1 %cmp81, label %return, label %if.end83
 
 if.end83:                                         ; preds = %if.end79
-  %48 = and i64 %call66, 4294967296
-  %tobool84.not = icmp eq i64 %48, 0
+  %tobool84.not = icmp ult i64 %call66, 4294967296
   br i1 %tobool84.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end83
@@ -3769,7 +3768,7 @@ return:                                           ; preds = %if.then49.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly %node) unnamed_addr #7 align 2 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly %node) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
@@ -3888,13 +3887,13 @@ return.fold.split49:                              ; preds = %entry
 return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %return.fold.split49, %land.lhs.true50, %lor.lhs.false36, %return.fold.split46, %return.fold.split45, %return.fold.split44, %return.fold.split43, %return.fold.split42, %return.fold.split41, %return.fold.split38, %return.fold.split37, %return.fold.split36, %return.fold.split35, %return.fold.split, %land.lhs.true, %if.end91, %if.then69, %if.then62
   %retval.sroa.0.0 = phi i32 [ 0, %if.end91 ], [ %call73, %if.then69 ], [ %call64, %if.then62 ], [ 32, %entry ], [ 31, %land.lhs.true ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 31, %return.fold.split ], [ 31, %return.fold.split35 ], [ 31, %return.fold.split36 ], [ %spec.select, %lor.lhs.false36 ], [ 29, %return.fold.split37 ], [ 29, %return.fold.split38 ], [ %spec.select39, %land.lhs.true50 ], [ 27, %return.fold.split41 ], [ 4, %return.fold.split42 ], [ 4, %return.fold.split43 ], [ 3, %return.fold.split44 ], [ 3, %return.fold.split45 ], [ 1, %return.fold.split46 ], [ 5, %return.fold.split49 ]
   %retval.sroa.15.0 = phi i64 [ 0, %if.end91 ], [ 0, %if.then69 ], [ 0, %if.then62 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %return.fold.split ], [ 0, %return.fold.split35 ], [ 0, %return.fold.split36 ], [ 0, %lor.lhs.false36 ], [ 0, %return.fold.split37 ], [ 0, %return.fold.split38 ], [ %4, %land.lhs.true50 ], [ 4294967296, %return.fold.split41 ], [ 4294967296, %return.fold.split42 ], [ 4294967296, %return.fold.split43 ], [ 0, %return.fold.split44 ], [ 0, %return.fold.split45 ], [ 4294967296, %return.fold.split46 ], [ 4294967296, %return.fold.split49 ]
-  %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
+  %retval.sroa.0.0.insert.ext = zext nneg i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.15.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_119getBinaryPrecedenceEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 19) i32 @_ZN6hermes12_GLOBAL__N_119getBinaryPrecedenceEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) unnamed_addr #8 {
 land.lhs.true.i877:
   switch i64 %op.coerce1, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit [
     i64 2, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i891

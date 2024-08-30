@@ -447,7 +447,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5Tget_class = private unnamed_addr constant [13 x i8] c"H5Tget_class\00", align 1
 @__func__.H5Tdetect_class = private unnamed_addr constant [16 x i8] c"H5Tdetect_class\00", align 1
 @.str.247 = private unnamed_addr constant [21 x i8] c"not a datatype class\00", align 1
-@.str.248 = private unnamed_addr constant [25 x i8] c"can't get datatype class\00", align 1
 @__func__.H5Tis_variable_str = private unnamed_addr constant [19 x i8] c"H5Tis_variable_str\00", align 1
 @H5E_UNSUPPORTED_g = external local_unnamed_addr global i64, align 8
 @__func__.H5Tget_size = private unnamed_addr constant [12 x i8] c"H5Tget_size\00", align 1
@@ -7481,7 +7480,7 @@ define i32 @H5T_get_class(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Tdetect_class(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5Tdetect_class(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1
@@ -7525,7 +7524,7 @@ define range(i32 -1, -2147483648) i32 @H5Tdetect_class(i64 noundef %0, i32 nound
 
 30:                                               ; preds = %22
   %or.cond = icmp ult i32 %1, 11
-  br i1 %or.cond, label %35, label %31
+  br i1 %or.cond, label %36, label %31
 
 31:                                               ; preds = %30
   %32 = load i64, ptr @H5E_ARGS_g, align 8
@@ -7533,36 +7532,26 @@ define range(i32 -1, -2147483648) i32 @H5Tdetect_class(i64 noundef %0, i32 nound
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Tdetect_class, i32 noundef 2289, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.247) #17
   br label %.thread32
 
-35:                                               ; preds = %30
-  %36 = tail call i32 @H5T_detect_class(ptr noundef nonnull %24, i32 noundef %1, i1 noundef zeroext true)
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %43
-
-38:                                               ; preds = %35
-  %39 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %40 = load i64, ptr @H5E_CANTGET_g, align 8
-  %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Tdetect_class, i32 noundef 2293, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.248) #17
-  br label %.thread32
-
-.thread32:                                        ; preds = %31, %38, %26
-  %42 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #17
+.thread32:                                        ; preds = %31, %26
+  %35 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #17
   br label %.thread26
 
-43:                                               ; preds = %35
-  %44 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #17
-  br label %46
+36:                                               ; preds = %30
+  %37 = tail call i32 @H5T_detect_class(ptr noundef nonnull %24, i32 noundef %1, i1 noundef zeroext true)
+  %38 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #17
+  br label %40
 
 .thread26:                                        ; preds = %18, %11, %.thread32
-  %45 = tail call i32 @H5E_dump_api_stack() #17
-  br label %46
+  %39 = tail call i32 @H5E_dump_api_stack() #17
+  br label %40
 
-46:                                               ; preds = %43, %.thread26
-  %.0142129 = phi i32 [ -1, %.thread26 ], [ %36, %43 ]
+40:                                               ; preds = %36, %.thread26
+  %.0142129 = phi i32 [ -1, %.thread26 ], [ %37, %36 ]
   ret i32 %.0142129
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @H5T_detect_class(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @H5T_detect_class(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 {
   br i1 %2, label %tailrecurse.us, label %.split
 
 tailrecurse.us:                                   ; preds = %3, %16
@@ -7670,7 +7659,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %.lr.ph, %.
   br i1 %50, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %15, %13, %43, %32, %41, %.split, %.preheader, %.split42.us
-  %.031 = phi i32 [ %25, %.split42.us ], [ 0, %.preheader ], [ 1, %.split ], [ 0, %43 ], [ 1, %32 ], [ %42, %41 ], [ 1, %13 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 1, %tailrecurse ]
+  %.031 = phi i32 [ %25, %.split42.us ], [ 0, %.preheader ], [ 1, %.split ], [ 0, %43 ], [ 1, %32 ], [ 1, %41 ], [ 1, %13 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 1, %tailrecurse ]
   ret i32 %.031
 }
 
@@ -9736,7 +9725,7 @@ define ptr @H5T_path_find(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Tcompiler_conv(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5Tcompiler_conv(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5T_conv_func_t, align 8
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1

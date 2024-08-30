@@ -57,14 +57,14 @@ define dso_local ptr @__d_path(ptr nocapture noundef readonly %0, ptr nocapture 
   store i64 0, ptr %14, align 8, !annotation !6
   store i32 %.sink, ptr %13, align 8
   %15 = call fastcc i32 @prepend_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5)
-  %16 = icmp sgt i32 %15, 0
-  %17 = load i32, ptr %13, align 8
-  %18 = icmp sgt i32 %17, -1
-  %19 = load ptr, ptr %5, align 8
-  %20 = select i1 %18, ptr %19, ptr inttoptr (i64 -36 to ptr)
-  %21 = select i1 %16, ptr null, ptr %20, !prof !7
+  %.not = icmp eq i32 %15, 0
+  %16 = load i32, ptr %13, align 8
+  %17 = icmp sgt i32 %16, -1
+  %18 = load ptr, ptr %5, align 8
+  %19 = select i1 %17, ptr %18, ptr inttoptr (i64 -36 to ptr)
+  %20 = select i1 %.not, ptr %19, ptr null, !prof !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
-  ret ptr %21
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -74,7 +74,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 12
@@ -94,15 +94,15 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
   br i1 %14, label %.loopexit30, label %.preheader29
 
 .preheader29:                                     ; preds = %11, %.preheader29
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %15 = load volatile i32, ptr @mount_lock, align 4
   %16 = and i32 %15, 1
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.loopexit30, label %.preheader29, !llvm.loop !9
+  br i1 %17, label %.loopexit30, label %.preheader29, !llvm.loop !8
 
 .loopexit30:                                      ; preds = %.preheader29, %11
   %18 = phi i32 [ %12, %11 ], [ %15, %.preheader29 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   br label %20
 
 19:                                               ; preds = %8
@@ -129,15 +129,15 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
   br i1 %31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %28, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %32 = load volatile i32, ptr @rename_lock, align 4
   %33 = and i32 %32, 1
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %28
   %35 = phi i32 [ %29, %28 ], [ %32, %.preheader ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   br label %37
 
 36:                                               ; preds = %22
@@ -178,7 +178,7 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
   %60 = getelementptr inbounds i8, ptr %45, i64 16
   %61 = load volatile ptr, ptr %60, align 8
   %62 = icmp eq ptr %45, %61
-  br i1 %62, label %66, label %63, !prof !7
+  br i1 %62, label %66, label %63, !prof !12
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %45, i64 24
@@ -204,7 +204,7 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
 
 77:                                               ; preds = %53
   %78 = icmp eq ptr %46, %55
-  br i1 %78, label %.thread20, label %79, !prof !7
+  br i1 %78, label %.thread20, label %79, !prof !12
 
 79:                                               ; preds = %77
   tail call void @llvm.prefetch.p0(ptr %55, i32 0, i32 3, i32 1)
@@ -303,7 +303,7 @@ define internal fastcc noundef i32 @prepend_path(ptr nocapture noundef readonly 
 
 .thread24:                                        ; preds = %126, %128
   %.pre = load i32, ptr %4, align 8
-  br i1 %117, label %.thread, label %131, !prof !7
+  br i1 %117, label %.thread, label %131, !prof !12
 
 .thread:                                          ; preds = %.thread24
   %129 = load ptr, ptr %2, align 8
@@ -366,12 +366,12 @@ define dso_local ptr @d_absolute_path(ptr nocapture noundef readonly %0, ptr nou
   store i64 0, ptr %14, align 8, !annotation !6
   store i32 %.sink, ptr %13, align 8
   %15 = call fastcc i32 @prepend_path(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %16 = icmp sgt i32 %15, 1
+  %16 = icmp ugt i32 %15, 1
   %17 = load i32, ptr %13, align 8
   %18 = icmp sgt i32 %17, -1
   %19 = load ptr, ptr %5, align 8
   %20 = select i1 %18, ptr %19, ptr inttoptr (i64 -36 to ptr)
-  %21 = select i1 %16, ptr inttoptr (i64 -22 to ptr), ptr %20, !prof !7
+  %21 = select i1 %16, ptr inttoptr (i64 -22 to ptr), ptr %20, !prof !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   ret ptr %21
@@ -436,7 +436,7 @@ define dso_local ptr @d_path(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br i1 %39, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %36, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %40 = load volatile i32, ptr %34, align 4
   %41 = and i32 %40, 1
   %42 = icmp eq i32 %41, 0
@@ -726,15 +726,15 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr nocapture noundef 
   br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %14 = load volatile i32, ptr @rename_lock, align 4
   %15 = and i32 %14, 1
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %10
   %17 = phi i32 [ %11, %10 ], [ %14, %.preheader ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   br label %19
 
 18:                                               ; preds = %5
@@ -923,7 +923,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getcwd(i
   %7 = load ptr, ptr @names_cachep, align 8
   %8 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %7, i32 noundef 3264) #9
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %64, label %10
+  br i1 %9, label %63, label %10
 
 10:                                               ; preds = %2
   tail call void @__rcu_read_lock() #9
@@ -943,7 +943,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getcwd(i
   br i1 %21, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %18, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %22 = load volatile i32, ptr %15, align 4
   %23 = and i32 %22, 1
   %24 = icmp eq i32 %23, 0
@@ -975,7 +975,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getcwd(i
 
 38:                                               ; preds = %34
   tail call void @__rcu_read_unlock() #9
-  br label %61
+  br label %60
 
 39:                                               ; preds = %34, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
@@ -987,49 +987,49 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getcwd(i
   store ptr %42, ptr %5, align 8
   store i8 0, ptr %42, align 1
   %43 = call fastcc i32 @prepend_path(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %46, !prof !7
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %45, label %44, !prof !5
 
-45:                                               ; preds = %39
+44:                                               ; preds = %39
   call fastcc void @prepend(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef 13)
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %39
+45:                                               ; preds = %44, %39
   tail call void @__rcu_read_unlock() #9
-  %47 = load i32, ptr %41, align 8
-  %48 = sub i32 4096, %47
-  %49 = icmp ugt i32 %47, 4096
-  br i1 %49, label %59, label %50, !prof !7
+  %46 = load i32, ptr %41, align 8
+  %47 = sub i32 4096, %46
+  %48 = icmp ugt i32 %46, 4096
+  br i1 %48, label %58, label %49, !prof !12
 
-50:                                               ; preds = %46
-  %51 = zext nneg i32 %48 to i64
-  %52 = icmp ult i64 %1, %51
-  br i1 %52, label %59, label %53, !prof !7
+49:                                               ; preds = %45
+  %50 = zext nneg i32 %47 to i64
+  %51 = icmp ult i64 %1, %50
+  br i1 %51, label %58, label %52, !prof !12
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %5, align 8
-  %55 = tail call i64 @_copy_to_user(ptr noundef %6, ptr noundef %54, i64 noundef %51) #9
-  %56 = icmp eq i64 %55, 0
-  %57 = sext i32 %48 to i64
-  %58 = select i1 %56, i64 %57, i64 -14
-  br label %59
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %5, align 8
+  %54 = tail call i64 @_copy_to_user(ptr noundef %6, ptr noundef %53, i64 noundef %50) #9
+  %55 = icmp eq i64 %54, 0
+  %56 = sext i32 %47 to i64
+  %57 = select i1 %55, i64 %56, i64 -14
+  br label %58
 
-59:                                               ; preds = %53, %50, %46
-  %60 = phi i64 [ -36, %46 ], [ -34, %50 ], [ %58, %53 ]
+58:                                               ; preds = %52, %49, %45
+  %59 = phi i64 [ -36, %45 ], [ -34, %49 ], [ %57, %52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
-  br label %61
+  br label %60
 
-61:                                               ; preds = %59, %38
-  %62 = phi i64 [ -2, %38 ], [ %60, %59 ]
-  %63 = load ptr, ptr @names_cachep, align 8
-  tail call void @kmem_cache_free(ptr noundef %63, ptr noundef nonnull %8) #9
-  br label %64
+60:                                               ; preds = %58, %38
+  %61 = phi i64 [ -2, %38 ], [ %59, %58 ]
+  %62 = load ptr, ptr @names_cachep, align 8
+  tail call void @kmem_cache_free(ptr noundef %62, ptr noundef nonnull %8) #9
+  br label %63
 
-64:                                               ; preds = %61, %2
-  %65 = phi i64 [ %62, %61 ], [ -12, %2 ]
+63:                                               ; preds = %60, %2
+  %64 = phi i64 [ %61, %60 ], [ -12, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  ret i64 %65
+  ret i64 %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1098,21 +1098,21 @@ attributes #10 = { nounwind memory(none) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 2000, i32 1}
 !6 = !{!"auto-init"}
-!7 = !{!"branch_weights", i32 1, i32 2000}
-!8 = !{i64 2197076}
-!9 = distinct !{!9, !10, !11}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2150445723}
-!13 = distinct !{!13, !10, !11}
+!7 = !{i64 2197076}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = !{i64 2150445723}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = distinct !{!13, !9, !10}
 !14 = !{i64 2155668390}
 !15 = !{i64 2150433820}
 !16 = !{i64 2148193946}
-!17 = distinct !{!17, !10, !11}
+!17 = distinct !{!17, !9, !10}
 !18 = !{i64 2155684762}
-!19 = distinct !{!19, !10, !11}
+!19 = distinct !{!19, !9, !10}
 !20 = !{!"branch_weights", i32 -2147483648, i32 0}
 !21 = !{!"branch_weights", i32 2146410445, i32 1073203}
-!22 = distinct !{!22, !10, !11}
+!22 = distinct !{!22, !9, !10}
 !23 = !{i64 2155695161}
-!24 = distinct !{!24, !10, !11}
+!24 = distinct !{!24, !9, !10}

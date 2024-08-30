@@ -9742,15 +9742,14 @@ if.end54:                                         ; preds = %invoke.cont38
 
 invoke.cont56:                                    ; preds = %if.end54
   %day.sroa.0.0.extract.trunc = trunc i64 %call57 to i32
-  %21 = and i64 %call57, 4294967296
-  %tobool.i.i94.not186 = icmp eq i64 %21, 0
+  %tobool.i.i94.not186 = icmp ult i64 %call57, 4294967296
   %cmp63 = icmp eq i32 %day.sroa.0.0.extract.trunc, 0
   %or.cond184 = or i1 %tobool.i.i94.not186, %cmp63
   br i1 %or.cond184, label %if.then64, label %if.end72
 
 if.then64:                                        ; preds = %invoke.cont56
-  %22 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i95 = icmp eq i64 %22, 0
+  %21 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i95 = icmp eq i64 %21, 0
   br i1 %cmp.i.i.i.i95, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end72:                                         ; preds = %invoke.cont56
@@ -9758,13 +9757,12 @@ if.end72:                                         ; preds = %invoke.cont56
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %if.end72
-  %23 = and i64 %call75, 4294967296
-  %tobool.i.i104.not = icmp eq i64 %23, 0
+  %tobool.i.i104.not = icmp ult i64 %call75, 4294967296
   br i1 %tobool.i.i104.not, label %if.then79, label %if.end87
 
 if.then79:                                        ; preds = %invoke.cont74
-  %24 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i105 = icmp eq i64 %24, 0
+  %22 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i105 = icmp eq i64 %22, 0
   br i1 %cmp.i.i.i.i105, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end87:                                         ; preds = %invoke.cont74
@@ -9772,13 +9770,12 @@ if.end87:                                         ; preds = %invoke.cont74
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %if.end87
-  %25 = and i64 %call90, 4294967296
-  %tobool.i.i114.not = icmp eq i64 %25, 0
+  %tobool.i.i114.not = icmp ult i64 %call90, 4294967296
   br i1 %tobool.i.i114.not, label %if.then94, label %if.end102
 
 if.then94:                                        ; preds = %invoke.cont89
-  %26 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i115 = icmp eq i64 %26, 0
+  %23 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i115 = icmp eq i64 %23, 0
   br i1 %cmp.i.i.i.i115, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end102:                                        ; preds = %invoke.cont89
@@ -9786,13 +9783,12 @@ if.end102:                                        ; preds = %invoke.cont89
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %if.end102
-  %27 = and i64 %call105, 4294967296
-  %tobool.i.i124.not = icmp eq i64 %27, 0
+  %tobool.i.i124.not = icmp ult i64 %call105, 4294967296
   br i1 %tobool.i.i124.not, label %if.then109, label %if.end117
 
 if.then109:                                       ; preds = %invoke.cont104
-  %28 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i125 = icmp eq i64 %28, 0
+  %24 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i125 = icmp eq i64 %24, 0
   br i1 %cmp.i.i.i.i125, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end117:                                        ; preds = %invoke.cont104
@@ -9818,10 +9814,10 @@ if.end117:                                        ; preds = %invoke.cont104
   %sub137 = add i32 %add136, %day.sroa.0.0.extract.trunc
   %conv = sext i32 %sub137 to i64
   %mul138 = mul nsw i64 %conv, 86400
-  %mul140 = mul i64 %call75, 3600
+  %mul140 = mul nuw nsw i64 %call75, 3600
   %conv141 = and i64 %mul140, 4294967280
   %add142 = add nsw i64 %conv141, %mul138
-  %mul144 = mul i64 %call90, 60
+  %mul144 = mul nuw nsw i64 %call90, 60
   %conv145 = and i64 %mul144, 4294967292
   %add146 = add nsw i64 %add142, %conv145
   %conv148 = and i64 %call105, 4294967295
@@ -9831,29 +9827,28 @@ if.end117:                                        ; preds = %invoke.cont104
 
 invoke.cont150:                                   ; preds = %if.end117
   %nanos.sroa.0.0.extract.trunc = trunc i64 %call151 to i32
-  %29 = and i64 %call151, 4294967296
-  %tobool.i.i132.not = icmp eq i64 %29, 0
+  %tobool.i.i132.not = icmp ult i64 %call151, 4294967296
   br i1 %tobool.i.i132.not, label %if.then155, label %if.end163
 
 if.then155:                                       ; preds = %invoke.cont150
-  %30 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i133 = icmp eq i64 %30, 0
+  %25 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i133 = icmp eq i64 %25, 0
   br i1 %cmp.i.i.i.i133, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end163:                                        ; preds = %invoke.cont150
-  %31 = load i64, ptr %data, align 8
-  %cmp.i139 = icmp eq i64 %31, 0
+  %26 = load i64, ptr %data, align 8
+  %cmp.i139 = icmp eq i64 %26, 0
   br i1 %cmp.i139, label %if.then165, label %if.end173
 
 if.then165:                                       ; preds = %if.end163
-  %32 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i140 = icmp eq i64 %32, 0
+  %27 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i140 = icmp eq i64 %27, 0
   br i1 %cmp.i.i.i.i140, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end173:                                        ; preds = %if.end163
-  %33 = load ptr, ptr %13, align 8
-  %34 = load i8, ptr %33, align 1
-  switch i8 %34, label %sw.default [
+  %28 = load ptr, ptr %13, align 8
+  %29 = load i8, ptr %28, align 1
+  switch i8 %29, label %sw.default [
     i8 45, label %sw.bb
     i8 43, label %sw.bb176
     i8 90, label %sw.bb222
@@ -9864,16 +9859,16 @@ sw.bb:                                            ; preds = %if.end173
 
 sw.bb176:                                         ; preds = %sw.bb, %if.end173
   %neg.0 = phi i1 [ false, %if.end173 ], [ true, %sw.bb ]
-  %cmp178.not = icmp eq i64 %31, 6
+  %cmp178.not = icmp eq i64 %26, 6
   br i1 %cmp178.not, label %invoke.cont188, label %if.then179
 
 if.then179:                                       ; preds = %sw.bb176
-  %35 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i147 = icmp eq i64 %35, 0
+  %30 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i147 = icmp eq i64 %30, 0
   br i1 %cmp.i.i.i.i147, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 invoke.cont188:                                   ; preds = %sw.bb176
-  %add.ptr.i = getelementptr inbounds i8, ptr %33, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %28, i64 1
   store i64 5, ptr %data, align 8
   store ptr %add.ptr.i, ptr %13, align 8
   %call193 = invoke fastcc i64 @_ZN6google8protobuf13json_internal12_GLOBAL__N_134TakeTimeDigitsWithSuffixAndAdvanceERSt17basic_string_viewIcSt11char_traitsIcEEiS6_(ptr noundef nonnull align 8 dereferenceable(16) %data, i32 noundef 2, i64 1, ptr nonnull @.str.28)
@@ -9884,22 +9879,20 @@ invoke.cont192:                                   ; preds = %invoke.cont188
           to label %invoke.cont197 unwind label %lpad
 
 invoke.cont197:                                   ; preds = %invoke.cont192
-  %36 = and i64 %call193, 4294967296
-  %tobool.i.i163.not = icmp eq i64 %36, 0
-  %37 = and i64 %call198, 4294967296
-  %tobool.i.i165.not = icmp eq i64 %37, 0
+  %tobool.i.i163.not = icmp ult i64 %call193, 4294967296
+  %tobool.i.i165.not = icmp ult i64 %call198, 4294967296
   %or.cond187 = select i1 %tobool.i.i163.not, i1 true, i1 %tobool.i.i165.not
   br i1 %or.cond187, label %if.then204, label %if.end212
 
 if.then204:                                       ; preds = %invoke.cont197
-  %38 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i166 = icmp eq i64 %38, 0
+  %31 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i166 = icmp eq i64 %31, 0
   br i1 %cmp.i.i.i.i166, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end212:                                        ; preds = %invoke.cont197
-  %mul214 = mul i64 %call193, 60
-  %add216 = add i64 %call198, %mul214
-  %mul217 = mul i64 %add216, 60
+  %mul214 = mul nuw nsw i64 %call193, 60
+  %add216 = add nuw nsw i64 %call198, %mul214
+  %mul217 = mul nuw nsw i64 %add216, 60
   %conv218 = and i64 %mul217, 4294967292
   %sub219 = sub nsw i64 0, %conv218
   %cond220 = select i1 %neg.0, i64 %conv218, i64 %sub219
@@ -9907,12 +9900,12 @@ if.end212:                                        ; preds = %invoke.cont197
   br label %sw.epilog
 
 sw.bb222:                                         ; preds = %if.end173
-  %cmp224 = icmp eq i64 %31, 1
+  %cmp224 = icmp eq i64 %26, 1
   br i1 %cmp224, label %sw.epilog, label %sw.default
 
 sw.default:                                       ; preds = %sw.bb222, %if.end173
-  %39 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i172 = icmp eq i64 %39, 0
+  %32 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i172 = icmp eq i64 %32, 0
   br i1 %cmp.i.i.i.i172, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.then.i.i173.invoke:                            ; preds = %sw.default, %if.then204, %if.then179, %if.then165, %if.then155, %if.then109, %if.then94, %if.then79, %if.then64, %if.then46, %if.then28, %if.then13, %_ZN4absl12lts_202308026StatusD2Ev.exit
@@ -9923,10 +9916,10 @@ if.then.i.i173.cont:                              ; preds = %if.then.i.i173.invo
   unreachable
 
 invoke.cont227.invoke:                            ; preds = %sw.default, %if.then204, %if.then179, %if.then165, %if.then155, %if.then109, %if.then94, %if.then79, %if.then64, %if.then46, %if.then28, %if.then13
-  %40 = phi i64 [ 26, %if.then13 ], [ 21, %if.then28 ], [ 22, %if.then46 ], [ 20, %if.then64 ], [ 22, %if.then79 ], [ 24, %if.then94 ], [ 24, %if.then109 ], [ 29, %if.then155 ], [ 33, %if.then165 ], [ 31, %if.then179 ], [ 42, %if.then204 ], [ 19, %sw.default ]
-  %41 = phi ptr [ @.str.70, %if.then13 ], [ @.str.72, %if.then28 ], [ @.str.73, %if.then46 ], [ @.str.75, %if.then64 ], [ @.str.76, %if.then79 ], [ @.str.77, %if.then94 ], [ @.str.78, %if.then109 ], [ @.str.79, %if.then155 ], [ @.str.80, %if.then165 ], [ @.str.81, %if.then179 ], [ @.str.82, %if.then204 ], [ @.str.83, %sw.default ]
+  %33 = phi i64 [ 26, %if.then13 ], [ 21, %if.then28 ], [ 22, %if.then46 ], [ 20, %if.then64 ], [ 22, %if.then79 ], [ 24, %if.then94 ], [ 24, %if.then109 ], [ 29, %if.then155 ], [ 33, %if.then165 ], [ 31, %if.then179 ], [ 42, %if.then204 ], [ 19, %sw.default ]
+  %34 = phi ptr [ @.str.70, %if.then13 ], [ @.str.72, %if.then28 ], [ @.str.73, %if.then46 ], [ @.str.75, %if.then64 ], [ @.str.76, %if.then79 ], [ @.str.77, %if.then94 ], [ @.str.78, %if.then109 ], [ @.str.79, %if.then155 ], [ @.str.80, %if.then165 ], [ @.str.81, %if.then179 ], [ @.str.82, %if.then204 ], [ @.str.83, %sw.default ]
   %loc = getelementptr inbounds i8, ptr %str, i64 56
-  invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 %40, ptr nonnull %41)
+  invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 %33, ptr nonnull %34)
           to label %cleanup246 unwind label %lpad
 
 sw.epilog:                                        ; preds = %sw.bb222, %if.end212
@@ -9951,19 +9944,19 @@ invoke.cont244:                                   ; preds = %invoke.cont241
   br label %cleanup246
 
 cleanup246:                                       ; preds = %invoke.cont227.invoke, %invoke.cont244, %cleanup
-  %42 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i178 = icmp eq i64 %42, 0
+  %35 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i178 = icmp eq i64 %35, 0
   br i1 %cmp.i.i.i.i178, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup246
-  %43 = getelementptr inbounds i8, ptr %str, i64 8
+  %36 = getelementptr inbounds i8, ptr %str, i64 8
   %token_.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 48
-  %44 = load ptr, ptr %token_.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %44, null
+  %37 = load ptr, ptr %token_.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr noundef nonnull align 8 dereferenceable(80) %44)
+  invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr noundef nonnull align 8 dereferenceable(80) %37)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
@@ -9971,36 +9964,36 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
-  %45 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #25
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #25
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 40
-  %47 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %47, 0
+  %40 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %40, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %return
 
 sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #23
   br label %return
 
 if.else.i.i:                                      ; preds = %cleanup246
-  %and.i.i.i1.i.i = and i64 %42, 1
+  %and.i.i.i1.i.i = and i64 %35, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
   br i1 %cmp.i.i.i2.i.i, label %return, label %if.then.i.i3.i.i
 
 if.then.i.i3.i.i:                                 ; preds = %if.else.i.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %42)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %35)
           to label %return unwind label %terminate.lpad.i4.i.i
 
 terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
-  %48 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #25
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #25
   unreachable
 
 return:                                           ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i3.i.i, %if.else.i.i, %if.then
@@ -20402,7 +20395,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noun
 declare noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZN6google8protobuf13json_internal12_GLOBAL__N_134TakeTimeDigitsWithSuffixAndAdvanceERSt17basic_string_viewIcSt11char_traitsIcEEiS6_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %data, i32 noundef %max_digits, i64 %end.coerce0, ptr nocapture readonly %end.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZN6google8protobuf13json_internal12_GLOBAL__N_134TakeTimeDigitsWithSuffixAndAdvanceERSt17basic_string_viewIcSt11char_traitsIcEEiS6_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %data, i32 noundef %max_digits, i64 %end.coerce0, ptr nocapture readonly %end.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %.pr = load i64, ptr %data, align 8
   %cmp.i26 = icmp eq i64 %.pr, 0
@@ -20477,7 +20470,7 @@ return:                                           ; preds = %while.body3, %lor.r
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZN6google8protobuf13json_internal12_GLOBAL__N_119TakeNanosAndAdvanceERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZN6google8protobuf13json_internal12_GLOBAL__N_119TakeNanosAndAdvanceERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i = alloca i32, align 4
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %data, align 8
@@ -23898,15 +23891,14 @@ if.end54:                                         ; preds = %invoke.cont38
 
 invoke.cont56:                                    ; preds = %if.end54
   %day.sroa.0.0.extract.trunc = trunc i64 %call57 to i32
-  %21 = and i64 %call57, 4294967296
-  %tobool.i.i94.not188 = icmp eq i64 %21, 0
+  %tobool.i.i94.not188 = icmp ult i64 %call57, 4294967296
   %cmp63 = icmp eq i32 %day.sroa.0.0.extract.trunc, 0
   %or.cond186 = or i1 %tobool.i.i94.not188, %cmp63
   br i1 %or.cond186, label %if.then64, label %if.end72
 
 if.then64:                                        ; preds = %invoke.cont56
-  %22 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i95 = icmp eq i64 %22, 0
+  %21 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i95 = icmp eq i64 %21, 0
   br i1 %cmp.i.i.i.i95, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end72:                                         ; preds = %invoke.cont56
@@ -23914,13 +23906,12 @@ if.end72:                                         ; preds = %invoke.cont56
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %if.end72
-  %23 = and i64 %call75, 4294967296
-  %tobool.i.i104.not = icmp eq i64 %23, 0
+  %tobool.i.i104.not = icmp ult i64 %call75, 4294967296
   br i1 %tobool.i.i104.not, label %if.then79, label %if.end87
 
 if.then79:                                        ; preds = %invoke.cont74
-  %24 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i105 = icmp eq i64 %24, 0
+  %22 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i105 = icmp eq i64 %22, 0
   br i1 %cmp.i.i.i.i105, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end87:                                         ; preds = %invoke.cont74
@@ -23928,13 +23919,12 @@ if.end87:                                         ; preds = %invoke.cont74
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %if.end87
-  %25 = and i64 %call90, 4294967296
-  %tobool.i.i114.not = icmp eq i64 %25, 0
+  %tobool.i.i114.not = icmp ult i64 %call90, 4294967296
   br i1 %tobool.i.i114.not, label %if.then94, label %if.end102
 
 if.then94:                                        ; preds = %invoke.cont89
-  %26 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i115 = icmp eq i64 %26, 0
+  %23 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i115 = icmp eq i64 %23, 0
   br i1 %cmp.i.i.i.i115, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end102:                                        ; preds = %invoke.cont89
@@ -23942,13 +23932,12 @@ if.end102:                                        ; preds = %invoke.cont89
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %if.end102
-  %27 = and i64 %call105, 4294967296
-  %tobool.i.i124.not = icmp eq i64 %27, 0
+  %tobool.i.i124.not = icmp ult i64 %call105, 4294967296
   br i1 %tobool.i.i124.not, label %if.then109, label %if.end117
 
 if.then109:                                       ; preds = %invoke.cont104
-  %28 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i125 = icmp eq i64 %28, 0
+  %24 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i125 = icmp eq i64 %24, 0
   br i1 %cmp.i.i.i.i125, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end117:                                        ; preds = %invoke.cont104
@@ -23974,10 +23963,10 @@ if.end117:                                        ; preds = %invoke.cont104
   %sub137 = add i32 %add136, %day.sroa.0.0.extract.trunc
   %conv = sext i32 %sub137 to i64
   %mul138 = mul nsw i64 %conv, 86400
-  %mul140 = mul i64 %call75, 3600
+  %mul140 = mul nuw nsw i64 %call75, 3600
   %conv141 = and i64 %mul140, 4294967280
   %add142 = add nsw i64 %conv141, %mul138
-  %mul144 = mul i64 %call90, 60
+  %mul144 = mul nuw nsw i64 %call90, 60
   %conv145 = and i64 %mul144, 4294967292
   %add146 = add nsw i64 %add142, %conv145
   %conv148 = and i64 %call105, 4294967295
@@ -23987,29 +23976,28 @@ if.end117:                                        ; preds = %invoke.cont104
 
 invoke.cont150:                                   ; preds = %if.end117
   %nanos.sroa.0.0.extract.trunc = trunc i64 %call151 to i32
-  %29 = and i64 %call151, 4294967296
-  %tobool.i.i132.not = icmp eq i64 %29, 0
+  %tobool.i.i132.not = icmp ult i64 %call151, 4294967296
   br i1 %tobool.i.i132.not, label %if.then155, label %if.end163
 
 if.then155:                                       ; preds = %invoke.cont150
-  %30 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i133 = icmp eq i64 %30, 0
+  %25 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i133 = icmp eq i64 %25, 0
   br i1 %cmp.i.i.i.i133, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end163:                                        ; preds = %invoke.cont150
-  %31 = load i64, ptr %data, align 8
-  %cmp.i139 = icmp eq i64 %31, 0
+  %26 = load i64, ptr %data, align 8
+  %cmp.i139 = icmp eq i64 %26, 0
   br i1 %cmp.i139, label %if.then165, label %if.end173
 
 if.then165:                                       ; preds = %if.end163
-  %32 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i140 = icmp eq i64 %32, 0
+  %27 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i140 = icmp eq i64 %27, 0
   br i1 %cmp.i.i.i.i140, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end173:                                        ; preds = %if.end163
-  %33 = load ptr, ptr %13, align 8
-  %34 = load i8, ptr %33, align 1
-  switch i8 %34, label %sw.default [
+  %28 = load ptr, ptr %13, align 8
+  %29 = load i8, ptr %28, align 1
+  switch i8 %29, label %sw.default [
     i8 45, label %sw.bb
     i8 43, label %sw.bb176
     i8 90, label %sw.bb222
@@ -24020,16 +24008,16 @@ sw.bb:                                            ; preds = %if.end173
 
 sw.bb176:                                         ; preds = %sw.bb, %if.end173
   %neg.0 = phi i1 [ false, %if.end173 ], [ true, %sw.bb ]
-  %cmp178.not = icmp eq i64 %31, 6
+  %cmp178.not = icmp eq i64 %26, 6
   br i1 %cmp178.not, label %invoke.cont188, label %if.then179
 
 if.then179:                                       ; preds = %sw.bb176
-  %35 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i147 = icmp eq i64 %35, 0
+  %30 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i147 = icmp eq i64 %30, 0
   br i1 %cmp.i.i.i.i147, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 invoke.cont188:                                   ; preds = %sw.bb176
-  %add.ptr.i = getelementptr inbounds i8, ptr %33, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %28, i64 1
   store i64 5, ptr %data, align 8
   store ptr %add.ptr.i, ptr %13, align 8
   %call193 = invoke fastcc i64 @_ZN6google8protobuf13json_internal12_GLOBAL__N_134TakeTimeDigitsWithSuffixAndAdvanceERSt17basic_string_viewIcSt11char_traitsIcEEiS6_(ptr noundef nonnull align 8 dereferenceable(16) %data, i32 noundef 2, i64 1, ptr nonnull @.str.28)
@@ -24040,22 +24028,20 @@ invoke.cont192:                                   ; preds = %invoke.cont188
           to label %invoke.cont197 unwind label %lpad
 
 invoke.cont197:                                   ; preds = %invoke.cont192
-  %36 = and i64 %call193, 4294967296
-  %tobool.i.i163.not = icmp eq i64 %36, 0
-  %37 = and i64 %call198, 4294967296
-  %tobool.i.i165.not = icmp eq i64 %37, 0
+  %tobool.i.i163.not = icmp ult i64 %call193, 4294967296
+  %tobool.i.i165.not = icmp ult i64 %call198, 4294967296
   %or.cond189 = select i1 %tobool.i.i163.not, i1 true, i1 %tobool.i.i165.not
   br i1 %or.cond189, label %if.then204, label %if.end212
 
 if.then204:                                       ; preds = %invoke.cont197
-  %38 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i166 = icmp eq i64 %38, 0
+  %31 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i166 = icmp eq i64 %31, 0
   br i1 %cmp.i.i.i.i166, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.end212:                                        ; preds = %invoke.cont197
-  %mul214 = mul i64 %call193, 60
-  %add216 = add i64 %call198, %mul214
-  %mul217 = mul i64 %add216, 60
+  %mul214 = mul nuw nsw i64 %call193, 60
+  %add216 = add nuw nsw i64 %call198, %mul214
+  %mul217 = mul nuw nsw i64 %add216, 60
   %conv218 = and i64 %mul217, 4294967292
   %sub219 = sub nsw i64 0, %conv218
   %cond220 = select i1 %neg.0, i64 %conv218, i64 %sub219
@@ -24063,12 +24049,12 @@ if.end212:                                        ; preds = %invoke.cont197
   br label %sw.epilog
 
 sw.bb222:                                         ; preds = %if.end173
-  %cmp224 = icmp eq i64 %31, 1
+  %cmp224 = icmp eq i64 %26, 1
   br i1 %cmp224, label %sw.epilog, label %sw.default
 
 sw.default:                                       ; preds = %sw.bb222, %if.end173
-  %39 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i172 = icmp eq i64 %39, 0
+  %32 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i172 = icmp eq i64 %32, 0
   br i1 %cmp.i.i.i.i172, label %invoke.cont227.invoke, label %if.then.i.i173.invoke
 
 if.then.i.i173.invoke:                            ; preds = %sw.default, %if.then204, %if.then179, %if.then165, %if.then155, %if.then109, %if.then94, %if.then79, %if.then64, %if.then46, %if.then28, %if.then13, %_ZN4absl12lts_202308026StatusD2Ev.exit
@@ -24079,10 +24065,10 @@ if.then.i.i173.cont:                              ; preds = %if.then.i.i173.invo
   unreachable
 
 invoke.cont227.invoke:                            ; preds = %sw.default, %if.then204, %if.then179, %if.then165, %if.then155, %if.then109, %if.then94, %if.then79, %if.then64, %if.then46, %if.then28, %if.then13
-  %40 = phi i64 [ 26, %if.then13 ], [ 21, %if.then28 ], [ 22, %if.then46 ], [ 20, %if.then64 ], [ 22, %if.then79 ], [ 24, %if.then94 ], [ 24, %if.then109 ], [ 29, %if.then155 ], [ 33, %if.then165 ], [ 31, %if.then179 ], [ 42, %if.then204 ], [ 19, %sw.default ]
-  %41 = phi ptr [ @.str.70, %if.then13 ], [ @.str.72, %if.then28 ], [ @.str.73, %if.then46 ], [ @.str.75, %if.then64 ], [ @.str.76, %if.then79 ], [ @.str.77, %if.then94 ], [ @.str.78, %if.then109 ], [ @.str.79, %if.then155 ], [ @.str.80, %if.then165 ], [ @.str.81, %if.then179 ], [ @.str.82, %if.then204 ], [ @.str.83, %sw.default ]
+  %33 = phi i64 [ 26, %if.then13 ], [ 21, %if.then28 ], [ 22, %if.then46 ], [ 20, %if.then64 ], [ 22, %if.then79 ], [ 24, %if.then94 ], [ 24, %if.then109 ], [ 29, %if.then155 ], [ 33, %if.then165 ], [ 31, %if.then179 ], [ 42, %if.then204 ], [ 19, %sw.default ]
+  %34 = phi ptr [ @.str.70, %if.then13 ], [ @.str.72, %if.then28 ], [ @.str.73, %if.then46 ], [ @.str.75, %if.then64 ], [ @.str.76, %if.then79 ], [ @.str.77, %if.then94 ], [ @.str.78, %if.then109 ], [ @.str.79, %if.then155 ], [ @.str.80, %if.then165 ], [ @.str.81, %if.then179 ], [ @.str.82, %if.then204 ], [ @.str.83, %sw.default ]
   %loc = getelementptr inbounds i8, ptr %str, i64 56
-  invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 %40, ptr nonnull %41)
+  invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 %33, ptr nonnull %34)
           to label %cleanup246 unwind label %lpad
 
 sw.epilog:                                        ; preds = %sw.bb222, %if.end212
@@ -24107,19 +24093,19 @@ invoke.cont244:                                   ; preds = %invoke.cont241
   br label %cleanup246
 
 cleanup246:                                       ; preds = %invoke.cont227.invoke, %invoke.cont244, %cleanup
-  %42 = load i64, ptr %str, align 8
-  %cmp.i.i.i.i180 = icmp eq i64 %42, 0
+  %35 = load i64, ptr %str, align 8
+  %cmp.i.i.i.i180 = icmp eq i64 %35, 0
   br i1 %cmp.i.i.i.i180, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup246
-  %43 = getelementptr inbounds i8, ptr %str, i64 8
+  %36 = getelementptr inbounds i8, ptr %str, i64 8
   %token_.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 48
-  %44 = load ptr, ptr %token_.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %44, null
+  %37 = load ptr, ptr %token_.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr noundef nonnull align 8 dereferenceable(80) %44)
+  invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr noundef nonnull align 8 dereferenceable(80) %37)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
@@ -24127,36 +24113,36 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
-  %45 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #25
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #25
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 40
-  %47 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %47, 0
+  %40 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %40, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %return
 
 sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #23
   br label %return
 
 if.else.i.i:                                      ; preds = %cleanup246
-  %and.i.i.i1.i.i = and i64 %42, 1
+  %and.i.i.i1.i.i = and i64 %35, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
   br i1 %cmp.i.i.i2.i.i, label %return, label %if.then.i.i3.i.i
 
 if.then.i.i3.i.i:                                 ; preds = %if.else.i.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %42)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %35)
           to label %return unwind label %terminate.lpad.i4.i.i
 
 terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
-  %48 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #25
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #25
   unreachable
 
 return:                                           ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i3.i.i, %if.else.i.i, %if.then

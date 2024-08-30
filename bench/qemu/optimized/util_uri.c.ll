@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @rfc3986_parse_uri_reference(ptr noundef %uri, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef %uri, ptr noundef %str) unnamed_addr #0 {
 entry:
   %cur.i29.i = alloca ptr, align 8
   %cur.i.i9 = alloca ptr, align 8
@@ -680,13 +680,12 @@ rfc3986_parse_relative_ref.exit:                  ; preds = %if.end213.i
   br label %return
 
 if.then5:                                         ; preds = %if.then217.i, %if.then.i, %rfc3986_parse_path_ab_empty.exit.i, %if.then17.i, %rfc3986_parse_path_no_scheme.exit.thread.i
-  %retval.0.i11.ph = phi i32 [ 1, %rfc3986_parse_path_no_scheme.exit.thread.i ], [ 1, %if.then17.i ], [ 1, %rfc3986_parse_path_ab_empty.exit.i ], [ %call.i, %if.then.i ], [ 1, %if.then217.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.addr.i10)
   tail call fastcc void @uri_clean(ptr noundef %uri)
   br label %return
 
 return:                                           ; preds = %rfc3986_parse_relative_ref.exit, %rfc3986_parse.exit, %entry, %if.then5
-  %retval.0 = phi i32 [ %retval.0.i11.ph, %if.then5 ], [ -1, %entry ], [ 0, %rfc3986_parse_relative_ref.exit ], [ 0, %rfc3986_parse.exit ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ -1, %entry ], [ 0, %rfc3986_parse_relative_ref.exit ], [ 0, %rfc3986_parse.exit ]
   ret i32 %retval.0
 }
 
@@ -699,7 +698,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uri_parse_into(ptr noundef %uri, ptr noundef %str) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @uri_parse_into(ptr noundef %uri, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @rfc3986_parse_uri_reference(ptr noundef %uri, ptr noundef %str)
   ret i32 %call
@@ -724,7 +723,7 @@ if.then1:                                         ; preds = %if.end
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %call.i5 = tail call fastcc noundef i32 @rfc3986_parse_uri_reference(ptr noundef %call.i, ptr noundef nonnull %str)
+  %call.i5 = tail call fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef %call.i, ptr noundef nonnull %str)
   %tobool4.not = icmp eq i32 %call.i5, 0
   br i1 %tobool4.not, label %return, label %if.then5
 
@@ -2044,7 +2043,7 @@ if.else:                                          ; preds = %entry
 
 if.end4:                                          ; preds = %if.else
   %call.i = tail call noalias noundef dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #13
-  %call.i126 = tail call fastcc noundef i32 @rfc3986_parse_uri_reference(ptr noundef %call.i, ptr noundef nonnull %uri)
+  %call.i126 = tail call fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef %call.i, ptr noundef nonnull %uri)
   %cmp5.not = icmp eq i32 %call.i126, 0
   br i1 %cmp5.not, label %if.end7, label %done
 
@@ -2069,7 +2068,7 @@ if.end12:                                         ; preds = %if.else, %land.lhs.
 
 if.end18:                                         ; preds = %if.end12
   %call.i127 = tail call noalias noundef dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #13
-  %call.i128 = tail call fastcc noundef i32 @rfc3986_parse_uri_reference(ptr noundef %call.i127, ptr noundef nonnull %base)
+  %call.i128 = tail call fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef %call.i127, ptr noundef nonnull %base)
   %cmp19.not = icmp eq i32 %call.i128, 0
   br i1 %cmp19.not, label %if.end25, label %if.then20
 
@@ -2750,7 +2749,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %call.i139 = tail call fastcc noundef i32 @rfc3986_parse_uri_reference(ptr noundef %call.i, ptr noundef nonnull %uri)
+  %call.i139 = tail call fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef %call.i, ptr noundef nonnull %uri)
   %cmp8.not = icmp eq i32 %call.i139, 0
   br i1 %cmp8.not, label %if.end13, label %if.end339
 
@@ -2780,7 +2779,7 @@ if.end22:                                         ; preds = %lor.lhs.false16
   br i1 %cmp26.not, label %if.else34, label %if.then28
 
 if.then28:                                        ; preds = %if.end22
-  %call.i141 = tail call fastcc noundef i32 @rfc3986_parse_uri_reference(ptr noundef %call.i140, ptr noundef nonnull %base)
+  %call.i141 = tail call fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef %call.i140, ptr noundef nonnull %base)
   %cmp30.not = icmp eq i32 %call.i141, 0
   br i1 %cmp30.not, label %if.end37, label %if.end339
 
@@ -3757,7 +3756,7 @@ if.end222:                                        ; preds = %lor.lhs.false21.us,
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @rfc3986_parse_authority(ptr noundef %uri, ptr nocapture noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_authority(ptr noundef %uri, ptr nocapture noundef %str) unnamed_addr #0 {
 entry:
   %cur.i = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8

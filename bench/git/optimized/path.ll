@@ -3887,7 +3887,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @trie_find(ptr nocapture noundef readonly %root, ptr nocapture noundef readonly %key) unnamed_addr #19 {
+define internal fastcc range(i32 -1, 2) i32 @trie_find(ptr nocapture noundef readonly %root, ptr nocapture noundef readonly %key) unnamed_addr #19 {
 entry:
   %0 = load i8, ptr %key, align 1
   %tobool.not = icmp eq i8 %0, 0
@@ -4013,7 +4013,6 @@ if.end51:                                         ; preds = %while.end
   br i1 %cmp52, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end, %if.end51
-  %result.03 = phi i32 [ %call49, %if.end51 ], [ -1, %while.end ]
   %cond = icmp eq i8 %12, 47
   br i1 %cond, label %if.end62, label %return
 
@@ -4034,7 +4033,7 @@ if.then65:                                        ; preds = %if.end62
   br label %return
 
 return:                                           ; preds = %if.end15, %lor.lhs.false, %if.end62, %if.end51, %if.then27, %if.then, %land.lhs.true, %if.then65, %if.then30, %if.then3
-  %retval.0 = phi i32 [ %retval.0.i64, %if.then65 ], [ %retval.0.i50, %if.then30 ], [ %retval.0.i, %if.then3 ], [ -1, %land.lhs.true ], [ -1, %if.then ], [ -1, %if.then27 ], [ %result.03, %lor.lhs.false ], [ %call49, %if.end51 ], [ -1, %if.end62 ], [ -1, %if.end15 ]
+  %retval.0 = phi i32 [ %retval.0.i64, %if.then65 ], [ %retval.0.i50, %if.then30 ], [ %retval.0.i, %if.then3 ], [ -1, %land.lhs.true ], [ -1, %if.then ], [ -1, %if.then27 ], [ -1, %lor.lhs.false ], [ %call49, %if.end51 ], [ -1, %if.end62 ], [ -1, %if.end15 ]
   ret i32 %retval.0
 }
 

@@ -352,112 +352,36 @@ if.end27:                                         ; preds = %if.end24
   %cmp6165.not = icmp eq i32 %15, 0
   br i1 %cmp6165.not, label %cleanup, label %for.body
 
-for.body:                                         ; preds = %if.end27, %for.inc
-  %i.066 = phi i32 [ %inc, %for.inc ], [ 0, %if.end27 ]
-  %call63 = call fastcc i32 @virtio_snd_set_pcm_params(ptr noundef nonnull %call, i32 noundef %i.066, ptr noundef nonnull %default_params)
-  switch i32 %call63, label %sw.default.i [
-    i32 32768, label %if.end69
-    i32 1, label %print_code.exit.loopexit
-    i32 2, label %print_code.exit.loopexit67
-    i32 256, label %print_code.exit.loopexit69
-    i32 257, label %print_code.exit.loopexit71
-    i32 258, label %print_code.exit.loopexit73
-    i32 259, label %print_code.exit
-    i32 260, label %sw.bb6.i
-    i32 261, label %sw.bb7.i
-    i32 512, label %sw.bb8.i
-  ]
-
-sw.bb6.i:                                         ; preds = %for.body
-  br label %print_code.exit
-
-sw.bb7.i:                                         ; preds = %for.body
-  br label %print_code.exit
-
-sw.bb8.i:                                         ; preds = %for.body
-  br label %print_code.exit
-
-sw.default.i:                                     ; preds = %for.body
-  br label %print_code.exit
-
-print_code.exit.loopexit:                         ; preds = %for.body
-  br label %print_code.exit
-
-print_code.exit.loopexit67:                       ; preds = %for.body
-  br label %print_code.exit
-
-print_code.exit.loopexit69:                       ; preds = %for.body
-  br label %print_code.exit
-
-print_code.exit.loopexit71:                       ; preds = %for.body
-  br label %print_code.exit
-
-print_code.exit.loopexit73:                       ; preds = %for.body
-  br label %print_code.exit
-
-print_code.exit:                                  ; preds = %for.body, %print_code.exit.loopexit73, %print_code.exit.loopexit71, %print_code.exit.loopexit69, %print_code.exit.loopexit67, %print_code.exit.loopexit, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.default.i
-  %retval.0.i = phi ptr [ @.str.68, %sw.default.i ], [ @.str.67, %sw.bb8.i ], [ @.str.38, %sw.bb7.i ], [ @.str.37, %sw.bb6.i ], [ @.str.61, %print_code.exit.loopexit ], [ @.str.62, %print_code.exit.loopexit67 ], [ @.str.63, %print_code.exit.loopexit69 ], [ @.str.64, %print_code.exit.loopexit71 ], [ @.str.65, %print_code.exit.loopexit73 ], [ @.str.66, %for.body ]
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.10, i32 noundef 1133, ptr noundef nonnull @__func__.virtio_snd_realize, ptr noundef nonnull @.str.15, ptr noundef nonnull %retval.0.i) #11
-  br label %error_cleanup
-
-if.end69:                                         ; preds = %for.body
-  %call70 = call fastcc i32 @virtio_snd_pcm_prepare(ptr noundef nonnull %call, i32 noundef %i.066)
-  switch i32 %call70, label %sw.default.i63 [
-    i32 32768, label %for.inc
-    i32 1, label %print_code.exit64.loopexit
-    i32 2, label %print_code.exit64.loopexit68
-    i32 256, label %print_code.exit64.loopexit70
-    i32 257, label %print_code.exit64.loopexit72
-    i32 258, label %print_code.exit64.loopexit74
-    i32 259, label %print_code.exit64
-    i32 260, label %sw.bb6.i57
-    i32 261, label %sw.bb7.i56
-    i32 512, label %sw.bb8.i54
-  ]
-
-sw.bb6.i57:                                       ; preds = %if.end69
-  br label %print_code.exit64
-
-sw.bb7.i56:                                       ; preds = %if.end69
-  br label %print_code.exit64
-
-sw.bb8.i54:                                       ; preds = %if.end69
-  br label %print_code.exit64
-
-sw.default.i63:                                   ; preds = %if.end69
-  br label %print_code.exit64
-
-print_code.exit64.loopexit:                       ; preds = %if.end69
-  br label %print_code.exit64
-
-print_code.exit64.loopexit68:                     ; preds = %if.end69
-  br label %print_code.exit64
-
-print_code.exit64.loopexit70:                     ; preds = %if.end69
-  br label %print_code.exit64
-
-print_code.exit64.loopexit72:                     ; preds = %if.end69
-  br label %print_code.exit64
-
-print_code.exit64.loopexit74:                     ; preds = %if.end69
-  br label %print_code.exit64
-
-print_code.exit64:                                ; preds = %if.end69, %print_code.exit64.loopexit74, %print_code.exit64.loopexit72, %print_code.exit64.loopexit70, %print_code.exit64.loopexit68, %print_code.exit64.loopexit, %sw.bb6.i57, %sw.bb7.i56, %sw.bb8.i54, %sw.default.i63
-  %retval.0.i55 = phi ptr [ @.str.68, %sw.default.i63 ], [ @.str.67, %sw.bb8.i54 ], [ @.str.38, %sw.bb7.i56 ], [ @.str.37, %sw.bb6.i57 ], [ @.str.61, %print_code.exit64.loopexit ], [ @.str.62, %print_code.exit64.loopexit68 ], [ @.str.63, %print_code.exit64.loopexit70 ], [ @.str.64, %print_code.exit64.loopexit72 ], [ @.str.65, %print_code.exit64.loopexit74 ], [ @.str.66, %if.end69 ]
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.10, i32 noundef 1140, ptr noundef nonnull @__func__.virtio_snd_realize, ptr noundef nonnull @.str.16, ptr noundef nonnull %retval.0.i55) #11
-  br label %error_cleanup
-
-for.inc:                                          ; preds = %if.end69
+for.cond:                                         ; preds = %if.end69
   %inc = add nuw i32 %i.066, 1
   %16 = load i32, ptr %streams, align 4
   %cmp61 = icmp ult i32 %inc, %16
   br i1 %cmp61, label %for.body, label %cleanup, !llvm.loop !5
 
+for.body:                                         ; preds = %if.end27, %for.cond
+  %i.066 = phi i32 [ %inc, %for.cond ], [ 0, %if.end27 ]
+  %call63 = call fastcc i32 @virtio_snd_set_pcm_params(ptr noundef nonnull %call, i32 noundef %i.066, ptr noundef nonnull %default_params)
+  %cmp65.not = icmp eq i32 %call63, 32768
+  br i1 %cmp65.not, label %if.end69, label %print_code.exit
+
+print_code.exit:                                  ; preds = %for.body
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.10, i32 noundef 1133, ptr noundef nonnull @__func__.virtio_snd_realize, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.68) #11
+  br label %error_cleanup
+
+if.end69:                                         ; preds = %for.body
+  %call70 = call fastcc i32 @virtio_snd_pcm_prepare(ptr noundef nonnull %call, i32 noundef %i.066)
+  %cmp72.not = icmp eq i32 %call70, 32768
+  br i1 %cmp72.not, label %for.cond, label %print_code.exit64
+
+print_code.exit64:                                ; preds = %if.end69
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.10, i32 noundef 1140, ptr noundef nonnull @__func__.virtio_snd_realize, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.68) #11
+  br label %error_cleanup
+
 error_cleanup:                                    ; preds = %print_code.exit64, %print_code.exit
   call void @virtio_snd_unrealize(ptr noundef %dev)
   br label %cleanup
 
-cleanup:                                          ; preds = %for.inc, %if.end27, %if.end24, %error_cleanup, %if.then21, %if.then15, %if.then5
+cleanup:                                          ; preds = %for.cond, %if.end27, %if.end24, %error_cleanup, %if.then21, %if.then15, %if.then5
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val53 = load ptr, ptr %errp1, align 8
   call void @error_propagate(ptr noundef %_auto_errp_prop.val53, ptr noundef %_auto_errp_prop.val) #11
@@ -1414,7 +1338,7 @@ if.end67:                                         ; preds = %trace_virtio_snd_ha
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @virtio_snd_set_pcm_params(ptr noundef %s, i32 noundef %stream_id, ptr nocapture noundef readonly %params) unnamed_addr #0 {
+define internal fastcc range(i32 32768, 32771) i32 @virtio_snd_set_pcm_params(ptr noundef %s, i32 noundef %stream_id, ptr nocapture noundef readonly %params) unnamed_addr #0 {
 entry:
   %streams = getelementptr inbounds i8, ptr %s, i64 612
   %0 = load i32, ptr %streams, align 4
@@ -1500,7 +1424,7 @@ return:                                           ; preds = %if.end27, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @virtio_snd_pcm_prepare(ptr noundef %s, i32 noundef %stream_id) unnamed_addr #0 {
+define internal fastcc range(i32 32768, 32770) i32 @virtio_snd_pcm_prepare(ptr noundef %s, i32 noundef %stream_id) unnamed_addr #0 {
 entry:
   %as = alloca %struct.audsettings, align 4
   %pcm = getelementptr inbounds i8, ptr %s, i64 560

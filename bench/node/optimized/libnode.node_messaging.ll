@@ -1671,7 +1671,7 @@ _ZNSt8optionalIN2v819SharedValueConveyorEE7emplaceIJS1_EEENSt9enable_ifIX18is_co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6worker7Message9SerializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEENS5_INS4_5ValueEEERKNS_16MaybeStackBufferIS9_Lm8EEENS5_INS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %env, ptr %context.coerce, ptr %input.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %transfer_list_v, ptr readonly %source_port.coerce) local_unnamed_addr #6 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6worker7Message9SerializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEENS5_INS4_5ValueEEERKNS_16MaybeStackBufferIS9_Lm8EEENS5_INS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %env, ptr %context.coerce, ptr %input.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %transfer_list_v, ptr readonly %source_port.coerce) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp.i261 = alloca %"class.std::unique_ptr.285", align 8
   %ref.tmp11.i = alloca %"class.std::unique_ptr.285", align 8
@@ -6592,7 +6592,7 @@ _ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6worker11MessagePort11PostMessageEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEENS5_INS4_5ValueEEERKNS_16MaybeStackBufferIS9_Lm8EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %env, ptr %context.coerce, ptr %message_v.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %transfer_v) local_unnamed_addr #6 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6worker11MessagePort11PostMessageEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEENS5_INS4_5ValueEEERKNS_16MaybeStackBufferIS9_Lm8EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %env, ptr %context.coerce, ptr %message_v.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %transfer_v) local_unnamed_addr #6 align 2 {
 entry:
   %warning.i = alloca %"class.std::__cxx11::basic_string", align 8
   %error = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6835,7 +6835,7 @@ _ZNSt10shared_ptrIN4node6worker7MessageEED2Ev.exit48: ; preds = %_ZN9__gnu_cxx27
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6worker15MessagePortData8DispatchESt10shared_ptrINS0_7MessageEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef readonly %message, ptr noundef %error) local_unnamed_addr #6 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6worker15MessagePortData8DispatchESt10shared_ptrINS0_7MessageEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef readonly %message, ptr noundef %error) local_unnamed_addr #6 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.372", align 8
   %group_ = getelementptr inbounds i8, ptr %this, i64 136
@@ -6972,7 +6972,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6worker12SiblingGroup8DispatchEPNS0_15MessagePortDataESt10shared_ptrINS0_7MessageEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef readnone %source, ptr nocapture noundef readonly %message, ptr noundef %error) local_unnamed_addr #6 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6worker12SiblingGroup8DispatchEPNS0_15MessagePortDataESt10shared_ptrINS0_7MessageEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef readnone %source, ptr nocapture noundef readonly %message, ptr noundef %error) local_unnamed_addr #6 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.372", align 8
   %group_mutex_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -7247,40 +7247,39 @@ if.end10:                                         ; preds = %if.end
   br i1 %tobool.i123, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end10
-  %8 = and i16 %call18, 256
-  %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %if.then22, label %return
+  %tobool.not = icmp ult i16 %call18, 256
+  br i1 %tobool.not, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end21
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %env, i64 96
-  %9 = load ptr, ptr %isolate_data_.i.i, align 8
-  %transfer_string_.i.i = getelementptr inbounds i8, ptr %9, i64 2352
-  %10 = load ptr, ptr %transfer_string_.i.i, align 8
-  %call46 = tail call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %transfer_list_v.coerce, ptr %context.coerce, ptr %10) #26
+  %8 = load ptr, ptr %isolate_data_.i.i, align 8
+  %transfer_string_.i.i = getelementptr inbounds i8, ptr %8, i64 2352
+  %9 = load ptr, ptr %transfer_string_.i.i, align 8
+  %call46 = tail call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %transfer_list_v.coerce, ptr %context.coerce, ptr %9) #26
   %cmp.i.i = icmp eq ptr %call46, null
   br i1 %cmp.i.i, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.then22
-  %11 = load i64, ptr %call46, align 8
-  %and.i.i = and i64 %11, 3
+  %10 = load i64, ptr %call46, align 8
+  %and.i.i = and i64 %10, 3
   %cmp.i.i163 = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i163, label %if.end.i165, label %if.then57
 
 if.end.i165:                                      ; preds = %if.end54
-  %sub.i17.i = add nsw i64 %11, -1
-  %12 = inttoptr i64 %sub.i17.i to ptr
-  %13 = load i64, ptr %12, align 8
-  %sub.i.i167 = add i64 %13, 11
-  %14 = inttoptr i64 %sub.i.i167 to ptr
-  %15 = load i16, ptr %14, align 2
-  %cmp.i169.not = icmp eq i16 %15, 131
+  %sub.i17.i = add nsw i64 %10, -1
+  %11 = inttoptr i64 %sub.i17.i to ptr
+  %12 = load i64, ptr %11, align 8
+  %sub.i.i167 = add i64 %12, 11
+  %13 = inttoptr i64 %sub.i.i167 to ptr
+  %14 = load i16, ptr %13, align 2
+  %cmp.i169.not = icmp eq i16 %14, 131
   br i1 %cmp.i169.not, label %if.end5.i170, label %if.then57
 
 if.end5.i170:                                     ; preds = %if.end.i165
-  %sub.i.i.i = add i64 %11, 39
-  %16 = inttoptr i64 %sub.i.i.i to ptr
-  %17 = load i64, ptr %16, align 8
-  %shr.i.i.mask = and i64 %17, -4294967296
+  %sub.i.i.i = add i64 %10, 39
+  %15 = inttoptr i64 %sub.i.i.i to ptr
+  %16 = load i64, ptr %15, align 8
+  %shr.i.i.mask = and i64 %16, -4294967296
   %cmp7.i171 = icmp eq i64 %shr.i.i.mask, 21474836480
   br i1 %cmp7.i171, label %return, label %if.then57
 
@@ -7290,9 +7289,8 @@ if.then57:                                        ; preds = %if.end54, %if.end.i
   br i1 %tobool.i129, label %if.end71, label %return
 
 if.end71:                                         ; preds = %if.then57
-  %18 = and i16 %call67, 256
-  %.not15 = icmp eq i16 %18, 0
-  br i1 %.not15, label %if.then73, label %return
+  %tobool72.not = icmp ult i16 %call67, 256
+  br i1 %tobool72.not, label %if.then73, label %return
 
 if.then73:                                        ; preds = %if.end71
   tail call void @_ZN4node26THROW_ERR_INVALID_ARG_TYPEIJEEEvPNS_11EnvironmentEPKcDpOT_(ptr noundef nonnull %env, ptr noundef nonnull @.str.42)
@@ -7314,7 +7312,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i16 @_ZN4node6workerL12ReadIterableEPNS_11EnvironmentEN2v85LocalINS3_7ContextEEERNS_16MaybeStackBufferINS4_INS3_5ValueEEELm8EEES9_(ptr nocapture noundef readonly %env, ptr %context.coerce, ptr noundef nonnull align 8 dereferenceable(88) %transfer_list, ptr nonnull %object.coerce) unnamed_addr #6 {
+define internal fastcc range(i16 0, 258) i16 @_ZN4node6workerL12ReadIterableEPNS_11EnvironmentEN2v85LocalINS3_7ContextEEERNS_16MaybeStackBufferINS4_INS3_5ValueEEELm8EEES9_(ptr nocapture noundef readonly %env, ptr %context.coerce, ptr noundef nonnull align 8 dereferenceable(88) %transfer_list, ptr nonnull %object.coerce) unnamed_addr #6 {
 entry:
   %call6 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce) #26
   br i1 %call6, label %if.end, label %return
@@ -7769,27 +7767,26 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 if.then79:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %44 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %44, i64 24
-  %45 = and i16 %call77, 256
-  %tobool.i175.not = icmp eq i16 %45, 0
+  %tobool.i175.not = icmp ult i16 %call77, 256
   %arrayidx.i341 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = load ptr, ptr %arrayidx.i341, align 8
-  %47 = ptrtoint ptr %46 to i64
+  %45 = load ptr, ptr %arrayidx.i341, align 8
+  %46 = ptrtoint ptr %45 to i64
   %add.i.i = select i1 %tobool.i175.not, i64 640, i64 632
-  %add1.i.i = add i64 %add.i.i, %47
-  %48 = inttoptr i64 %add1.i.i to ptr
-  %49 = load i64, ptr %48, align 8
-  store i64 %49, ptr %arrayidx.i, align 8
+  %add1.i.i = add i64 %add.i.i, %46
+  %47 = inttoptr i64 %add1.i.i to ptr
+  %48 = load i64, ptr %47, align 8
+  store i64 %48, ptr %arrayidx.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.then79, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit158, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit133
-  %50 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i25 = icmp ne ptr %50, null
-  %cmp.i.i26 = icmp ne ptr %50, %buf_st_.ptr.i
-  %51 = and i1 %cmp.i.i.i25, %cmp.i.i26
-  br i1 %51, label %if.then.i28, label %cleanup.cont
+  %49 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i25 = icmp ne ptr %49, null
+  %cmp.i.i26 = icmp ne ptr %49, %buf_st_.ptr.i
+  %50 = and i1 %cmp.i.i.i25, %cmp.i.i26
+  br i1 %50, label %if.then.i28, label %cleanup.cont
 
 if.then.i28:                                      ; preds = %cleanup
-  call void @free(ptr noundef nonnull %50) #26
+  call void @free(ptr noundef nonnull %49) #26
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.then.i28, %cleanup, %if.then
@@ -10120,7 +10117,7 @@ declare noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 
 declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6worker14JSTransferable20FinalizeTransferReadEN2v85LocalINS2_7ContextEEEPNS2_17ValueDeserializerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %context.coerce, ptr noundef %deserializer) unnamed_addr #6 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6worker14JSTransferable20FinalizeTransferReadEN2v85LocalINS2_7ContextEEEPNS2_17ValueDeserializerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %context.coerce, ptr noundef %deserializer) unnamed_addr #6 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %data = alloca %"class.v8::Local.14", align 8
@@ -12297,7 +12294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate12IsHostObjectEPN2v87IsolateENS3_5LocalINS3_6ObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %object.coerce) unnamed_addr #6 align 2 {
+define internal range(i16 1, 512) i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate12IsHostObjectEPN2v87IsolateENS3_5LocalINS3_6ObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %object.coerce) unnamed_addr #6 align 2 {
 entry:
   %env_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %env_, align 8
@@ -12698,7 +12695,7 @@ return:                                           ; preds = %if.then.i14, %_ZN4n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate22GetSharedArrayBufferIdEPN2v87IsolateENS3_5LocalINS3_17SharedArrayBufferEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %isolate, ptr %shared_array_buffer.coerce) unnamed_addr #6 align 2 {
+define internal range(i64 1, 0) i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate22GetSharedArrayBufferIdEPN2v87IsolateENS3_5LocalINS3_17SharedArrayBufferEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %isolate, ptr %shared_array_buffer.coerce) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp14 = alloca %"class.v8::Global.500", align 8
   %agg.tmp19 = alloca %"class.std::shared_ptr.307", align 8
@@ -12922,7 +12919,7 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate23GetWasmModuleTransferIdEPN2v87IsolateENS3_5LocalINS3_16WasmModuleObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %module.coerce) unnamed_addr #6 align 2 {
+define internal range(i64 -4294967295, -8589934590) i64 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate23GetWasmModuleTransferIdEPN2v87IsolateENS3_5LocalINS3_16WasmModuleObjectEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture readnone %isolate, ptr nonnull %module.coerce) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp4 = alloca %"class.v8::CompiledWasmModule", align 8
   %msg_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -13091,7 +13088,7 @@ declare noundef ptr @_ZN2v815ValueSerializer8Delegate22ReallocateBufferMemoryEPv
 declare void @_ZN2v815ValueSerializer8Delegate16FreeBufferMemoryEPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %host_object) unnamed_addr #6 align 2 {
+define internal fastcc range(i16 0, 258) i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %host_object) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %host_object, align 8
   %vtable = load ptr, ptr %0, align 8
