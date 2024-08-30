@@ -313,7 +313,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9ha
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noalias noundef ptr @ts_tagger_new() unnamed_addr #0 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @ts_tagger_new() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   %2 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -1162,7 +1162,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noalias noundef ptr @ts_tags_buffer_new() unnamed_addr #0 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @ts_tags_buffer_new() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca ptr, align 8
   %2 = alloca { { i64, ptr }, i64 }, align 8
   %3 = alloca { ptr, ptr }, align 8

@@ -2941,7 +2941,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
   br label %25
 
 25:                                               ; preds = %25, %22
-  %26 = phi i64 [ %.promoted.i12, %22 ], [ %27, %25 ]
+  %26 = phi i64 [ %27, %25 ], [ %.promoted.i12, %22 ]
   %27 = add i64 %26, -1
   %28 = icmp eq i64 %27, 0
   %.0.i.i = select i1 %28, i8 %24, i8 %spec.select.i.i
@@ -3771,7 +3771,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
   br label %25
 
 25:                                               ; preds = %25, %22
-  %26 = phi i64 [ %.promoted.i11, %22 ], [ %27, %25 ]
+  %26 = phi i64 [ %27, %25 ], [ %.promoted.i11, %22 ]
   %27 = add i64 %26, -1
   %28 = icmp eq i64 %27, 0
   %.0.i.i = select i1 %28, i8 %24, i8 %spec.select.i.i
@@ -4590,7 +4590,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
   br label %25
 
 25:                                               ; preds = %25, %22
-  %26 = phi i64 [ %.promoted.i11, %22 ], [ %27, %25 ]
+  %26 = phi i64 [ %27, %25 ], [ %.promoted.i11, %22 ]
   %27 = add i64 %26, -1
   %28 = icmp eq i64 %27, 0
   %.0.i.i = select i1 %28, i8 %24, i8 %spec.select.i.i
@@ -5308,7 +5308,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
   br label %25
 
 25:                                               ; preds = %25, %22
-  %26 = phi i64 [ %.promoted.i11, %22 ], [ %27, %25 ]
+  %26 = phi i64 [ %27, %25 ], [ %.promoted.i11, %22 ]
   %27 = add i64 %26, -1
   %28 = icmp eq i64 %27, 0
   %.0.i.i = select i1 %28, i8 %24, i8 %spec.select.i.i
@@ -23211,7 +23211,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(32) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h72215338056a0ca1E"(ptr noalias nocapture noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h72215338056a0ca1E"(ptr noalias nocapture noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [31 x i8] }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { { ptr, i64, {} }, i64, {} }, align 8
@@ -23975,7 +23975,7 @@ _ZN5alloc7raw_vec11finish_grow17h9b8b8a0ec08387c9E.exit.i.i: ; preds = %22, %18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.9217674556973953327(i64 noundef %0, i64 noundef %1) unnamed_addr #7 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.9217674556973953327(i64 noundef %0, i64 noundef %1) unnamed_addr #7 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807

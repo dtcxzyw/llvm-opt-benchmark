@@ -2051,13 +2051,13 @@ rb_vm_lock_leave.exit:                            ; preds = %enc_alias.exit, %42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_enc_get_from_index(i32 noundef %0) local_unnamed_addr #0 {
+define hidden nonnull ptr @rb_enc_get_from_index(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @must_encindex(i32 noundef %0)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @must_encindex(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @must_encindex(i32 noundef %0) unnamed_addr #0 {
   %2 = icmp slt i32 %0, 0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %4 = and i32 %0, 16777215
@@ -2883,7 +2883,7 @@ rb_enc_to_index.exit:                             ; preds = %2, %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_enc_check_str(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden nonnull ptr @rb_enc_check_str(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -3020,7 +3020,7 @@ rb_encoding_check.exit:                           ; preds = %enc_compatible_str.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_enc_check(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @rb_enc_check(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @rb_enc_get_index(i64 noundef %0)
   %4 = tail call i32 @rb_enc_get_index(i64 noundef %1)
   %5 = icmp slt i32 %3, 0

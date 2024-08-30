@@ -74,7 +74,7 @@ if.end:                                           ; preds = %entry, %if.then
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef ptr @MBCSOpen(ptr noundef %ucm) local_unnamed_addr #2 {
+define dso_local noalias nonnull ptr @MBCSOpen(ptr noundef %ucm) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias dereferenceable_or_null(456528) ptr @uprv_malloc_75(i64 noundef 456528) #13
   %cmp = icmp eq ptr %call, null
@@ -2926,7 +2926,7 @@ return:                                           ; preds = %if.end214, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZL10printBytesPcPKhi(ptr noundef returned writeonly %buffer, ptr nocapture noundef readonly %bytes, i32 noundef %length) unnamed_addr #9 {
+define internal fastcc noundef nonnull ptr @_ZL10printBytesPcPKhi(ptr noundef returned writeonly %buffer, ptr nocapture noundef readonly %bytes, i32 noundef %length) unnamed_addr #9 {
 entry:
   %cmp10 = icmp sgt i32 %length, 0
   br i1 %cmp10, label %while.body, label %while.end

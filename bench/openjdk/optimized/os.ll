@@ -1491,7 +1491,7 @@ define hidden noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef %0, i8 noundef z
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.NativeCallStack, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
   %5 = add i64 %4, 1

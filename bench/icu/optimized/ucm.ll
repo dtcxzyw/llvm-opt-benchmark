@@ -3293,7 +3293,7 @@ declare ptr @u_strFromUTF32_75(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 declare ptr @u_skipWhitespace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @ucm_openTable() local_unnamed_addr #1 {
+define noalias nonnull ptr @ucm_openTable() local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @uprv_malloc_75(i64 noundef 64) #16
   %cmp = icmp eq ptr %call, null
@@ -3369,7 +3369,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @ucm_open() local_unnamed_addr #1 {
+define noalias nonnull ptr @ucm_open() local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(132192) ptr @uprv_malloc_75(i64 noundef 132192) #16
   %cmp = icmp eq ptr %call, null

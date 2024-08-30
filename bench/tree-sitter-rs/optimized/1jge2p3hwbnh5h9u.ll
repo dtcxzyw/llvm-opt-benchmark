@@ -77,7 +77,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noalias noundef ptr @ts_highlighter_new(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @ts_highlighter_new(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { { i64, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %6 = alloca { { i64, ptr }, i64 }, align 8
@@ -781,7 +781,7 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noalias noundef ptr @ts_highlight_buffer_new() unnamed_addr #1 personality ptr @rust_eh_personality {
+define noalias noundef nonnull ptr @ts_highlight_buffer_new() unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { { i64, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, align 8
   %2 = alloca { { { i64, ptr }, i64 }, ptr }, align 8
   %3 = alloca { { { i64, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr } }, align 8

@@ -18036,7 +18036,7 @@ if.end62:                                         ; preds = %6, %if.then52, %Ski
   %sub.ptr.rhs.cast = ptrtoint ptr %line.addr.0.lcssa.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv64 = trunc i64 %sub.ptr.sub to i32
-  %call65 = tail call ptr @mystrnstr(ptr noundef %line.addr.0.lcssa.i, ptr noundef nonnull %footer.0.lcssa, i32 noundef %conv64) #22
+  %call65 = tail call ptr @mystrnstr(ptr noundef nonnull %line.addr.0.lcssa.i, ptr noundef nonnull %footer.0.lcssa, i32 noundef %conv64) #22
   %tobool66.not = icmp eq ptr %call65, null
   br i1 %tobool66.not, label %if.then67, label %if.end71
 
@@ -18116,7 +18116,7 @@ if.end108:                                        ; preds = %if.end102
   %10 = load ptr, ptr %pDer, align 8
   %11 = load ptr, ptr %10, align 8
   %length = getelementptr inbounds i8, ptr %10, i64 16
-  %call110 = tail call i32 @Base64_Decode(ptr noundef %line.addr.0.lcssa.i, i32 noundef %conv103, ptr noundef %11, ptr noundef nonnull %length) #22
+  %call110 = tail call i32 @Base64_Decode(ptr noundef nonnull %line.addr.0.lcssa.i, i32 noundef %conv103, ptr noundef %11, ptr noundef nonnull %length) #22
   %cmp111 = icmp slt i32 %call110, 0
   br i1 %cmp111, label %return, label %if.end114
 

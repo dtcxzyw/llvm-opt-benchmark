@@ -199310,7 +199310,7 @@ sqlite3VdbeAddOp2.exit:                           ; preds = %84, %.lr.ph.i.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sqlite3VtabOverloadFunction(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc nonnull ptr @sqlite3VtabOverloadFunction(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %5, align 8

@@ -1238,7 +1238,7 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %171
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Dot11DecryptAddSa(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @Dot11DecryptAddSa(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %.val = load ptr, ptr %0, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %.val, ptr noundef %1) #14

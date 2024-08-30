@@ -569,7 +569,7 @@ define noundef i32 @_ZNK4pkpy15CodeEmitContext8get_loopEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy15CodeEmitContext11enter_blockENS_13CodeBlockTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN4pkpy15CodeEmitContext11enter_blockENS_13CodeBlockTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = and i32 %1, -3
   %or.cond = icmp eq i32 %3, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 128

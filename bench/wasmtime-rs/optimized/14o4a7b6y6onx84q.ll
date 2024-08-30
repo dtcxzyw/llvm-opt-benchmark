@@ -1864,7 +1864,7 @@ define hidden noalias noundef nonnull ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17hc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.18206624868217611764(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.18206624868217611764(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -12869,7 +12869,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit59
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(40) ptr @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmtime_environ..compile..Compiler$GT$6triple17h076f864790772d88E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmtime_environ..compile..Compiler$GT$6triple17h076f864790772d88E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 96

@@ -3931,7 +3931,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   %mul.i.i.i.i = mul i32 %div1.i.i.i.i, %i.0106.i.i.i
   %idx.ext.i.i.i.i = zext i32 %mul.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this.val26.i.i.i, i64 %idx.ext.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr nonnull align 1 %defaultMask.sroa.0.0.i.i.i, i64 %conv.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr nonnull align 1 %defaultMask.sroa.0.0.i.i.i, i64 %conv.i.i.i, i1 false)
   %inc.i.i.i = add nuw i32 %i.0106.i.i.i, 1
   %27 = load ptr, ptr %fc.i, align 8, !noalias !106
   %bits.i.i.i18.i = getelementptr inbounds i8, ptr %27, i64 44

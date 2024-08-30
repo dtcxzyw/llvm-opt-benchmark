@@ -8473,7 +8473,7 @@ _ZNSt6vectorIxSaIxEEC2EmRKS0_.exit18:             ; preds = %_ZSt6fill_nIPxmxET_
   %46 = icmp eq ptr %.sroa.0.0, %.0.i.i.i.i.i14
   %spec.select.i20 = select i1 %46, ptr null, ptr %.sroa.0.0
   %47 = zext i1 %2 to i64
-  invoke void @_ZN6casadi16SparsityInternal5etreeEPKxPxS3_x(ptr noundef %44, ptr noundef %spec.select.i, ptr noundef %spec.select.i20, i64 noundef %47)
+  invoke void @_ZN6casadi16SparsityInternal5etreeEPKxPxS3_x(ptr noundef nonnull %44, ptr noundef %spec.select.i, ptr noundef %spec.select.i20, i64 noundef %47)
           to label %48 unwind label %54
 
 48:                                               ; preds = %42
@@ -8523,7 +8523,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit24:                  ; preds = %57, %_ZNSt6vectorIx
 declare void @_ZN6casadi16SparsityInternal5etreeEPKxPxS3_x(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6casadi8SparsitycvPKxEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZNK6casadi8SparsitycvPKxEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -8880,7 +8880,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i70: ; preds = %.noexc74
   %spec.select.i77 = select i1 %125, ptr null, ptr %112
   %126 = icmp eq ptr %.sroa.0118.0144151, %.0.i.i.i.i.i145148
   %spec.select.i78 = select i1 %126, ptr null, ptr %.sroa.0118.0144151
-  invoke void @_ZN6casadi16SparsityInternal10ldl_colindEPKxPxS3_S3_(ptr noundef %123, ptr noundef %spec.select.i, ptr noundef %spec.select.i77, ptr noundef %spec.select.i78)
+  invoke void @_ZN6casadi16SparsityInternal10ldl_colindEPKxPxS3_S3_(ptr noundef nonnull %123, ptr noundef %spec.select.i, ptr noundef %spec.select.i77, ptr noundef %spec.select.i78)
           to label %127 unwind label %159
 
 127:                                              ; preds = %121
@@ -8934,7 +8934,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i83: ; preds = %_ZNSt6vectorIxS
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %140, %141
   %spec.select.i91 = select i1 %147, ptr null, ptr %140
-  invoke void @_ZN6casadi16SparsityInternal7ldl_rowEPKxS2_PxS3_S3_(ptr noundef %146, ptr noundef %spec.select.i, ptr noundef %spec.select.i77, ptr noundef %spec.select.i91, ptr noundef %spec.select.i78)
+  invoke void @_ZN6casadi16SparsityInternal7ldl_rowEPKxS2_PxS3_S3_(ptr noundef nonnull %146, ptr noundef %spec.select.i, ptr noundef %spec.select.i77, ptr noundef %spec.select.i91, ptr noundef %spec.select.i78)
           to label %148 unwind label %163
 
 148:                                              ; preds = %144
@@ -9413,7 +9413,7 @@ _ZNK6casadi8Sparsity1TEv.exit:                    ; preds = %.noexc78
   %spec.select.i83 = select i1 %131, ptr null, ptr %129
   %132 = icmp eq ptr %113, %.0.i.i.i.i.i72
   %spec.select.i84 = select i1 %132, ptr null, ptr %113
-  invoke void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr noundef %121, ptr noundef %126, ptr noundef %spec.select.i, ptr noundef %spec.select.i82, ptr noundef %spec.select.i83, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %spec.select.i84)
+  invoke void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr noundef nonnull %121, ptr noundef nonnull %126, ptr noundef %spec.select.i, ptr noundef %spec.select.i82, ptr noundef %spec.select.i83, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %spec.select.i84)
           to label %133 unwind label %206
 
 133:                                              ; preds = %124
@@ -9524,7 +9524,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i95: ; preds = %.noexc99
   %173 = load ptr, ptr %92, align 8
   %174 = icmp eq ptr %172, %173
   %spec.select.i107 = select i1 %174, ptr null, ptr %172
-  invoke void @_ZN6casadi16SparsityInternal13qr_sparsitiesEPKxxPxS3_S2_S2_S2_S3_(ptr noundef %168, i64 noundef %169, ptr noundef %spec.select.i103, ptr noundef %spec.select.i104, ptr noundef %spec.select.i, ptr noundef %spec.select.i82, ptr noundef %spec.select.i107, ptr noundef %spec.select.i84)
+  invoke void @_ZN6casadi16SparsityInternal13qr_sparsitiesEPKxxPxS3_S2_S2_S2_S3_(ptr noundef nonnull %168, i64 noundef %169, ptr noundef %spec.select.i103, ptr noundef %spec.select.i104, ptr noundef %spec.select.i, ptr noundef %spec.select.i82, ptr noundef %spec.select.i107, ptr noundef %spec.select.i84)
           to label %175 unwind label %212
 
 175:                                              ; preds = %166

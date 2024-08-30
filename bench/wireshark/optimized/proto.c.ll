@@ -2121,7 +2121,7 @@ define void @proto_report_dissector_bug(ptr noundef %0, ...) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @proto_registrar_get_nth(i32 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @proto_registrar_get_nth(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %8, label %3
 

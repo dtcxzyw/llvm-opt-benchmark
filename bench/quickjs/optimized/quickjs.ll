@@ -9065,7 +9065,7 @@ JS_AtomToValue.exit:                              ; preds = %JS_NewObjectProto.e
   %indvars.iv505 = phi i64 [ 213, %JS_NewObjectProto.exit415 ], [ %indvars.iv.next506, %JS_AtomToValue.exit ]
   %.val = load ptr, ptr %57, align 8
   %593 = trunc nuw nsw i64 %indvars.iv505 to i32
-  %594 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %11, i32 noundef %593)
+  %594 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %11, i32 noundef %593)
   %595 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %594, i32 noundef 46) #43
   %.not279 = icmp eq ptr %595, null
   %596 = getelementptr i8, ptr %595, i64 1
@@ -9697,7 +9697,7 @@ define dso_local void @JS_AddIntrinsicMapSet(ptr noundef %0) local_unnamed_addr 
   %.val = load ptr, ptr %3, align 8
   %10 = trunc i64 %indvars.iv to i32
   %11 = add i32 %10, 186
-  %12 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %2, i32 noundef %11)
+  %12 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %2, i32 noundef %11)
   %13 = load ptr, ptr %4, align 8
   %14 = add nuw nsw i64 %indvars.iv, 38
   %15 = getelementptr %struct.JSValue, ptr %13, i64 %14
@@ -9721,7 +9721,7 @@ define dso_local void @JS_AddIntrinsicMapSet(ptr noundef %0) local_unnamed_addr 
   %.val.i.i = load i64, ptr %5, align 8
   %.val6.i.i = load i64, ptr %6, align 8
   %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_map_constructor, ptr noundef %12, i32 noundef 0, i32 noundef 3, i32 noundef %29, i64 %.val.i.i, i64 %.val6.i.i)
+  %30 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_map_constructor, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 3, i32 noundef %29, i64 %.val.i.i, i64 %.val6.i.i)
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = extractvalue { i64, i64 } %30, 1
   %33 = icmp ult i64 %indvars.iv, 2
@@ -9737,7 +9737,7 @@ define dso_local void @JS_AddIntrinsicMapSet(ptr noundef %0) local_unnamed_addr 
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   %40 = load i64, ptr %39, align 8
-  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef nonnull %0, i64 %31, i64 %32, ptr noundef %12, i64 %38, i64 %40)
+  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef nonnull %0, i64 %31, i64 %32, ptr noundef nonnull %12, i64 %38, i64 %40)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %9, !llvm.loop !39
@@ -10047,9 +10047,9 @@ JS_NewObjectProto.exit:                           ; preds = %.loopexit.i, %107
   %.val = load ptr, ptr %72, align 8
   %122 = trunc i64 %indvars.iv to i32
   %123 = add i32 %122, 147
-  %124 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %123)
+  %124 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %123)
   %125 = trunc nuw nsw i64 %indvars.iv to i32
-  %126 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_typed_array_constructor, ptr noundef %124, i32 noundef 3, i32 noundef 3, i32 noundef %125, i64 %69, i64 %70)
+  %126 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_typed_array_constructor, ptr noundef nonnull %124, i32 noundef 3, i32 noundef 3, i32 noundef %125, i64 %69, i64 %70)
   %127 = extractvalue { i64, i64 } %126, 0
   %128 = extractvalue { i64, i64 } %126, 1
   %129 = load ptr, ptr %5, align 8
@@ -10057,7 +10057,7 @@ JS_NewObjectProto.exit:                           ; preds = %.loopexit.i, %107
   %131 = load i64, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %130, i64 8
   %133 = load i64, ptr %132, align 8
-  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef %0, i64 %127, i64 %128, ptr noundef %124, i64 %131, i64 %133)
+  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef %0, i64 %127, i64 %128, ptr noundef nonnull %124, i64 %131, i64 %133)
   %134 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %127, i64 %128, ptr noundef nonnull @.str.93, i64 %.sroa.0107.0.insert.ext, i64 0, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -17654,7 +17654,7 @@ define dso_local void @JS_DumpMemoryUsage(ptr nocapture noundef %0, ptr nocaptur
   %68 = load i32, ptr %67, align 4
   %69 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef %68)
   %70 = trunc nuw nsw i64 %indvars.iv163 to i32
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %60, i32 noundef %70, ptr noundef %69) #42
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %60, i32 noundef %70, ptr noundef nonnull %69) #42
   br label %72
 
 72:                                               ; preds = %58, %61, %65
@@ -17849,7 +17849,7 @@ define dso_local void @JS_DumpMemoryUsage(ptr nocapture noundef %0, ptr nocaptur
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JS_AtomGetStrRT(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @JS_AtomGetStrRT(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   br i1 %.not, label %7, label %4
 
@@ -19581,8 +19581,8 @@ define dso_local { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %17 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %17, align 8
-  %18 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %12, i32 noundef %3)
-  %19 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef %18)
+  %18 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %12, i32 noundef %3)
+  %19 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %JS_FreeValue.exit
 
@@ -19590,8 +19590,8 @@ define dso_local { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   %21 = getelementptr i8, ptr %0, i64 24
   %.val.i224 = load ptr, ptr %21, align 8
-  %22 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i224, ptr noundef nonnull %11, i32 noundef %3)
-  %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %22)
+  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i224, ptr noundef nonnull %11, i32 noundef %3)
+  %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %JS_FreeValue.exit
 
@@ -19847,12 +19847,12 @@ JS_FreeValue.exit251:                             ; preds = %124, %132
 
 143:                                              ; preds = %141
   %.val.i227 = load ptr, ptr %95, align 8
-  %144 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i227, ptr noundef nonnull %9, i32 noundef %3)
+  %144 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i227, ptr noundef nonnull %9, i32 noundef %3)
   br label %JS_ThrowReferenceErrorUninitialized.exit
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %141, %143
   %145 = phi ptr [ %144, %143 ], [ @.str.105, %141 ]
-  %146 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %145)
+  %146 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %145)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %JS_FreeValue.exit
 
@@ -20142,8 +20142,8 @@ JS_AtomIsNumericIndex.exit:                       ; preds = %188, %184, %180, %2
 290:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %.val.i240 = load ptr, ptr %95, align 8
-  %291 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i240, ptr noundef nonnull %8, i32 noundef %3)
-  %292 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef %291)
+  %291 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i240, ptr noundef nonnull %8, i32 noundef %3)
+  %292 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef nonnull %291)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %JS_FreeValue.exit
 
@@ -20166,8 +20166,8 @@ define internal fastcc void @__JS_ThrowTypeErrorAtom(ptr noundef %0, i32 noundef
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
-  %6 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %1)
-  %7 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef %2, ptr noundef %6)
+  %6 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %1)
+  %7 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6)
   ret void
 }
 
@@ -20180,12 +20180,12 @@ define internal fastcc void @JS_ThrowReferenceErrorUninitialized(ptr noundef %0,
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %6, align 8
-  %7 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %3, i32 noundef %1)
+  %7 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %3, i32 noundef %1)
   br label %8
 
 8:                                                ; preds = %2, %5
   %9 = phi ptr [ %7, %5 ], [ @.str.105, %2 ]
-  %10 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %9)
+  %10 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %9)
   ret void
 }
 
@@ -20310,8 +20310,8 @@ define internal fastcc void @JS_ThrowReferenceErrorNotDefined(ptr noundef %0, i3
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8
-  %5 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %3, i32 noundef %1)
-  %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef %5)
+  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %3, i32 noundef %1)
+  %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef nonnull %5)
   ret void
 }
 
@@ -20460,8 +20460,8 @@ JS_AtomGetKind.exit:                              ; preds = %24, %28, %38, %39, 
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %53
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %62 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %6, i32 noundef %23)
-  %63 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef nonnull %0, ptr noundef nonnull @.str.104, ptr noundef %62)
+  %62 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %6, i32 noundef %23)
+  %63 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef nonnull %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %62)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %537
 
@@ -21623,12 +21623,12 @@ define internal fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef %0, ptr nounde
 79:                                               ; preds = %75
   %80 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %80, align 8
-  %81 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %6, i32 noundef %77)
+  %81 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %6, i32 noundef %77)
   br label %JS_ThrowReferenceErrorUninitialized.exit
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %75, %79
   %82 = phi ptr [ %81, %79 ], [ @.str.105, %75 ]
-  %83 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %82)
+  %83 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %.loopexit
 
@@ -21698,12 +21698,12 @@ JS_DupValue.exit151:                              ; preds = %93, %99
 115:                                              ; preds = %113
   %116 = getelementptr i8, ptr %0, i64 24
   %.val.i152 = load ptr, ptr %116, align 8
-  %117 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i152, ptr noundef nonnull %5, i32 noundef %3)
+  %117 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i152, ptr noundef nonnull %5, i32 noundef %3)
   br label %JS_ThrowReferenceErrorUninitialized.exit153
 
 JS_ThrowReferenceErrorUninitialized.exit153:      ; preds = %113, %115
   %118 = phi ptr [ %117, %115 ], [ @.str.105, %113 ]
-  %119 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %118)
+  %119 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %118)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %.loopexit
 
@@ -22967,8 +22967,8 @@ JS_FreeValue.exit:                                ; preds = %29, %32, %37
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %40 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %40, align 8
-  %41 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %12, i32 noundef %3)
-  %42 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef %41)
+  %41 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %12, i32 noundef %3)
+  %42 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef nonnull %41)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %set_value.exit
 
@@ -22995,8 +22995,8 @@ JS_FreeValue.exit302:                             ; preds = %43, %46, %51
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   %54 = getelementptr i8, ptr %0, i64 24
   %.val.i303 = load ptr, ptr %54, align 8
-  %55 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i303, ptr noundef nonnull %11, i32 noundef %3)
-  %56 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef %55)
+  %55 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i303, ptr noundef nonnull %11, i32 noundef %3)
+  %56 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef nonnull %55)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %set_value.exit
 
@@ -23680,8 +23680,8 @@ JS_FreeValue.exit319:                             ; preds = %394, %397, %402
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   %405 = getelementptr i8, ptr %0, i64 24
   %.val.i320 = load ptr, ptr %405, align 8
-  %406 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i320, ptr noundef nonnull %10, i32 noundef %3)
-  %407 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef %406)
+  %406 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i320, ptr noundef nonnull %10, i32 noundef %3)
+  %407 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef nonnull %406)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %set_value.exit
 
@@ -23997,8 +23997,8 @@ is_strict_mode.exit:                              ; preds = %559
 565:                                              ; preds = %JS_FreeValue.exit330._crit_edge, %is_strict_mode.exit
   %.val.i337 = phi ptr [ %.val.i337.pre, %JS_FreeValue.exit330._crit_edge ], [ %.val.i333, %is_strict_mode.exit ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  %566 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i337, ptr noundef nonnull %9, i32 noundef %3)
-  %567 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, ptr noundef %566)
+  %566 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i337, ptr noundef nonnull %9, i32 noundef %3)
+  %567 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, ptr noundef nonnull %566)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %set_value.exit
 
@@ -27366,8 +27366,8 @@ is_strict_mode.exit:                              ; preds = %8
 14:                                               ; preds = %._crit_edge, %is_strict_mode.exit
   %.val.i = phi ptr [ %.val.i.pre, %._crit_edge ], [ %.val, %is_strict_mode.exit ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %15 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %4, i32 noundef %2)
-  %16 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, ptr noundef %15)
+  %15 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %4, i32 noundef %2)
+  %16 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %is_strict_mode.exit.thread
 
@@ -31618,8 +31618,8 @@ JS_GetOpaque.exit.thread:                         ; preds = %8, %4, %JS_GetOpaqu
   %19 = getelementptr %struct.JSClass, ptr %17, i64 %18, i32 1
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %21 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %5, i32 noundef %20)
-  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %21)
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %5, i32 noundef %20)
+  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %23
 
@@ -50171,16 +50171,16 @@ find_export_entry.exit:                           ; preds = %15
 21:                                               ; preds = %20
   %22 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %22, align 8
-  %23 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %8, i32 noundef %4)
-  %24 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.178, ptr noundef %23)
+  %23 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %8, i32 noundef %4)
+  %24 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.178, ptr noundef nonnull %23)
   br label %js_resize_array.exit.thread
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   %26 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %26, align 8
-  %27 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %4)
-  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.178, ptr noundef %27) #45
+  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %4)
+  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.178, ptr noundef nonnull %27) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %js_resize_array.exit.thread
 
@@ -50673,12 +50673,12 @@ js_build_module_ns.exit.thread40:                 ; preds = %JS_NewObjectClass.e
 .sink.split.i.i:                                  ; preds = %81, %79
   %.str.181.sink.i.i = phi ptr [ @.str.180, %81 ], [ @.str.179, %79 ]
   %.val19.i.i = load ptr, ptr %22, align 8
-  %82 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19.i.i, ptr noundef nonnull %5, i32 noundef %80)
+  %82 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19.i.i, ptr noundef nonnull %5, i32 noundef %80)
   %83 = getelementptr inbounds i8, ptr %1, i64 4
   %84 = load i32, ptr %83, align 4
   %.val.i.i = load ptr, ptr %22, align 8
-  %85 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %6, i32 noundef %84)
-  %86 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull %.str.181.sink.i.i, ptr noundef %82, ptr noundef %85)
+  %85 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %6, i32 noundef %84)
+  %86 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull %.str.181.sink.i.i, ptr noundef nonnull %82, ptr noundef nonnull %85)
   br label %js_resolve_export_throw_error.exit.i
 
 js_resolve_export_throw_error.exit.i:             ; preds = %.sink.split.i.i, %79
@@ -71249,8 +71249,8 @@ js_get_array_buffer.exit.thread:                  ; preds = %4, %8
   %15 = getelementptr i8, ptr %14, i64 764
   %16 = load i32, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %17 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef nonnull %5, i32 noundef %16)
-  %18 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %17)
+  %17 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef nonnull %5, i32 noundef %16)
+  %18 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %31
 
@@ -71310,8 +71310,8 @@ define internal fastcc ptr @js_get_array_buffer(ptr noundef %0, i64 %1, i64 %2) 
   %15 = getelementptr i8, ptr %14, i64 764
   %16 = load i32, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %17 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef nonnull %4, i32 noundef %16)
-  %18 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %17)
+  %17 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef nonnull %4, i32 noundef %16)
+  %18 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %22
 
@@ -72163,8 +72163,8 @@ js_get_array_buffer.exit.thread:                  ; preds = %5, %11
   %18 = getelementptr i8, ptr %17, i64 764
   %19 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %20 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %7, i32 noundef %19)
-  %21 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %20)
+  %20 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %7, i32 noundef %19)
+  %21 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_FreeValue.exit
 
@@ -84428,8 +84428,8 @@ define internal fastcc void @JS_ThrowSyntaxErrorVarRedeclaration(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %4, align 8
-  %5 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %3, i32 noundef %1)
-  %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull @.str.144, ptr noundef %5)
+  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %3, i32 noundef %1)
+  %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull @.str.144, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   ret void
 }
@@ -84967,12 +84967,12 @@ JS_FreeValue.exit:                                ; preds = %36, %39, %44
 49:                                               ; preds = %JS_FreeValue.exit
   %50 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %50, align 8
-  %51 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %47)
+  %51 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %47)
   br label %JS_ThrowReferenceErrorUninitialized.exit
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %JS_FreeValue.exit, %49
   %52 = phi ptr [ %51, %49 ], [ @.str.105, %JS_FreeValue.exit ]
-  %53 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %52)
+  %53 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %52)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %set_value.exit
 
@@ -85005,8 +85005,8 @@ JS_FreeValue.exit55:                              ; preds = %57, %60, %65
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %68 = getelementptr i8, ptr %0, i64 24
   %.val.i56 = load ptr, ptr %68, align 8
-  %69 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i56, ptr noundef nonnull %6, i32 noundef %1)
-  %70 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.109, ptr noundef %69)
+  %69 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i56, ptr noundef nonnull %6, i32 noundef %1)
+  %70 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.109, ptr noundef nonnull %69)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %set_value.exit
 
@@ -88969,8 +88969,8 @@ define internal fastcc void @__JS_ThrowSyntaxErrorAtom(ptr noundef %0, i32 nound
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
-  %6 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %1)
-  %7 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef %2, ptr noundef %6)
+  %6 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %1)
+  %7 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6)
   ret void
 }
 
@@ -90312,8 +90312,8 @@ define internal fastcc void @JS_ThrowTypeErrorPrivateNotFound(ptr noundef %0, i3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %4, align 8
-  %5 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %3, i32 noundef %1)
-  %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.153, ptr noundef %5)
+  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %3, i32 noundef %1)
+  %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.153, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   ret void
 }
@@ -91183,8 +91183,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %7, %13, %JS_GetOpaq
   %22 = getelementptr i8, ptr %21, i64 1764
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %js_get_length32.exit.thread
 
@@ -91519,8 +91519,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %JS_GetOpaque.exit, 
   %30 = getelementptr i8, ptr %29, i64 1484
   %31 = load i32, ptr %30, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  %32 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %27, ptr noundef nonnull %10, i32 noundef %31)
-  %33 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef %32)
+  %32 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %27, ptr noundef nonnull %10, i32 noundef %31)
+  %33 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %32)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %JS_FreeValue.exit312
 
@@ -92152,8 +92152,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %JS_GetOpaque.exit, 
   %27 = getelementptr i8, ptr %26, i64 1484
   %28 = load i32, ptr %27, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %29 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %24, ptr noundef nonnull %6, i32 noundef %28)
-  %30 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef %29)
+  %29 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %24, ptr noundef nonnull %6, i32 noundef %28)
+  %30 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %63
 
@@ -93028,12 +93028,12 @@ define internal fastcc void @js_resolve_export_throw_error(ptr noundef %0, i32 n
   %.str.181.sink = phi ptr [ @.str.181, %8 ], [ @.str.180, %7 ], [ @.str.179, %4 ]
   %9 = getelementptr i8, ptr %0, i64 24
   %.val19 = load ptr, ptr %9, align 8
-  %10 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19, ptr noundef nonnull %5, i32 noundef %3)
+  %10 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19, ptr noundef nonnull %5, i32 noundef %3)
   %11 = getelementptr inbounds i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
   %.val = load ptr, ptr %9, align 8
-  %13 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %6, i32 noundef %12)
-  %14 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull %.str.181.sink, ptr noundef %10, ptr noundef %13)
+  %13 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %6, i32 noundef %12)
+  %14 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull %.str.181.sink, ptr noundef nonnull %10, ptr noundef nonnull %13)
   br label %15
 
 15:                                               ; preds = %.sink.split, %4
@@ -94219,8 +94219,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %5, %10, %JS_GetOpaq
   %19 = getelementptr i8, ptr %18, i64 1964
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %21 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %6, i32 noundef %20)
-  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %21) #45
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %6, i32 noundef %20)
+  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %JS_FreeValue.exit49
 
@@ -104662,8 +104662,8 @@ js_get_regexp.exit.thread:                        ; preds = %25
   %33 = getelementptr i8, ptr %32, i64 724
   %34 = load i32, ptr %33, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %35 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %30, ptr noundef nonnull %4, i32 noundef %34)
-  %36 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef %35)
+  %35 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %30, ptr noundef nonnull %4, i32 noundef %34)
+  %36 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %35)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %230
 
@@ -105105,8 +105105,8 @@ js_same_value.exit:                               ; preds = %JS_DupValue.exit.i,
   %34 = getelementptr i8, ptr %33, i64 724
   %35 = load i32, ptr %34, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %36 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %31, ptr noundef nonnull %5, i32 noundef %35)
-  %37 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef %36)
+  %36 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %31, ptr noundef nonnull %5, i32 noundef %35)
+  %37 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %36)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %46
 
@@ -105155,8 +105155,8 @@ js_get_regexp.exit.thread:                        ; preds = %5, %15
   %23 = getelementptr i8, ptr %22, i64 724
   %24 = load i32, ptr %23, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  %25 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %10, i32 noundef %24)
-  %26 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %25)
+  %25 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %10, i32 noundef %24)
+  %26 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %354
 
@@ -105951,8 +105951,8 @@ js_get_regexp.exit.thread:                        ; preds = %5, %11
   %19 = getelementptr i8, ptr %18, i64 724
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %21 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %7, i32 noundef %20)
-  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %21)
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %7, i32 noundef %20)
+  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_FreeValue.exit107
 
@@ -110294,8 +110294,8 @@ js_get_regexp.exit.thread:                        ; preds = %5, %14
   %22 = getelementptr i8, ptr %21, i64 724
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %287
 
@@ -112020,8 +112020,8 @@ JS_FreeValue.exit99.thread:                       ; preds = %7, %13, %JS_GetOpaq
   %22 = getelementptr i8, ptr %21, i64 1844
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %9, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %9, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %JS_FreeValue.exit100
 
@@ -118525,8 +118525,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %map_add_record.exit.thread58
 
@@ -119034,8 +119034,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %46
 
@@ -119116,8 +119116,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %36
 
@@ -119176,8 +119176,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %37
 
@@ -119241,8 +119241,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %.loopexit
 
@@ -119304,8 +119304,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %4, %9, %JS_GetOpaqu
   %20 = getelementptr %struct.JSClass, ptr %18, i64 %19, i32 1
   %21 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %22 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %5, i32 noundef %21)
-  %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %22) #45
+  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %5, i32 noundef %21)
+  %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %22) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %31
 
@@ -119365,8 +119365,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %24 = getelementptr %struct.JSClass, ptr %22, i64 %23, i32 1
   %25 = load i32, ptr %24, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %26 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %8, i32 noundef %25)
-  %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %26) #45
+  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %8, i32 noundef %25)
+  %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %26) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %.loopexit
 
@@ -119663,8 +119663,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %24 = getelementptr %struct.JSClass, ptr %22, i64 %23, i32 1
   %25 = load i32, ptr %24, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %26 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %7, i32 noundef %25)
-  %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %26) #45
+  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %7, i32 noundef %25)
+  %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %26) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_FreeValue.exit
 
@@ -120085,8 +120085,8 @@ JS_GetOpaque.exit.i:                              ; preds = %13
   %25 = getelementptr %struct.JSClass, ptr %23, i64 %24, i32 1
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %27 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %21, ptr noundef nonnull %8, i32 noundef %26)
-  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %27) #45
+  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %21, ptr noundef nonnull %8, i32 noundef %26)
+  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %27) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   store i32 0, ptr %5, align 4
   br label %121
@@ -133257,8 +133257,8 @@ find_closure_var.exit.thread.i:                   ; preds = %529, %539
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48)
   %540 = getelementptr i8, ptr %0, i64 24
   %.val.i.i = load ptr, ptr %540, align 8
-  %541 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %48, i32 noundef %531)
-  %542 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.521, ptr noundef %541) #45
+  %541 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %48, i32 noundef %531)
+  %542 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.521, ptr noundef nonnull %541) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48)
   br label %add_module_variables.exit
 
@@ -138486,8 +138486,8 @@ JS_FreeAtomStruct.exit.i.i.i:                     ; preds = %316, %307, %._crit_
   %340 = load i32, ptr %339, align 8
   %341 = getelementptr i8, ptr %338, i64 24
   %.val.i.i = load ptr, ptr %341, align 8
-  %342 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %6, i32 noundef %340)
-  %343 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef %342)
+  %342 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %6, i32 noundef %340)
+  %343 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %342)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %js_parse_export.exit.thread
 
@@ -142702,8 +142702,8 @@ thread-pre-split.thread.thread:                   ; preds = %28, %thread-pre-spl
   %919 = load i32, ptr %918, align 8
   %920 = getelementptr i8, ptr %917, i64 24
   %.val.i784 = load ptr, ptr %920, align 8
-  %921 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i784, ptr noundef nonnull %3, i32 noundef %919)
-  %922 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef %921)
+  %921 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i784, ptr noundef nonnull %3, i32 noundef %919)
+  %922 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %921)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %.loopexit636
 
@@ -142790,8 +142790,8 @@ token_is_pseudo_keyword.exit:                     ; preds = %928
   %961 = load ptr, ptr %0, align 8
   %962 = getelementptr i8, ptr %961, i64 24
   %.val.i619 = load ptr, ptr %962, align 8
-  %963 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i619, ptr noundef nonnull %5, i32 noundef %960)
-  %964 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.520, ptr noundef %963)
+  %963 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i619, ptr noundef nonnull %5, i32 noundef %960)
+  %964 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.520, ptr noundef nonnull %963)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %.loopexit636
 
@@ -143169,8 +143169,8 @@ token_is_pseudo_keyword.exit.thread:              ; preds = %48, %52, %61, %58, 
   %86 = load ptr, ptr %0, align 8
   %87 = getelementptr i8, ptr %86, i64 24
   %.val.i = load ptr, ptr %87, align 8
-  %88 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %36, i32 noundef %.pre)
-  %89 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef %88)
+  %88 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %36, i32 noundef %.pre)
+  %89 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %88)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36)
   br label %JS_FreeAtom.exit
 
@@ -144064,8 +144064,8 @@ switch.edge:                                      ; preds = %509, %switch.lookup
   %598 = load i32, ptr %597, align 8
   %599 = getelementptr i8, ptr %596, i64 24
   %.val.i667 = load ptr, ptr %599, align 8
-  %600 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i667, ptr noundef nonnull %34, i32 noundef %598)
-  %601 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef %600)
+  %600 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i667, ptr noundef nonnull %34, i32 noundef %598)
+  %601 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %600)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34)
   br label %.loopexit
 
@@ -145158,8 +145158,8 @@ define internal fastcc void @js_parse_error_reserved_identifier(ptr nocapture no
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 24
   %.val = load ptr, ptr %6, align 8
-  %7 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %2, i32 noundef %5)
-  %8 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.429, ptr noundef %7)
+  %7 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %2, i32 noundef %5)
+  %8 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %7)
   ret void
 }
 
@@ -153287,8 +153287,8 @@ js_parse_expect.exit625:                          ; preds = %2
   %238 = load i32, ptr %233, align 8
   %239 = getelementptr i8, ptr %237, i64 24
   %.val.i534 = load ptr, ptr %239, align 8
-  %240 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i534, ptr noundef nonnull %71, i32 noundef %238)
-  %241 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef %240)
+  %240 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i534, ptr noundef nonnull %71, i32 noundef %238)
+  %241 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   br label %js_parse_expr_paren.exit.thread
 
@@ -156539,8 +156539,8 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_class(ptr noundef %0, i32 
   %51 = load i32, ptr %50, align 8
   %52 = getelementptr i8, ptr %49, i64 24
   %.val.i = load ptr, ptr %52, align 8
-  %53 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %25, i32 noundef %51)
-  %54 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef %53)
+  %53 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %25, i32 noundef %51)
+  %54 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %53)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
   br label %JS_FreeAtom.exit510
 
@@ -162676,8 +162676,8 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_var(ptr noundef %0, i32 no
   %42 = load i32, ptr %28, align 8
   %43 = getelementptr i8, ptr %41, i64 24
   %.val.i = load ptr, ptr %43, align 8
-  %44 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %16, i32 noundef %42)
-  %45 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef %44)
+  %44 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %16, i32 noundef %42)
+  %45 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %44)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   br label %JS_FreeAtom.exit103
 
@@ -171766,8 +171766,8 @@ find_private_class_field_all.exit:                ; preds = %19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   %65 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %65, align 8
-  %66 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %4)
-  %67 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.522, ptr noundef %66) #45
+  %66 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %4)
+  %67 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.522, ptr noundef nonnull %66) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %72
 
@@ -172453,8 +172453,8 @@ JS_GetOpaque.exit.i:                              ; preds = %137
   %146 = getelementptr i8, ptr %145, i64 1484
   %147 = load i32, ptr %146, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %148 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %143, ptr noundef nonnull %5, i32 noundef %147)
-  %149 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %148) #45
+  %148 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %143, ptr noundef nonnull %5, i32 noundef %147)
+  %149 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %148) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %150 = trunc i64 %124 to i32
   %151 = icmp ugt i32 %150, -12
@@ -172713,8 +172713,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %17, %19, %JS_GetOpa
   %31 = getelementptr i8, ptr %30, i64 1484
   %32 = load i32, ptr %31, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %33 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %28, ptr noundef nonnull %6, i32 noundef %32)
-  %34 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef %33) #45
+  %33 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %28, ptr noundef nonnull %6, i32 noundef %32)
+  %34 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %33) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %JS_FreeValue.exit
 
@@ -173184,8 +173184,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %13, %16, %JS_GetOpa
   %25 = getelementptr i8, ptr %24, i64 1484
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %27 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %22, ptr noundef nonnull %8, i32 noundef %26)
-  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %27) #45
+  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %22, ptr noundef nonnull %8, i32 noundef %26)
+  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %27) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %JS_FreeValue.exit80
 
@@ -176001,8 +176001,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %96, %103, %JS_GetOp
   %112 = getelementptr i8, ptr %111, i64 1404
   %113 = load i32, ptr %112, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %114 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %109, ptr noundef nonnull %6, i32 noundef %113)
-  %115 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %114) #45
+  %114 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %109, ptr noundef nonnull %6, i32 noundef %113)
+  %115 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %114) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %24
 
@@ -176294,8 +176294,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %39, %46, %JS_GetOpa
   %55 = getelementptr i8, ptr %54, i64 1404
   %56 = load i32, ptr %55, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %57 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %52, ptr noundef nonnull %7, i32 noundef %56)
-  %58 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %57) #45
+  %57 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %52, ptr noundef nonnull %7, i32 noundef %56)
+  %58 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %57) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_NewBigFloat.exit.thread
 
@@ -176727,8 +176727,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %57, %64, %JS_GetOpa
   %73 = getelementptr i8, ptr %72, i64 1404
   %74 = load i32, ptr %73, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %75 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %70, ptr noundef nonnull %7, i32 noundef %74)
-  %76 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %75) #45
+  %75 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %70, ptr noundef nonnull %7, i32 noundef %74)
+  %76 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %75) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_NewBigFloat.exit.thread
 
@@ -177068,8 +177068,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %4, %8, %JS_GetOpaqu
   %17 = getelementptr i8, ptr %16, i64 1404
   %18 = load i32, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %19 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %14, ptr noundef nonnull %5, i32 noundef %18)
-  %20 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %19) #45
+  %19 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %14, ptr noundef nonnull %5, i32 noundef %18)
+  %20 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %19) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %48
 
@@ -177167,8 +177167,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %22 = getelementptr i8, ptr %21, i64 1404
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %24 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %24) #45
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %98
 
@@ -177363,8 +177363,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %5, %9, %JS_GetOpaqu
   %18 = getelementptr i8, ptr %17, i64 1404
   %19 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %20 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %6, i32 noundef %19)
-  %21 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %20) #45
+  %20 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %6, i32 noundef %19)
+  %21 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %20) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %23
 
@@ -204503,8 +204503,8 @@ JS_GetOpaque.exit.i:                              ; preds = %11
   %21 = getelementptr i8, ptr %20, i64 1804
   %22 = load i32, ptr %21, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %23 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %8, i32 noundef %22)
-  %24 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %23) #45
+  %23 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %8, i32 noundef %22)
+  %24 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %23) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   store i32 0, ptr %5, align 4
   br label %119
@@ -208676,8 +208676,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %4, %8, %JS_GetOpaqu
   %19 = getelementptr %struct.JSClass, ptr %17, i64 %18, i32 1
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %21 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %5, i32 noundef %20)
-  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %21) #45
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %5, i32 noundef %20)
+  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %29
 
@@ -208736,8 +208736,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %24 = getelementptr %struct.JSClass, ptr %22, i64 %23, i32 1
   %25 = load i32, ptr %24, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %26 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %7, i32 noundef %25)
-  %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %26) #45
+  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %7, i32 noundef %25)
+  %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %26) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_ToInt64Clamp.exit
 
@@ -214467,8 +214467,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %20 = getelementptr i8, ptr %19, i64 1284
   %21 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %22 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %17, ptr noundef nonnull %8, i32 noundef %21)
-  %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %22) #45
+  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %17, ptr noundef nonnull %8, i32 noundef %21)
+  %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %22) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %123
 
@@ -214722,8 +214722,8 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %14, %JS_GetOpaq
   %23 = getelementptr i8, ptr %22, i64 1284
   %24 = load i32, ptr %23, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %25 = call fastcc ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %8, i32 noundef %24)
-  %26 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %25) #45
+  %25 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %8, i32 noundef %24)
+  %26 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %25) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %135
 

@@ -145,7 +145,7 @@ declare ptr @BN_new() local_unnamed_addr #1
 declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_bn_value_ptr(ptr noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @ossl_bn_value_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load volatile i64, ptr %0, align 8
   %3 = load i64, ptr @cBN, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %2, i64 noundef %3) #10
@@ -216,7 +216,7 @@ define void @ossl_bn_ctx_free(ptr noundef %0) #0 {
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_bn_ctx_get() local_unnamed_addr #0 {
+define nonnull ptr @ossl_bn_ctx_get() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ossl_bn_ctx_key, align 8
   %2 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %1) #10
   %.not = icmp eq ptr %2, null
@@ -660,7 +660,7 @@ rb_check_frozen_inline.exit:                      ; preds = %8
 
 20:                                               ; preds = %16
   %21 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %3)
-  %22 = call ptr @BN_copy(ptr noundef nonnull %17, ptr noundef %21) #10
+  %22 = call ptr @BN_copy(ptr noundef nonnull %17, ptr noundef nonnull %21) #10
   %.not9 = icmp eq ptr %22, null
   br i1 %.not9, label %23, label %25
 
@@ -857,7 +857,7 @@ define internal i64 @ossl_bn_add(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 14:                                               ; preds = %8
-  %15 = call i32 @BN_add(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef %4) #10
+  %15 = call i32 @BN_add(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %19
 
@@ -901,7 +901,7 @@ define internal i64 @ossl_bn_sub(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 14:                                               ; preds = %8
-  %15 = call i32 @BN_sub(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef %4) #10
+  %15 = call i32 @BN_sub(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %19
 
@@ -967,7 +967,7 @@ define internal i64 @ossl_bn_mul(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %14, %21
   %.0.i = phi ptr [ %16, %14 ], [ %18, %21 ]
-  %23 = call i32 @BN_mul(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %23 = call i32 @BN_mul(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 
@@ -1108,7 +1108,7 @@ define internal i64 @ossl_bn_div(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %19, %26
   %.0.i = phi ptr [ %21, %19 ], [ %23, %26 ]
-  %28 = call i32 @BN_div(ptr noundef nonnull %12, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %28 = call i32 @BN_div(ptr noundef nonnull %12, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %.not23 = icmp eq i32 %28, 0
   br i1 %.not23, label %29, label %31
 
@@ -1179,7 +1179,7 @@ define internal i64 @ossl_bn_mod(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %14, %21
   %.0.i = phi ptr [ %16, %14 ], [ %18, %21 ]
-  %23 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %23 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 
@@ -1248,7 +1248,7 @@ define internal i64 @ossl_bn_mod_add(i64 noundef %0, i64 noundef %1, i64 noundef
 
 ossl_bn_ctx_get.exit:                             ; preds = %17, %24
   %.0.i = phi ptr [ %19, %17 ], [ %21, %24 ]
-  %26 = call i32 @BN_mod_add(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %.0.i) #10
+  %26 = call i32 @BN_mod_add(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %.0.i) #10
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %28, label %30
 
@@ -1317,7 +1317,7 @@ define internal i64 @ossl_bn_mod_sub(i64 noundef %0, i64 noundef %1, i64 noundef
 
 ossl_bn_ctx_get.exit:                             ; preds = %17, %24
   %.0.i = phi ptr [ %19, %17 ], [ %21, %24 ]
-  %26 = call i32 @BN_mod_sub(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %.0.i) #10
+  %26 = call i32 @BN_mod_sub(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %.0.i) #10
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %28, label %30
 
@@ -1386,7 +1386,7 @@ define internal i64 @ossl_bn_mod_mul(i64 noundef %0, i64 noundef %1, i64 noundef
 
 ossl_bn_ctx_get.exit:                             ; preds = %17, %24
   %.0.i = phi ptr [ %19, %17 ], [ %21, %24 ]
-  %26 = call i32 @BN_mod_mul(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %.0.i) #10
+  %26 = call i32 @BN_mod_mul(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %.0.i) #10
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %28, label %30
 
@@ -1452,7 +1452,7 @@ define internal i64 @ossl_bn_mod_sqr(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %14, %21
   %.0.i = phi ptr [ %16, %14 ], [ %18, %21 ]
-  %23 = call i32 @BN_mod_sqr(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %23 = call i32 @BN_mod_sqr(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 
@@ -1508,7 +1508,7 @@ define internal i64 @ossl_bn_mod_sqrt(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %8, %17
   %.0.i = phi ptr [ %12, %8 ], [ %14, %17 ]
-  %19 = call ptr @BN_mod_sqrt(ptr noundef null, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %19 = call ptr @BN_mod_sqrt(ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %.not9 = icmp eq ptr %19, null
   br i1 %.not9, label %20, label %22
 
@@ -1573,7 +1573,7 @@ define internal i64 @ossl_bn_exp(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %14, %21
   %.0.i = phi ptr [ %16, %14 ], [ %18, %21 ]
-  %23 = call i32 @BN_exp(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %23 = call i32 @BN_exp(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 
@@ -1642,7 +1642,7 @@ define internal i64 @ossl_bn_mod_exp(i64 noundef %0, i64 noundef %1, i64 noundef
 
 ossl_bn_ctx_get.exit:                             ; preds = %17, %24
   %.0.i = phi ptr [ %19, %17 ], [ %21, %24 ]
-  %26 = call i32 @BN_mod_exp(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %.0.i) #10
+  %26 = call i32 @BN_mod_exp(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %.0.i) #10
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %28, label %30
 
@@ -1708,7 +1708,7 @@ define internal i64 @ossl_bn_gcd(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %14, %21
   %.0.i = phi ptr [ %16, %14 ], [ %18, %21 ]
-  %23 = call i32 @BN_gcd(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %23 = call i32 @BN_gcd(ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 
@@ -1740,7 +1740,7 @@ define internal range(i64 1, 0) i64 @ossl_bn_cmp(i64 noundef %0, i64 noundef %1)
   unreachable
 
 8:                                                ; preds = %2
-  %9 = call i32 @BN_cmp(ptr noundef nonnull %5, ptr noundef %4) #10
+  %9 = call i32 @BN_cmp(ptr noundef nonnull %5, ptr noundef nonnull %4) #10
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 1
   %12 = or disjoint i64 %11, 1
@@ -1764,7 +1764,7 @@ define internal range(i64 1, 0) i64 @ossl_bn_ucmp(i64 noundef %0, i64 noundef %1
   unreachable
 
 8:                                                ; preds = %2
-  %9 = call i32 @BN_ucmp(ptr noundef nonnull %5, ptr noundef %4) #10
+  %9 = call i32 @BN_ucmp(ptr noundef nonnull %5, ptr noundef nonnull %4) #10
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 1
   %12 = or disjoint i64 %11, 1
@@ -2118,7 +2118,7 @@ define internal i64 @ossl_bn_s_rand_range(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 9:                                                ; preds = %2
-  %10 = call i32 @BN_rand_range(ptr noundef nonnull %6, ptr noundef %4) #10
+  %10 = call i32 @BN_rand_range(ptr noundef nonnull %6, ptr noundef nonnull %4) #10
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %12, label %14
 
@@ -2999,7 +2999,7 @@ define internal i64 @ossl_bn_mod_inverse(i64 noundef %0, i64 noundef %1) #0 {
 
 ossl_bn_ctx_get.exit:                             ; preds = %8, %17
   %.0.i = phi ptr [ %12, %8 ], [ %14, %17 ]
-  %19 = call ptr @BN_mod_inverse(ptr noundef null, ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %.0.i) #10
+  %19 = call ptr @BN_mod_inverse(ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #10
   %.not9 = icmp eq ptr %19, null
   br i1 %.not9, label %20, label %22
 
@@ -3026,7 +3026,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @integer_to_bnptr(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca i64, align 8
   %5 = and i64 %0, 1

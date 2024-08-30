@@ -1089,7 +1089,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.body, %55
 declare void @_ZN4LIEF5MachO11LoadCommand4swapERS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4LIEF5MachO14SegmentCommand5cloneEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK4LIEF5MachO14SegmentCommand5cloneEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #24
   invoke void @_ZN4LIEF5MachO14SegmentCommandC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(216) %0)
           to label %3 unwind label %4

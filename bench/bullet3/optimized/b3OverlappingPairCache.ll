@@ -722,7 +722,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN28b3HashedOverlappingPairCache15internalAddPairEii(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %proxy0, i32 noundef %proxy1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN28b3HashedOverlappingPairCache15internalAddPairEii(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %proxy0, i32 noundef %proxy1) local_unnamed_addr #0 align 2 {
 entry:
   %spec.select = tail call i32 @llvm.smin.i32(i32 %proxy0, i32 %proxy1)
   %spec.select44 = tail call i32 @llvm.smax.i32(i32 %proxy0, i32 %proxy1)

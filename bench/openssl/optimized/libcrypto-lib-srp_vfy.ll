@@ -595,7 +595,7 @@ declare i32 @OPENSSL_sk_insert(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @SRP_get_gN_by_id(ptr noundef %id, ptr noundef %gN_tab) unnamed_addr #0 {
 entry:
-  %call19 = tail call i32 @OPENSSL_sk_num(ptr noundef %gN_tab) #7
+  %call19 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %gN_tab) #7
   %cmp210 = icmp sgt i32 %call19, 0
   br i1 %cmp210, label %for.body.lr.ph, label %if.end10
 
@@ -605,19 +605,19 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.011.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %call4.us = tail call ptr @OPENSSL_sk_value(ptr noundef %gN_tab, i32 noundef %i.011.us) #7
+  %call4.us = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %gN_tab, i32 noundef %i.011.us) #7
   %tobool.not.us = icmp eq ptr %call4.us, null
   br i1 %tobool.not.us, label %for.inc.us, label %return
 
 for.inc.us:                                       ; preds = %for.body.us
   %inc.us = add nuw nsw i32 %i.011.us, 1
-  %call1.us = tail call i32 @OPENSSL_sk_num(ptr noundef %gN_tab) #7
+  %call1.us = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %gN_tab) #7
   %cmp2.us = icmp slt i32 %inc.us, %call1.us
   br i1 %cmp2.us, label %for.body.us, label %if.end10, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.011 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef %gN_tab, i32 noundef %i.011) #7
+  %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %gN_tab, i32 noundef %i.011) #7
   %tobool.not = icmp eq ptr %call4, null
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
@@ -629,7 +629,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %inc = add nuw nsw i32 %i.011, 1
-  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %gN_tab) #7
+  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %gN_tab) #7
   %cmp2 = icmp slt i32 %inc, %call1
   br i1 %cmp2, label %for.body, label %if.end10, !llvm.loop !6
 

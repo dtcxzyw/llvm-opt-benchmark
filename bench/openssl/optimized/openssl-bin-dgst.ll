@@ -518,13 +518,13 @@ for.cond.preheader:                               ; preds = %if.end177
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.0254, 1
-  %call181 = call i32 @OPENSSL_sk_num(ptr noundef %macopts.0) #6
+  %call181 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %macopts.0) #6
   %cmp182 = icmp slt i32 %inc, %call181
   br i1 %cmp182, label %for.body, label %if.end190, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.0254 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call184 = call ptr @OPENSSL_sk_value(ptr noundef %macopts.0, i32 noundef %i.0254) #6
+  %call184 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %macopts.0, i32 noundef %i.0254) #6
   %15 = load ptr, ptr %mac_ctx, align 8
   %call185 = call i32 @pkey_ctrl_string(ptr noundef %15, ptr noundef %call184) #6
   %cmp186 = icmp slt i32 %call185, 1
@@ -639,13 +639,13 @@ for.cond241.preheader:                            ; preds = %if.end238
 
 for.cond241:                                      ; preds = %for.body245
   %inc254 = add nuw nsw i32 %i.1257, 1
-  %call243 = call i32 @OPENSSL_sk_num(ptr noundef %sigopts.0) #6
+  %call243 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %sigopts.0) #6
   %cmp244 = icmp slt i32 %inc254, %call243
   br i1 %cmp244, label %for.body245, label %if.end273, !llvm.loop !8
 
 for.body245:                                      ; preds = %for.cond241.preheader, %for.cond241
   %i.1257 = phi i32 [ %inc254, %for.cond241 ], [ 0, %for.cond241.preheader ]
-  %call247 = call ptr @OPENSSL_sk_value(ptr noundef %sigopts.0, i32 noundef %i.1257) #6
+  %call247 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %sigopts.0, i32 noundef %i.1257) #6
   %26 = load ptr, ptr %pctx, align 8
   %call248 = call i32 @pkey_ctrl_string(ptr noundef %26, ptr noundef %call247) #6
   %cmp249 = icmp slt i32 %call248, 1

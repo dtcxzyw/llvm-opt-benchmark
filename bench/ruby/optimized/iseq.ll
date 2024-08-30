@@ -2170,7 +2170,7 @@ set_compile_option_from_ast.exit:                 ; preds = %13, %38
 53:                                               ; preds = %48, %49
   %54 = phi ptr [ null, %48 ], [ %50, %49 ]
   %55 = phi i32 [ -1, %48 ], [ %52, %49 ]
-  call fastcc void @prepare_iseq_build(ptr noundef nonnull %16, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %54, i32 noundef %55, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %.0, ptr noundef %.02939)
+  call fastcc void @prepare_iseq_build(ptr noundef nonnull %16, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %54, i32 noundef %55, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %.0, ptr noundef nonnull %.02939)
   %56 = call i64 @rb_iseq_compile_node(ptr noundef nonnull %16, ptr noundef %14) #20
   call fastcc void @finish_iseq_build(ptr noundef nonnull %16)
   %57 = call fastcc ptr @iseq_translate(ptr noundef nonnull %16)

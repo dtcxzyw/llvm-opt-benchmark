@@ -15432,7 +15432,7 @@ get_othercase_range.exit:                         ; preds = %22, %64, %40, %get_
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef ptr @first_significant_code(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc nonnull ptr @first_significant_code(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #7 {
   %.not34 = icmp eq i32 %1, 0
   br i1 %.not34, label %.split.us.split.us, label %.split.split
 

@@ -567,7 +567,7 @@ declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signex
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fetch_finfo_record(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @fetch_finfo_record(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, ptr noundef %1) #13
   %4 = tail call ptr @lookup_external_function(ptr noundef %0, ptr noundef %3) #13
   %5 = icmp eq ptr %4, null

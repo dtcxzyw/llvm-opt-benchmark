@@ -5551,7 +5551,7 @@ if.then18:                                        ; preds = %if.end15
   %4 = load ptr, ptr @stderr, align 8
   %errstr = getelementptr inbounds i8, ptr %call16, i64 12
   %call20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.403, ptr noundef nonnull %2, i32 noundef %call8.i.i83, ptr noundef nonnull %errstr) #38
-  br label %if.then186
+  br label %if.end190.thread
 
 if.end21:                                         ; preds = %if.end15
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @config, i64 592), align 8
@@ -5579,7 +5579,7 @@ if.end4.i:                                        ; preds = %if.else.i93, %if.th
 cliAuth.exit.thread:                              ; preds = %if.end4.i
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %7) #39
-  br label %if.then186
+  br label %if.end190.thread
 
 if.end8.i:                                        ; preds = %if.end4.i
   %9 = load i32, ptr %reply.0.i, align 8
@@ -5592,7 +5592,7 @@ cliAuth.exit.thread125:                           ; preds = %if.end8.i
   %11 = load ptr, ptr %str.i, align 8
   %call11.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.415, ptr noundef %11) #38
   tail call void @freeReplyObject(ptr noundef nonnull %reply.0.i) #34
-  br label %if.then186
+  br label %if.end190.thread
 
 cliAuth.exit:                                     ; preds = %if.end8.i
   tail call void @freeReplyObject(ptr noundef nonnull %reply.0.i) #34
@@ -5609,11 +5609,7 @@ if.end35:                                         ; preds = %if.end25
   %13 = load ptr, ptr %str, align 8
   %call37 = tail call fastcc i64 @getLongInfoField(ptr noundef %13, ptr noundef nonnull @.str.185)
   %tobool38.not = icmp eq i64 %call37, 0
-  br i1 %tobool38.not, label %if.end40, label %if.then39
-
-if.then39:                                        ; preds = %if.end35
-  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.404)
-  br label %if.then186
+  br i1 %tobool38.not, label %if.end40, label %if.end190.thread166
 
 if.end40:                                         ; preds = %if.end35
   tail call void @freeReplyObject(ptr noundef nonnull %call26) #34
@@ -5638,13 +5634,13 @@ for.body:                                         ; preds = %if.end54, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end54 ], [ %indvars.iv.next, %for.inc ]
   %16 = load ptr, ptr @cluster_manager.0, align 8
   call void @listRewind(ptr noundef %16, ptr noundef nonnull %li) #34
-  %call58151 = call ptr @listNext(ptr noundef nonnull %li) #34
-  %cmp59.not152 = icmp eq ptr %call58151, null
-  br i1 %cmp59.not152, label %for.inc, label %while.body
+  %call58176 = call ptr @listNext(ptr noundef nonnull %li) #34
+  %cmp59.not177 = icmp eq ptr %call58176, null
+  br i1 %cmp59.not177, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %for.body, %while.cond.backedge
-  %call58153 = phi ptr [ %call58, %while.cond.backedge ], [ %call58151, %for.body ]
-  %value = getelementptr inbounds i8, ptr %call58153, i64 16
+  %call58178 = phi ptr [ %call58, %while.cond.backedge ], [ %call58176, %for.body ]
+  %value = getelementptr inbounds i8, ptr %call58178, i64 16
   %17 = load ptr, ptr %value, align 8
   %flags = getelementptr inbounds i8, ptr %17, i64 56
   %18 = load i32, ptr %flags, align 8
@@ -5732,10 +5728,10 @@ while.cond92.loopexit:                            ; preds = %if.end177, %if.end1
   br i1 %cmp93.not, label %if.end184, label %while.body95, !llvm.loop !60
 
 while.body95:                                     ; preds = %if.end91, %while.cond92.loopexit
-  %src_reply.1159 = phi ptr [ %call41, %if.end91 ], [ %call100, %while.cond92.loopexit ]
-  %cursor.0158 = phi i32 [ -999, %if.end91 ], [ %cursor.1, %while.cond92.loopexit ]
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %cursor.0158, i32 0)
-  call void @freeReplyObject(ptr noundef nonnull %src_reply.1159) #34
+  %src_reply.1184 = phi ptr [ %call41, %if.end91 ], [ %call100, %while.cond92.loopexit ]
+  %cursor.0183 = phi i32 [ -999, %if.end91 ], [ %cursor.1, %while.cond92.loopexit ]
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %cursor.0183, i32 0)
+  call void @freeReplyObject(ptr noundef nonnull %src_reply.1184) #34
   %call100 = call ptr (ptr, ptr, ...) @reconnectingRedisCommand(ptr noundef %call16, ptr noundef nonnull @.str.411, i32 noundef %spec.store.select, i32 noundef 1000)
   %26 = load i32, ptr %call100, align 8
   %cmp104 = icmp eq i32 %26, 6
@@ -5774,21 +5770,21 @@ if.end136:                                        ; preds = %if.end114, %if.then
   %elements = getelementptr inbounds i8, ptr %32, i64 48
   %33 = load i64, ptr %elements, align 8
   %conv139 = trunc i64 %33 to i32
-  %cmp141156 = icmp sgt i32 %conv139, 0
-  br i1 %cmp141156, label %for.body143.preheader, label %while.cond92.loopexit
+  %cmp141181 = icmp sgt i32 %conv139, 0
+  br i1 %cmp141181, label %for.body143.preheader, label %while.cond92.loopexit
 
 for.body143.preheader:                            ; preds = %if.end136
   %wide.trip.count = and i64 %33, 2147483647
   br label %for.body143
 
 for.body143:                                      ; preds = %for.body143.preheader, %if.end177
-  %indvars.iv167 = phi i64 [ 0, %for.body143.preheader ], [ %indvars.iv.next168, %if.end177 ]
+  %indvars.iv192 = phi i64 [ 0, %for.body143.preheader ], [ %indvars.iv.next193, %if.end177 ]
   %34 = load ptr, ptr %element, align 8
   %arrayidx145 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %arrayidx145, align 8
   %element146 = getelementptr inbounds i8, ptr %35, i64 56
   %36 = load ptr, ptr %element146, align 8
-  %arrayidx148 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv167
+  %arrayidx148 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv192
   %37 = load ptr, ptr %arrayidx148, align 8
   %str149 = getelementptr inbounds i8, ptr %37, i64 32
   %38 = load ptr, ptr %str149, align 8
@@ -5904,9 +5900,9 @@ if.end174:                                        ; preds = %land.lhs.true168, %
 if.end177:                                        ; preds = %clusterManagerKeyHashSlot.exit
   call void @freeReplyObject(ptr noundef nonnull %call160) #34
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 4, ptr noundef nonnull @.str.414)
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count
-  br i1 %exitcond170.not, label %while.cond92.loopexit, label %for.body143, !llvm.loop !63
+  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
+  %exitcond195.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count
+  br i1 %exitcond195.not, label %while.cond92.loopexit, label %for.body143, !llvm.loop !63
 
 cleanup:                                          ; preds = %if.end25, %land.lhs.true108, %land.lhs.true48
   %src_reply.0 = phi ptr [ %call41, %land.lhs.true48 ], [ %call100, %land.lhs.true108 ], [ %call26, %if.end25 ]
@@ -5925,32 +5921,29 @@ if.end184:                                        ; preds = %while.cond92.loopex
   %cmdfmt.0134 = phi ptr [ %cmdfmt.0, %if.then183 ], [ %cmdfmt.0, %cleanup ], [ %cmdfmt.3, %if.end174 ], [ %cmdfmt.3, %while.cond92.loopexit ]
   %src_reply.0133 = phi ptr [ %src_reply.0, %if.then183 ], [ %src_reply.0, %cleanup ], [ %call100, %if.end174 ], [ %call100, %while.cond92.loopexit ]
   %tobool185.not = icmp eq ptr %call16, null
-  br i1 %tobool185.not, label %if.end187, label %if.then186
+  br i1 %tobool185.not, label %if.end190, label %if.end187.thread155
 
-if.then186:                                       ; preds = %if.then18, %if.then39, %cliAuth.exit.thread, %cliAuth.exit.thread125, %if.end184
-  %src_reply.0133144 = phi ptr [ %src_reply.0133, %if.end184 ], [ null, %if.then18 ], [ %call26, %if.then39 ], [ null, %cliAuth.exit.thread ], [ null, %cliAuth.exit.thread125 ]
-  %cmdfmt.0134142 = phi ptr [ %cmdfmt.0134, %if.end184 ], [ null, %if.then18 ], [ null, %if.then39 ], [ null, %cliAuth.exit.thread ], [ null, %cliAuth.exit.thread125 ]
-  %success.0135140 = phi i32 [ %success.0135, %if.end184 ], [ 0, %if.then18 ], [ 0, %if.then39 ], [ 0, %cliAuth.exit.thread ], [ 0, %cliAuth.exit.thread125 ]
+if.end187.thread155:                              ; preds = %if.end184
   call void @redisFree(ptr noundef nonnull %call16) #34
-  br label %if.end187
-
-if.end187:                                        ; preds = %if.then186, %if.end184
-  %src_reply.0133145 = phi ptr [ %src_reply.0133144, %if.then186 ], [ %src_reply.0133, %if.end184 ]
-  %cmdfmt.0134143 = phi ptr [ %cmdfmt.0134142, %if.then186 ], [ %cmdfmt.0134, %if.end184 ]
-  %success.0135141 = phi i32 [ %success.0135140, %if.then186 ], [ %success.0135, %if.end184 ]
-  %tobool188.not = icmp eq ptr %src_reply.0133145, null
-  br i1 %tobool188.not, label %if.end190, label %if.then189
-
-if.then189:                                       ; preds = %if.end187
-  call void @freeReplyObject(ptr noundef nonnull %src_reply.0133145) #34
   br label %if.end190
 
-if.end190:                                        ; preds = %if.then189, %if.end187
-  %tobool191.not = icmp eq ptr %cmdfmt.0134143, null
+if.end190.thread:                                 ; preds = %cliAuth.exit.thread125, %cliAuth.exit.thread, %if.then18
+  tail call void @redisFree(ptr noundef nonnull %call16) #34
+  br label %return
+
+if.end190.thread166:                              ; preds = %if.end35
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.404)
+  tail call void @redisFree(ptr noundef nonnull %call16) #34
+  tail call void @freeReplyObject(ptr noundef nonnull %call26) #34
+  br label %return
+
+if.end190:                                        ; preds = %if.end184, %if.end187.thread155
+  call void @freeReplyObject(ptr noundef nonnull %src_reply.0133) #34
+  %tobool191.not = icmp eq ptr %cmdfmt.0134, null
   br i1 %tobool191.not, label %return, label %if.then192
 
 if.then192:                                       ; preds = %if.end190
-  call void @hi_sdsfree(ptr noundef nonnull %cmdfmt.0134143) #34
+  call void @hi_sdsfree(ptr noundef nonnull %cmdfmt.0134) #34
   br label %return
 
 invalid_args:                                     ; preds = %if.end4.i.i78, %parseClusterNodeAddress.exit.i81, %if.end4.i.i, %if.end5.i, %if.end
@@ -5959,8 +5952,8 @@ invalid_args:                                     ; preds = %if.end4.i.i78, %par
   %fputs = tail call i32 @fputs(ptr nonnull %invalid_args_msg.0, ptr %54) #39
   br label %return
 
-return:                                           ; preds = %if.end190, %if.then192, %if.end11, %if.end6, %invalid_args
-  %retval.0 = phi i32 [ 0, %invalid_args ], [ 0, %if.end6 ], [ 0, %if.end11 ], [ %success.0135141, %if.then192 ], [ %success.0135141, %if.end190 ]
+return:                                           ; preds = %if.end190.thread166, %if.end190.thread, %if.end190, %if.then192, %if.end11, %if.end6, %invalid_args
+  %retval.0 = phi i32 [ 0, %invalid_args ], [ 0, %if.end6 ], [ 0, %if.end11 ], [ %success.0135, %if.then192 ], [ %success.0135, %if.end190 ], [ 0, %if.end190.thread ], [ 0, %if.end190.thread166 ]
   ret i32 %retval.0
 }
 
@@ -10052,7 +10045,7 @@ while.body.i43:                                   ; preds = %if.end56.i, %while.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i31.i)
   %div.i36.i = sdiv i64 %add.i.i35.i, 1000
   %sub.i44 = add nsw i64 %div.i36.i, %div.i30.neg.i
-  tail call void @freeReplyObject(ptr noundef %call6.i) #34
+  tail call void @freeReplyObject(ptr noundef nonnull %call6.i) #34
   %inc.i45 = add nsw i64 %count.0.i, 1
   %cmp12.i = icmp eq i64 %count.0.i, 0
   br i1 %cmp12.i, label %if.then13.i, label %if.else14.i
@@ -10265,7 +10258,7 @@ while.body.i56:                                   ; preds = %if.end31.i, %while.
   %reass.mul.i = mul i64 %reass.add.i, 1000000
   %add.i17.i = sub i64 %288, %285
   %sub.i59 = add i64 %add.i17.i, %reass.mul.i
-  tail call void @freeReplyObject(ptr noundef %call3.i) #34
+  tail call void @freeReplyObject(ptr noundef nonnull %call3.i) #34
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i, %while.body.i56
@@ -11122,7 +11115,7 @@ if.then83.i:                                      ; preds = %for.end.i146
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then83.i, %for.end.i146
-  call void @freeReplyObject(ptr noundef %call7.i) #34
+  call void @freeReplyObject(ptr noundef nonnull %call7.i) #34
   %397 = load volatile i32, ptr @force_cancel_loop, align 4
   %cmp87.i = icmp eq i32 %397, 0
   %398 = load i64, ptr %it.i, align 8
@@ -13743,7 +13736,7 @@ if.then88:                                        ; preds = %for.end
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then88, %for.end
-  call void @freeReplyObject(ptr noundef %call14) #34
+  call void @freeReplyObject(ptr noundef nonnull %call14) #34
   %113 = load volatile i32, ptr @force_cancel_loop, align 4
   %cmp92 = icmp eq i32 %113, 0
   %114 = load i64, ptr %it, align 8
@@ -23651,7 +23644,7 @@ declare double @atof(ptr nocapture noundef) local_unnamed_addr #12
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @reconnectingRedisCommand(ptr noundef %c, ptr noundef %fmt, ...) unnamed_addr #2 {
+define internal nonnull ptr @reconnectingRedisCommand(ptr noundef %c, ptr noundef %fmt, ...) unnamed_addr #2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %err9 = alloca ptr, align 8
@@ -25979,7 +25972,7 @@ if.end8:                                          ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sendScan(ptr nocapture noundef %it) unnamed_addr #2 {
+define internal fastcc nonnull ptr @sendScan(ptr nocapture noundef %it) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @config, i64 232), align 8
   %tobool.not = icmp eq ptr %0, null

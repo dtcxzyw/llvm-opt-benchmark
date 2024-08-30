@@ -351,7 +351,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb23PartitionedIndexBuilder18CreateIndexBuilderEPKNS_21InternalKeyComparatorEbRKNS_22BlockBasedTableOptionsEmb(ptr noundef %comparator, i1 noundef zeroext %use_value_delta_encoding, ptr noundef nonnull align 8 dereferenceable(248) %table_opt, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb23PartitionedIndexBuilder18CreateIndexBuilderEPKNS_21InternalKeyComparatorEbRKNS_22BlockBasedTableOptionsEmb(ptr noundef %comparator, i1 noundef zeroext %use_value_delta_encoding, ptr noundef nonnull align 8 dereferenceable(248) %table_opt, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #20
   invoke void @_ZN7rocksdb23PartitionedIndexBuilderC1EPKNS_21InternalKeyComparatorERKNS_22BlockBasedTableOptionsEbmb(ptr noundef nonnull align 8 dereferenceable(520) %call, ptr noundef %comparator, ptr noundef nonnull align 8 dereferenceable(248) %table_opt, i1 noundef zeroext %use_value_delta_encoding, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps)

@@ -43508,7 +43508,7 @@ define dso_local void @_ZNK5Catch10RunContext18getCurrentTestNameB5cxx11Ev(ptr d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK5Catch10RunContext13getLastResultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %0) unnamed_addr #9 align 2 {
+define dso_local noundef nonnull ptr @_ZNK5Catch10RunContext13getLastResultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3

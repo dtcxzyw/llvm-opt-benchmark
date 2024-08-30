@@ -634,7 +634,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN13rust_analyzer11diagnostics24fetch_native_diagnostics28_$u7b$$u7b$closure$u7d$$u7d$17hfe2d4fc0a39d6ad8E.llvm.3466590722360702098" = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 3], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 4 dereferenceable(16) ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h99f0b0f97d61299cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h99f0b0f97d61299cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load ptr, ptr %0, align 8, !alias.scope !5, !nonnull !4, !noundef !4

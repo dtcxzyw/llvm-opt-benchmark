@@ -21644,7 +21644,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenize
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip17hb7b4eb77b1e6afddE.llvm.12244614425474959946(ptr noalias noundef align 8 dereferenceable(80) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip17hb7b4eb77b1e6afddE.llvm.12244614425474959946(ptr noalias noundef align 8 dereferenceable(80) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { { { ptr, ptr, {} } }, i64 }, { ptr, ptr, ptr, ptr } }, align 8
   %6 = alloca i64, align 8

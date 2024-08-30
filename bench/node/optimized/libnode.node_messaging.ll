@@ -12142,7 +12142,7 @@ do.end6:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4node6worker12_GLOBAL__N_120DeserializerDelegate22GetSharedValueConveyorEPN2v87IsolateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture readnone %isolate) unnamed_addr #6 align 2 {
+define internal noundef nonnull ptr @_ZN4node6worker12_GLOBAL__N_120DeserializerDelegate22GetSharedValueConveyorEPN2v87IsolateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture readnone %isolate) unnamed_addr #6 align 2 {
 entry:
   %shared_value_conveyor_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %shared_value_conveyor_, align 8

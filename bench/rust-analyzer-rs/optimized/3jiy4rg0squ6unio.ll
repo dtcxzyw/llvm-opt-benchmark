@@ -49447,7 +49447,7 @@ define hidden void @"_ZN9lsp_types6window1_97_$LT$impl$u20$serde..de..Deserializ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h18b86d27e7a63fbbE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h18b86d27e7a63fbbE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -50484,7 +50484,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit85.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h476f3bf13f3b72ddE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h476f3bf13f3b72ddE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -51483,7 +51483,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h593d0d3ae5618f54E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h593d0d3ae5618f54E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -52482,7 +52482,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h7741762045469b7cE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h7741762045469b7cE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -53481,7 +53481,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h8476d6e1cda2ca7aE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17h8476d6e1cda2ca7aE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -54480,7 +54480,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17he467c44880fc0f00E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher11on_sync_mut17he467c44880fc0f00E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -55556,7 +55556,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h17e050b9caf7cb38E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h17e050b9caf7cb38E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -56870,7 +56870,7 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17hb1648c0d42b80e44E.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h221076c02cb2a536E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h221076c02cb2a536E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -58196,7 +58196,7 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17h0ca4ec9259492208E.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h5fa08f18874c0f1bE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h5fa08f18874c0f1bE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -59502,7 +59502,7 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17hc300463e009e77f7E.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h9ada0d10031ae2f8E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17h9ada0d10031ae2f8E(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -60816,7 +60816,7 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17hc1d1f9fb95fe3827E.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17hfb135f782625159aE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN13rust_analyzer8dispatch17RequestDispatcher7on_sync17hfb135f782625159aE(ptr noalias noundef returned align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8

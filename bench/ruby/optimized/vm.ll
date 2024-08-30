@@ -1017,7 +1017,7 @@ check_method_entry.exit:                          ; preds = %8, %31, %27, %26, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_vm_get_cref(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden nonnull ptr @rb_vm_get_cref(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %0)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %vm_get_cref.exit
@@ -30781,7 +30781,7 @@ vm_ec_cref.exit:                                  ; preds = %9, %0, %rb_vm_get_r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_vm_cref_replace_with_duplicated_cref() local_unnamed_addr #2 {
+define hidden nonnull ptr @rb_vm_cref_replace_with_duplicated_cref() local_unnamed_addr #2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16

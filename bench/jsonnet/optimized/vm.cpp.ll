@@ -10072,7 +10072,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   %1994 = getelementptr inbounds i8, ptr %1986, i64 80
   store i64 0, ptr %1994, align 8
   %1995 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
-  call fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1995, ptr %1986)
+  call fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1995, ptr nonnull %1986)
   %1996 = getelementptr inbounds i8, ptr %1776, i64 168
   %.val1490 = load ptr, ptr %337, align 8
   %.val1491 = load ptr, ptr %1983, align 8
@@ -10096,7 +10096,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   store ptr %2002, ptr %2004, align 8
   %2005 = getelementptr inbounds i8, ptr %1997, i64 80
   store i64 0, ptr %2005, align 8
-  call fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1995, ptr %1997)
+  call fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1995, ptr nonnull %1997)
   %.val1.i2077 = load ptr, ptr %197, align 8
   %2006 = getelementptr inbounds i8, ptr %.val1.i2077, i64 -400
   %.val.i2078 = load i32, ptr %2006, align 8
@@ -34742,7 +34742,7 @@ _ZNSt12_Vector_baseIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE7_M_copyILb0ENSG_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE7_M_copyILb0ENSG_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
@@ -36634,7 +36634,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierEDniDnEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.0.val, i32 %.0.val1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierEDniDnEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.0.val, i32 %.0.val1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #36
   %3 = getelementptr inbounds i8, ptr %2, i64 9
   store i8 0, ptr %3, align 1
@@ -62799,7 +62799,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15FrameESaIS3_EE12emplace_backIJRNS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.0.val, ptr %.0.val1, i32 %.0.val3, ptr %.0.val5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.0.val, ptr %.0.val1, i32 %.0.val3, ptr %.0.val5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #36
   %3 = getelementptr inbounds i8, ptr %2, i64 9
   store i8 0, ptr %3, align 1
@@ -63172,7 +63172,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack9lookUpVarEPKNS0_10IdentifierE.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10importDataERKNS0_13LocationRangeEPKNS0_13LiteralStringE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10importDataERKNS0_13LocationRangeEPKNS0_13LiteralStringE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.std::pair.196", align 8
   %6 = alloca ptr, align 8

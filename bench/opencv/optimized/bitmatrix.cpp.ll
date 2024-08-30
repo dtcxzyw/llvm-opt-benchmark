@@ -2498,7 +2498,7 @@ define hidden void @_ZN5zxing9BitMatrix5clearEv(ptr nocapture noundef nonnull re
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -2726,7 +2726,7 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -2851,7 +2851,7 @@ _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %49, %58, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3132,7 +3132,7 @@ _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %49, %58, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3360,7 +3360,7 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3485,7 +3485,7 @@ _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(346) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8

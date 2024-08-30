@@ -1031,7 +1031,7 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$14or_insert_with17he94d5d102be887f4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$14or_insert_with17he94d5d102be887f4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64, {} }, i64, {} }, align 8
   %3 = alloca { { ptr, i64, {} }, i64, {} }, align 8
   %4 = alloca { ptr, i64, { ptr, [2 x i64] }, {}, {} }, align 8
@@ -1115,7 +1115,7 @@ define hidden noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hd5e1e3add2d774caE.llvm.3622975676230304285"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hd5e1e3add2d774caE.llvm.3622975676230304285"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64, {} }, i64, {} }, align 8
   %5 = alloca { { ptr, i64, {} }, i64, {} }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1685,7 +1685,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @_ZN16wasmtime_runtime8instance8Instance3new17h82dd36e043d3090dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance3new17h82dd36e043d3090dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca i32, align 4
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1913,7 +1913,7 @@ define noundef ptr @_ZN16wasmtime_runtime8instance8Instance3new17h82dd36e043d309
   %115 = getelementptr i8, ptr %114, i64 16
   %116 = getelementptr inbounds i8, ptr %109, i64 24
   %117 = load ptr, ptr %116, align 8, !invariant.load !4, !noalias !264, !nonnull !4
-  %118 = call noundef align 8 dereferenceable(8) ptr %117(ptr noundef align 1 %115)
+  %118 = call noundef nonnull align 8 dereferenceable(8) ptr %117(ptr noundef align 1 %115)
   %119 = load ptr, ptr %118, align 8, !noalias !261, !nonnull !4, !noundef !4
   %120 = icmp eq ptr %54, %119
   br i1 %120, label %.noexc49, label %.noexc48
@@ -2634,7 +2634,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance10from
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime8instance8Instance6module17h91befad8a741a212E(ptr noalias nocapture noundef readonly align 16 dereferenceable(160) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime8instance8Instance6module17h91befad8a741a212E(ptr noalias nocapture noundef readonly align 16 dereferenceable(160) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 16, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !82, !noundef !4
@@ -2887,7 +2887,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff7
   %12 = getelementptr i8, ptr %11, i64 16
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !391, !nonnull !4
-  %15 = tail call noundef align 8 dereferenceable(8) ptr %14(ptr noundef align 1 %12), !noalias !391
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr %14(ptr noundef align 1 %12), !noalias !391
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %17 = zext i32 %2 to i64
   %18 = getelementptr inbounds i8, ptr %16, i64 456
@@ -2960,7 +2960,7 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime8instance8Instance18get_runtime_memory17h44f2add21cb3d778E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime8instance8Instance18get_runtime_memory17h44f2add21cb3d778E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !407)
   %3 = load ptr, ptr %0, align 16, !alias.scope !407, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2973,7 +2973,7 @@ define hidden noundef align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime8ins
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8, !invariant.load !4, !noalias !407, !nonnull !4
-  %14 = tail call noundef align 8 dereferenceable(8) ptr %13(ptr noundef align 1 %11), !noalias !407
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr %13(ptr noundef align 1 %11), !noalias !407
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = zext i32 %1 to i64
   %17 = getelementptr inbounds i8, ptr %15, i64 456
@@ -3297,7 +3297,7 @@ define noundef ptr @_ZN16wasmtime_runtime8instance8Instance30defined_or_imported
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8, !invariant.load !4, !noalias !466, !nonnull !4
-  %14 = tail call noundef align 8 dereferenceable(8) ptr %13(ptr noundef align 1 %11), !noalias !466
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr %13(ptr noundef align 1 %11), !noalias !466
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = zext i32 %1 to i64
   %17 = getelementptr inbounds i8, ptr %15, i64 464
@@ -3405,7 +3405,7 @@ define void @_ZN16wasmtime_runtime8instance8Instance11all_globals17hbacc36d465a6
   %13 = getelementptr i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !noalias !475, !nonnull !4
-  %16 = tail call noundef align 8 dereferenceable(8) ptr %15(ptr noundef align 1 %13), !noalias !475
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr %15(ptr noundef align 1 %13), !noalias !475
   %.val = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %17 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %18 = icmp slt i64 %17, 0
@@ -3464,7 +3464,7 @@ define void @_ZN16wasmtime_runtime8instance8Instance15defined_globals17ha83e41e1
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8, !invariant.load !4, !noalias !489, !nonnull !4
-  %14 = tail call noundef align 8 dereferenceable(8) ptr %13(ptr noundef align 1 %11), !noalias !489
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr %13(ptr noundef align 1 %11), !noalias !489
   %.val = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %15 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %16 = icmp slt i64 %15, 0
@@ -3990,7 +3990,7 @@ define { ptr, ptr } @_ZN16wasmtime_runtime8instance8Instance7exports17hb9edd6830
   %10 = getelementptr i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !498, !nonnull !4
-  %13 = tail call noundef align 8 dereferenceable(8) ptr %12(ptr noundef align 1 %10), !noalias !498
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr %12(ptr noundef align 1 %10), !noalias !498
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr i8, ptr %14, i64 80
   %.val = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
@@ -4081,7 +4081,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance11memory_grow17h76e57
   %13 = getelementptr i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !noalias !504, !nonnull !4
-  %16 = tail call noundef align 8 dereferenceable(8) ptr %15(ptr noundef align 1 %13), !noalias !504
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr %15(ptr noundef align 1 %13), !noalias !504
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %18 = zext i32 %2 to i64
   %19 = getelementptr inbounds i8, ptr %17, i64 456
@@ -4594,7 +4594,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance18construct_func_ref1
   %39 = getelementptr i8, ptr %38, i64 16
   %40 = getelementptr inbounds i8, ptr %33, i64 24
   %41 = load ptr, ptr %40, align 8, !invariant.load !4, !noalias !613, !nonnull !4
-  %42 = tail call noundef align 8 dereferenceable(8) ptr %41(ptr noundef align 1 %39), !noalias !613
+  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr %41(ptr noundef align 1 %39), !noalias !613
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
   %44 = zext i32 %1 to i64
   %45 = getelementptr inbounds i8, ptr %43, i64 440
@@ -4736,7 +4736,7 @@ define { i64, ptr } @_ZN16wasmtime_runtime8instance8Instance12get_func_ref17h1cd
   %13 = getelementptr i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !noalias !622, !nonnull !4
-  %16 = tail call noundef align 8 dereferenceable(8) ptr %15(ptr noundef align 1 %13), !noalias !622
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr %15(ptr noundef align 1 %13), !noalias !622
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
   %18 = zext i32 %1 to i64
@@ -4831,7 +4831,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance10table_init17h
   %20 = getelementptr i8, ptr %19, i64 16
   %21 = getelementptr inbounds i8, ptr %14, i64 24
   %22 = load ptr, ptr %21, align 8, !invariant.load !4, !noalias !633, !nonnull !4
-  %23 = tail call noundef align 8 dereferenceable(8) ptr %22(ptr noundef align 1 %20), !noalias !633
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr %22(ptr noundef align 1 %20), !noalias !633
   %.val = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %24 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %25 = icmp slt i64 %24, 0
@@ -5168,7 +5168,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_copy17
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !684, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !684
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !684
   %19 = load ptr, ptr %18, align 8, !noalias !683, !nonnull !4, !noundef !4
   %20 = zext i32 %3 to i64
   %21 = getelementptr inbounds i8, ptr %19, i64 456
@@ -5242,7 +5242,7 @@ _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; 
   %65 = getelementptr i8, ptr %64, i64 16
   %66 = getelementptr inbounds i8, ptr %59, i64 24
   %67 = load ptr, ptr %66, align 8, !invariant.load !4, !noalias !706, !nonnull !4
-  %68 = tail call noundef align 8 dereferenceable(8) ptr %67(ptr noundef align 1 %65), !noalias !706
+  %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr %67(ptr noundef align 1 %65), !noalias !706
   %69 = load ptr, ptr %68, align 8, !noalias !705, !nonnull !4, !noundef !4
   %70 = zext i32 %1 to i64
   %71 = getelementptr inbounds i8, ptr %69, i64 456
@@ -5375,7 +5375,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_fill17
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !728, !nonnull !4
-  %17 = tail call noundef align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !728
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !728
   %18 = load ptr, ptr %17, align 8, !noalias !727, !nonnull !4, !noundef !4
   %19 = zext i32 %1 to i64
   %20 = getelementptr inbounds i8, ptr %18, i64 456
@@ -5472,7 +5472,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_init17
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = getelementptr inbounds i8, ptr %11, i64 24
   %19 = load ptr, ptr %18, align 8, !invariant.load !4, !noalias !744, !nonnull !4
-  %20 = tail call noundef align 8 dereferenceable(8) ptr %19(ptr noundef align 1 %17), !noalias !744
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr %19(ptr noundef align 1 %17), !noalias !744
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds i8, ptr %21, i64 416
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747)
@@ -5599,7 +5599,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance19memory_init_s
   %16 = getelementptr i8, ptr %15, i64 16
   %17 = getelementptr inbounds i8, ptr %10, i64 24
   %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !777, !nonnull !4
-  %19 = tail call noundef align 8 dereferenceable(8) ptr %18(ptr noundef align 1 %16), !noalias !777
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr %18(ptr noundef align 1 %16), !noalias !777
   %20 = load ptr, ptr %19, align 8, !noalias !776, !nonnull !4, !noundef !4
   %21 = zext i32 %1 to i64
   %22 = getelementptr inbounds i8, ptr %20, i64 456
@@ -5807,7 +5807,7 @@ define noalias noundef ptr @_ZN16wasmtime_runtime8instance14InstanceHandle4null1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime8instance14InstanceHandle6module17h7ec209c90a196e59E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime8instance14InstanceHandle6module17h7ec209c90a196e59E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -5829,7 +5829,7 @@ define noundef align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime8instance14I
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !816, !nonnull !4
-  %17 = tail call noundef align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !816
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !816
   ret ptr %17
 }
 
@@ -5892,7 +5892,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !831, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !831
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !831
   %19 = load ptr, ptr %18, align 8, !noalias !825, !nonnull !4, !noundef !4
   %20 = zext i32 %2 to i64
   %21 = getelementptr inbounds i8, ptr %19, i64 464
@@ -5992,7 +5992,7 @@ _ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llv
   %93 = getelementptr i8, ptr %92, i64 16
   %94 = getelementptr inbounds i8, ptr %87, i64 24
   %95 = load ptr, ptr %94, align 8, !invariant.load !4, !noalias !839, !nonnull !4
-  %96 = tail call noundef align 8 dereferenceable(8) ptr %95(ptr noundef align 1 %93), !noalias !839
+  %96 = tail call noundef nonnull align 8 dereferenceable(8) ptr %95(ptr noundef align 1 %93), !noalias !839
   %97 = load ptr, ptr %96, align 8, !noalias !825, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !840)
   %98 = getelementptr inbounds i8, ptr %97, i64 328
@@ -6046,7 +6046,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !855, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !855
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !855
   %19 = load ptr, ptr %18, align 8, !noalias !849, !nonnull !4, !noundef !4
   %20 = zext i32 %2 to i64
   %21 = getelementptr inbounds i8, ptr %19, i64 456
@@ -6153,7 +6153,7 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
   %95 = getelementptr i8, ptr %94, i64 16
   %96 = getelementptr inbounds i8, ptr %89, i64 24
   %97 = load ptr, ptr %96, align 8, !invariant.load !4, !noalias !874, !nonnull !4
-  %98 = tail call noundef align 8 dereferenceable(8) ptr %97(ptr noundef align 1 %95), !noalias !874
+  %98 = tail call noundef nonnull align 8 dereferenceable(8) ptr %97(ptr noundef align 1 %95), !noalias !874
   %99 = load ptr, ptr %98, align 8, !noalias !849, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !875)
   %100 = getelementptr inbounds i8, ptr %99, i64 304
@@ -6220,7 +6220,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !895, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !895
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !895
   %19 = load ptr, ptr %18, align 8, !noalias !889, !nonnull !4, !noundef !4
   %20 = zext i32 %2 to i64
   %21 = getelementptr inbounds i8, ptr %19, i64 448
@@ -6324,7 +6324,7 @@ _ZN16wasmtime_runtime8instance8Instance14imported_table17h40c54e6f0125f88bE.exit
   %94 = getelementptr i8, ptr %93, i64 16
   %95 = getelementptr inbounds i8, ptr %88, i64 24
   %96 = load ptr, ptr %95, align 8, !invariant.load !4, !noalias !914, !nonnull !4
-  %97 = tail call noundef align 8 dereferenceable(8) ptr %96(ptr noundef align 1 %94), !noalias !914
+  %97 = tail call noundef nonnull align 8 dereferenceable(8) ptr %96(ptr noundef align 1 %94), !noalias !914
   %98 = load ptr, ptr %97, align 8, !noalias !889, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !915)
   %99 = getelementptr inbounds i8, ptr %98, i64 280
@@ -6452,7 +6452,7 @@ define { ptr, ptr } @_ZN16wasmtime_runtime8instance14InstanceHandle7exports17ha3
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !934, !nonnull !4
-  %17 = tail call noundef align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !934
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !934
   %18 = load ptr, ptr %17, align 8, !noalias !928, !nonnull !4, !noundef !4
   %19 = getelementptr i8, ptr %18, i64 80
   %.val.i = load ptr, ptr %19, align 8, !noalias !928, !nonnull !4, !noundef !4
@@ -6539,7 +6539,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle6module17h7ec209c90a196e59E.exit: 
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !949, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !949
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !949
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 280
   %21 = load i64, ptr %20, align 8, !noundef !4
@@ -6586,7 +6586,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle10all_tables17ha7f7fba2dcaa1aafE.e
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !961, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !961
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !961
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 448
   %21 = load i64, ptr %20, align 8, !noundef !4
@@ -6602,7 +6602,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle10all_tables17ha7f7fba2dcaa1aafE.e
   %29 = getelementptr i8, ptr %28, i64 16
   %30 = getelementptr inbounds i8, ptr %23, i64 24
   %31 = load ptr, ptr %30, align 8, !invariant.load !4, !noalias !971, !nonnull !4
-  %32 = tail call noundef align 8 dereferenceable(8) ptr %31(ptr noundef align 1 %29), !noalias !971
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr %31(ptr noundef align 1 %29), !noalias !971
   %33 = load ptr, ptr %32, align 8, !noalias !972, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds i8, ptr %33, i64 280
   %35 = load i64, ptr %34, align 8, !noalias !972, !noundef !4
@@ -6653,7 +6653,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle6module17h7ec209c90a196e59E.exit: 
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !984, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !984
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !984
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 304
   %21 = load i64, ptr %20, align 8, !noundef !4
@@ -6700,7 +6700,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12all_memories17h2b9677a4758b1e7dE
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !996, !nonnull !4
-  %18 = tail call noundef align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !996
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef align 1 %15), !noalias !996
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 456
   %21 = load i64, ptr %20, align 8, !noundef !4
@@ -6716,7 +6716,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12all_memories17h2b9677a4758b1e7dE
   %29 = getelementptr i8, ptr %28, i64 16
   %30 = getelementptr inbounds i8, ptr %23, i64 24
   %31 = load ptr, ptr %30, align 8, !invariant.load !4, !noalias !1006, !nonnull !4
-  %32 = tail call noundef align 8 dereferenceable(8) ptr %31(ptr noundef align 1 %29), !noalias !1006
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr %31(ptr noundef align 1 %29), !noalias !1006
   %33 = load ptr, ptr %32, align 8, !noalias !1007, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds i8, ptr %33, i64 304
   %35 = load i64, ptr %34, align 8, !noalias !1007, !noundef !4
@@ -6770,7 +6770,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   %16 = getelementptr i8, ptr %15, i64 16
   %17 = getelementptr inbounds i8, ptr %10, i64 24
   %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !1022, !nonnull !4
-  %19 = tail call noundef align 8 dereferenceable(8) ptr %18(ptr noundef align 1 %16), !noalias !1022
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr %18(ptr noundef align 1 %16), !noalias !1022
   %.val.i = load ptr, ptr %19, align 8, !noalias !1016, !nonnull !4, !noundef !4
   %20 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !1016
   %21 = icmp slt i64 %20, 0
@@ -6840,7 +6840,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !1044, !nonnull !4
-  %17 = tail call noundef align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !1044
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr %16(ptr noundef align 1 %14), !noalias !1044
   %.val.i = load ptr, ptr %17, align 8, !noalias !1038, !nonnull !4, !noundef !4
   %18 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !1038
   %19 = icmp slt i64 %18, 0

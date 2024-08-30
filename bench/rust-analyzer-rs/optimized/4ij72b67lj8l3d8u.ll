@@ -13190,7 +13190,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.2681043041644741927(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.2681043041644741927(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -30084,7 +30084,7 @@ define internal fastcc void @_ZN7hir_def9item_tree5lower3Ctx18lower_module_items
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable(504) ptr @_ZN7hir_def9item_tree5lower3Ctx4data17h60290ac94af9f859E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 dereferenceable(504) ptr @_ZN7hir_def9item_tree5lower3Ctx4data17h60290ac94af9f859E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8032)
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -30183,7 +30183,7 @@ define internal fastcc noundef align 8 dereferenceable(504) ptr @_ZN7hir_def9ite
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !8042
   %8 = tail call noundef align 8 dereferenceable_or_null(504) ptr @__rust_alloc(i64 noundef 504, i64 noundef 8) #37, !noalias !8042
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$hir_def..item_tree..ItemTreeData$GT$$GT$$GT$17h344cda4f11aa88ffE.exit.i.i"
+  br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 504) #38
@@ -30196,7 +30196,7 @@ define internal fastcc noundef align 8 dereferenceable(504) ptr @_ZN7hir_def9ite
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$hir_def..item_tree..ItemTreeData$GT$17hb43ba1193b14eacaE"(ptr noalias noundef nonnull align 8 dereferenceable(504) %2) #35
-          to label %common.resume.i.i unwind label %13, !noalias !8038
+          to label %15 unwind label %13, !noalias !8038
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -30204,18 +30204,18 @@ define internal fastcc noundef align 8 dereferenceable(504) ptr @_ZN7hir_def9ite
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !8038
   unreachable
 
-common.resume.i.i:                                ; preds = %11
+15:                                               ; preds = %11
   resume { ptr, i32 } %12
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$hir_def..item_tree..ItemTreeData$GT$$GT$$GT$17h344cda4f11aa88ffE.exit.i.i": ; preds = %6
+16:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %8, ptr noundef nonnull align 8 dereferenceable(504) %2, i64 504, i1 false), !noalias !8038
   call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %2), !noalias !8038
   store ptr %8, ptr %3, align 8, !alias.scope !8038
   br label %_ZN7hir_def9item_tree8ItemTree8data_mut17h771a52ecc89ab018E.exit
 
-_ZN7hir_def9item_tree8ItemTree8data_mut17h771a52ecc89ab018E.exit: ; preds = %1, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$hir_def..item_tree..ItemTreeData$GT$$GT$$GT$17h344cda4f11aa88ffE.exit.i.i"
-  %15 = phi ptr [ %4, %1 ], [ %8, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$hir_def..item_tree..ItemTreeData$GT$$GT$$GT$17h344cda4f11aa88ffE.exit.i.i" ]
-  ret ptr %15
+_ZN7hir_def9item_tree8ItemTree8data_mut17h771a52ecc89ab018E.exit: ; preds = %1, %16
+  %17 = phi ptr [ %4, %1 ], [ %8, %16 ]
+  ret ptr %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -41495,7 +41495,7 @@ define void @_ZN7hir_def9item_tree8ItemTree12pretty_print17h031f05cf85289c18E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(504) ptr @_ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(504) ptr @_ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null

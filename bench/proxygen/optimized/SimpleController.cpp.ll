@@ -123,7 +123,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen16SimpleController20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionERKN5folly13SocketAddressE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %error, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen16SimpleController20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionERKN5folly13SocketAddressE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %error, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::allocator", align 1
@@ -265,7 +265,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen16SimpleController28getTransactionTimeoutHandlerEPNS_15HTTPTransactionERKN5folly13SocketAddressE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen16SimpleController28getTransactionTimeoutHandlerEPNS_15HTTPTransactionERKN5folly13SocketAddressE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1

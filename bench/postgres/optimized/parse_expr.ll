@@ -837,7 +837,7 @@ default.unreachable182:                           ; preds = %181
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformParamRef(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformParamRef(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2476,7 +2476,7 @@ list_length.exit67:                               ; preds = %40, %44
 declare ptr @transformGroupingFunc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformSubLink(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformSubLink(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %switch.tableidx = add i32 %4, -27
@@ -3217,7 +3217,7 @@ define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformSQLValueFunction(ptr noundef returned %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformSQLValueFunction(ptr noundef returned %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %36 [
@@ -3556,7 +3556,7 @@ define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformXmlSerialize(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformXmlSerialize(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call noundef ptr @palloc0(i64 noundef 64) #10
@@ -3617,7 +3617,7 @@ declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #2
 declare i32 @exprType(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformBooleanTest(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformBooleanTest(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 6
@@ -3645,7 +3645,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

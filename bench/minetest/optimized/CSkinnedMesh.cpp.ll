@@ -710,7 +710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene12CSkinnedMesh7getMeshEiiii(ptr noundef nonnull returned align 8 dereferenceable(186) %this, i32 noundef %frame, i32 %detailLevel, i32 %startFrameLoop, i32 %endFrameLoop) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZN3irr5scene12CSkinnedMesh7getMeshEiiii(ptr noundef nonnull returned align 8 dereferenceable(186) %this, i32 noundef %frame, i32 %detailLevel, i32 %startFrameLoop, i32 %endFrameLoop) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp eq i32 %frame, -1
   br i1 %cmp, label %return, label %if.end

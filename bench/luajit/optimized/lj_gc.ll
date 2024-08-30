@@ -2099,7 +2099,7 @@ if.end:                                           ; preds = %entry
 declare hidden void @lj_err_mem(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_mem_newgco(ptr noundef %L, i64 noundef %size) local_unnamed_addr #0 {
+define hidden nonnull ptr @lj_mem_newgco(ptr noundef %L, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8

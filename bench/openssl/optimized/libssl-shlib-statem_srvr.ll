@@ -5000,7 +5000,7 @@ if.end124:                                        ; preds = %if.end118
   br i1 %cmp60.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end124, %for.cond.preheader
-  %call126 = call i32 @OPENSSL_sk_num(ptr noundef %call16) #12
+  %call126 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call16) #12
   %cmp127 = icmp slt i32 %call126, 1
   br i1 %cmp127, label %if.then129, label %if.else149
 
@@ -5056,7 +5056,7 @@ if.then153:                                       ; preds = %if.else149
   br label %err
 
 if.end156:                                        ; preds = %if.else149
-  %call158 = call ptr @OPENSSL_sk_value(ptr noundef %call16, i32 noundef 0) #12
+  %call158 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call16, i32 noundef 0) #12
   %call159 = call ptr @X509_get0_pubkey(ptr noundef %call158) #12
   %cmp160 = icmp eq ptr %call159, null
   br i1 %cmp160, label %if.then162, label %if.end164

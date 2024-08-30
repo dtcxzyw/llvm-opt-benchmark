@@ -4513,7 +4513,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(320) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h7f90caf5ec8dd935E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(320) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(320) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h7f90caf5ec8dd935E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(320) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [39 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, i64, {} }, align 8
   %5 = alloca { { ptr, i64 }, i64, {} }, align 8
@@ -8406,7 +8406,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(8) ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$6schema17h1a8e63e0d98c4114E"(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$6schema17h1a8e63e0d98c4114E"(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #3 {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
@@ -8658,7 +8658,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(16) ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$12partition_id17h8ebac24433a38560E"(ptr noalias noundef readonly returned align 8 dereferenceable(88) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$12partition_id17h8ebac24433a38560E"(ptr noalias noundef readonly returned align 8 dereferenceable(88) %0) unnamed_addr #3 {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8

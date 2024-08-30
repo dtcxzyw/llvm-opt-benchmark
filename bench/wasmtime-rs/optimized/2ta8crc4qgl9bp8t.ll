@@ -24882,7 +24882,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$8as_s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.12393783928750787229(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.12393783928750787229(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -38884,7 +38884,7 @@ _ZN8wasmtime7runtime5store4data9StoreData6insert17h7801a9e74971236eE.llvm.123937
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(8) ptr @_ZN8wasmtime7runtime8instance8Instance7_module17hb4f06b469632fd11E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8wasmtime7runtime8instance8Instance7_module17hb4f06b469632fd11E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i64, ptr %0, align 8, !range !3065, !noundef !5
   %5 = getelementptr inbounds i8, ptr %0, i64 8

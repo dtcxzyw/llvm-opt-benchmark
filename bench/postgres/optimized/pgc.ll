@@ -3656,7 +3656,7 @@ default.unreachable1674:                          ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @base_yy_create_buffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @base_yy_create_buffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -4019,7 +4019,7 @@ define internal fastcc noundef zeroext i1 @isdefine() unnamed_addr #0 {
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %29) #30
   %31 = trunc i64 %30 to i32
-  %32 = tail call noundef ptr @base_yy_scan_bytes(ptr noundef readonly %29, i32 noundef %31)
+  %32 = tail call nonnull ptr @base_yy_scan_bytes(ptr noundef readonly %29, i32 noundef %31)
   br label %.loopexit
 
 33:                                               ; preds = %2, %6
@@ -4086,7 +4086,7 @@ define internal fastcc noundef zeroext i1 @isinformixdefine() unnamed_addr #0 {
   store ptr %9, ptr @yy_buffer, align 8
   %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0816) #30
   %26 = trunc i64 %25 to i32
-  %27 = tail call noundef ptr @base_yy_scan_bytes(ptr noundef nonnull readonly %.0816, i32 noundef %26)
+  %27 = tail call nonnull ptr @base_yy_scan_bytes(ptr noundef nonnull readonly %.0816, i32 noundef %26)
   br label %28
 
 28:                                               ; preds = %7, %15
@@ -4369,7 +4369,7 @@ thread-pre-split.thread:                          ; preds = %.tail42, %thread-pr
   store ptr %118, ptr @input_filename, align 8
   %119 = load ptr, ptr @base_yyin, align 8
   %120 = call ptr @base_yy_create_buffer(ptr noundef %119, i32 noundef 16384)
-  call void @base_yy_switch_to_buffer(ptr noundef %120)
+  call void @base_yy_switch_to_buffer(ptr noundef nonnull %120)
   store i32 1, ptr @base_yylineno, align 4
   call void @output_line_number() #31
   store i32 33, ptr @yy_start, align 4
@@ -5092,7 +5092,7 @@ define dso_local noundef ptr @base_yy_scan_buffer(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @base_yy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @base_yy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
   %3 = trunc i64 %2 to i32
   %4 = tail call ptr @base_yy_scan_bytes(ptr noundef %0, i32 noundef %3)
@@ -5100,7 +5100,7 @@ define dso_local noundef ptr @base_yy_scan_string(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @base_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @base_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %1, 2
   %4 = sext i32 %3 to i64
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #26

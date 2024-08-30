@@ -14849,7 +14849,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 1560:                                             ; preds = %1557
   %1561 = load double, ptr %7, align 8, !tbaa !161
-  call fastcc void @region2rect(ptr noundef nonnull %1510, i32 noundef %1558, ptr noundef %1097, double noundef %1561, ptr noundef nonnull %5)
+  call fastcc void @region2rect(ptr noundef nonnull %1510, i32 noundef %1558, ptr noundef nonnull %1097, double noundef %1561, ptr noundef nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %1561, ptr %4, align 8, !tbaa !161
   %1562 = sitofp i32 %1558 to double
@@ -14977,7 +14977,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 1653:                                             ; preds = %1640
   %1654 = load double, ptr %4, align 8, !tbaa !161
-  call fastcc void @region2rect(ptr noundef nonnull %1510, i32 noundef %1651, ptr noundef %1097, double noundef %1654, ptr noundef nonnull %5)
+  call fastcc void @region2rect(ptr noundef nonnull %1510, i32 noundef %1651, ptr noundef nonnull %1097, double noundef %1654, ptr noundef nonnull %5)
   %1655 = uitofp nneg i32 %1651 to double
   %1656 = load <2 x double>, ptr %5, align 16, !tbaa !161
   %1657 = load <2 x double>, ptr %1515, align 16, !tbaa !161
@@ -15063,7 +15063,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   br i1 %1719, label %.loopexit208.i, label %1720
 
 1720:                                             ; preds = %1718
-  call fastcc void @region2rect(ptr noundef nonnull %1510, i32 noundef %1714, ptr noundef %1097, double noundef %1654, ptr noundef nonnull %5)
+  call fastcc void @region2rect(ptr noundef nonnull %1510, i32 noundef %1714, ptr noundef nonnull %1097, double noundef %1654, ptr noundef nonnull %5)
   %1721 = sitofp i32 %1713 to double
   %1722 = load <2 x double>, ptr %5, align 16, !tbaa !161
   %1723 = load <2 x double>, ptr %1515, align 16, !tbaa !161
@@ -15095,7 +15095,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 1735:                                             ; preds = %.loopexit209.i, %1653, %1560
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #33
-  %1736 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %5, ptr noundef %1096, double noundef %1490)
+  %1736 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %5, ptr noundef nonnull %1096, double noundef %1490)
   %1737 = fcmp reassoc nsz arcp contract afn ogt double %1736, 0.000000e+00
   br i1 %1737, label %2142, label %1738
 
@@ -15111,7 +15111,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1744 = shufflevector <2 x double> %1743, <2 x double> poison, <2 x i32> zeroinitializer
   %1745 = fmul reassoc nsz arcp contract afn <2 x double> %1744, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %1745, ptr %1528, align 8, !tbaa !161
-  %1746 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1746 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1747 = fcmp reassoc nsz arcp contract afn ogt double %1746, %1736
   %1748 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %1747, label %1749, label %1754
@@ -15134,7 +15134,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1757 = shufflevector <2 x double> %1756, <2 x double> poison, <2 x i32> zeroinitializer
   %1758 = fmul reassoc nsz arcp contract afn <2 x double> %1757, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %1758, ptr %1528, align 8, !tbaa !161
-  %1759 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1759 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1760 = fcmp reassoc nsz arcp contract afn ogt double %1759, %1755
   %1761 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %1760, label %1762, label %1767
@@ -15157,7 +15157,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1770 = shufflevector <2 x double> %1769, <2 x double> poison, <2 x i32> zeroinitializer
   %1771 = fmul reassoc nsz arcp contract afn <2 x double> %1770, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %1771, ptr %1528, align 8, !tbaa !161
-  %1772 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1772 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1773 = fcmp reassoc nsz arcp contract afn ogt double %1772, %1768
   %1774 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %1773, label %1775, label %1780
@@ -15180,7 +15180,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1783 = shufflevector <2 x double> %1782, <2 x double> poison, <2 x i32> zeroinitializer
   %1784 = fmul reassoc nsz arcp contract afn <2 x double> %1783, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %1784, ptr %1528, align 8, !tbaa !161
-  %1785 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1785 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1786 = fcmp reassoc nsz arcp contract afn ogt double %1785, %1781
   %1787 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %1786, label %1788, label %1793
@@ -15203,7 +15203,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1796 = shufflevector <2 x double> %1795, <2 x double> poison, <2 x i32> zeroinitializer
   %1797 = fmul reassoc nsz arcp contract afn <2 x double> %1796, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %1797, ptr %1528, align 8, !tbaa !161
-  %1798 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1798 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1799 = fcmp reassoc nsz arcp contract afn ogt double %1798, %1794
   br i1 %1799, label %1800, label %1804
 
@@ -15237,7 +15237,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 1815:                                             ; preds = %1807
   store double %1813, ptr %1518, align 8, !tbaa !404
-  %1816 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1816 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1817 = fcmp reassoc nsz arcp contract afn ogt double %1816, %1805
   %1818 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1817, label %1819, label %1824
@@ -15263,7 +15263,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 1829:                                             ; preds = %1824
   store double %1827, ptr %1518, align 8, !tbaa !404
-  %1830 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1830 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1831 = fcmp reassoc nsz arcp contract afn ogt double %1830, %1826
   %1832 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1831, label %1833, label %1838
@@ -15289,7 +15289,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 1843:                                             ; preds = %1838
   store double %1841, ptr %1518, align 8, !tbaa !404
-  %1844 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1844 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1845 = fcmp reassoc nsz arcp contract afn ogt double %1844, %1840
   %1846 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1845, label %1847, label %1852
@@ -15315,7 +15315,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 1857:                                             ; preds = %1852
   store double %1855, ptr %1518, align 8, !tbaa !404
-  %1858 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1858 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1859 = fcmp reassoc nsz arcp contract afn ogt double %1858, %1854
   %1860 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1859, label %1861, label %1866
@@ -15341,7 +15341,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 1871:                                             ; preds = %1866
   store double %1869, ptr %1518, align 8, !tbaa !404
-  %1872 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1872 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1873 = fcmp reassoc nsz arcp contract afn ogt double %1872, %1868
   br i1 %1873, label %1874, label %1878
 
@@ -15379,7 +15379,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1892 = fadd reassoc nsz arcp contract afn <4 x double> %1891, %1883
   store <4 x double> %1892, ptr %3, align 8, !tbaa !161
   store double %1887, ptr %1518, align 8, !tbaa !404
-  %1893 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1893 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1894 = fcmp reassoc nsz arcp contract afn ogt double %1893, %1879
   %1895 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1894, label %1896, label %1901
@@ -15411,7 +15411,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1911 = fadd reassoc nsz arcp contract afn <4 x double> %1909, %1910
   store <4 x double> %1911, ptr %3, align 8, !tbaa !161
   store double %1904, ptr %1518, align 8, !tbaa !404
-  %1912 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1912 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1913 = fcmp reassoc nsz arcp contract afn ogt double %1912, %1903
   %1914 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1913, label %1915, label %1920
@@ -15443,7 +15443,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1930 = fadd reassoc nsz arcp contract afn <4 x double> %1928, %1929
   store <4 x double> %1930, ptr %3, align 8, !tbaa !161
   store double %1923, ptr %1518, align 8, !tbaa !404
-  %1931 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1931 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1932 = fcmp reassoc nsz arcp contract afn ogt double %1931, %1922
   %1933 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1932, label %1934, label %1939
@@ -15475,7 +15475,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1949 = fadd reassoc nsz arcp contract afn <4 x double> %1947, %1948
   store <4 x double> %1949, ptr %3, align 8, !tbaa !161
   store double %1942, ptr %1518, align 8, !tbaa !404
-  %1950 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1950 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1951 = fcmp reassoc nsz arcp contract afn ogt double %1950, %1941
   %1952 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1951, label %1953, label %1958
@@ -15507,7 +15507,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1968 = fadd reassoc nsz arcp contract afn <4 x double> %1966, %1967
   store <4 x double> %1968, ptr %3, align 8, !tbaa !161
   store double %1961, ptr %1518, align 8, !tbaa !404
-  %1969 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1969 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1970 = fcmp reassoc nsz arcp contract afn ogt double %1969, %1960
   br i1 %1970, label %1971, label %1975
 
@@ -15547,7 +15547,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %1990 = fsub reassoc nsz arcp contract afn <4 x double> %1982, %1989
   store <4 x double> %1990, ptr %3, align 8, !tbaa !161
   store double %1985, ptr %1518, align 8, !tbaa !404
-  %1991 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %1991 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %1992 = fcmp reassoc nsz arcp contract afn ogt double %1991, %1976
   %1993 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %1992, label %1994, label %1999
@@ -15579,7 +15579,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2009 = fsub reassoc nsz arcp contract afn <4 x double> %2008, %2007
   store <4 x double> %2009, ptr %3, align 8, !tbaa !161
   store double %2002, ptr %1518, align 8, !tbaa !404
-  %2010 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2010 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2011 = fcmp reassoc nsz arcp contract afn ogt double %2010, %2001
   %2012 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %2011, label %2013, label %2018
@@ -15611,7 +15611,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2028 = fsub reassoc nsz arcp contract afn <4 x double> %2027, %2026
   store <4 x double> %2028, ptr %3, align 8, !tbaa !161
   store double %2021, ptr %1518, align 8, !tbaa !404
-  %2029 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2029 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2030 = fcmp reassoc nsz arcp contract afn ogt double %2029, %2020
   %2031 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %2030, label %2032, label %2037
@@ -15643,7 +15643,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2047 = fsub reassoc nsz arcp contract afn <4 x double> %2046, %2045
   store <4 x double> %2047, ptr %3, align 8, !tbaa !161
   store double %2040, ptr %1518, align 8, !tbaa !404
-  %2048 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2048 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2049 = fcmp reassoc nsz arcp contract afn ogt double %2048, %2039
   %2050 = load double, ptr %1518, align 8, !tbaa !404
   br i1 %2049, label %2051, label %2056
@@ -15675,7 +15675,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2066 = fsub reassoc nsz arcp contract afn <4 x double> %2065, %2064
   store <4 x double> %2066, ptr %3, align 8, !tbaa !161
   store double %2059, ptr %1518, align 8, !tbaa !404
-  %2067 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2067 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2068 = fcmp reassoc nsz arcp contract afn ogt double %2067, %2058
   br i1 %2068, label %2069, label %2073
 
@@ -15705,7 +15705,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2082 = shufflevector <2 x double> %2081, <2 x double> poison, <2 x i32> zeroinitializer
   %2083 = fmul reassoc nsz arcp contract afn <2 x double> %2082, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %2083, ptr %1528, align 8, !tbaa !161
-  %2084 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2084 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2085 = fcmp reassoc nsz arcp contract afn ogt double %2084, %2074
   %2086 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %2085, label %2087, label %2092
@@ -15728,7 +15728,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2095 = shufflevector <2 x double> %2094, <2 x double> poison, <2 x i32> zeroinitializer
   %2096 = fmul reassoc nsz arcp contract afn <2 x double> %2095, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %2096, ptr %1528, align 8, !tbaa !161
-  %2097 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2097 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2098 = fcmp reassoc nsz arcp contract afn ogt double %2097, %2093
   %2099 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %2098, label %2100, label %2105
@@ -15751,7 +15751,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2108 = shufflevector <2 x double> %2107, <2 x double> poison, <2 x i32> zeroinitializer
   %2109 = fmul reassoc nsz arcp contract afn <2 x double> %2108, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %2109, ptr %1528, align 8, !tbaa !161
-  %2110 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2110 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2111 = fcmp reassoc nsz arcp contract afn ogt double %2110, %2106
   %2112 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %2111, label %2113, label %2118
@@ -15774,7 +15774,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2121 = shufflevector <2 x double> %2120, <2 x double> poison, <2 x i32> zeroinitializer
   %2122 = fmul reassoc nsz arcp contract afn <2 x double> %2121, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %2122, ptr %1528, align 8, !tbaa !161
-  %2123 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2123 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2124 = fcmp reassoc nsz arcp contract afn ogt double %2123, %2119
   %2125 = load double, ptr %1530, align 8, !tbaa !409
   br i1 %2124, label %2126, label %2131
@@ -15797,7 +15797,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2134 = shufflevector <2 x double> %2133, <2 x double> poison, <2 x i32> zeroinitializer
   %2135 = fmul reassoc nsz arcp contract afn <2 x double> %2134, <double 0x3FF921FB54442D18, double 5.000000e-01>
   store <2 x double> %2135, ptr %1528, align 8, !tbaa !161
-  %2136 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef %1096, double noundef %1490)
+  %2136 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %3, ptr noundef nonnull %1096, double noundef %1490)
   %2137 = fcmp reassoc nsz arcp contract afn ogt double %2136, %2132
   br i1 %2137, label %2138, label %2142
 
@@ -18093,7 +18093,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #28
 declare double @llvm.ceil.f64(double) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @new_image_double(i32 noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc noalias noundef nonnull ptr @new_image_double(i32 noundef %0, i32 noundef %1) unnamed_addr #5 {
   %3 = icmp eq i32 %0, 0
   %4 = icmp eq i32 %1, 0
   %5 = or i1 %3, %4

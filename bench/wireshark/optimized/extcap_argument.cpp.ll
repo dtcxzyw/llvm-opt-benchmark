@@ -937,7 +937,7 @@ define void @_ZN14ExtArgSelectorC2EP11_extcap_argP7QObject(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN14ExtArgSelector12createEditorEP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN14ExtArgSelector12createEditorEP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QIcon, align 8
   %5 = alloca %class.QString, align 8
@@ -2531,7 +2531,7 @@ define void @_ZN18ExtArgEditSelectorC2EP11_extcap_argP7QObject(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN18ExtArgEditSelector12createEditorEP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN18ExtArgEditSelector12createEditorEP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN14ExtArgSelector12createEditorEP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -2909,7 +2909,7 @@ define void @_ZN11ExtArgRadioD0Ev(ptr noundef nonnull align 8 dereferenceable(10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ExtArgRadio12createEditorEP7QWidget(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN11ExtArgRadio12createEditorEP7QWidget(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %"class.QMetaObject::Connection", align 8

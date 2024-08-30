@@ -528,7 +528,7 @@ sub_256:                                          ; preds = %sub_155
   %162 = load ptr, ptr @basedir, align 8
   %163 = call fastcc ptr @get_destination_dir(ptr noundef %162)
   %164 = load ptr, ptr @basedir, align 8
-  call fastcc void @close_destination_dir(ptr noundef %163, ptr noundef %164)
+  call fastcc void @close_destination_dir(ptr noundef nonnull %163, ptr noundef %164)
   br label %165
 
 165:                                              ; preds = %161, %160, %159
@@ -1188,7 +1188,7 @@ declare void @parse_compress_specification(i32 noundef, ptr noundef, ptr noundef
 declare ptr @validate_compress_specification(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @get_destination_dir(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc noalias nonnull ptr @get_destination_dir(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call ptr @opendir(ptr noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5

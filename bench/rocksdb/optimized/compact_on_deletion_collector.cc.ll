@@ -806,7 +806,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 declare void @_ZN7rocksdb12Configurable15RegisterOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvPKSt13unordered_mapIS6_NS_14OptionTypeInfoESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIS7_SB_EEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb33CompactOnDeletionCollectorFactory30CreateTablePropertiesCollectorENS_31TablePropertiesCollectorFactory7ContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 %.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb33CompactOnDeletionCollectorFactory30CreateTablePropertiesCollectorENS_31TablePropertiesCollectorFactory7ContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 %.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1112) ptr @_Znwm(i64 noundef 1112) #26
   %sliding_window_size_ = getelementptr inbounds i8, ptr %this, i64 32

@@ -597,7 +597,7 @@ if.end199:                                        ; preds = %if.end194
 
 lor.lhs.false202:                                 ; preds = %if.end194, %if.end199
   %21 = phi ptr [ %call197, %if.end199 ], [ %20, %if.end194 ]
-  %call206 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %21, ptr noundef %call7) #7
+  %call206 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %21, ptr noundef nonnull %call7) #7
   %tobool207.not = icmp eq i32 %call206, 0
   br i1 %tobool207.not, label %if.then208, label %return
 

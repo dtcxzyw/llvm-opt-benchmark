@@ -540,7 +540,7 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CORD_to_char_star(ptr noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @CORD_to_char_star(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.CORD_fill_data, align 8
   %3 = tail call i64 @CORD_len(ptr noundef %0) #16
   %4 = add i64 %3, 1

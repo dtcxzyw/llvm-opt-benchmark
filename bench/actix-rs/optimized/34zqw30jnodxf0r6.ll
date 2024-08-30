@@ -6273,7 +6273,7 @@ define noundef zeroext i1 @"_ZN114_$LT$actix_http..responses..response..Response
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(64) ptr @"_ZN114_$LT$actix_http..responses..response..Response$LT$$LP$$RP$$GT$$u20$as$u20$actix_http..h1..encoder..MessageType$GT$7headers17h6f10ebdd389deaedE"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(64) ptr @"_ZN114_$LT$actix_http..responses..response..Response$LT$$LP$$RP$$GT$$u20$as$u20$actix_http..h1..encoder..MessageType$GT$7headers17h6f10ebdd389deaedE"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !867)
   %2 = load ptr, ptr %0, align 8, !alias.scope !867, !noundef !4
   %3 = icmp eq ptr %2, null

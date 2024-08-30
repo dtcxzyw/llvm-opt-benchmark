@@ -1627,7 +1627,7 @@ tailrecurse.backedge:                             ; preds = %55, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parserOpenTable(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @parserOpenTable(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ParseCallbackState, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
@@ -1983,7 +1983,7 @@ buildNSItemFromTupleDesc.exit:                    ; preds = %121, %list_length.e
   store i8 0, ptr %130, align 2
   %131 = getelementptr inbounds i8, ptr %122, i64 43
   store i8 1, ptr %131, align 1
-  tail call void @table_close(ptr noundef %54, i32 noundef 0) #10
+  tail call void @table_close(ptr noundef nonnull %54, i32 noundef 0) #10
   ret ptr %122
 }
 

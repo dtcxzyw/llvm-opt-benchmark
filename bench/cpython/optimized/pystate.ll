@@ -3295,7 +3295,7 @@ declare ptr @PyDict_New() local_unnamed_addr #3
 declare void @PyErr_Clear() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyInterpreterState_Get() local_unnamed_addr #1 {
+define dso_local nonnull ptr @PyInterpreterState_Get() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8

@@ -92,7 +92,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @hermes_source_map_parse(ptr noundef %source, i64 noundef %len) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_source_map_parse(ptr noundef %source, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.llvh::MemoryBufferRef", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

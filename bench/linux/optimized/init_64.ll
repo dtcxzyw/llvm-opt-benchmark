@@ -822,7 +822,7 @@ define dso_local ptr @populate_extra_pmd(i64 noundef %0) local_unnamed_addr #4 s
 
 46:                                               ; preds = %40, %39
   %47 = phi ptr [ %45, %40 ], [ %9, %39 ]
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %14, ptr noundef %47) #20
+  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull %14, ptr noundef %47) #20
   br label %49
 
 49:                                               ; preds = %46, %36, %11, %1
@@ -878,7 +878,7 @@ define dso_local ptr @populate_extra_pmd(i64 noundef %0) local_unnamed_addr #4 s
   br i1 %86, label %89, label %87
 
 87:                                               ; preds = %68
-  %88 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef %69, ptr noundef %85) #20
+  %88 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull %69, ptr noundef %85) #20
   %.pre = load i64, ptr %64, align 8
   br label %89
 
@@ -2452,7 +2452,7 @@ declare dso_local i64 @__pti_set_user_pgtbl(ptr noundef, i64) local_unnamed_addr
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @spp_getpage() unnamed_addr #0 section ".ref.text" align 16 {
+define internal fastcc nonnull ptr @spp_getpage() unnamed_addr #0 section ".ref.text" align 16 {
   %1 = load i32, ptr @after_bootmem, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %6, label %3

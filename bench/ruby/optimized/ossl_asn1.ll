@@ -537,7 +537,7 @@ declare i64 @ossl_bn_new(ptr noundef) local_unnamed_addr #4
 declare void @BN_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @num_to_asn1integer(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @num_to_asn1integer(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = icmp eq i64 %0, 4
@@ -568,7 +568,7 @@ declare ptr @ossl_bn_value_ptr(ptr noundef) local_unnamed_addr #4
 declare ptr @BN_to_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ossl_asn1_get_asn1type(i64 noundef %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @ossl_asn1_get_asn1type(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -1841,13 +1841,13 @@ define internal i64 @ossl_asn1prim_to_der(i64 noundef %0) #0 {
 
 15:                                               ; preds = %1
   %16 = tail call ptr @ossl_asn1_get_asn1type(i64 noundef %0)
-  %17 = tail call i32 @i2d_ASN1_TYPE(ptr noundef %16, ptr noundef null) #9
+  %17 = tail call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %16, ptr noundef null) #9
   %18 = sext i32 %17 to i64
   %19 = icmp slt i32 %17, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %15
-  tail call void @ASN1_TYPE_free(ptr noundef %16) #9
+  tail call void @ASN1_TYPE_free(ptr noundef nonnull %16) #9
   %21 = load i64, ptr @eASN1Error, align 8
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %21, ptr noundef nonnull @.str.125) #10
   unreachable
@@ -1859,7 +1859,7 @@ define internal i64 @ossl_asn1prim_to_der(i64 noundef %0) #0 {
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %22
-  call void @ASN1_TYPE_free(ptr noundef %16) #9
+  call void @ASN1_TYPE_free(ptr noundef nonnull %16) #9
   %26 = load i32, ptr %7, align 4
   call void @rb_jump_tag(i32 noundef %26) #10
   unreachable
@@ -1880,8 +1880,8 @@ RSTRING_PTR.exit:                                 ; preds = %27, %32
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %32 ], [ %31, %27 ]
   store ptr %.sroa.2.0.i, ptr %4, align 8
   store ptr %.sroa.2.0.i, ptr %3, align 8
-  %33 = call i32 @i2d_ASN1_TYPE(ptr noundef %16, ptr noundef nonnull %3) #9
-  call void @ASN1_TYPE_free(ptr noundef %16) #9
+  %33 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %16, ptr noundef nonnull %3) #9
+  call void @ASN1_TYPE_free(ptr noundef nonnull %16) #9
   %34 = call i32 @ASN1_get_object(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %18) #9
   %35 = and i32 %34, 128
   %.not16 = icmp eq i32 %35, 0

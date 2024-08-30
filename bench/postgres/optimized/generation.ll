@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [70 x i8] c"%zu total in %zu blocks (%zu chunks); %zu free (%zu chunks); %zu used\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @GenerationContextCreate(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GenerationContextCreate(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 %3, i64 %2
   %6 = tail call i64 @llvm.umax.i64(i64 %., i64 192)

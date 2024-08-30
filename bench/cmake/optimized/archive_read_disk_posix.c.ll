@@ -776,58 +776,58 @@ define internal fastcc void @tree_push(ptr nocapture noundef %0, ptr noundef %1,
 define dso_local range(i32 -30, 1) i32 @archive_read_disk_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 33, ptr noundef nonnull @.str.13) #17
   %4 = icmp eq i32 %3, -30
-  br i1 %4, label %26, label %5
+  br i1 %4, label %29, label %5
 
 5:                                                ; preds = %2
   tail call void @archive_clear_error(ptr noundef %0) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %8, label %tree_open.exit.i
+  br i1 %.not.i, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
-  %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
-  %12 = load i32, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #18
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %tree_open.exit.thread.i, label %tree_open.exit.thread16.i
+  %9 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = load i32, ptr %9, align 8
+  %11 = and i32 %10, 1
+  %12 = tail call fastcc ptr @tree_reopen(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %11)
+  br label %27
 
-tree_open.exit.thread.i:                          ; preds = %8
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %15 = load i8, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 192
+  %17 = load i32, ptr %16, align 8
+  %18 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #18
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %26, label %20
+
+20:                                               ; preds = %13
+  %21 = and i32 %17, 1
+  %22 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = tail call ptr @archive_string_ensure(ptr noundef nonnull %22, i64 noundef 31) #17
+  %24 = getelementptr inbounds i8, ptr %18, i64 480
+  store i8 %15, ptr %24, align 8
+  %25 = tail call fastcc ptr @tree_reopen(ptr noundef nonnull %18, ptr noundef %1, i32 noundef %21)
+  br label %27
+
+26:                                               ; preds = %13
   store ptr null, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.30) #17
   br label %_archive_read_disk_open.exit
 
-tree_open.exit.thread16.i:                        ; preds = %8
-  %15 = and i32 %12, 1
-  %16 = getelementptr inbounds i8, ptr %13, i64 48
-  %17 = tail call ptr @archive_string_ensure(ptr noundef nonnull %16, i64 noundef 31) #17
-  %18 = getelementptr inbounds i8, ptr %13, i64 480
-  store i8 %10, ptr %18, align 8
-  %19 = tail call fastcc ptr @tree_reopen(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %15)
-  br label %24
-
-tree_open.exit.i:                                 ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 1
-  %23 = tail call fastcc ptr @tree_reopen(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %22)
-  br label %24
-
-24:                                               ; preds = %tree_open.exit.i, %tree_open.exit.thread16.i
-  %storemerge.i = phi ptr [ %7, %tree_open.exit.i ], [ %13, %tree_open.exit.thread16.i ]
-  store ptr %storemerge.i, ptr %6, align 8
+27:                                               ; preds = %20, %8
+  %storemerge.ph.i = phi ptr [ %18, %20 ], [ %7, %8 ]
+  store ptr %storemerge.ph.i, ptr %6, align 8
   br label %_archive_read_disk_open.exit
 
-_archive_read_disk_open.exit:                     ; preds = %tree_open.exit.thread.i, %24
-  %.sink.i = phi i32 [ 2, %24 ], [ 32768, %tree_open.exit.thread.i ]
-  %.0.i = phi i32 [ 0, %24 ], [ -30, %tree_open.exit.thread.i ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink.i, ptr %25, align 4
-  br label %26
+_archive_read_disk_open.exit:                     ; preds = %26, %27
+  %.sink.i = phi i32 [ 2, %27 ], [ 32768, %26 ]
+  %.0.i = phi i32 [ 0, %27 ], [ -30, %26 ]
+  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink.i, ptr %28, align 4
+  br label %29
 
-26:                                               ; preds = %2, %_archive_read_disk_open.exit
+29:                                               ; preds = %2, %_archive_read_disk_open.exit
   %.0 = phi i32 [ %.0.i, %_archive_read_disk_open.exit ], [ -30, %2 ]
   ret i32 %.0
 }
@@ -839,7 +839,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open_w(ptr noundef %0,
   %3 = alloca %struct.archive_string, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 33, ptr noundef nonnull @.str.14) #17
   %5 = icmp eq i32 %4, -30
-  br i1 %5, label %37, label %6
+  br i1 %5, label %40, label %6
 
 6:                                                ; preds = %2
   tail call void @archive_clear_error(ptr noundef %0) #17
@@ -868,52 +868,52 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open_w(ptr noundef %0,
   %17 = getelementptr inbounds i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %19, label %tree_open.exit.i
+  br i1 %.not.i, label %24, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
-  %21 = load i8, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
-  %23 = load i32, ptr %22, align 8
-  %24 = call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #18
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %tree_open.exit.thread.i, label %tree_open.exit.thread16.i
+  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 1
+  %23 = call fastcc ptr @tree_reopen(ptr noundef nonnull %18, ptr noundef %16, i32 noundef %22)
+  br label %38
 
-tree_open.exit.thread.i:                          ; preds = %19
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = load i8, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 192
+  %28 = load i32, ptr %27, align 8
+  %29 = call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #18
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %37, label %31
+
+31:                                               ; preds = %24
+  %32 = and i32 %28, 1
+  %33 = getelementptr inbounds i8, ptr %29, i64 48
+  %34 = call ptr @archive_string_ensure(ptr noundef nonnull %33, i64 noundef 31) #17
+  %35 = getelementptr inbounds i8, ptr %29, i64 480
+  store i8 %26, ptr %35, align 8
+  %36 = call fastcc ptr @tree_reopen(ptr noundef nonnull %29, ptr noundef %16, i32 noundef %32)
+  br label %38
+
+37:                                               ; preds = %24
   store ptr null, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.30) #17
   br label %_archive_read_disk_open.exit
 
-tree_open.exit.thread16.i:                        ; preds = %19
-  %26 = and i32 %23, 1
-  %27 = getelementptr inbounds i8, ptr %24, i64 48
-  %28 = call ptr @archive_string_ensure(ptr noundef nonnull %27, i64 noundef 31) #17
-  %29 = getelementptr inbounds i8, ptr %24, i64 480
-  store i8 %21, ptr %29, align 8
-  %30 = call fastcc ptr @tree_reopen(ptr noundef nonnull %24, ptr noundef %16, i32 noundef %26)
-  br label %35
-
-tree_open.exit.i:                                 ; preds = %15
-  %31 = getelementptr inbounds i8, ptr %0, i64 192
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 1
-  %34 = call fastcc ptr @tree_reopen(ptr noundef nonnull %18, ptr noundef %16, i32 noundef %33)
-  br label %35
-
-35:                                               ; preds = %tree_open.exit.i, %tree_open.exit.thread16.i
-  %storemerge.i = phi ptr [ %18, %tree_open.exit.i ], [ %24, %tree_open.exit.thread16.i ]
-  store ptr %storemerge.i, ptr %17, align 8
+38:                                               ; preds = %31, %19
+  %storemerge.ph.i = phi ptr [ %29, %31 ], [ %18, %19 ]
+  store ptr %storemerge.ph.i, ptr %17, align 8
   br label %_archive_read_disk_open.exit
 
-_archive_read_disk_open.exit:                     ; preds = %35, %tree_open.exit.thread.i, %13, %14
-  %.sink.i.sink = phi i32 [ 32768, %14 ], [ 32768, %13 ], [ 2, %35 ], [ 32768, %tree_open.exit.thread.i ]
-  %.011 = phi i32 [ -30, %14 ], [ -30, %13 ], [ 0, %35 ], [ -30, %tree_open.exit.thread.i ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink.i.sink, ptr %36, align 4
+_archive_read_disk_open.exit:                     ; preds = %38, %37, %13, %14
+  %.sink.i.sink = phi i32 [ 32768, %14 ], [ 32768, %13 ], [ 2, %38 ], [ 32768, %37 ]
+  %.011 = phi i32 [ -30, %14 ], [ -30, %13 ], [ 0, %38 ], [ -30, %37 ]
+  %39 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink.i.sink, ptr %39, align 4
   call void @archive_string_free(ptr noundef nonnull %3) #17
-  br label %37
+  br label %40
 
-37:                                               ; preds = %2, %_archive_read_disk_open.exit
+40:                                               ; preds = %2, %_archive_read_disk_open.exit
   %.0 = phi i32 [ %.011, %_archive_read_disk_open.exit ], [ -30, %2 ]
   ret i32 %.0
 }
@@ -3648,7 +3648,7 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @tree_reopen(ptr noundef returned %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @tree_reopen(ptr noundef returned %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = select i1 %.not, i32 256, i32 384

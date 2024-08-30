@@ -6129,9 +6129,9 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %63, %71
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_font_create(ptr noundef %0) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @hb_font_create(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call fastcc noundef ptr @_ZL15_hb_font_createP9hb_face_t(ptr noundef %0)
-  tail call void @hb_ot_font_set_funcs(ptr noundef %2)
+  tail call void @hb_ot_font_set_funcs(ptr noundef nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %hb_font_set_var_named_instance.exit, label %3
 
@@ -6171,7 +6171,7 @@ hb_font_set_var_named_instance.exit:              ; preds = %15, %11, %6, %3, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15_hb_font_createP9hb_face_t(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc noundef nonnull ptr @_ZL15_hb_font_createP9hb_face_t(ptr noundef %0) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -6267,7 +6267,7 @@ define hidden void @hb_font_set_var_named_instance(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_font_create_sub_font(ptr noundef %0) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @hb_font_create_sub_font(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, ptr @_hb_Null_hb_font_t, ptr %0
   %2 = getelementptr inbounds i8, ptr %spec.select, i64 32

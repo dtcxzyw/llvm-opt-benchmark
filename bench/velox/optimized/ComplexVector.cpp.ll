@@ -7055,7 +7055,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8facebook5velox9RowVector12loadedVectorEv(ptr noundef nonnull returned align 8 dereferenceable(138) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8facebook5velox9RowVector12loadedVectorEv(ptr noundef nonnull returned align 8 dereferenceable(138) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %childrenLoaded_ = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load i8, ptr %childrenLoaded_, align 1

@@ -67,7 +67,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noalias noundef ptr @strbuf_new(i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @strbuf_new(i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #12
   %tobool.not = icmp eq ptr %call, null

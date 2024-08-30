@@ -205,7 +205,7 @@ define dso_local void @run_arena_allocator_tests() local_unnamed_addr #0 {
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @cmalloc(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @cmalloc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -222,7 +222,7 @@ define dso_local noalias noundef ptr @cmalloc(i64 noundef %0) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ccalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @ccalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6

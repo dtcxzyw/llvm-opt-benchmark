@@ -1126,7 +1126,7 @@ wimaxasncp_dict_open.exit:                        ; preds = %512, %514
 
 520:                                              ; preds = %wimaxasncp_dict_open.exit
   %521 = tail call ptr @WimaxasncpDict__create_buffer(ptr noundef nonnull %519, i32 noundef 16384, ptr noundef nonnull %0)
-  tail call void @WimaxasncpDict__switch_to_buffer(ptr noundef %521, ptr noundef nonnull %0)
+  tail call void @WimaxasncpDict__switch_to_buffer(ptr noundef nonnull %521, ptr noundef nonnull %0)
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %139, %139, %139, %139, %139, %139, %139, %520, %yy_push_state.exit431, %914, %913, %912, %yy_push_state.exit421, %yy_push_state.exit411, %856, %828, %827, %yy_push_state.exit401, %yy_push_state.exit391, %yy_push_state.exit381, %yy_push_state.exit371, %yy_push_state.exit, %690, %674, %yy_pop_state.exit359, %660, %yy_pop_state.exit, %wimaxasncp_decode_type.exit, %630, %618, %617, %605, %604, %593, %592, %582, %572, %562, %WimaxasncpDict__delete_buffer.exit, %append_to_buffer.exit356, %append_to_buffer.exit353, %append_to_buffer.exit350, %append_to_buffer.exit347, %append_to_buffer.exit344, %append_to_buffer.exit341, %append_to_buffer.exit338, %append_to_buffer.exit, %217, %209, %208, %199, %198, %197, %190, %189, %182, %181, %178, %145, %144, %143
@@ -2679,7 +2679,7 @@ define hidden ptr @WimaxasncpDict_get_extra(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @WimaxasncpDict__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define hidden nonnull ptr @WimaxasncpDict__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -3544,7 +3544,7 @@ define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @WimaxasncpDict__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden nonnull ptr @WimaxasncpDict__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @WimaxasncpDict__scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
@@ -3552,7 +3552,7 @@ define hidden noundef ptr @WimaxasncpDict__scan_string(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @WimaxasncpDict__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden nonnull ptr @WimaxasncpDict__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #28

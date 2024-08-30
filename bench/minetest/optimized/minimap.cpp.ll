@@ -2847,7 +2847,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit63:          ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN7Minimap20getMinimapMeshBufferEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN7Minimap20getMinimapMeshBufferEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3irr4core5arrayINS_5video9S3DVertexEE8set_usedEj.exit:
   %call = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #36
   %0 = getelementptr inbounds i8, ptr %call, i64 312

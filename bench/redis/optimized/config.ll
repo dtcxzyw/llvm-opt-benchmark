@@ -569,7 +569,7 @@ return:                                           ; preds = %for.cond3.for.end_c
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evictPolicyToString() local_unnamed_addr #2 {
+define dso_local nonnull ptr @evictPolicyToString() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @maxmemory_policy_enum, align 16
   %cmp.not5 = icmp eq ptr %0, null

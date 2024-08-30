@@ -1290,7 +1290,7 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qtest_vhmp(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
+define dso_local noalias nonnull ptr @qtest_vhmp(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #23
   %call1 = tail call ptr (ptr, ptr, ...) @qtest_qmp(ptr noundef %s, ptr noundef nonnull @.str.13, ptr noundef %call)
@@ -1338,7 +1338,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qtest_hmp(ptr noundef %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
+define dso_local noalias nonnull ptr @qtest_hmp(ptr noundef %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)

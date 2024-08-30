@@ -7995,7 +7995,7 @@ _ZNSt6vectorIcSaIcEE7reserveEm.exit:              ; preds = %39, %_ZNSt12_Vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv11FileStorage4Impl5flushEv(ptr noundef nonnull align 8 dereferenceable(700) %0) unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN2cv11FileStorage4Impl5flushEv(ptr noundef nonnull align 8 dereferenceable(700) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -10570,7 +10570,7 @@ define noundef i32 @_ZNK2cv11FileStorage4Impl9getFormatEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK2cv11FileStorage4Impl9bufferPtrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(700) %0) unnamed_addr #25 align 2 {
+define noundef nonnull ptr @_ZNK2cv11FileStorage4Impl9bufferPtrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(700) %0) unnamed_addr #25 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -10580,14 +10580,14 @@ define noundef ptr @_ZNK2cv11FileStorage4Impl9bufferPtrEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK2cv11FileStorage4Impl11bufferStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(700) %0) unnamed_addr #25 align 2 {
+define noundef nonnull ptr @_ZNK2cv11FileStorage4Impl11bufferStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(700) %0) unnamed_addr #25 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK2cv11FileStorage4Impl9bufferEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(700) %0) unnamed_addr #25 align 2 {
+define noundef nonnull ptr @_ZNK2cv11FileStorage4Impl9bufferEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(700) %0) unnamed_addr #25 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 216

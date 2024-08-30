@@ -463,7 +463,7 @@ define hidden void @acttab_free(ptr nocapture noundef %0) local_unnamed_addr #1 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias noundef ptr @acttab_alloc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noalias nonnull ptr @acttab_alloc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #39
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -10903,7 +10903,7 @@ define hidden void @ReportOutput(ptr nocapture noundef %0) local_unnamed_addr #7
 6:                                                ; preds = %5, %1
   %7 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.105)
   store ptr %7, ptr %3, align 8
-  %8 = tail call noalias ptr @fopen(ptr noundef %7, ptr noundef nonnull readonly @.str.106)
+  %8 = tail call noalias ptr @fopen(ptr noundef nonnull %7, ptr noundef nonnull readonly @.str.106)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %file_open.exit.thread, label %file_open.exit.preheader
 
@@ -11335,7 +11335,7 @@ define hidden void @ReportTable(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
 27:                                               ; preds = %26, %23
   %28 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.164)
   store ptr %28, ptr %24, align 8
-  %29 = tail call noalias ptr @fopen(ptr noundef %28, ptr noundef nonnull readonly @.str.106)
+  %29 = tail call noalias ptr @fopen(ptr noundef nonnull %28, ptr noundef nonnull readonly @.str.106)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %file_open.exit
 
@@ -11366,7 +11366,7 @@ file_open.exit:                                   ; preds = %27
 43:                                               ; preds = %42, %40
   %44 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.165)
   store ptr %44, ptr %24, align 8
-  %45 = tail call noalias ptr @fopen(ptr noundef %44, ptr noundef nonnull readonly @.str.106)
+  %45 = tail call noalias ptr @fopen(ptr noundef nonnull %44, ptr noundef nonnull readonly @.str.106)
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %file_open.exit944
 
@@ -11629,11 +11629,11 @@ tplt_skip_header.exit:                            ; preds = %174, %180, %171
 
 189:                                              ; preds = %187
   %190 = call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull @.str.178)
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.179, ptr noundef %190) #42
+  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.179, ptr noundef nonnull %190) #42
   %192 = load i32, ptr %5, align 4
   %193 = add i32 %192, 1
   store i32 %193, ptr %5, align 4
-  call void @free(ptr noundef %190) #42
+  call void @free(ptr noundef nonnull %190) #42
   br label %194
 
 194:                                              ; preds = %189, %187
@@ -13817,7 +13817,7 @@ define hidden void @ReportHeader(ptr nocapture noundef %0) local_unnamed_addr #7
 file_open.exit:                                   ; preds = %8, %1
   %9 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.178)
   store ptr %9, ptr %6, align 8
-  %10 = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull readonly @.str.73)
+  %10 = tail call noalias ptr @fopen(ptr noundef nonnull %9, ptr noundef nonnull readonly @.str.73)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %33, label %.preheader
 
@@ -13878,7 +13878,7 @@ file_open.exit:                                   ; preds = %8, %1
 36:                                               ; preds = %35, %33
   %37 = call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.178)
   store ptr %37, ptr %6, align 8
-  %38 = call noalias ptr @fopen(ptr noundef %37, ptr noundef nonnull readonly @.str.106)
+  %38 = call noalias ptr @fopen(ptr noundef nonnull %37, ptr noundef nonnull readonly @.str.106)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %file_open.exit37.thread, label %file_open.exit37.preheader
 
@@ -14304,7 +14304,7 @@ define hidden ptr @Plink_new() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @file_makename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden nonnull ptr @file_makename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @outputDir, align 8
@@ -14443,7 +14443,7 @@ define hidden noalias noundef ptr @file_open(ptr nocapture noundef %0, ptr nocap
 7:                                                ; preds = %6, %3
   %8 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef %1)
   store ptr %8, ptr %4, align 8
-  %9 = tail call noalias ptr @fopen(ptr noundef %8, ptr noundef %2)
+  %9 = tail call noalias ptr @fopen(ptr noundef nonnull %8, ptr noundef %2)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %21
 

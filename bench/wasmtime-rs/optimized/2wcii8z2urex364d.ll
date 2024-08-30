@@ -130,7 +130,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..DerivedFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h69dac2f91082989aE.2" = private unnamed_addr constant [9 x ptr] [ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.114, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.115, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.116, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.117, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.118, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.119, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.120, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.121, ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.122], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9copy_from17h5f63e01cf9ea7f28E(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9copy_from17h5f63e01cf9ea7f28E(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -791,7 +791,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr nocapture readonly align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr nocapture readonly align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { ptr, i64 }, align 8
@@ -1406,55 +1406,55 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7lane_of17h8231ad4f50e9ffcaE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7lane_of17h8231ad4f50e9ffcaE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 0)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9as_truthy17h790c420cc2eb85deE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9as_truthy17h790c420cc2eb85deE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 1)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar10half_width17hfef7426cf77eac79E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar10half_width17hfef7426cf77eac79E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 2)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar12double_width17h04f9198350fe5c6cE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar12double_width17h04f9198350fe5c6cE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 3)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11split_lanes17h3a51b1445277d982E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11split_lanes17h3a51b1445277d982E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 4)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11merge_lanes17h7f8fba82388cb940E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11merge_lanes17h7f8fba82388cb940E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 5)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar17dynamic_to_vector17he48b547e82007ae5E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar17dynamic_to_vector17he48b547e82007ae5E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 6)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar8narrower17h323dde5e8ba48c17E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar8narrower17h323dde5e8ba48c17E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 7)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar5wider17h125a7741f1779da9E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar5wider17h125a7741f1779da9E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr align 8 %0, i8 8)
   ret ptr %2
 }
@@ -1467,7 +1467,7 @@ define noundef nonnull ptr @"_ZN144_$LT$cranelift_codegen_meta..cdsl..typevar..T
 }
 
 ; Function Attrs: nonlazybind uwtable
-define ptr @"_ZN140_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..ValueType$GT$$GT$4from17h4ef44fcca608792bE"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull ptr @"_ZN140_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..ValueType$GT$$GT$4from17h4ef44fcca608792bE"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }, align 2
   %3 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8

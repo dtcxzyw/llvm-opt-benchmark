@@ -14702,7 +14702,7 @@ define dso_local void @_ZN4Json5ValueC2EPKc(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN4JsonL29duplicateAndPrefixStringValueEPKcj(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef nonnull ptr @_ZN4JsonL29duplicateAndPrefixStringValueEPKcj(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

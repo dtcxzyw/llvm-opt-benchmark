@@ -14604,7 +14604,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5ImGui19FindOrCreateColumnsEP11ImGuiWindowj(ptr nocapture noundef %window, i32 noundef %id) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5ImGui19FindOrCreateColumnsEP11ImGuiWindowj(ptr nocapture noundef %window, i32 noundef %id) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.ImGuiOldColumns, align 8
   %ColumnsStorage = getelementptr inbounds i8, ptr %window, i64 656

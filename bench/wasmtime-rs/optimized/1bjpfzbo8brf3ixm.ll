@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h193afd50b3921597E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h193afd50b3921597E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 280)
@@ -22,7 +22,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h193afd50
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h223070c1eee531ebE"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h223070c1eee531ebE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 808)
@@ -40,7 +40,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h223070c1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h377c8b8d85088248E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h377c8b8d85088248E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 904)
@@ -58,7 +58,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h377c8b8d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h4f10927109aadfa4E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h4f10927109aadfa4E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 104)
@@ -76,7 +76,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h4f109271
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h51181b9f3b81722cE"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h51181b9f3b81722cE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 904)
@@ -94,7 +94,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h51181b9f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h70e1bbaa420ec6aeE"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h70e1bbaa420ec6aeE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 40)
@@ -112,7 +112,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h70e1bbaa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hb9f564f20c585216E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hb9f564f20c585216E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 288)
@@ -130,7 +130,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hb9f564f2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc1d469caf76c2b94E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc1d469caf76c2b94E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 808)
@@ -148,7 +148,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc1d469ca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc75e943bd0ede078E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc75e943bd0ede078E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 192)
@@ -166,7 +166,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc75e943b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hd591a1d776f65247E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hd591a1d776f65247E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 376)
@@ -184,7 +184,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hd591a1d7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7e0dec900111a31E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7e0dec900111a31E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 200)
@@ -202,7 +202,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7e0dec9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hf0b825685f93f141E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hf0b825685f93f141E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hb92bc3ba03d9aeffE"(ptr nonnull align 1 %1, i64 8, i64 136)

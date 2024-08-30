@@ -22301,7 +22301,7 @@ define hidden void @"_ZN116_$LT$ra_ap_rustc_index..vec..IndexVec$LT$I$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 16 dereferenceable(144) ptr @"_ZN11typed_arena14Arena$LT$T$GT$5alloc17h9838a855238515c9E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 16 dereferenceable(144) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 16 dereferenceable(144) ptr @"_ZN11typed_arena14Arena$LT$T$GT$5alloc17h9838a855238515c9E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 16 dereferenceable(144) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.4 = alloca [104 x i8], align 8
   %.sroa.620 = alloca [24 x i8], align 8
   %3 = alloca { { { { [14 x i64], i64, [3 x i64] } } } }, align 16
@@ -50377,7 +50377,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$8as_s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE(i64 noundef %0, i64 noundef %1) unnamed_addr #10 {
+define internal fastcc noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE(i64 noundef %0, i64 noundef %1) unnamed_addr #10 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %4, label %7
 

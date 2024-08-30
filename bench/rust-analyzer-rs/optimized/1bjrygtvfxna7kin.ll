@@ -6780,19 +6780,22 @@ define hidden { i64, i64 } @_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h44f8072f870df712E.llvm.904175533805868711"(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit", label %5
+  br i1 %4, label %7, label %5
 
-5:                                                ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit", %2
+5:                                                ; preds = %7, %2
+  %6 = phi i1 [ %13, %7 ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %6)
   ret ptr %0
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit": ; preds = %2
-  %6 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
-  %7 = tail call { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = extractvalue { ptr, ptr } %7, 0
+7:                                                ; preds = %2
+  %8 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
+  %9 = tail call { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %0, align 8
-  store ptr %9, ptr %8, align 8
+  store ptr %11, ptr %12, align 8
+  %13 = icmp ne ptr %10, null
   br label %5
 }
 
@@ -6800,19 +6803,22 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option1
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hab307bacfaaae8a2E.llvm.904175533805868711"(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit", label %5
+  br i1 %4, label %7, label %5
 
-5:                                                ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit", %2
+5:                                                ; preds = %7, %2
+  %6 = phi i1 [ %13, %7 ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %6)
   ret ptr %0
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit": ; preds = %2
-  %6 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
-  %7 = tail call { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = extractvalue { ptr, ptr } %7, 0
+7:                                                ; preds = %2
+  %8 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
+  %9 = tail call { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %0, align 8
-  store ptr %9, ptr %8, align 8
+  store ptr %11, ptr %12, align 8
+  %13 = icmp ne ptr %10, null
   br label %5
 }
 
@@ -6820,19 +6826,22 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option1
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he4e55b786b5f4aceE.llvm.904175533805868711"(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit", label %5
+  br i1 %4, label %7, label %5
 
-5:                                                ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit", %2
+5:                                                ; preds = %7, %2
+  %6 = phi i1 [ %13, %7 ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %6)
   ret ptr %0
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit": ; preds = %2
-  %6 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
-  %7 = tail call { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = extractvalue { ptr, ptr } %7, 0
+7:                                                ; preds = %2
+  %8 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
+  %9 = tail call { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %0, align 8
-  store ptr %9, ptr %8, align 8
+  store ptr %11, ptr %12, align 8
+  %13 = icmp ne ptr %10, null
   br label %5
 }
 
@@ -7981,64 +7990,67 @@ define hidden noundef nonnull ptr @_ZN6ide_db13source_change19SourceChangeBuilde
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !alias.scope !1664, !noalias !1667, !noundef !5
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he4e55b786b5f4aceE.llvm.904175533805868711.exit"
+  br i1 %6, label %7, label %22
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i": ; preds = %2
-  %7 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %.noexc unwind label %12
+7:                                                ; preds = %2
+  %8 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+          to label %.noexc unwind label %14
 
-.noexc:                                           ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i"
-  %8 = invoke { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
-          to label %.noexc1 unwind label %12
+.noexc:                                           ; preds = %7
+  %9 = invoke { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+          to label %.noexc1 unwind label %14
 
 .noexc1:                                          ; preds = %.noexc
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = extractvalue { ptr, ptr } %8, 0
-  store ptr %11, ptr %4, align 8, !alias.scope !1664, !noalias !1667
-  store ptr %10, ptr %9, align 8, !alias.scope !1664, !noalias !1667
-  br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he4e55b786b5f4aceE.llvm.904175533805868711.exit"
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %10, ptr %4, align 8, !alias.scope !1664, !noalias !1667
+  store ptr %11, ptr %12, align 8, !alias.scope !1664, !noalias !1667
+  %13 = icmp ne ptr %10, null
+  br label %22
 
-12:                                               ; preds = %24, %.noexc4, %.noexc3, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he4e55b786b5f4aceE.llvm.904175533805868711.exit", %.noexc, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i"
-  %13 = landingpad { ptr, i32 }
+14:                                               ; preds = %28, %.noexc4, %.noexc3, %22, %.noexc, %7
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1669)
   call void @llvm.experimental.noalias.scope.decl(metadata !1672)
   call void @llvm.experimental.noalias.scope.decl(metadata !1675)
   call void @llvm.experimental.noalias.scope.decl(metadata !1678)
-  %14 = load ptr, ptr %3, align 8, !alias.scope !1681, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
-  %16 = load i32, ptr %15, align 4, !noalias !1681, !noundef !5
-  %17 = add i32 %16, -1
-  store i32 %17, ptr %15, align 4, !noalias !1681
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1681, !nonnull !5, !noundef !5
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1681, !noundef !5
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1681
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit"
 
-19:                                               ; preds = %12
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %14)
-          to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit" unwind label %31
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit" unwind label %35
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he4e55b786b5f4aceE.llvm.904175533805868711.exit": ; preds = %.noexc1, %2
-  %20 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %.noexc3 unwind label %12
+22:                                               ; preds = %.noexc1, %2
+  %23 = phi i1 [ %13, %.noexc1 ], [ true, %2 ]
+  call void @llvm.assume(i1 %23)
+  %24 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+          to label %.noexc3 unwind label %14
 
-.noexc3:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he4e55b786b5f4aceE.llvm.904175533805868711.exit"
-  %21 = invoke noundef nonnull ptr @_ZN6ide_db13source_change11TreeMutator15make_syntax_mut17he8d461d3ec0aafadE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
-          to label %.noexc4 unwind label %12
+.noexc3:                                          ; preds = %22
+  %25 = invoke noundef nonnull ptr @_ZN6ide_db13source_change11TreeMutator15make_syntax_mut17he8d461d3ec0aafadE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24)
+          to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc3
-  %22 = invoke noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$4cast17he28e649749e79fcdE"(ptr noundef nonnull %21)
-          to label %.noexc5 unwind label %12
+  %26 = invoke noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$4cast17he28e649749e79fcdE"(ptr noundef nonnull %25)
+          to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %_ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.904175533805868711.exit
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %_ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.904175533805868711.exit
 
-24:                                               ; preds = %.noexc5
+28:                                               ; preds = %.noexc5
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78ad65a09ff01d5f482b220c0047e793.208.llvm.904175533805868711) #32
-          to label %.noexc6 unwind label %12
+          to label %.noexc6 unwind label %14
 
-.noexc6:                                          ; preds = %24
+.noexc6:                                          ; preds = %28
   unreachable
 
 _ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.904175533805868711.exit: ; preds = %.noexc5
@@ -8046,29 +8058,29 @@ _ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.9041755
   call void @llvm.experimental.noalias.scope.decl(metadata !1685)
   call void @llvm.experimental.noalias.scope.decl(metadata !1688)
   call void @llvm.experimental.noalias.scope.decl(metadata !1691)
-  %25 = load ptr, ptr %3, align 8, !alias.scope !1694, !nonnull !5, !noundef !5
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !1694, !noundef !5
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !1694
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit7"
+  %29 = load ptr, ptr %3, align 8, !alias.scope !1694, !nonnull !5, !noundef !5
+  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %31 = load i32, ptr %30, align 4, !noalias !1694, !noundef !5
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %30, align 4, !noalias !1694
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit7"
 
-30:                                               ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.904175533805868711.exit
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %25), !noalias !1694
+34:                                               ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.904175533805868711.exit
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %29), !noalias !1694
   br label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit7"
 
-"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit7": ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.904175533805868711.exit, %30
-  ret ptr %22
+"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit7": ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h84e762f4705017feE.llvm.904175533805868711.exit, %34
+  ret ptr %26
 
-31:                                               ; preds = %19
-  %32 = landingpad { ptr, i32 }
+35:                                               ; preds = %21
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit": ; preds = %12, %19
-  resume { ptr, i32 } %13
+"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..StmtList$GT$17haa5382d41397fba8E.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8078,64 +8090,67 @@ define hidden noundef nonnull ptr @_ZN6ide_db13source_change19SourceChangeBuilde
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !alias.scope !1695, !noalias !1698, !noundef !5
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h44f8072f870df712E.llvm.904175533805868711.exit"
+  br i1 %6, label %7, label %22
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i": ; preds = %2
-  %7 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %.noexc unwind label %12
+7:                                                ; preds = %2
+  %8 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+          to label %.noexc unwind label %14
 
-.noexc:                                           ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i"
-  %8 = invoke { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
-          to label %.noexc1 unwind label %12
+.noexc:                                           ; preds = %7
+  %9 = invoke { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+          to label %.noexc1 unwind label %14
 
 .noexc1:                                          ; preds = %.noexc
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = extractvalue { ptr, ptr } %8, 0
-  store ptr %11, ptr %4, align 8, !alias.scope !1695, !noalias !1698
-  store ptr %10, ptr %9, align 8, !alias.scope !1695, !noalias !1698
-  br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h44f8072f870df712E.llvm.904175533805868711.exit"
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %10, ptr %4, align 8, !alias.scope !1695, !noalias !1698
+  store ptr %11, ptr %12, align 8, !alias.scope !1695, !noalias !1698
+  %13 = icmp ne ptr %10, null
+  br label %22
 
-12:                                               ; preds = %24, %.noexc4, %.noexc3, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h44f8072f870df712E.llvm.904175533805868711.exit", %.noexc, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i"
-  %13 = landingpad { ptr, i32 }
+14:                                               ; preds = %28, %.noexc4, %.noexc3, %22, %.noexc, %7
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1700)
   call void @llvm.experimental.noalias.scope.decl(metadata !1703)
   call void @llvm.experimental.noalias.scope.decl(metadata !1706)
   call void @llvm.experimental.noalias.scope.decl(metadata !1709)
-  %14 = load ptr, ptr %3, align 8, !alias.scope !1712, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
-  %16 = load i32, ptr %15, align 4, !noalias !1712, !noundef !5
-  %17 = add i32 %16, -1
-  store i32 %17, ptr %15, align 4, !noalias !1712
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1712, !nonnull !5, !noundef !5
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1712, !noundef !5
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1712
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit"
 
-19:                                               ; preds = %12
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %14)
-          to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit" unwind label %31
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit" unwind label %35
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h44f8072f870df712E.llvm.904175533805868711.exit": ; preds = %.noexc1, %2
-  %20 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %.noexc3 unwind label %12
+22:                                               ; preds = %.noexc1, %2
+  %23 = phi i1 [ %13, %.noexc1 ], [ true, %2 ]
+  call void @llvm.assume(i1 %23)
+  %24 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+          to label %.noexc3 unwind label %14
 
-.noexc3:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h44f8072f870df712E.llvm.904175533805868711.exit"
-  %21 = invoke noundef nonnull ptr @_ZN6ide_db13source_change11TreeMutator15make_syntax_mut17he8d461d3ec0aafadE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
-          to label %.noexc4 unwind label %12
+.noexc3:                                          ; preds = %22
+  %25 = invoke noundef nonnull ptr @_ZN6ide_db13source_change11TreeMutator15make_syntax_mut17he8d461d3ec0aafadE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24)
+          to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc3
-  %22 = invoke noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$4cast17hf47d6c59700aedf9E"(ptr noundef nonnull %21)
-          to label %.noexc5 unwind label %12
+  %26 = invoke noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$4cast17hf47d6c59700aedf9E"(ptr noundef nonnull %25)
+          to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %_ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.904175533805868711.exit
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %_ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.904175533805868711.exit
 
-24:                                               ; preds = %.noexc5
+28:                                               ; preds = %.noexc5
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78ad65a09ff01d5f482b220c0047e793.208.llvm.904175533805868711) #32
-          to label %.noexc6 unwind label %12
+          to label %.noexc6 unwind label %14
 
-.noexc6:                                          ; preds = %24
+.noexc6:                                          ; preds = %28
   unreachable
 
 _ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.904175533805868711.exit: ; preds = %.noexc5
@@ -8143,29 +8158,29 @@ _ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.9041755
   call void @llvm.experimental.noalias.scope.decl(metadata !1716)
   call void @llvm.experimental.noalias.scope.decl(metadata !1719)
   call void @llvm.experimental.noalias.scope.decl(metadata !1722)
-  %25 = load ptr, ptr %3, align 8, !alias.scope !1725, !nonnull !5, !noundef !5
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !1725, !noundef !5
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !1725
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit7"
+  %29 = load ptr, ptr %3, align 8, !alias.scope !1725, !nonnull !5, !noundef !5
+  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %31 = load i32, ptr %30, align 4, !noalias !1725, !noundef !5
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %30, align 4, !noalias !1725
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit7"
 
-30:                                               ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.904175533805868711.exit
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %25), !noalias !1725
+34:                                               ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.904175533805868711.exit
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %29), !noalias !1725
   br label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit7"
 
-"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit7": ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.904175533805868711.exit, %30
-  ret ptr %22
+"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit7": ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h82f55b8ecc0b33adE.llvm.904175533805868711.exit, %34
+  ret ptr %26
 
-31:                                               ; preds = %19
-  %32 = landingpad { ptr, i32 }
+35:                                               ; preds = %21
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit": ; preds = %12, %19
-  resume { ptr, i32 } %13
+"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h0e0c314697ff7bc6E.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8175,64 +8190,67 @@ define hidden noundef nonnull ptr @_ZN6ide_db13source_change19SourceChangeBuilde
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !alias.scope !1726, !noalias !1729, !noundef !5
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hab307bacfaaae8a2E.llvm.904175533805868711.exit"
+  br i1 %6, label %7, label %22
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i": ; preds = %2
-  %7 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %.noexc unwind label %12
+7:                                                ; preds = %2
+  %8 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+          to label %.noexc unwind label %14
 
-.noexc:                                           ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i"
-  %8 = invoke { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
-          to label %.noexc1 unwind label %12
+.noexc:                                           ; preds = %7
+  %9 = invoke { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca102E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+          to label %.noexc1 unwind label %14
 
 .noexc1:                                          ; preds = %.noexc
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = extractvalue { ptr, ptr } %8, 0
-  store ptr %11, ptr %4, align 8, !alias.scope !1726, !noalias !1729
-  store ptr %10, ptr %9, align 8, !alias.scope !1726, !noalias !1729
-  br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hab307bacfaaae8a2E.llvm.904175533805868711.exit"
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %10, ptr %4, align 8, !alias.scope !1726, !noalias !1729
+  store ptr %11, ptr %12, align 8, !alias.scope !1726, !noalias !1729
+  %13 = icmp ne ptr %10, null
+  br label %22
 
-12:                                               ; preds = %24, %.noexc4, %.noexc3, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hab307bacfaaae8a2E.llvm.904175533805868711.exit", %.noexc, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$ide_db..source_change..TreeMutator$GT$$GT$17h07d77f67ca7e20bcE.exit.i"
-  %13 = landingpad { ptr, i32 }
+14:                                               ; preds = %28, %.noexc4, %.noexc3, %22, %.noexc, %7
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1731)
   call void @llvm.experimental.noalias.scope.decl(metadata !1734)
   call void @llvm.experimental.noalias.scope.decl(metadata !1737)
   call void @llvm.experimental.noalias.scope.decl(metadata !1740)
-  %14 = load ptr, ptr %3, align 8, !alias.scope !1743, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
-  %16 = load i32, ptr %15, align 4, !noalias !1743, !noundef !5
-  %17 = add i32 %16, -1
-  store i32 %17, ptr %15, align 4, !noalias !1743
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1743, !nonnull !5, !noundef !5
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1743, !noundef !5
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1743
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit"
 
-19:                                               ; preds = %12
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %14)
-          to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit" unwind label %31
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit" unwind label %35
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hab307bacfaaae8a2E.llvm.904175533805868711.exit": ; preds = %.noexc1, %2
-  %20 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %.noexc3 unwind label %12
+22:                                               ; preds = %.noexc1, %2
+  %23 = phi i1 [ %13, %.noexc1 ], [ true, %2 ]
+  call void @llvm.assume(i1 %23)
+  %24 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+          to label %.noexc3 unwind label %14
 
-.noexc3:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hab307bacfaaae8a2E.llvm.904175533805868711.exit"
-  %21 = invoke noundef nonnull ptr @_ZN6ide_db13source_change11TreeMutator15make_syntax_mut17he8d461d3ec0aafadE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
-          to label %.noexc4 unwind label %12
+.noexc3:                                          ; preds = %22
+  %25 = invoke noundef nonnull ptr @_ZN6ide_db13source_change11TreeMutator15make_syntax_mut17he8d461d3ec0aafadE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24)
+          to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc3
-  %22 = invoke noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h4bd14e8e94972b28E"(ptr noundef nonnull %21)
-          to label %.noexc5 unwind label %12
+  %26 = invoke noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h4bd14e8e94972b28E"(ptr noundef nonnull %25)
+          to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %_ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.904175533805868711.exit
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %_ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.904175533805868711.exit
 
-24:                                               ; preds = %.noexc5
+28:                                               ; preds = %.noexc5
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78ad65a09ff01d5f482b220c0047e793.208.llvm.904175533805868711) #32
-          to label %.noexc6 unwind label %12
+          to label %.noexc6 unwind label %14
 
-.noexc6:                                          ; preds = %24
+.noexc6:                                          ; preds = %28
   unreachable
 
 _ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.904175533805868711.exit: ; preds = %.noexc5
@@ -8240,29 +8258,29 @@ _ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.9041755
   call void @llvm.experimental.noalias.scope.decl(metadata !1747)
   call void @llvm.experimental.noalias.scope.decl(metadata !1750)
   call void @llvm.experimental.noalias.scope.decl(metadata !1753)
-  %25 = load ptr, ptr %3, align 8, !alias.scope !1756, !nonnull !5, !noundef !5
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !1756, !noundef !5
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !1756
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit7"
+  %29 = load ptr, ptr %3, align 8, !alias.scope !1756, !nonnull !5, !noundef !5
+  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %31 = load i32, ptr %30, align 4, !noalias !1756, !noundef !5
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %30, align 4, !noalias !1756
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit7"
 
-30:                                               ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.904175533805868711.exit
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %25), !noalias !1756
+34:                                               ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.904175533805868711.exit
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %29), !noalias !1756
   br label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit7"
 
-"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit7": ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.904175533805868711.exit, %30
-  ret ptr %22
+"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit7": ; preds = %_ZN6ide_db13source_change11TreeMutator8make_mut17h0aee482a25d3f025E.llvm.904175533805868711.exit, %34
+  ret ptr %26
 
-31:                                               ; preds = %19
-  %32 = landingpad { ptr, i32 }
+35:                                               ; preds = %21
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit": ; preds = %12, %19
-  resume { ptr, i32 } %13
+"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ItemList$GT$17h085a34b51a63d284E.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable

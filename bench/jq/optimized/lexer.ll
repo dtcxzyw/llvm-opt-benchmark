@@ -1867,7 +1867,7 @@ default.unreachable917:                           ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @jv_mem_alloc(i64 noundef 64) #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -3056,7 +3056,7 @@ define ptr @jq_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @jq_yy_scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @jq_yy_scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @jq_yy_scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
@@ -3064,7 +3064,7 @@ define ptr @jq_yy_scan_string(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @jv_mem_alloc(i64 noundef %5) #19

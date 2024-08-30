@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @CnvExtOpen(ptr noundef %ucm) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @CnvExtOpen(ptr noundef %ucm) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(917632) ptr @uprv_malloc_75(i64 noundef 917632) #13
   %cmp = icmp eq ptr %call, null

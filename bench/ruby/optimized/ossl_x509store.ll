@@ -201,7 +201,7 @@ declare void @X509_STORE_CTX_set_error(ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @GetX509StorePtr(i64 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @GetX509StorePtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509store_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

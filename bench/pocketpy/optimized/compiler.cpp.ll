@@ -25592,7 +25592,7 @@ _ZNK4pkpy8Compiler4prevEv.exit8:                  ; preds = %_ZN4pkpy2TKEPKc.exi
   %45 = tail call noundef ptr @_ZN4pkpy8Compiler9to_objectERKSt7variantIJSt9monostateldNS_3StrEEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(33) %44)
   %46 = getelementptr inbounds i8, ptr %0, i64 160
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef ptr @_ZN4pkpy2VM9py_negateEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %47, ptr noundef %45)
+  %48 = tail call noundef ptr @_ZN4pkpy2VM9py_negateEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %47, ptr noundef nonnull %45)
   br label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit
 
 _ZNK4pkpy8Compiler4prevEv.exit10:                 ; preds = %_ZNK4pkpy8Compiler4prevEv.exit
@@ -25962,7 +25962,7 @@ declare void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(3
 declare noundef i32 @_ZN4pkpy15CodeEmitContext13add_func_declESt10shared_ptrINS_8FuncDeclEE(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy8Compiler9to_objectERKSt7variantIJSt9monostateldNS_3StrEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN4pkpy8Compiler9to_objectERKSt7variantIJSt9monostateldNS_3StrEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

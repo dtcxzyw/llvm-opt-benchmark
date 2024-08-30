@@ -7032,7 +7032,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(64) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hb02a3e861bc91a2cE"(ptr noalias nocapture noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hb02a3e861bc91a2cE"(ptr noalias nocapture noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [1 x i64] }, { i8, [31 x i8] }, { ptr, {} }, { i32, i16, i16 } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, i64, {} }, align 8
@@ -7910,7 +7910,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6append17hd976094a1cd84b03E.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17hf73c64118470f50eE.llvm.17476841346288807550(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf73c64118470f50eE.llvm.17476841346288807550(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -9068,7 +9068,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent14Entry$LT$T$GT$14or_insert_with17h6b7bc9477c435377E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent14Entry$LT$T$GT$14or_insert_with17h6b7bc9477c435377E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %3 = load i64, ptr %0, align 8, !range !1391, !noundef !8
   %4 = icmp eq i64 %3, 2
@@ -9134,7 +9134,7 @@ _ZN4core3ops8function6FnOnce9call_once17he997ffa56272424dE.llvm.1747684134628880
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent20VacantEntry$LT$T$GT$6insert17hab0479e9fca3864dE.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent20VacantEntry$LT$T$GT$6insert17hab0479e9fca3864dE.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i128, { ptr, ptr } }, align 16
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -9200,7 +9200,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent22OccupiedEntry$LT$T$GT$8into_mut17h7ee73d4f9dec9eb2E.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent22OccupiedEntry$LT$T$GT$8into_mut17h7ee73d4f9dec9eb2E.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 {
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %2 = getelementptr inbounds i8, ptr %.sroa.0.sroa.4.0.copyload, i64 -16

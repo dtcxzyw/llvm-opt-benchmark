@@ -3639,7 +3639,7 @@ define void @_ZN20QCPPaintBufferPixmapD0Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN20QCPPaintBufferPixmap13startPaintingEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN20QCPPaintBufferPixmap13startPaintingEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #51
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN10QCPPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3)
@@ -28465,7 +28465,7 @@ _ZN7QStringD2Ev.exit100:                          ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK22QCPLabelPainterPrivate17createCachedLabelERKNS_9LabelDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK22QCPLabelPainterPrivate17createCachedLabelERKNS_9LabelDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPixmap, align 8
   %4 = alloca %class.QPixmap, align 8
   %5 = alloca %class.QPixmap, align 8
@@ -60597,7 +60597,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN15QCPAbstractItem14createPositionERK7QString(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN15QCPAbstractItem14createPositionERK7QString(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QDebug, align 8
@@ -60894,7 +60894,7 @@ _ZN5QListIP11QCPAxisRectED2Ev.exit16:             ; preds = %42, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN15QCPAbstractItem12createAnchorERK7QStringi(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN15QCPAbstractItem12createAnchorERK7QStringi(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
@@ -72551,7 +72551,7 @@ declare void @_ZNK7QPixmap6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18Transforma
 declare { i64, i64 } @_ZNK7QPixmap4rectEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11QCustomPlot17createPaintBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN11QCustomPlot17createPaintBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = alloca %class.QSize, align 8

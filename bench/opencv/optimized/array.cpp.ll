@@ -734,7 +734,7 @@ define void @cvCreateData(ptr noundef %0) local_unnamed_addr #0 personality ptr 
 declare ptr @cvAlloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvInitMatHeader(ptr noundef returned writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvInitMatHeader(ptr noundef returned writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1114,7 +1114,7 @@ define noundef ptr @cvCloneMat(ptr noundef %0) local_unnamed_addr #0 personality
 declare void @cvCopy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvInitMatNDHeader(ptr noundef returned writeonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvInitMatNDHeader(ptr noundef returned writeonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2137,7 +2137,7 @@ default.unreachable223:                           ; preds = %108
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %struct.CvMat, align 8
@@ -4650,7 +4650,7 @@ define i64 @cvGetSize(ptr noundef readonly %0) local_unnamed_addr #0 personality
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetSubRect(ptr noundef %0, ptr noundef returned writeonly %1, i64 %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvGetSubRect(ptr noundef %0, ptr noundef returned writeonly %1, i64 %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.CvMat, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -4841,7 +4841,7 @@ define noundef ptr @cvGetSubRect(ptr noundef %0, ptr noundef returned writeonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetMat(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvGetMat(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5328,7 +5328,7 @@ _ZL12icvCheckHugeP5CvMat.exit:                    ; preds = %241, %.loopexit, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetRows(ptr noundef %0, ptr noundef returned writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvGetRows(ptr noundef %0, ptr noundef returned writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.CvMat, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -5496,7 +5496,7 @@ define noundef ptr @cvGetRows(ptr noundef %0, ptr noundef returned writeonly %1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetCols(ptr noundef %0, ptr noundef returned writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvGetCols(ptr noundef %0, ptr noundef returned writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.CvMat, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -5642,7 +5642,7 @@ define noundef ptr @cvGetCols(ptr noundef %0, ptr noundef returned writeonly %1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetDiag(ptr noundef %0, ptr noundef returned writeonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvGetDiag(ptr noundef %0, ptr noundef returned writeonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.CvMat, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -9812,7 +9812,7 @@ _ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit:       ; preds = %.lr.ph34.i, %65, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvReshapeMatND(ptr noundef %0, i32 noundef %1, ptr noundef returned %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvReshapeMatND(ptr noundef %0, i32 noundef %1, ptr noundef returned %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
@@ -10658,7 +10658,7 @@ define noundef ptr @cvReshapeMatND(ptr noundef %0, i32 noundef %1, ptr noundef r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvReshape(ptr noundef %0, ptr noundef returned %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvReshape(ptr noundef %0, ptr noundef returned %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca i32, align 4
@@ -11014,7 +11014,7 @@ define noundef ptr @cvReshape(ptr noundef %0, ptr noundef returned %1, i32 nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetImage(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvGetImage(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11163,7 +11163,7 @@ define noundef ptr @cvGetImage(ptr noundef readonly %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvInitImageHeader(ptr noundef returned %0, i64 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvInitImageHeader(ptr noundef returned %0, i64 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11510,7 +11510,7 @@ _ZL16icvGetColorModeliPPKcS1_.exit:               ; preds = %8, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvCreateImage(i64 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @cvCreateImage(i64 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = load ptr, ptr @_ZL5CvIPL.0, align 8

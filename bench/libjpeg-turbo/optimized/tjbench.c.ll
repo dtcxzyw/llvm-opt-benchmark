@@ -4891,7 +4891,7 @@ declare i32 @tj3Transform(ptr noundef, ptr noundef, i64 noundef, i32 noundef, pt
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @sigfig(double noundef %0, ptr noundef returned writeonly %1, i32 noundef %2) unnamed_addr #13 {
+define internal fastcc nonnull ptr @sigfig(double noundef %0, ptr noundef returned writeonly %1, i32 noundef %2) unnamed_addr #13 {
   %4 = alloca [80 x i8], align 16
   %5 = tail call double @llvm.fabs.f64(double %0)
   %6 = tail call double @log10(double noundef %5) #21

@@ -12605,7 +12605,7 @@ define void @_ZN16PickPointsDialog16toggleSelectModeEb(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN16PickPointsDialog15getPickedPointsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN16PickPointsDialog15getPickedPointsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QVariant, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8

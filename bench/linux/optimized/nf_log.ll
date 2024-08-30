@@ -643,7 +643,7 @@ define dso_local noundef range(i32 -1, 1) i32 @nf_log_buf_add(ptr nocapture noun
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @nf_log_buf_open() #0 align 16 {
+define dso_local noundef nonnull ptr @nf_log_buf_open() #0 align 16 {
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %2 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 2080, i64 noundef 1024) #18
   %3 = icmp eq ptr %2, null

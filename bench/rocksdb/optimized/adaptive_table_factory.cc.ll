@@ -1534,7 +1534,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb23NewAdaptiveTableFactoryESt10shared_ptrINS_12TableFactoryEES2_S2_S2_(ptr nocapture noundef readonly %table_factory_to_write, ptr nocapture noundef readonly %block_based_table_factory, ptr nocapture noundef readonly %plain_table_factory, ptr nocapture noundef readonly %cuckoo_table_factory) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb23NewAdaptiveTableFactoryESt10shared_ptrINS_12TableFactoryEES2_S2_S2_(ptr nocapture noundef readonly %table_factory_to_write, ptr nocapture noundef readonly %block_based_table_factory, ptr nocapture noundef readonly %plain_table_factory, ptr nocapture noundef readonly %cuckoo_table_factory) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp1 = alloca %"class.std::shared_ptr", align 8

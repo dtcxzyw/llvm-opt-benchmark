@@ -177,7 +177,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @net_rx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
+define dso_local nonnull ptr @net_rx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end

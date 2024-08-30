@@ -88435,7 +88435,7 @@ unreachable:                                      ; preds = %invoke.cont25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERNS0_10autovectorIS2_Lm32EE13iterator_implIS5_S2_EEEZNS1_14MultiGetCommonERKNS0_11ReadOptionsEmPPNS0_18ColumnFamilyHandleEPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_19PinnableWideColumnsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_6StatusEbE3$_0E9_M_invokeERKSt9_Any_dataS8_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args) #4 align 2 {
+define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERNS0_10autovectorIS2_Lm32EE13iterator_implIS5_S2_EEEZNS1_14MultiGetCommonERKNS0_11ReadOptionsEmPPNS0_18ColumnFamilyHandleEPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_19PinnableWideColumnsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_6StatusEbE3$_0E9_M_invokeERKSt9_Any_dataS8_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args) #4 align 2 {
 entry:
   %__args.val = load ptr, ptr %__args, align 8
   %0 = getelementptr inbounds i8, ptr %__args, i64 8

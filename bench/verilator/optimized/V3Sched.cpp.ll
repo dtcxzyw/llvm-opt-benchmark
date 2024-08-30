@@ -12752,7 +12752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %.lr.ph
-  call fastcc void @"_ZZN7V3Sched12_GLOBAL__N_110splitCheckEP8AstCFuncENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %.01428)
+  call fastcc void @"_ZZN7V3Sched12_GLOBAL__N_110splitCheckEP8AstCFuncENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %.01428)
   %70 = load ptr, ptr %6, align 8
   %71 = call fastcc noundef ptr @_ZN7V3Sched12_GLOBAL__N_126splitCheckCreateNewSubFuncEP8AstCFunc(ptr noundef %70)
   br label %72
@@ -12775,7 +12775,7 @@ _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %72, %73
 
 ._crit_edge:                                      ; preds = %_ZN8AstCFunc9addStmtspEP7AstNode.exit, %.preheader
   %.014.lcssa = phi ptr [ %25, %.preheader ], [ %.115, %_ZN8AstCFunc9addStmtspEP7AstNode.exit ]
-  call fastcc void @"_ZZN7V3Sched12_GLOBAL__N_110splitCheckEP8AstCFuncENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %.014.lcssa)
+  call fastcc void @"_ZZN7V3Sched12_GLOBAL__N_110splitCheckEP8AstCFuncENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %.014.lcssa)
   call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %26)
   br label %76
 

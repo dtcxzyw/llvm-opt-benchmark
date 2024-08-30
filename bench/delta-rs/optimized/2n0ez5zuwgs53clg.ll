@@ -2879,7 +2879,7 @@ define hidden noundef double @"_ZN118_$LT$rand..distributions..uniform..UniformF
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(144) ptr @_ZN11arrow_array4cast7AsArray13as_dictionary17h8531a946b9e04b56E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN11arrow_array4cast7AsArray13as_dictionary17h8531a946b9e04b56E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %2 = load ptr, ptr %0, align 8, !alias.scope !240, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -57264,7 +57264,7 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync26Arc$LT$$u5b$T$u5d$$C$A$GT$21allocat
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7925137649769596059(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7925137649769596059(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807

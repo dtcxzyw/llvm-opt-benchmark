@@ -60,7 +60,7 @@ $_ZN12hb_hashmap_tIjjLb1EE6item_t9get_valueEv = comdat any
 @_ZL12hb_ridentity = internal constant %struct.anon.47 zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define hidden noundef ptr @hb_map_create() local_unnamed_addr #0 {
+define hidden nonnull ptr @hb_map_create() local_unnamed_addr #0 {
   %1 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #23
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %11, label %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit
@@ -326,7 +326,7 @@ define hidden range(i32 0, 2) i32 @hb_map_allocation_successful(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_map_copy(ptr noundef %0) local_unnamed_addr #3 {
+define hidden nonnull ptr @hb_map_copy(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #23
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %hb_map_create.exit, label %hb_map_create.exit.thread

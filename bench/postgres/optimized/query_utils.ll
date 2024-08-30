@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [14 x i8] c"Query was: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @executeQuery(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @executeQuery(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   br i1 %2, label %4, label %6
 
 4:                                                ; preds = %3

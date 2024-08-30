@@ -3554,7 +3554,7 @@ declare i32 @curl_easy_perform(ptr noundef) local_unnamed_addr #0
 declare i32 @curl_multi_add_handle(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN16HTTPFetchOngoing8completeE8CURLcode(ptr noundef nonnull align 8 dereferenceable(320) %this, i32 noundef %res) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN16HTTPFetchOngoing8completeE8CURLcode(ptr noundef nonnull align 8 dereferenceable(320) %this, i32 noundef %res) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq i32 %res, 0
   %result = getelementptr inbounds i8, ptr %this, i64 240

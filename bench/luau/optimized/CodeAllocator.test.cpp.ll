@@ -9853,7 +9853,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRbEcvNS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_08__invokeEPvPhmRm"(ptr nocapture noundef %0, ptr noundef %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_08__invokeEPvPhmRm"(ptr nocapture noundef %0, ptr noundef %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %6 = alloca %"class.doctest::String", align 8
   %7 = alloca %"struct.doctest::detail::Result", align 8

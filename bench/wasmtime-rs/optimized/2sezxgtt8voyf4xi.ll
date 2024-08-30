@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.213ea54c6f0fd21de973238ad21ea35b.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.213ea54c6f0fd21de973238ad21ea35b.0, [16 x i8] c"`\00\00\00\00\00\00\00p\01\00\006\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$14or_insert_with17h69a3adfd44a5bcfeE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$14or_insert_with17h69a3adfd44a5bcfeE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64, {} }, i64, {} }, align 8
   %3 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %4 = alloca { { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr, { ptr, [2 x i64] }, {}, {} }, align 8

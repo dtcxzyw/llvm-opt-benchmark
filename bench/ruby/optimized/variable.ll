@@ -980,7 +980,7 @@ define dso_local void @rb_gvar_undef_setter(i64 noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @rb_global_entry(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @rb_global_entry(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr @rb_global_tbl, align 8

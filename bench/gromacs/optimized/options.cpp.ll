@@ -675,14 +675,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx8internal17OptionS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3gmx8internal17OptionSectionImpl13addOptionImplERKNS_14AbstractOptionE(ptr nocapture noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN3gmx8internal17OptionSectionImpl13addOptionImplERKNS_14AbstractOptionE(ptr nocapture noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = tail call noundef ptr @_ZN3gmx8internal17OptionSectionImpl5Group13addOptionImplERKNS_14AbstractOptionE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3gmx8internal17OptionSectionImpl5Group13addOptionImplERKNS_14AbstractOptionE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3gmx8internal17OptionSectionImpl5Group13addOptionImplERKNS_14AbstractOptionE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.44", align 8
   %4 = alloca %"class.gmx::APIError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
@@ -2143,11 +2143,11 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx7Options8addGroupE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3gmx7Options13addOptionImplERKNS_14AbstractOptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN3gmx7Options13addOptionImplERKNS_14AbstractOptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 88
-  %6 = tail call noundef ptr @_ZN3gmx8internal17OptionSectionImpl5Group13addOptionImplERKNS_14AbstractOptionE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %6 = tail call noundef nonnull ptr @_ZN3gmx8internal17OptionSectionImpl5Group13addOptionImplERKNS_14AbstractOptionE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret ptr %6
 }
 

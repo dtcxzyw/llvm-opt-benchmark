@@ -713,7 +713,7 @@ return:                                           ; preds = %do.body14, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @event_init() local_unnamed_addr #0 {
+define dso_local nonnull ptr @event_init() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @event_base_new_with_config(ptr noundef null)
   %cmp = icmp eq ptr %call, null

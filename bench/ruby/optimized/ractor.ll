@@ -176,7 +176,7 @@ define hidden zeroext i1 @rb_ractor_p(i64 noundef %0) local_unnamed_addr #0 {
 declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_ractor_main_alloc() local_unnamed_addr #0 {
+define hidden nonnull ptr @rb_ractor_main_alloc() local_unnamed_addr #0 {
   %1 = tail call noalias ptr @ruby_mimmalloc(i64 noundef 600) #20
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %6

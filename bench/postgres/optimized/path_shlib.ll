@@ -630,7 +630,7 @@ define zeroext i1 @path_is_prefix_of_path(ptr nocapture noundef readonly %0, ptr
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @get_progname(ptr noundef %0) local_unnamed_addr #2 {
+define noalias nonnull ptr @get_progname(ptr noundef %0) local_unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %5, %1

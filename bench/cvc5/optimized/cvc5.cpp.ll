@@ -74633,7 +74633,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4cvc519DatatypeConstructor14const_iteratorptEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK4cvc519DatatypeConstructor14const_iteratorptEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
 entry:
   %d_stors = getelementptr inbounds i8, ptr %this, i64 16
   %d_idx = getelementptr inbounds i8, ptr %this, i64 40
@@ -80787,7 +80787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4cvc58Datatype14const_iteratorptEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK4cvc58Datatype14const_iteratorptEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
 entry:
   %d_ctors = getelementptr inbounds i8, ptr %this, i64 16
   %d_idx = getelementptr inbounds i8, ptr %this, i64 40

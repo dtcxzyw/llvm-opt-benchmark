@@ -59,7 +59,7 @@ $_ZTIN3irr5video12IImageWriterE = comdat any
 @_ZN3irr5video15CImageWriterJPGC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3irr5video15CImageWriterJPGC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5video20createImageWriterJPGEv() local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN3irr5video20createImageWriterJPGEv() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
   tail call void @_ZN3irr5video15CImageWriterJPGC1Ev(ptr noundef nonnull align 8 dereferenceable(20) %call) #11

@@ -2429,7 +2429,7 @@ define hidden void @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_fast_path17h6bdf6ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(8) ptr @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_slow_path17h404b45ede4266688E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_slow_path17h404b45ede4266688E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = tail call { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h9837bdeaa9ab73daE.llvm.7325118056162354838"(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1)
   %4 = extractvalue { ptr, i64 } %3, 1
   %.not = icmp eq i64 %4, 0
@@ -2445,7 +2445,7 @@ define hidden noundef align 8 dereferenceable(8) ptr @"_ZN11typed_arena14Arena$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_slow_path17h9f2835e1e39ff897E.llvm.7325118056162354838"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_slow_path17h9f2835e1e39ff897E.llvm.7325118056162354838"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = tail call { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h5e90c67147fa6fdfE.llvm.7325118056162354838"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = extractvalue { ptr, i64 } %3, 1
   %.not = icmp eq i64 %4, 0
@@ -2461,7 +2461,7 @@ define hidden noundef align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_slow_path17hcda25d3bcf8c78a6E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_slow_path17hcda25d3bcf8c78a6E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = tail call { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h7d3f7b09d8ee79c1E.llvm.7325118056162354838"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = extractvalue { ptr, i64 } %3, 1
   %.not = icmp eq i64 %4, 0
@@ -2537,7 +2537,7 @@ define hidden void @"_ZN11typed_arena14Arena$LT$T$GT$3new17hb669fcfeae620992E"(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$5alloc17hfa49502c3a152e84E.llvm.7325118056162354838"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$5alloc17hfa49502c3a152e84E.llvm.7325118056162354838"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, ptr } }, {}, {} }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
@@ -32902,7 +32902,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN5alloc4sync16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.7325118056162354838(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.7325118056162354838(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -70740,7 +70740,7 @@ define void @"_ZN5typst5model5table137_$LT$impl$u20$typst..foundations..element.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(24) ptr @"_ZN86_$LT$typst..foundations..content..Content$u20$as$u20$typst..realize..arenas..Store$GT$5store17h8112954224eae07bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN86_$LT$typst..foundations..content..Content$u20$as$u20$typst..realize..arenas..Store$GT$5store17h8112954224eae07bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, ptr } }, {}, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15080)

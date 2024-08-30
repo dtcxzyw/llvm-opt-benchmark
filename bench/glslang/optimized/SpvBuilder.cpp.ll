@@ -16543,7 +16543,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3spv7Builder13addEntryPointENS_14ExecutionModelEPNS_8FunctionEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3spv7Builder13addEntryPointENS_14ExecutionModelEPNS_8FunctionEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
@@ -18431,7 +18431,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3spv7Builder14makeEntryPointEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3spv7Builder14makeEntryPointEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::vector.33", align 8
   %5 = alloca %"class.std::vector.153", align 8
@@ -18464,7 +18464,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %2, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3spv7Builder17makeFunctionEntryENS_10DecorationEjPKcNS_11LinkageTypeERKSt6vectorIjSaIjEERKS5_IS5_IS1_SaIS1_EESaISB_EEPPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef %7) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3spv7Builder17makeFunctionEntryENS_10DecorationEjPKcNS_11LinkageTypeERKSt6vectorIjSaIjEERKS5_IS5_IS1_SaIS1_EESaISB_EEPPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef %7) local_unnamed_addr #3 align 2 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.2", align 1
   %11 = alloca %"class.std::unique_ptr.163", align 8

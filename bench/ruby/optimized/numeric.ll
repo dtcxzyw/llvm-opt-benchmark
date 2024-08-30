@@ -5181,7 +5181,7 @@ RB_FLOAT_TYPE_P.exit.thread42:                    ; preds = %RB_FLOAT_TYPE_P.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @out_of_range_float(ptr noundef returned %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc nonnull ptr @out_of_range_float(ptr noundef returned %0, i64 noundef %1) unnamed_addr #2 {
   %3 = and i64 %1, 3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %12

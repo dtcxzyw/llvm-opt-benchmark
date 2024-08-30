@@ -651,7 +651,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(96) ptr @_ZN21tree_sitter_highlight5c_lib10unwrap_ptr17h6617099bebc54fcaE(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN21tree_sitter_highlight5c_lib10unwrap_ptr17h6617099bebc54fcaE(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null
@@ -678,7 +678,7 @@ define hidden noundef align 8 dereferenceable(96) ptr @_ZN21tree_sitter_highligh
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(112) ptr @_ZN21tree_sitter_highlight5c_lib10unwrap_ptr17hb79666126fa83fd0E(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN21tree_sitter_highlight5c_lib10unwrap_ptr17hb79666126fa83fd0E(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null
@@ -705,7 +705,7 @@ define hidden noundef align 8 dereferenceable(112) ptr @_ZN21tree_sitter_highlig
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(112) ptr @_ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null
@@ -732,7 +732,7 @@ define hidden noundef align 8 dereferenceable(112) ptr @_ZN21tree_sitter_highlig
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(96) ptr @_ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h34f19a60dbfc67efE(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h34f19a60dbfc67efE(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null

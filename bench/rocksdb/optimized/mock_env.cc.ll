@@ -7191,7 +7191,7 @@ entry:
 declare void @_ZN7rocksdb19CompositeEnvWrapperC2EPNS_3EnvERKSt10shared_ptrINS_10FileSystemEERKS3_INS_11SystemClockEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb7MockEnv6CreateEPNS_3EnvE(ptr noundef nonnull %env) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb7MockEnv6CreateEPNS_3EnvE(ptr noundef nonnull %env) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %clock = alloca %"class.std::shared_ptr.110", align 8
   %ref.tmp1 = alloca %"class.std::shared_ptr", align 8
@@ -7400,7 +7400,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb7MockEnv6CreateEPNS_3EnvERKSt10shared_ptrINS_11SystemClockEE(ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(16) %clock) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb7MockEnv6CreateEPNS_3EnvERKSt10shared_ptrINS_11SystemClockEE(ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(16) %clock) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fs = alloca %"class.std::shared_ptr.113", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.41", align 8
@@ -7873,7 +7873,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb3Env13GetFileSystemEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb9NewMemEnvEPNS_3EnvE(ptr noundef nonnull %base_env) local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN7rocksdb9NewMemEnvEPNS_3EnvE(ptr noundef nonnull %base_env) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb7MockEnv6CreateEPNS_3EnvE(ptr noundef %base_env)
   ret ptr %call

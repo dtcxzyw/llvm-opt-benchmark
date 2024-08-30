@@ -1558,7 +1558,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias ptr @bitmap_new(i64 noundef %nbits) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @bitmap_new(i64 noundef %nbits) unnamed_addr #0 {
 entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3

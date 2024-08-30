@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [62 x i8] c"function amvalidate is not defined for index access method %u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetIndexAmRoutine(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GetIndexAmRoutine(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @OidFunctionCall0Coll(i32 noundef %0, i32 noundef 0) #4
   %3 = inttoptr i64 %2 to ptr
   %4 = icmp eq i64 %2, 0

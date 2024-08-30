@@ -1625,7 +1625,7 @@ default.unreachable622:                           ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden nonnull ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6

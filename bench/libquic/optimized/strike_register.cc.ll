@@ -1034,7 +1034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN3net14StrikeRegister13external_nodeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZN3net14StrikeRegister13external_nodeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %external_nodes_ = getelementptr inbounds i8, ptr %this, i64 48
   %mul = mul i32 %i, 24

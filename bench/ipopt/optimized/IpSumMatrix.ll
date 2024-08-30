@@ -1375,7 +1375,7 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEC2ERKS3_.exit: ; preds = %3, %5, %16, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK5Ipopt14SumMatrixSpace16MakeNewSumMatrixEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK5Ipopt14SumMatrixSpace16MakeNewSumMatrixEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
   invoke void @_ZN5Ipopt9SumMatrixC1EPKNS_14SumMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull %0)
           to label %3 unwind label %4
@@ -1394,7 +1394,7 @@ define noundef ptr @_ZNK5Ipopt14SumMatrixSpace16MakeNewSumMatrixEv(ptr noundef n
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK5Ipopt14SumMatrixSpace7MakeNewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK5Ipopt14SumMatrixSpace7MakeNewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
   invoke void @_ZN5Ipopt9SumMatrixC1EPKNS_14SumMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull %0)
           to label %_ZNK5Ipopt14SumMatrixSpace16MakeNewSumMatrixEv.exit unwind label %3

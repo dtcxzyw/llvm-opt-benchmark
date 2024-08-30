@@ -2254,7 +2254,7 @@ if.then.i.i.i591:                                 ; preds = %_ZN5eastl12basic_st
           to label %land.rhs.i.i599.preheader unwind label %lpad11.loopexit.split-lp
 
 land.rhs.i.i599.preheader:                        ; preds = %if.then.i.i.i591
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i598, ptr align 4 %allSortFunctions.val119, i64 %sub.ptr.sub.i.i588, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call.i.i.i.i.i598, ptr nonnull align 4 %allSortFunctions.val119, i64 %sub.ptr.sub.i.i588, i1 false)
   %add.ptr.i.i.i.i596 = getelementptr inbounds i8, ptr %call.i.i.i.i.i598, i64 %sub.ptr.sub.i.i588
   br label %land.rhs.i.i599
 
@@ -7542,7 +7542,7 @@ if.end.i.i.i:                                     ; preds = %_ZN5eastl10VectorBa
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %retval.0.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %retval.0.i.i, ptr nonnull align 4 %1, i64 %sub.ptr.sub.i.i.i, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %sub.ptr.sub.i.i.i
   br label %invoke.cont
 

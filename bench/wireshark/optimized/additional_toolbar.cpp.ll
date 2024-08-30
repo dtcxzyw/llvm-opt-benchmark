@@ -1299,7 +1299,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i, %18
   %34 = load i64, ptr %33, align 8
   store i64 %34, ptr %32, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  invoke void @_ZN13ApplyLineEditC1E7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull %9, ptr noundef %21)
+  invoke void @_ZN13ApplyLineEditC1E7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull %9, ptr noundef nonnull %21)
           to label %35 unwind label %82
 
 35:                                               ; preds = %27
@@ -2016,7 +2016,7 @@ define internal void @_ZL18toolbar_boolean_cbPvS_S_(ptr noundef readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN29AdditionalToolbarWidgetAction16createLabelFrameEP14_ext_toolbar_tP7QWidget(ptr nocapture nonnull readnone align 8 %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN29AdditionalToolbarWidgetAction16createLabelFrameEP14_ext_toolbar_tP7QWidget(ptr nocapture nonnull readnone align 8 %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8

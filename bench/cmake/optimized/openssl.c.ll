@@ -1159,7 +1159,7 @@ is_pkcs11_uri.exit:                               ; preds = %112
 124:                                              ; preds = %121
   %125 = call i64 @ERR_get_error() #13
   %126 = call fastcc ptr @ossl_strerror(i64 noundef %125, ptr noundef nonnull %10, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43, ptr noundef %2, ptr noundef %126) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43, ptr noundef %2, ptr noundef nonnull %126) #13
   br label %296
 
 127:                                              ; preds = %121
@@ -1179,7 +1179,7 @@ is_pkcs11_uri.exit:                               ; preds = %112
 132:                                              ; preds = %130
   %133 = call i64 @ERR_get_error() #13
   %134 = call fastcc ptr @ossl_strerror(i64 noundef %133, ptr noundef nonnull %10, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.45, ptr noundef %134) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %134) #13
   br label %296
 
 135:                                              ; preds = %130
@@ -1255,7 +1255,7 @@ ossl_strerror.exit237:                            ; preds = %155, %157, %160
 166:                                              ; preds = %163
   %167 = tail call i64 @ERR_get_error() #13
   %168 = call fastcc ptr @ossl_strerror(i64 noundef %167, ptr noundef nonnull %10, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef %168) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull %168) #13
   br label %296
 
 169:                                              ; preds = %163
@@ -1290,7 +1290,7 @@ ossl_strerror.exit237:                            ; preds = %155, %157, %160
 182:                                              ; preds = %180
   %183 = call i64 @ERR_get_error() #13
   %184 = call fastcc ptr @ossl_strerror(i64 noundef %183, ptr noundef nonnull %10, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %184) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef nonnull %184) #13
   call void @PKCS12_free(ptr noundef nonnull %176) #13
   br label %296
 
@@ -1304,7 +1304,7 @@ ossl_strerror.exit237:                            ; preds = %155, %157, %160
 188:                                              ; preds = %185
   %189 = call i64 @ERR_get_error() #13
   %190 = call fastcc ptr @ossl_strerror(i64 noundef %189, ptr noundef nonnull %10, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.53, ptr noundef %190) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.53, ptr noundef nonnull %190) #13
   br label %.critedge
 
 191:                                              ; preds = %185
@@ -3011,7 +3011,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
   %88 = phi ptr [ %84, %83 ], [ %86, %85 ]
   %89 = tail call ptr @__errno_location() #15
   %90 = load i32, ptr %89, align 4
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.214, ptr noundef %88, i32 noundef %90) #13
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.214, ptr noundef nonnull %88, i32 noundef %90) #13
   br label %91
 
 91:                                               ; preds = %38, %39, %43, %48, %49, %50, %54, %59, %60, %61, %65, %70, %71, %73, %77, %87, %32, %27, %23, %22
@@ -3596,7 +3596,7 @@ define internal i32 @passwd_callback(ptr nocapture noundef writeonly %0, i32 nou
 declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ossl_strerror(i64 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @ossl_strerror(i64 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %4 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
   %5 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %4) #13
@@ -4423,7 +4423,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   call void @Curl_ssl_sessionid_unlock(ptr noundef nonnull %1) #13
   %274 = call i64 @ERR_get_error() #13
   %275 = call fastcc ptr @ossl_strerror(i64 noundef %274, ptr noundef nonnull %30, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.126, ptr noundef %275) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.126, ptr noundef nonnull %275) #13
   br label %ossl_connect_step1.exit.thread
 
 276:                                              ; preds = %269
@@ -5125,7 +5125,7 @@ ossl_strerror.exit216.i.i:                        ; preds = %581, %578, %576
 588:                                              ; preds = %585
   %589 = call i64 @ERR_get_error() #13
   %590 = call fastcc ptr @ossl_strerror(i64 noundef %589, ptr noundef nonnull %20, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.48, ptr noundef %590) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.48, ptr noundef nonnull %590) #13
   %591 = load ptr, ptr %471, align 8
   call void @X509_free(ptr noundef %591) #13
   store ptr null, ptr %471, align 8

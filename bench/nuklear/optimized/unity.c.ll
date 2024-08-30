@@ -54146,7 +54146,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @nk_draw_button(ptr noundef %out, ptr nocapture noundef readonly %bounds, i32 noundef %state, ptr noundef readonly %style) unnamed_addr #20 {
+define internal fastcc nonnull ptr @nk_draw_button(ptr noundef %out, ptr nocapture noundef readonly %bounds, i32 noundef %state, ptr noundef readonly %style) unnamed_addr #20 {
 entry:
   %and = and i32 %state, 16
   %tobool.not = icmp eq i32 %and, 0
@@ -81156,7 +81156,7 @@ for.end32:                                        ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @nk_dtoa(ptr noundef returned %s, double noundef %n) unnamed_addr #46 {
+define internal fastcc nonnull ptr @nk_dtoa(ptr noundef returned %s, double noundef %n) unnamed_addr #46 {
 entry:
   %cmp = fcmp oeq double %n, 0.000000e+00
   br i1 %cmp, label %if.then1, label %if.end3

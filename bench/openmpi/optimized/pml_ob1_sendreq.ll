@@ -2438,7 +2438,7 @@ mca_bml_base_prepare_src.exit.thread:             ; preds = %12, %84, %86, %mca_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i = alloca i64, align 8
   %3 = alloca ptr, align 8
@@ -5033,7 +5033,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %38, %40, %29
   %62 = getelementptr inbounds i8, ptr %.val37, i64 %57
   %63 = getelementptr inbounds i8, ptr %62, i64 %.val.val
   store ptr %63, ptr %58, align 8
-  %64 = tail call i32 @mca_pml_ob1_send_request_put_frag(ptr noundef %.0)
+  %64 = tail call i32 @mca_pml_ob1_send_request_put_frag(ptr noundef nonnull %.0)
   ret void
 }
 

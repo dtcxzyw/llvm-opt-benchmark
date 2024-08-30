@@ -5532,7 +5532,7 @@ _ZN14arrow_vendored4date13get_tzdb_listEv.exit:   ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 %tz_name.coerce0, ptr %tz_name.coerce1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 %tz_name.coerce0, ptr %tz_name.coerce1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tz_name = alloca %"class.std::basic_string_view", align 8
   %ref.tmp21 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5704,7 +5704,7 @@ entry:
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN14arrow_vendored4date11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE(i64 %tz_name.coerce0, ptr %tz_name.coerce1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN14arrow_vendored4date11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE(i64 %tz_name.coerce0, ptr %tz_name.coerce1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN14arrow_vendored4date13get_tzdb_listEvE5tz_db acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0

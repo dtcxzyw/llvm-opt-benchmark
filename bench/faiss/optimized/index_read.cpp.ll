@@ -5736,7 +5736,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35: ; preds = %_ZNSt6vectorIl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5faiss21read_ProductQuantizerEPKc(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5faiss21read_ProductQuantizerEPKc(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.faiss::FileIOReader", align 8
   call void @_ZN5faiss12FileIOReaderC1EPKc(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef %0)
   %3 = invoke noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
@@ -5783,7 +5783,7 @@ _ZN5faiss21read_ProductQuantizerEPNS_8IOReaderE.exit: ; preds = %4
 declare void @_ZN5faiss12FileIOReaderC1EPKc(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5faiss21read_ProductQuantizerEPNS_8IOReaderE(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5faiss21read_ProductQuantizerEPNS_8IOReaderE(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
   invoke void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -19161,7 +19161,7 @@ declare void @_ZN5faiss32IndexIVFProductResidualQuantizerC1Ev(ptr noundef nonnul
 declare void @_ZN5faiss20IndexIVFSpectralHashC1Ev(ptr noundef nonnull align 8 dereferenceable(312)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN5faissL10read_ivfpqEPNS_8IOReaderEji(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN5faissL10read_ivfpqEPNS_8IOReaderEji(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.21", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25281,7 +25281,7 @@ define noundef ptr @_ZN5faiss20read_VectorTransformEPKc(ptr noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Hashtable<long, std::pair<const long, std::vector<long>>, std::allocator<std::pair<const long, std::vector<long>>>, std::__detail::_Select1st, std::equal_to<long>, std::hash<long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
@@ -26298,7 +26298,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %410, %412, %414, %4
 529:                                              ; preds = %527
   call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %528, ptr noundef nonnull %0)
   %530 = call noundef ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef nonnull %0, i32 noundef 0)
-  %531 = call ptr @__dynamic_cast(ptr %530, ptr nonnull @_ZTIN5faiss11IndexBinaryE, ptr nonnull @_ZTIN5faiss15IndexBinaryFlatE, i64 0) #24
+  %531 = call ptr @__dynamic_cast(ptr nonnull %530, ptr nonnull @_ZTIN5faiss11IndexBinaryE, ptr nonnull @_ZTIN5faiss15IndexBinaryFlatE, i64 0) #24
   %532 = getelementptr inbounds i8, ptr %528, i64 32
   store ptr %531, ptr %532, align 8
   %.not = icmp eq ptr %531, null
@@ -29719,7 +29719,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKlSt6vectorIlSaIlEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5faiss17read_index_binaryEP8_IO_FILEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5faiss17read_index_binaryEP8_IO_FILEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.faiss::FileIOReader", align 8
   call void @_ZN5faiss12FileIOReaderC1EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef %0)
   %4 = invoke noundef ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef nonnull %3, i32 noundef %1)
@@ -29737,7 +29737,7 @@ define noundef ptr @_ZN5faiss17read_index_binaryEP8_IO_FILEi(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5faiss17read_index_binaryEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5faiss17read_index_binaryEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.faiss::FileIOReader", align 8
   call void @_ZN5faiss12FileIOReaderC1EPKc(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef %0)
   %4 = invoke noundef ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef nonnull %3, i32 noundef %1)

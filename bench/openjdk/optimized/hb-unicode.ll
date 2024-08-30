@@ -34,7 +34,7 @@ define hidden ptr @hb_unicode_funcs_get_default() local_unnamed_addr #0 {
 declare ptr @hb_ucd_get_unicode_funcs() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef ptr @hb_unicode_funcs_create(ptr noundef %0) local_unnamed_addr #2 {
+define hidden nonnull ptr @hb_unicode_funcs_create(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(216) ptr @calloc(i64 noundef 1, i64 noundef 216) #13
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %19, label %3

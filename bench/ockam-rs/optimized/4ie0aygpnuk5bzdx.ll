@@ -2834,8 +2834,11 @@ define hidden noundef nonnull align 1 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17h52c57e0abfc5d977E"(ptr noundef nonnull readonly returned align 8 %0) unnamed_addr #12 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17h52c57e0abfc5d977E"(ptr noundef nonnull readonly returned align 8 %0) unnamed_addr #14 {
+  %2 = load ptr, ptr %0, align 8, !noundef !4
+  %3 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %3)
   ret ptr %0
 }
 

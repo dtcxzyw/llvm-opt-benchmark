@@ -2155,7 +2155,7 @@ opal_convertor_need_buffers.exit.thread56:        ; preds = %28, %68, %76, %70, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait() unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i = alloca i64, align 8
   %2 = alloca ptr, align 8
@@ -3695,7 +3695,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
   %161 = load i64, ptr %7, align 8
   %162 = getelementptr inbounds i8, ptr %79, i64 192
   store i64 %161, ptr %162, align 8
-  %163 = tail call fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef %79)
+  %163 = tail call fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef nonnull %79)
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %179
 

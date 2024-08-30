@@ -10421,7 +10421,7 @@ if.end:                                           ; preds = %_ZN7rocksdb10Compac
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb16ColumnFamilyData25GetReferencedSuperVersionEPNS_6DBImplE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2656) %this, ptr noundef %db) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb16ColumnFamilyData25GetReferencedSuperVersionEPNS_6DBImplE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2656) %this, ptr noundef %db) local_unnamed_addr #8 align 2 {
 entry:
   %expected.i = alloca ptr, align 8
   %local_sv_.i = getelementptr inbounds i8, ptr %this, i64 2472
@@ -10473,7 +10473,7 @@ if.end:                                           ; preds = %if.then, %_ZN7rocks
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb16ColumnFamilyData26GetThreadLocalSuperVersionEPNS_6DBImplE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2656) %this, ptr noundef %db) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb16ColumnFamilyData26GetThreadLocalSuperVersionEPNS_6DBImplE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2656) %this, ptr noundef %db) local_unnamed_addr #8 align 2 {
 entry:
   %local_sv_ = getelementptr inbounds i8, ptr %this, i64 2472
   %0 = load ptr, ptr %local_sv_, align 8

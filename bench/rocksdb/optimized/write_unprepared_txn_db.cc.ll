@@ -2715,7 +2715,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb20WriteUnpreparedTxnDB16BeginTransactionERKNS_12WriteOptionsERKNS_18TransactionOptionsEPNS_11TransactionE(ptr noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(56) %txn_options, ptr noundef %old_txn) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb20WriteUnpreparedTxnDB16BeginTransactionERKNS_12WriteOptionsERKNS_18TransactionOptionsEPNS_11TransactionE(ptr noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(56) %txn_options, ptr noundef %old_txn) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %old_txn, null
   br i1 %cmp.not, label %if.else, label %if.then

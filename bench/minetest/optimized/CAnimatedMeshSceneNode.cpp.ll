@@ -4454,7 +4454,7 @@ if.end74:                                         ; preds = %if.else42, %if.then
 declare void @_ZN3irr5scene12CSkinnedMesh9addJointsERNS_4core5arrayIPNS0_14IBoneSceneNodeEEEPNS0_22IAnimatedMeshSceneNodeEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(186), ptr noundef nonnull align 8 dereferenceable(25), ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene22CAnimatedMeshSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr5scene22CAnimatedMeshSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #0 align 2 {
 _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   %ref.tmp6.i = alloca %"class.irr::core::CMatrix4", align 4
   %tobool.not = icmp eq ptr %newParent, null

@@ -298,7 +298,7 @@ define hidden void @"_ZN108_$LT$itertools..ziptuple..Zip$LT$$LP$A$C$B$C$C$RP$$GT
   %6 = load i32, ptr %5, align 8, !alias.scope !8, !noalias !5, !noundef !4
   %7 = zext i32 %6 to i64
   %8 = icmp eq i64 %4, %7
-  br i1 %8, label %20, label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit"
+  br i1 %8, label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit.thread", label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit"
 
 "_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit": ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -308,7 +308,11 @@ define hidden void @"_ZN108_$LT$itertools..ziptuple..Zip$LT$$LP$A$C$B$C$C$RP$$GT
   %.sroa.0.0.copyload11 = load i8, ptr %11, align 4, !alias.scope !10
   %.sroa.7.0..sroa_idx12 = getelementptr inbounds i8, ptr %11, i64 1
   %12 = icmp eq i8 %.sroa.0.0.copyload11, 21
-  br i1 %12, label %20, label %13
+  br i1 %12, label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit.thread", label %13
+
+"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit.thread": ; preds = %2, %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit"
+  store i32 2, ptr %0, align 8
+  br label %22
 
 13:                                               ; preds = %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit"
   %14 = getelementptr inbounds i8, ptr %1, i64 64
@@ -317,22 +321,18 @@ define hidden void @"_ZN108_$LT$itertools..ziptuple..Zip$LT$$LP$A$C$B$C$C$RP$$GT
   %16 = load i32, ptr %15, align 4, !noundef !4
   %17 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %16, i32 1)
   %18 = extractvalue { i32, i1 } %17, 1
-  br i1 %18, label %19, label %21
+  br i1 %18, label %19, label %"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h553a291fa51e6cceE.exit"
 
 19:                                               ; preds = %13
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #55
   unreachable
 
-20:                                               ; preds = %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit", %2
-  store i32 2, ptr %0, align 8
-  br label %24
-
-21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
-  %.val9 = load i32, ptr %22, align 4
+"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h553a291fa51e6cceE.exit": ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %.val9 = load i32, ptr %20, align 4
   %.val = load i32, ptr %1, align 8, !range !11, !noundef !4
-  %23 = extractvalue { i32, i1 } %17, 0
-  store i32 %23, ptr %15, align 4
+  %21 = extractvalue { i32, i1 } %17, 0
+  store i32 %21, ptr %15, align 4
   store i32 %.val, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.val9, ptr %.sroa.4.0..sroa_idx, align 4
@@ -342,9 +342,9 @@ define hidden void @"_ZN108_$LT$itertools..ziptuple..Zip$LT$$LP$A$C$B$C$C$RP$$GT
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.7.0..sroa_idx12, i64 19, i1 false)
   %.sroa.65.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.val10, ptr %.sroa.65.0..sroa_idx, align 8
-  br label %24
+  br label %22
 
-24:                                               ; preds = %21, %20
+22:                                               ; preds = %"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h553a291fa51e6cceE.exit", %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit.thread"
   ret void
 }
 
@@ -19879,7 +19879,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw5inner18FullBucketsIndices9next_imp
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h0fae9be4a370b982E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h0fae9be4a370b982E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -19922,7 +19922,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h12fc6a0e05550ffcE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h12fc6a0e05550ffcE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -19965,7 +19965,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h1a70523b3a2f2aeaE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h1a70523b3a2f2aeaE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20008,7 +20008,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h601519cc569fced5E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h601519cc569fced5E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20051,7 +20051,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h63f8c1dfeb009518E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h63f8c1dfeb009518E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20094,7 +20094,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h67fd5571fa8e8902E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h67fd5571fa8e8902E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20137,7 +20137,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h6bee01d54b2446a9E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h6bee01d54b2446a9E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20180,7 +20180,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h76f6d1a1ad6be995E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h76f6d1a1ad6be995E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20223,7 +20223,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h796a1a2cb819ed60E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h796a1a2cb819ed60E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20266,7 +20266,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h8f3381a4307f77aaE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17h8f3381a4307f77aaE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20309,7 +20309,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17ha5e01350cebae7beE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17ha5e01350cebae7beE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20352,7 +20352,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hb6cb73caa7c70aa2E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hb6cb73caa7c70aa2E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20395,7 +20395,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hb8651e2e1bea3fffE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hb8651e2e1bea3fffE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20438,7 +20438,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hc3c1a7d95bcb5686E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hc3c1a7d95bcb5686E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20481,7 +20481,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hc670b09c738a676aE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hc670b09c738a676aE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20524,7 +20524,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hc9825d8d7be7f221E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hc9825d8d7be7f221E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20567,7 +20567,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hcb5d757bebca9865E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hcb5d757bebca9865E.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0
@@ -20610,7 +20610,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hfaa5e40735742a2fE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hfaa5e40735742a2fE.llvm.3835216717863518526"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #41 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %2, align 8
   %.not.i.not8 = icmp eq i16 %.promoted, 0

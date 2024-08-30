@@ -56,7 +56,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_user_name_or_exit(ptr noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @get_user_name_or_exit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @geteuid() #5
   %3 = tail call ptr @__errno_location() #6
   store i32 0, ptr %3, align 4

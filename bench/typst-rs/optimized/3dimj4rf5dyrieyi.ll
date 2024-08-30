@@ -11680,7 +11680,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h13c6e0f6ca5564caE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h13c6e0f6ca5564caE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -11891,7 +11891,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h36360f3ec3bcf70aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h36360f3ec3bcf70aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -11971,7 +11971,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3a784b26721a2069E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3a784b26721a2069E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12023,7 +12023,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3c1d36dd8412b573E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3c1d36dd8412b573E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12081,7 +12081,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h408128f8df22cf83E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h408128f8df22cf83E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12436,7 +12436,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7230df7cadceb203E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7230df7cadceb203E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12488,7 +12488,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7242e03b9185847aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7242e03b9185847aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12597,7 +12597,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7a10134ef03b55ffE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7a10134ef03b55ffE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12707,7 +12707,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8016aa133ad50ebcE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8016aa133ad50ebcE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12788,7 +12788,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8c1f28cb073c13d3E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8c1f28cb073c13d3E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -12992,7 +12992,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h95b7fd0e1c65747eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h95b7fd0e1c65747eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13044,7 +13044,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h983b1e04d00df4d7E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h983b1e04d00df4d7E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13096,7 +13096,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h9e97dead670351c6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h9e97dead670351c6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13148,7 +13148,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17ha8748b8dc4775857E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17ha8748b8dc4775857E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13200,7 +13200,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17habe344d23f12f551E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17habe344d23f12f551E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13252,7 +13252,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hac6a69892cef48bfE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hac6a69892cef48bfE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13304,7 +13304,7 @@ define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hb392109643947ba1E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hb392109643947ba1E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13420,7 +13420,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hcda55426f328df3aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hcda55426f328df3aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13500,7 +13500,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17he44886eb6fbfda24E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17he44886eb6fbfda24E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -13674,7 +13674,7 @@ define hidden void @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hff6b31f369cb980bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hff6b31f369cb980bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -23026,7 +23026,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15
   %2 = alloca { { i64, ptr, {} }, i64 }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %16
+  br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -23038,7 +23038,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4165
   %9 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #58, !noalias !4165
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$17hc5ce11d9b1651f82E.exit"
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %5
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 24) #57
@@ -23051,7 +23051,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h5bff3028d863523bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #55
-          to label %common.resume unwind label %14
+          to label %16 unwind label %14
 
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
@@ -23059,17 +23059,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #56
   unreachable
 
-common.resume:                                    ; preds = %12
+16:                                               ; preds = %12
   resume { ptr, i32 } %13
 
-16:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$17hc5ce11d9b1651f82E.exit", %1
+17:                                               ; preds = %18, %1
   ret ptr %0
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$17hc5ce11d9b1651f82E.exit": ; preds = %5
+18:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   store ptr %9, ptr %0, align 8
-  br label %16
+  br label %17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -24641,7 +24641,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hac41aec62d05f696E(ptr noa
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.2456044669961016091(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.2456044669961016091(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -51031,7 +51031,7 @@ define { i64, ptr } @_ZN5typst4util6bitset6BitSet3new17h1847b8e568d28a97E() unna
 define void @_ZN5typst4util6bitset6BitSet6insert17hcf45db57805834dfE(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = icmp ult i64 %1, 64
-  br i1 %4, label %37, label %5
+  br i1 %4, label %39, label %5
 
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 6
@@ -51053,7 +51053,7 @@ define void @_ZN5typst4util6bitset6BitSet6insert17hcf45db57805834dfE(ptr noalias
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !8881
   %16 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #58, !noalias !8881
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$17hc5ce11d9b1651f82E.exit.i"
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %12
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 24) #57
@@ -51066,7 +51066,7 @@ define void @_ZN5typst4util6bitset6BitSet6insert17hcf45db57805834dfE(ptr noalias
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h5bff3028d863523bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #55
-          to label %common.resume.i unwind label %21, !noalias !8875
+          to label %23 unwind label %21, !noalias !8875
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -51074,58 +51074,58 @@ define void @_ZN5typst4util6bitset6BitSet6insert17hcf45db57805834dfE(ptr noalias
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #56, !noalias !8875
   unreachable
 
-common.resume.i:                                  ; preds = %19
+23:                                               ; preds = %19
   resume { ptr, i32 } %20
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$17hc5ce11d9b1651f82E.exit.i": ; preds = %12
+24:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !8875
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !8875
   store ptr %16, ptr %9, align 8, !alias.scope !8875
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit"
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit": ; preds = %5, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$17hc5ce11d9b1651f82E.exit.i"
-  %23 = phi ptr [ %10, %5 ], [ %16, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$GT$17hc5ce11d9b1651f82E.exit.i" ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = load i64, ptr %24, align 8, !noundef !4
-  %.not = icmp ult i64 %7, %25
-  br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit", label %26
+"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit": ; preds = %5, %24
+  %25 = phi ptr [ %10, %5 ], [ %16, %24 ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load i64, ptr %26, align 8, !noundef !4
+  %.not = icmp ult i64 %7, %27
+  br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit", label %28
 
-26:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit"
-  %27 = icmp ugt i64 %6, %25
-  br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i"
+28:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit"
+  %29 = icmp ugt i64 %6, %27
+  br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i": ; preds = %26
-  store i64 %6, ptr %24, align 8, !alias.scope !8884
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i": ; preds = %28
+  store i64 %6, ptr %26, align 8, !alias.scope !8884
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit"
 
-28:                                               ; preds = %26
-  %29 = sub nuw nsw i64 %6, %25
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h630f21ea2c9a89d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %29, i64 noundef 0)
-  %.pre = load i64, ptr %24, align 8
+30:                                               ; preds = %28
+  %31 = sub nuw nsw i64 %6, %27
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h630f21ea2c9a89d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %31, i64 noundef 0)
+  %.pre = load i64, ptr %26, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit": ; preds = %28, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit"
-  %30 = phi i64 [ %.pre, %28 ], [ %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i" ], [ %25, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit" ]
-  %31 = icmp ult i64 %7, %30
-  br i1 %31, label %32, label %36, !prof !8889
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit": ; preds = %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit"
+  %32 = phi i64 [ %.pre, %30 ], [ %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i" ], [ %27, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit" ]
+  %33 = icmp ult i64 %7, %32
+  br i1 %33, label %34, label %38, !prof !8889
 
-32:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit"
-  %33 = getelementptr inbounds i8, ptr %23, i64 8
-  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds [0 x i64], ptr %34, i64 0, i64 %7
-  br label %37
+34:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit"
+  %35 = getelementptr inbounds i8, ptr %25, i64 8
+  %36 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
+  %37 = getelementptr inbounds [0 x i64], ptr %36, i64 0, i64 %7
+  br label %39
 
-36:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %7, i64 noundef %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17bb7092bb43bb22a4c4760daf7f42f8.656.llvm.2456044669961016091) #57
+38:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit"
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %7, i64 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17bb7092bb43bb22a4c4760daf7f42f8.656.llvm.2456044669961016091) #57
   unreachable
 
-37:                                               ; preds = %2, %32
-  %.sink = phi ptr [ %35, %32 ], [ %0, %2 ]
-  %.pn = phi i64 [ %8, %32 ], [ %1, %2 ]
+39:                                               ; preds = %2, %34
+  %.sink = phi ptr [ %37, %34 ], [ %0, %2 ]
+  %.pn = phi i64 [ %8, %34 ], [ %1, %2 ]
   %.sink8 = shl nuw i64 1, %.pn
-  %38 = load i64, ptr %.sink, align 8, !noundef !4
-  %39 = or i64 %38, %.sink8
-  store i64 %39, ptr %.sink, align 8
+  %40 = load i64, ptr %.sink, align 8, !noundef !4
+  %41 = or i64 %40, %.sink8
+  store i64 %41, ptr %.sink, align 8
   ret void
 }
 
@@ -137918,7 +137918,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$typst..layout..grid..GridFooter$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridHLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17h7a5657cb6a5a6dffE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridHLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17h7a5657cb6a5a6dffE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -137970,7 +137970,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridHLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h9a80830fd5d2a90aE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridHLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h9a80830fd5d2a90aE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138022,7 +138022,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridHLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17he967cd08621e08a0E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridHLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17he967cd08621e08a0E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138074,7 +138074,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridHLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17hfb6f069df5c17805E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridHLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17hfb6f069df5c17805E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138126,7 +138126,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridHLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h86b543a7f720a575E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridHLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h86b543a7f720a575E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138339,7 +138339,7 @@ define internal noundef zeroext i1 @"_ZN67_$LT$typst..layout..grid..GridHLine$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridVLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17h30b05bef23b9ae19E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridVLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17h30b05bef23b9ae19E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138391,7 +138391,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridVLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h5e54b81c95ed0ddfE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst..layout..grid..GridVLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h5e54b81c95ed0ddfE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138443,7 +138443,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_48_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridVLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17ha75e58438ac006bdE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridVLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17ha75e58438ac006bdE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138495,7 +138495,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridVLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17hc72bfe7f1a18ed57E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridVLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17hc72bfe7f1a18ed57E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -138547,7 +138547,7 @@ define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridVLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h03fc46ab81b91f7eE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..grid..GridVLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h03fc46ab81b91f7eE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146373,7 +146373,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$typst..model..table..TableFooter$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableHLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17h32023ebe848fbcd3E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableHLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17h32023ebe848fbcd3E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146425,7 +146425,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableHLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h5e991081dc63f062E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableHLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h5e991081dc63f062E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146477,7 +146477,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableHLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17h4b5d6f2b519f8a9bE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableHLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17h4b5d6f2b519f8a9bE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146529,7 +146529,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableHLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17h0f243597e0161d75E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableHLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17h0f243597e0161d75E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146581,7 +146581,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableHLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h5805cd289a4992dcE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableHLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h5805cd289a4992dcE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146794,7 +146794,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$typst..model..table..TableHLine$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableVLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17hc3b522037361725bE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableVLine$GT$6stroke28_$u7b$$u7b$closure$u7d$$u7d$17hc3b522037361725bE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146846,7 +146846,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableVLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h91fcb3f27494b067E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst..model..table..TableVLine$GT$9stroke_in28_$u7b$$u7b$closure$u7d$$u7d$17h91fcb3f27494b067E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146898,7 +146898,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_49_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableVLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17hdb78bc71e83af704E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableVLine$GT$17field_with_styles28_$u7b$$u7b$closure$u7d$$u7d$17hdb78bc71e83af704E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -146950,7 +146950,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableVLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17h978d8d414e9a94d0E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableVLine$GT$17field_from_styles28_$u7b$$u7b$closure$u7d$$u7d$17h978d8d414e9a94d0E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8
@@ -147002,7 +147002,7 @@ define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noalias noundef ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableVLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h96974a26b01d281fE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @"_ZN5typst5model5table1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..model..table..TableVLine$GT$11materialize28_$u7b$$u7b$closure$u7d$$u7d$17h96974a26b01d281fE.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [4 x i64] }, { i32, [5 x i32] }, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   store i64 1, ptr %2, align 8

@@ -33,9 +33,9 @@ define dso_local ptr @dln_symbol(ptr noundef %0, ptr noundef %1) local_unnamed_a
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @dln_load(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @dln_load(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @dln_open(ptr noundef %0)
-  %3 = tail call fastcc ptr @dln_sym_func(ptr noundef %2, ptr noundef nonnull @.str)
+  %3 = tail call fastcc ptr @dln_sym_func(ptr noundef nonnull %2, ptr noundef nonnull @.str)
   %4 = tail call i64 %3() #8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %13, label %5
@@ -106,13 +106,13 @@ concat_funcname.exit:                             ; preds = %init_funcname_len.e
   %29 = getelementptr i8, ptr %26, i64 %24
   %30 = getelementptr i8, ptr %29, i64 5
   store i8 0, ptr %30, align 1
-  %31 = call fastcc ptr @dln_sym_func(ptr noundef %2, ptr noundef nonnull %26)
+  %31 = call fastcc ptr @dln_sym_func(ptr noundef nonnull %2, ptr noundef nonnull %26)
   call void %31() #8
   ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @dln_open(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @dln_open(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.Dl_info, align 8
   %3 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 257) #8
   %4 = icmp eq ptr %3, null
@@ -176,7 +176,7 @@ ruby_nonempty_memcpy.exit.thread:                 ; preds = %12, %.thread
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @dln_sym_func(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @dln_sym_func(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @dlsym(ptr noundef %0, ptr noundef %1) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %11

@@ -1174,7 +1174,7 @@ declare ptr @listAddNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ACLCreateUnlinkedUser() local_unnamed_addr #0 {
+define dso_local nonnull ptr @ACLCreateUnlinkedUser() local_unnamed_addr #0 {
 entry:
   %username = alloca [64 x i8], align 16
   br label %for.cond
@@ -6105,7 +6105,7 @@ sw.bb13.i:                                        ; preds = %for.body
 
 sdslen.exit:                                      ; preds = %for.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %16, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
-  %call17 = call i32 @ACLSetUser(ptr noundef %call6, ptr noundef nonnull %11, i64 noundef %retval.0.i)
+  %call17 = call i32 @ACLSetUser(ptr noundef nonnull %call6, ptr noundef nonnull %11, i64 noundef %retval.0.i)
   %cmp18.not = icmp eq i32 %call17, 0
   br i1 %cmp18.not, label %for.cond, label %if.then20
 
@@ -6159,7 +6159,7 @@ for.end:                                          ; preds = %for.cond, %if.end9
   br i1 %cmp, label %if.end34.thread, label %if.then31
 
 if.end34.thread:                                  ; preds = %for.end
-  call void @ACLKillPubsubClientsIfNeeded(ptr noundef %call6, ptr noundef nonnull %u)
+  call void @ACLKillPubsubClientsIfNeeded(ptr noundef nonnull %call6, ptr noundef nonnull %u)
   br label %cond.end45
 
 if.then31:                                        ; preds = %for.end
@@ -6405,7 +6405,7 @@ sw.bb13.i:                                        ; preds = %for.body
 
 sdslen.exit:                                      ; preds = %for.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %9, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
-  %call23 = tail call i32 @ACLSetUser(ptr noundef %call17, ptr noundef nonnull %4, i64 noundef %retval.0.i)
+  %call23 = tail call i32 @ACLSetUser(ptr noundef nonnull %call17, ptr noundef nonnull %4, i64 noundef %retval.0.i)
   %cmp24 = icmp eq i32 %call23, -1
   br i1 %cmp24, label %if.then25, label %for.inc39
 
@@ -6416,7 +6416,7 @@ if.then25:                                        ; preds = %sdslen.exit
   br i1 %cmp27.not, label %for.inc39, label %if.then28
 
 if.then28:                                        ; preds = %if.then25
-  tail call void @ACLFreeUser(ptr noundef %call17)
+  tail call void @ACLFreeUser(ptr noundef nonnull %call17)
   %tobool29.not = icmp eq ptr %argc_err, null
   br i1 %tobool29.not, label %for.body34.preheader, label %if.then30
 

@@ -6346,7 +6346,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIPN5fol
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5folly4test21DeterministicSchedule18beforeThreadCreateEv(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5folly4test21DeterministicSchedule18beforeThreadCreateEv(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca i64, align 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #34

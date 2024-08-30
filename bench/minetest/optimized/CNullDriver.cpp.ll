@@ -10342,7 +10342,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5video16createNullDriverEPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef %io, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %screenSize) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN3irr5video16createNullDriverEPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef %io, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %screenSize) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1192) ptr @_Znwm(i64 noundef 1192) #25
   tail call void @_ZN3irr5video11CNullDriverC1EPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164) %call, ptr noundef %io, ptr noundef nonnull align 4 dereferenceable(8) %screenSize)

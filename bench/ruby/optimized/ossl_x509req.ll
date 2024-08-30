@@ -57,7 +57,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @GetX509ReqPtr(i64 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @GetX509ReqPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509req_type) #6
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

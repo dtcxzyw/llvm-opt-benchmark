@@ -1299,7 +1299,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf16505e36c6ed410
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden noundef align 1 dereferenceable(4) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7cc7de6685587c2aE.llvm.16537435173619923488"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(4) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7cc7de6685587c2aE.llvm.16537435173619923488"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(4) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
@@ -1313,7 +1313,7 @@ define hidden noundef align 1 dereferenceable(4) ptr @"_ZN4core6result19Result$L
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden noundef align 1 dereferenceable(2) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8f69adce01310c43E.llvm.16537435173619923488"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(2) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8f69adce01310c43E.llvm.16537435173619923488"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(2) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
@@ -1327,7 +1327,7 @@ define hidden noundef align 1 dereferenceable(2) ptr @"_ZN4core6result19Result$L
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden noundef align 1 dereferenceable(8) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfce1347a6c2011f3E.llvm.16537435173619923488"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable(8) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfce1347a6c2011f3E.llvm.16537435173619923488"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5

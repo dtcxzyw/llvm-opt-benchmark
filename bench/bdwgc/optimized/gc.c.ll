@@ -2396,7 +2396,7 @@ GC_write.exit:                                    ; preds = %.outer.i
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @GC_new_free_list_inner() local_unnamed_addr #1 {
+define nonnull ptr @GC_new_free_list_inner() local_unnamed_addr #1 {
   %1 = tail call fastcc ptr @GC_generic_malloc_inner_small(i64 noundef 1032, i32 noundef 0)
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %5
@@ -23980,7 +23980,7 @@ define range(i32 0, 2) i32 @GC_is_disabled() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @GC_new_free_list() local_unnamed_addr #1 {
+define nonnull ptr @GC_new_free_list() local_unnamed_addr #1 {
   %.b1 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b1, label %1, label %GC_lock.exit
 

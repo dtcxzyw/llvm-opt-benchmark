@@ -1090,7 +1090,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr3gui14CGUITabControl6addTabEPKwi(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %caption, i32 noundef %id) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr3gui14CGUITabControl6addTabEPKwi(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %caption, i32 noundef %id) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #21
   %Environment = getelementptr inbounds i8, ptr %this, i64 296

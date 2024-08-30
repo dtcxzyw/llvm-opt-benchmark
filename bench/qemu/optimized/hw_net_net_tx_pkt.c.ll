@@ -594,7 +594,7 @@ return:                                           ; preds = %net_tx_pkt_parse_he
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @net_tx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
+define dso_local nonnull ptr @net_tx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end

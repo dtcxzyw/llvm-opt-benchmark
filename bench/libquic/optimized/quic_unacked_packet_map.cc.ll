@@ -1878,7 +1878,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissionInfoEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissionInfoEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
 entry:
   %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8

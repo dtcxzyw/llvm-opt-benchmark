@@ -68789,7 +68789,7 @@ define noundef i64 @_ZNK8LightGBM9BinMapper11SizesInByteEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8LightGBM3Bin14CreateDenseBinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8LightGBM3Bin14CreateDenseBinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp slt i32 %1, 17
   br i1 %3, label %4, label %8
 
@@ -68852,7 +68852,7 @@ define noundef ptr @_ZN8LightGBM3Bin14CreateDenseBinEii(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8LightGBM3Bin15CreateSparseBinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8LightGBM3Bin15CreateSparseBinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp slt i32 %1, 257
   br i1 %3, label %4, label %8
 
@@ -68901,7 +68901,7 @@ define noundef ptr @_ZN8LightGBM3Bin15CreateSparseBinEii(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8LightGBM11MultiValBin17CreateMultiValBinEiiidRKSt6vectorIjSaIjEE(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZN8LightGBM11MultiValBin17CreateMultiValBinEiiidRKSt6vectorIjSaIjEE(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #1 align 2 {
   %6 = fcmp ult double %3, 2.500000e-01
   br i1 %6, label %12, label %7
 
@@ -69056,7 +69056,7 @@ define noundef nonnull ptr @_ZN8LightGBM11MultiValBin23CreateMultiValSparseBinEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8LightGBM11MultiValBin22CreateMultiValDenseBinEiiiRKSt6vectorIjSaIjEE(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8LightGBM11MultiValBin22CreateMultiValDenseBinEiiiRKSt6vectorIjSaIjEE(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8

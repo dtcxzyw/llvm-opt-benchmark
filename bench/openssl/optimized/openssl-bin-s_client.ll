@@ -5787,14 +5787,14 @@ declare i32 @SSL_dane_enable(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, 2) i32 @tlsa_import_rrset(ptr noundef %con, ptr noundef %rrset) unnamed_addr #0 {
 entry:
   %cp.i = alloca ptr, align 8
-  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %rrset) #16
+  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %rrset) #16
   %cmp11 = icmp sgt i32 %call1, 0
   br i1 %cmp11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.cond
   %count.013 = phi i32 [ %18, %for.cond ], [ 0, %entry ]
   %i.012 = phi i32 [ %inc6, %for.cond ], [ 0, %entry ]
-  %call3 = call ptr @OPENSSL_sk_value(ptr noundef %rrset, i32 noundef %i.012) #16
+  %call3 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %rrset, i32 noundef %i.012) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cp.i)
   store ptr %call3, ptr %cp.i, align 8
   br label %for.body.i

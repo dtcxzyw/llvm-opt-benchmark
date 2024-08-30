@@ -213,13 +213,13 @@ define void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 ; Function Attrs: noreturn nounwind uwtable
 define void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = tail call ptr @except_alloc(i64 noundef 1024)
-  %6 = tail call i32 @vsnprintf(ptr noundef %5, i64 noundef 1024, ptr noundef %2, ptr noundef %3) #19
-  tail call void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %5, ptr noundef %5) #18
+  %6 = tail call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef %2, ptr noundef %3) #19
+  tail call void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %5) #18
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @except_alloc(i64 noundef %0) local_unnamed_addr #6 {
+define nonnull ptr @except_alloc(i64 noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @allocator, align 8
   %3 = tail call ptr %2(i64 noundef %0) #19
   %4 = icmp eq ptr %3, null

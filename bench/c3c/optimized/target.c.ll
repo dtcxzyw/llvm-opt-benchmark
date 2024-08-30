@@ -445,7 +445,7 @@ define dso_local void @target_destroy() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @llvm_target_machine_create() local_unnamed_addr #2 {
+define dso_local nonnull ptr @llvm_target_machine_create() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %.b5 = load i1, ptr @llvm_target_machine_create.llvm_initialized, align 1

@@ -3055,7 +3055,7 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait() unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i = alloca i64, align 8
   %2 = alloca ptr, align 8

@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [7 x i8] c" host=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @connectToServer(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @connectToServer(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @get_db_conn(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.critedge, label %5

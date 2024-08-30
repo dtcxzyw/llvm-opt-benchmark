@@ -517,7 +517,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.then170, %for.cond
   %i.0276 = phi i32 [ %inc, %for.cond ], [ 0, %if.then170 ]
-  %call176 = call ptr @OPENSSL_sk_value(ptr noundef %pkeyopts.0, i32 noundef %i.0276) #5
+  %call176 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %pkeyopts.0, i32 noundef %i.0276) #5
   %call177 = call i32 @pkey_ctrl_string(ptr noundef %phi.call, ptr noundef %call176) #5
   %cmp178 = icmp slt i32 %call177, 1
   br i1 %cmp178, label %if.then180, label %for.cond
@@ -538,7 +538,7 @@ if.then186:                                       ; preds = %if.end183
 
 for.body194:                                      ; preds = %if.then186, %if.end237
   %i190.0278 = phi i32 [ %inc239, %if.end237 ], [ 0, %if.then186 ]
-  %call197 = call ptr @OPENSSL_sk_value(ptr noundef %pkeyopts_passin.0, i32 noundef %i190.0278) #5
+  %call197 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %pkeyopts_passin.0, i32 noundef %i190.0278) #5
   %call198 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call197, i32 noundef 58) #6
   %cmp199 = icmp eq ptr %call198, null
   br i1 %cmp199, label %if.then201, label %if.else224

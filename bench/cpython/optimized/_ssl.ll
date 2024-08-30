@@ -15238,7 +15238,7 @@ declare ptr @SSL_get_peer_cert_chain(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr nocapture noundef readonly %state, ptr noundef %stack) unnamed_addr #0 {
 entry:
-  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %stack) #11
+  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %stack) #11
   %conv = sext i32 %call1 to i64
   %call2 = tail call ptr @PyList_New(i64 noundef %conv) #11
   %cmp = icmp eq ptr %call2, null
@@ -15256,7 +15256,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %if.end12
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end12 ]
   %1 = trunc nuw nsw i64 %indvars.iv to i32
-  %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef %stack, i32 noundef %1) #11
+  %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %stack, i32 noundef %1) #11
   %state.val = load ptr, ptr %0, align 8
   %tp_alloc.i.i = getelementptr inbounds i8, ptr %state.val, i64 304
   %2 = load ptr, ptr %tp_alloc.i.i, align 8

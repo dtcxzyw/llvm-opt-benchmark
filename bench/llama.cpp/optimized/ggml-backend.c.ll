@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_backend_buffer_get_base(ptr noundef %buffer) local_unnamed_addr #0 {
+define nonnull ptr @ggml_backend_buffer_get_base(ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
   %get_base = getelementptr inbounds i8, ptr %buffer, i64 8
   %0 = load ptr, ptr %get_base, align 8

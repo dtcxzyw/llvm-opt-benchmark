@@ -1163,7 +1163,7 @@ default.unreachable210:                           ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @GUC_yy_create_buffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GUC_yy_create_buffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -1831,7 +1831,7 @@ define dso_local noundef ptr @GUC_yy_scan_buffer(ptr noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @GUC_yy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GUC_yy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %3 = trunc i64 %2 to i32
   %4 = tail call ptr @GUC_yy_scan_bytes(ptr noundef %0, i32 noundef %3)
@@ -1839,7 +1839,7 @@ define dso_local noundef ptr @GUC_yy_scan_string(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @GUC_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GUC_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %1, 2
   %4 = sext i32 %3 to i64
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #22

@@ -899,7 +899,7 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(8) ptr @_ZN10rayon_core8registry15global_registry17h577de83d36941a5fE() unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10rayon_core8registry15global_registry17h577de83d36941a5fE() unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { i64, ptr }, align 8
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca ptr, align 8

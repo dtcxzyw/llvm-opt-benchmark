@@ -33981,7 +33981,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #26
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6duckdb11HyperLogLog12MergePointerERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6duckdb11HyperLogLog12MergePointerERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hlls = alloca [2 x ptr], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

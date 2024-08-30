@@ -1260,7 +1260,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h1726a9d8463bd87dE"(ptr readnone %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h1726a9d8463bd87dE"(ptr readnone %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %3
   %5 = icmp ne ptr %0, null
@@ -1269,7 +1269,7 @@ define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h1726a9d8463bd
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h8d259911fc154414E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h8d259911fc154414E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 %3
   %5 = icmp ne ptr %0, null
@@ -1278,7 +1278,7 @@ define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h8d259911fc154
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17haa2c859bf69a9962E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17haa2c859bf69a9962E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %0, i64 %3
   %5 = icmp ne ptr %0, null
@@ -1287,7 +1287,7 @@ define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17haa2c859bf69a9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb0b7e73f8cacd143E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb0b7e73f8cacd143E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { i64, [1 x i64] }, i64 }, ptr %0, i64 %3
   %5 = icmp ne ptr %0, null
@@ -1296,7 +1296,7 @@ define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb0b7e73f8cacd
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb674370776b217d9E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb674370776b217d9E"(ptr readnone %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, i64, i64, i8, [7 x i8] }, ptr }, ptr %0, i64 %3
   %5 = icmp ne ptr %0, null

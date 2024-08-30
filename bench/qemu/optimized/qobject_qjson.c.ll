@@ -67,7 +67,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qobject_from_vjsonf_nofail(ptr noundef %string, ptr noundef %ap) local_unnamed_addr #0 {
+define dso_local nonnull ptr @qobject_from_vjsonf_nofail(ptr noundef %string, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %ap_copy = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_copy.p0(ptr nonnull %ap_copy, ptr %ap)
@@ -88,7 +88,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qobject_from_jsonf_nofail(ptr noundef %string, ...) local_unnamed_addr #0 {
+define dso_local nonnull ptr @qobject_from_jsonf_nofail(ptr noundef %string, ...) local_unnamed_addr #0 {
 entry:
   %ap_copy.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -111,7 +111,7 @@ qobject_from_vjsonf_nofail.exit:                  ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdict_from_vjsonf_nofail(ptr noundef %string, ptr noundef %ap) local_unnamed_addr #0 {
+define dso_local nonnull ptr @qdict_from_vjsonf_nofail(ptr noundef %string, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %ap_copy.i = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap_copy.i)
@@ -149,7 +149,7 @@ if.end:                                           ; preds = %qobject_type.exit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdict_from_jsonf_nofail(ptr noundef %string, ...) local_unnamed_addr #0 {
+define dso_local nonnull ptr @qdict_from_jsonf_nofail(ptr noundef %string, ...) local_unnamed_addr #0 {
 entry:
   %ap_copy.i.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16

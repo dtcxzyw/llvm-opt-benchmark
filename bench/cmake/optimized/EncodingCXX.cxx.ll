@@ -451,7 +451,7 @@ define dso_local noundef i32 @_ZNK5cmsys8Encoding20CommandLineArguments4argcEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK5cmsys8Encoding20CommandLineArguments4argvEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull ptr @_ZNK5cmsys8Encoding20CommandLineArguments4argvEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }

@@ -13534,7 +13534,7 @@ sip24_update.exit:                                ; preds = %do.body.i, %while.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @sip24_update(ptr noundef returned %H, ptr noundef readonly %src, i64 noundef %len) unnamed_addr #15 {
+define internal fastcc nonnull ptr @sip24_update(ptr noundef returned %H, ptr noundef readonly %src, i64 noundef %len) unnamed_addr #15 {
 entry:
   %add.ptr = getelementptr i8, ptr %src, i64 %len
   %p1 = getelementptr inbounds i8, ptr %H, i64 40

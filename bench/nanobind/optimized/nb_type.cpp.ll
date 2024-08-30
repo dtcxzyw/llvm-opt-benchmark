@@ -4386,7 +4386,7 @@ define noundef nonnull ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13nb_inst_allocEP11_typeobject(ptr noundef %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN8nanobind6detail13nb_inst_allocEP11_typeobject(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_ZN8nanobind6detail12inst_new_intEP11_typeobject(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -4403,7 +4403,7 @@ define noundef ptr @_ZN8nanobind6detail13nb_inst_allocEP11_typeobject(ptr nounde
 declare void @_ZN8nanobind6detail18raise_python_errorEv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail17nb_inst_referenceEP11_typeobjectPvP7_object(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN8nanobind6detail17nb_inst_referenceEP11_typeobjectPvP7_object(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_ZN8nanobind6detail12inst_new_extEP11_typeobjectPv(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -4430,7 +4430,7 @@ define noundef ptr @_ZN8nanobind6detail17nb_inst_referenceEP11_typeobjectPvP7_ob
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail22nb_inst_take_ownershipEP11_typeobjectPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN8nanobind6detail22nb_inst_take_ownershipEP11_typeobjectPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_ZN8nanobind6detail12inst_new_extEP11_typeobjectPv(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -4503,7 +4503,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %1, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail18nb_inst_alloc_zeroEP11_typeobject(ptr noundef %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN8nanobind6detail18nb_inst_alloc_zeroEP11_typeobject(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_ZN8nanobind6detail12inst_new_intEP11_typeobject(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4

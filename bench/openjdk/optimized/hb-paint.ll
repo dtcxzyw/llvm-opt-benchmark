@@ -1824,7 +1824,7 @@ define internal noundef i32 @_ZL33hb_paint_custom_palette_color_nilP16hb_paint_f
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define hidden noundef ptr @hb_paint_funcs_create() local_unnamed_addr #2 {
+define hidden nonnull ptr @hb_paint_funcs_create() local_unnamed_addr #2 {
   %1 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #11
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %7, label %2

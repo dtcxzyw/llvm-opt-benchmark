@@ -7429,7 +7429,7 @@ str_fill_term.exit:                               ; preds = %60, %zero_filled.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_string_value_cstr(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local nonnull ptr @rb_string_value_cstr(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = load volatile i64, ptr %0, align 8
   %4 = and i64 %3, 7

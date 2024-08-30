@@ -375,7 +375,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @prefix_path(ptr noundef %prefix, i32 noundef %len, ptr noundef %path) local_unnamed_addr #0 {
+define dso_local nonnull ptr @prefix_path(ptr noundef %prefix, i32 noundef %len, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @prefix_path_gently(ptr noundef %prefix, i32 noundef %len, ptr noundef null, ptr noundef %path)
   %tobool.not = icmp eq ptr %call, null

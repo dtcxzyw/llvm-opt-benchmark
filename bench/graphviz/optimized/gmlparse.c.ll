@@ -107,11 +107,11 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   store i32 -2, ptr @gmlchar, align 4
   br label %5
 
-3:                                                ; preds = %._crit_edge, %359, %71
-  %.1186 = phi ptr [ %379, %._crit_edge ], [ %339, %359 ], [ %72, %71 ]
-  %.1173 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %338, %359 ], [ %.2174, %71 ]
-  %.1165 = phi i32 [ 3, %._crit_edge ], [ %.0164, %359 ], [ %spec.select, %71 ]
-  %.1 = phi i32 [ 1, %._crit_edge ], [ %360, %359 ], [ %67, %71 ]
+3:                                                ; preds = %._crit_edge, %385, %71
+  %.1186 = phi ptr [ %405, %._crit_edge ], [ %365, %385 ], [ %72, %71 ]
+  %.1173 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %364, %385 ], [ %.2174, %71 ]
+  %.1165 = phi i32 [ 3, %._crit_edge ], [ %.0164, %385 ], [ %spec.select, %71 ]
+  %.1 = phi i32 [ 1, %._crit_edge ], [ %386, %385 ], [ %67, %71 ]
   %4 = getelementptr inbounds i8, ptr %.1173, i64 1
   br label %5
 
@@ -136,7 +136,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %12 = sub i64 %10, %11
   %13 = add nsw i64 %12, 1
   %14 = icmp sgt i64 %.0167, 9999
-  br i1 %14, label %381, label %15
+  br i1 %14, label %407, label %15
 
 15:                                               ; preds = %9
   %16 = shl nsw i64 %.0167, 1
@@ -145,7 +145,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %18 = add nsw i64 %17, 7
   %19 = call noalias ptr @malloc(i64 noundef %18) #19
   %.not208 = icmp eq ptr %19, null
-  br i1 %.not208, label %381, label %20
+  br i1 %.not208, label %407, label %20
 
 20:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0169, i64 %13, i1 false)
@@ -166,7 +166,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %28 = getelementptr inbounds %union.GMLSTYPE, ptr %23, i64 %13
   %29 = getelementptr inbounds i8, ptr %28, i64 -8
   %.not210 = icmp sgt i64 %spec.store.select, %13
-  br i1 %.not210, label %30, label %.loopexit227.thread
+  br i1 %.not210, label %30, label %.loopexit238.thread
 
 30:                                               ; preds = %26, %5
   %.2187 = phi ptr [ %29, %26 ], [ %.0185, %5 ]
@@ -175,7 +175,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %.1170 = phi ptr [ %19, %26 ], [ %.0169, %5 ]
   %.1168 = phi i64 [ %spec.store.select, %26 ], [ %.0167, %5 ]
   %31 = icmp eq i32 %.0, 55
-  br i1 %31, label %.loopexit227, label %32
+  br i1 %31, label %.loopexit238, label %32
 
 32:                                               ; preds = %30
   %33 = sext i32 %.0 to i64
@@ -210,7 +210,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
 
 49:                                               ; preds = %47
   store i32 257, ptr @gmlchar, align 4
-  br label %371
+  br label %397
 
 50:                                               ; preds = %47
   %51 = icmp ult i32 %44, 290
@@ -261,7 +261,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = icmp eq i8 %76, 0
-  br i1 %78, label %361, label %79
+  br i1 %78, label %387, label %79
 
 79:                                               ; preds = %74, %69
   %.0184 = phi i32 [ %77, %74 ], [ %70, %69 ]
@@ -280,48 +280,48 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
     i32 12, label %125
     i32 14, label %132
     i32 15, label %144
-    i32 16, label %157
-    i32 17, label %164
-    i32 18, label %173
-    i32 21, label %175
-    i32 22, label %179
-    i32 23, label %186
-    i32 24, label %195
-    i32 27, label %197
-    i32 28, label %201
-    i32 29, label %205
-    i32 30, label %218
-    i32 31, label %225
-    i32 32, label %226
-    i32 35, label %236
-    i32 36, label %241
-    i32 37, label %246
-    i32 38, label %251
-    i32 39, label %256
-    i32 40, label %261
-    i32 41, label %266
-    i32 42, label %269
-    i32 43, label %272
-    i32 44, label %275
-    i32 45, label %278
-    i32 46, label %281
-    i32 47, label %284
-    i32 48, label %287
-    i32 49, label %290
-    i32 50, label %293
-    i32 51, label %296
-    i32 52, label %299
-    i32 53, label %302
-    i32 54, label %305
-    i32 55, label %308
-    i32 56, label %311
-    i32 57, label %314
-    i32 58, label %317
-    i32 59, label %320
-    i32 60, label %323
-    i32 61, label %326
-    i32 62, label %329
-    i32 63, label %332
+    i32 16, label %170
+    i32 17, label %177
+    i32 18, label %186
+    i32 21, label %188
+    i32 22, label %192
+    i32 23, label %199
+    i32 24, label %208
+    i32 27, label %210
+    i32 28, label %214
+    i32 29, label %218
+    i32 30, label %244
+    i32 31, label %251
+    i32 32, label %252
+    i32 35, label %262
+    i32 36, label %267
+    i32 37, label %272
+    i32 38, label %277
+    i32 39, label %282
+    i32 40, label %287
+    i32 41, label %292
+    i32 42, label %295
+    i32 43, label %298
+    i32 44, label %301
+    i32 45, label %304
+    i32 46, label %307
+    i32 47, label %310
+    i32 48, label %313
+    i32 49, label %316
+    i32 50, label %319
+    i32 51, label %322
+    i32 52, label %325
+    i32 53, label %328
+    i32 54, label %331
+    i32 55, label %334
+    i32 56, label %337
+    i32 57, label %340
+    i32 58, label %343
+    i32 59, label %346
+    i32 60, label %349
+    i32 61, label %352
+    i32 62, label %355
+    i32 63, label %358
   ]
 
 86:                                               ; preds = %79
@@ -338,7 +338,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
 
 91:                                               ; preds = %79
   call fastcc void @cleanup()
-  br label %.loopexit227
+  br label %.loopexit238
 
 92:                                               ; preds = %79
   %93 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #21
@@ -448,7 +448,7 @@ pushG.exit:                                       ; preds = %gv_alloc.exit.i, %1
 setDir.exit:                                      ; preds = %142
   call void @gmlerror(ptr noundef nonnull @.str) #20
   call fastcc void @cleanup()
-  br label %.loopexit227
+  br label %.loopexit238
 
 144:                                              ; preds = %79
   %145 = load ptr, ptr @G, align 8
@@ -467,116 +467,126 @@ setDir.exit:                                      ; preds = %142
 
 gv_strdup.exit:                                   ; preds = %144
   %154 = load ptr, ptr %.2187, align 8
-  %155 = call fastcc ptr @mkAttr(ptr noundef nonnull %149, i16 noundef zeroext 0, i16 noundef zeroext 284, ptr noundef %154, ptr noundef null)
-  %156 = call ptr %148(ptr noundef nonnull %147, ptr noundef %155, i32 noundef 1) #20
-  br label %setDir.exit.thread
+  %155 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #21
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %157, label %gv_strdup.exit.i
 
-157:                                              ; preds = %79
-  %158 = load ptr, ptr @G, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 32
-  %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr %.2187, align 8
-  %163 = call ptr %161(ptr noundef nonnull %160, ptr noundef %162, i32 noundef 1) #20
-  br label %setDir.exit.thread
-
-164:                                              ; preds = %79
-  %165 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #21
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %mkNode.exit
-
-167:                                              ; preds = %164
-  %168 = load ptr, ptr @stderr, align 8
-  %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.9, i64 noundef 32) #22
+157:                                              ; preds = %gv_strdup.exit
+  %158 = load ptr, ptr @stderr, align 8
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.9, i64 noundef 40) #22
   call fastcc void @graphviz_exit() #23
   unreachable
 
-mkNode.exit:                                      ; preds = %164
-  %170 = load ptr, ptr @Dtqueue, align 8
-  %171 = call ptr @dtopen(ptr noundef nonnull @attrDisc, ptr noundef %170) #20
-  %172 = getelementptr inbounds i8, ptr %165, i64 24
-  store ptr %171, ptr %172, align 8
-  store ptr %165, ptr @N, align 8
+gv_strdup.exit.i:                                 ; preds = %gv_strdup.exit
+  %160 = getelementptr inbounds i8, ptr %155, i64 18
+  store i16 0, ptr %160, align 2
+  %161 = getelementptr inbounds i8, ptr %155, i64 16
+  store i16 284, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %155, i64 24
+  store ptr %149, ptr %162, align 8
+  %.not18.i223 = icmp eq ptr %154, null
+  br i1 %.not18.i223, label %163, label %mkAttr.exit
+
+163:                                              ; preds = %gv_strdup.exit.i
+  %164 = call i32 @dtsize(ptr noundef null) #20
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %166, label %mkAttr.exit
+
+166:                                              ; preds = %163
+  %167 = call i32 @dtclose(ptr noundef null) #20
+  br label %mkAttr.exit
+
+mkAttr.exit:                                      ; preds = %gv_strdup.exit.i, %163, %166
+  %168 = getelementptr inbounds i8, ptr %155, i64 32
+  store ptr %154, ptr %168, align 8
+  %169 = call ptr %148(ptr noundef nonnull %147, ptr noundef nonnull %155, i32 noundef 1) #20
   br label %setDir.exit.thread
 
-173:                                              ; preds = %79
-  %174 = load ptr, ptr @N, align 8
-  store ptr null, ptr @N, align 8
+170:                                              ; preds = %79
+  %171 = load ptr, ptr @G, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 32
+  %173 = load ptr, ptr %172, align 8
+  %174 = load ptr, ptr %173, align 8
+  %175 = load ptr, ptr %.2187, align 8
+  %176 = call ptr %174(ptr noundef nonnull %173, ptr noundef %175, i32 noundef 1) #20
   br label %setDir.exit.thread
 
-175:                                              ; preds = %79
-  %176 = load ptr, ptr %.2187, align 8
-  %177 = load ptr, ptr @N, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 16
-  store ptr %176, ptr %178, align 8
-  br label %setDir.exit.thread
+177:                                              ; preds = %79
+  %178 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #21
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %180, label %mkNode.exit
 
-179:                                              ; preds = %79
-  %180 = load ptr, ptr @N, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 24
-  %182 = load ptr, ptr %181, align 8
-  %183 = load ptr, ptr %182, align 8
-  %184 = load ptr, ptr %.2187, align 8
-  %185 = call ptr %183(ptr noundef nonnull %182, ptr noundef %184, i32 noundef 1) #20
+180:                                              ; preds = %177
+  %181 = load ptr, ptr @stderr, align 8
+  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.9, i64 noundef 32) #22
+  call fastcc void @graphviz_exit() #23
+  unreachable
+
+mkNode.exit:                                      ; preds = %177
+  %183 = load ptr, ptr @Dtqueue, align 8
+  %184 = call ptr @dtopen(ptr noundef nonnull @attrDisc, ptr noundef %183) #20
+  %185 = getelementptr inbounds i8, ptr %178, i64 24
+  store ptr %184, ptr %185, align 8
+  store ptr %178, ptr @N, align 8
   br label %setDir.exit.thread
 
 186:                                              ; preds = %79
-  %187 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #21
-  %188 = icmp eq ptr %187, null
-  br i1 %188, label %189, label %mkEdge.exit
+  %187 = load ptr, ptr @N, align 8
+  store ptr null, ptr @N, align 8
+  br label %setDir.exit.thread
 
-189:                                              ; preds = %186
-  %190 = load ptr, ptr @stderr, align 8
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.9, i64 noundef 40) #22
+188:                                              ; preds = %79
+  %189 = load ptr, ptr %.2187, align 8
+  %190 = load ptr, ptr @N, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 16
+  store ptr %189, ptr %191, align 8
+  br label %setDir.exit.thread
+
+192:                                              ; preds = %79
+  %193 = load ptr, ptr @N, align 8
+  %194 = getelementptr inbounds i8, ptr %193, i64 24
+  %195 = load ptr, ptr %194, align 8
+  %196 = load ptr, ptr %195, align 8
+  %197 = load ptr, ptr %.2187, align 8
+  %198 = call ptr %196(ptr noundef nonnull %195, ptr noundef %197, i32 noundef 1) #20
+  br label %setDir.exit.thread
+
+199:                                              ; preds = %79
+  %200 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #21
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %202, label %mkEdge.exit
+
+202:                                              ; preds = %199
+  %203 = load ptr, ptr @stderr, align 8
+  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.9, i64 noundef 40) #22
   call fastcc void @graphviz_exit() #23
   unreachable
 
-mkEdge.exit:                                      ; preds = %186
-  %192 = load ptr, ptr @Dtqueue, align 8
-  %193 = call ptr @dtopen(ptr noundef nonnull @attrDisc, ptr noundef %192) #20
-  %194 = getelementptr inbounds i8, ptr %187, i64 32
-  store ptr %193, ptr %194, align 8
-  store ptr %187, ptr @E, align 8
+mkEdge.exit:                                      ; preds = %199
+  %205 = load ptr, ptr @Dtqueue, align 8
+  %206 = call ptr @dtopen(ptr noundef nonnull @attrDisc, ptr noundef %205) #20
+  %207 = getelementptr inbounds i8, ptr %200, i64 32
+  store ptr %206, ptr %207, align 8
+  store ptr %200, ptr @E, align 8
   br label %setDir.exit.thread
 
-195:                                              ; preds = %79
-  %196 = load ptr, ptr @E, align 8
+208:                                              ; preds = %79
+  %209 = load ptr, ptr @E, align 8
   store ptr null, ptr @E, align 8
   br label %setDir.exit.thread
 
-197:                                              ; preds = %79
-  %198 = load ptr, ptr %.2187, align 8
-  %199 = load ptr, ptr @E, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 16
-  store ptr %198, ptr %200, align 8
+210:                                              ; preds = %79
+  %211 = load ptr, ptr %.2187, align 8
+  %212 = load ptr, ptr @E, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 16
+  store ptr %211, ptr %213, align 8
   br label %setDir.exit.thread
 
-201:                                              ; preds = %79
-  %202 = load ptr, ptr %.2187, align 8
-  %203 = load ptr, ptr @E, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 24
-  store ptr %202, ptr %204, align 8
-  br label %setDir.exit.thread
-
-205:                                              ; preds = %79
-  %206 = load ptr, ptr @E, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 32
-  %208 = load ptr, ptr %207, align 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.1) #20
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %gv_strdup.exit222
-
-212:                                              ; preds = %205
-  %213 = load ptr, ptr @stderr, align 8
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.9, i64 noundef 3) #22
-  call fastcc void @graphviz_exit() #23
-  unreachable
-
-gv_strdup.exit222:                                ; preds = %205
+214:                                              ; preds = %79
   %215 = load ptr, ptr %.2187, align 8
-  %216 = call fastcc ptr @mkAttr(ptr noundef nonnull %210, i16 noundef zeroext 0, i16 noundef zeroext 284, ptr noundef %215, ptr noundef null)
-  %217 = call ptr %209(ptr noundef nonnull %208, ptr noundef %216, i32 noundef 1) #20
+  %216 = load ptr, ptr @E, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 24
+  store ptr %215, ptr %217, align 8
   br label %setDir.exit.thread
 
 218:                                              ; preds = %79
@@ -584,303 +594,355 @@ gv_strdup.exit222:                                ; preds = %205
   %220 = getelementptr inbounds i8, ptr %219, i64 32
   %221 = load ptr, ptr %220, align 8
   %222 = load ptr, ptr %221, align 8
-  %223 = load ptr, ptr %.2187, align 8
-  %224 = call ptr %222(ptr noundef nonnull %221, ptr noundef %223, i32 noundef 1) #20
+  %223 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.1) #20
+  %224 = icmp eq ptr %223, null
+  br i1 %224, label %225, label %gv_strdup.exit226
+
+225:                                              ; preds = %218
+  %226 = load ptr, ptr @stderr, align 8
+  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %226, ptr noundef nonnull @.str.9, i64 noundef 3) #22
+  call fastcc void @graphviz_exit() #23
+  unreachable
+
+gv_strdup.exit226:                                ; preds = %218
+  %228 = load ptr, ptr %.2187, align 8
+  %229 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #21
+  %230 = icmp eq ptr %229, null
+  br i1 %230, label %231, label %gv_strdup.exit.i229
+
+231:                                              ; preds = %gv_strdup.exit226
+  %232 = load ptr, ptr @stderr, align 8
+  %233 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.9, i64 noundef 40) #22
+  call fastcc void @graphviz_exit() #23
+  unreachable
+
+gv_strdup.exit.i229:                              ; preds = %gv_strdup.exit226
+  %234 = getelementptr inbounds i8, ptr %229, i64 18
+  store i16 0, ptr %234, align 2
+  %235 = getelementptr inbounds i8, ptr %229, i64 16
+  store i16 284, ptr %235, align 8
+  %236 = getelementptr inbounds i8, ptr %229, i64 24
+  store ptr %223, ptr %236, align 8
+  %.not18.i231 = icmp eq ptr %228, null
+  br i1 %.not18.i231, label %237, label %mkAttr.exit233
+
+237:                                              ; preds = %gv_strdup.exit.i229
+  %238 = call i32 @dtsize(ptr noundef null) #20
+  %239 = icmp eq i32 %238, 0
+  br i1 %239, label %240, label %mkAttr.exit233
+
+240:                                              ; preds = %237
+  %241 = call i32 @dtclose(ptr noundef null) #20
+  br label %mkAttr.exit233
+
+mkAttr.exit233:                                   ; preds = %gv_strdup.exit.i229, %237, %240
+  %242 = getelementptr inbounds i8, ptr %229, i64 32
+  store ptr %228, ptr %242, align 8
+  %243 = call ptr %222(ptr noundef nonnull %221, ptr noundef nonnull %229, i32 noundef 1) #20
   br label %setDir.exit.thread
 
-225:                                              ; preds = %79
-  call fastcc void @pushAlist()
-  br label %setDir.exit.thread
-
-226:                                              ; preds = %79
-  %227 = load ptr, ptr @L, align 8
-  %228 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
-  %229 = icmp eq i64 %228, 0
-  br i1 %229, label %popAlist.exit, label %230
-
-230:                                              ; preds = %226
-  %231 = load ptr, ptr @liststk, align 8
-  %232 = getelementptr ptr, ptr %231, i64 %228
-  %233 = getelementptr i8, ptr %232, i64 -8
-  %234 = load ptr, ptr %233, align 8
-  %235 = add i64 %228, -1
-  store i64 %235, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
-  br label %popAlist.exit
-
-popAlist.exit:                                    ; preds = %226, %230
-  %storemerge.i = phi ptr [ %234, %230 ], [ null, %226 ]
-  store ptr %storemerge.i, ptr @L, align 8
-  br label %setDir.exit.thread
-
-236:                                              ; preds = %79
-  %237 = load ptr, ptr @L, align 8
-  %238 = load ptr, ptr %237, align 8
-  %239 = load ptr, ptr %.2187, align 8
-  %240 = call ptr %238(ptr noundef nonnull %237, ptr noundef %239, i32 noundef 1) #20
-  br label %setDir.exit.thread
-
-241:                                              ; preds = %79
-  %242 = load ptr, ptr @L, align 8
-  %243 = load ptr, ptr %242, align 8
-  %244 = load ptr, ptr %.2187, align 8
-  %245 = call ptr %243(ptr noundef nonnull %242, ptr noundef %244, i32 noundef 1) #20
-  br label %setDir.exit.thread
-
-246:                                              ; preds = %79
-  %247 = getelementptr inbounds i8, ptr %.2187, i64 -8
+244:                                              ; preds = %79
+  %245 = load ptr, ptr @E, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 32
+  %247 = load ptr, ptr %246, align 8
   %248 = load ptr, ptr %247, align 8
   %249 = load ptr, ptr %.2187, align 8
-  %250 = call fastcc ptr @mkAttr(ptr noundef %248, i16 noundef zeroext 0, i16 noundef zeroext 284, ptr noundef %249, ptr noundef null)
+  %250 = call ptr %248(ptr noundef nonnull %247, ptr noundef %249, i32 noundef 1) #20
   br label %setDir.exit.thread
 
 251:                                              ; preds = %79
-  %252 = getelementptr inbounds i8, ptr %.2187, i64 -8
-  %253 = load ptr, ptr %252, align 8
-  %254 = load ptr, ptr %.2187, align 8
-  %255 = call fastcc ptr @mkAttr(ptr noundef %253, i16 noundef zeroext 0, i16 noundef zeroext 285, ptr noundef %254, ptr noundef null)
+  call fastcc void @pushAlist()
   br label %setDir.exit.thread
 
-256:                                              ; preds = %79
-  %257 = getelementptr inbounds i8, ptr %.2187, i64 -8
-  %258 = load ptr, ptr %257, align 8
-  %259 = load ptr, ptr %.2187, align 8
-  %260 = call fastcc ptr @mkAttr(ptr noundef %258, i16 noundef zeroext 0, i16 noundef zeroext 286, ptr noundef %259, ptr noundef null)
+252:                                              ; preds = %79
+  %253 = load ptr, ptr @L, align 8
+  %254 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  %255 = icmp eq i64 %254, 0
+  br i1 %255, label %popAlist.exit, label %256
+
+256:                                              ; preds = %252
+  %257 = load ptr, ptr @liststk, align 8
+  %258 = getelementptr ptr, ptr %257, i64 %254
+  %259 = getelementptr i8, ptr %258, i64 -8
+  %260 = load ptr, ptr %259, align 8
+  %261 = add i64 %254, -1
+  store i64 %261, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  br label %popAlist.exit
+
+popAlist.exit:                                    ; preds = %252, %256
+  %storemerge.i = phi ptr [ %260, %256 ], [ null, %252 ]
+  store ptr %storemerge.i, ptr @L, align 8
   br label %setDir.exit.thread
 
-261:                                              ; preds = %79
-  %262 = getelementptr inbounds i8, ptr %.2187, i64 -8
-  %263 = load ptr, ptr %262, align 8
-  %264 = load ptr, ptr %.2187, align 8
-  %265 = call fastcc ptr @mkAttr(ptr noundef %263, i16 noundef zeroext 0, i16 noundef zeroext 289, ptr noundef null, ptr noundef %264)
+262:                                              ; preds = %79
+  %263 = load ptr, ptr @L, align 8
+  %264 = load ptr, ptr %263, align 8
+  %265 = load ptr, ptr %.2187, align 8
+  %266 = call ptr %264(ptr noundef nonnull %263, ptr noundef %265, i32 noundef 1) #20
   br label %setDir.exit.thread
 
-266:                                              ; preds = %79
-  %267 = load ptr, ptr %.2187, align 8
-  %268 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 264, i16 noundef zeroext 285, ptr noundef %267, ptr noundef null)
-  br label %setDir.exit.thread
-
-269:                                              ; preds = %79
+267:                                              ; preds = %79
+  %268 = load ptr, ptr @L, align 8
+  %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr %.2187, align 8
-  %271 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 264, i16 noundef zeroext 285, ptr noundef %270, ptr noundef null)
+  %271 = call ptr %269(ptr noundef nonnull %268, ptr noundef %270, i32 noundef 1) #20
   br label %setDir.exit.thread
 
 272:                                              ; preds = %79
-  %273 = load ptr, ptr %.2187, align 8
-  %274 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 265, i16 noundef zeroext 285, ptr noundef %273, ptr noundef null)
+  %273 = getelementptr inbounds i8, ptr %.2187, i64 -8
+  %274 = load ptr, ptr %273, align 8
+  %275 = load ptr, ptr %.2187, align 8
+  %276 = call fastcc ptr @mkAttr(ptr noundef %274, i16 noundef zeroext 0, i16 noundef zeroext 284, ptr noundef %275, ptr noundef null)
   br label %setDir.exit.thread
 
-275:                                              ; preds = %79
-  %276 = load ptr, ptr %.2187, align 8
-  %277 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 266, i16 noundef zeroext 285, ptr noundef %276, ptr noundef null)
+277:                                              ; preds = %79
+  %278 = getelementptr inbounds i8, ptr %.2187, i64 -8
+  %279 = load ptr, ptr %278, align 8
+  %280 = load ptr, ptr %.2187, align 8
+  %281 = call fastcc ptr @mkAttr(ptr noundef %279, i16 noundef zeroext 0, i16 noundef zeroext 285, ptr noundef %280, ptr noundef null)
   br label %setDir.exit.thread
 
-278:                                              ; preds = %79
-  %279 = load ptr, ptr %.2187, align 8
-  %280 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 267, i16 noundef zeroext 285, ptr noundef %279, ptr noundef null)
-  br label %setDir.exit.thread
-
-281:                                              ; preds = %79
-  %282 = load ptr, ptr %.2187, align 8
-  %283 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 268, i16 noundef zeroext 286, ptr noundef %282, ptr noundef null)
-  br label %setDir.exit.thread
-
-284:                                              ; preds = %79
+282:                                              ; preds = %79
+  %283 = getelementptr inbounds i8, ptr %.2187, i64 -8
+  %284 = load ptr, ptr %283, align 8
   %285 = load ptr, ptr %.2187, align 8
-  %286 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 269, i16 noundef zeroext 289, ptr noundef null, ptr noundef %285)
+  %286 = call fastcc ptr @mkAttr(ptr noundef %284, i16 noundef zeroext 0, i16 noundef zeroext 286, ptr noundef %285, ptr noundef null)
   br label %setDir.exit.thread
 
 287:                                              ; preds = %79
-  %288 = load ptr, ptr %.2187, align 8
-  %289 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 270, i16 noundef zeroext 289, ptr noundef null, ptr noundef %288)
+  %288 = getelementptr inbounds i8, ptr %.2187, i64 -8
+  %289 = load ptr, ptr %288, align 8
+  %290 = load ptr, ptr %.2187, align 8
+  %291 = call fastcc ptr @mkAttr(ptr noundef %289, i16 noundef zeroext 0, i16 noundef zeroext 289, ptr noundef null, ptr noundef %290)
   br label %setDir.exit.thread
 
-290:                                              ; preds = %79
-  %291 = load ptr, ptr %.2187, align 8
-  %292 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 271, i16 noundef zeroext 286, ptr noundef %291, ptr noundef null)
+292:                                              ; preds = %79
+  %293 = load ptr, ptr %.2187, align 8
+  %294 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 264, i16 noundef zeroext 285, ptr noundef %293, ptr noundef null)
   br label %setDir.exit.thread
 
-293:                                              ; preds = %79
-  %294 = load ptr, ptr %.2187, align 8
-  %295 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 272, i16 noundef zeroext 286, ptr noundef %294, ptr noundef null)
+295:                                              ; preds = %79
+  %296 = load ptr, ptr %.2187, align 8
+  %297 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 264, i16 noundef zeroext 285, ptr noundef %296, ptr noundef null)
   br label %setDir.exit.thread
 
-296:                                              ; preds = %79
-  %297 = load ptr, ptr %.2187, align 8
-  %298 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 273, i16 noundef zeroext 286, ptr noundef %297, ptr noundef null)
+298:                                              ; preds = %79
+  %299 = load ptr, ptr %.2187, align 8
+  %300 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 265, i16 noundef zeroext 285, ptr noundef %299, ptr noundef null)
   br label %setDir.exit.thread
 
-299:                                              ; preds = %79
-  %300 = load ptr, ptr %.2187, align 8
-  %301 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 274, i16 noundef zeroext 286, ptr noundef %300, ptr noundef null)
+301:                                              ; preds = %79
+  %302 = load ptr, ptr %.2187, align 8
+  %303 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 266, i16 noundef zeroext 285, ptr noundef %302, ptr noundef null)
   br label %setDir.exit.thread
 
-302:                                              ; preds = %79
-  %303 = load ptr, ptr %.2187, align 8
-  %304 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 275, i16 noundef zeroext 284, ptr noundef %303, ptr noundef null)
+304:                                              ; preds = %79
+  %305 = load ptr, ptr %.2187, align 8
+  %306 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 267, i16 noundef zeroext 285, ptr noundef %305, ptr noundef null)
   br label %setDir.exit.thread
 
-305:                                              ; preds = %79
-  %306 = load ptr, ptr %.2187, align 8
-  %307 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 276, i16 noundef zeroext 285, ptr noundef %306, ptr noundef null)
+307:                                              ; preds = %79
+  %308 = load ptr, ptr %.2187, align 8
+  %309 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 268, i16 noundef zeroext 286, ptr noundef %308, ptr noundef null)
   br label %setDir.exit.thread
 
-308:                                              ; preds = %79
-  %309 = load ptr, ptr %.2187, align 8
-  %310 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 276, i16 noundef zeroext 284, ptr noundef %309, ptr noundef null)
+310:                                              ; preds = %79
+  %311 = load ptr, ptr %.2187, align 8
+  %312 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 269, i16 noundef zeroext 289, ptr noundef null, ptr noundef %311)
   br label %setDir.exit.thread
 
-311:                                              ; preds = %79
-  %312 = load ptr, ptr %.2187, align 8
-  %313 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 277, i16 noundef zeroext 286, ptr noundef %312, ptr noundef null)
+313:                                              ; preds = %79
+  %314 = load ptr, ptr %.2187, align 8
+  %315 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 270, i16 noundef zeroext 289, ptr noundef null, ptr noundef %314)
   br label %setDir.exit.thread
 
-314:                                              ; preds = %79
-  %315 = load ptr, ptr %.2187, align 8
-  %316 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 277, i16 noundef zeroext 289, ptr noundef null, ptr noundef %315)
+316:                                              ; preds = %79
+  %317 = load ptr, ptr %.2187, align 8
+  %318 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 271, i16 noundef zeroext 286, ptr noundef %317, ptr noundef null)
   br label %setDir.exit.thread
 
-317:                                              ; preds = %79
-  %318 = load ptr, ptr %.2187, align 8
-  %319 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 278, i16 noundef zeroext 289, ptr noundef null, ptr noundef %318)
+319:                                              ; preds = %79
+  %320 = load ptr, ptr %.2187, align 8
+  %321 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 272, i16 noundef zeroext 286, ptr noundef %320, ptr noundef null)
   br label %setDir.exit.thread
 
-320:                                              ; preds = %79
-  %321 = load ptr, ptr %.2187, align 8
-  %322 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 279, i16 noundef zeroext 289, ptr noundef null, ptr noundef %321)
+322:                                              ; preds = %79
+  %323 = load ptr, ptr %.2187, align 8
+  %324 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 273, i16 noundef zeroext 286, ptr noundef %323, ptr noundef null)
   br label %setDir.exit.thread
 
-323:                                              ; preds = %79
-  %324 = load ptr, ptr %.2187, align 8
-  %325 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 280, i16 noundef zeroext 286, ptr noundef %324, ptr noundef null)
+325:                                              ; preds = %79
+  %326 = load ptr, ptr %.2187, align 8
+  %327 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 274, i16 noundef zeroext 286, ptr noundef %326, ptr noundef null)
   br label %setDir.exit.thread
 
-326:                                              ; preds = %79
-  %327 = load ptr, ptr %.2187, align 8
-  %328 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 282, i16 noundef zeroext 286, ptr noundef %327, ptr noundef null)
+328:                                              ; preds = %79
+  %329 = load ptr, ptr %.2187, align 8
+  %330 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 275, i16 noundef zeroext 284, ptr noundef %329, ptr noundef null)
   br label %setDir.exit.thread
 
-329:                                              ; preds = %79
-  %330 = load ptr, ptr %.2187, align 8
-  %331 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 282, i16 noundef zeroext 284, ptr noundef %330, ptr noundef null)
+331:                                              ; preds = %79
+  %332 = load ptr, ptr %.2187, align 8
+  %333 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 276, i16 noundef zeroext 285, ptr noundef %332, ptr noundef null)
   br label %setDir.exit.thread
 
-332:                                              ; preds = %79
-  %333 = load ptr, ptr %.2187, align 8
-  %334 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 283, i16 noundef zeroext 286, ptr noundef %333, ptr noundef null)
+334:                                              ; preds = %79
+  %335 = load ptr, ptr %.2187, align 8
+  %336 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 276, i16 noundef zeroext 284, ptr noundef %335, ptr noundef null)
   br label %setDir.exit.thread
 
-setDir.exit.thread:                               ; preds = %143, %.preheader.i, %132, %79, %86, %90, %332, %329, %326, %323, %320, %317, %314, %311, %308, %305, %302, %299, %296, %293, %290, %287, %284, %281, %278, %275, %272, %269, %266, %261, %256, %251, %246, %241, %236, %popAlist.exit, %225, %218, %gv_strdup.exit222, %201, %197, %195, %mkEdge.exit, %179, %175, %173, %mkNode.exit, %157, %gv_strdup.exit, %125, %118, %pushG.exit
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %79 ], [ %334, %332 ], [ %331, %329 ], [ %328, %326 ], [ %325, %323 ], [ %322, %320 ], [ %319, %317 ], [ %316, %314 ], [ %313, %311 ], [ %310, %308 ], [ %307, %305 ], [ %304, %302 ], [ %301, %299 ], [ %298, %296 ], [ %295, %293 ], [ %292, %290 ], [ %289, %287 ], [ %286, %284 ], [ %283, %281 ], [ %280, %278 ], [ %277, %275 ], [ %274, %272 ], [ %271, %269 ], [ %268, %266 ], [ %265, %261 ], [ %260, %256 ], [ %255, %251 ], [ %250, %246 ], [ %.sroa.0.0.copyload, %241 ], [ %.sroa.0.0.copyload, %236 ], [ %227, %popAlist.exit ], [ %.sroa.0.0.copyload, %225 ], [ %.sroa.0.0.copyload, %218 ], [ %.sroa.0.0.copyload, %gv_strdup.exit222 ], [ %.sroa.0.0.copyload, %201 ], [ %.sroa.0.0.copyload, %197 ], [ %196, %195 ], [ %.sroa.0.0.copyload, %mkEdge.exit ], [ %.sroa.0.0.copyload, %179 ], [ %.sroa.0.0.copyload, %175 ], [ %174, %173 ], [ %.sroa.0.0.copyload, %mkNode.exit ], [ %.sroa.0.0.copyload, %157 ], [ %.sroa.0.0.copyload, %gv_strdup.exit ], [ %.sroa.0.0.copyload, %125 ], [ %.sroa.0.0.copyload, %118 ], [ %.sroa.0.0.copyload, %pushG.exit ], [ %.sroa.0.0.copyload, %90 ], [ %.sroa.0.0.copyload, %86 ], [ %.sroa.0.0.copyload, %132 ], [ %.sroa.0.0.copyload, %.preheader.i ], [ %.sroa.0.0.copyload, %143 ]
-  %335 = sext i8 %82 to i64
-  %336 = sub nsw i64 0, %335
-  %337 = getelementptr inbounds %union.GMLSTYPE, ptr %.2187, i64 %336
-  %338 = getelementptr inbounds i8, ptr %.2174, i64 %336
-  %339 = getelementptr inbounds i8, ptr %337, i64 8
-  store ptr %.sroa.0.0, ptr %339, align 8
-  %340 = getelementptr inbounds [64 x i8], ptr @yyr1, i64 0, i64 %80
-  %341 = load i8, ptr %340, align 1
-  %342 = sext i8 %341 to i64
-  %343 = add nsw i64 %342, -37
-  %344 = getelementptr inbounds [20 x i16], ptr @yypgoto, i64 0, i64 %343
-  %345 = load i16, ptr %344, align 2
-  %346 = sext i16 %345 to i32
-  %347 = load i8, ptr %338, align 1
-  %348 = sext i8 %347 to i32
-  %349 = add nsw i32 %348, %346
-  %or.cond5 = icmp ult i32 %349, 227
-  br i1 %or.cond5, label %350, label %357
+337:                                              ; preds = %79
+  %338 = load ptr, ptr %.2187, align 8
+  %339 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 277, i16 noundef zeroext 286, ptr noundef %338, ptr noundef null)
+  br label %setDir.exit.thread
 
-350:                                              ; preds = %setDir.exit.thread
-  %351 = zext nneg i32 %349 to i64
-  %352 = getelementptr inbounds [227 x i8], ptr @yycheck, i64 0, i64 %351
-  %353 = load i8, ptr %352, align 1
-  %354 = icmp eq i8 %353, %347
-  br i1 %354, label %355, label %357
+340:                                              ; preds = %79
+  %341 = load ptr, ptr %.2187, align 8
+  %342 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 277, i16 noundef zeroext 289, ptr noundef null, ptr noundef %341)
+  br label %setDir.exit.thread
 
-355:                                              ; preds = %350
-  %356 = getelementptr inbounds [227 x i8], ptr @yytable, i64 0, i64 %351
-  br label %359
+343:                                              ; preds = %79
+  %344 = load ptr, ptr %.2187, align 8
+  %345 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 278, i16 noundef zeroext 289, ptr noundef null, ptr noundef %344)
+  br label %setDir.exit.thread
 
-357:                                              ; preds = %350, %setDir.exit.thread
-  %358 = getelementptr inbounds [20 x i8], ptr @yydefgoto, i64 0, i64 %343
-  br label %359
+346:                                              ; preds = %79
+  %347 = load ptr, ptr %.2187, align 8
+  %348 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 279, i16 noundef zeroext 289, ptr noundef null, ptr noundef %347)
+  br label %setDir.exit.thread
 
-359:                                              ; preds = %357, %355
-  %.in.in = phi ptr [ %356, %355 ], [ %358, %357 ]
+349:                                              ; preds = %79
+  %350 = load ptr, ptr %.2187, align 8
+  %351 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 280, i16 noundef zeroext 286, ptr noundef %350, ptr noundef null)
+  br label %setDir.exit.thread
+
+352:                                              ; preds = %79
+  %353 = load ptr, ptr %.2187, align 8
+  %354 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 282, i16 noundef zeroext 286, ptr noundef %353, ptr noundef null)
+  br label %setDir.exit.thread
+
+355:                                              ; preds = %79
+  %356 = load ptr, ptr %.2187, align 8
+  %357 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 282, i16 noundef zeroext 284, ptr noundef %356, ptr noundef null)
+  br label %setDir.exit.thread
+
+358:                                              ; preds = %79
+  %359 = load ptr, ptr %.2187, align 8
+  %360 = call fastcc ptr @mkAttr(ptr noundef null, i16 noundef zeroext 283, i16 noundef zeroext 286, ptr noundef %359, ptr noundef null)
+  br label %setDir.exit.thread
+
+setDir.exit.thread:                               ; preds = %143, %.preheader.i, %132, %79, %86, %90, %358, %355, %352, %349, %346, %343, %340, %337, %334, %331, %328, %325, %322, %319, %316, %313, %310, %307, %304, %301, %298, %295, %292, %287, %282, %277, %272, %267, %262, %popAlist.exit, %251, %244, %mkAttr.exit233, %214, %210, %208, %mkEdge.exit, %192, %188, %186, %mkNode.exit, %170, %mkAttr.exit, %125, %118, %pushG.exit
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %79 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %348, %346 ], [ %345, %343 ], [ %342, %340 ], [ %339, %337 ], [ %336, %334 ], [ %333, %331 ], [ %330, %328 ], [ %327, %325 ], [ %324, %322 ], [ %321, %319 ], [ %318, %316 ], [ %315, %313 ], [ %312, %310 ], [ %309, %307 ], [ %306, %304 ], [ %303, %301 ], [ %300, %298 ], [ %297, %295 ], [ %294, %292 ], [ %291, %287 ], [ %286, %282 ], [ %281, %277 ], [ %276, %272 ], [ %.sroa.0.0.copyload, %267 ], [ %.sroa.0.0.copyload, %262 ], [ %253, %popAlist.exit ], [ %.sroa.0.0.copyload, %251 ], [ %.sroa.0.0.copyload, %244 ], [ %.sroa.0.0.copyload, %mkAttr.exit233 ], [ %.sroa.0.0.copyload, %214 ], [ %.sroa.0.0.copyload, %210 ], [ %209, %208 ], [ %.sroa.0.0.copyload, %mkEdge.exit ], [ %.sroa.0.0.copyload, %192 ], [ %.sroa.0.0.copyload, %188 ], [ %187, %186 ], [ %.sroa.0.0.copyload, %mkNode.exit ], [ %.sroa.0.0.copyload, %170 ], [ %.sroa.0.0.copyload, %mkAttr.exit ], [ %.sroa.0.0.copyload, %125 ], [ %.sroa.0.0.copyload, %118 ], [ %.sroa.0.0.copyload, %pushG.exit ], [ %.sroa.0.0.copyload, %90 ], [ %.sroa.0.0.copyload, %86 ], [ %.sroa.0.0.copyload, %132 ], [ %.sroa.0.0.copyload, %.preheader.i ], [ %.sroa.0.0.copyload, %143 ]
+  %361 = sext i8 %82 to i64
+  %362 = sub nsw i64 0, %361
+  %363 = getelementptr inbounds %union.GMLSTYPE, ptr %.2187, i64 %362
+  %364 = getelementptr inbounds i8, ptr %.2174, i64 %362
+  %365 = getelementptr inbounds i8, ptr %363, i64 8
+  store ptr %.sroa.0.0, ptr %365, align 8
+  %366 = getelementptr inbounds [64 x i8], ptr @yyr1, i64 0, i64 %80
+  %367 = load i8, ptr %366, align 1
+  %368 = sext i8 %367 to i64
+  %369 = add nsw i64 %368, -37
+  %370 = getelementptr inbounds [20 x i16], ptr @yypgoto, i64 0, i64 %369
+  %371 = load i16, ptr %370, align 2
+  %372 = sext i16 %371 to i32
+  %373 = load i8, ptr %364, align 1
+  %374 = sext i8 %373 to i32
+  %375 = add nsw i32 %374, %372
+  %or.cond5 = icmp ult i32 %375, 227
+  br i1 %or.cond5, label %376, label %383
+
+376:                                              ; preds = %setDir.exit.thread
+  %377 = zext nneg i32 %375 to i64
+  %378 = getelementptr inbounds [227 x i8], ptr @yycheck, i64 0, i64 %377
+  %379 = load i8, ptr %378, align 1
+  %380 = icmp eq i8 %379, %373
+  br i1 %380, label %381, label %383
+
+381:                                              ; preds = %376
+  %382 = getelementptr inbounds [227 x i8], ptr @yytable, i64 0, i64 %377
+  br label %385
+
+383:                                              ; preds = %376, %setDir.exit.thread
+  %384 = getelementptr inbounds [20 x i8], ptr @yydefgoto, i64 0, i64 %369
+  br label %385
+
+385:                                              ; preds = %383, %381
+  %.in.in = phi ptr [ %382, %381 ], [ %384, %383 ]
   %.in = load i8, ptr %.in.in, align 1
-  %360 = sext i8 %.in to i32
+  %386 = sext i8 %.in to i32
   br label %3
 
-361:                                              ; preds = %74
-  %362 = load i32, ptr @gmlchar, align 4
-  switch i32 %.0164, label %371 [
-    i32 0, label %363
-    i32 3, label %366
+387:                                              ; preds = %74
+  %388 = load i32, ptr @gmlchar, align 4
+  switch i32 %.0164, label %397 [
+    i32 0, label %389
+    i32 3, label %392
   ]
 
-363:                                              ; preds = %361
-  %364 = load i32, ptr @gmlnerrs, align 4
-  %365 = add nsw i32 %364, 1
-  store i32 %365, ptr @gmlnerrs, align 4
+389:                                              ; preds = %387
+  %390 = load i32, ptr @gmlnerrs, align 4
+  %391 = add nsw i32 %390, 1
+  store i32 %391, ptr @gmlnerrs, align 4
   call void @gmlerror(ptr noundef nonnull @.str.2) #20
-  br label %371
+  br label %397
 
-366:                                              ; preds = %361
-  %367 = icmp slt i32 %362, 1
-  br i1 %367, label %368, label %370
+392:                                              ; preds = %387
+  %393 = icmp slt i32 %388, 1
+  br i1 %393, label %394, label %396
 
-368:                                              ; preds = %366
-  %369 = icmp eq i32 %362, 0
-  br i1 %369, label %.loopexit227, label %371
+394:                                              ; preds = %392
+  %395 = icmp eq i32 %388, 0
+  br i1 %395, label %.loopexit238, label %397
 
-370:                                              ; preds = %366
+396:                                              ; preds = %392
   store i32 -2, ptr @gmlchar, align 4
-  br label %371
+  br label %397
 
-371:                                              ; preds = %363, %361, %368, %370, %49
-  %372 = icmp eq i32 %.0, 0
-  br i1 %372, label %._crit_edge, label %.lr.ph
+397:                                              ; preds = %389, %387, %394, %396, %49
+  %398 = icmp eq i32 %.0, 0
+  br i1 %398, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %371, %374
-  %.4371 = phi ptr [ %376, %374 ], [ %.2174, %371 ]
-  %.4189370 = phi ptr [ %375, %374 ], [ %.2187, %371 ]
-  %373 = icmp eq ptr %.4371, %.1170
-  br i1 %373, label %.loopexit227, label %374
+.lr.ph:                                           ; preds = %397, %400
+  %.4410 = phi ptr [ %402, %400 ], [ %.2174, %397 ]
+  %.4189409 = phi ptr [ %401, %400 ], [ %.2187, %397 ]
+  %399 = icmp eq ptr %.4410, %.1170
+  br i1 %399, label %.loopexit238, label %400
 
-374:                                              ; preds = %.lr.ph
-  %375 = getelementptr inbounds i8, ptr %.4189370, i64 -8
-  %376 = getelementptr inbounds i8, ptr %.4371, i64 -1
-  %377 = load i8, ptr %376, align 1
-  %378 = icmp eq i8 %377, 0
-  br i1 %378, label %._crit_edge, label %.lr.ph
+400:                                              ; preds = %.lr.ph
+  %401 = getelementptr inbounds i8, ptr %.4189409, i64 -8
+  %402 = getelementptr inbounds i8, ptr %.4410, i64 -1
+  %403 = load i8, ptr %402, align 1
+  %404 = icmp eq i8 %403, 0
+  br i1 %404, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %374, %371
-  %.4189.lcssa = phi ptr [ %.2187, %371 ], [ %375, %374 ]
-  %.4.lcssa = phi ptr [ %.2174, %371 ], [ %376, %374 ]
-  %379 = getelementptr inbounds i8, ptr %.4189.lcssa, i64 8
-  %380 = load i64, ptr @gmllval, align 8
-  store i64 %380, ptr %379, align 8
+._crit_edge:                                      ; preds = %400, %397
+  %.4189.lcssa = phi ptr [ %.2187, %397 ], [ %401, %400 ]
+  %.4.lcssa = phi ptr [ %.2174, %397 ], [ %402, %400 ]
+  %405 = getelementptr inbounds i8, ptr %.4189.lcssa, i64 8
+  %406 = load i64, ptr @gmllval, align 8
+  store i64 %406, ptr %405, align 8
   br label %3
 
-381:                                              ; preds = %15, %9
+407:                                              ; preds = %15, %9
   call void @gmlerror(ptr noundef nonnull @.str.5) #20
-  br label %.loopexit227
+  br label %.loopexit238
 
-.loopexit227:                                     ; preds = %30, %368, %.lr.ph, %91, %setDir.exit, %381
-  %.0183 = phi i32 [ 2, %381 ], [ 1, %setDir.exit ], [ 1, %91 ], [ 1, %.lr.ph ], [ 0, %30 ], [ 1, %368 ]
-  %.3 = phi ptr [ %.0169, %381 ], [ %.1170, %setDir.exit ], [ %.1170, %91 ], [ %.1170, %.lr.ph ], [ %.1170, %368 ], [ %.1170, %30 ]
+.loopexit238:                                     ; preds = %30, %394, %.lr.ph, %91, %setDir.exit, %407
+  %.0183 = phi i32 [ 2, %407 ], [ 1, %setDir.exit ], [ 1, %91 ], [ 1, %.lr.ph ], [ 0, %30 ], [ 1, %394 ]
+  %.3 = phi ptr [ %.0169, %407 ], [ %.1170, %setDir.exit ], [ %.1170, %91 ], [ %.1170, %.lr.ph ], [ %.1170, %394 ], [ %.1170, %30 ]
   %.not218 = icmp eq ptr %.3, %1
-  br i1 %.not218, label %382, label %.loopexit227.thread
+  br i1 %.not218, label %408, label %.loopexit238.thread
 
-.loopexit227.thread:                              ; preds = %26, %.loopexit227
-  %.3327 = phi ptr [ %.3, %.loopexit227 ], [ %19, %26 ]
-  %.0183325 = phi i32 [ %.0183, %.loopexit227 ], [ 1, %26 ]
-  call void @free(ptr noundef %.3327) #20
-  br label %382
+.loopexit238.thread:                              ; preds = %26, %.loopexit238
+  %.3358 = phi ptr [ %.3, %.loopexit238 ], [ %19, %26 ]
+  %.0183356 = phi i32 [ %.0183, %.loopexit238 ], [ 1, %26 ]
+  call void @free(ptr noundef %.3358) #20
+  br label %408
 
-382:                                              ; preds = %.loopexit227.thread, %.loopexit227
-  %.0183326 = phi i32 [ %.0183325, %.loopexit227.thread ], [ %.0183, %.loopexit227 ]
-  ret i32 %.0183326
+408:                                              ; preds = %.loopexit238.thread, %.loopexit238
+  %.0183357 = phi i32 [ %.0183356, %.loopexit238.thread ], [ %.0183, %.loopexit238 ]
+  ret i32 %.0183357
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

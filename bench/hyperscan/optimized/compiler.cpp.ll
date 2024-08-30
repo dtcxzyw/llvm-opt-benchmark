@@ -2616,7 +2616,7 @@ declare noundef zeroext i1 @_ZNK3ue28target_t10has_avx512Ev(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZNK3ue28target_t14has_avx512vbmiEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3ue25buildERNS_2NGEPjh(ptr noundef nonnull align 8 dereferenceable(1104) %ng, ptr nocapture noundef %length, i8 noundef zeroext %pureFlag) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN3ue25buildERNS_2NGEPjh(ptr noundef nonnull align 8 dereferenceable(1104) %ng, ptr nocapture noundef %length, i8 noundef zeroext %pureFlag) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %rose.i = alloca %"class.ue2::bytecode_ptr", align 8
   %rose = alloca %"class.ue2::bytecode_ptr", align 8

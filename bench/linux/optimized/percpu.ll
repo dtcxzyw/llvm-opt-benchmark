@@ -3777,7 +3777,7 @@ define internal fastcc void @pcpu_dump_alloc_info(ptr noundef %0, ptr nocapture 
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @pcpu_alloc_first_chunk(i64 noundef %0, i32 noundef %1) unnamed_addr #7 section ".init.text" align 16 {
+define internal fastcc nonnull ptr @pcpu_alloc_first_chunk(i64 noundef %0, i32 noundef %1) unnamed_addr #7 section ".init.text" align 16 {
   %3 = trunc i64 %0 to i32
   %4 = and i32 %3, 4095
   %5 = add i32 %4, %1

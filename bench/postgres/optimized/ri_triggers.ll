@@ -509,7 +509,7 @@ quoteOneName.exit:                                ; preds = %118
   %140 = getelementptr inbounds i8, ptr %139, i64 115
   %141 = load i8, ptr %140, align 1
   %142 = icmp eq i8 %141, 112
-  %143 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef %.055, ptr noundef %24, ptr noundef %27, ptr noundef null, ptr noundef %.053, i1 noundef zeroext %142, i32 noundef 5)
+  %143 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %.055, ptr noundef %24, ptr noundef %27, ptr noundef null, ptr noundef %.053, i1 noundef zeroext %142, i32 noundef 5)
   %144 = call i32 @SPI_finish() #11
   %.not58 = icmp eq i32 %144, 2
   br i1 %.not58, label %148, label %145
@@ -750,7 +750,7 @@ quoteOneName.exit.i:                              ; preds = %77
 
 96:                                               ; preds = %._crit_edge.i, %31
   %.0.i = phi ptr [ %95, %._crit_edge.i ], [ %33, %31 ]
-  %97 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
+  %97 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %.0.i, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
   %98 = call i32 @SPI_finish() #11
   %.not32.i = icmp eq i32 %98, 2
   br i1 %.not32.i, label %ri_Check_Pk_Match.exit, label %99
@@ -963,7 +963,7 @@ quoteOneName.exit:                                ; preds = %164
 
 187:                                              ; preds = %._crit_edge, %107
   %.054 = phi ptr [ %186, %._crit_edge ], [ %109, %107 ]
-  %188 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef nonnull %9, ptr noundef %.054, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
+  %188 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef nonnull %9, ptr noundef nonnull %.054, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
   %189 = call i32 @SPI_finish() #11
   %.not59 = icmp eq i32 %189, 2
   br i1 %.not59, label %193, label %190
@@ -1222,7 +1222,7 @@ quoteOneName.exit:                                ; preds = %82
 
 104:                                              ; preds = %._crit_edge, %25
   %.0 = phi ptr [ %103, %._crit_edge ], [ %27, %25 ]
-  %105 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 8)
+  %105 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %.0, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 8)
   %106 = call i32 @SPI_finish() #11
   %.not54 = icmp eq i32 %106, 2
   br i1 %.not54, label %110, label %107
@@ -1726,7 +1726,7 @@ quoteOneName.exit18:                              ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ri_PlanCheck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc nonnull ptr @ri_PlanCheck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca %struct.HASHCTL, align 8
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -2278,7 +2278,7 @@ quoteOneName.exit:                                ; preds = %85
 
 115:                                              ; preds = %._crit_edge, %28
   %.0 = phi ptr [ %114, %._crit_edge ], [ %30, %28 ]
-  %116 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef %18, ptr noundef %19, ptr noundef %23, ptr noundef %21, i1 noundef zeroext true, i32 noundef 9)
+  %116 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef nonnull %.0, ptr noundef %18, ptr noundef %19, ptr noundef %23, ptr noundef %21, i1 noundef zeroext true, i32 noundef 9)
   %117 = call i32 @SPI_finish() #11
   %.not63 = icmp eq i32 %117, 2
   br i1 %.not63, label %121, label %118
@@ -2588,7 +2588,7 @@ quoteOneName.exit92:                              ; preds = %106
 
 128:                                              ; preds = %._crit_edge, %25
   %.070 = phi ptr [ %127, %._crit_edge ], [ %29, %25 ]
-  %129 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef %.070, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 9)
+  %129 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %.070, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 9)
   %130 = call i32 @SPI_finish() #11
   %.not83 = icmp eq i32 %130, 2
   br i1 %.not83, label %134, label %131

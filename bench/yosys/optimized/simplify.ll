@@ -39992,7 +39992,7 @@ _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE9push_backEOS3_.exit120: ;
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN5YosysL18make_packed_structEPNS_3AST7AstNodeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapINS_5RTLIL8IdStringES2_St4lessISC_ESaISt4pairIKSC_S2_EEE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN5YosysL18make_packed_structEPNS_3AST7AstNodeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapINS_5RTLIL8IdStringES2_St4lessISC_ESaISt4pairIKSC_S2_EEE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.300", align 8
   %5 = alloca %"class.std::tuple.303", align 1
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4

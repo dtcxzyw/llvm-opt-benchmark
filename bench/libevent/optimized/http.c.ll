@@ -8401,7 +8401,7 @@ return:                                           ; preds = %land.lhs.true16.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @end_of_path(ptr noundef readonly %cp, i32 noundef %part, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc nonnull ptr @end_of_path(ptr noundef readonly %cp, i32 noundef %part, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0

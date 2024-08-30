@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @file_touch(ptr nocapture noundef readonly %
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @file_read_all(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local nonnull ptr @file_read_all(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

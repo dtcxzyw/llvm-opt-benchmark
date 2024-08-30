@@ -129351,7 +129351,7 @@ define hidden { ptr, i64 } @"_ZN5alloc2rc15Rc$LT$T$C$A$GT$11from_box_in17hb56692
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.llvm.8265446259410684974(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.llvm.8265446259410684974(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807

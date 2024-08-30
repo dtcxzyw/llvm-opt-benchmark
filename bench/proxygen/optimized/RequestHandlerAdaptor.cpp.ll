@@ -1909,7 +1909,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8proxygen21RequestHandlerAdaptor12newExMessageEPNS_16ExMessageHandlerEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr noundef %exHandler, i1 noundef zeroext %unidirectional) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen21RequestHandlerAdaptor12newExMessageEPNS_16ExMessageHandlerEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr noundef %exHandler, i1 noundef zeroext %unidirectional) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
           to label %invoke.cont unwind label %terminate.lpad
@@ -1940,7 +1940,7 @@ terminate.lpad:                                   ; preds = %invoke.cont2, %invo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @_ZThn8_N8proxygen21RequestHandlerAdaptor12newExMessageEPNS_16ExMessageHandlerEb(ptr nocapture noundef readonly %this, ptr noundef %exHandler, i1 noundef zeroext %unidirectional) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZThn8_N8proxygen21RequestHandlerAdaptor12newExMessageEPNS_16ExMessageHandlerEb(ptr nocapture noundef readonly %this, ptr noundef %exHandler, i1 noundef zeroext %unidirectional) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -1985,7 +1985,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @_ZThn8_NK8proxygen21RequestHandlerAdaptor21getSetupTransportInfoEv(ptr nocapture noundef readonly %this) unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZThn8_NK8proxygen21RequestHandlerAdaptor21getSetupTransportInfoEv(ptr nocapture noundef readonly %this) unnamed_addr #9 align 2 {
 entry:
   %txn_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %txn_.i, align 8

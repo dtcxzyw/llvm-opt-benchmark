@@ -88,7 +88,7 @@ $_ZNK12hb_bit_set_t9next_manyEjPjj = comdat any
 @_hb_CrapPool = external global [80 x i64], align 16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define hidden noundef ptr @hb_set_create() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden nonnull ptr @hb_set_create() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #22
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %8, label %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit
@@ -315,7 +315,7 @@ define hidden range(i32 0, 2) i32 @hb_set_allocation_successful(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_set_copy(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden nonnull ptr @hb_set_copy(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #22
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %hb_set_create.exit, label %hb_set_create.exit.thread

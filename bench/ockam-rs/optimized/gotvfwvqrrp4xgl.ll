@@ -34508,7 +34508,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h0848d00036b354f2E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h0848d00036b354f2E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5568)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5568, !nonnull !4, !align !74, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -34528,7 +34528,7 @@ define hidden noundef align 8 dereferenceable(24) ptr @"_ZN16aws_smithy_types10c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(64) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h13b56ea1ae9c7d88E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h13b56ea1ae9c7d88E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5571)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5571, !nonnull !4, !align !74, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -34548,7 +34548,7 @@ define hidden noundef align 8 dereferenceable(64) ptr @"_ZN16aws_smithy_types10c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(120) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h9f50ac56fd463cadE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(120) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h9f50ac56fd463cadE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5574)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5574, !nonnull !4, !align !74, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -34568,7 +34568,7 @@ define hidden noundef align 8 dereferenceable(120) ptr @"_ZN16aws_smithy_types10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hb332dede97be8837E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hb332dede97be8837E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5577)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5577, !nonnull !4, !align !74, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -34608,7 +34608,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN16aws_smithy_types10config_bag5La
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hd24a821d1c064c2cE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hd24a821d1c064c2cE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5583)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5583, !nonnull !4, !align !74, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -34628,7 +34628,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @"_ZN16aws_smithy_types10c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hd274e09245e8e4b2E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hd274e09245e8e4b2E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5586)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5586, !nonnull !4, !align !74, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -34648,7 +34648,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @"_ZN16aws_smithy_types10c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17he83066fda1a55f77E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17he83066fda1a55f77E.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5589)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5589, !nonnull !4, !align !74, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -76726,7 +76726,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.12634899616595775615.e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.12634899616595775615(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.12634899616595775615(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807

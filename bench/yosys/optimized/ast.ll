@@ -2790,7 +2790,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_PNS0_3AST7AstNodeEESt10_Select
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #38
   invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %2, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %3 unwind label %35
@@ -6707,7 +6707,7 @@ define noundef zeroext i1 @_ZNK5Yosys3AST7AstNode8containsEPKS1_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys3AST7AstNode11mkconst_intEjbi(i32 noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5Yosys3AST7AstNode11mkconst_intEjbi(i32 noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #38
   invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %4, i32 noundef 16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %5 unwind label %44
@@ -6822,7 +6822,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %18, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #38
   invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %4, i32 noundef 16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %5 unwind label %31
@@ -7030,13 +7030,13 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL5StateESt6vectorIS4_SaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext false)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys3AST7AstNode11mkconst_strERKSt6vectorINS_5RTLIL5StateESaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5Yosys3AST7AstNode11mkconst_strERKSt6vectorINS_5RTLIL5StateESaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -7230,7 +7230,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit10:                 ; preds = %85, %87
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys3AST7AstNode11mkconst_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5Yosys3AST7AstNode11mkconst_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.41", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #36
@@ -7475,7 +7475,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys3AST7AstNode12mktemp_logicERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_biib(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5Yosys3AST7AstNode12mktemp_logicERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_biib(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::tuple.224", align 8
   %9 = alloca %"class.std::tuple.227", align 1
   %10 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -7497,7 +7497,7 @@ define noundef ptr @_ZN5Yosys3AST7AstNode12mktemp_logicERKNSt7__cxx1112basic_str
           to label %22 unwind label %145
 
 22:                                               ; preds = %20
-  invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %17, i32 noundef 14, ptr noundef %19, ptr noundef %21, ptr noundef null, ptr noundef null)
+  invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %17, i32 noundef 14, ptr noundef nonnull %19, ptr noundef nonnull %21, ptr noundef null, ptr noundef null)
           to label %23 unwind label %145
 
 23:                                               ; preds = %22
@@ -14404,7 +14404,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit: ; preds = %_ZNSt6vectorIPN5Y
           to label %48 unwind label %93
 
 48:                                               ; preds = %46
-  invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %40, i32 noundef 14, ptr noundef %45, ptr noundef %47, ptr noundef null, ptr noundef null)
+  invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %40, i32 noundef 14, ptr noundef nonnull %45, ptr noundef nonnull %47, ptr noundef null, ptr noundef null)
           to label %49 unwind label %93
 
 49:                                               ; preds = %48
@@ -16121,7 +16121,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit131:             ; preds = %359, %364, %371
   br i1 %415, label %261, label %._crit_edge317, !llvm.loop !97
 
 ._crit_edge317:                                   ; preds = %407, %._crit_edge
-  %416 = call noundef ptr @_ZN5Yosys12AST_INTERNAL26process_and_replace_moduleEPNS_5RTLIL6DesignEPNS1_6ModuleEPNS_3AST7AstNodeES8_(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef %254)
+  %416 = call noundef ptr @_ZN5Yosys12AST_INTERNAL26process_and_replace_moduleEPNS_5RTLIL6DesignEPNS1_6ModuleEPNS_3AST7AstNodeES8_(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef nonnull %254)
   call void @_ZN5Yosys3AST7AstNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(284) %56) #36
   call void @_ZdlPv(ptr noundef nonnull %56) #35
   %417 = getelementptr inbounds i8, ptr %416, i64 8
@@ -16749,7 +16749,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit91:              ; preds = %285, %290, %297
           to label %312 unwind label %305
 
 312:                                              ; preds = %311
-  invoke void @_ZN5Yosys3AST22explode_interface_portEPNS0_7AstNodeEPNS_5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_(ptr noundef %165, ptr noundef %186, ptr noundef nonnull %23, ptr noundef %.054)
+  invoke void @_ZN5Yosys3AST22explode_interface_portEPNS0_7AstNodeEPNS_5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_(ptr noundef nonnull %165, ptr noundef %186, ptr noundef nonnull %23, ptr noundef %.054)
           to label %313 unwind label %314
 
 313:                                              ; preds = %312
@@ -16770,7 +16770,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit91:              ; preds = %285, %290, %297
   br label %.body
 
 ._crit_edge205:                                   ; preds = %313, %170
-  %317 = invoke fastcc noundef ptr @_ZN5YosysL14process_moduleEPNS_5RTLIL6DesignEPNS_3AST7AstNodeEbS5_b(ptr noundef nonnull %2, ptr noundef %165, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext false)
+  %317 = invoke fastcc noundef ptr @_ZN5YosysL14process_moduleEPNS_5RTLIL6DesignEPNS_3AST7AstNodeEbS5_b(ptr noundef nonnull %2, ptr noundef nonnull %165, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext false)
           to label %318 unwind label %.loopexit.split-lp
 
 318:                                              ; preds = %._crit_edge205
@@ -18804,7 +18804,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit: ; preds = %_ZNSt6vectorIPN
   %721 = getelementptr inbounds i8, ptr %676, i64 16
   %722 = and i32 %678, 2
   %723 = icmp ne i32 %722, 0
-  %724 = invoke noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %721, i1 noundef zeroext %723, i1 noundef zeroext false)
+  %724 = invoke noundef nonnull ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %721, i1 noundef zeroext %723, i1 noundef zeroext false)
           to label %_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEb.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEb.exit: ; preds = %720
@@ -19197,7 +19197,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt
   %916 = getelementptr inbounds i8, ptr %799, i64 16
   %917 = and i32 %873, 2
   %918 = icmp ne i32 %917, 0
-  %919 = invoke noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %916, i1 noundef zeroext %918, i1 noundef zeroext false)
+  %919 = invoke noundef nonnull ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %916, i1 noundef zeroext %918, i1 noundef zeroext false)
           to label %_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEb.exit224 unwind label %.loopexit326
 
 _ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEb.exit224: ; preds = %915

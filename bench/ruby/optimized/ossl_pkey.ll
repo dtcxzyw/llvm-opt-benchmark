@@ -290,7 +290,7 @@ declare i32 @EVP_PKEY_missing_parameters(ptr noundef) local_unnamed_addr #1
 declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @GetPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @GetPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -310,7 +310,7 @@ declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @GetPrivPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @GetPrivPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -366,7 +366,7 @@ declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @DupPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @DupPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1250,7 +1250,7 @@ define internal i64 @ossl_pkey_sign(i32 noundef %0, ptr noundef %1, i64 noundef 
   unreachable
 
 22:                                               ; preds = %17
-  %23 = call i32 @EVP_DigestSignInit(ptr noundef nonnull %19, ptr noundef nonnull %8, ptr noundef %.0, ptr noundef null, ptr noundef %11) #8
+  %23 = call i32 @EVP_DigestSignInit(ptr noundef nonnull %19, ptr noundef nonnull %8, ptr noundef %.0, ptr noundef null, ptr noundef nonnull %11) #8
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 

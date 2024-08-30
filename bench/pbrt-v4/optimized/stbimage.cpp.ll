@@ -21536,7 +21536,7 @@ for.end:                                          ; preds = %if.end.i25, %_ZL12s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL18stbi__hdr_gettokenP13stbi__contextPc(ptr noundef %z, ptr noundef returned writeonly %buffer) unnamed_addr #5 {
+define internal fastcc noundef nonnull ptr @_ZL18stbi__hdr_gettokenP13stbi__contextPc(ptr noundef %z, ptr noundef returned writeonly %buffer) unnamed_addr #5 {
 entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %z, i64 192
   %0 = load ptr, ptr %img_buffer.i, align 8

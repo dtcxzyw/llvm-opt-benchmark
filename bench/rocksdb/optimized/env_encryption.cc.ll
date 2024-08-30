@@ -3612,7 +3612,7 @@ _ZNSt12__shared_ptrIN7rocksdb10FileSystemELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb15NewEncryptedEnvEPNS_3EnvERKSt10shared_ptrINS_18EncryptionProviderEE(ptr noundef %base_env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %provider) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb15NewEncryptedEnvEPNS_3EnvERKSt10shared_ptrINS_18EncryptionProviderEE(ptr noundef %base_env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %provider) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.97", align 8
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25

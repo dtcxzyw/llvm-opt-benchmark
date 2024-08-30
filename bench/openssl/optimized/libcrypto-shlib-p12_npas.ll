@@ -118,7 +118,7 @@ if.end25.i:                                       ; preds = %if.then15.i, %if.th
 
 for.body.i.i:                                     ; preds = %if.end25.i, %for.inc.i.i
   %i.010.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.end25.i ]
-  %call3.i.i = call ptr @OPENSSL_sk_value(ptr noundef %bags.3.i, i32 noundef %i.010.i.i) #3
+  %call3.i.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %bags.3.i, i32 noundef %i.010.i.i) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p8_nid.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p8_saltlen.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p8_iter.i.i.i)
@@ -183,7 +183,7 @@ for.inc.i.i:                                      ; preds = %if.end20.i.i.i, %fo
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cipherid.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %shalg.i.i.i)
   %inc.i.i = add nuw nsw i32 %i.010.i.i, 1
-  %call1.i.i = call i32 @OPENSSL_sk_num(ptr noundef %bags.3.i) #3
+  %call1.i.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %bags.3.i) #3
   %cmp.i.i = icmp slt i32 %inc.i.i, %call1.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %if.end30.i, !llvm.loop !4
 

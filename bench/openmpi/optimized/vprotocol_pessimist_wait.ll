@@ -542,7 +542,7 @@ mca_vprotocol_pessimist_wait_any.exit:            ; preds = %39, %._crit_edge.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait() unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i = alloca i64, align 8
   %2 = alloca ptr, align 8

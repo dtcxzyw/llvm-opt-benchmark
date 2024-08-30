@@ -182,7 +182,7 @@ try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define nonnull ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -417,7 +417,7 @@ try_val64_to_str_idx.exit:                        ; preds = %.lr.ph.i, %.lr.ph, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define nonnull ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -863,7 +863,7 @@ try_val_to_str_ext.exit.thread:                   ; preds = %6, %7, %try_val_to_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @val_to_str_ext_const(i32 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define nonnull ptr @val_to_str_ext_const(i32 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -1260,7 +1260,7 @@ try_val64_to_str_ext.exit.thread:                 ; preds = %6, %7, %try_val64_t
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @val64_to_str_ext_const(i64 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define nonnull ptr @val64_to_str_ext_const(i64 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -1616,7 +1616,7 @@ try_rval_to_str_idx.exit:                         ; preds = %13, %10, %2, %.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define nonnull ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 

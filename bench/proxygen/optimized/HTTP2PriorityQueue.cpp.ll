@@ -1734,7 +1734,7 @@ if.end:                                           ; preds = %while.end31, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef %newParent, i1 noundef zeroext %exclusive) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef %newParent, i1 noundef zeroext %exclusive) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %self = alloca %"class.std::unique_ptr", align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
@@ -4370,7 +4370,7 @@ if.then112:                                       ; preds = %while.body.i
 
 if.end115:                                        ; preds = %while.cond.i, %if.then112
   %tobool117 = trunc i64 %pri.coerce1 to i1
-  %call118 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %handle, ptr noundef %newParent.0, i1 noundef zeroext %tobool117)
+  %call118 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %handle, ptr noundef nonnull %newParent.0, i1 noundef zeroext %tobool117)
   %tobool119.not = icmp eq ptr %depth, null
   br i1 %tobool119.not, label %return, label %if.then120
 

@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.40 = private unnamed_addr constant [84 x i8] c"segno: %lu of purposed restart_lsn for the synced slot, oldest_segno: %lu available\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @CheckAndGetDbnameFromConninfo() local_unnamed_addr #0 {
+define dso_local nonnull ptr @CheckAndGetDbnameFromConninfo() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalReceiverFunctions, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8

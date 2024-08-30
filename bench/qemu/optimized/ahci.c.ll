@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @get_ahci_device(ptr noundef %qts, ptr noundef writeonly %fingerprint) local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_ahci_device(ptr noundef %qts, ptr noundef writeonly %fingerprint) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qpci_new_pc(ptr noundef %qts, ptr noundef null) #16
   %call1 = tail call ptr @qpci_device_find(ptr noundef %call, i32 noundef 250) #16

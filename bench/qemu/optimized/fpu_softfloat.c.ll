@@ -3418,7 +3418,7 @@ parts64_mul.exit:                                 ; preds = %lor.lhs.false.i.i79
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @parts64_mul(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_mul(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -4624,7 +4624,7 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_mul(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %call, ptr noundef %status)
+  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull %call, ptr noundef %status)
   ret i64 %call1
 }
 
@@ -6439,7 +6439,7 @@ parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @parts64_muladd(ptr noundef returned %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %c, i32 noundef %flags, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_muladd(ptr noundef returned %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %c, i32 noundef %flags, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %p_widen = alloca %struct.FloatParts128, align 8
   %c_widen = alloca %struct.FloatParts128, align 8
@@ -9170,7 +9170,7 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_div(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -9190,7 +9190,7 @@ float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @parts64_div(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_div(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -10389,7 +10389,7 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_div(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %call, ptr noundef %status)
+  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull %call, ptr noundef %status)
   ret i64 %call1
 }
 
@@ -11448,7 +11448,7 @@ if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
 
 float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if.then10.i.i29, %frac64_normalize.exit.i.i25, %if.then33.i.i32, %if.then47.i.i19, %if.else49.i.i15
   %call = call fastcc ptr @parts64_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
@@ -11468,7 +11468,7 @@ float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @parts64_modrem(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_modrem(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12105,7 +12105,7 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
@@ -12162,12 +12162,12 @@ entry:
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i12, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %call = call fastcc ptr @parts128_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef null, ptr noundef %status)
-  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %call, ptr noundef %status)
+  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %call, ptr noundef %status)
   ret { i64, i64 } %call1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @parts128_modrem(ptr noundef %a, ptr noundef %b, ptr noundef writeonly %mod_quot, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts128_modrem(ptr noundef %a, ptr noundef %b, ptr noundef writeonly %mod_quot, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12962,7 +12962,7 @@ floatx80_unpack_canonical.exit30:                 ; preds = %sw.epilog.i9
 if.end:                                           ; preds = %if.then10.i24, %if.else.i25
   %cond = select i1 %mod, ptr %quotient, ptr null
   %call3 = call fastcc ptr @parts128_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %cond, ptr noundef nonnull %status)
-  %call4 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %call3, ptr noundef nonnull %status)
+  %call4 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %call3, ptr noundef nonnull %status)
   %9 = extractvalue { i64, i16 } %call4, 0
   %10 = extractvalue { i64, i16 } %call4, 1
   br label %return
@@ -25163,7 +25163,7 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -25398,7 +25398,7 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 
 bfloat16_unpack_canonical.exit35:                 ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i36 = zext i8 %12 to i64
@@ -25631,7 +25631,7 @@ if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
 
 float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if.then10.i.i29, %frac64_normalize.exit.i.i25, %if.then33.i.i32, %if.then47.i.i19, %if.else49.i.i15
   %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
@@ -25862,7 +25862,7 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
@@ -36212,7 +36212,7 @@ return:                                           ; preds = %if.end103, %if.else
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parts64_minmax(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_minmax(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32

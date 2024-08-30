@@ -17406,7 +17406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5video13COpenGLDriver22addRenderTargetTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %format) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr5video13COpenGLDriver22addRenderTargetTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %format) unnamed_addr #0 align 2 {
 if.end:
   %destSize = alloca %"class.irr::core::dimension2d", align 8
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
@@ -17754,7 +17754,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 declare void @_ZN3irr5video11CNullDriver10addTextureEPNS0_8ITextureE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5video13COpenGLDriver29addRenderTargetTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(4344) %this, i32 noundef %sideLen, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %format) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr5video13COpenGLDriver29addRenderTargetTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(4344) %this, i32 noundef %sideLen, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %format) unnamed_addr #0 align 2 {
 if.end:
   %destSize = alloca %"class.irr::core::dimension2d", align 8
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
@@ -19053,7 +19053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5video18createOpenGLDriverERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN3irr5video18createOpenGLDriverERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(4368) ptr @_Znwm(i64 noundef 4368) #28
   tail call void @_ZN3irr5video13COpenGLDriverC1ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(4344) %call, ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager)

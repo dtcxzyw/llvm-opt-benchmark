@@ -1349,7 +1349,7 @@ get_global_option_cache.exit.thread:              ; preds = %0, %get_global_opti
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @_opt_env_name(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.8.val.0.val, ptr noundef returned %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc nonnull ptr @_opt_env_name(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.8.val.0.val, ptr noundef returned %0, i64 noundef %1) unnamed_addr #3 {
   %3 = tail call i64 @strlcpy(ptr noundef %0, ptr noundef nonnull dereferenceable(1) @.str.23, i64 noundef %1) #19
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %5 = add nsw i64 %1, -1

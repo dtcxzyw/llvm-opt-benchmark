@@ -15,14 +15,14 @@ define { ptr, ptr } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h574ba5f4e70a70c3E"(ptr readnone returned align 8 %0) unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h574ba5f4e70a70c3E"(ptr readnone returned align 8 %0) unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h57d3b4da572b1527E"(ptr readnone returned align 8 %0) unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h57d3b4da572b1527E"(ptr readnone returned align 8 %0) unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0

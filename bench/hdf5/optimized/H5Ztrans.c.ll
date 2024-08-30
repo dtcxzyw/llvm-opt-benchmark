@@ -8142,7 +8142,7 @@ define internal fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @H5Z__get_token(ptr noundef returned %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @H5Z__get_token(ptr noundef returned %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32

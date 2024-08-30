@@ -972,7 +972,7 @@ declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unname
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @max5data(i64 noundef %bytes, ptr noundef returned %max5) unnamed_addr #0 {
+define internal fastcc nonnull ptr @max5data(i64 noundef %bytes, ptr noundef returned %max5) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %bytes, 100000
   br i1 %cmp, label %if.then, label %if.else

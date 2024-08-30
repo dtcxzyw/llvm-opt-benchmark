@@ -575,7 +575,7 @@ _ZNK2OT9TTCHeader14get_face_countEv.exit:         ; preds = %83, %_ZNK2OT18Resou
 declare void @hb_blob_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_face_create_for_tables(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden nonnull ptr @hb_face_create_for_tables(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread, label %4
 
@@ -626,7 +626,7 @@ define hidden noundef nonnull ptr @hb_face_get_empty() local_unnamed_addr #3 {
 declare void @_ZN12hb_ot_face_t5init0EP9hb_face_t(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_face_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden nonnull ptr @hb_face_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.hb_sanitize_context_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6

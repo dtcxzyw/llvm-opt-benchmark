@@ -95,7 +95,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.get_dtype = private unnamed_addr constant [17 x ptr] [ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.16, ptr @.str.31], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @mm_alloc(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @mm_alloc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -115,7 +115,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @mmfatal(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @mm_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @mm_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -386,7 +386,7 @@ ECPGmake_struct_member.exit:                      ; preds = %97, %ECPGmake_struc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %mm_strdup.exit
@@ -430,7 +430,7 @@ mm_strdup.exit7:                                  ; preds = %ECPGmake_simple_typ
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ECPGmake_array_type(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @ECPGmake_array_type(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %ECPGmake_simple_type.exit
@@ -453,7 +453,7 @@ ECPGmake_simple_type.exit:                        ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ECPGmake_simple_type(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @ECPGmake_simple_type(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %mm_alloc.exit

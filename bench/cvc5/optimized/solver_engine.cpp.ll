@@ -7446,7 +7446,7 @@ _ZNSt12_Vector_baseISt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESaIS6_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4cvc58internal12SolverEngine17getAvailableModelEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK4cvc58internal12SolverEngine17getAvailableModelEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7980,7 +7980,7 @@ declare void @_ZN4cvc58internal16ModelCoreBuilderC1ERNS0_3EnvE(ptr noundef nonnu
 declare noundef zeroext i1 @_ZN4cvc58internal16ModelCoreBuilder12setModelCoreERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EEPNS0_6theory11TheoryModelENS0_7options14ModelCoresModeE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4cvc58internal12SolverEngine29getAvailableQuantifiersEngineEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK4cvc58internal12SolverEngine29getAvailableQuantifiersEngineEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8737,7 +8737,7 @@ lpad:                                             ; preds = %invoke.cont11, %if.
 if.end:                                           ; preds = %invoke.cont17, %invoke.cont13
   %d_checkModels = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load ptr, ptr %d_checkModels, align 8
-  invoke void @_ZN4cvc58internal3smt11CheckModels10checkModelEPNS0_6theory11TheoryModelERKNS_7context6CDListINS0_12NodeTemplateILb1EEENS6_14DefaultCleanUpIS9_EESaIS9_EEEb(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %call12, ptr noundef nonnull align 8 dereferenceable(74) %call3, i1 noundef zeroext %hardFailure)
+  invoke void @_ZN4cvc58internal3smt11CheckModels10checkModelEPNS0_6theory11TheoryModelERKNS_7context6CDListINS0_12NodeTemplateILb1EEENS6_14DefaultCleanUpIS9_EESaIS9_EEEb(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %call12, ptr noundef nonnull align 8 dereferenceable(74) %call3, i1 noundef zeroext %hardFailure)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.end
@@ -19354,7 +19354,7 @@ _ZN4cvc58internal12SolverEngine24getSubstitutedAssertionsEv.exit: ; preds = %inv
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal12SolverEngine24getSubstitutedAssertionsEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, i8 0, i64 24, i1 false)
-  invoke void @_ZN4cvc58internal12ModelBlocker15getModelBlockerERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EEPNS0_6theory11TheoryModelENS_5modes15BlockModelsModeES8_(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %eblocker, ptr noundef nonnull align 8 dereferenceable(16) %mb, ptr noundef nonnull align 8 dereferenceable(24) %eassertsProc, ptr noundef %call5, i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN4cvc58internal12ModelBlocker15getModelBlockerERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EEPNS0_6theory11TheoryModelENS_5modes15BlockModelsModeES8_(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %eblocker, ptr noundef nonnull align 8 dereferenceable(16) %mb, ptr noundef nonnull align 8 dereferenceable(24) %eassertsProc, ptr noundef nonnull %call5, i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
@@ -19654,7 +19654,7 @@ _ZN4cvc58internal12SolverEngine24getSubstitutedAssertionsEv.exit: ; preds = %inv
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN4cvc58internal12SolverEngine24getSubstitutedAssertionsEv.exit
-  invoke void @_ZN4cvc58internal12ModelBlocker15getModelBlockerERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EEPNS0_6theory11TheoryModelENS_5modes15BlockModelsModeES8_(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %eblocker, ptr noundef nonnull align 8 dereferenceable(16) %mb, ptr noundef nonnull align 8 dereferenceable(24) %eassertsProc, ptr noundef %call15, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %exprs)
+  invoke void @_ZN4cvc58internal12ModelBlocker15getModelBlockerERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EEPNS0_6theory11TheoryModelENS_5modes15BlockModelsModeES8_(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %eblocker, ptr noundef nonnull align 8 dereferenceable(16) %mb, ptr noundef nonnull align 8 dereferenceable(24) %eassertsProc, ptr noundef nonnull %call15, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %exprs)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont18

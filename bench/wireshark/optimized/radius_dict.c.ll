@@ -1201,7 +1201,7 @@ add_value.exit369:                                ; preds = %497, %509
   store i32 1, ptr %599, align 4
   %600 = load ptr, ptr %78, align 8
   %601 = call ptr @Radius__create_buffer(ptr noundef %600, i32 noundef 16384, ptr noundef nonnull %0)
-  call void @Radius__switch_to_buffer(ptr noundef %601, ptr noundef nonnull %0)
+  call void @Radius__switch_to_buffer(ptr noundef nonnull %601, ptr noundef nonnull %0)
   br label %602
 
 602:                                              ; preds = %593, %575
@@ -2076,7 +2076,7 @@ default.unreachable663:                           ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @Radius__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden nonnull ptr @Radius__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -3199,7 +3199,7 @@ define hidden noundef ptr @Radius__scan_buffer(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Radius__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden nonnull ptr @Radius__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @Radius__scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
@@ -3207,7 +3207,7 @@ define hidden noundef ptr @Radius__scan_string(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Radius__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden nonnull ptr @Radius__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #26

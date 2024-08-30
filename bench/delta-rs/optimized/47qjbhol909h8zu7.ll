@@ -120531,7 +120531,7 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hc08
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.18016462908235130027(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.18016462908235130027(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -140247,7 +140247,7 @@ define hidden void @_ZN9itertools11groupbylazy3new17ha172b3e24a2ebd59E(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(96) ptr @"_ZN14deltalake_core6kernel6models6fields60_$LT$impl$u20$deltalake_core..kernel..models..ActionType$GT$12schema_field17h1e8fecd759b98e88E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN14deltalake_core6kernel6models6fields60_$LT$impl$u20$deltalake_core..kernel..models..ActionType$GT$12schema_field17h1e8fecd759b98e88E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

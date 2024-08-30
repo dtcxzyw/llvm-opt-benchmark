@@ -555,7 +555,7 @@ define dso_local i32 @LookupTypeNameOid(ptr noundef %0, ptr nocapture noundef re
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @typenameType(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @typenameType(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %14
@@ -610,7 +610,7 @@ define dso_local i32 @typenameTypeId(ptr noundef %0, ptr nocapture noundef reado
   %8 = zext i8 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4
-  tail call void @ReleaseSysCache(ptr noundef %3) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %10
 }
 
@@ -625,7 +625,7 @@ define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr nocapture nounde
   %11 = getelementptr i8, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %2, align 4
-  tail call void @ReleaseSysCache(ptr noundef %5) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
@@ -843,7 +843,7 @@ LookupCollation.exit:                             ; preds = %.thread.i, %14
 declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @typeidType(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @typeidType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null

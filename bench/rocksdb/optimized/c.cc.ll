@@ -2579,7 +2579,7 @@ ehcleanup14:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_backup_engine_get_backup_info(ptr nocapture noundef readonly %be) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_backup_engine_get_backup_info(ptr nocapture noundef readonly %be) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
@@ -8013,7 +8013,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_create_column_family(ptr nocapture noundef readonly %db, ptr noundef %column_family_options, ptr noundef %column_family_name, ptr nocapture noundef %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_create_column_family(ptr nocapture noundef readonly %db, ptr noundef %column_family_options, ptr noundef %column_family_name, ptr nocapture noundef %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8433,7 +8433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_create_column_family_with_ttl(ptr nocapture noundef readonly %db, ptr noundef %column_family_options, ptr noundef %column_family_name, i32 noundef %ttl, ptr nocapture noundef %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_create_column_family_with_ttl(ptr nocapture noundef readonly %db, ptr noundef %column_family_options, ptr noundef %column_family_name, i32 noundef %ttl, ptr nocapture noundef %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12468,7 +12468,7 @@ if.end21:                                         ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_create_iterator(ptr nocapture noundef readonly %db, ptr noundef %options) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_create_iterator(ptr nocapture noundef readonly %db, ptr noundef %options) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %db, align 8
@@ -12725,7 +12725,7 @@ delete.notnull2:                                  ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_wal_iter_get_batch(ptr nocapture noundef readonly %iter, ptr noundef writeonly %seq) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_wal_iter_get_batch(ptr nocapture noundef readonly %iter, ptr noundef writeonly %seq) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %wal_batch = alloca %"struct.rocksdb::BatchResult", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #39
@@ -12823,7 +12823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_create_iterator_cf(ptr nocapture noundef readonly %db, ptr noundef %options, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_create_iterator_cf(ptr nocapture noundef readonly %db, ptr noundef %options, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %db, align 8
@@ -13095,7 +13095,7 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit28: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_create_snapshot(ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_create_snapshot(ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %db, align 8
@@ -13596,7 +13596,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_livefiles(ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_livefiles(ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
@@ -28181,7 +28181,7 @@ _ZNSt12__shared_ptrIN7rocksdb15MemoryAllocatorELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_cache_create_lru_with_strict_capacity_limit(i64 noundef %capacity) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_cache_create_lru_with_strict_capacity_limit(i64 noundef %capacity) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont.i:
   %ref.tmp.i = alloca %"struct.rocksdb::LRUCacheOptions", align 8
   %agg.tmp.i = alloca %"class.std::shared_ptr.221", align 8
@@ -28687,7 +28687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_write_buffer_manager_create(i64 noundef %buffer_size, i1 noundef zeroext %allow_stall) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_write_buffer_manager_create(i64 noundef %buffer_size, i1 noundef zeroext %allow_stall) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.22", align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
@@ -28928,7 +28928,7 @@ _ZNSt12__shared_ptrIN7rocksdb18WriteBufferManagerELN9__gnu_cxx12_Lock_policyE2EE
 declare void @_ZN7rocksdb18WriteBufferManagerC1EmSt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_write_buffer_manager_create_with_cache(i64 noundef %buffer_size, ptr nocapture noundef readonly %cache, i1 noundef zeroext %allow_stall) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_write_buffer_manager_create_with_cache(i64 noundef %buffer_size, ptr nocapture noundef readonly %cache, i1 noundef zeroext %allow_stall) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.22", align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
@@ -31868,7 +31868,7 @@ _ZN7rocksdb6StatusD2Ev.exit9:                     ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_get_column_family_metadata(ptr nocapture noundef readonly %db) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_get_column_family_metadata(ptr nocapture noundef readonly %db) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   invoke void @_ZN7rocksdb20ColumnFamilyMetaDataC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %call)
@@ -31894,7 +31894,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_get_column_family_metadata_cf(ptr nocapture noundef readonly %db, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_get_column_family_metadata_cf(ptr nocapture noundef readonly %db, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   invoke void @_ZN7rocksdb20ColumnFamilyMetaDataC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %call)
@@ -32416,7 +32416,7 @@ _ZN7rocksdb5SliceC2EPKc.exit:                     ; preds = %entry, %cond.false.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transactiondb_create_column_family(ptr nocapture noundef readonly %txn_db, ptr noundef %column_family_options, ptr noundef %column_family_name, ptr nocapture noundef %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_transactiondb_create_column_family(ptr nocapture noundef readonly %txn_db, ptr noundef %column_family_options, ptr noundef %column_family_name, ptr nocapture noundef %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -33278,7 +33278,7 @@ ehcleanup47:                                      ; preds = %if.then.i.i.i53, %e
 declare void @_ZN7rocksdb13TransactionDB4OpenERKNS_9DBOptionsERKNS_20TransactionDBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_22ColumnFamilyDescriptorESaISG_EEPSF_IPNS_18ColumnFamilyHandleESaISM_EEPPS0_(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(688), ptr noundef nonnull align 8 dereferenceable(145), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transactiondb_create_snapshot(ptr nocapture noundef readonly %txn_db) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_transactiondb_create_snapshot(ptr nocapture noundef readonly %txn_db) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %txn_db, align 8
@@ -33410,7 +33410,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transaction_begin(ptr nocapture noundef readonly %txn_db, ptr noundef %write_options, ptr noundef %txn_options, ptr noundef %old_txn) local_unnamed_addr #0 {
+define nonnull ptr @rocksdb_transaction_begin(ptr nocapture noundef readonly %txn_db, ptr noundef %write_options, ptr noundef %txn_options, ptr noundef %old_txn) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %old_txn, null
   br i1 %cmp, label %if.then, label %if.end
@@ -38366,7 +38366,7 @@ _ZN7rocksdb6StatusD2Ev.exit4:                     ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transaction_create_iterator(ptr nocapture noundef readonly %txn, ptr noundef %options) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_transaction_create_iterator(ptr nocapture noundef readonly %txn, ptr noundef %options) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %txn, align 8
@@ -38379,7 +38379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transaction_create_iterator_cf(ptr nocapture noundef readonly %txn, ptr noundef %options, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_transaction_create_iterator_cf(ptr nocapture noundef readonly %txn, ptr noundef %options, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %txn, align 8
@@ -38393,7 +38393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transactiondb_create_iterator(ptr nocapture noundef readonly %txn_db, ptr noundef %options) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_transactiondb_create_iterator(ptr nocapture noundef readonly %txn_db, ptr noundef %options) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %txn_db, align 8
@@ -38406,7 +38406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transactiondb_create_iterator_cf(ptr nocapture noundef readonly %txn_db, ptr noundef %options, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 {
+define noundef nonnull ptr @rocksdb_transactiondb_create_iterator_cf(ptr nocapture noundef readonly %txn_db, ptr noundef %options, ptr nocapture noundef readonly %column_family) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
   %0 = load ptr, ptr %txn_db, align 8
@@ -39693,7 +39693,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_optimistictransaction_begin(ptr nocapture noundef readonly %otxn_db, ptr noundef %write_options, ptr noundef %otxn_options, ptr noundef %old_txn) local_unnamed_addr #0 {
+define nonnull ptr @rocksdb_optimistictransaction_begin(ptr nocapture noundef readonly %otxn_db, ptr noundef %write_options, ptr noundef %otxn_options, ptr noundef %old_txn) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %old_txn, null
   br i1 %cmp, label %if.then, label %if.end

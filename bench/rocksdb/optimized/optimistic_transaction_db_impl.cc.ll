@@ -690,7 +690,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb27OptimisticTransactionDBImpl16BeginTransactionERKNS_12WriteOptionsERKNS_28OptimisticTransactionOptionsEPNS_11TransactionE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(16) %txn_options, ptr noundef %old_txn) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb27OptimisticTransactionDBImpl16BeginTransactionERKNS_12WriteOptionsERKNS_28OptimisticTransactionOptionsEPNS_11TransactionE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(16) %txn_options, ptr noundef %old_txn) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %old_txn, null
   br i1 %cmp.not, label %if.else, label %if.then

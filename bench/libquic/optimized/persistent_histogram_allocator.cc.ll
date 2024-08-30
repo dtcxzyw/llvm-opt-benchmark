@@ -202,7 +202,7 @@ _ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %id, ptr noundef %user) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %id, ptr noundef %user) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
@@ -2015,7 +2015,7 @@ _ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %id, ptr noundef %user) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %id, ptr noundef %user) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sparse_histogram_data_manager_ = getelementptr inbounds i8, ptr %this, i64 16
   %lock_.i = getelementptr inbounds i8, ptr %this, i64 88

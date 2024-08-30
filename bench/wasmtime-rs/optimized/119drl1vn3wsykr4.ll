@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h1a03236a1bb3dde6E"(ptr readnone returned align 8 %0) unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h1a03236a1bb3dde6E"(ptr readnone returned align 8 %0) unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0
@@ -27,7 +27,7 @@ define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr readnone returned align 2 %0) unnamed_addr #0 {
+define nonnull align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr readnone returned align 2 %0) unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0

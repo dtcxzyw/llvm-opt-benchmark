@@ -1630,7 +1630,7 @@ declare noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 der
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN24MethodHandlesAdapterBlob6createEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN24MethodHandlesAdapterBlob6createEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1961,7 +1961,7 @@ define hidden noundef ptr @_ZN11RuntimeStubnwEmj(i64 noundef %0, i32 noundef %1)
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13SingletonBlobnwEmj(i64 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN13SingletonBlobnwEmj(i64 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN9CodeCache8allocateEj12CodeBlobTypebS0_(i32 noundef %1, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1992,7 +1992,7 @@ define hidden void @_ZN18DeoptimizationBlobC2EP10CodeBufferiP9OopMapSetiiii(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN18DeoptimizationBlob6createEP10CodeBufferP9OopMapSetiiii(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN18DeoptimizationBlob6createEP10CodeBufferP9OopMapSetiiii(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
   %7 = tail call noundef i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr noundef nonnull align 8 dereferenceable(448) %0) #10
   %8 = add i32 %7, 7
   %9 = and i32 %8, -8
@@ -2147,7 +2147,7 @@ define hidden void @_ZN16UncommonTrapBlobC2EP10CodeBufferiP9OopMapSeti(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16UncommonTrapBlob6createEP10CodeBufferP9OopMapSeti(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN16UncommonTrapBlob6createEP10CodeBufferP9OopMapSeti(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr noundef nonnull align 8 dereferenceable(448) %0) #10
   %5 = add i32 %4, 7
   %6 = and i32 %5, -8
@@ -2294,7 +2294,7 @@ define hidden void @_ZN13ExceptionBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13ExceptionBlob6createEP10CodeBufferP9OopMapSeti(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN13ExceptionBlob6createEP10CodeBufferP9OopMapSeti(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr noundef nonnull align 8 dereferenceable(448) %0) #10
   %5 = add i32 %4, 7
   %6 = and i32 %5, -8
@@ -2441,7 +2441,7 @@ define hidden void @_ZN13SafepointBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13SafepointBlob6createEP10CodeBufferP9OopMapSeti(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN13SafepointBlob6createEP10CodeBufferP9OopMapSeti(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr noundef nonnull align 8 dereferenceable(448) %0) #10
   %5 = add i32 %4, 7
   %6 = and i32 %5, -8

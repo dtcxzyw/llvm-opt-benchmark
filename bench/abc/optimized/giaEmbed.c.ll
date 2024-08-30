@@ -4371,7 +4371,7 @@ Vec_IntFree.exit24:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Emb_ManRandomVertex(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define nonnull ptr @Emb_ManRandomVertex(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 40
   br label %.critedge
 

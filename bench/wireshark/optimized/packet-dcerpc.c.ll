@@ -1279,7 +1279,7 @@ declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @value_string_from_subdissectors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden nonnull ptr @value_string_from_subdissectors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   br label %3
 

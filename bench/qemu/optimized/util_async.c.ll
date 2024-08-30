@@ -636,7 +636,7 @@ declare ptr @luring_init(ptr noundef) local_unnamed_addr #2
 declare void @luring_attach_aio_context(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aio_get_linux_io_uring(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define dso_local nonnull ptr @aio_get_linux_io_uring(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %linux_io_uring = getelementptr inbounds i8, ptr %ctx, i64 248
   %0 = load ptr, ptr %linux_io_uring, align 8

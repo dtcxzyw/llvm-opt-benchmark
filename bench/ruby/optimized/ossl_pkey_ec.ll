@@ -389,13 +389,13 @@ define internal i64 @ossl_ec_key_s_generate(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %5, i32 noundef 408, ptr noundef %4) #6
+  %7 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %5, i32 noundef 408, ptr noundef nonnull %4) #6
   %.not10 = icmp eq i32 %7, 1
   br i1 %.not10, label %10, label %8
 
 8:                                                ; preds = %6, %2
   tail call void @EVP_PKEY_free(ptr noundef %5) #6
-  tail call void @EC_KEY_free(ptr noundef %4) #6
+  tail call void @EC_KEY_free(ptr noundef nonnull %4) #6
   %9 = load i64, ptr @eECError, align 8
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.57) #8
   unreachable
@@ -404,7 +404,7 @@ define internal i64 @ossl_ec_key_s_generate(i64 noundef %0, i64 noundef %1) #0 {
   %11 = inttoptr i64 %3 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %5, ptr %12, align 8
-  %13 = tail call i32 @EC_KEY_generate_key(ptr noundef %4) #6
+  %13 = tail call i32 @EC_KEY_generate_key(ptr noundef nonnull %4) #6
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %14, label %16
 
@@ -496,13 +496,13 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
   br i1 %.not30, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %38, i32 noundef 408, ptr noundef %.022) #6
+  %40 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %38, i32 noundef 408, ptr noundef nonnull %.022) #6
   %.not31 = icmp eq i32 %40, 1
   br i1 %.not31, label %43, label %41
 
 41:                                               ; preds = %39, %37
   call void @EVP_PKEY_free(ptr noundef %38) #6
-  call void @EC_KEY_free(ptr noundef %.022) #6
+  call void @EC_KEY_free(ptr noundef nonnull %.022) #6
   %42 = load i64, ptr @eECError, align 8
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %42, ptr noundef nonnull @.str.57) #8
   unreachable
@@ -2270,7 +2270,7 @@ declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_
 declare i64 @rb_obj_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ec_key_new_from_group(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @ec_key_new_from_group(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr @cEC_GROUP, align 8

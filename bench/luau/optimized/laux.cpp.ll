@@ -308,7 +308,7 @@ _Z17luaL_checklstringP9lua_StateiPm.exit:         ; preds = %13, %7, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -356,7 +356,7 @@ declare void @_Z13lua_pushvalueP9lua_Statei(ptr noundef, i32 noundef) local_unna
 declare void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z15luaL_checkudataP9lua_StateiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @_Z15luaL_checkudataP9lua_StateiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call noundef ptr @_Z14lua_touserdataP9lua_Statei(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -388,7 +388,7 @@ declare noundef i32 @_Z16lua_getmetatableP9lua_Statei(ptr noundef, i32 noundef) 
 declare noundef i32 @_Z12lua_rawequalP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call noundef ptr @_Z12lua_tobufferP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -636,7 +636,7 @@ _Z18luaL_checkunsignedP9lua_Statei.exit:          ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16luaL_checkvectorP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @_Z16luaL_checkvectorP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noundef ptr @_Z12lua_tovectorP9lua_Statei(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5

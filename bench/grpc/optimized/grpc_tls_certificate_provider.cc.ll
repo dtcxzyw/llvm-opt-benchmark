@@ -3387,7 +3387,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_tls_certificate_provider_static_data_create(ptr noundef %root_certificate, ptr noundef %pem_key_cert_pairs) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @grpc_tls_certificate_provider_static_data_create(ptr noundef %root_certificate, ptr noundef %pem_key_cert_pairs) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %identity_pairs_core = alloca %"class.std::vector", align 8
@@ -3663,7 +3663,7 @@ ehcleanup:                                        ; preds = %lpad13, %lpad
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_tls_certificate_provider_file_watcher_create(ptr noundef %private_key_path, ptr noundef %identity_certificate_path, ptr noundef %root_cert_path, i32 noundef %refresh_interval_sec) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @grpc_tls_certificate_provider_file_watcher_create(ptr noundef %private_key_path, ptr noundef %identity_certificate_path, ptr noundef %root_cert_path, i32 noundef %refresh_interval_sec) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -8659,7 +8659,7 @@ _ZN5QListIP13QGraphicsItemED2Ev.exit41:           ; preds = %70, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN19QualityMapperDialog10clearItemsEi(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN19QualityMapperDialog10clearItemsEi(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -10720,7 +10720,7 @@ declare float @powf(float noundef, float noundef) local_unnamed_addr #17
 declare float @llvm.fmuladd.f32(float, float, float) #16
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN19QualityMapperDialog10clearSceneEP14QGraphicsScenei(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN19QualityMapperDialog10clearSceneEP14QGraphicsScenei(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %class.QList, align 8
   %6 = alloca %"class.QtPrivate::QForeachContainer", align 8

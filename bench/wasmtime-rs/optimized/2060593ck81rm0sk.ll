@@ -18,7 +18,7 @@ define i64 @_ZN4core3cmp6max_by17h3e69928b781c3692E(i64 %0, i64 %1, ptr align 1 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @_ZN4core3cmp6max_by17h4da1ba4a31c68a77E(ptr align 8 %0, ptr align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @_ZN4core3cmp6max_by17h4da1ba4a31c68a77E(ptr align 8 %0, ptr align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8

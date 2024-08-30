@@ -465,7 +465,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_git_dir() local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_git_dir() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %1 = load ptr, ptr %0, align 8
@@ -484,7 +484,7 @@ if.end:                                           ; preds = %entry
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_git_common_dir() local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_git_common_dir() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %commondir = getelementptr inbounds i8, ptr %0, i64 8
@@ -501,7 +501,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_git_namespace() local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_git_namespace() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @git_namespace, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -668,7 +668,7 @@ declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) lo
 declare i32 @safe_create_leading_directories_const(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_index_file() local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_index_file() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %index_file = getelementptr inbounds i8, ptr %0, i64 120
@@ -685,7 +685,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_graft_file(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_graft_file(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
   %graft_file = getelementptr inbounds i8, ptr %r, i64 112
   %0 = load ptr, ptr %graft_file, align 8

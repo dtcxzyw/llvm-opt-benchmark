@@ -180,7 +180,7 @@ return:                                           ; preds = %if.end, %if.end7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @connectionTypeTcp() local_unnamed_addr #0 {
+define dso_local nonnull ptr @connectionTypeTcp() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @connectionTypeTcp.ct_tcp, align 8
   %cmp.not = icmp eq ptr %0, null

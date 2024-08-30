@@ -781,7 +781,7 @@ _ZN10TypeRawPtr4makeEPh.exit:                     ; preds = %35, %37
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr %18, ptr %46, align 8
-  %47 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %47 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit
 
 48:                                               ; preds = %1
@@ -805,7 +805,7 @@ _ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit: ; preds = %54, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10TypeRawPtr4makeEPh(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10TypeRawPtr4makeEPh(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -1366,7 +1366,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %279, %277
 
 _ZNK4Type14make_narrowoopEv.exit.sink.split:      ; preds = %_ZN7TypeInt4makeEi.exit, %_ZN7TypeInt4makeEi.exit18, %_ZN7TypeInt4makeEi.exit21, %_ZN7TypeInt4makeEi.exit24, %_ZN7TypeInt4makeEi.exit27, %_ZN8TypeLong4makeEl.exit, %_ZN5TypeF4makeEf.exit, %_ZN5TypeD4makeEd.exit, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i
   %.0.i.i.i.i.i.sink = phi ptr [ %.0.i.i.i.i.i, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i ], [ %.0.i.i.i.i33, %_ZN5TypeD4makeEd.exit ], [ %.0.i.i.i.i31, %_ZN5TypeF4makeEf.exit ], [ %.0.i.i.i.i29, %_ZN8TypeLong4makeEl.exit ], [ %.0.i.i.i.i26, %_ZN7TypeInt4makeEi.exit27 ], [ %.0.i.i.i.i23, %_ZN7TypeInt4makeEi.exit24 ], [ %.0.i.i.i.i20, %_ZN7TypeInt4makeEi.exit21 ], [ %.0.i.i.i.i17, %_ZN7TypeInt4makeEi.exit18 ], [ %.0.i.i.i.i, %_ZN7TypeInt4makeEi.exit ]
-  %285 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i.sink)
+  %285 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i.sink)
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %_ZNK4Type14make_narrowoopEv.exit.sink.split, %258, %254, %6, %253
@@ -1375,7 +1375,7 @@ _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %_ZNK4Type14make_nar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN7TypeInt4makeEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -1425,7 +1425,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8TypeLong4makeEl(i64 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8TypeLong4makeEl(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -1475,7 +1475,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5TypeF4makeEf(float noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN5TypeF4makeEf(float noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -1521,7 +1521,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5TypeD4makeEd(double noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN5TypeD4makeEd(double noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -1658,7 +1658,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %50)
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i63, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %18, ptr noundef %17, i1 noundef zeroext %.0.i61, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i63, align 8
-  %51 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i63)
+  %51 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i63)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %291
 
@@ -1718,8 +1718,8 @@ _ZN7TypeInt4makeEi.exit:                          ; preds = %78, %80
   store i32 %61, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 28
   store i32 %61, ptr %87, align 4
-  %88 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
-  %89 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %59, ptr noundef %88, i1 noundef zeroext false)
+  %88 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %89 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef nonnull %59, ptr noundef nonnull %88, i1 noundef zeroext false)
   %90 = getelementptr inbounds i8, ptr %8, i64 16
   %91 = load ptr, ptr %90, align 8
   %.not.i.i = icmp eq ptr %91, null
@@ -1786,8 +1786,8 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib.exit:
   %.0.i.i.i.i28 = phi ptr [ %120, %124 ], [ %127, %126 ]
   %128 = icmp ne ptr %.0.i.i.i.i28, null
   tail call void @llvm.assume(i1 %128)
-  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i28, i32 noundef 2, ptr noundef nonnull %0, ptr noundef %89, ptr noundef %.0.i, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %129 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i28)
+  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i28, i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %89, ptr noundef %.0.i, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
+  %129 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i28)
   br label %291
 
 130:                                              ; preds = %_ZN7TypeInt4makeEi.exit
@@ -1851,8 +1851,8 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit: ; preds = 
   %.0.i.i.i.i34 = phi ptr [ %158, %162 ], [ %165, %164 ]
   %166 = icmp ne ptr %.0.i.i.i.i34, null
   tail call void @llvm.assume(i1 %166)
-  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i34, i32 noundef 4, ptr noundef null, ptr noundef %89, ptr noundef %.0.i32, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %167 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i34)
+  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i34, i32 noundef 4, ptr noundef null, ptr noundef nonnull %89, ptr noundef %.0.i32, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
+  %167 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i34)
   br label %291
 
 168:                                              ; preds = %52
@@ -1916,8 +1916,8 @@ _ZN7TypeInt4makeEi.exit39:                        ; preds = %199, %201
   store i32 %182, ptr %207, align 8
   %208 = getelementptr inbounds i8, ptr %.0.i.i.i.i38, i64 28
   store i32 %182, ptr %208, align 4
-  %209 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i38)
-  %210 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %180, ptr noundef %209, i1 noundef zeroext false)
+  %209 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i38)
+  %210 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %180, ptr noundef nonnull %209, i1 noundef zeroext false)
   %211 = getelementptr inbounds i8, ptr %8, i64 16
   %212 = load ptr, ptr %211, align 8
   %.not.i.i42 = icmp eq ptr %212, null
@@ -1984,8 +1984,8 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib.exit4
   %.0.i.i.i.i46 = phi ptr [ %241, %245 ], [ %248, %247 ]
   %249 = icmp ne ptr %.0.i.i.i.i46, null
   tail call void @llvm.assume(i1 %249)
-  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i46, i32 noundef 2, ptr noundef nonnull %0, ptr noundef %210, ptr noundef %.0.i44, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %250 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i46)
+  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i46, i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %210, ptr noundef %.0.i44, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
+  %250 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i46)
   br label %291
 
 251:                                              ; preds = %_ZN7TypeInt4makeEi.exit39
@@ -2049,8 +2049,8 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit58: ; preds 
   %.0.i.i.i.i55 = phi ptr [ %279, %283 ], [ %286, %285 ]
   %287 = icmp ne ptr %.0.i.i.i.i55, null
   tail call void @llvm.assume(i1 %287)
-  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i55, i32 noundef 4, ptr noundef null, ptr noundef %210, ptr noundef %.0.i53, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %288 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i55)
+  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i55, i32 noundef 4, ptr noundef null, ptr noundef nonnull %210, ptr noundef %.0.i53, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
+  %288 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i55)
   br label %291
 
 289:                                              ; preds = %168
@@ -2065,7 +2065,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit58: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr21cast_to_autobox_cacheEv(ptr noundef nonnull align 8 dereferenceable(89) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr21cast_to_autobox_cacheEv(ptr noundef nonnull align 8 dereferenceable(89) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -2127,7 +2127,7 @@ _ZNK4Type11make_oopptrEv.exit:                    ; preds = %5, %13
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 32
   %50 = load i32, ptr %49, align 8
-  %51 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %32, ptr noundef %34, ptr noundef %30, ptr noundef %38, i1 noundef zeroext %42, i32 noundef %44, i32 noundef %46, ptr noundef %48, i32 noundef %50, i1 noundef zeroext true)
+  %51 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %32, ptr noundef %34, ptr noundef nonnull %30, ptr noundef %38, i1 noundef zeroext %42, i32 noundef %44, i32 noundef %46, ptr noundef %48, i32 noundef %50, i1 noundef zeroext true)
   br label %52
 
 52:                                               ; preds = %_ZNK4Type11make_oopptrEv.exit, %1, %19
@@ -2136,7 +2136,7 @@ _ZNK4Type11make_oopptrEv.exit:                    ; preds = %5, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr14cast_to_stableEbi(ptr noundef nonnull align 8 dereferenceable(89) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr14cast_to_stableEbi(ptr noundef nonnull align 8 dereferenceable(89) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %63, label %5
 
@@ -2204,7 +2204,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %19, %22, %25
   %.015 = phi ptr [ %36, %34 ], [ %16, %31 ], [ %16, %_ZNK4Type8make_ptrEv.exit ]
   %39 = getelementptr inbounds i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %.015, ptr noundef %40, i1 noundef zeroext %1)
+  %41 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef nonnull %.015, ptr noundef %40, i1 noundef zeroext %1)
   %42 = getelementptr inbounds i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2225,7 +2225,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %19, %22, %25
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 32
   %61 = load i32, ptr %60, align 8
-  %62 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %43, ptr noundef %45, ptr noundef %41, ptr noundef %49, i1 noundef zeroext %53, i32 noundef %55, i32 noundef %57, ptr noundef %59, i32 noundef %61, i1 noundef zeroext false)
+  %62 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %43, ptr noundef %45, ptr noundef nonnull %41, ptr noundef %49, i1 noundef zeroext %53, i32 noundef %55, i32 noundef %57, ptr noundef %59, i32 noundef %61, i1 noundef zeroext false)
   br label %63
 
 63:                                               ; preds = %3, %9, %37
@@ -2554,7 +2554,7 @@ declare noundef zeroext i1 @_ZN10ciCallSite39is_fully_initialized_constant_call_
 declare void @_ZN12Dependencies29assert_call_site_target_valueEP10ciCallSiteP14ciMethodHandle(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN4Type4makeENS_5TYPESE(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN4Type4makeENS_5TYPESE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -2598,7 +2598,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -2801,7 +2801,7 @@ _ZN4Type4makeENS_5TYPESE.exit:                    ; preds = %31, %33
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 1, ptr %37, align 8
-  %38 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %38 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   store ptr %38, ptr @_ZN4Type7CONTROLE, align 8
   %39 = load ptr, ptr %15, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 1808
@@ -2840,7 +2840,7 @@ _ZN4Type4makeENS_5TYPESE.exit62:                  ; preds = %54, %56
   store ptr null, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %.0.i.i.i.i61, i64 16
   store i32 2, ptr %60, align 8
-  %61 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i61)
+  %61 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i61)
   store ptr %61, ptr @_ZN4Type3TOPE, align 8
   %62 = load ptr, ptr %15, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 1808
@@ -2879,7 +2879,7 @@ _ZN4Type4makeENS_5TYPESE.exit65:                  ; preds = %77, %79
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %.0.i.i.i.i64, i64 16
   store i32 30, ptr %83, align 8
-  %84 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i64)
+  %84 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i64)
   store ptr %84, ptr @_ZN4Type6MEMORYE, align 8
   %85 = load ptr, ptr %15, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 1808
@@ -2918,7 +2918,7 @@ _ZN4Type4makeENS_5TYPESE.exit68:                  ; preds = %100, %102
   store ptr null, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %.0.i.i.i.i67, i64 16
   store i32 28, ptr %106, align 8
-  %107 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i67)
+  %107 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i67)
   store ptr %107, ptr @_ZN4Type4ABIOE, align 8
   %108 = load ptr, ptr %15, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 1808
@@ -2957,7 +2957,7 @@ _ZN4Type4makeENS_5TYPESE.exit71:                  ; preds = %123, %125
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %.0.i.i.i.i70, i64 16
   store i32 29, ptr %129, align 8
-  %130 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i70)
+  %130 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i70)
   store ptr %130, ptr @_ZN4Type14RETURN_ADDRESSE, align 8
   %131 = load ptr, ptr %15, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 1808
@@ -2996,7 +2996,7 @@ _ZN4Type4makeENS_5TYPESE.exit74:                  ; preds = %146, %148
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %.0.i.i.i.i73, i64 16
   store i32 33, ptr %152, align 8
-  %153 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i73)
+  %153 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i73)
   store ptr %153, ptr @_ZN4Type5FLOATE, align 8
   %154 = load ptr, ptr %15, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 1808
@@ -3035,7 +3035,7 @@ _ZN4Type4makeENS_5TYPESE.exit77:                  ; preds = %169, %171
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %.0.i.i.i.i76, i64 16
   store i32 36, ptr %175, align 8
-  %176 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i76)
+  %176 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i76)
   store ptr %176, ptr @_ZN4Type6DOUBLEE, align 8
   %177 = load ptr, ptr %15, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 1808
@@ -3074,7 +3074,7 @@ _ZN4Type4makeENS_5TYPESE.exit80:                  ; preds = %192, %194
   store ptr null, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %.0.i.i.i.i79, i64 16
   store i32 37, ptr %198, align 8
-  %199 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i79)
+  %199 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i79)
   store ptr %199, ptr @_ZN4Type6BOTTOME, align 8
   %200 = load ptr, ptr %15, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 1808
@@ -3113,7 +3113,7 @@ _ZN4Type4makeENS_5TYPESE.exit83:                  ; preds = %215, %217
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds i8, ptr %.0.i.i.i.i82, i64 16
   store i32 5, ptr %221, align 8
-  %222 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i82)
+  %222 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i82)
   store ptr %222, ptr @_ZN4Type4HALFE, align 8
   %223 = load float, ptr @_ZL10max_jfloat, align 4
   %224 = load ptr, ptr %15, align 8
@@ -3155,7 +3155,7 @@ _ZN5TypeF4makeEf.exit:                            ; preds = %239, %241
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i85, align 8
   %246 = getelementptr inbounds i8, ptr %.0.i.i.i.i85, i64 20
   store float %223, ptr %246, align 4
-  %247 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i85)
+  %247 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i85)
   store ptr %247, ptr @_ZN5TypeF3MAXE, align 8
   %248 = load float, ptr @_ZL10min_jfloat, align 4
   %249 = load ptr, ptr %15, align 8
@@ -3197,7 +3197,7 @@ _ZN5TypeF4makeEf.exit88:                          ; preds = %264, %266
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i87, align 8
   %271 = getelementptr inbounds i8, ptr %.0.i.i.i.i87, i64 20
   store float %248, ptr %271, align 4
-  %272 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i87)
+  %272 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i87)
   store ptr %272, ptr @_ZN5TypeF3MINE, align 8
   %273 = load ptr, ptr %15, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 1808
@@ -3238,7 +3238,7 @@ _ZN5TypeF4makeEf.exit91:                          ; preds = %288, %290
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i90, align 8
   %295 = getelementptr inbounds i8, ptr %.0.i.i.i.i90, i64 20
   store float 0.000000e+00, ptr %295, align 4
-  %296 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i90)
+  %296 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i90)
   store ptr %296, ptr @_ZN5TypeF4ZEROE, align 8
   %297 = load ptr, ptr %15, align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 1808
@@ -3279,7 +3279,7 @@ _ZN5TypeF4makeEf.exit94:                          ; preds = %312, %314
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i93, align 8
   %319 = getelementptr inbounds i8, ptr %.0.i.i.i.i93, i64 20
   store float 1.000000e+00, ptr %319, align 4
-  %320 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i93)
+  %320 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i93)
   store ptr %320, ptr @_ZN5TypeF3ONEE, align 8
   %321 = load ptr, ptr %15, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 1808
@@ -3320,7 +3320,7 @@ _ZN5TypeF4makeEf.exit97:                          ; preds = %336, %338
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i96, align 8
   %343 = getelementptr inbounds i8, ptr %.0.i.i.i.i96, i64 20
   store float 0x7FF0000000000000, ptr %343, align 4
-  %344 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i96)
+  %344 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i96)
   store ptr %344, ptr @_ZN5TypeF7POS_INFE, align 8
   %345 = load ptr, ptr %15, align 8
   %346 = getelementptr inbounds i8, ptr %345, i64 1808
@@ -3361,7 +3361,7 @@ _ZN5TypeF4makeEf.exit100:                         ; preds = %360, %362
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i99, align 8
   %367 = getelementptr inbounds i8, ptr %.0.i.i.i.i99, i64 20
   store float 0xFFF0000000000000, ptr %367, align 4
-  %368 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i99)
+  %368 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i99)
   store ptr %368, ptr @_ZN5TypeF7NEG_INFE, align 8
   %369 = load double, ptr @_ZL11max_jdouble, align 8
   %370 = load ptr, ptr %15, align 8
@@ -3403,7 +3403,7 @@ _ZN5TypeD4makeEd.exit:                            ; preds = %385, %387
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i102, align 8
   %392 = getelementptr inbounds i8, ptr %.0.i.i.i.i102, i64 24
   store double %369, ptr %392, align 8
-  %393 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i102)
+  %393 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i102)
   store ptr %393, ptr @_ZN5TypeD3MAXE, align 8
   %394 = load double, ptr @_ZL11min_jdouble, align 8
   %395 = load ptr, ptr %15, align 8
@@ -3445,7 +3445,7 @@ _ZN5TypeD4makeEd.exit105:                         ; preds = %410, %412
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i104, align 8
   %417 = getelementptr inbounds i8, ptr %.0.i.i.i.i104, i64 24
   store double %394, ptr %417, align 8
-  %418 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i104)
+  %418 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i104)
   store ptr %418, ptr @_ZN5TypeD3MINE, align 8
   %419 = load ptr, ptr %15, align 8
   %420 = getelementptr inbounds i8, ptr %419, i64 1808
@@ -3486,7 +3486,7 @@ _ZN5TypeD4makeEd.exit108:                         ; preds = %434, %436
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i107, align 8
   %441 = getelementptr inbounds i8, ptr %.0.i.i.i.i107, i64 24
   store double 0.000000e+00, ptr %441, align 8
-  %442 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i107)
+  %442 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i107)
   store ptr %442, ptr @_ZN5TypeD4ZEROE, align 8
   %443 = load ptr, ptr %15, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 1808
@@ -3527,7 +3527,7 @@ _ZN5TypeD4makeEd.exit111:                         ; preds = %458, %460
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i110, align 8
   %465 = getelementptr inbounds i8, ptr %.0.i.i.i.i110, i64 24
   store double 1.000000e+00, ptr %465, align 8
-  %466 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i110)
+  %466 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i110)
   store ptr %466, ptr @_ZN5TypeD3ONEE, align 8
   %467 = load ptr, ptr %15, align 8
   %468 = getelementptr inbounds i8, ptr %467, i64 1808
@@ -3568,7 +3568,7 @@ _ZN5TypeD4makeEd.exit114:                         ; preds = %482, %484
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i113, align 8
   %489 = getelementptr inbounds i8, ptr %.0.i.i.i.i113, i64 24
   store double 0x7FF0000000000000, ptr %489, align 8
-  %490 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i113)
+  %490 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i113)
   store ptr %490, ptr @_ZN5TypeD7POS_INFE, align 8
   %491 = load ptr, ptr %15, align 8
   %492 = getelementptr inbounds i8, ptr %491, i64 1808
@@ -3609,7 +3609,7 @@ _ZN5TypeD4makeEd.exit117:                         ; preds = %506, %508
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i116, align 8
   %513 = getelementptr inbounds i8, ptr %.0.i.i.i.i116, i64 24
   store double 0xFFF0000000000000, ptr %513, align 8
-  %514 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i116)
+  %514 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i116)
   store ptr %514, ptr @_ZN5TypeD7NEG_INFE, align 8
   %515 = load ptr, ptr %15, align 8
   %516 = getelementptr inbounds i8, ptr %515, i64 1808
@@ -3654,7 +3654,7 @@ _ZN7TypeInt4makeEi.exit:                          ; preds = %530, %532
   store i32 2147483647, ptr %538, align 8
   %539 = getelementptr inbounds i8, ptr %.0.i.i.i.i119, i64 28
   store i32 2147483647, ptr %539, align 4
-  %540 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i119)
+  %540 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i119)
   store ptr %540, ptr @_ZN7TypeInt3MAXE, align 8
   %541 = load ptr, ptr %15, align 8
   %542 = getelementptr inbounds i8, ptr %541, i64 1808
@@ -3699,7 +3699,7 @@ _ZN7TypeInt4makeEi.exit122:                       ; preds = %556, %558
   store i32 -2147483648, ptr %564, align 8
   %565 = getelementptr inbounds i8, ptr %.0.i.i.i.i121, i64 28
   store i32 -2147483648, ptr %565, align 4
-  %566 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i121)
+  %566 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i121)
   store ptr %566, ptr @_ZN7TypeInt3MINE, align 8
   %567 = load ptr, ptr %15, align 8
   %568 = getelementptr inbounds i8, ptr %567, i64 1808
@@ -3744,7 +3744,7 @@ _ZN7TypeInt4makeEi.exit125:                       ; preds = %582, %584
   store i32 -1, ptr %590, align 8
   %591 = getelementptr inbounds i8, ptr %.0.i.i.i.i124, i64 28
   store i32 -1, ptr %591, align 4
-  %592 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i124)
+  %592 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i124)
   store ptr %592, ptr @_ZN7TypeInt7MINUS_1E, align 8
   %593 = load ptr, ptr %15, align 8
   %594 = getelementptr inbounds i8, ptr %593, i64 1808
@@ -3789,7 +3789,7 @@ _ZN7TypeInt4makeEi.exit128:                       ; preds = %608, %610
   store i32 0, ptr %616, align 8
   %617 = getelementptr inbounds i8, ptr %.0.i.i.i.i127, i64 28
   store i32 0, ptr %617, align 4
-  %618 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i127)
+  %618 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i127)
   store ptr %618, ptr @_ZN7TypeInt4ZEROE, align 8
   %619 = load ptr, ptr %15, align 8
   %620 = getelementptr inbounds i8, ptr %619, i64 1808
@@ -3834,7 +3834,7 @@ _ZN7TypeInt4makeEi.exit131:                       ; preds = %634, %636
   store i32 1, ptr %642, align 8
   %643 = getelementptr inbounds i8, ptr %.0.i.i.i.i130, i64 28
   store i32 1, ptr %643, align 4
-  %644 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i130)
+  %644 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i130)
   store ptr %644, ptr @_ZN7TypeInt3ONEE, align 8
   %645 = load ptr, ptr %15, align 8
   %646 = getelementptr inbounds i8, ptr %645, i64 1808
@@ -3879,7 +3879,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %660, %662
   store i32 0, ptr %668, align 8
   %669 = getelementptr inbounds i8, ptr %.0.i.i.i.i133, i64 28
   store i32 1, ptr %669, align 4
-  %670 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i133)
+  %670 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i133)
   store ptr %670, ptr @_ZN7TypeInt4BOOLE, align 8
   %671 = load ptr, ptr %15, align 8
   %672 = getelementptr inbounds i8, ptr %671, i64 1808
@@ -3924,7 +3924,7 @@ _ZN7TypeInt4makeEiii.exit136:                     ; preds = %686, %688
   store i32 -1, ptr %694, align 8
   %695 = getelementptr inbounds i8, ptr %.0.i.i.i.i135, i64 28
   store i32 1, ptr %695, align 4
-  %696 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i135)
+  %696 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i135)
   store ptr %696, ptr @_ZN7TypeInt2CCE, align 8
   %697 = load ptr, ptr %15, align 8
   %698 = getelementptr inbounds i8, ptr %697, i64 1808
@@ -3969,7 +3969,7 @@ _ZN7TypeInt4makeEiii.exit139:                     ; preds = %712, %714
   store i32 -1, ptr %720, align 8
   %721 = getelementptr inbounds i8, ptr %.0.i.i.i.i138, i64 28
   store i32 -1, ptr %721, align 4
-  %722 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i138)
+  %722 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i138)
   store ptr %722, ptr @_ZN7TypeInt5CC_LTE, align 8
   %723 = load ptr, ptr %15, align 8
   %724 = getelementptr inbounds i8, ptr %723, i64 1808
@@ -4014,7 +4014,7 @@ _ZN7TypeInt4makeEiii.exit142:                     ; preds = %738, %740
   store i32 1, ptr %746, align 8
   %747 = getelementptr inbounds i8, ptr %.0.i.i.i.i141, i64 28
   store i32 1, ptr %747, align 4
-  %748 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i141)
+  %748 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i141)
   store ptr %748, ptr @_ZN7TypeInt5CC_GTE, align 8
   %749 = load ptr, ptr %15, align 8
   %750 = getelementptr inbounds i8, ptr %749, i64 1808
@@ -4059,7 +4059,7 @@ _ZN7TypeInt4makeEiii.exit145:                     ; preds = %764, %766
   store i32 0, ptr %772, align 8
   %773 = getelementptr inbounds i8, ptr %.0.i.i.i.i144, i64 28
   store i32 0, ptr %773, align 4
-  %774 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i144)
+  %774 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i144)
   store ptr %774, ptr @_ZN7TypeInt5CC_EQE, align 8
   %775 = load ptr, ptr %15, align 8
   %776 = getelementptr inbounds i8, ptr %775, i64 1808
@@ -4104,7 +4104,7 @@ _ZN7TypeInt4makeEiii.exit148:                     ; preds = %790, %792
   store i32 -1, ptr %798, align 8
   %799 = getelementptr inbounds i8, ptr %.0.i.i.i.i147, i64 28
   store i32 0, ptr %799, align 4
-  %800 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i147)
+  %800 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i147)
   store ptr %800, ptr @_ZN7TypeInt5CC_LEE, align 8
   %801 = load ptr, ptr %15, align 8
   %802 = getelementptr inbounds i8, ptr %801, i64 1808
@@ -4149,7 +4149,7 @@ _ZN7TypeInt4makeEiii.exit151:                     ; preds = %816, %818
   store i32 0, ptr %824, align 8
   %825 = getelementptr inbounds i8, ptr %.0.i.i.i.i150, i64 28
   store i32 1, ptr %825, align 4
-  %826 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i150)
+  %826 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i150)
   store ptr %826, ptr @_ZN7TypeInt5CC_GEE, align 8
   %827 = load ptr, ptr %15, align 8
   %828 = getelementptr inbounds i8, ptr %827, i64 1808
@@ -4194,7 +4194,7 @@ _ZN7TypeInt4makeEiii.exit154:                     ; preds = %842, %844
   store i32 -128, ptr %850, align 8
   %851 = getelementptr inbounds i8, ptr %.0.i.i.i.i153, i64 28
   store i32 127, ptr %851, align 4
-  %852 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i153)
+  %852 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i153)
   store ptr %852, ptr @_ZN7TypeInt4BYTEE, align 8
   %853 = load ptr, ptr %15, align 8
   %854 = getelementptr inbounds i8, ptr %853, i64 1808
@@ -4239,7 +4239,7 @@ _ZN7TypeInt4makeEiii.exit157:                     ; preds = %868, %870
   store i32 0, ptr %876, align 8
   %877 = getelementptr inbounds i8, ptr %.0.i.i.i.i156, i64 28
   store i32 255, ptr %877, align 4
-  %878 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i156)
+  %878 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i156)
   store ptr %878, ptr @_ZN7TypeInt5UBYTEE, align 8
   %879 = load ptr, ptr %15, align 8
   %880 = getelementptr inbounds i8, ptr %879, i64 1808
@@ -4284,7 +4284,7 @@ _ZN7TypeInt4makeEiii.exit160:                     ; preds = %894, %896
   store i32 0, ptr %902, align 8
   %903 = getelementptr inbounds i8, ptr %.0.i.i.i.i159, i64 28
   store i32 65535, ptr %903, align 4
-  %904 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i159)
+  %904 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i159)
   store ptr %904, ptr @_ZN7TypeInt4CHARE, align 8
   %905 = load ptr, ptr %15, align 8
   %906 = getelementptr inbounds i8, ptr %905, i64 1808
@@ -4329,7 +4329,7 @@ _ZN7TypeInt4makeEiii.exit163:                     ; preds = %920, %922
   store i32 -32768, ptr %928, align 8
   %929 = getelementptr inbounds i8, ptr %.0.i.i.i.i162, i64 28
   store i32 32767, ptr %929, align 4
-  %930 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i162)
+  %930 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i162)
   store ptr %930, ptr @_ZN7TypeInt5SHORTE, align 8
   %931 = load ptr, ptr %15, align 8
   %932 = getelementptr inbounds i8, ptr %931, i64 1808
@@ -4374,7 +4374,7 @@ _ZN7TypeInt4makeEiii.exit166:                     ; preds = %946, %948
   store i32 0, ptr %954, align 8
   %955 = getelementptr inbounds i8, ptr %.0.i.i.i.i165, i64 28
   store i32 2147483647, ptr %955, align 4
-  %956 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i165)
+  %956 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i165)
   store ptr %956, ptr @_ZN7TypeInt3POSE, align 8
   %957 = load ptr, ptr %15, align 8
   %958 = getelementptr inbounds i8, ptr %957, i64 1808
@@ -4419,7 +4419,7 @@ _ZN7TypeInt4makeEiii.exit169:                     ; preds = %972, %974
   store i32 1, ptr %980, align 8
   %981 = getelementptr inbounds i8, ptr %.0.i.i.i.i168, i64 28
   store i32 2147483647, ptr %981, align 4
-  %982 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i168)
+  %982 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i168)
   store ptr %982, ptr @_ZN7TypeInt4POS1E, align 8
   %983 = load ptr, ptr %15, align 8
   %984 = getelementptr inbounds i8, ptr %983, i64 1808
@@ -4464,7 +4464,7 @@ _ZN7TypeInt4makeEiii.exit172:                     ; preds = %998, %1000
   store i32 -2147483648, ptr %1006, align 8
   %1007 = getelementptr inbounds i8, ptr %.0.i.i.i.i171, i64 28
   store i32 2147483647, ptr %1007, align 4
-  %1008 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i171)
+  %1008 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i171)
   store ptr %1008, ptr @_ZN7TypeInt3INTE, align 8
   %1009 = load ptr, ptr %15, align 8
   %1010 = getelementptr inbounds i8, ptr %1009, i64 1808
@@ -4509,7 +4509,7 @@ _ZN7TypeInt4makeEiii.exit175:                     ; preds = %1024, %1026
   store i32 -2147483647, ptr %1032, align 8
   %1033 = getelementptr inbounds i8, ptr %.0.i.i.i.i174, i64 28
   store i32 2147483647, ptr %1033, align 4
-  %1034 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i174)
+  %1034 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i174)
   store ptr %1034, ptr @_ZN7TypeInt6SYMINTE, align 8
   %1035 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   store ptr %1035, ptr @_ZN7TypeInt11TYPE_DOMAINE, align 8
@@ -4556,7 +4556,7 @@ _ZN8TypeLong4makeEl.exit:                         ; preds = %1051, %1053
   store i64 9223372036854775807, ptr %1059, align 8
   %1060 = getelementptr inbounds i8, ptr %.0.i.i.i.i177, i64 32
   store i64 9223372036854775807, ptr %1060, align 8
-  %1061 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i177)
+  %1061 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i177)
   store ptr %1061, ptr @_ZN8TypeLong3MAXE, align 8
   %1062 = load ptr, ptr %15, align 8
   %1063 = getelementptr inbounds i8, ptr %1062, i64 1808
@@ -4601,7 +4601,7 @@ _ZN8TypeLong4makeEl.exit180:                      ; preds = %1077, %1079
   store i64 -9223372036854775808, ptr %1085, align 8
   %1086 = getelementptr inbounds i8, ptr %.0.i.i.i.i179, i64 32
   store i64 -9223372036854775808, ptr %1086, align 8
-  %1087 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i179)
+  %1087 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i179)
   store ptr %1087, ptr @_ZN8TypeLong3MINE, align 8
   %1088 = load ptr, ptr %15, align 8
   %1089 = getelementptr inbounds i8, ptr %1088, i64 1808
@@ -4644,7 +4644,7 @@ _ZN8TypeLong4makeEl.exit183:                      ; preds = %1103, %1105
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i182, align 8
   %1111 = getelementptr inbounds i8, ptr %.0.i.i.i.i182, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1111, i8 -1, i64 16, i1 false)
-  %1112 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i182)
+  %1112 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i182)
   store ptr %1112, ptr @_ZN8TypeLong7MINUS_1E, align 8
   %1113 = load ptr, ptr %15, align 8
   %1114 = getelementptr inbounds i8, ptr %1113, i64 1808
@@ -4687,7 +4687,7 @@ _ZN8TypeLong4makeEl.exit186:                      ; preds = %1128, %1130
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i185, align 8
   %1136 = getelementptr inbounds i8, ptr %.0.i.i.i.i185, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1136, i8 0, i64 16, i1 false)
-  %1137 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i185)
+  %1137 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i185)
   store ptr %1137, ptr @_ZN8TypeLong4ZEROE, align 8
   %1138 = load ptr, ptr %15, align 8
   %1139 = getelementptr inbounds i8, ptr %1138, i64 1808
@@ -4732,7 +4732,7 @@ _ZN8TypeLong4makeEl.exit189:                      ; preds = %1153, %1155
   store i64 1, ptr %1161, align 8
   %1162 = getelementptr inbounds i8, ptr %.0.i.i.i.i188, i64 32
   store i64 1, ptr %1162, align 8
-  %1163 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i188)
+  %1163 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i188)
   store ptr %1163, ptr @_ZN8TypeLong3ONEE, align 8
   %1164 = load ptr, ptr %15, align 8
   %1165 = getelementptr inbounds i8, ptr %1164, i64 1808
@@ -4777,7 +4777,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %1179, %1181
   store i64 0, ptr %1187, align 8
   %1188 = getelementptr inbounds i8, ptr %.0.i.i.i.i191, i64 32
   store i64 9223372036854775807, ptr %1188, align 8
-  %1189 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i191)
+  %1189 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i191)
   store ptr %1189, ptr @_ZN8TypeLong3POSE, align 8
   %1190 = load ptr, ptr %15, align 8
   %1191 = getelementptr inbounds i8, ptr %1190, i64 1808
@@ -4822,7 +4822,7 @@ _ZN8TypeLong4makeElli.exit194:                    ; preds = %1205, %1207
   store i64 -9223372036854775808, ptr %1213, align 8
   %1214 = getelementptr inbounds i8, ptr %.0.i.i.i.i193, i64 32
   store i64 9223372036854775807, ptr %1214, align 8
-  %1215 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i193)
+  %1215 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i193)
   store ptr %1215, ptr @_ZN8TypeLong4LONGE, align 8
   %1216 = load ptr, ptr %15, align 8
   %1217 = getelementptr inbounds i8, ptr %1216, i64 1808
@@ -4867,7 +4867,7 @@ _ZN8TypeLong4makeElli.exit197:                    ; preds = %1231, %1233
   store i64 -2147483648, ptr %1239, align 8
   %1240 = getelementptr inbounds i8, ptr %.0.i.i.i.i196, i64 32
   store i64 2147483647, ptr %1240, align 8
-  %1241 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i196)
+  %1241 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i196)
   store ptr %1241, ptr @_ZN8TypeLong3INTE, align 8
   %1242 = load ptr, ptr %15, align 8
   %1243 = getelementptr inbounds i8, ptr %1242, i64 1808
@@ -4912,7 +4912,7 @@ _ZN8TypeLong4makeElli.exit200:                    ; preds = %1257, %1259
   store i64 0, ptr %1265, align 8
   %1266 = getelementptr inbounds i8, ptr %.0.i.i.i.i199, i64 32
   store i64 4294967295, ptr %1266, align 8
-  %1267 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i199)
+  %1267 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i199)
   store ptr %1267, ptr @_ZN8TypeLong4UINTE, align 8
   %1268 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
   store ptr %1268, ptr @_ZN8TypeLong11TYPE_DOMAINE, align 8
@@ -4982,7 +4982,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit:                ; preds = %1297, %1299
   store i32 2, ptr %1304, align 4
   %1305 = getelementptr inbounds i8, ptr %.0.i.i.i.i202, i64 24
   store ptr %.0.i.i, ptr %1305, align 8
-  %1306 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i202)
+  %1306 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i202)
   store ptr %1306, ptr @_ZN9TypeTuple6IFBOTHE, align 8
   %1307 = load ptr, ptr %1269, align 8
   %1308 = load ptr, ptr %1271, align 8
@@ -5049,7 +5049,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit208:             ; preds = %1334, %1336
   store i32 2, ptr %1341, align 4
   %1342 = getelementptr inbounds i8, ptr %.0.i.i.i.i207, i64 24
   store ptr %.0.i.i204, ptr %1342, align 8
-  %1343 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i207)
+  %1343 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i207)
   store ptr %1343, ptr @_ZN9TypeTuple7IFFALSEE, align 8
   %1344 = load ptr, ptr %1269, align 8
   %1345 = load ptr, ptr %1271, align 8
@@ -5115,7 +5115,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit214:             ; preds = %1370, %1372
   store i32 2, ptr %1377, align 4
   %1378 = getelementptr inbounds i8, ptr %.0.i.i.i.i213, i64 24
   store ptr %.0.i.i210, ptr %1378, align 8
-  %1379 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i213)
+  %1379 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i213)
   store ptr %1379, ptr @_ZN9TypeTuple9IFNEITHERE, align 8
   %1380 = load ptr, ptr %1269, align 8
   %1381 = load ptr, ptr %1271, align 8
@@ -5182,7 +5182,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit220:             ; preds = %1407, %1409
   store i32 2, ptr %1414, align 4
   %1415 = getelementptr inbounds i8, ptr %.0.i.i.i.i219, i64 24
   store ptr %.0.i.i216, ptr %1415, align 8
-  %1416 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i219)
+  %1416 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i219)
   store ptr %1416, ptr @_ZN9TypeTuple6IFTRUEE, align 8
   %1417 = load ptr, ptr %1269, align 8
   %1418 = load ptr, ptr %1271, align 8
@@ -5249,7 +5249,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit226:             ; preds = %1444, %1446
   store i32 2, ptr %1451, align 4
   %1452 = getelementptr inbounds i8, ptr %.0.i.i.i.i225, i64 24
   store ptr %.0.i.i222, ptr %1452, align 8
-  %1453 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i225)
+  %1453 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i225)
   store ptr %1453, ptr @_ZN9TypeTuple8LOOPBODYE, align 8
   %1454 = load ptr, ptr %15, align 8
   %1455 = getelementptr inbounds i8, ptr %1454, i64 1808
@@ -5296,7 +5296,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %1469, %1471
   store i32 0, ptr %1478, align 4
   %1479 = getelementptr inbounds i8, ptr %.0.i.i.i.i228, i64 40
   store i32 3, ptr %1479, align 8
-  %1480 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i228)
+  %1480 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i228)
   store ptr %1480, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %1481 = load ptr, ptr %15, align 8
   %1482 = getelementptr inbounds i8, ptr %1481, i64 1808
@@ -5343,7 +5343,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit231: ; preds = %1496, %1498
   store i32 -2000000001, ptr %1505, align 4
   %1506 = getelementptr inbounds i8, ptr %.0.i.i.i.i230, i64 40
   store i32 4, ptr %1506, align 8
-  %1507 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i230)
+  %1507 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i230)
   store ptr %1507, ptr @_ZN7TypePtr7NOTNULLE, align 8
   %1508 = load ptr, ptr %15, align 8
   %1509 = getelementptr inbounds i8, ptr %1508, i64 1808
@@ -5390,7 +5390,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit234: ; preds = %1523, %1525
   store i32 -2000000001, ptr %1532, align 4
   %1533 = getelementptr inbounds i8, ptr %.0.i.i.i.i233, i64 40
   store i32 5, ptr %1533, align 8
-  %1534 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i233)
+  %1534 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i233)
   store ptr %1534, ptr @_ZN7TypePtr6BOTTOME, align 8
   %1535 = load ptr, ptr %15, align 8
   %1536 = getelementptr inbounds i8, ptr %1535, i64 1808
@@ -5439,7 +5439,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit:         ; preds = %1550, %1552
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i236, align 8
   %1561 = getelementptr inbounds i8, ptr %.0.i.i.i.i236, i64 48
   store ptr null, ptr %1561, align 8
-  %1562 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i236)
+  %1562 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i236)
   store ptr %1562, ptr @_ZN10TypeRawPtr6BOTTOME, align 8
   %1563 = load ptr, ptr %15, align 8
   %1564 = getelementptr inbounds i8, ptr %1563, i64 1808
@@ -5488,7 +5488,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit239:      ; preds = %1578, %1580
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i238, align 8
   %1589 = getelementptr inbounds i8, ptr %.0.i.i.i.i238, i64 48
   store ptr null, ptr %1589, align 8
-  %1590 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i238)
+  %1590 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i238)
   store ptr %1590, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
   %1591 = load ptr, ptr %15, align 8
   %1592 = getelementptr inbounds i8, ptr %1591, i64 1808
@@ -5573,7 +5573,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit242:             ; preds = %1633, %1635
   store i32 5, ptr %1640, align 4
   %1641 = getelementptr inbounds i8, ptr %.0.i.i.i.i241, i64 24
   store ptr %.0.i.i.i, ptr %1641, align 8
-  %1642 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i241)
+  %1642 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i241)
   store ptr %1642, ptr @_ZN9TypeTuple6MEMBARE, align 8
   %1643 = load ptr, ptr %1269, align 8
   %1644 = load ptr, ptr %1271, align 8
@@ -5640,7 +5640,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit248:             ; preds = %1670, %1672
   store i32 2, ptr %1677, align 4
   %1678 = getelementptr inbounds i8, ptr %.0.i.i.i.i247, i64 24
   store ptr %.0.i.i244, ptr %1678, align 8
-  %1679 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i247)
+  %1679 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i247)
   store ptr %1679, ptr @_ZN9TypeTuple16STORECONDITIONALE, align 8
   %1680 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -5712,7 +5712,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %1718 = trunc i8 %.0.i to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i321, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %1682, ptr noundef %1681, i1 noundef zeroext %1718, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i321, align 8
-  %1719 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i321)
+  %1719 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i321)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   store ptr %1719, ptr @_ZN11TypeInstPtr7NOTNULLE, align 8
   %1720 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
@@ -5785,7 +5785,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %1758 = trunc i8 %.0.i327 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i329, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1722, ptr noundef %1721, i1 noundef zeroext %1758, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i329, align 8
-  %1759 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i329)
+  %1759 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i329)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store ptr %1759, ptr @_ZN11TypeInstPtr6BOTTOME, align 8
   %1760 = load ptr, ptr @_ZN5ciEnv12_Class_klassE, align 8
@@ -5858,7 +5858,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %1798 = trunc i8 %.0.i339 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i341, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %1762, ptr noundef %1761, i1 noundef zeroext %1798, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i341, align 8
-  %1799 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i341)
+  %1799 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i341)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr %1799, ptr @_ZN11TypeInstPtr6MIRRORE, align 8
   %1800 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
@@ -5931,7 +5931,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %1838 = trunc i8 %.0.i351 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i353, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1802, ptr noundef %1801, i1 noundef zeroext %1838, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i353, align 8
-  %1839 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i353)
+  %1839 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i353)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr %1839, ptr @_ZN11TypeInstPtr4MARKE, align 8
   %1840 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
@@ -6004,7 +6004,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %1878 = trunc i8 %.0.i363 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i365, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1842, ptr noundef %1841, i1 noundef zeroext %1878, ptr noundef null, i32 noundef 8, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i365, align 8
-  %1879 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i365)
+  %1879 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i365)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr %1879, ptr @_ZN11TypeInstPtr5KLASSE, align 8
   %1880 = tail call noundef ptr @_ZN10TypeOopPtr4makeEN7TypePtr3PTREiiPKS0_i(i32 noundef 5, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
@@ -6056,7 +6056,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %1896, %1
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i250, align 8
   %1907 = getelementptr inbounds i8, ptr %.0.i.i.i.i250, i64 48
   store ptr null, ptr %1907, align 8
-  %1908 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i250)
+  %1908 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i250)
   store ptr %1908, ptr @_ZN15TypeMetadataPtr6BOTTOME, align 8
   %1909 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %1910 = load ptr, ptr %15, align 8
@@ -6098,7 +6098,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit:          ; preds = %1925, %1927
   %1932 = getelementptr inbounds i8, ptr %.0.i.i.i.i252, i64 24
   store ptr %1909, ptr %1932, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i252, align 8
-  %1933 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i252)
+  %1933 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i252)
   store ptr %1933, ptr @_ZN13TypeNarrowOop8NULL_PTRE, align 8
   %1934 = load ptr, ptr @_ZN11TypeInstPtr6BOTTOME, align 8
   %1935 = load ptr, ptr %15, align 8
@@ -6140,7 +6140,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit255:       ; preds = %1950, %1952
   %1957 = getelementptr inbounds i8, ptr %.0.i.i.i.i254, i64 24
   store ptr %1934, ptr %1957, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i254, align 8
-  %1958 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i254)
+  %1958 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i254)
   store ptr %1958, ptr @_ZN13TypeNarrowOop6BOTTOME, align 8
   %1959 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %1960 = load ptr, ptr %15, align 8
@@ -6182,7 +6182,7 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS
   %1982 = getelementptr inbounds i8, ptr %.0.i.i.i.i257, i64 24
   store ptr %1959, ptr %1982, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i.i257, align 8
-  %1983 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i257)
+  %1983 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i257)
   store ptr %1983, ptr @_ZN15TypeNarrowKlass8NULL_PTRE, align 8
   %1984 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
   store ptr %1984, ptr @_ZN4Type9mreg2typeE, align 16
@@ -6248,7 +6248,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit: ; preds = %2
   %2017 = icmp ne ptr %.0.i.i.i6.i, null
   tail call void @llvm.assume(i1 %2017)
   call void @_ZN14TypeInterfacesC2EP13GrowableArrayIP15ciInstanceKlassE(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i6.i, ptr noundef nonnull readonly %9)
-  %2018 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i6.i)
+  %2018 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i6.i)
   store ptr %2018, ptr @_ZN10TypeAryPtr17_array_interfacesE, align 8
   store ptr %2018, ptr @_ZN15TypeAryKlassPtr17_array_interfacesE, align 8
   %2019 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -6291,7 +6291,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit: ; preds = 
   %2044 = icmp ne ptr %.0.i.i.i.i265, null
   tail call void @llvm.assume(i1 %2044)
   tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i265, i32 noundef 5, ptr noundef null, ptr noundef nonnull %2021, ptr noundef null, i1 noundef zeroext %2024, i32 noundef %spec.select.i, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %2045 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i265)
+  %2045 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i265)
   store ptr %2045, ptr @_ZN10TypeAryPtr5RANGEE, align 8
   %2046 = load ptr, ptr @_ZN13TypeNarrowOop6BOTTOME, align 8
   %2047 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
@@ -6330,7 +6330,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit268: ; preds
   %2069 = icmp ne ptr %.0.i.i.i.i267, null
   tail call void @llvm.assume(i1 %2069)
   tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i267, i32 noundef 5, ptr noundef null, ptr noundef nonnull %2048, ptr noundef null, i1 noundef zeroext %2049, i32 noundef -2000000001, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %2070 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i267)
+  %2070 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i267)
   store ptr %2070, ptr @_ZN10TypeAryPtr10NARROWOOPSE, align 8
   %2071 = load i8, ptr @UseCompressedOops, align 1
   %2072 = trunc i8 %2071 to i1
@@ -6374,7 +6374,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit271: ; preds
   %2097 = icmp ne ptr %.0.i.i.i.i270, null
   tail call void @llvm.assume(i1 %2097)
   tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i270, i32 noundef 5, ptr noundef null, ptr noundef nonnull %2076, ptr noundef null, i1 noundef zeroext %2077, i32 noundef -2000000001, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %2098 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i270)
+  %2098 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i270)
   br label %2099
 
 2099:                                             ; preds = %_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit268, %_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit271
@@ -6384,43 +6384,43 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit271: ; preds
   %2101 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %2102 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %2100, ptr noundef %2101, i1 noundef zeroext false)
   %2103 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 8) #17
-  %2104 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %2102, ptr noundef %2103, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %2104 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2102, ptr noundef %2103, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2104, ptr @_ZN10TypeAryPtr5BYTESE, align 8
   %2105 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
   %2106 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %2107 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %2105, ptr noundef %2106, i1 noundef zeroext false)
   %2108 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 9) #17
-  %2109 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %2107, ptr noundef %2108, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %2109 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2107, ptr noundef %2108, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2109, ptr @_ZN10TypeAryPtr6SHORTSE, align 8
   %2110 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
   %2111 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %2112 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %2110, ptr noundef %2111, i1 noundef zeroext false)
   %2113 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 5) #17
-  %2114 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %2112, ptr noundef %2113, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %2114 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2112, ptr noundef %2113, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2114, ptr @_ZN10TypeAryPtr5CHARSE, align 8
   %2115 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   %2116 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %2117 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %2115, ptr noundef %2116, i1 noundef zeroext false)
   %2118 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 10) #17
-  %2119 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %2117, ptr noundef %2118, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %2119 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2117, ptr noundef %2118, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2119, ptr @_ZN10TypeAryPtr4INTSE, align 8
   %2120 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
   %2121 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %2122 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %2120, ptr noundef %2121, i1 noundef zeroext false)
   %2123 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 11) #17
-  %2124 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %2122, ptr noundef %2123, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %2124 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2122, ptr noundef %2123, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2124, ptr @_ZN10TypeAryPtr5LONGSE, align 8
   %2125 = load ptr, ptr @_ZN4Type5FLOATE, align 8
   %2126 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %2127 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %2125, ptr noundef %2126, i1 noundef zeroext false)
   %2128 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 6) #17
-  %2129 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %2127, ptr noundef %2128, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %2129 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2127, ptr noundef %2128, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2129, ptr @_ZN10TypeAryPtr6FLOATSE, align 8
   %2130 = load ptr, ptr @_ZN4Type6DOUBLEE, align 8
   %2131 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %2132 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %2130, ptr noundef %2131, i1 noundef zeroext false)
   %2133 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 7) #17
-  %2134 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %2132, ptr noundef %2133, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %2134 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2132, ptr noundef %2133, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2134, ptr @_ZN10TypeAryPtr7DOUBLESE, align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 128), align 16
   %2135 = load ptr, ptr @_ZN10TypeAryPtr4OOPSE, align 8
@@ -6494,7 +6494,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassi.exit: ; preds = %2160, %2162
   %2172 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i272, i64 56
   store ptr %2143, ptr %2172, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i272, align 8
-  %2173 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i272)
+  %2173 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i272)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %2173, ptr @_ZN16TypeInstKlassPtr6OBJECTE, align 8
   %2174 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
@@ -6551,7 +6551,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassi.exit275: ; preds = %2192, %2
   %2204 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i274, i64 56
   store ptr %2175, ptr %2204, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i274, align 8
-  %2205 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i274)
+  %2205 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i274)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   store ptr %2205, ptr @_ZN16TypeInstKlassPtr14OBJECT_OR_NULLE, align 8
   %2206 = load ptr, ptr %15, align 8
@@ -6642,7 +6642,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit281:             ; preds = %2251, %2253
   store i32 7, ptr %2258, align 4
   %2259 = getelementptr inbounds i8, ptr %.0.i.i.i.i280, i64 24
   store ptr %.0.i.i.i277, ptr %2259, align 8
-  %2260 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i280)
+  %2260 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i280)
   store ptr %2260, ptr @_ZN9TypeTuple9START_I2CE, align 8
   %2261 = load ptr, ptr %15, align 8
   %2262 = getelementptr inbounds i8, ptr %2261, i64 1808
@@ -6728,7 +6728,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit287:             ; preds = %2303, %2305
   store i32 2, ptr %2310, align 4
   %2311 = getelementptr inbounds i8, ptr %.0.i.i.i.i286, i64 24
   store ptr %.0.i.i.i283, ptr %2311, align 8
-  %2312 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i286)
+  %2312 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i286)
   store ptr %2312, ptr @_ZN9TypeTuple8INT_PAIRE, align 8
   %2313 = load ptr, ptr %15, align 8
   %2314 = getelementptr inbounds i8, ptr %2313, i64 1808
@@ -6814,7 +6814,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit293:             ; preds = %2355, %2357
   store i32 2, ptr %2362, align 4
   %2363 = getelementptr inbounds i8, ptr %.0.i.i.i.i292, i64 24
   store ptr %.0.i.i.i289, ptr %2363, align 8
-  %2364 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i292)
+  %2364 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i292)
   store ptr %2364, ptr @_ZN9TypeTuple9LONG_PAIRE, align 8
   %2365 = load ptr, ptr %15, align 8
   %2366 = getelementptr inbounds i8, ptr %2365, i64 1808
@@ -6901,7 +6901,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit299:             ; preds = %2408, %2410
   store i32 2, ptr %2415, align 4
   %2416 = getelementptr inbounds i8, ptr %.0.i.i.i.i298, i64 24
   store ptr %.0.i.i.i295, ptr %2416, align 8
-  %2417 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i298)
+  %2417 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i298)
   store ptr %2417, ptr @_ZN9TypeTuple11INT_CC_PAIRE, align 8
   %2418 = load ptr, ptr %15, align 8
   %2419 = getelementptr inbounds i8, ptr %2418, i64 1808
@@ -6988,7 +6988,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit305:             ; preds = %2461, %2463
   store i32 2, ptr %2468, align 4
   %2469 = getelementptr inbounds i8, ptr %.0.i.i.i.i304, i64 24
   store ptr %.0.i.i.i301, ptr %2469, align 8
-  %2470 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i304)
+  %2470 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i304)
   store ptr %2470, ptr @_ZN9TypeTuple12LONG_CC_PAIRE, align 8
   %2471 = load ptr, ptr @_ZN13TypeNarrowOop6BOTTOME, align 8
   store ptr %2471, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 128), align 16
@@ -7192,7 +7192,7 @@ declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnam
 declare void @_ZN4DictC1EPFiPKvS1_EPFiS1_EP5Arenai(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef, i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN7TypeInt4makeEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.not.i = icmp sgt i32 %0, %1
   br i1 %.not.i, label %8, label %4
 
@@ -7263,7 +7263,7 @@ _ZN4TypenwEm.exit:                                ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8TypeLong4makeElli(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8TypeLong4makeElli(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.not.i = icmp sgt i64 %0, %1
   br i1 %.not.i, label %8, label %4
 
@@ -7334,7 +7334,7 @@ _ZN4TypenwEm.exit:                                ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1808
@@ -7382,7 +7382,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1808
@@ -7434,7 +7434,7 @@ _ZN4TypenwEm.exit:                                ; preds = %22, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10TypeRawPtr4makeEN7TypePtr3PTRE(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10TypeRawPtr4makeEN7TypePtr3PTRE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -7539,7 +7539,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10TypeOopPtr4makeEN7TypePtr3PTREiiPKS0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10TypeOopPtr4makeEN7TypePtr3PTREiiPKS0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1808
@@ -7600,7 +7600,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit: ; preds = %2
   store i32 0, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr null, ptr %44, align 8
-  %45 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %45 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 1808
   %48 = load ptr, ptr %47, align 8
@@ -7633,13 +7633,13 @@ _ZN4TypenwEm.exit:                                ; preds = %61, %63
   %.0.i.i.i = phi ptr [ %57, %61 ], [ %64, %63 ]
   %65 = icmp ne ptr %.0.i.i.i, null
   tail call void @llvm.assume(i1 %65)
-  tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i, i32 noundef 20, i32 noundef %0, ptr noundef %12, ptr noundef %45, i1 noundef zeroext false, ptr noundef null, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i, i32 noundef 20, i32 noundef %0, ptr noundef %12, ptr noundef nonnull %45, i1 noundef zeroext false, ptr noundef null, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
   %66 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   ret ptr %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1808
@@ -7693,7 +7693,7 @@ _ZN4TypenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13TypeNarrowOop4makeEPK7TypePtr(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13TypeNarrowOop4makeEPK7TypePtr(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -7739,7 +7739,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15TypeNarrowKlass4makeEPK7TypePtr(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15TypeNarrowKlass4makeEPK7TypePtr(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -7785,7 +7785,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
@@ -7877,7 +7877,7 @@ _ZN4TypenwEm.exit7:                               ; preds = %43, %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   br i1 %3, label %11, label %9
 
 9:                                                ; preds = %8
@@ -7960,7 +7960,7 @@ _ZN4TypenwEm.exit:                                ; preds = %47, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load i8, ptr @UseCompressedOops, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZNK4Type14make_narrowoopEv.exit
@@ -8015,7 +8015,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %29, %27
   %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr %0, ptr %34, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
-  %35 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
+  %35 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i, %6, %3
@@ -8083,7 +8083,7 @@ _ZN7TypeInt4makeEiii.exit.i:                      ; preds = %63, %61
   store i32 %39, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i6, i64 28
   store i32 %41, ptr %70, align 4
-  %71 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i6)
+  %71 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i6)
   br label %_Z20normalize_array_sizePK7TypeInt.exit
 
 _Z20normalize_array_sizePK7TypeInt.exit:          ; preds = %_ZNK4Type14make_narrowoopEv.exit._Z20normalize_array_sizePK7TypeInt.exit_crit_edge, %_ZN7TypeInt4makeEiii.exit.i
@@ -8260,7 +8260,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %39, %37
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr %14, ptr %44, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
-  %45 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
+  %45 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 46:                                               ; preds = %3
@@ -8328,7 +8328,7 @@ _ZN15TypeNarrowKlass4makeEPK7TypePtr.exit.i:      ; preds = %79, %77
   %84 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i30, i64 24
   store ptr %54, ptr %84, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i.i.i30, align 8
-  %85 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i30)
+  %85 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i30)
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 86:                                               ; preds = %6, %3, %46
@@ -8922,7 +8922,7 @@ define hidden noundef zeroext i1 @_ZNK5TypeD5emptyEv(ptr nocapture nonnull readn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11TypeInteger4makeElli9BasicType(i64 noundef %0, i64 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11TypeInteger4makeElli9BasicType(i64 noundef %0, i64 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq i8 %3, 10
   br i1 %5, label %6, label %44
 
@@ -9066,7 +9066,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %69, %71
 
 80:                                               ; preds = %_ZN8TypeLong4makeElli.exit, %_ZN7TypeInt4makeEiii.exit
   %.0.i.i.i.i12.sink = phi ptr [ %.0.i.i.i.i12, %_ZN8TypeLong4makeElli.exit ], [ %.0.i.i.i.i, %_ZN7TypeInt4makeEiii.exit ]
-  %81 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i12.sink)
+  %81 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i12.sink)
   ret ptr %81
 }
 
@@ -9265,7 +9265,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %51, %53
   store i32 %16, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 28
   store i32 %21, ptr %60, align 4
-  %61 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %61 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %62
 
 62:                                               ; preds = %4, %2, %_ZN7TypeInt4makeEiii.exit, %7
@@ -9516,7 +9516,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %82, %84
   store i32 %8, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 28
   store i32 %21, ptr %91, align 4
-  %92 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %92 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %101
 
 93:                                               ; preds = %19, %18
@@ -9541,7 +9541,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %82, %84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK7TypeInt6narrowEPK4Type(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #6 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypeInt6narrowEPK4Type(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -9701,7 +9701,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %58, %60
   store i32 %31, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 28
   store i32 %33, ptr %67, align 4
-  %68 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %68 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %69
 
 69:                                               ; preds = %23, %_ZN7TypeInt4makeEiii.exit, %21
@@ -9918,7 +9918,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %51, %53
   store i64 %16, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
   store i64 %21, ptr %60, align 8
-  %61 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %61 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %62
 
 62:                                               ; preds = %4, %2, %_ZN8TypeLong4makeElli.exit, %7
@@ -10179,7 +10179,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %87, %89
   store i64 %8, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
   store i64 %21, ptr %96, align 8
-  %97 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %97 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %106
 
 98:                                               ; preds = %19, %18
@@ -10204,7 +10204,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %87, %89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK8TypeLong6narrowEPK4Type(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef readonly %1) unnamed_addr #6 align 2 {
+define hidden noundef nonnull ptr @_ZNK8TypeLong6narrowEPK4Type(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef readonly %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -10364,7 +10364,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %58, %60
   store i64 %31, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
   store i64 %33, ptr %67, align 8
-  %68 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %68 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %69
 
 69:                                               ; preds = %23, %_ZN8TypeLong4makeElli.exit, %21
@@ -10445,7 +10445,7 @@ define hidden noundef zeroext i1 @_ZNK8TypeLong5emptyEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9TypeTuple10make_rangeEP11ciSignatureN4Type17InterfaceHandlingE(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9TypeTuple10make_rangeEP11ciSignatureN4Type17InterfaceHandlingE(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -10603,7 +10603,7 @@ _ZN4TypenwEm.exit:                                ; preds = %77, %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9TypeTuple11make_domainEP15ciInstanceKlassP11ciSignatureN4Type17InterfaceHandlingE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9TypeTuple11make_domainEP15ciInstanceKlassP11ciSignatureN4Type17InterfaceHandlingE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq ptr %0, null
@@ -10985,7 +10985,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit:                ; preds = %66, %68
   store i32 %.lcssa, ptr %73, align 4
   %74 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store ptr %.0.i.i, ptr %74, align 8
-  %75 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %75 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %77
 
 76:                                               ; preds = %4
@@ -11346,7 +11346,7 @@ _ZN7TypeInt4makeEiii.exit.i:                      ; preds = %33, %31
   store i32 %9, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 28
   store i32 %11, ptr %40, align 4
-  %41 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
+  %41 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   br label %_Z20normalize_array_sizePK7TypeInt.exit
 
 _Z20normalize_array_sizePK7TypeInt.exit:          ; preds = %._Z20normalize_array_sizePK7TypeInt.exit_crit_edge, %_ZN7TypeInt4makeEiii.exit.i
@@ -11463,7 +11463,7 @@ define hidden noundef i32 @_ZNK7TypeAry4hashEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7TypeAry18remove_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypeAry18remove_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -11480,7 +11480,7 @@ define hidden noundef ptr @_ZNK7TypeAry18remove_speculativeEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7TypeAry19cleanup_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypeAry19cleanup_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -11497,7 +11497,7 @@ define hidden noundef ptr @_ZNK7TypeAry19cleanup_speculativeEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7TypePtr17with_inline_depthEi(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypePtr17with_inline_depthEi(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseInlineDepthForSpeculativeTypes, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %40
@@ -11555,7 +11555,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %28, %30
   store i32 %9, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
   store i32 %7, ptr %38, align 8
-  %39 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %39 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %40
 
 40:                                               ; preds = %2, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit
@@ -11696,7 +11696,7 @@ select.unfold39:                                  ; preds = %_ZNK4Type8make_ptrE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   br i1 %2, label %4, label %6
 
 4:                                                ; preds = %3
@@ -12044,7 +12044,7 @@ _ZN4TypenwEm.exit33:                              ; preds = %185, %187
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -12092,7 +12092,7 @@ _ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %9, %12, %15, %1
 
 28:                                               ; preds = %26
   %29 = tail call noundef ptr @_ZN7Matcher18predicate_reg_typeEPK4Typei(ptr noundef nonnull %0, i32 noundef %1) #17
-  %30 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %29)
+  %30 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %29)
   br label %33
 
 31:                                               ; preds = %26, %_ZNK4Type24array_element_basic_typeEv.exit
@@ -12109,7 +12109,7 @@ declare noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef) local_unnamed_
 declare noundef zeroext i1 @_ZN7Matcher34match_rule_supported_vector_maskedEii9BasicType(i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12TypeVectMask4makeEPK4Typej(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12TypeVectMask4makeEPK4Typej(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN7Matcher18predicate_reg_typeEPK4Typei(ptr noundef %0, i32 noundef %1) #17
   %4 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
   ret ptr %4
@@ -12368,19 +12368,19 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12TypeVectMask4makeE9BasicTypej(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12TypeVectMask4makeE9BasicTypej(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = zext i8 %0 to i64
   %4 = getelementptr inbounds [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN7Matcher18predicate_reg_typeEPK4Typei(ptr noundef %5, i32 noundef %1) #17
-  %7 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %6)
+  %7 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %6)
   ret ptr %7
 }
 
 declare noundef ptr @_ZN7Matcher18predicate_reg_typeEPK4Typei(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7TypePtr16cast_to_ptr_typeENS_3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypePtr16cast_to_ptr_typeENS_3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -12441,7 +12441,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %31, %33
   store i32 %10, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %41, align 8
-  %42 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %42 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %43
 
 43:                                               ; preds = %2, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit
@@ -12641,7 +12641,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %60, %62
   store i32 %.0.i15, ptr %69, align 4
   %70 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
   store i32 %35, ptr %70, align 8
-  %71 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %71 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %79
 
 72:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
@@ -12888,7 +12888,7 @@ define hidden noundef i32 @_ZNK7TypePtr11xadd_offsetEl(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7TypePtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypePtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 36
@@ -12967,12 +12967,12 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %39, %41
   store i32 %.0.i, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
   store i32 %4, ptr %49, align 8
-  %50 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %50 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7TypePtr11with_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypePtr11with_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -13026,7 +13026,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %25, %27
   store i32 %29, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
   store i32 %4, ptr %36, align 8
-  %37 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %37 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %37
 }
 
@@ -13208,7 +13208,7 @@ define hidden noundef i32 @_ZNK7TypePtr16hash_speculativeEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7TypePtr18remove_speculativeEv(ptr noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK7TypePtr18remove_speculativeEv(ptr noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13267,7 +13267,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %28, %30
   store i32 %9, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
   store i32 %7, ptr %38, align 8
-  %39 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %39 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %40
 
 40:                                               ; preds = %1, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit
@@ -13629,7 +13629,7 @@ define hidden noundef zeroext i1 @_ZNK7TypePtr5emptyEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeRawPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeRawPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -13684,7 +13684,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit:         ; preds = %23, %25
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr null, ptr %34, align 8
-  %35 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %35 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %36
 
 36:                                               ; preds = %2, %_ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit
@@ -13797,7 +13797,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit:         ; preds = %38, %40
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr null, ptr %49, align 8
-  %50 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %50 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %118
 
 51:                                               ; preds = %4, %4, %4, %4, %4, %4, %4
@@ -13896,7 +13896,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %95, %97
   store i32 %.0.i, ptr %104, align 4
   %105 = getelementptr inbounds i8, ptr %.0.i.i.i.i27, i64 40
   store i32 %68, ptr %105, align 8
-  %106 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i27)
+  %106 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i27)
   br label %118
 
 107:                                              ; preds = %55
@@ -14067,7 +14067,7 @@ _ZN10TypeRawPtr4makeEPh.exit:                     ; preds = %30, %32
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %41 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr %13, ptr %41, align 8
-  %42 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %42 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %45
 
 43:                                               ; preds = %7
@@ -15038,7 +15038,7 @@ define internal noundef i32 @_ZL18compare_interfacesPP15ciInstanceKlassS1_(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14TypeInterfaces10union_withEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK14TypeInterfaces10union_withEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.GrowableArray.13, align 8
   %4 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
   store i32 0, ptr %3, align 8
@@ -15417,12 +15417,12 @@ _ZN13GrowableArrayIP15ciInstanceKlassED2Ev.exit:  ; preds = %166, %164
   %168 = icmp ne ptr %.0.i.i.i6.i, null
   tail call void @llvm.assume(i1 %168)
   call void @_ZN14TypeInterfacesC2EP13GrowableArrayIP15ciInstanceKlassE(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i6.i, ptr noundef nonnull readonly %3)
-  %169 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i6.i)
+  %169 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i6.i)
   ret ptr %169
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.GrowableArray.13, align 8
   %4 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
   store i32 0, ptr %3, align 8
@@ -15643,7 +15643,7 @@ _ZN13GrowableArrayIP15ciInstanceKlassED2Ev.exit:  ; preds = %104, %102
   %106 = icmp ne ptr %.0.i.i.i6.i, null
   tail call void @llvm.assume(i1 %106)
   call void @_ZN14TypeInterfacesC2EP13GrowableArrayIP15ciInstanceKlassE(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i6.i, ptr noundef nonnull readonly %3)
-  %107 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i6.i)
+  %107 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i6.i)
   ret ptr %107
 }
 
@@ -15961,7 +15961,7 @@ declare noundef zeroext i1 @_ZNK15ciInstanceKlass21is_boxed_value_offsetEi(ptr n
 declare noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeOopPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeOopPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -16376,7 +16376,7 @@ define hidden noundef i32 @_ZNK10TypeOopPtr16dual_instance_idEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10TypeOopPtr22make_from_klass_commonEP7ciKlassbbN4Type17InterfaceHandlingE(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10TypeOopPtr22make_from_klass_commonEP7ciKlassbbN4Type17InterfaceHandlingE(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
@@ -16533,8 +16533,8 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit: ; preds = 
   %.0.i.i.i.i = phi ptr [ %85, %89 ], [ %92, %91 ]
   %93 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %93)
-  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i, i32 noundef 5, ptr noundef null, ptr noundef %69, ptr noundef null, i1 noundef zeroext %.013.in.i, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
-  %94 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  tail call void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiibPKS0_i(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i.i.i, i32 noundef 5, ptr noundef null, ptr noundef nonnull %69, ptr noundef null, i1 noundef zeroext %.013.in.i, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 2147483647)
+  %94 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %113
 
 95:                                               ; preds = %56
@@ -16554,7 +16554,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit: ; preds = 
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %109 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %107, ptr noundef %108, i1 noundef zeroext false)
-  %110 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %109, ptr noundef nonnull %0, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %110 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %109, ptr noundef nonnull %0, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   br label %113
 
 111:                                              ; preds = %95
@@ -16673,7 +16673,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit: ; preds = %4
   store i32 0, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr null, ptr %64, align 8
-  %65 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %65 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %143
 
 66:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread
@@ -16752,7 +16752,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit24: ; preds = 
   store i32 0, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %.0.i.i.i.i23, i64 56
   store ptr null, ptr %115, align 8
-  %116 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i23)
+  %116 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i23)
   br label %143
 
 117:                                              ; preds = %5
@@ -16804,7 +16804,7 @@ _ZNK10ciMetadata9is_loadedEv.exit26.thread:       ; preds = %117, %_ZNK10ciMetad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
   %10 = zext i1 %3 to i8
   %11 = icmp eq i32 %0, 2
   br i1 %11, label %27, label %12
@@ -16929,12 +16929,12 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %26)
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i, i32 noundef 21, i32 noundef 2, ptr noundef %5, ptr noundef %4, i1 noundef zeroext true, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %27 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %27 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
   %.not = icmp ne ptr %1, null
   %or.cond.not = or i1 %.not, %4
   br i1 %or.cond.not, label %13, label %11
@@ -17307,7 +17307,7 @@ define hidden noundef zeroext i1 @_ZNK10TypeOopPtr9singletonEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeOopPtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeOopPtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 36
@@ -17359,7 +17359,7 @@ _ZNK7TypePtr22add_offset_speculativeEl.exit:      ; preds = %_ZNK7TypePtr11xadd_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeOopPtr11with_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeOopPtr11with_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 76
@@ -17386,7 +17386,7 @@ _ZNK7TypePtr23with_offset_speculativeEl.exit:     ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeOopPtr18remove_speculativeEv(ptr noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeOopPtr18remove_speculativeEv(ptr noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -17441,7 +17441,7 @@ define hidden noundef ptr @_ZNK10TypeOopPtr19cleanup_speculativeEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeOopPtr17with_inline_depthEi(ptr noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeOopPtr17with_inline_depthEi(ptr noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseInlineDepthForSpeculativeTypes, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %15
@@ -17464,7 +17464,7 @@ define hidden noundef ptr @_ZNK10TypeOopPtr17with_inline_depthEi(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeOopPtr16with_instance_idEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeOopPtr16with_instance_idEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 36
@@ -17666,7 +17666,7 @@ declare noundef ptr @_ZN12ciArrayKlass17base_element_typeEv(ptr noundef nonnull 
 declare noundef ptr @_ZN15ciObjArrayKlass4makeEP7ciKlassi(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr21get_const_boxed_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr21get_const_boxed_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 36
@@ -18075,7 +18075,7 @@ _ZN8TypeLong4makeEl.exit:                         ; preds = %215, %217
 
 228:                                              ; preds = %_ZN8TypeLong4makeEl.exit, %_ZN5TypeD4makeEd.exit, %_ZN5TypeF4makeEf.exit, %_ZN7TypeInt4makeEi.exit14, %_ZN7TypeInt4makeEi.exit11, %_ZN7TypeInt4makeEi.exit8, %_ZN7TypeInt4makeEi.exit5, %_ZN7TypeInt4makeEi.exit
   %.0.i.i.i.i20.sink = phi ptr [ %.0.i.i.i.i20, %_ZN8TypeLong4makeEl.exit ], [ %.0.i.i.i.i18, %_ZN5TypeD4makeEd.exit ], [ %.0.i.i.i.i16, %_ZN5TypeF4makeEf.exit ], [ %.0.i.i.i.i13, %_ZN7TypeInt4makeEi.exit14 ], [ %.0.i.i.i.i10, %_ZN7TypeInt4makeEi.exit11 ], [ %.0.i.i.i.i7, %_ZN7TypeInt4makeEi.exit8 ], [ %.0.i.i.i.i4, %_ZN7TypeInt4makeEi.exit5 ], [ %.0.i.i.i.i, %_ZN7TypeInt4makeEi.exit ]
-  %229 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i20.sink)
+  %229 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i20.sink)
   ret ptr %229
 }
 
@@ -18084,7 +18084,7 @@ declare { i8, i64 } @_ZN10ciInstance21field_value_by_offsetEi(ptr noundef nonnul
 declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -18162,7 +18162,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %57)
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i, i32 noundef 21, i32 noundef 2, ptr noundef %10, ptr noundef %12, i1 noundef zeroext true, ptr noundef %28, i32 noundef %30, i32 noundef %32, ptr noundef %34, i32 noundef %36)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %58 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %58 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %59
 
 59:                                               ; preds = %_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i.exit, %.split4, %2
@@ -18171,7 +18171,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(80) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(80) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -18236,7 +18236,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZNK10ciMetadata9is
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr19cast_to_instance_idEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr19cast_to_instance_idEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %1, %4
@@ -18271,7 +18271,7 @@ define hidden noundef ptr @_ZNK11TypeInstPtr19cast_to_instance_idEi(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr14xmeet_unloadedEPKS_PK14TypeInterfaces(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr14xmeet_unloadedEPKS_PK14TypeInterfaces(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 36
@@ -18395,7 +18395,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK10TypeOopPtr16m
   %83 = load i32, ptr %82, align 4
   %84 = getelementptr inbounds i8, ptr %55, i64 32
   %85 = load i32, ptr %84, align 8
-  %86 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %67, ptr noundef %71, ptr noundef %73, i1 noundef zeroext %77, ptr noundef %79, i32 noundef %81, i32 noundef %83, ptr noundef %.011.i, i32 noundef %85)
+  %86 = tail call noundef nonnull ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %67, ptr noundef %71, ptr noundef %73, i1 noundef zeroext %77, ptr noundef %79, i32 noundef %81, i32 noundef %83, ptr noundef %.011.i, i32 noundef %85)
   br label %225
 
 87:                                               ; preds = %62
@@ -18428,7 +18428,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK10TypeOopPtr16m
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds i8, ptr %94, i64 32
   %114 = load i32, ptr %113, align 8
-  %115 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %96, ptr noundef %100, ptr noundef %102, i1 noundef zeroext %106, ptr noundef %108, i32 noundef %110, i32 noundef %112, ptr noundef %.011.i, i32 noundef %114)
+  %115 = tail call noundef nonnull ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %96, ptr noundef %100, ptr noundef %102, i1 noundef zeroext %106, ptr noundef %108, i32 noundef %110, i32 noundef %112, ptr noundef %.011.i, i32 noundef %114)
   br label %225
 
 116:                                              ; preds = %62, %62
@@ -18459,7 +18459,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK10TypeOopPtr16m
   %139 = load i32, ptr %138, align 4
   %140 = getelementptr inbounds i8, ptr %121, i64 32
   %141 = load i32, ptr %140, align 8
-  %142 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %123, ptr noundef %127, ptr noundef %129, i1 noundef zeroext %133, ptr noundef %135, i32 noundef %137, i32 noundef %139, ptr noundef %.011.i, i32 noundef %141)
+  %142 = tail call noundef nonnull ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %123, ptr noundef %127, ptr noundef %129, i1 noundef zeroext %133, ptr noundef %135, i32 noundef %137, i32 noundef %139, ptr noundef %.011.i, i32 noundef %141)
   br label %225
 
 143:                                              ; preds = %116
@@ -18484,7 +18484,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK10TypeOopPtr16m
   %162 = load i32, ptr %161, align 4
   %163 = getelementptr inbounds i8, ptr %144, i64 32
   %164 = load i32, ptr %163, align 8
-  %165 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %146, ptr noundef %150, ptr noundef %152, i1 noundef zeroext %156, ptr noundef %158, i32 noundef %160, i32 noundef %162, ptr noundef %.011.i, i32 noundef %164)
+  %165 = tail call noundef nonnull ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %146, ptr noundef %150, ptr noundef %152, i1 noundef zeroext %156, ptr noundef %158, i32 noundef %160, i32 noundef %162, ptr noundef %.011.i, i32 noundef %164)
   br label %225
 
 166:                                              ; preds = %62
@@ -18531,7 +18531,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK10TypeOopPtr16m
   %198 = load i32, ptr %197, align 4
   %199 = getelementptr inbounds i8, ptr %180, i64 32
   %200 = load i32, ptr %199, align 8
-  %201 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %182, ptr noundef %186, ptr noundef %188, i1 noundef zeroext %192, ptr noundef %194, i32 noundef %196, i32 noundef %198, ptr noundef %.011.i, i32 noundef %200)
+  %201 = tail call noundef nonnull ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %182, ptr noundef %186, ptr noundef %188, i1 noundef zeroext %192, ptr noundef %194, i32 noundef %196, i32 noundef %198, ptr noundef %.011.i, i32 noundef %200)
   br label %225
 
 202:                                              ; preds = %178
@@ -18556,7 +18556,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK10TypeOopPtr16m
   %221 = load i32, ptr %220, align 4
   %222 = getelementptr inbounds i8, ptr %203, i64 32
   %223 = load i32, ptr %222, align 8
-  %224 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %205, ptr noundef %209, ptr noundef %211, i1 noundef zeroext %215, ptr noundef %217, i32 noundef %219, i32 noundef %221, ptr noundef %.011.i, i32 noundef %223)
+  %224 = tail call noundef nonnull ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %205, ptr noundef %209, ptr noundef %211, i1 noundef zeroext %215, ptr noundef %217, i32 noundef %219, i32 noundef %221, ptr noundef %.011.i, i32 noundef %223)
   br label %225
 
 225:                                              ; preds = %202, %179, %172, %170, %143, %120, %93, %87, %65
@@ -18565,7 +18565,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK10TypeOopPtr16m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr16with_speculativeEPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr16with_speculativeEPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -19696,7 +19696,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr41maybe_java_subtype_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr10add_offsetEl(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr10add_offsetEl(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -19760,7 +19760,7 @@ _ZNK7TypePtr22add_offset_speculativeEl.exit:      ; preds = %_ZNK7TypePtr11xadd_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr11with_offsetEl(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr11with_offsetEl(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -19799,7 +19799,7 @@ _ZNK7TypePtr23with_offset_speculativeEl.exit:     ; preds = %2, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr18remove_speculativeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr18remove_speculativeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -19835,7 +19835,7 @@ define hidden noundef ptr @_ZNK11TypeInstPtr18remove_speculativeEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr17with_inline_depthEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr17with_inline_depthEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseInlineDepthForSpeculativeTypes, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %27
@@ -19870,7 +19870,7 @@ define hidden noundef ptr @_ZNK11TypeInstPtr17with_inline_depthEi(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr16with_instance_idEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr16with_instance_idEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -19896,7 +19896,7 @@ define hidden noundef ptr @_ZNK11TypeInstPtr16with_instance_idEi(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11TypeInstPtr13as_klass_typeEb(ptr noundef nonnull align 8 dereferenceable(80) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11TypeInstPtr13as_klass_typeEb(ptr noundef nonnull align 8 dereferenceable(80) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -20077,12 +20077,12 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr %65, ptr %94, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %95 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %95 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1808
@@ -20996,7 +20996,7 @@ _ZNK4Type11make_oopptrEv.exit:                    ; preds = %85, %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -21034,7 +21034,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(89) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(89) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21074,7 +21074,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr17cast_to_exactnessEb(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr19cast_to_instance_idEi(ptr noundef nonnull align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr19cast_to_instance_idEi(ptr noundef nonnull align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %1, %4
@@ -21329,7 +21329,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %67, %69
   store i32 %.1233139, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 28
   store i32 %.23238, ptr %77, align 4
-  %78 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %78 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %79
 
 79:                                               ; preds = %48, %_ZN7TypeInt4makeEiii.exit, %46
@@ -21338,7 +21338,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %67, %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr12cast_to_sizeEPK7TypeInt(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr12cast_to_sizeEPK7TypeInt(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 344
   %5 = load ptr, ptr %4, align 8
@@ -21377,7 +21377,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr12cast_to_sizeEPK7TypeInt(ptr noundef
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = load i32, ptr %37, align 8
-  %39 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %20, ptr noundef %22, ptr noundef %18, ptr noundef %26, i1 noundef zeroext %30, i32 noundef %32, i32 noundef %34, ptr noundef %36, i32 noundef %38, i1 noundef zeroext false)
+  %39 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %20, ptr noundef %22, ptr noundef nonnull %18, ptr noundef %26, i1 noundef zeroext %30, i32 noundef %32, i32 noundef %34, ptr noundef %36, i32 noundef %38, i1 noundef zeroext false)
   br label %40
 
 40:                                               ; preds = %2, %12
@@ -23404,7 +23404,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit171:     ; preds = %_ZNK10TypeOopPtr16m
   %234 = load ptr, ptr %4, align 8
   %235 = load i8, ptr %5, align 1
   %236 = trunc i8 %235 to i1
-  %237 = call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %226, ptr noundef %.0119, ptr noundef %233, ptr noundef %234, i1 noundef zeroext %236, i32 noundef %.0.i159, i32 noundef %spec.select, ptr noundef %.011.i168, i32 noundef %202, i1 noundef zeroext false)
+  %237 = call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %226, ptr noundef %.0119, ptr noundef nonnull %233, ptr noundef %234, i1 noundef zeroext %236, i32 noundef %.0.i159, i32 noundef %spec.select, ptr noundef %.011.i168, i32 noundef %202, i1 noundef zeroext false)
   br label %379
 
 238:                                              ; preds = %8
@@ -23559,7 +23559,7 @@ _ZNK10TypeOopPtr15meet_interfacesEPKS_.exit:      ; preds = %285, %286, %.thread
 328:                                              ; preds = %314, %309, %302
   %329 = tail call noundef ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr noundef nonnull align 8 dereferenceable(64) %301, ptr noundef %299)
   %330 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  %331 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %330, ptr noundef %329, i1 noundef zeroext false, ptr noundef null, i32 noundef %.0.i174, i32 noundef 0, ptr noundef %.011.i183, i32 noundef %280)
+  %331 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %330, ptr noundef nonnull %329, i1 noundef zeroext false, ptr noundef null, i32 noundef %.0.i174, i32 noundef 0, ptr noundef %.011.i183, i32 noundef %280)
   br label %379
 
 332:                                              ; preds = %_ZNK10TypeOopPtr15meet_interfacesEPKS_.exit, %_ZNK10TypeOopPtr15meet_interfacesEPKS_.exit, %_ZNK10TypeOopPtr15meet_interfacesEPKS_.exit
@@ -23624,7 +23624,7 @@ _ZNK10TypeOopPtr15meet_interfacesEPKS_.exit:      ; preds = %285, %286, %.thread
   %spec.store.select2 = tail call i32 @llvm.smin.i32(i32 %.0.i178, i32 0)
   %374 = tail call noundef ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr noundef nonnull align 8 dereferenceable(64) %301, ptr noundef %299)
   %375 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  %376 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %spec.store.select, ptr noundef %375, ptr noundef %374, i1 noundef zeroext false, ptr noundef null, i32 noundef %.0.i174, i32 noundef %spec.store.select2, ptr noundef %.011.i183, i32 noundef %280)
+  %376 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %spec.store.select, ptr noundef %375, ptr noundef nonnull %374, i1 noundef zeroext false, ptr noundef null, i32 noundef %.0.i174, i32 noundef %spec.store.select2, ptr noundef %.011.i183, i32 noundef %280)
   br label %379
 
 377:                                              ; preds = %_ZNK10TypeOopPtr15meet_interfacesEPKS_.exit
@@ -24337,7 +24337,7 @@ define hidden noundef zeroext i1 @_ZNK10TypeAryPtr5emptyEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -24398,7 +24398,7 @@ _ZNK7TypePtr22add_offset_speculativeEl.exit:      ; preds = %_ZNK7TypePtr11xadd_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr11with_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr11with_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -24434,7 +24434,7 @@ _ZNK7TypePtr23with_offset_speculativeEl.exit:     ; preds = %2, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr8with_aryEPK7TypeAry(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr8with_aryEPK7TypeAry(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -24457,7 +24457,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr8with_aryEPK7TypeAry(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr18remove_speculativeEv(ptr noundef nonnull readonly align 8 dereferenceable(89) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr18remove_speculativeEv(ptr noundef nonnull readonly align 8 dereferenceable(89) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -24494,7 +24494,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr18remove_speculativeEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr17with_inline_depthEi(ptr noundef nonnull readonly align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr17with_inline_depthEi(ptr noundef nonnull readonly align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseInlineDepthForSpeculativeTypes, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %28
@@ -24530,7 +24530,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr17with_inline_depthEi(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr16with_instance_idEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr16with_instance_idEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -24827,7 +24827,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %13, %16, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13TypeNarrowOop18remove_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK13TypeNarrowOop18remove_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -24874,12 +24874,12 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit:          ; preds = %24, %26
   %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store ptr %7, ptr %31, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i, align 8
-  %32 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %32 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13TypeNarrowOop19cleanup_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK13TypeNarrowOop19cleanup_speculativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -24926,7 +24926,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit:          ; preds = %24, %26
   %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store ptr %7, ptr %31, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i, align 8
-  %32 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %32 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %32
 }
 
@@ -25141,7 +25141,7 @@ define hidden noundef zeroext i1 @_ZNK15TypeMetadataPtr9singletonEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15TypeMetadataPtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK15TypeMetadataPtr10add_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -25220,7 +25220,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %37, %39
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr %6, ptr %48, align 8
-  %49 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %49 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %49
 }
 
@@ -25281,7 +25281,7 @@ define hidden noundef i64 @_ZNK15TypeMetadataPtr7get_conEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15TypeMetadataPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK15TypeMetadataPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -25340,7 +25340,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %27, %29
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr %8, ptr %38, align 8
-  %39 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %39 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %40
 
 40:                                               ; preds = %2, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit
@@ -25490,7 +25490,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %57, %59
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %68 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr %40, ptr %68, align 8
-  %69 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %69 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %147
 
 70:                                               ; preds = %_ZNK7TypePtr11meet_offsetEi.exit, %_ZNK7TypePtr11meet_offsetEi.exit
@@ -25608,7 +25608,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52: ; preds = %127, %
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i51, align 8
   %138 = getelementptr inbounds i8, ptr %.0.i.i.i.i51, i64 48
   store ptr %110, ptr %138, align 8
-  %139 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i51)
+  %139 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i51)
   br label %147
 
 140:                                              ; preds = %102
@@ -25736,7 +25736,7 @@ define hidden void @_ZN15TypeMetadataPtrC2EN7TypePtr3PTREP10ciMetadatai(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15TypeMetadataPtr4makeEP8ciMethod(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15TypeMetadataPtr4makeEP8ciMethod(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -25785,12 +25785,12 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %18, %20
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %29, align 8
-  %30 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %30 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15TypeMetadataPtr4makeEP12ciMethodData(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15TypeMetadataPtr4makeEP12ciMethodData(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -25839,12 +25839,12 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %18, %20
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %29, align 8
-  %30 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %30 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr13as_klass_typeEb(ptr noundef nonnull align 8 dereferenceable(89) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK10TypeAryPtr13as_klass_typeEb(ptr noundef nonnull align 8 dereferenceable(89) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -25948,12 +25948,12 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %49, %
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %.06, ptr %64, align 8
-  %65 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %65 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1808
@@ -26075,12 +26075,12 @@ _ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %
   %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 56
   store ptr %9, ptr %39, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
-  %40 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
+  %40 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %43
 
 41:                                               ; preds = %2
-  %42 = tail call noundef ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef 2, ptr noundef nonnull %0, i32 noundef 0, i32 noundef %1)
+  %42 = tail call noundef nonnull ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef 2, ptr noundef nonnull %0, i32 noundef 0, i32 noundef %1)
   br label %43
 
 43:                                               ; preds = %41, %_ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit
@@ -26089,13 +26089,13 @@ _ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15TypeAryKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15TypeAryKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef 2, ptr noundef %0, i32 noundef 0, i32 noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12TypeKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12TypeKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
@@ -26157,7 +26157,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   %41 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr %11, ptr %41, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %42 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %42 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %45
 
 43:                                               ; preds = %4
@@ -26170,7 +26170,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96
@@ -26241,12 +26241,12 @@ _ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %
   %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 56
   store ptr %17, ptr %47, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
-  %48 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
+  %48 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZN12TypeKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit
 
 49:                                               ; preds = %10
-  %50 = tail call noundef ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef 2, ptr noundef nonnull %11, i32 noundef 0, i32 noundef %3)
+  %50 = tail call noundef nonnull ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciKlassiN4Type17InterfaceHandlingE(i32 noundef 2, ptr noundef nonnull %11, i32 noundef 0, i32 noundef %3)
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %_ZN12TypeKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit
 
@@ -26361,7 +26361,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %105, 
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i14.sink38, align 8
   %119 = getelementptr inbounds i8, ptr %.0.i.i.i.i14.sink38, i64 64
   store ptr %.sink, ptr %119, align 8
-  %120 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i14.sink38)
+  %120 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i14.sink38)
   ret ptr %120
 }
 
@@ -26842,7 +26842,7 @@ _ZNK12TypeKlassPtr4hashEv.exit:                   ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16TypeInstKlassPtr10add_offsetEl(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK16TypeInstKlassPtr10add_offsetEl(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -26927,12 +26927,12 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   %53 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr %10, ptr %53, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %54 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %54 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16TypeInstKlassPtr11with_offsetEl(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK16TypeInstKlassPtr11with_offsetEl(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -26992,12 +26992,12 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr %10, ptr %40, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %41 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %41 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16TypeInstKlassPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK16TypeInstKlassPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -27060,7 +27060,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   %41 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr %10, ptr %41, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %42 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %42 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %43
 
 43:                                               ; preds = %2, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit
@@ -27102,7 +27102,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZNK10ciMetadata9is
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16TypeInstKlassPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK16TypeInstKlassPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 2
@@ -27176,7 +27176,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr %19, ptr %50, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %51 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %51 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %52
 
 52:                                               ; preds = %7, %2, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit
@@ -27185,7 +27185,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16TypeInstKlassPtr16as_instance_typeEb(ptr noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK16TypeInstKlassPtr16as_instance_typeEb(ptr noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 240
   %5 = load ptr, ptr %4, align 8
@@ -27567,7 +27567,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   %132 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   store ptr %103, ptr %132, align 8
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
-  %133 = call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %133 = call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %238
 
 134:                                              ; preds = %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit
@@ -27680,7 +27680,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71:  ; preds = %155, %156, %.thread
   %199 = load ptr, ptr %168, align 8
   %200 = tail call noundef ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr noundef nonnull align 8 dereferenceable(64) %198, ptr noundef %199)
   %201 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  %202 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef 4, ptr noundef %201, ptr noundef %200, i32 noundef %.0.i67)
+  %202 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef 4, ptr noundef %201, ptr noundef nonnull %200, i32 noundef %.0.i67)
   br label %238
 
 203:                                              ; preds = %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71, %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71, %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71
@@ -27726,7 +27726,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71:  ; preds = %155, %156, %.thread
   %spec.store.select = select i1 %232, i32 4, i32 %152
   %233 = tail call noundef ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr noundef nonnull align 8 dereferenceable(64) %171, ptr noundef %169)
   %234 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  %235 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef %spec.store.select, ptr noundef %234, ptr noundef %233, i32 noundef %.0.i67)
+  %235 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef %spec.store.select, ptr noundef %234, ptr noundef nonnull %233, i32 noundef %.0.i67)
   br label %238
 
 236:                                              ; preds = %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71
@@ -28252,7 +28252,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr41maybe_java_subtype_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16TypeInstKlassPtr11try_improveEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK16TypeInstKlassPtr11try_improveEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load ptr, ptr %3, align 8
@@ -28810,7 +28810,7 @@ _ZNK4Type8make_ptrEv.exit11:                      ; preds = %24, %27, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15TypeAryKlassPtr10add_offsetEl(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK15TypeAryKlassPtr10add_offsetEl(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -28898,12 +28898,12 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %41, %
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %55 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %6, ptr %55, align 8
-  %56 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %56 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15TypeAryKlassPtr11with_offsetEl(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK15TypeAryKlassPtr11with_offsetEl(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -28966,12 +28966,12 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %27, %
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %6, ptr %42, align 8
-  %43 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %43 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15TypeAryKlassPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK15TypeAryKlassPtr16cast_to_ptr_typeEN7TypePtr3PTRE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -29037,7 +29037,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %29, %
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %8, ptr %43, align 8
-  %44 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %44 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %45
 
 45:                                               ; preds = %2, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit
@@ -29078,7 +29078,7 @@ define hidden noundef zeroext i1 @_ZNK15TypeAryKlassPtr13must_be_exactEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15TypeAryKlassPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK15TypeAryKlassPtr17cast_to_exactnessEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -29164,7 +29164,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %40, %
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %.0, ptr %54, align 8
-  %55 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %55 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %56
 
 56:                                               ; preds = %2, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit
@@ -29173,7 +29173,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %40, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15TypeAryKlassPtr16as_instance_typeEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i1 zeroext %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK15TypeAryKlassPtr16as_instance_typeEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i1 zeroext %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 240
   %5 = load ptr, ptr %4, align 8
@@ -29208,7 +29208,7 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr16as_instance_typeEb(ptr noundef
   %.0 = phi ptr [ %24, %16 ], [ %12, %2 ]
   %26 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %27 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %.0, ptr noundef %26, i1 noundef zeroext false)
-  %28 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef %27, ptr noundef %.03, i1 noundef zeroext %10, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %28 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %27, ptr noundef %.03, i1 noundef zeroext %10, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   ret ptr %28
 }
 
@@ -29429,7 +29429,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %104, 
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %118 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %86, ptr %118, align 8
-  %119 = call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %119 = call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %217
 
 120:                                              ; preds = %8
@@ -29533,7 +29533,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit:    ; preds = %139, %140, %.thread
   %180 = load ptr, ptr %152, align 8
   %181 = tail call noundef ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr noundef nonnull align 8 dereferenceable(64) %155, ptr noundef %180)
   %182 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  %183 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef 4, ptr noundef %182, ptr noundef %181, i32 noundef %.0.i67)
+  %183 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef 4, ptr noundef %182, ptr noundef nonnull %181, i32 noundef %.0.i67)
   br label %217
 
 184:                                              ; preds = %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit, %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit, %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit
@@ -29577,7 +29577,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit:    ; preds = %139, %140, %.thread
   %spec.store.select = select i1 %211, i32 4, i32 %136
   %212 = tail call noundef ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(ptr noundef nonnull align 8 dereferenceable(64) %155, ptr noundef %153)
   %213 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  %214 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef %spec.store.select, ptr noundef %213, ptr noundef %212, i32 noundef %.0.i67)
+  %214 = tail call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef %spec.store.select, ptr noundef %213, ptr noundef nonnull %212, i32 noundef %.0.i67)
   br label %217
 
 215:                                              ; preds = %_ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit
@@ -30767,7 +30767,7 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr17base_element_typeERi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1808
@@ -30815,7 +30815,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8TypeFunc4makeEP8ciMethod(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8TypeFunc4makeEP8ciMethod(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808
@@ -30892,7 +30892,7 @@ _ZN8TypeFunc4makeEPK9TypeTupleS2_.exit:           ; preds = %41, %43
   store ptr %22, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
   store ptr %25, ptr %49, align 8
-  %50 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  %50 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   store ptr %0, ptr %8, align 8
   store ptr %50, ptr %11, align 8
   br label %51

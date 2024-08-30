@@ -16906,12 +16906,15 @@ define hidden { i64, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hda0561584ab3648aE.llvm.3801596959246744488.exit": ; preds = %3, %9, %.noexc.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false), !alias.scope !2900, !noalias !2877
-  %15 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h2a78fffc1ce4ce8dE.llvm.3801596959246744488(ptr noalias noundef nonnull align 8 dereferenceable(104) %6, i64 noundef %1), !noalias !2901
-  %16 = icmp eq i64 %15, 0
-  %..i.i.i = zext i1 %16 to i64
-  %17 = insertvalue { i64, i64 } poison, i64 %..i.i.i, 0
-  %18 = insertvalue { i64, i64 } %17, i64 %15, 1
-  ret { i64, i64 } %18
+  %15 = load ptr, ptr %6, align 8, !alias.scope !2882, !noalias !2891, !noundef !21
+  %16 = icmp ne ptr %15, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h2a78fffc1ce4ce8dE.llvm.3801596959246744488(ptr noalias noundef nonnull align 8 dereferenceable(104) %6, i64 noundef %1), !noalias !2901
+  %18 = icmp eq i64 %17, 0
+  %..i.i.i = zext i1 %18 to i64
+  %19 = insertvalue { i64, i64 } poison, i64 %..i.i.i, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %17, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -42294,12 +42297,15 @@ define hidden { i64, i64 } @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$
 
 "_ZN4core6option15Option$LT$T$GT$6insert17hd8892e14a3b4fb5fE.llvm.3801596959246744488.exit": ; preds = %3, %8, %.noexc.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull readonly align 8 dereferenceable(104) %2, i64 104, i1 false), !alias.scope !8061
-  %14 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h2a78fffc1ce4ce8dE.llvm.3801596959246744488(ptr noalias noundef nonnull align 8 dereferenceable(104) %5, i64 noundef %1)
-  %15 = icmp eq i64 %14, 0
-  %..i.i = zext i1 %15 to i64
-  %16 = insertvalue { i64, i64 } poison, i64 %..i.i, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %14, 1
-  ret { i64, i64 } %17
+  %14 = load ptr, ptr %5, align 8, !alias.scope !8045, !noalias !8048, !noundef !21
+  %15 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %15)
+  %16 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h2a78fffc1ce4ce8dE.llvm.3801596959246744488(ptr noalias noundef nonnull align 8 dereferenceable(104) %5, i64 noundef %1)
+  %17 = icmp eq i64 %16, 0
+  %..i.i = zext i1 %17 to i64
+  %18 = insertvalue { i64, i64 } poison, i64 %..i.i, 0
+  %19 = insertvalue { i64, i64 } %18, i64 %16, 1
+  ret { i64, i64 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -43830,6 +43836,9 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN4core6option
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..FileStatsAccessor$GT$$GT$17h25c0ff3e35f8c71eE.llvm.3801596959246744488.exit": ; preds = %5, %2, %.noexc
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
+  %11 = load ptr, ptr %0, align 8, !noundef !21
+  %12 = icmp ne ptr %11, null
+  tail call void @llvm.assume(i1 %12)
   ret ptr %0
 }
 
@@ -47783,7 +47792,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.ll
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3801596959246744488(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3801596959246744488(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -77756,7 +77765,7 @@ define internal noundef zeroext i1 @"_ZN99_$LT$sqlparser..ast..helpers..stmt_dat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(64) ptr @"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$15get_or_try_init17h27ed248fa38387a8E"(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$15get_or_try_init17h27ed248fa38387a8E"(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = alloca i32, align 4
   %3 = alloca [2 x [4 x i64]], align 8
   %4 = alloca [64 x i8], align 1

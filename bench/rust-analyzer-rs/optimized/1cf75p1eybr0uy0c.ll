@@ -2101,7 +2101,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   %14 = call { ptr, ptr } %13(ptr noundef nonnull align 1 %.val.i.i), !noalias !970
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = extractvalue { ptr, ptr } %14, 1
-  %17 = call noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull align 1 %15, ptr noalias noundef readonly align 8 dereferenceable(24) %16)
+  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull align 1 %15, ptr noalias noundef readonly align 8 dereferenceable(24) %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !973
   store ptr %17, ptr %3, align 8, !noalias !977
   %18 = load ptr, ptr %.sroa.0.0.copyload, align 8, !noalias !981, !nonnull !4, !align !5, !noundef !4
@@ -16884,7 +16884,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %18 = call { ptr, ptr } %17(ptr noundef nonnull align 1 %.val.i), !noalias !6952
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = extractvalue { ptr, ptr } %18, 1
-  %21 = call noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 %19, ptr noalias noundef readonly align 8 dereferenceable(24) %20)
+  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 %19, ptr noalias noundef readonly align 8 dereferenceable(24) %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !6955
   store ptr %21, ptr %3, align 8, !noalias !6959
   %22 = load ptr, ptr %8, align 8, !noalias !6963, !nonnull !4, !align !5, !noundef !4
@@ -19101,7 +19101,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd9a130a8312244d0E.ll
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.12542172245242916373(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.12542172245242916373(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807

@@ -1130,7 +1130,7 @@ default.unreachable299:                           ; preds = %357
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef nonnull ptr @_Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -2049,7 +2049,7 @@ define noundef ptr @_Z29rtlil_frontend_yy_scan_bufferPcm(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z29rtlil_frontend_yy_scan_stringPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define noundef nonnull ptr @_Z29rtlil_frontend_yy_scan_stringPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %3 = trunc i64 %2 to i32
   %4 = tail call noundef ptr @_Z28rtlil_frontend_yy_scan_bytesPKci(ptr noundef %0, i32 noundef %3)
@@ -2057,7 +2057,7 @@ define noundef ptr @_Z29rtlil_frontend_yy_scan_stringPKc(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z28rtlil_frontend_yy_scan_bytesPKci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef nonnull ptr @_Z28rtlil_frontend_yy_scan_bytesPKci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = add nsw i32 %1, 2
   %4 = sext i32 %3 to i64
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #26

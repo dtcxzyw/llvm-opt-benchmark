@@ -115,7 +115,7 @@ $_ZTIN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE = comdat any
 @_ZN25btDiscreteDynamicsWorldMtD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN25btDiscreteDynamicsWorldMtD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btConstraintSolverPoolMt22getAndLockThreadSolverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN24btConstraintSolverPoolMt22getAndLockThreadSolverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8

@@ -27300,7 +27300,7 @@ unreachable:                                      ; preds = %invoke.cont7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @duckdb_create_table_function() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @duckdb_create_table_function() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp1 = alloca %"class.duckdb::vector", align 8

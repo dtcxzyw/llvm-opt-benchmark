@@ -1022,7 +1022,7 @@ cleanup:                                          ; preds = %lor.lhs.false.i.i.i
 declare noundef ptr @_ZN9MapSector20getBlockNoCreateNoExEs(ptr noundef nonnull align 8 dereferenceable(98), i16 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN3Map16getBlockNoCreateEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, i48 %p3d.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN3Map16getBlockNoCreateEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, i48 %p3d.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i48 %p3d.coerce)
   %cmp = icmp eq ptr %call, null

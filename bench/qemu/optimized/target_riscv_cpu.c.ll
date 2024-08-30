@@ -565,7 +565,7 @@ return:                                           ; preds = %entry, %if.then
 declare zeroext i1 @riscv_cpu_tcg_compatible(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @riscv_get_misa_ext_name(i32 noundef %bit) local_unnamed_addr #3 {
+define dso_local nonnull ptr @riscv_get_misa_ext_name(i32 noundef %bit) local_unnamed_addr #3 {
 entry:
   %cmp.not.i = icmp eq i32 %bit, 0
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
@@ -599,7 +599,7 @@ do.end:                                           ; preds = %riscv_validate_misa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @riscv_get_misa_ext_description(i32 noundef %bit) local_unnamed_addr #3 {
+define dso_local nonnull ptr @riscv_get_misa_ext_description(i32 noundef %bit) local_unnamed_addr #3 {
 entry:
   %cmp.not.i = icmp eq i32 %bit, 0
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i

@@ -8783,7 +8783,7 @@ define noundef nonnull align 8 dereferenceable(233) ptr @_ZNK7xgboost4data13Simp
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7xgboost4data13SimpleDMatrix5SliceENS_6common4SpanIKiLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7xgboost4data13SimpleDMatrix5SliceENS_6common4SpanIKiLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::BatchSet", align 8
   %4 = alloca %"class.xgboost::BatchIterator", align 8
   %5 = alloca %"class.xgboost::BatchIterator", align 8
@@ -9963,7 +9963,7 @@ _ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit: ; preds = %1, %20, %33, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7xgboost4data13SimpleDMatrix8SliceColEii(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7xgboost4data13SimpleDMatrix8SliceColEii(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.xgboost::BatchSet", align 8
   %5 = alloca %"class.xgboost::BatchIterator", align 8
   %6 = alloca %"class.xgboost::BatchIterator", align 8

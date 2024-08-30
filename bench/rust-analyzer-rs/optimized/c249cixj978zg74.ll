@@ -36571,8 +36571,8 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h7c54bb90ea30ab00E.exit.i.i.i.i
   br label %68
 
 68:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit20.i.i.i.i.i.i.i", %66
-  %.sroa.5.1.i.i.i.i.i.i.i = phi ptr [ %78, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit20.i.i.i.i.i.i.i" ], [ %67, %66 ]
-  %.sroa.0.1.i.i.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i.i.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit20.i.i.i.i.i.i.i" ], [ 0, %66 ]
+  %.sroa.5.1.i.i.i.i.i.i.i = phi ptr [ %67, %66 ], [ %78, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit20.i.i.i.i.i.i.i" ]
+  %.sroa.0.1.i.i.i.i.i.i.i = phi i64 [ 0, %66 ], [ %spec.select.i.i.i.i.i.i.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit20.i.i.i.i.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9413)
   call void @llvm.experimental.noalias.scope.decl(metadata !9416)
   call void @llvm.experimental.noalias.scope.decl(metadata !9419)

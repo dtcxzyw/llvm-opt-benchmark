@@ -6651,14 +6651,14 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @scsi_block_dma_readv(i64 noundef %offset, ptr nocapture noundef readonly %iov, ptr noundef %cb, ptr noundef %cb_opaque, ptr noundef %opaque) #0 {
+define internal nonnull ptr @scsi_block_dma_readv(i64 noundef %offset, ptr nocapture noundef readonly %iov, ptr noundef %cb, ptr noundef %cb_opaque, ptr noundef %opaque) #0 {
 entry:
   %call = tail call fastcc ptr @scsi_block_do_sgio(ptr noundef %opaque, i64 noundef %offset, ptr noundef %iov, i32 noundef -3, ptr noundef %cb, ptr noundef %cb_opaque)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @scsi_block_dma_writev(i64 noundef %offset, ptr nocapture noundef readonly %iov, ptr noundef %cb, ptr noundef %cb_opaque, ptr noundef %opaque) #0 {
+define internal nonnull ptr @scsi_block_dma_writev(i64 noundef %offset, ptr nocapture noundef readonly %iov, ptr noundef %cb, ptr noundef %cb_opaque, ptr noundef %opaque) #0 {
 entry:
   %call = tail call fastcc ptr @scsi_block_do_sgio(ptr noundef %opaque, i64 noundef %offset, ptr noundef %iov, i32 noundef -2, ptr noundef %cb, ptr noundef %cb_opaque)
   ret ptr %call
@@ -6786,7 +6786,7 @@ declare i32 @scsi_bus_parse_cdb(ptr noundef, ptr noundef, ptr noundef, i64 nound
 declare i32 @scsi_req_parse_cdb(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @scsi_block_do_sgio(ptr noundef %req, i64 noundef %offset, ptr nocapture noundef readonly %iov, i32 noundef %direction, ptr noundef %cb, ptr noundef %opaque) unnamed_addr #0 {
+define internal fastcc nonnull ptr @scsi_block_do_sgio(ptr noundef %req, i64 noundef %offset, ptr nocapture noundef readonly %iov, i32 noundef %direction, ptr noundef %cb, ptr noundef %opaque) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %io_header1 = getelementptr inbounds i8, ptr %req, i64 512

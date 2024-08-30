@@ -828,9 +828,9 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %9, %4
 
 rb_check_frozen_inline.exit:                      ; preds = %9
   %16 = tail call i64 @rb_obj_class(i64 noundef %0) #9
-  %17 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %16)
+  %17 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %16)
   %18 = tail call i64 @rb_obj_class(i64 noundef %1) #9
-  %19 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %18)
+  %19 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %18)
   %.not = icmp eq ptr %17, %19
   br i1 %.not, label %22, label %20
 
@@ -854,7 +854,7 @@ rb_check_frozen_inline.exit:                      ; preds = %9
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @rb_digest_base_reset(i64 noundef returned %0) #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #9
-  %3 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %2)
+  %3 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %2)
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @digest_type) #9
   %5 = getelementptr i8, ptr %3, i64 32
   %.val = load ptr, ptr %5, align 8
@@ -877,7 +877,7 @@ define internal noundef i64 @rb_digest_base_update(i64 noundef returned %0, i64 
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
   %5 = tail call i64 @rb_obj_class(i64 noundef %0) #9
-  %6 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %5)
+  %6 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %5)
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @digest_type) #9
   %8 = call i64 @rb_string_value(ptr noundef nonnull %3) #9
   %9 = getelementptr inbounds i8, ptr %6, i64 40
@@ -909,7 +909,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
 ; Function Attrs: nounwind uwtable
 define internal i64 @rb_digest_base_finish(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #9
-  %3 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %2)
+  %3 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %2)
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @digest_type) #9
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
@@ -948,7 +948,7 @@ algo_init.exit:                                   ; preds = %RSTRING_PTR.exit
 ; Function Attrs: nounwind uwtable
 define internal i64 @rb_digest_base_digest_length(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #9
-  %3 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %2)
+  %3 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 4611686018427387904
@@ -971,7 +971,7 @@ rb_ull2num_inline.exit:                           ; preds = %7, %10
 ; Function Attrs: nounwind uwtable
 define internal i64 @rb_digest_base_block_length(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #9
-  %3 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %2)
+  %3 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 4611686018427387904
@@ -1045,7 +1045,7 @@ declare void @rb_obj_call_init(i64 noundef, i32 noundef, ptr noundef) local_unna
 declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_digest_base_metadata(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %0) unnamed_addr #0 {
   %2 = icmp eq i64 %0, 4
   br i1 %2, label %._crit_edge, label %.lr.ph
 

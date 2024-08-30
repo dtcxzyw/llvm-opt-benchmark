@@ -1057,7 +1057,7 @@ default.unreachable473:                           ; preds = %_ZL18yy_get_next_bu
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_Z25_gmx_sel_yy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define noundef nonnull ptr @_Z25_gmx_sel_yy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = tail call noalias noundef dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #29
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -2051,14 +2051,14 @@ define noundef ptr @_Z23_gmx_sel_yy_scan_bufferPcmPv(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z23_gmx_sel_yy_scan_stringPKcPv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define noundef nonnull ptr @_Z23_gmx_sel_yy_scan_stringPKcPv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #36
   %4 = tail call noundef ptr @_Z22_gmx_sel_yy_scan_bytesPKcmPv(ptr noundef %0, i64 noundef %3, ptr noundef %1)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z22_gmx_sel_yy_scan_bytesPKcmPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #9 {
+define noundef nonnull ptr @_Z22_gmx_sel_yy_scan_bytesPKcmPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #9 {
   %4 = add i64 %1, 2
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #29
   %.not = icmp eq ptr %5, null

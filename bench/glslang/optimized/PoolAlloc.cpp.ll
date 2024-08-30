@@ -37,7 +37,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPo
   br label %_ZN7glslang12_GLOBAL__N_129GetDefaultThreadPoolAllocatorEv.exit
 
 _ZN7glslang12_GLOBAL__N_129GetDefaultThreadPoolAllocatorEv.exit: ; preds = %3, %4
-  %6 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN7glslang12_GLOBAL__N_129GetDefaultThreadPoolAllocatorEvE16defaultAllocator)
+  %6 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN7glslang12_GLOBAL__N_129GetDefaultThreadPoolAllocatorEvE16defaultAllocator)
   br label %7
 
 7:                                                ; preds = %0, %_ZN7glslang12_GLOBAL__N_129GetDefaultThreadPoolAllocatorEv.exit

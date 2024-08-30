@@ -1011,7 +1011,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait_st(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait_st(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.sroa.22.i.i.i7 = alloca i64, align 8
   %3 = alloca ptr, align 8
@@ -1247,7 +1247,7 @@ opal_lifo_pop_atomic.exit.i30:                    ; preds = %opal_update_counted
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.sroa.22.i.i23.i = alloca i64, align 8
   %3 = alloca ptr, align 8

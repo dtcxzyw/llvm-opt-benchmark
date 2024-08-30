@@ -2016,7 +2016,7 @@ define internal fastcc range(i32 -30, 1) i32 @get_entry_symlink(ptr noundef %0, 
 declare void @archive_entry_set_pathname(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @build_ustar_entry_name(ptr noundef returned %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #8 {
+define internal fastcc nonnull ptr @build_ustar_entry_name(ptr noundef returned %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #8 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %8, label %.thread193
 
@@ -2458,7 +2458,7 @@ define internal fastcc range(i32 -30, 1) i32 @add_pax_acl(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @build_gnu_sparse_name(ptr noundef returned %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc nonnull ptr @build_gnu_sparse_name(ptr noundef returned %0, ptr noundef %1) unnamed_addr #8 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 
@@ -2915,7 +2915,7 @@ url_encode.exit.thread:                           ; preds = %._crit_edge.thread.
 declare i32 @__archive_write_format_header_ustar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @build_pax_attribute_name(ptr noundef returned %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc nonnull ptr @build_pax_attribute_name(ptr noundef returned %0, ptr noundef %1) unnamed_addr #8 {
   %3 = alloca [64 x i8], align 16
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5

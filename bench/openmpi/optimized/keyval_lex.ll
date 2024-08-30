@@ -1299,7 +1299,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @opal_util_keyval_yy_create_buffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @opal_util_keyval_yy_create_buffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -1958,7 +1958,7 @@ define noundef ptr @opal_util_keyval_yy_scan_buffer(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @opal_util_keyval_yy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define nonnull ptr @opal_util_keyval_yy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %3 = trunc i64 %2 to i32
   %4 = tail call ptr @opal_util_keyval_yy_scan_bytes(ptr noundef %0, i32 noundef %3)
@@ -1966,7 +1966,7 @@ define noundef ptr @opal_util_keyval_yy_scan_string(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @opal_util_keyval_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @opal_util_keyval_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %1, 2
   %4 = sext i32 %3 to i64
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #20

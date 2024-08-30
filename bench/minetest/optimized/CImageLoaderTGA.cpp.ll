@@ -151,7 +151,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr5video15CImageLoaderTGA19loadCompressedImageEPNS_2io9IReadFileERKNS0_10STGAHeaderE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %file, ptr nocapture noundef nonnull readonly align 1 dereferenceable(18) %header) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK3irr5video15CImageLoaderTGA19loadCompressedImageEPNS_2io9IReadFileERKNS0_10STGAHeaderE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %file, ptr nocapture noundef nonnull readonly align 1 dereferenceable(18) %header) local_unnamed_addr #0 align 2 {
 entry:
   %chunkheader = alloca i8, align 1
   %PixelDepth = getelementptr inbounds i8, ptr %header, i64 16
@@ -686,7 +686,7 @@ if.then100:                                       ; preds = %sw.bb96
   %38 = load i8, ptr %ImageDescriptor, align 1, !tbaa !43
   %39 = and i8 %38, 32
   %cmp116 = icmp eq i8 %39, 0
-  call void @_ZN3irr5video15CColorConverter18convert8BitTo24BitEPKhPhiiS3_ib(ptr noundef %data.0, ptr noundef %35, i32 noundef %conv112, i32 noundef %conv114, ptr noundef null, i32 noundef 0, i1 noundef zeroext %cmp116) #13
+  call void @_ZN3irr5video15CColorConverter18convert8BitTo24BitEPKhPhiiS3_ib(ptr noundef nonnull %data.0, ptr noundef %35, i32 noundef %conv112, i32 noundef %conv114, ptr noundef null, i32 noundef 0, i1 noundef zeroext %cmp116) #13
   br label %delete.notnull233
 
 if.else118:                                       ; preds = %sw.bb96
@@ -713,7 +713,7 @@ sw.bb121:                                         ; preds = %if.else118
   %46 = load i8, ptr %ImageDescriptor137, align 1, !tbaa !43
   %47 = and i8 %46, 32
   %cmp140 = icmp eq i8 %47, 0
-  call void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef %data.0, ptr noundef %43, i32 noundef %conv134, i32 noundef %conv136, ptr noundef %palette.0, i32 noundef 0, i1 noundef zeroext %cmp140) #13
+  call void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef nonnull %data.0, ptr noundef %43, i32 noundef %conv134, i32 noundef %conv136, ptr noundef %palette.0, i32 noundef 0, i1 noundef zeroext %cmp140) #13
   br label %delete.notnull233
 
 sw.default:                                       ; preds = %if.else118
@@ -731,7 +731,7 @@ sw.default:                                       ; preds = %if.else118
   %53 = load i8, ptr %ImageDescriptor137, align 1, !tbaa !43
   %54 = and i8 %53, 32
   %cmp160 = icmp eq i8 %54, 0
-  call void @_ZN3irr5video15CColorConverter18convert8BitTo32BitEPKhPhiiS3_ib(ptr noundef %data.0, ptr noundef %50, i32 noundef %conv154, i32 noundef %conv156, ptr noundef %palette.0, i32 noundef 0, i1 noundef zeroext %cmp160) #13
+  call void @_ZN3irr5video15CColorConverter18convert8BitTo32BitEPKhPhiiS3_ib(ptr noundef nonnull %data.0, ptr noundef %50, i32 noundef %conv154, i32 noundef %conv156, ptr noundef %palette.0, i32 noundef 0, i1 noundef zeroext %cmp160) #13
   br label %delete.notnull233
 
 sw.bb164:                                         ; preds = %if.end93
@@ -752,7 +752,7 @@ sw.bb164:                                         ; preds = %if.end93
   %60 = load i8, ptr %ImageDescriptor180, align 1, !tbaa !43
   %61 = and i8 %60, 32
   %cmp183 = icmp eq i8 %61, 0
-  call void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef %data.0, ptr noundef %57, i32 noundef %conv177, i32 noundef %conv179, i32 noundef 0, i1 noundef zeroext %cmp183) #13
+  call void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef nonnull %data.0, ptr noundef %57, i32 noundef %conv177, i32 noundef %conv179, i32 noundef 0, i1 noundef zeroext %cmp183) #13
   br label %delete.notnull233
 
 sw.bb185:                                         ; preds = %if.end93
@@ -773,7 +773,7 @@ sw.bb185:                                         ; preds = %if.end93
   %67 = load i8, ptr %ImageDescriptor201, align 1, !tbaa !43
   %68 = and i8 %67, 32
   %cmp204 = icmp eq i8 %68, 0
-  call void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef %data.0, ptr noundef %64, i32 noundef %conv198, i32 noundef %conv200, i32 noundef 0, i1 noundef zeroext %cmp204, i1 noundef zeroext true) #13
+  call void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef nonnull %data.0, ptr noundef %64, i32 noundef %conv198, i32 noundef %conv200, i32 noundef 0, i1 noundef zeroext %cmp204, i1 noundef zeroext true) #13
   br label %delete.notnull233
 
 sw.bb206:                                         ; preds = %if.end93
@@ -794,7 +794,7 @@ sw.bb206:                                         ; preds = %if.end93
   %74 = load i8, ptr %ImageDescriptor222, align 1, !tbaa !43
   %75 = and i8 %74, 32
   %cmp225 = icmp eq i8 %75, 0
-  call void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef %data.0, ptr noundef %71, i32 noundef %conv219, i32 noundef %conv221, i32 noundef 0, i1 noundef zeroext %cmp225) #13
+  call void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef nonnull %data.0, ptr noundef %71, i32 noundef %conv219, i32 noundef %conv221, i32 noundef 0, i1 noundef zeroext %cmp225) #13
   br label %delete.notnull233
 
 sw.default227:                                    ; preds = %if.end93

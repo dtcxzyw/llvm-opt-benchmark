@@ -228,7 +228,7 @@ if.end:                                           ; preds = %delete.end8, %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter8SimplifyEv(ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter8SimplifyEv(ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8
   %.off5 = add i32 %0, -3
@@ -955,7 +955,7 @@ for.end:                                          ; preds = %_ZN3re29Prefilter10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter10FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter10FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   invoke void @_ZN3re29PrefilterC1ENS0_2OpE(ptr noundef nonnull align 8 dereferenceable(52) %call, i32 noundef 2)
@@ -1821,7 +1821,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info3AltEPS1_S2_(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info3AltEPS1_S2_(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, re2::Prefilter::LengthThenLex>::_Alloc_node", align 8
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
@@ -2008,7 +2008,7 @@ delete.end27:                                     ; preds = %delete.notnull26, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info5QuestEPS1_(ptr noundef %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info5QuestEPS1_(ptr noundef %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
@@ -2053,7 +2053,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info4StarEPS1_(ptr noundef %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info4StarEPS1_(ptr noundef %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i)
@@ -2098,7 +2098,7 @@ _ZN3re29Prefilter4Info5QuestEPS1_.exit:           ; preds = %invoke.cont3.i, %de
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info4PlusEPS1_(ptr noundef %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info4PlusEPS1_(ptr noundef %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
@@ -2140,7 +2140,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info7LiteralEi(i32 noundef %r) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info7LiteralEi(i32 noundef %r) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, re2::Prefilter::LengthThenLex>::_Alloc_node", align 8
   %r.addr.i = alloca i32, align 4
@@ -2240,7 +2240,7 @@ lpad2:                                            ; preds = %if.then.i.i, %_ZN3r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info13LiteralLatin1Ei(i32 noundef %r) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info13LiteralLatin1Ei(i32 noundef %r) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, re2::Prefilter::LengthThenLex>::_Alloc_node", align 8
   %c.i = alloca i8, align 1
@@ -2313,7 +2313,7 @@ lpad2:                                            ; preds = %if.then.i.i, %_ZN3r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
@@ -2347,7 +2347,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info7NoMatchEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info7NoMatchEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
@@ -2381,7 +2381,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info8AnyMatchEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info8AnyMatchEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
@@ -2415,7 +2415,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info11EmptyStringEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info11EmptyStringEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, re2::Prefilter::LengthThenLex>::_Alloc_node", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2495,7 +2495,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info6CClassEPNS_9CharClassEb(ptr nocapture noundef readonly %cc, i1 noundef zeroext %latin1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info6CClassEPNS_9CharClassEb(ptr nocapture noundef readonly %cc, i1 noundef zeroext %latin1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r.addr.i = alloca i32, align 4
   %buf.i = alloca [4 x i8], align 1
@@ -2980,7 +2980,7 @@ _ZN3re26Regexp6WalkerIPNS_9Prefilter4InfoEED2Ev.exit: ; preds = %invoke.cont.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter4Info6Walker10ShortVisitEPNS_6RegexpEPS1_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %re, ptr nocapture readnone %parent_arg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re29Prefilter4Info6Walker10ShortVisitEPNS_6RegexpEPS1_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %re, ptr nocapture readnone %parent_arg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i)
@@ -3045,7 +3045,7 @@ for.cond55.preheader:                             ; preds = %entry
   br i1 %cmp56115, label %for.body57.preheader, label %for.end74
 
 for.body57.preheader:                             ; preds = %for.cond55.preheader
-  %wide.trip.count135 = zext nneg i32 %nchild_args to i64
+  %wide.trip.count137 = zext nneg i32 %nchild_args to i64
   br label %for.body57
 
 sw.bb:                                            ; preds = %entry
@@ -3172,32 +3172,18 @@ if.then26:                                        ; preds = %if.end24
   %call28 = tail call noundef ptr @_ZN3re29Prefilter4Info13LiteralLatin1Ei(i32 noundef %13)
   %14 = load i32, ptr %9, align 8
   %cmp30125 = icmp sgt i32 %14, 1
-  br i1 %cmp30125, label %for.body, label %sw.epilog
+  br i1 %cmp30125, label %if.end.i, label %sw.epilog
 
-for.body:                                         ; preds = %if.then26, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ 1, %if.then26 ]
-  %info.1127 = phi ptr [ %retval.0.i, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %call28, %if.then26 ]
+if.end.i:                                         ; preds = %if.then26, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit
+  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ 1, %if.then26 ]
+  %info.1127 = phi ptr [ %call.i52, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %call28, %if.then26 ]
   %15 = load ptr, ptr %runes_.i, align 8
-  %arrayidx32 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv140
+  %arrayidx32 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv142
   %16 = load i32, ptr %arrayidx32, align 4
   %call33 = tail call noundef ptr @_ZN3re29Prefilter4Info13LiteralLatin1Ei(i32 noundef %16)
-  %cmp.i = icmp eq ptr %info.1127, null
-  br i1 %cmp.i, label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %for.body
   %call.i52 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i52)
-          to label %invoke.cont.i54 unwind label %lpad.i53
-
-invoke.cont.i54:                                  ; preds = %if.end.i
-  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.1127, ptr noundef nonnull align 8 dereferenceable(48) %call33, ptr noundef nonnull %call.i52)
-  %is_exact_.i = getelementptr inbounds i8, ptr %call.i52, i64 48
-  store i8 1, ptr %is_exact_.i, align 8
-  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.1127) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %info.1127) #19
-  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call33) #17
-  tail call void @_ZdlPv(ptr noundef %call33) #19
-  br label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit
+          to label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit unwind label %lpad.i53
 
 lpad.i53:                                         ; preds = %if.end.i
   %17 = landingpad { ptr, i32 }
@@ -3205,44 +3191,36 @@ lpad.i53:                                         ; preds = %if.end.i
   tail call void @_ZdlPv(ptr noundef nonnull %call.i52) #19
   br label %common.resume
 
-_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit:       ; preds = %for.body, %invoke.cont.i54
-  %retval.0.i = phi ptr [ %call.i52, %invoke.cont.i54 ], [ %call33, %for.body ]
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit:       ; preds = %if.end.i
+  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.1127, ptr noundef nonnull align 8 dereferenceable(48) %call33, ptr noundef nonnull %call.i52)
+  %is_exact_.i = getelementptr inbounds i8, ptr %call.i52, i64 48
+  store i8 1, ptr %is_exact_.i, align 8
+  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.1127) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %info.1127) #19
+  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call33) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %call33) #19
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %18 = load i32, ptr %9, align 8
   %19 = sext i32 %18 to i64
-  %cmp30 = icmp slt i64 %indvars.iv.next141, %19
-  br i1 %cmp30, label %for.body, label %sw.epilog, !llvm.loop !35
+  %cmp30 = icmp slt i64 %indvars.iv.next143, %19
+  br i1 %cmp30, label %if.end.i, label %sw.epilog, !llvm.loop !35
 
 if.else35:                                        ; preds = %if.end24
   %call38 = tail call noundef ptr @_ZN3re29Prefilter4Info7LiteralEi(i32 noundef %13)
   %20 = load i32, ptr %9, align 8
   %cmp42121 = icmp sgt i32 %20, 1
-  br i1 %cmp42121, label %for.body43, label %sw.epilog
+  br i1 %cmp42121, label %if.end.i58, label %sw.epilog
 
-for.body43:                                       ; preds = %if.else35, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ 1, %if.else35 ]
-  %info.2123 = phi ptr [ %retval.0.i63, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call38, %if.else35 ]
+if.end.i58:                                       ; preds = %if.else35, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64
+  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ 1, %if.else35 ]
+  %info.2123 = phi ptr [ %call.i59, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call38, %if.else35 ]
   %21 = load ptr, ptr %runes_.i, align 8
-  %arrayidx46 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv137
+  %arrayidx46 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv139
   %22 = load i32, ptr %arrayidx46, align 4
   %call47 = tail call noundef ptr @_ZN3re29Prefilter4Info7LiteralEi(i32 noundef %22)
-  %cmp.i57 = icmp eq ptr %info.2123, null
-  br i1 %cmp.i57, label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64, label %if.end.i58
-
-if.end.i58:                                       ; preds = %for.body43
   %call.i59 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   invoke void @_ZN3re29Prefilter4InfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i59)
-          to label %invoke.cont.i61 unwind label %lpad.i60
-
-invoke.cont.i61:                                  ; preds = %if.end.i58
-  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.2123, ptr noundef nonnull align 8 dereferenceable(48) %call47, ptr noundef nonnull %call.i59)
-  %is_exact_.i62 = getelementptr inbounds i8, ptr %call.i59, i64 48
-  store i8 1, ptr %is_exact_.i62, align 8
-  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.2123) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %info.2123) #19
-  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call47) #17
-  tail call void @_ZdlPv(ptr noundef %call47) #19
-  br label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64
+          to label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 unwind label %lpad.i60
 
 lpad.i60:                                         ; preds = %if.end.i58
   %23 = landingpad { ptr, i32 }
@@ -3250,19 +3228,25 @@ lpad.i60:                                         ; preds = %if.end.i58
   tail call void @_ZdlPv(ptr noundef nonnull %call.i59) #19
   br label %common.resume
 
-_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64:     ; preds = %for.body43, %invoke.cont.i61
-  %retval.0.i63 = phi ptr [ %call.i59, %invoke.cont.i61 ], [ %call47, %for.body43 ]
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64:     ; preds = %if.end.i58
+  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.2123, ptr noundef nonnull align 8 dereferenceable(48) %call47, ptr noundef nonnull %call.i59)
+  %is_exact_.i62 = getelementptr inbounds i8, ptr %call.i59, i64 48
+  store i8 1, ptr %is_exact_.i62, align 8
+  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.2123) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %info.2123) #19
+  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call47) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %call47) #19
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %24 = load i32, ptr %9, align 8
   %25 = sext i32 %24 to i64
-  %cmp42 = icmp slt i64 %indvars.iv.next138, %25
-  br i1 %cmp42, label %for.body43, label %sw.epilog, !llvm.loop !36
+  %cmp42 = icmp slt i64 %indvars.iv.next140, %25
+  br i1 %cmp42, label %if.end.i58, label %sw.epilog, !llvm.loop !36
 
 for.body57:                                       ; preds = %for.body57.preheader, %for.inc72
-  %indvars.iv132 = phi i64 [ 0, %for.body57.preheader ], [ %indvars.iv.next133, %for.inc72 ]
+  %indvars.iv134 = phi i64 [ 0, %for.body57.preheader ], [ %indvars.iv.next135, %for.inc72 ]
   %info.3118 = phi ptr [ null, %for.body57.preheader ], [ %info.4, %for.inc72 ]
   %exact.0116 = phi ptr [ null, %for.body57.preheader ], [ %exact.1, %for.inc72 ]
-  %arrayidx59 = getelementptr inbounds ptr, ptr %child_args, i64 %indvars.iv132
+  %arrayidx59 = getelementptr inbounds ptr, ptr %child_args, i64 %indvars.iv134
   %26 = load ptr, ptr %arrayidx59, align 8
   %is_exact_.i65 = getelementptr inbounds i8, ptr %26, i64 48
   %27 = load i8, ptr %is_exact_.i65, align 8
@@ -3319,9 +3303,9 @@ if.then66:                                        ; preds = %land.lhs.true.split
 for.inc72:                                        ; preds = %lor.lhs.false, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76, %if.then66
   %exact.1 = phi ptr [ null, %if.then66 ], [ %call.i71, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76 ], [ %26, %lor.lhs.false ]
   %info.4 = phi ptr [ %call68, %if.then66 ], [ %info.3118, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76 ], [ %info.3118, %lor.lhs.false ]
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %for.end74, label %for.body57, !llvm.loop !37
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
+  br i1 %exitcond138.not, label %for.end74, label %for.body57, !llvm.loop !37
 
 for.end74:                                        ; preds = %for.inc72, %for.cond55.preheader
   %exact.0.lcssa = phi ptr [ null, %for.cond55.preheader ], [ %exact.1, %for.inc72 ]
@@ -3513,7 +3497,7 @@ sw.bb103:                                         ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body81, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit, %sw.bb76, %if.else35, %if.then26, %delete.notnull.i, %invoke.cont3.i, %delete.notnull.i.i, %invoke.cont3.i.i, %if.then, %if.else, %sw.bb103, %sw.bb99, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit, %_ZN3re29Prefilter4Info4PlusEPS1_.exit, %for.end74, %if.then22, %sw.bb12, %_ZN3re29Prefilter4Info7NoMatchEv.exit, %invoke.cont8
-  %info.0 = phi ptr [ %call2, %invoke.cont8 ], [ %call102, %sw.bb99 ], [ %call.i94, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit ], [ %call.i87, %_ZN3re29Prefilter4Info4PlusEPS1_.exit ], [ %call75, %for.end74 ], [ %call23, %if.then22 ], [ %call17, %if.then ], [ %call19, %if.else ], [ %call13, %sw.bb12 ], [ %call.i, %_ZN3re29Prefilter4Info7NoMatchEv.exit ], [ %48, %sw.bb103 ], [ %call.i.i, %invoke.cont3.i.i ], [ %call.i.i, %delete.notnull.i.i ], [ %call.i77, %invoke.cont3.i ], [ %call.i77, %delete.notnull.i ], [ %call28, %if.then26 ], [ %call38, %if.else35 ], [ %31, %sw.bb76 ], [ %retval.0.i, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %retval.0.i63, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call84, %for.body81 ]
+  %info.0 = phi ptr [ %call2, %invoke.cont8 ], [ %call102, %sw.bb99 ], [ %call.i94, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit ], [ %call.i87, %_ZN3re29Prefilter4Info4PlusEPS1_.exit ], [ %call75, %for.end74 ], [ %call23, %if.then22 ], [ %call17, %if.then ], [ %call19, %if.else ], [ %call13, %sw.bb12 ], [ %call.i, %_ZN3re29Prefilter4Info7NoMatchEv.exit ], [ %48, %sw.bb103 ], [ %call.i.i, %invoke.cont3.i.i ], [ %call.i.i, %delete.notnull.i.i ], [ %call.i77, %invoke.cont3.i ], [ %call.i77, %delete.notnull.i ], [ %call28, %if.then26 ], [ %call38, %if.else35 ], [ %31, %sw.bb76 ], [ %call.i52, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %call.i59, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call84, %for.body81 ]
   ret ptr %info.0
 }
 

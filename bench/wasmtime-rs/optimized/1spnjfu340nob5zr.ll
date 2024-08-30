@@ -2120,7 +2120,7 @@ _ZN16wasmtime_runtime8instance8Instance9table_ptr17had503ab2c6bdfcddE.llvm.36229
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance10from_vmctx17h7a37d93f5415d43cE.llvm.13870219068130913800(ptr noundef %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance10from_vmctx17h7a37d93f5415d43cE.llvm.13870219068130913800(ptr noundef %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
@@ -2601,7 +2601,7 @@ define hidden void @"_ZN16wasmtime_runtime8instance8Instance10table_grow28_$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17hbc21fb156fdc10afE"(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17hbc21fb156fdc10afE"(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { i32, [3 x i32] }, align 8
   %7 = alloca { i32, [3 x i32] }, align 8
@@ -2806,7 +2806,7 @@ _ZN16wasmtime_runtime8instance8Instance32get_defined_table_with_lazy_init17h682c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17he9e4a8718c03f083E"(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17he9e4a8718c03f083E"(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { i32, [3 x i32] }, align 8
   %7 = alloca { i32, [3 x i32] }, align 8
@@ -3048,7 +3048,7 @@ define hidden noundef nonnull ptr @"_ZN16wasmtime_runtime8instance8Instance9get_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance17h4614d9b31e1233c9E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance17h4614d9b31e1233c9E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
   %4 = load ptr, ptr %0, align 16, !alias.scope !276, !nonnull !4, !noundef !4
@@ -3208,7 +3208,7 @@ _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h7a37d93f5415d43cE.llvm.138
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance17h53ffe5ec74f41f8dE.llvm.13870219068130913800(ptr noundef nonnull align 16 %0, i32 noundef %1, i32 noundef %2, i32 %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance17h53ffe5ec74f41f8dE.llvm.13870219068130913800(ptr noundef nonnull align 16 %0, i32 noundef %1, i32 noundef %2, i32 %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { {} }, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
   %6 = load ptr, ptr %0, align 16, !alias.scope !308, !nonnull !4, !noundef !4
@@ -3343,7 +3343,7 @@ _ZN16wasmtime_runtime8instance8Instance9table_ptr17had503ab2c6bdfcddE.llvm.36229
 
 _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h45efe68355533db6E.exit: ; preds = %.split.i.i.i
   %97 = trunc i64 %90 to i32
-  %98 = tail call fastcc noundef ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17hbc21fb156fdc10afE"(i32 noundef %2, i32 %3, i32 noundef %97, ptr noundef nonnull align 16 %60), !noalias !324
+  %98 = tail call fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17hbc21fb156fdc10afE"(i32 noundef %2, i32 %3, i32 noundef %97, ptr noundef nonnull align 16 %60), !noalias !324
   br label %99
 
 99:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance10from_vmctx17h45efe68355533db6E.exit, %22
@@ -3352,7 +3352,7 @@ _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h45efe68355533db6E.exit: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance17h6d2e8b3e3619821dE.llvm.13870219068130913800(ptr noundef nonnull align 16 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance17h6d2e8b3e3619821dE.llvm.13870219068130913800(ptr noundef nonnull align 16 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { {} }, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   %6 = load ptr, ptr %0, align 16, !alias.scope !334, !nonnull !4, !noundef !4
@@ -3487,7 +3487,7 @@ _ZN16wasmtime_runtime8instance8Instance9table_ptr17had503ab2c6bdfcddE.llvm.36229
 
 _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h847f8bdad9491aa3E.exit: ; preds = %.split.i.i.i
   %97 = trunc i64 %90 to i32
-  %98 = tail call fastcc noundef ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17he9e4a8718c03f083E"(i32 noundef %2, i32 noundef %3, i32 noundef %97, ptr noundef nonnull align 16 %60), !noalias !350
+  %98 = tail call fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17he9e4a8718c03f083E"(i32 noundef %2, i32 noundef %3, i32 noundef %97, ptr noundef nonnull align 16 %60), !noalias !350
   br label %99
 
 99:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance10from_vmctx17h847f8bdad9491aa3E.exit, %22
@@ -3583,7 +3583,7 @@ _ZN16wasmtime_runtime8instance8Instance14imported_table17h40c54e6f0125f88bE.exit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance28_$u7b$$u7b$closure$u7d$$u7d$17hda5815180323ed5cE.llvm.13870219068130913800"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN16wasmtime_runtime8instance8Instance37with_defined_table_index_and_instance28_$u7b$$u7b$closure$u7d$$u7d$17hda5815180323ed5cE.llvm.13870219068130913800"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = load ptr, ptr %0, align 8, !noundef !4
   %5 = load ptr, ptr %1, align 16, !noalias !379, !nonnull !4, !noundef !4
@@ -4777,7 +4777,7 @@ _ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.138702190
   %37 = getelementptr inbounds i8, ptr %36, i64 40
   %38 = load ptr, ptr %37, align 8, !invariant.load !4, !nonnull !4
   %39 = tail call noundef align 8 dereferenceable(56) ptr %38(ptr noundef nonnull align 1 %32)
-  %40 = tail call noundef i8 @_ZN16wasmtime_runtime5table5Table4copy17h0fc2c9f439a1de37E(ptr noalias noundef nonnull align 8 dereferenceable(56) %39, ptr noundef %7, ptr noundef %8, i32 noundef %3, i32 noundef %4, i32 noundef %5), !range !490
+  %40 = tail call noundef i8 @_ZN16wasmtime_runtime5table5Table4copy17h0fc2c9f439a1de37E(ptr noalias noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %3, i32 noundef %4, i32 noundef %5), !range !490
   ret i8 %40
 }
 
@@ -5000,7 +5000,7 @@ _ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.138702190
   %37 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
   %38 = tail call noundef align 8 dereferenceable(56) ptr %37(ptr noundef nonnull align 1 %31)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @_ZN16wasmtime_runtime5table5Table3get17hab8f26faca34cae1E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %38, i32 noundef %2)
+  call void @_ZN16wasmtime_runtime5table5Table3get17hab8f26faca34cae1E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %38, i32 noundef %2)
   %39 = load i32, ptr %6, align 8, !range !204, !noundef !4
   %40 = icmp eq i32 %39, 3
   br i1 %40, label %41, label %42

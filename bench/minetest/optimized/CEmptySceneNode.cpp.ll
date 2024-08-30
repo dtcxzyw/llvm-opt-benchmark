@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene15CEmptySceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr5scene15CEmptySceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %newParent, null
   %Parent = getelementptr inbounds i8, ptr %this, i64 192

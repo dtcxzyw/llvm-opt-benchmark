@@ -1664,7 +1664,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_by_legacy_dinfo(ptr noundef readnone %dinfo) local_unnamed_addr #0 {
+define dso_local nonnull ptr @blk_by_legacy_dinfo(ptr noundef readnone %dinfo) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %while.cond, label %if.else

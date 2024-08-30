@@ -46,7 +46,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3ue215aligned_zmallocEm(i64 noundef %size) local_unnamed_addr #5 {
+define hidden noundef nonnull ptr @_ZN3ue215aligned_zmallocEm(i64 noundef %size) local_unnamed_addr #5 {
 entry:
   %mem.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i) #9

@@ -7951,8 +7951,8 @@ exec_stmt_dynexecute.exit:                        ; preds = %1877, %1942, %1944
   %1951 = getelementptr inbounds i8, ptr %137, i64 48
   %1952 = load ptr, ptr %1951, align 8
   %1953 = call fastcc ptr @exec_dynquery_with_params(ptr noundef nonnull %0, ptr noundef %1950, ptr noundef %1952, ptr noundef null, i32 noundef 4)
-  %1954 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef %1953, i1 noundef zeroext true)
-  call void @SPI_cursor_close(ptr noundef %1953) #11
+  %1954 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %1953, i1 noundef zeroext true)
+  call void @SPI_cursor_close(ptr noundef nonnull %1953) #11
   br label %exec_stmt_perform.exit
 
 1955:                                             ; preds = %146
@@ -11383,7 +11383,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @exec_dynquery_with_params(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1

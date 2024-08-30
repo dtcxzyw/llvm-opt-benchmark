@@ -18025,7 +18025,7 @@ _ZN7testing8internal10scoped_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %test_case_name, ptr noundef %name, ptr noundef %type_param, ptr noundef %value_param, ptr noundef %code_location, ptr noundef %fixture_class_id, ptr noundef %set_up_tc, ptr noundef %tear_down_tc, ptr noundef %factory) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %test_case_name, ptr noundef %name, ptr noundef %type_param, ptr noundef %value_param, ptr noundef %code_location, ptr noundef %fixture_class_id, ptr noundef %set_up_tc, ptr noundef %tear_down_tc, ptr noundef %factory) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1

@@ -406,7 +406,7 @@ while.end:                                        ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z15grpc_tcp_createP7grpc_fdRKN9grpc_core15PosixTcpOptionsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %em_fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %options, i64 %peer_string.coerce0, ptr %peer_string.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_Z15grpc_tcp_createP7grpc_fdRKN9grpc_core15PosixTcpOptionsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %em_fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %options, i64 %peer_string.coerce0, ptr %peer_string.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i142 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp.i.i.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -7498,7 +7498,7 @@ if.then36:                                        ; preds = %if.else33
 
 for.inc:                                          ; preds = %if.end36.i, %if.then35.i, %if.then27.i, %if.then25.i, %if.then11.i, %if.then9.i, %if.then2.i, %if.then.i25, %if.then.i, %for.end.i
   %cmsg.1 = phi ptr [ %cmsg.04274, %for.end.i ], [ %cmsg.04274, %if.then.i ], [ %cmsg.04274, %if.then35.i ], [ %next_cmsg.0.i, %if.end36.i ], [ %cmsg.04274, %if.then2.i ], [ %cmsg.04274, %if.then.i25 ], [ %call.i, %if.then11.i ], [ %call.i, %if.then9.i ], [ %cmsg.04274, %if.then27.i ], [ %cmsg.04274, %if.then25.i ]
-  %call43 = call ptr @__cmsg_nxthdr(ptr noundef nonnull %msg, ptr noundef %cmsg.1) #25
+  %call43 = call ptr @__cmsg_nxthdr(ptr noundef nonnull %msg, ptr noundef nonnull %cmsg.1) #25
   %tobool22.not = icmp eq ptr %call43, null
   br i1 %tobool22.not, label %for.end, label %land.rhs23, !llvm.loop !75
 

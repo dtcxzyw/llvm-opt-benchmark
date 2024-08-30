@@ -2482,7 +2482,7 @@ declare noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef, i64 nou
 declare void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z12lua_vec2_getP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef nonnull ptr @_Z12lua_vec2_getP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = tail call noundef ptr @_Z20lua_touserdatataggedP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef 12)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

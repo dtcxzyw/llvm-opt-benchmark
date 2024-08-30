@@ -1618,7 +1618,7 @@ declare i32 @get_common_dir(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_odb(ptr nocapture noundef readonly %r, ptr noundef %obj_dir) local_unnamed_addr #1 {
+define dso_local nonnull ptr @find_odb(ptr nocapture noundef readonly %r, ptr noundef %obj_dir) local_unnamed_addr #1 {
 entry:
   %odb_path_real = alloca %struct.strbuf, align 8
   %call = tail call ptr @real_pathdup(ptr noundef %obj_dir, i32 noundef 1) #25

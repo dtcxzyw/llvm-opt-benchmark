@@ -739,7 +739,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN23btHashedSimplePairCache15internalAddPairEii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN23btHashedSimplePairCache15internalAddPairEii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) local_unnamed_addr #0 align 2 {
 entry:
   %shl.i = shl i32 %indexB, 16
   %or.i = or i32 %shl.i, %indexA

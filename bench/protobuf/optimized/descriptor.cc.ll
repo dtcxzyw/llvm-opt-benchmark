@@ -7375,7 +7375,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_14DescriptorPoolEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef %call)
+  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_14DescriptorPoolEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef nonnull %call)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
@@ -7395,7 +7395,7 @@ lpad:                                             ; preds = %invoke.cont, %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN6google8protobuf12_GLOBAL__N_116NewGeneratedPoolEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN6google8protobuf12_GLOBAL__N_116NewGeneratedPoolEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #42
   %call1 = invoke fastcc noundef ptr @_ZN6google8protobuf12_GLOBAL__N_117GeneratedDatabaseEv()
@@ -7436,7 +7436,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_14DescriptorPoolEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef %call.i)
+  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_14DescriptorPoolEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef nonnull %call.i)
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
@@ -7476,7 +7476,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_14DescriptorPoolEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef %call.i)
+  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_14DescriptorPoolEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef nonnull %call.i)
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
@@ -33117,7 +33117,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_18FeatureSetDefaultsEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef %call.i248)
+  invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_18FeatureSetDefaultsEEEPT_S5_ENUlPKvE_8__invokeES7_, ptr noundef nonnull %call.i248)
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
@@ -61558,7 +61558,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN6google8protobuf12_GLOBAL__N_124GetCppFeatureSetDefaultsEvENK3$_0clEv"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZZN6google8protobuf12_GLOBAL__N_124GetCppFeatureSetDefaultsEvENK3$_0clEv"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42

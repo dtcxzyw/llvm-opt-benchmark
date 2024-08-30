@@ -4381,7 +4381,7 @@ checkExprIsVarFree.exit:                          ; preds = %89, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformDistinctClause(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local nonnull ptr @transformDistinctClause(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

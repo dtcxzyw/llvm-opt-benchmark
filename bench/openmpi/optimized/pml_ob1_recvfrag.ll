@@ -1522,7 +1522,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %44, %51
 ._crit_edge175:                                   ; preds = %.lr.ph174, %138
   %147 = getelementptr inbounds i8, ptr %55, i64 32
   %148 = load i16, ptr %96, align 8
-  tail call void @ompi_pml_ob1_append_frag_to_ordered_list(ptr noundef nonnull %147, ptr noundef %99, i16 noundef zeroext %148)
+  tail call void @ompi_pml_ob1_append_frag_to_ordered_list(ptr noundef nonnull %147, ptr noundef nonnull %99, i16 noundef zeroext %148)
   %149 = load i8, ptr @mca_pml_ob1_matching_protection, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %154
@@ -2350,7 +2350,7 @@ define internal fastcc void @append_frag_to_list(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait() unnamed_addr #2 {
+define internal fastcc nonnull ptr @opal_free_list_wait() unnamed_addr #2 {
   %1 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i = alloca i64, align 8
   %2 = alloca ptr, align 8
@@ -3831,7 +3831,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %34, %41
 
 ._crit_edge132:                                   ; preds = %.lr.ph131, %137
   %146 = getelementptr inbounds i8, ptr %45, i64 32
-  tail call void @ompi_pml_ob1_append_frag_to_ordered_list(ptr noundef nonnull %146, ptr noundef %97, i16 noundef zeroext %87)
+  tail call void @ompi_pml_ob1_append_frag_to_ordered_list(ptr noundef nonnull %146, ptr noundef nonnull %97, i16 noundef zeroext %87)
   %147 = load i8, ptr @mca_pml_ob1_matching_protection, align 1
   %148 = trunc i8 %147 to i1
   br i1 %148, label %149, label %152

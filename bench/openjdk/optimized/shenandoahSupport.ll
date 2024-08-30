@@ -2121,7 +2121,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %219, %221
 declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support15find_bottom_memEP4NodeP14PhaseIdealLoop(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26ShenandoahBarrierC2Support15find_bottom_memEP4NodeP14PhaseIdealLoop(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.CallProjections, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 40
@@ -10768,7 +10768,7 @@ _ZN4Node8init_reqEjPS_.exit886:                   ; preds = %2592, %2596, %2607
 _ZN4Node8init_reqEjPS_.exit890:                   ; preds = %_ZN4Node8init_reqEjPS_.exit886, %2616, %2627
   store ptr %2458, ptr %13, align 8
   %2633 = call noundef ptr @_ZN26ShenandoahBarrierC2Support15find_bottom_memEP4NodeP14PhaseIdealLoop(ptr noundef %2458, ptr noundef nonnull %0)
-  %2634 = call noundef ptr @_ZN12MergeMemNode4makeEP4Node(ptr noundef %2633) #11
+  %2634 = call noundef ptr @_ZN12MergeMemNode4makeEP4Node(ptr noundef nonnull %2633) #11
   call void @_ZN12MergeMemNode13set_memory_atEjP4Node(ptr noundef nonnull align 8 dereferenceable(52) %2634, i32 noundef 3, ptr noundef %2053) #11
   call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %2634, ptr noundef %2458) #11
   %2635 = load ptr, ptr %18, align 8

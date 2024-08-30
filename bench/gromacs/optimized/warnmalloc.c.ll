@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [62 x i8] c"TRAJNG ERROR: Could not allocate memory of size %lu at %s:%d\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Ptngc_warnmalloc_x(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @Ptngc_warnmalloc_x(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @malloc(i64 noundef %0) #6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
@@ -32,7 +32,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ptngc_warnrealloc_x(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noalias nonnull ptr @Ptngc_warnrealloc_x(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9

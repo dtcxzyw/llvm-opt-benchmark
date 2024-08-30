@@ -18554,7 +18554,7 @@ declare noundef ptr @_ZN7glslang13TIntermediate11foldSwizzleEPNS_12TIntermTypedE
 declare noundef ptr @_ZN7glslang13TIntermediate10addSwizzleIiEEPNS_12TIntermTypedERNS_17TSwizzleSelectorsIT_EERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024), ptr noundef nonnull align 4 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang13TParseContext24handleFunctionDeclaratorERKNS_10TSourceLocERNS_9TFunctionEb(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull returned align 8 dereferenceable(340) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN7glslang13TParseContext24handleFunctionDeclaratorERKNS_10TSourceLocERNS_9TFunctionEb(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull returned align 8 dereferenceable(340) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 232
   %7 = load ptr, ptr %6, align 8

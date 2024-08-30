@@ -421,7 +421,7 @@ _ZNSt6vectorISt8functionIFN9grpc_core11ChannelArgsES2_EESaIS4_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core17CoreConfiguration7Builder5BuildEv(ptr noundef nonnull align 16 dereferenceable(880) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9grpc_core17CoreConfiguration7Builder5BuildEv(ptr noundef nonnull align 16 dereferenceable(880) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(776) ptr @_Znwm(i64 noundef 776) #19
   invoke void @_ZN9grpc_core17CoreConfigurationC1EPNS0_7BuilderE(ptr noundef nonnull align 8 dereferenceable(776) %call, ptr noundef nonnull %this)

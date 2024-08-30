@@ -953,7 +953,7 @@ findNextNonWSBack.exit:                           ; preds = %.lr.ph.i, %.critedg
   %73 = ptrtoint ptr %41 to i64
   %74 = ptrtoint ptr %.0138.lcssa to i64
   %75 = sub i64 %73, %74
-  %76 = call i32 @cli_strntol_wrap(ptr noundef %.0138.lcssa, i64 noundef %75, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %2) #23
+  %76 = call i32 @cli_strntol_wrap(ptr noundef nonnull %.0138.lcssa, i64 noundef %75, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %2) #23
   %.not162 = icmp eq i32 %76, 0
   br i1 %.not162, label %83, label %77
 
@@ -1038,7 +1038,7 @@ findNextNonWSBack.exit174:                        ; preds = %.lr.ph.i171, %.crit
   %.0139.lcssa = phi ptr [ %.0.lcssa.i168, %findNextNonWSBack.exit174 ], [ %109, %108 ], [ %.0139195, %102 ]
   %111 = ptrtoint ptr %.0139.lcssa to i64
   %112 = sub i64 %74, %111
-  %113 = call i32 @cli_strntol_wrap(ptr noundef %.0139.lcssa, i64 noundef %112, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %2) #23
+  %113 = call i32 @cli_strntol_wrap(ptr noundef nonnull %.0139.lcssa, i64 noundef %112, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %2) #23
   %.not164 = icmp eq i32 %113, 0
   br i1 %.not164, label %155, label %114
 

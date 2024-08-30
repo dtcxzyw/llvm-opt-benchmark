@@ -389,7 +389,7 @@ define void @_ZN4LIEF5MachO20DynamicSymbolCommandD0Ev(ptr noundef nonnull align 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4LIEF5MachO20DynamicSymbolCommand5cloneEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK4LIEF5MachO20DynamicSymbolCommand5cloneEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #13
   invoke void @_ZN4LIEF5MachO20DynamicSymbolCommandC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(152) %0)
           to label %3 unwind label %4

@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.0e398f087df3ff98cc609ece4a9ad3ee.66 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.31, [8 x i8] zeroinitializer, ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.63, [8 x i8] c"\10\00\00\00\00\00\00\00", ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.64, [8 x i8] c"\16\00\00\00\00\00\00\00", ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.65, [8 x i8] c"\1A\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden align 8 ptr @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionGroupBuilder3new17h72130382ae56996aE(ptr readnone returned align 8 %0) unnamed_addr #0 {
+define hidden nonnull align 8 ptr @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionGroupBuilder3new17h72130382ae56996aE(ptr readnone returned align 8 %0) unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0

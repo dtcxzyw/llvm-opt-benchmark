@@ -6252,7 +6252,7 @@ define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.17069743828446960565(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.17069743828446960565(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -8742,7 +8742,7 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx14WasiCtxBuilder5stdin17he62d29108ada377cE(ptr noalias noundef returned align 16 dereferenceable(224) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx14WasiCtxBuilder5stdin17he62d29108ada377cE(ptr noalias noundef returned align 16 dereferenceable(224) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1084)
   %3 = load ptr, ptr %2, align 16, !alias.scope !1084, !noundef !12
@@ -8794,7 +8794,7 @@ define hidden noundef align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx14WasiCtxBuilder6stdout17h007d1a150916e131E(ptr noalias noundef returned align 16 dereferenceable(224) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx14WasiCtxBuilder6stdout17h007d1a150916e131E(ptr noalias noundef returned align 16 dereferenceable(224) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1093)
   %3 = load ptr, ptr %2, align 16, !alias.scope !1093, !noundef !12
@@ -8846,7 +8846,7 @@ define hidden noundef align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx14WasiCtxBuilder6stderr17h31b2bbb7a985c666E(ptr noalias noundef returned align 16 dereferenceable(224) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx14WasiCtxBuilder6stderr17h31b2bbb7a985c666E(ptr noalias noundef returned align 16 dereferenceable(224) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1102)
   %3 = load ptr, ptr %2, align 16, !alias.scope !1102, !noundef !12

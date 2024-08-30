@@ -1711,7 +1711,7 @@ declare i32 @hb_script_get_horizontal_direction(i32 noundef) local_unnamed_addr 
 declare ptr @hb_language_get_default() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_buffer_create() local_unnamed_addr #5 {
+define hidden nonnull ptr @hb_buffer_create() local_unnamed_addr #5 {
   %1 = tail call noalias dereferenceable_or_null(224) ptr @calloc(i64 noundef 1, i64 noundef 224) #23
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %2
@@ -1757,7 +1757,7 @@ define hidden noundef nonnull ptr @hb_buffer_get_empty() local_unnamed_addr #11 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_buffer_create_similar(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden nonnull ptr @hb_buffer_create_similar(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = tail call noalias dereferenceable_or_null(224) ptr @calloc(i64 noundef 1, i64 noundef 224) #23
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %.hb_buffer_create.exit_crit_edge, label %3

@@ -17294,7 +17294,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEEC2ERKS3_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z28grpc_create_chttp2_transportRKN9grpc_core11ChannelArgsEP13grpc_endpointb(ptr noundef nonnull align 8 dereferenceable(8) %channel_args, ptr noundef %ep, i1 noundef zeroext %is_client) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_Z28grpc_create_chttp2_transportRKN9grpc_core11ChannelArgsEP13grpc_endpointb(ptr noundef nonnull align 8 dereferenceable(8) %channel_args, ptr noundef %ep, i1 noundef zeroext %is_client) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(3384) ptr @_Znwm(i64 noundef 3384) #39
   invoke void @_ZN21grpc_chttp2_transportC1ERKN9grpc_core11ChannelArgsEP13grpc_endpointb(ptr noundef nonnull align 8 dereferenceable(3384) %call, ptr noundef nonnull align 8 dereferenceable(8) %channel_args, ptr noundef %ep, i1 noundef zeroext %is_client)

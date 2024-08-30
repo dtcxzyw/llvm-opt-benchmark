@@ -619,7 +619,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN17FramebufferObject7buffersEj(i32 noundef %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN17FramebufferObject7buffersEj(i32 noundef %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @_buffers, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_buffers, i64 8), align 8

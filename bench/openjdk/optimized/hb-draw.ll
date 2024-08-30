@@ -690,7 +690,7 @@ define internal void @_ZL22hb_draw_close_path_nilP15hb_draw_funcs_tPvP15hb_draw_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define hidden noundef ptr @hb_draw_funcs_create() local_unnamed_addr #2 {
+define hidden nonnull ptr @hb_draw_funcs_create() local_unnamed_addr #2 {
   %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #12
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %7, label %2

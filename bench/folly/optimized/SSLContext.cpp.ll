@@ -8061,7 +8061,7 @@ declare double @nextafter(double noundef, double noundef) local_unnamed_addr #6
 declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK5folly10SSLContext9createSSLEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK5folly10SSLContext9createSSLEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8

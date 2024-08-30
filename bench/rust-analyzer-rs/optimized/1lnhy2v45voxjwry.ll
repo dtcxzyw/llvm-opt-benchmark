@@ -86851,7 +86851,7 @@ define hidden { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_wit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3864848197730831337(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3864848197730831337(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
@@ -105678,7 +105678,7 @@ define void @"_ZN135_$LT$hir_ty..utils..UnevaluatedConstEvaluatorFolder$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @"_ZN135_$LT$hir_ty..utils..UnevaluatedConstEvaluatorFolder$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$hir_ty..interner..Interner$GT$$GT$14try_fold_const17hb0d457b07f940315E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i32 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef nonnull ptr @"_ZN135_$LT$hir_ty..utils..UnevaluatedConstEvaluatorFolder$u20$as$u20$chalk_ir..fold..FallibleTypeFolder$LT$hir_ty..interner..Interner$GT$$GT$14try_fold_const17hb0d457b07f940315E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i32 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [4 x i64] }, ptr } }, align 8
   %5 = alloca { i8, [39 x i8] }, align 8
   %6 = alloca ptr, align 8

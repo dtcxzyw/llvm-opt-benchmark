@@ -27735,7 +27735,7 @@ _ZN6casadi17SerializingStream4packISt6vectorINS_6MatrixINS_6SXElemEEESaIS5_EEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6casadi10SXFunction11deserializeERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6casadi10SXFunction11deserializeERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #31
   invoke void @_ZN6casadi10SXFunctionC1ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1483) %2, ptr noundef nonnull align 8 dereferenceable(41) %0)
           to label %3 unwind label %4

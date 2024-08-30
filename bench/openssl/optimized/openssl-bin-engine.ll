@@ -227,7 +227,7 @@ if.end51:                                         ; preds = %for.body
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end51, %while.end42
-  %call57 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #7
+  %call57 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #7
   %cmp58 = icmp eq i32 %call57, 0
   br i1 %cmp58, label %if.then60, label %if.end73
 
@@ -245,7 +245,7 @@ for.body65:                                       ; preds = %if.then60, %for.bod
   br i1 %cmp63.not, label %if.end73, label %for.body65, !llvm.loop !9
 
 if.end73:                                         ; preds = %for.body65, %if.then60, %for.end
-  %call76130 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #7
+  %call76130 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #7
   %cmp77131 = icmp sgt i32 %call76130, 0
   br i1 %cmp77131, label %for.body79.lr.ph, label %end
 
@@ -265,7 +265,7 @@ for.body79.lr.ph:                                 ; preds = %if.end73
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc235
   %ret.1133 = phi i32 [ 0, %for.body79.lr.ph ], [ %ret.2, %for.inc235 ]
   %i.0132 = phi i32 [ 0, %for.body79.lr.ph ], [ %inc236, %for.inc235 ]
-  %call81 = call ptr @OPENSSL_sk_value(ptr noundef %call, i32 noundef %i.0132) #7
+  %call81 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.0132) #7
   %call82 = call ptr @ENGINE_by_id(ptr noundef %call81) #7
   %cmp83.not = icmp eq ptr %call82, null
   br i1 %cmp83.not, label %if.else228, label %if.then85
@@ -713,7 +713,7 @@ if.else228:                                       ; preds = %for.body79
 for.inc235:                                       ; preds = %if.end226, %if.else228
   %ret.2 = phi i32 [ %ret.1133, %if.end226 ], [ %spec.store.select, %if.else228 ]
   %inc236 = add nuw nsw i32 %i.0132, 1
-  %call76 = call i32 @OPENSSL_sk_num(ptr noundef %call) #7
+  %call76 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #7
   %cmp77 = icmp slt i32 %inc236, %call76
   br i1 %cmp77, label %for.body79, label %end, !llvm.loop !14
 
@@ -774,7 +774,7 @@ declare ptr @ENGINE_get_name(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @util_do_cmds(ptr noundef %e, ptr noundef %cmds, ptr noundef %out) unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
-  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %cmds) #7
+  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %cmds) #7
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -788,7 +788,7 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %loop.02 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call5 = call ptr @OPENSSL_sk_value(ptr noundef %cmds, i32 noundef %loop.02) #7
+  %call5 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %cmds, i32 noundef %loop.02) #7
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call5, i32 58)
   %cmp7 = icmp eq ptr %strchr, null
   br i1 %cmp7, label %if.then8, label %if.else

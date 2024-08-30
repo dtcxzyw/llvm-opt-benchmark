@@ -277,7 +277,7 @@ define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hd1a30d2d0e30831bE(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hd1a30d2d0e30831bE(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, align 8
@@ -335,7 +335,7 @@ define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hd1a30d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hefc258c2e1880f06E(ptr align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hefc258c2e1880f06E(ptr align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8

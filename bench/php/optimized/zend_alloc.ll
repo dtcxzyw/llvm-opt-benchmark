@@ -927,7 +927,7 @@ zend_mm_chunk_free.exit99:                        ; preds = %114, %112, %109, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tracked_malloc(i64 noundef %0) #0 {
+define internal nonnull ptr @tracked_malloc(i64 noundef %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr @alloc_globals.0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 288
@@ -4864,7 +4864,7 @@ define noalias ptr @_emalloc_huge(i64 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_mm_alloc_huge(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @zend_mm_alloc_huge(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @_real_page_size, align 8
   %4 = add i64 %1, -1
   %5 = add i64 %4, %3
@@ -8054,7 +8054,7 @@ define noalias ptr @_estrndup(ptr nocapture noundef readonly %0, i64 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @zend_strndup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @zend_strndup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6
@@ -8633,7 +8633,7 @@ __zend_malloc.exit:                               ; preds = %7
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias ptr @__zend_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #25 {
+define noalias nonnull ptr @__zend_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #25 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #39
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3

@@ -3155,7 +3155,7 @@ define internal noundef i32 @php_output_stack_apply_status(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @php_output_handler_status(ptr nocapture noundef readonly %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @php_output_handler_status(ptr nocapture noundef readonly %0, ptr noundef returned %1) unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = tail call ptr @_zend_new_array_0() #21

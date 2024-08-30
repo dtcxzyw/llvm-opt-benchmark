@@ -2256,19 +2256,19 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %ids) #9
+  %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %ids) #9
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false3
-  %call1022 = tail call i32 @OPENSSL_sk_num(ptr noundef %ids) #9
+  %call1022 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %ids) #9
   %cmp1123 = icmp sgt i32 %call1022, 0
   br i1 %cmp1123, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %ret.025 = phi i32 [ %ret.1, %for.inc ], [ 1, %for.cond.preheader ]
   %i.024 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call13 = call ptr @OPENSSL_sk_value(ptr noundef %ids, i32 noundef %i.024) #9
+  %call13 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %ids, i32 noundef %i.024) #9
   %call15 = call ptr @OPENSSL_sk_value(ptr noundef %names, i32 noundef %i.024) #9
   %call16 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.236, ptr noundef %call15) #9
   %call17 = call i32 @OCSP_resp_find_status(ptr noundef %bs, ptr noundef %call13, ptr noundef nonnull %status, ptr noundef nonnull %reason, ptr noundef nonnull %rev, ptr noundef nonnull %thisupd, ptr noundef nonnull %nextupd) #9
@@ -2338,7 +2338,7 @@ for.inc.sink.split:                               ; preds = %for.body, %if.end48
 for.inc:                                          ; preds = %for.inc.sink.split, %if.end37
   %ret.1 = phi i32 [ %ret.025, %if.end37 ], [ %ret.1.ph, %for.inc.sink.split ]
   %inc = add nuw nsw i32 %i.024, 1
-  %call10 = call i32 @OPENSSL_sk_num(ptr noundef %ids) #9
+  %call10 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %ids) #9
   %cmp11 = icmp slt i32 %inc, %call10
   br i1 %cmp11, label %for.body, label %return, !llvm.loop !10
 

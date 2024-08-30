@@ -3076,7 +3076,7 @@ define internal fastcc ptr @fix_scan_expr(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @set_indexonlyscan_references(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @set_indexonlyscan_references(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca %struct.fix_scan_expr_context, align 8

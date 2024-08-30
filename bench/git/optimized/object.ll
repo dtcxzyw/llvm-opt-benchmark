@@ -712,7 +712,7 @@ declare i32 @parse_tag_buffer(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare void @warning(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_object_or_die(ptr noundef %oid, ptr noundef %name) local_unnamed_addr #2 {
+define dso_local nonnull ptr @parse_object_or_die(ptr noundef %oid, ptr noundef %name) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call.i = tail call ptr @parse_object_with_flags(ptr noundef %0, ptr noundef %oid, i32 noundef 0)

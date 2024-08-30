@@ -49658,7 +49658,7 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit69:           ; preds = %if.then.i.i49, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5ImGui22GetShortcutRoutingDataEi(i32 noundef %key_chord) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN5ImGui22GetShortcutRoutingDataEi(i32 noundef %key_chord) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %KeysRoutingTable = getelementptr inbounds i8, ptr %0, i64 18408

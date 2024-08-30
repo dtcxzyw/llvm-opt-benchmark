@@ -889,7 +889,7 @@ define void @_ZN4LIEF5MachO17DyldChainedFixups9data_sizeEj(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4LIEF5MachO17DyldChainedFixups5cloneEv(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK4LIEF5MachO17DyldChainedFixups5cloneEv(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #26
   invoke void @_ZN4LIEF5MachO17DyldChainedFixupsC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(184) %2, ptr noundef nonnull align 8 dereferenceable(184) %0)
           to label %3 unwind label %4

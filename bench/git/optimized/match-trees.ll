@@ -230,8 +230,8 @@ if.end50:                                         ; preds = %if.then23, %if.end4
   br label %for.cond
 
 for.end:                                          ; preds = %if.else
-  call void @free(ptr noundef %call) #9
-  call void @free(ptr noundef %call1) #9
+  call void @free(ptr noundef nonnull %call) #9
+  call void @free(ptr noundef nonnull %call1) #9
   ret i32 %score.0
 }
 
@@ -316,7 +316,7 @@ next:                                             ; preds = %if.end8, %while.bod
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %next, %next.us, %entry
-  call void @free(ptr noundef %call) #9
+  call void @free(ptr noundef nonnull %call) #9
   ret void
 }
 
@@ -508,7 +508,7 @@ if.end34:                                         ; preds = %if.else, %if.then32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fill_tree_desc_strict(ptr noundef %desc, ptr noundef %hash) unnamed_addr #0 {
+define internal fastcc nonnull ptr @fill_tree_desc_strict(ptr noundef %desc, ptr noundef %hash) unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %size = alloca i64, align 8

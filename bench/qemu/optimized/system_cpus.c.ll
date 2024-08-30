@@ -1386,7 +1386,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @cpus_get_accel() local_unnamed_addr #0 {
+define dso_local nonnull ptr @cpus_get_accel() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @cpus_accel, align 8
   %tobool.not = icmp eq ptr %0, null

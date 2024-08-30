@@ -1939,7 +1939,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8proxygen18HTTPServerAcceptor10newHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1992) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen18HTTPServerAcceptor10newHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1992) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %clientAddr = alloca %"class.folly::SocketAddress", align 8
   %vipAddr = alloca %"class.folly::SocketAddress", align 8

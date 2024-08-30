@@ -151,7 +151,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @ruby_node_name(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local nonnull ptr @ruby_node_name(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @rb_node_name(i32 noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -368,7 +368,7 @@ define dso_local void @rb_ast_mark_and_move(ptr noundef %0, i1 noundef zeroext %
 
 21:                                               ; preds = %13
   %22 = tail call ptr @ruby_node_name(i32 noundef %20)
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.115, ptr noundef %22) #11
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.115, ptr noundef nonnull %22) #11
   unreachable
 
 mark_and_move_ast_value.exit:                     ; preds = %13

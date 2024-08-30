@@ -3119,7 +3119,7 @@ define dso_local void @new_kmalloc_cache(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @create_kmalloc_cache(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc nonnull ptr @create_kmalloc_cache(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #12 section ".init.text" align 16 {
   %4 = load ptr, ptr @kmem_cache, align 8
   %5 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %4, i32 noundef 10496) #22
   %6 = icmp eq ptr %5, null

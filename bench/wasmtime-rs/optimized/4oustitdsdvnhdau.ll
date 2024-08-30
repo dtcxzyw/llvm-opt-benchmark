@@ -101,7 +101,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h760c5bd178dd46aaE"
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h7a514ffb45ea36e2E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h7a514ffb45ea36e2E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64], i64, [6 x i64] }, align 8
   %4 = alloca { [2 x i64], i64, [6 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -136,7 +136,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h7a51
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h886a0d55f47bd255E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h886a0d55f47bd255E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !8, !noundef !3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %12
@@ -160,7 +160,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h886a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5c1c1949e166583E"(ptr align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5c1c1949e166583E"(ptr align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %0, align 2, !range !9, !noundef !3
   %4 = icmp eq i16 %3, 2
   br i1 %4, label %5, label %12
@@ -184,7 +184,7 @@ define align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5c1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hfcb39d7d7dff5a3fE"(ptr align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hfcb39d7d7dff5a3fE"(ptr align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %0, align 2, !range !9, !noundef !3
   %4 = icmp eq i16 %3, 2
   br i1 %4, label %5, label %12

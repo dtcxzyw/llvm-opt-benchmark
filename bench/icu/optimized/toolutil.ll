@@ -384,7 +384,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef non
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utm_open(ptr noundef %name, i32 noundef %initialCapacity, i32 noundef %maxCapacity, i32 noundef %size) local_unnamed_addr #15 {
+define nonnull ptr @utm_open(ptr noundef %name, i32 noundef %initialCapacity, i32 noundef %maxCapacity, i32 noundef %size) local_unnamed_addr #15 {
 entry:
   %mul = mul nsw i32 %size, %initialCapacity
   %conv = sext i32 %mul to i64

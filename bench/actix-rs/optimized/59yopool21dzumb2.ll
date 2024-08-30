@@ -11,7 +11,7 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden ptr @_ZN5alloc5alloc15exchange_malloc17h1f08737b874c17c6E(i64 %0, i64 %1) unnamed_addr #1 {
+define hidden nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h1f08737b874c17c6E(i64 %0, i64 %1) unnamed_addr #1 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %4, label %8
 

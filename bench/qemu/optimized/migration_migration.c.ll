@@ -699,7 +699,7 @@ declare void @dirty_bitmap_mig_cancel_outgoing() local_unnamed_addr #1
 declare void @dirty_bitmap_mig_cancel_incoming() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @migrate_get_current() local_unnamed_addr #0 {
+define dso_local nonnull ptr @migrate_get_current() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @current_migration, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -714,7 +714,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @migration_incoming_get_current() local_unnamed_addr #0 {
+define dso_local nonnull ptr @migration_incoming_get_current() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @current_incoming, align 8
   %tobool.not = icmp eq ptr %0, null

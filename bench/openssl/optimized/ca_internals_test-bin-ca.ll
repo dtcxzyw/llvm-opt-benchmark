@@ -1858,7 +1858,7 @@ if.then842:                                       ; preds = %if.then837
 if.end843:                                        ; preds = %if.then837
   %inc838 = add nsw i32 %total_done.3736, 1
   %132 = load ptr, ptr %x, align 8
-  %call846 = call i32 @OPENSSL_sk_push(ptr noundef %call732, ptr noundef %132) #12
+  %call846 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call732, ptr noundef %132) #12
   %tobool847.not = icmp eq i32 %call846, 0
   br i1 %tobool847.not, label %if.then848, label %for.inc852
 
@@ -1877,7 +1877,7 @@ for.inc852:                                       ; preds = %if.end834, %if.end8
 for.end854:                                       ; preds = %for.inc852, %if.end821
   %total.3.lcssa = phi i32 [ %total.2, %if.end821 ], [ %121, %for.inc852 ]
   %total_done.3.lcssa = phi i32 [ %total_done.2, %if.end821 ], [ %total_done.4, %for.inc852 ]
-  %call856 = call i32 @OPENSSL_sk_num(ptr noundef %call732) #12
+  %call856 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call732) #12
   %cmp857 = icmp sgt i32 %call856, 0
   br i1 %cmp857, label %if.then859, label %if.end900
 
@@ -1914,7 +1914,7 @@ if.then882:                                       ; preds = %if.end872
 
 if.end885:                                        ; preds = %if.end872, %if.then859
   %141 = load ptr, ptr @bio_err, align 8
-  %call887 = call i32 @OPENSSL_sk_num(ptr noundef %call732) #12
+  %call887 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call732) #12
   %call888 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %141, ptr noundef nonnull @.str.205, i32 noundef %call887) #12
   %cmp889.not = icmp eq ptr %serialfile.0, null
   br i1 %cmp889.not, label %if.end895, label %land.lhs.true891
@@ -1941,7 +1941,7 @@ if.then906:                                       ; preds = %if.end900
   br label %if.end908
 
 if.end908:                                        ; preds = %if.then906, %if.end900
-  %call911743 = call i32 @OPENSSL_sk_num(ptr noundef %call732) #12
+  %call911743 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call732) #12
   %cmp912744 = icmp sgt i32 %call911743, 0
   br i1 %cmp912744, label %for.body914.lr.ph, label %for.end982
 
@@ -1954,7 +1954,7 @@ for.body914.lr.ph:                                ; preds = %if.end908
 
 for.body914:                                      ; preds = %for.body914.lr.ph, %write_new_certificate.exit
   %i.2745 = phi i32 [ 0, %for.body914.lr.ph ], [ %inc981, %write_new_certificate.exit ]
-  %call916 = call ptr @OPENSSL_sk_value(ptr noundef %call732, i32 noundef %i.2745) #12
+  %call916 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call732, i32 noundef %i.2745) #12
   %call917 = call ptr @X509_get0_serialNumber(ptr noundef %call916) #12
   %call918 = call ptr @ASN1_STRING_get0_data(ptr noundef %call917) #12
   %call919 = call i32 @ASN1_STRING_length(ptr noundef %call917) #12
@@ -2048,12 +2048,12 @@ write_new_certificate.exit:                       ; preds = %if.end979, %if.then
   call void @BIO_free_all(ptr noundef nonnull %call974) #12
   call void @BIO_free_all(ptr noundef nonnull %call968) #12
   %inc981 = add nuw nsw i32 %i.2745, 1
-  %call911 = call i32 @OPENSSL_sk_num(ptr noundef %call732) #12
+  %call911 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call732) #12
   %cmp912 = icmp slt i32 %inc981, %call911
   br i1 %cmp912, label %for.body914, label %for.end982, !llvm.loop !11
 
 for.end982:                                       ; preds = %write_new_certificate.exit, %if.end908
-  %call984 = call i32 @OPENSSL_sk_num(ptr noundef %call732) #12
+  %call984 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call732) #12
   %tobool985.not = icmp eq i32 %call984, 0
   br i1 %tobool985.not, label %if.end1000, label %if.then986
 

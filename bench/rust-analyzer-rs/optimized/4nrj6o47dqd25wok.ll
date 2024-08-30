@@ -59409,7 +59409,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0dfd1230a89fd728E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0dfd1230a89fd728E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16052)
   %3 = load ptr, ptr %0, align 8, !alias.scope !16052, !noalias !16055, !nonnull !4, !align !183, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -59419,7 +59419,7 @@ define hidden noundef align 8 dereferenceable(24) ptr @"_ZN4core3ops8function5im
   %8 = tail call { ptr, ptr } %7(ptr noundef nonnull align 1 %3), !noalias !16057
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = tail call noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) %10)
+  %11 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) %10)
   ret ptr %11
 }
 
@@ -67491,7 +67491,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h0ff1192a3764b170E"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h0ff1192a3764b170E"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
   %switch = icmp eq i64 %0, 0
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
@@ -67507,7 +67507,7 @@ define hidden noundef align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h3fc33ab53934c725E"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h3fc33ab53934c725E"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
   %switch = icmp eq i64 %0, 0
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
@@ -67523,7 +67523,7 @@ define hidden noundef align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h735104484318bcecE"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h735104484318bcecE"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
   %switch = icmp eq i64 %0, 0
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
@@ -67539,7 +67539,7 @@ define hidden noundef align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h8ad422f2596a2874E"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6either19Either$LT$L$C$R$GT$12left_or_else17h8ad422f2596a2874E"(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #24 {
   %switch = icmp eq i64 %0, 0
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
@@ -92380,7 +92380,7 @@ define hidden noundef nonnull align 8 ptr @_ZN6hir_ty3tls10unsafe_tls7PROGRAM3FO
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN81_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt28_$u7b$$u7b$closure$u7d$$u7d$17he1176845f8807a5fE.llvm.14675025554980555382"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN81_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt28_$u7b$$u7b$closure$u7d$$u7d$17he1176845f8807a5fE.llvm.14675025554980555382"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !183, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !158, !noundef !4

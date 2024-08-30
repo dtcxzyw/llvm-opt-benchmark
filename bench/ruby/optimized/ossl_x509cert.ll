@@ -108,7 +108,7 @@ declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @GetX509CertPtr(i64 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @GetX509CertPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509_type) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -125,7 +125,7 @@ define ptr @GetX509CertPtr(i64 noundef %0) local_unnamed_addr #0 {
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @DupX509CertPtr(i64 noundef %0) local_unnamed_addr #0 {
+define nonnull ptr @DupX509CertPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509_type) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

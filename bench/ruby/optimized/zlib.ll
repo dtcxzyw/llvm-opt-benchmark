@@ -6691,7 +6691,7 @@ define internal noundef i64 @zstream_ensure_end(i64 noundef %0) #0 {
 declare i64 @rb_mutex_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_mem_alloc(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal nonnull ptr @zlib_mem_alloc(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8
   %6 = zext i32 %1 to i64
@@ -9089,7 +9089,7 @@ zstream_discard_input.exit130.thread:             ; preds = %RSTRING_PTR.exit120
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gzfile_read_raw_until_zero(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @gzfile_read_raw_until_zero(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.read_raw_arg, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8

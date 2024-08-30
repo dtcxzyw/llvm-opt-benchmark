@@ -18,7 +18,7 @@ $_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_
 @_hb_CrapPool = external global [80 x i64], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_blob_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @hb_blob_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %8
 

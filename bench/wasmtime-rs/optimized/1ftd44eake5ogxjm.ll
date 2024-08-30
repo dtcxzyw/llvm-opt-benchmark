@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.050d313f9d0816e3e107f4adda7198ff.0 = private unnamed_addr constant <{}> zeroinitializer, align 1
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define hidden ptr @_ZN6anyhow9__private10format_err17h9b07504fa2bfccd6E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN6anyhow9__private10format_err17h9b07504fa2bfccd6E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3

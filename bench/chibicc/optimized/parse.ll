@@ -10050,7 +10050,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @struct_designator(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty) unnamed_addr #0 {
+define internal fastcc nonnull ptr @struct_designator(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty) unnamed_addr #0 {
 entry:
   %call = tail call ptr @skip(ptr noundef %tok, ptr noundef nonnull @.str.67) #13
   %0 = load i32, ptr %call, align 16

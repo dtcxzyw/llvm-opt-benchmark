@@ -218,7 +218,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_118HDRMertens_factoryD0Ev(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN11opencv_test12_GLOBAL__N_118HDRMertens_factory10CreateTestEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_118HDRMertens_factory10CreateTestEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #19
@@ -1840,7 +1840,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_118HDRDebevec_factoryD0Ev(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN11opencv_test12_GLOBAL__N_118HDRDebevec_factory10CreateTestEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_118HDRDebevec_factory10CreateTestEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #19
@@ -2489,7 +2489,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_120HDRRobertson_factoryD0Ev(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN11opencv_test12_GLOBAL__N_120HDRRobertson_factory10CreateTestEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_120HDRRobertson_factory10CreateTestEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #19

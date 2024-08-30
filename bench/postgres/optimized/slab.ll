@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.SlabAllocInvalidSize = private unnamed_addr constant [21 x i8] c"SlabAllocInvalidSize\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @SlabContextCreate(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local nonnull ptr @SlabContextCreate(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %3, i64 8)
   %5 = add i64 %spec.store.select, 7
   %6 = and i64 %5, -8

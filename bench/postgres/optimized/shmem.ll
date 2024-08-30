@@ -109,7 +109,7 @@ define dso_local ptr @ShmemAllocUnlocked(i64 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ShmemAlloc(i64 noundef %0) local_unnamed_addr #1 {
+define dso_local nonnull ptr @ShmemAlloc(i64 noundef %0) local_unnamed_addr #1 {
   %2 = add i64 %0, 127
   %3 = and i64 %2, -128
   %4 = load ptr, ptr @ShmemLock, align 8

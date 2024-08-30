@@ -4908,13 +4908,13 @@ _ZN11TrafficTree9dataModelEv.exit:                ; preds = %25, %28
   %31 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ConversationDataModel16staticMetaObjectE, ptr noundef %.0.i)
   %.not29 = icmp ne ptr %31, null
   %32 = call noundef ptr @_ZN11TrafficTree19createActionSubMenuEN12FilterAction6ActionE11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 0, ptr noundef nonnull byval(%class.QModelIndex) align 8 %5, i1 noundef zeroext %.not29)
-  %33 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %32)
+  %33 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %32)
   %34 = call noundef ptr @_ZN11TrafficTree19createActionSubMenuEN12FilterAction6ActionE11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 4, ptr noundef nonnull byval(%class.QModelIndex) align 8 %5, i1 noundef zeroext %.not29)
-  %35 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %34)
+  %35 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %34)
   %36 = call noundef ptr @_ZN11TrafficTree19createActionSubMenuEN12FilterAction6ActionE11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 3, ptr noundef nonnull byval(%class.QModelIndex) align 8 %5, i1 noundef zeroext %.not29)
-  %37 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %36)
+  %37 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %36)
   %38 = call noundef ptr @_ZN11TrafficTree19createActionSubMenuEN12FilterAction6ActionE11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 1, ptr noundef nonnull byval(%class.QModelIndex) align 8 %5, i1 noundef zeroext %.not29)
-  %39 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %38)
+  %39 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %38)
   %40 = call noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
   %41 = call noundef ptr @_ZN11TrafficTree14createCopyMenuEP7QWidget(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef null)
   %42 = call noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %41)
@@ -5048,7 +5048,7 @@ define void @_ZN11TrafficTree18tapListenerEnabledEb(ptr nocapture noundef nonnul
 declare noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11TrafficTree19createActionSubMenuEN12FilterAction6ActionE11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, ptr noundef byval(%class.QModelIndex) align 8 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN11TrafficTree19createActionSubMenuEN12FilterAction6ActionE11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, ptr noundef byval(%class.QModelIndex) align 8 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<FilterAction::ActionDirection, std::pair<const FilterAction::ActionDirection, int>, std::_Select1st<std::pair<const FilterAction::ActionDirection, int>>, std::less<FilterAction::ActionDirection>>::_Alloc_node", align 8
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca { i64, i64 }, align 8

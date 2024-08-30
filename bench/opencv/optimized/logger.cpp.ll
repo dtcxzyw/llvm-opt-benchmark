@@ -888,7 +888,7 @@ define void @_ZN2cv5utils7logging8internal17writeLogMessageExENS1_8LogLevelEPKcS
   %24 = icmp eq ptr %.0.lcssa.i, %.016.lcssa.i
   %or.cond.i = or i1 %23, %24
   %.019.i = select i1 %or.cond.i, ptr %2, ptr %.0.lcssa.i
-  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.019.i)
+  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.019.i)
           to label %26 unwind label %13
 
 26:                                               ; preds = %.loopexit

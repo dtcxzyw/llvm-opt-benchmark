@@ -3236,7 +3236,7 @@ _ZN4dmlc9parameter12ParamManagerD2Ev.exit:        ; preds = %_ZNSt3mapINSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7xgboost7Learner6CreateERKSt6vectorISt10shared_ptrINS_7DMatrixEESaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7xgboost7Learner6CreateERKSt6vectorISt10shared_ptrINS_7DMatrixEESaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.61", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(1152) ptr @_Znwm(i64 noundef 1152) #37
   %4 = getelementptr inbounds i8, ptr %0, i64 8

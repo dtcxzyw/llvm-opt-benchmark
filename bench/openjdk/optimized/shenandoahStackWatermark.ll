@@ -182,7 +182,7 @@ declare void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr nound
 declare void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN24ShenandoahStackWatermark20closure_from_contextEPv(ptr noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24ShenandoahStackWatermark20closure_from_contextEPv(ptr noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %20
 

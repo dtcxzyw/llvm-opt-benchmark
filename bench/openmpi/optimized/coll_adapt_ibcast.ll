@@ -848,7 +848,7 @@ declare i32 @ompi_coll_adapt_request_free(ptr noundef) #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_wait(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i = alloca i64, align 8
   %3 = alloca ptr, align 8

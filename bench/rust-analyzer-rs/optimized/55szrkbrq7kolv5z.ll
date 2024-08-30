@@ -46046,7 +46046,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3ra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(64) ptr @"_ZN9once_cell6unsync17Lazy$LT$T$C$F$GT$9force_mut17h200b9215ca6fa019E"(ptr noalias noundef returned align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN9once_cell6unsync17Lazy$LT$T$C$F$GT$9force_mut17h200b9215ca6fa019E"(ptr noalias noundef returned align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, { { { i64, [1 x i64] } } }, i64, i32, { i32, i32, i32 }, i32, [1 x i32] }, align 8
   %3 = alloca { i32, i32, i32 }, align 4
   %4 = alloca ptr, align 8

@@ -2595,7 +2595,7 @@ _ZNSt10shared_ptrIN7rocksdb15TimedFileSystemEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb11NewTimedEnvEPNS_3EnvE(ptr noundef nonnull %base_env) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb11NewTimedEnvEPNS_3EnvE(ptr noundef nonnull %base_env) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %timed_fs = alloca %"class.std::shared_ptr", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb3Env13GetFileSystemEv(ptr noundef nonnull align 8 dereferenceable(72) %base_env)

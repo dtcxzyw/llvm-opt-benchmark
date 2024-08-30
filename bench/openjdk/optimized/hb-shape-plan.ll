@@ -551,13 +551,13 @@ _ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread: ; preds = %.thre
 declare i32 @hb_segment_properties_equal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_shape_plan_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden nonnull ptr @hb_shape_plan_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 0, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_shape_plan_create2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %1, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZL16hb_object_createI15hb_shape_plan_tJEEPT_DpT0_.exit.thread, label %10
@@ -1008,7 +1008,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr nocapture no
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %32
-  call void @hb_shape_plan_destroy(ptr noundef %30)
+  call void @hb_shape_plan_destroy(ptr noundef nonnull %30)
   call void @free(ptr noundef nonnull %31) #19
   %38 = load atomic i64, ptr %9 acquire, align 8
   %39 = load atomic i32, ptr %0 monotonic, align 4
@@ -1016,21 +1016,17 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr nocapture no
   br i1 %40, label %.lr.ph51, label %.thread
 
 41:                                               ; preds = %32
-  %.not.i.i.i44 = icmp eq ptr %30, null
-  br i1 %.not.i.i.i44, label %hb_shape_plan_reference.exit, label %42
-
-42:                                               ; preds = %41
+  %42 = load atomic i32, ptr %30 monotonic, align 4
   %43 = load atomic i32, ptr %30 monotonic, align 4
-  %44 = load atomic i32, ptr %30 monotonic, align 4
-  %.not.i7.i.i45 = icmp eq i32 %44, 0
-  br i1 %.not.i7.i.i45, label %hb_shape_plan_reference.exit, label %45
+  %.not.i7.i.i45 = icmp eq i32 %43, 0
+  br i1 %.not.i7.i.i45, label %hb_shape_plan_reference.exit, label %44
 
-45:                                               ; preds = %42
-  %46 = atomicrmw add ptr %30, i32 1 acq_rel, align 4
+44:                                               ; preds = %41
+  %45 = atomicrmw add ptr %30, i32 1 acq_rel, align 4
   br label %hb_shape_plan_reference.exit
 
-hb_shape_plan_reference.exit:                     ; preds = %.lr.ph51, %._crit_edge, %45, %42, %41, %.thread, %25, %22, %20
-  %.0 = phi ptr [ null, %20 ], [ %21, %22 ], [ %21, %25 ], [ %13, %.thread ], [ null, %41 ], [ %30, %42 ], [ %30, %45 ], [ @_hb_NullPool, %.lr.ph51 ], [ %30, %._crit_edge ]
+hb_shape_plan_reference.exit:                     ; preds = %.lr.ph51, %._crit_edge, %44, %41, %.thread, %25, %22, %20
+  %.0 = phi ptr [ null, %20 ], [ %21, %22 ], [ %21, %25 ], [ %13, %.thread ], [ %30, %41 ], [ %30, %44 ], [ @_hb_NullPool, %.lr.ph51 ], [ %30, %._crit_edge ]
   ret ptr %.0
 }
 

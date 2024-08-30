@@ -490,7 +490,7 @@ define dso_local ptr @GetForeignColumnOptions(i32 noundef %0, i16 noundef signex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetFdwRoutine(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GetFdwRoutine(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @OidFunctionCall0Coll(i32 noundef %0, i32 noundef 0) #7
   %3 = inttoptr i64 %2 to ptr
   %4 = icmp eq i64 %2, 0
@@ -542,7 +542,7 @@ define dso_local i32 @GetForeignServerIdByRelId(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetFdwRoutineByServerId(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GetFdwRoutineByServerId(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 30, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
@@ -622,7 +622,7 @@ GetFdwRoutine.exit:                               ; preds = %39
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetFdwRoutineByRelId(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GetFdwRoutineByRelId(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 31, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
@@ -681,7 +681,7 @@ GetFdwRoutineByRelId.exit:                        ; preds = %6
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @ReleaseSysCache(ptr noundef nonnull %10) #7
-  %22 = tail call ptr @GetFdwRoutineByServerId(i32 noundef %21)
+  %22 = tail call nonnull ptr @GetFdwRoutineByServerId(i32 noundef %21)
   %23 = load ptr, ptr @CacheMemoryContext, align 8
   %24 = tail call ptr @MemoryContextAlloc(ptr noundef %23, i64 noundef 368) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %24, ptr noundef nonnull align 8 dereferenceable(368) %22, i64 368, i1 false)

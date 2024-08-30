@@ -387,7 +387,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_pixman_linebuf_create(i32 noundef %format, i32 noundef %width) local_unnamed_addr #0 {
+define dso_local nonnull ptr @qemu_pixman_linebuf_create(i32 noundef %format, i32 noundef %width) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @pixman_image_create_bits(i32 noundef %format, i32 noundef %width, i32 noundef 1, ptr noundef null, i32 noundef 0) #7
   %cmp.not = icmp eq ptr %call, null

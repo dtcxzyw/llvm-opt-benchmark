@@ -2976,7 +2976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN11btMultiBody19getJointVelMultiDofEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i32 noundef %i) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZN11btMultiBody19getJointVelMultiDofEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i32 noundef %i) local_unnamed_addr #6 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i, align 8
@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK11btMultiBody19getJointVelMultiDofEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i32 noundef %i) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZNK11btMultiBody19getJointVelMultiDofEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i32 noundef %i) local_unnamed_addr #6 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i, align 8

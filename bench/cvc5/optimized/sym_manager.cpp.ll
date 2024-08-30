@@ -2073,7 +2073,7 @@ _ZNSt10unique_ptrIN4cvc56parser10SymManager14ImplementationESt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN4cvc56parser10SymManager14getSymbolTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN4cvc56parser10SymManager14getSymbolTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_implementation = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_implementation, align 8

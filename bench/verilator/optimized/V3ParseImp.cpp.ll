@@ -5861,7 +5861,7 @@ _ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE9push_backERKS0_.exit: ; preds = %7, %1
 declare void @_ZN10V3ParseImp12yylexReadTokEv(ptr noundef nonnull align 8 dereferenceable(496)) #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN10V3ParseImp10tokenPeekpEm(ptr noundef nonnull align 8 dereferenceable(496) %0, i64 noundef %1) #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN10V3ParseImp10tokenPeekpEm(ptr noundef nonnull align 8 dereferenceable(496) %0, i64 noundef %1) #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = getelementptr inbounds i8, ptr %0, i64 88

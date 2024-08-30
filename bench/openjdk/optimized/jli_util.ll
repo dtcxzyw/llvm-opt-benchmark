@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [12 x i8] c"----%s----\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @JLI_MemAlloc(i64 noundef %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @JLI_MemAlloc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -38,7 +38,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden noalias nonnull ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -56,7 +56,7 @@ define hidden noalias noundef ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias ptr @JLI_StringDup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @JLI_StringDup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -179,7 +179,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @JLI_List_new(i64 noundef %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @JLI_List_new(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %JLI_MemAlloc.exit
@@ -403,7 +403,7 @@ JLI_List_ensureCapacity.exit:                     ; preds = %JLI_MemAlloc.exit.J
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias noundef ptr @JLI_List_combine(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noalias nonnull ptr @JLI_List_combine(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -463,7 +463,7 @@ JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias noundef ptr @JLI_List_join(ptr nocapture noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define hidden noalias nonnull ptr @JLI_List_join(ptr nocapture noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not32 = icmp eq i64 %4, 0
@@ -536,7 +536,7 @@ JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @JLI_List_split(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #4 {
+define hidden noalias nonnull ptr @JLI_List_split(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   %5 = icmp sgt i64 %3, 0

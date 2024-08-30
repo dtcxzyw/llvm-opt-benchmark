@@ -474,7 +474,7 @@ declare zeroext i1 @apply_child_basequals(ptr noundef, ptr noundef, ptr noundef,
 declare void @mark_dummy_rel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_base_rel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @find_base_rel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %1, %4

@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [18 x i8] c"unable to %s '%s'\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @xstrdup(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @xstrdup(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @strdup(ptr noundef %str) #19
   %tobool.not = icmp eq ptr %call, null
@@ -964,7 +964,7 @@ if.end:                                           ; preds = %entry
 declare i32 @dup(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xfopen(ptr noundef %path, ptr noundef %mode) local_unnamed_addr #0 {
+define dso_local nonnull ptr @xfopen(ptr noundef %path, ptr noundef %mode) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -1018,7 +1018,7 @@ if.else18:                                        ; preds = %if.end3, %if.else
 declare ptr @git_fopen(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @xfdopen(i32 noundef %fd, ptr nocapture noundef readonly %mode) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @xfdopen(i32 noundef %fd, ptr nocapture noundef readonly %mode) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fdopen(i32 noundef %fd, ptr noundef %mode) #19
   %tobool.not = icmp eq ptr %call, null

@@ -1568,7 +1568,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
   %30 = icmp sgt i32 %29, -1
   %31 = trunc i64 %indvars.iv.i to i32
   %32 = mul i32 %31, 3
-  invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %32, i32 noundef 3, ptr noundef %25, i1 noundef zeroext %30)
+  invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %32, i32 noundef 3, ptr noundef nonnull %25, i1 noundef zeroext %30)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc17:                                         ; preds = %.lr.ph.i
@@ -1646,7 +1646,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
   %69 = icmp sgt i32 %68, -1
   %70 = trunc i64 %indvars.iv.i26 to i32
   %71 = mul i32 %70, 3
-  invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %71, i32 noundef 3, ptr noundef %64, i1 noundef zeroext %69)
+  invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %71, i32 noundef 3, ptr noundef nonnull %64, i1 noundef zeroext %69)
           to label %.noexc31 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc31:                                         ; preds = %.lr.ph.i25
@@ -1776,7 +1776,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %.loopexit.split-lp,
   %111 = icmp sgt i32 %110, -1
   %112 = trunc i64 %indvars.iv.i40 to i32
   %113 = mul i32 %112, 3
-  invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %113, i32 noundef 3, ptr noundef %106, i1 noundef zeroext %111)
+  invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %113, i32 noundef 3, ptr noundef nonnull %106, i1 noundef zeroext %111)
           to label %.noexc45 unwind label %.loopexit
 
 .noexc45:                                         ; preds = %.lr.ph.i39

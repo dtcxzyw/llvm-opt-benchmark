@@ -94,7 +94,7 @@ _ZN9JfrBuffer13clear_retiredEv.exit:              ; preds = %_ZNK9JfrBuffer28acq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK9JfrBuffer28acquire_critical_section_topEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK9JfrBuffer28acquire_critical_section_topEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   br label %3
 
@@ -153,7 +153,7 @@ define hidden noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK9JfrBuffer10stable_topEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK9JfrBuffer10stable_topEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   br label %3
 

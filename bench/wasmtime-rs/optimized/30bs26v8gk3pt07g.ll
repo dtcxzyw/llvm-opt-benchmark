@@ -3468,7 +3468,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc11collections5btree4node21LeafNode$LT$K$C$V$GT$3new17h05a7b6e78bd2692dE"() unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN5alloc11collections5btree4node21LeafNode$LT$K$C$V$GT$3new17h05a7b6e78bd2692dE"() unnamed_addr #0 {
   %1 = tail call align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h82b72c6b25e3ed64E"()
   %2 = getelementptr inbounds i8, ptr %1, i64 528
   store ptr null, ptr %2, align 8
@@ -3480,7 +3480,7 @@ define align 8 ptr @"_ZN5alloc11collections5btree4node21LeafNode$LT$K$C$V$GT$3ne
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc11collections5btree4node21LeafNode$LT$K$C$V$GT$3new17h8b60579d18a0ca3eE"() unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN5alloc11collections5btree4node21LeafNode$LT$K$C$V$GT$3new17h8b60579d18a0ca3eE"() unnamed_addr #0 {
   %1 = tail call align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h78131f1bb76a627fE"()
   %2 = getelementptr inbounds i8, ptr %1, i64 528
   store ptr null, ptr %2, align 8
@@ -3492,7 +3492,7 @@ define align 8 ptr @"_ZN5alloc11collections5btree4node21LeafNode$LT$K$C$V$GT$3ne
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17hd01cad2ca5ad9cadE"() unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17hd01cad2ca5ad9cadE"() unnamed_addr #0 {
   %1 = tail call align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3272dfc77799f0f1E"()
   %2 = getelementptr inbounds i8, ptr %1, i64 528
   store ptr null, ptr %2, align 8
@@ -3504,7 +3504,7 @@ define align 8 ptr @"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17he6f60abd4a4bab4fE"() unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17he6f60abd4a4bab4fE"() unnamed_addr #0 {
   %1 = tail call align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h89224210583002e9E"()
   %2 = getelementptr inbounds i8, ptr %1, i64 528
   store ptr null, ptr %2, align 8

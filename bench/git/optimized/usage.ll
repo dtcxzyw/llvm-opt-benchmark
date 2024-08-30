@@ -149,7 +149,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @fmt_with_err(ptr noundef returned writeonly %buf, ptr noundef %fmt) unnamed_addr #6 {
+define internal fastcc nonnull ptr @fmt_with_err(ptr noundef returned writeonly %buf, ptr noundef %fmt) unnamed_addr #6 {
 entry:
   %str_error = alloca [256 x i8], align 16
   %call = tail call ptr @__errno_location() #20

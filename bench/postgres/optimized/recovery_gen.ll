@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [31 x i8] c"could not create file \22%s\22: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GenerateRecoveryConfig(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GenerateRecoveryConfig(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = tail call ptr @createPQExpBuffer() #6
   %.not = icmp eq ptr %4, null

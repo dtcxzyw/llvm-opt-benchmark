@@ -18857,7 +18857,7 @@ _ZNK9table2mapI17default_map_entryI6symbolP5sexprE16symbol_hash_proc14symbol_eq_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11cmd_context15find_object_refERK6symbol(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZNK11cmd_context15find_object_refERK6symbol(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_object_refs = getelementptr inbounds i8, ptr %this, i64 568
   %0 = load i64, ptr %s, align 8

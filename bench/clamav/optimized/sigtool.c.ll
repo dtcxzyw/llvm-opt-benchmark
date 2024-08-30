@@ -4776,7 +4776,7 @@ declare ptr @cli_utf16toascii(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getdbname(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @getdbname(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @cli_strbcasestr(ptr noundef %0, ptr noundef nonnull @.str.175) #25

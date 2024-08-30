@@ -402,7 +402,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @get_task_cred(ptr noundef %0) #0 align 16 {
+define dso_local noundef nonnull ptr @get_task_cred(ptr noundef %0) #0 align 16 {
   tail call void @__rcu_read_lock() #10
   %2 = getelementptr inbounds i8, ptr %0, i64 1776
   %3 = load volatile ptr, ptr %2, align 16

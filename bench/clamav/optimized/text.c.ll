@@ -500,7 +500,7 @@ declare void @blobDestroy(ptr noundef) local_unnamed_addr #1
 declare void @blobClose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5
 

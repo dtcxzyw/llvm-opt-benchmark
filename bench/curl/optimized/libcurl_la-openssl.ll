@@ -1167,7 +1167,7 @@ if.end57:                                         ; preds = %if.then51
 if.then62:                                        ; preds = %if.end57
   %call63 = call i64 @ERR_get_error() #13
   %call65 = call fastcc ptr @ossl_strerror(i64 noundef %call63, ptr noundef nonnull %error_buffer, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.43, ptr noundef %cert_file, ptr noundef %call65) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.43, ptr noundef %cert_file, ptr noundef nonnull %call65) #13
   br label %return
 
 if.end66:                                         ; preds = %if.end57
@@ -1187,7 +1187,7 @@ if.end70:                                         ; preds = %if.end66
 if.then74:                                        ; preds = %if.end70
   %call75 = call i64 @ERR_get_error() #13
   %call77 = call fastcc ptr @ossl_strerror(i64 noundef %call75, ptr noundef nonnull %error_buffer, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.45, ptr noundef %call77) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.45, ptr noundef nonnull %call77) #13
   br label %return
 
 if.end78:                                         ; preds = %if.end70
@@ -1263,7 +1263,7 @@ if.else92:                                        ; preds = %sw.bb81
 if.then96:                                        ; preds = %if.else92
   %call97 = tail call i64 @ERR_get_error() #13
   %call99 = call fastcc ptr @ossl_strerror(i64 noundef %call97, ptr noundef nonnull %error_buffer, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.48, ptr noundef %call99) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.48, ptr noundef nonnull %call99) #13
   br label %return
 
 if.end100:                                        ; preds = %if.else92
@@ -1298,7 +1298,7 @@ if.end118:                                        ; preds = %if.end108
 if.then121:                                       ; preds = %if.end118
   %call122 = call i64 @ERR_get_error() #13
   %call124 = call fastcc ptr @ossl_strerror(i64 noundef %call122, ptr noundef nonnull %error_buffer, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.52, ptr noundef %call124) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.52, ptr noundef nonnull %call124) #13
   call void @PKCS12_free(ptr noundef nonnull %call109) #13
   br label %return
 
@@ -1312,7 +1312,7 @@ if.end125:                                        ; preds = %if.end118
 if.then129:                                       ; preds = %if.end125
   %call130 = call i64 @ERR_get_error() #13
   %call132 = call fastcc ptr @ossl_strerror(i64 noundef %call130, ptr noundef nonnull %error_buffer, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.53, ptr noundef %call132) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.53, ptr noundef nonnull %call132) #13
   br label %if.then162.critedge
 
 if.end133:                                        ; preds = %if.end125
@@ -3032,7 +3032,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi ptr [ %call107, %cond.true ], [ %call108, %cond.false ]
   %call109 = tail call ptr @__errno_location() #15
   %22 = load i32, ptr %call109, align 4
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.219, ptr noundef %cond, i32 noundef %22) #13
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.219, ptr noundef nonnull %cond, i32 noundef %22) #13
   br label %if.end112
 
 if.end112:                                        ; preds = %do.body28, %land.lhs.true30, %land.lhs.true40, %if.then44, %do.body48, %land.lhs.true50, %land.lhs.true60, %if.then64, %do.body68, %land.lhs.true70, %land.lhs.true80, %if.then84, %sw.default, %land.lhs.true90, %land.lhs.true100, %cond.end, %if.then21, %land.lhs.true19, %land.lhs.true12, %do.body10
@@ -3627,7 +3627,7 @@ return:                                           ; preds = %entry, %if.then, %i
 declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ossl_strerror(i64 noundef %error, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc nonnull ptr @ossl_strerror(i64 noundef %error, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
 entry:
   store i8 0, ptr %buf, align 1
   %call.i = tail call ptr @OpenSSL_version(i32 noundef 6) #13
@@ -4527,7 +4527,7 @@ if.then298.i:                                     ; preds = %if.then294.i
   call void @Curl_ssl_sessionid_unlock(ptr noundef nonnull %data) #13
   %call299.i = call i64 @ERR_get_error() #13
   %call301.i = call fastcc ptr @ossl_strerror(i64 noundef %call299.i, ptr noundef nonnull %error_buffer.i, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.132, ptr noundef %call301.i) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.132, ptr noundef nonnull %call301.i) #13
   br label %ossl_connect_step1.exit.thread
 
 land.lhs.true305.i:                               ; preds = %if.then294.i
@@ -5230,7 +5230,7 @@ if.else150.i.i:                                   ; preds = %if.then132.i.i
 if.then154.i.i:                                   ; preds = %if.else150.i.i
   %call155.i.i = call i64 @ERR_get_error() #13
   %call157.i.i = call fastcc ptr @ossl_strerror(i64 noundef %call155.i.i, ptr noundef nonnull %error_buffer.i.i, i64 noundef 256)
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.48, ptr noundef %call157.i.i) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.48, ptr noundef nonnull %call157.i.i) #13
   %143 = load ptr, ptr %server_cert.i.i, align 8
   call void @X509_free(ptr noundef %143) #13
   store ptr null, ptr %server_cert.i.i, align 8

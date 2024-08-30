@@ -16959,7 +16959,7 @@ define hidden void @"_ZN11typed_arena14Arena$LT$T$GT$15alloc_fast_path17ha4d1af2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$5alloc17hd3c0963359fd612cE.llvm.4930786928582598558"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN11typed_arena14Arena$LT$T$GT$5alloc17hd3c0963359fd612cE.llvm.4930786928582598558"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, [2 x i64] } } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7138)
@@ -95272,7 +95272,7 @@ _ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit77: ; preds = %186
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable(24) ptr @"_ZN88_$LT$typst..foundations..styles..StyleChain$u20$as$u20$typst..realize..arenas..Store$GT$5store17hd347b11fd1a40bb8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN88_$LT$typst..foundations..styles..StyleChain$u20$as$u20$typst..realize..arenas..Store$GT$5store17hd347b11fd1a40bb8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, [2 x i64] } } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23958)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23961)

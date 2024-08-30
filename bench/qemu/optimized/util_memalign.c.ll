@@ -104,7 +104,7 @@ declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_memalign(i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local nonnull ptr @qemu_memalign(i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_try_memalign(i64 noundef %alignment, i64 noundef %size)
   %tobool.not = icmp eq ptr %call, null

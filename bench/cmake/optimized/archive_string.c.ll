@@ -243,7 +243,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @archive_strncat(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_strncat(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not17 = icmp eq i64 %2, 0
   br i1 %.not17, label %.critedge, label %.lr.ph
 
@@ -296,7 +296,7 @@ define dso_local noundef ptr @archive_strncat(ptr noundef returned %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @archive_wstrncat(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_wstrncat(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not16 = icmp eq i64 %2, 0
   br i1 %.not16, label %.critedge, label %.lr.ph
 
@@ -350,7 +350,7 @@ define dso_local noundef ptr @archive_wstrncat(ptr noundef returned %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @archive_strcat(ptr noundef returned %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_strcat(ptr noundef returned %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %2
@@ -402,7 +402,7 @@ archive_strncat.exit:                             ; preds = %13, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @archive_wstrcat(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_wstrcat(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %2
@@ -455,7 +455,7 @@ archive_wstrncat.exit:                            ; preds = %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @archive_strappend_char(ptr noundef returned %0, i8 noundef signext %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_strappend_char(ptr noundef returned %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 2
@@ -482,7 +482,7 @@ define dso_local noundef ptr @archive_strappend_char(ptr noundef returned %0, i8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @archive_wstrappend_wchar(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_wstrappend_wchar(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8

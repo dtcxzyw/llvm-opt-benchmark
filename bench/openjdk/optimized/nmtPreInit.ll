@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN25NMTPreInitAllocationTableD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25NMTPreInitAllocationTableD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noalias noundef ptr @_ZN20NMTPreInitAllocationnwEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN20NMTPreInitAllocationnwEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %0) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZL18raw_checked_mallocm.exit
@@ -37,7 +37,7 @@ define hidden void @_ZN20NMTPreInitAllocationdlEPv(ptr nocapture noundef %0) loc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noalias noundef ptr @_ZN20NMTPreInitAllocation8do_allocEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN20NMTPreInitAllocation8do_allocEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %0) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZL18raw_checked_mallocm.exit
@@ -65,7 +65,7 @@ _ZN20NMTPreInitAllocationnwEm.exit:               ; preds = %_ZL18raw_checked_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noalias noundef ptr @_ZN20NMTPreInitAllocation13do_reallocateEPS_m(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN20NMTPreInitAllocation13do_reallocateEPS_m(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %1) #14
@@ -105,7 +105,7 @@ define hidden void @_ZN20NMTPreInitAllocation7do_freeEPS_(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noalias noundef ptr @_ZN25NMTPreInitAllocationTablenwEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN25NMTPreInitAllocationTablenwEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %0) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZL18raw_checked_mallocm.exit

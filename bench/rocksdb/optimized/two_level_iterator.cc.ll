@@ -42,7 +42,7 @@ $_ZN7rocksdb6StatusC2ERKS0_ = comdat any
 @.str.1 = private unnamed_addr constant [29 x i8] c"Missing block for partition \00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb19NewTwoLevelIteratorEPNS_21TwoLevelIteratorStateEPNS_20InternalIteratorBaseINS_10IndexValueEEE(ptr noundef %state, ptr noundef %first_level_iter) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb19NewTwoLevelIteratorEPNS_21TwoLevelIteratorStateEPNS_20InternalIteratorBaseINS_10IndexValueEEE(ptr noundef %state, ptr noundef %first_level_iter) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #10
   %0 = getelementptr inbounds i8, ptr %call, i64 8

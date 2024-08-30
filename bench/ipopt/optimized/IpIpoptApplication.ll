@@ -333,7 +333,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @IpoptApplicationFactory() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @IpoptApplicationFactory() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #17
   invoke void @_ZN5Ipopt16IpoptApplicationC1Ebb(ptr noundef nonnull align 8 dereferenceable(90) %1, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %2 unwind label %3

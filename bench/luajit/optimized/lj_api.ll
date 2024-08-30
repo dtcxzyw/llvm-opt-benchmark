@@ -7682,7 +7682,7 @@ return:                                           ; preds = %land.lhs.true11, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaL_checkudata(ptr noundef %L, i32 noundef %idx, ptr noundef %tname) local_unnamed_addr #1 {
+define dso_local nonnull ptr @luaL_checkudata(ptr noundef %L, i32 noundef %idx, ptr noundef %tname) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @luaL_testudata(ptr noundef %L, i32 noundef %idx, ptr noundef %tname)
   %tobool.not = icmp eq ptr %call, null

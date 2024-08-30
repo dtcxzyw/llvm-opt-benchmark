@@ -665,7 +665,7 @@ declare void @rb_thread_execute_interrupts(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_thread_current() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noalias noundef ptr @rb_allocate_sigaltstack() local_unnamed_addr #1 {
+define hidden noalias nonnull ptr @rb_allocate_sigaltstack() local_unnamed_addr #1 {
   %1 = load i32, ptr @rb_sigaltstack_size_value, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %7

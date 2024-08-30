@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @plugin_init, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @plugin_id_to_ctx_locked(i64 noundef %id) local_unnamed_addr #0 {
+define dso_local nonnull ptr @plugin_id_to_ctx_locked(i64 noundef %id) local_unnamed_addr #0 {
 entry:
   %id.addr = alloca i64, align 8
   store i64 %id, ptr %id.addr, align 8

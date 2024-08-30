@@ -1072,7 +1072,7 @@ invoke.cont:                                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK7rocksdb21BloomLikeFilterPolicy35GetFastLocalBloomBuilderWithContextERKNS_21FilterBuildingContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %context) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK7rocksdb21BloomLikeFilterPolicy35GetFastLocalBloomBuilderWithContextERKNS_21FilterBuildingContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %context) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cache_res_mgr = alloca %"class.std::shared_ptr.22", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.22", align 8
@@ -1767,7 +1767,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 declare void @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext, ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK7rocksdb21BloomLikeFilterPolicy38GetStandard128RibbonBuilderWithContextERKNS_21FilterBuildingContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %context) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK7rocksdb21BloomLikeFilterPolicy38GetStandard128RibbonBuilderWithContextERKNS_21FilterBuildingContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %context) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.22", align 8
   %agg.tmp2.i = alloca %"class.std::shared_ptr.22", align 8
@@ -3007,7 +3007,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb20NewBloomFilterPolicyEdb(double noundef %bits_per_key, i1 noundef zeroext %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb20NewBloomFilterPolicyEdb(double noundef %bits_per_key, i1 noundef zeroext %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
   invoke void @_ZN7rocksdb17BloomFilterPolicyC1Ed(ptr noundef nonnull align 8 dereferenceable(64) %call, double noundef %bits_per_key)
@@ -3524,7 +3524,7 @@ lpad4:                                            ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb21NewRibbonFilterPolicyEdi(double noundef %bloom_equivalent_bits_per_key, i32 noundef %bloom_before_level) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb21NewRibbonFilterPolicyEdi(double noundef %bloom_equivalent_bits_per_key, i32 noundef %bloom_before_level) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #35
   invoke void @_ZN7rocksdb18RibbonFilterPolicyC1Edi(ptr noundef nonnull align 8 dereferenceable(68) %call, double noundef %bloom_equivalent_bits_per_key, i32 noundef %bloom_before_level)
@@ -17104,7 +17104,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_17BloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %uri) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_17BloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %uri) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %vals = alloca %"class.std::vector.105", align 8
   call void @_ZN7rocksdb11StringSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr nonnull sret(%"class.std::vector.105") align 8 %vals, ptr noundef nonnull align 8 dereferenceable(32) %uri, i8 noundef signext 58)

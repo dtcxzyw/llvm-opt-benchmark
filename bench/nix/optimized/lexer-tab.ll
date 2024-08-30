@@ -2867,7 +2867,7 @@ default.unreachable1540:                          ; preds = %_ZL18yy_get_next_bu
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_Z16yy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #5 {
+define noundef nonnull ptr @_Z16yy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #5 {
   %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #47
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -4890,7 +4890,7 @@ define noundef ptr @_Z14yy_scan_bufferPcmPv(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z14yy_scan_stringPKcPv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #10 {
+define noundef nonnull ptr @_Z14yy_scan_stringPKcPv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #10 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #56
   %4 = trunc i64 %3 to i32
   %5 = tail call noundef ptr @_Z13yy_scan_bytesPKciPv(ptr noundef %0, i32 noundef %4, ptr noundef %1)
@@ -4898,7 +4898,7 @@ define noundef ptr @_Z14yy_scan_stringPKcPv(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z13yy_scan_bytesPKciPv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #10 {
+define noundef nonnull ptr @_Z13yy_scan_bytesPKciPv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #10 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #47

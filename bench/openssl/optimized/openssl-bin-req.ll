@@ -1191,13 +1191,13 @@ for.cond.preheader:                               ; preds = %if.end386
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.0923, 1
-  %call390 = call i32 @OPENSSL_sk_num(ptr noundef %pkeyopts.0) #10
+  %call390 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %pkeyopts.0) #10
   %cmp391 = icmp slt i32 %inc, %call390
   br i1 %cmp391, label %for.body, label %if.end399, !llvm.loop !9
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.0923 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call393 = call ptr @OPENSSL_sk_value(ptr noundef %pkeyopts.0, i32 noundef %i.0923) #10
+  %call393 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %pkeyopts.0, i32 noundef %i.0923) #10
   %call394 = call i32 @pkey_ctrl_string(ptr noundef nonnull %call353, ptr noundef %call393) #10
   %cmp395 = icmp slt i32 %call394, 1
   br i1 %cmp395, label %if.then396, label %for.cond

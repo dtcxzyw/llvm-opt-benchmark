@@ -532,7 +532,7 @@ declare i32 @lstat_cache_aware_rmdir(ptr noundef) local_unnamed_addr #1
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xmks_tempfile_m(ptr noundef %filename_template, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local nonnull ptr @xmks_tempfile_m(ptr noundef %filename_template, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %full_template = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %full_template, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)

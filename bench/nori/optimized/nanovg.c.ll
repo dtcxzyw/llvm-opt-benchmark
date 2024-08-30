@@ -53815,7 +53815,7 @@ stbi__at_eof.exit24.thread43:                     ; preds = %47, %stbi__at_eof.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__hdr_gettoken(ptr noundef %0, ptr noundef returned writeonly %1) unnamed_addr #3 {
+define internal fastcc nonnull ptr @stbi__hdr_gettoken(ptr noundef %0, ptr noundef returned writeonly %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 192

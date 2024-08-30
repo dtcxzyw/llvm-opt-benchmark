@@ -2000,7 +2000,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene19CBillboardSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr5scene19CBillboardSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #0 align 2 {
 entry:
   %topColor = alloca %"class.irr::video::SColor", align 4
   %bottomColor = alloca %"class.irr::video::SColor", align 4
@@ -2453,7 +2453,7 @@ if.end21.i.3:                                     ; preds = %if.else18.i.3, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @_ZTv0_n296_N3irr5scene19CBillboardSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZTv0_n296_N3irr5scene19CBillboardSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE(ptr noundef %this, ptr noundef %newParent, ptr noundef %newManager) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -296

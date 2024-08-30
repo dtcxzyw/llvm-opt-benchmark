@@ -4492,7 +4492,7 @@ common.resume:                                    ; preds = %126, %105, %109
   %.val23.i = load i64, ptr %111, align 8, !noalias !556, !noundef !4
   %.val.i = load i64, ptr %56, align 8, !noalias !556, !noundef !4
   %112 = mul i64 %.val.i, %.val23.i
-  call void @_ZN16wasmtime_runtime6memory6Memory10new_static17h225ac2695649988aE(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noundef %62, i64 noundef %64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %112, ptr noundef nonnull align 1 %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %98), !noalias !563
+  call void @_ZN16wasmtime_runtime6memory6Memory10new_static17h225ac2695649988aE(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noundef nonnull %62, i64 noundef %64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %112, ptr noundef nonnull align 1 %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %98), !noalias !563
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !556
   %.pr = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !556

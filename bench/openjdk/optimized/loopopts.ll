@@ -17949,7 +17949,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %61, %50, %_ZN4Node7
 declare noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop21insert_if_before_projEP4NodebN8BoolTest4maskES1_P8ProjNode(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14PhaseIdealLoop21insert_if_before_projEP4NodebN8BoolTest4maskES1_P8ProjNode(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -19318,7 +19318,7 @@ _ZN14PhaseIdealLoop12stay_in_loopEP4NodeP13IdealLoopTree.exit.thread: ; preds = 
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = tail call noundef ptr @_ZN14PhaseIdealLoop21insert_if_before_projEP4NodebN8BoolTest4maskES1_P8ProjNode(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %107, i1 noundef zeroext true, i32 noundef %104, ptr noundef nonnull %.0395053, ptr noundef nonnull %.1.i)
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %103, ptr noundef %108) #9
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %103, ptr noundef nonnull %108) #9
   %109 = load i32, ptr %8, align 4
   %110 = load ptr, ptr %58, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 8
@@ -19326,7 +19326,7 @@ _ZN14PhaseIdealLoop12stay_in_loopEP4NodeP13IdealLoopTree.exit.thread: ; preds = 
   %113 = getelementptr inbounds i8, ptr %110, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = tail call noundef ptr @_ZN14PhaseIdealLoop21insert_if_before_projEP4NodebN8BoolTest4maskES1_P8ProjNode(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %112, i1 noundef zeroext false, i32 noundef %109, ptr noundef %114, ptr noundef nonnull %.1.i)
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %103, ptr noundef %115) #9
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %103, ptr noundef nonnull %115) #9
   %116 = tail call noundef ptr @_ZN14PhaseIdealLoop16short_circuit_ifEP6IfNodeP8ProjNode(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %1, ptr noundef nonnull %.1.i)
   %117 = getelementptr inbounds i8, ptr %108, i64 8
   %118 = load ptr, ptr %117, align 8

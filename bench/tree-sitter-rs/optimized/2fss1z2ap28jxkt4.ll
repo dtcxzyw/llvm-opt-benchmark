@@ -490,7 +490,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(72) ptr @_ZN16tree_sitter_tags5c_lib10unwrap_ptr17h086719d47c2c2cdbE(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN16tree_sitter_tags5c_lib10unwrap_ptr17h086719d47c2c2cdbE(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null
@@ -517,7 +517,7 @@ define hidden noundef align 8 dereferenceable(72) ptr @_ZN16tree_sitter_tags5c_l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(72) ptr @_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17h5552714969b06d72E(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17h5552714969b06d72E(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null
@@ -544,7 +544,7 @@ define hidden noundef align 8 dereferenceable(72) ptr @_ZN16tree_sitter_tags5c_l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17ha33ee68c3ab3e50cE(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17ha33ee68c3ab3e50cE(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null
@@ -571,7 +571,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @_ZN16tree_sitter_tags5c_l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable(4) ptr @_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17hb0137400920bdb48E(ptr noundef readnone returned %0) unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17hb0137400920bdb48E(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = icmp eq ptr %0, null

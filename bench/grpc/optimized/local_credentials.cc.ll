@@ -395,7 +395,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @grpc_local_credentials_create(i32 noundef %connect_type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @grpc_local_credentials_create(i32 noundef %connect_type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   invoke void @_ZN22grpc_local_credentialsC1E23grpc_local_connect_type(ptr noundef nonnull align 8 dereferenceable(24) %call, i32 noundef %connect_type)
@@ -431,7 +431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @grpc_local_server_credentials_create(i32 noundef %connect_type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @grpc_local_server_credentials_create(i32 noundef %connect_type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
   invoke void @_ZN29grpc_local_server_credentialsC1E23grpc_local_connect_type(ptr noundef nonnull align 8 dereferenceable(48) %call, i32 noundef %connect_type)

@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK8proxygen13ResourceStats10getNewDataEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK8proxygen13ResourceStats10getNewDataEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #21
   %resources_ = getelementptr inbounds i8, ptr %this, i64 176

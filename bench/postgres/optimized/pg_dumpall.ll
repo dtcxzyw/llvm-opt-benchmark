@@ -1730,7 +1730,7 @@ constructConnStr.exit:                            ; preds = %132, %112
 
 148:                                              ; preds = %144, %141
   %149 = call fastcc ptr @executeQuery(ptr noundef nonnull %94, ptr noundef nonnull @.str.310)
-  call void @PQclear(ptr noundef %149) #14
+  call void @PQclear(ptr noundef nonnull %149) #14
   br label %150
 
 150:                                              ; preds = %148, %111
@@ -1769,21 +1769,21 @@ define internal fastcc void @expand_dbname_patterns(ptr noundef %0) unnamed_addr
 12:                                               ; preds = %.lr.ph6
   %13 = load ptr, ptr %6, align 8
   %14 = call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %13)
-  %15 = call i32 @PQntuples(ptr noundef %14) #14
+  %15 = call i32 @PQntuples(ptr noundef nonnull %14) #14
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.01 = phi i32 [ %18, %.lr.ph ], [ 0, %12 ]
-  %17 = call ptr @PQgetvalue(ptr noundef %14, i32 noundef %.01, i32 noundef 0) #14
+  %17 = call ptr @PQgetvalue(ptr noundef nonnull %14, i32 noundef %.01, i32 noundef 0) #14
   call void @simple_string_list_append(ptr noundef nonnull @database_exclude_names, ptr noundef %17) #14
   %18 = add nuw nsw i32 %.01, 1
-  %19 = call i32 @PQntuples(ptr noundef %14) #14
+  %19 = call i32 @PQntuples(ptr noundef nonnull %14) #14
   %20 = icmp slt i32 %18, %19
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  call void @PQclear(ptr noundef %14) #14
+  call void @PQclear(ptr noundef nonnull %14) #14
   call void @resetPQExpBuffer(ptr noundef nonnull %6) #14
   %.020 = load ptr, ptr %.0204, align 8
   %.not = icmp eq ptr %.020, null
@@ -1864,7 +1864,7 @@ declare ptr @pg_encoding_to_char(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dropDBs(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.278)
-  %3 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %8
 
@@ -1874,13 +1874,13 @@ define internal fastcc void @dropDBs(ptr noundef %0) unnamed_addr #3 {
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %9 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8, %23
   %.014 = phi i32 [ %24, %23 ], [ 0, %8 ]
-  %11 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.014, i32 noundef 0) #14
+  %11 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.014, i32 noundef 0) #14
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(10) @.str.102) #15
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %23, label %13
@@ -1906,12 +1906,12 @@ define internal fastcc void @dropDBs(ptr noundef %0) unnamed_addr #3 {
 
 23:                                               ; preds = %.lr.ph, %13, %15, %17
   %24 = add nuw nsw i32 %.014, 1
-  %25 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %25 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %26 = icmp slt i32 %24, %25
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %23, %8
-  tail call void @PQclear(ptr noundef %2) #14
+  tail call void @PQclear(ptr noundef nonnull %2) #14
   %27 = load ptr, ptr @OPF, align 8
   %28 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %27, ptr noundef nonnull @.str.186) #14
   ret void
@@ -1920,7 +1920,7 @@ define internal fastcc void @dropDBs(ptr noundef %0) unnamed_addr #3 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dropTablespaces(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.263)
-  %3 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %8
 
@@ -1930,13 +1930,13 @@ define internal fastcc void @dropTablespaces(ptr noundef %0) unnamed_addr #3 {
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %9 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.08 = phi i32 [ %17, %.lr.ph ], [ 0, %8 ]
-  %11 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.08, i32 noundef 0) #14
+  %11 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.08, i32 noundef 0) #14
   %12 = load ptr, ptr @OPF, align 8
   %13 = load i32, ptr @if_exists, align 4
   %.not = icmp eq i32 %13, 0
@@ -1944,12 +1944,12 @@ define internal fastcc void @dropTablespaces(ptr noundef %0) unnamed_addr #3 {
   %15 = tail call ptr @fmtId(ptr noundef %11) #14
   %16 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %12, ptr noundef nonnull @.str.265, ptr noundef nonnull %14, ptr noundef %15) #14
   %17 = add nuw nsw i32 %.08, 1
-  %18 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %18 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %19 = icmp slt i32 %17, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  tail call void @PQclear(ptr noundef %2) #14
+  tail call void @PQclear(ptr noundef nonnull %2) #14
   %20 = load ptr, ptr @OPF, align 8
   %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %20, ptr noundef nonnull @.str.186) #14
   ret void
@@ -1964,8 +1964,8 @@ define internal fastcc void @dropRoles(ptr noundef %0) unnamed_addr #3 {
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %2, ptr noundef nonnull %.str.180..str.181, ptr noundef nonnull @role_catalog) #14
   %5 = load ptr, ptr %2, align 8
   %6 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %5)
-  %7 = tail call i32 @PQfnumber(ptr noundef %6, ptr noundef nonnull @.str.182) #14
-  %8 = tail call i32 @PQntuples(ptr noundef %6) #14
+  %7 = tail call i32 @PQfnumber(ptr noundef nonnull %6, ptr noundef nonnull @.str.182) #14
+  %8 = tail call i32 @PQntuples(ptr noundef nonnull %6) #14
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %13
 
@@ -1975,13 +1975,13 @@ define internal fastcc void @dropRoles(ptr noundef %0) unnamed_addr #3 {
   br label %13
 
 13:                                               ; preds = %10, %1
-  %14 = tail call i32 @PQntuples(ptr noundef %6) #14
+  %14 = tail call i32 @PQntuples(ptr noundef nonnull %6) #14
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.014 = phi i32 [ %22, %.lr.ph ], [ 0, %13 ]
-  %16 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %.014, i32 noundef %7) #14
+  %16 = tail call ptr @PQgetvalue(ptr noundef nonnull %6, i32 noundef %.014, i32 noundef %7) #14
   %17 = load ptr, ptr @OPF, align 8
   %18 = load i32, ptr @if_exists, align 4
   %.not = icmp eq i32 %18, 0
@@ -1989,12 +1989,12 @@ define internal fastcc void @dropRoles(ptr noundef %0) unnamed_addr #3 {
   %20 = tail call ptr @fmtId(ptr noundef %16) #14
   %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %17, ptr noundef nonnull @.str.184, ptr noundef nonnull %19, ptr noundef %20) #14
   %22 = add nuw nsw i32 %.014, 1
-  %23 = tail call i32 @PQntuples(ptr noundef %6) #14
+  %23 = tail call i32 @PQntuples(ptr noundef nonnull %6) #14
   %24 = icmp slt i32 %22, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
-  tail call void @PQclear(ptr noundef %6) #14
+  tail call void @PQclear(ptr noundef nonnull %6) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %2) #14
   %25 = load ptr, ptr @OPF, align 8
   %26 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.186) #14
@@ -2012,21 +2012,21 @@ define internal fastcc void @dumpRoles(ptr noundef %0) unnamed_addr #3 {
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %2, ptr noundef nonnull %.str.191.sink, ptr noundef nonnull @role_catalog, ptr noundef nonnull @role_catalog) #14
   %6 = load ptr, ptr %2, align 8
   %7 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %6)
-  %8 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.193) #14
-  %9 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.182) #14
-  %10 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.194) #14
-  %11 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.195) #14
-  %12 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.196) #14
-  %13 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.197) #14
-  %14 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.198) #14
-  %15 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.199) #14
-  %16 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.200) #14
-  %17 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.201) #14
-  %18 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.202) #14
-  %19 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.203) #14
-  %20 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.204) #14
-  %21 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.205) #14
-  %22 = tail call i32 @PQntuples(ptr noundef %7) #14
+  %8 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.193) #14
+  %9 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.182) #14
+  %10 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.194) #14
+  %11 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.195) #14
+  %12 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.196) #14
+  %13 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.197) #14
+  %14 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.198) #14
+  %15 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.199) #14
+  %16 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.200) #14
+  %17 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.201) #14
+  %18 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.202) #14
+  %19 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.203) #14
+  %20 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.204) #14
+  %21 = tail call i32 @PQfnumber(ptr noundef nonnull %7, ptr noundef nonnull @.str.205) #14
+  %22 = tail call i32 @PQntuples(ptr noundef nonnull %7) #14
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %27
 
@@ -2036,16 +2036,16 @@ define internal fastcc void @dumpRoles(ptr noundef %0) unnamed_addr #3 {
   br label %27
 
 27:                                               ; preds = %24, %1
-  %28 = tail call i32 @PQntuples(ptr noundef %7) #14
+  %28 = tail call i32 @PQntuples(ptr noundef nonnull %7) #14
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %sub_0, label %._crit_edge
 
 sub_0:                                            ; preds = %27, %167
   %.0172 = phi i32 [ %168, %167 ], [ 0, %27 ]
-  %30 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %8) #14
+  %30 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %8) #14
   %31 = tail call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #14
   %32 = trunc i64 %31 to i32
-  %33 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %9) #14
+  %33 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %9) #14
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -112
@@ -2090,7 +2090,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not128, label %.thread, label %sub_0136
 
 sub_0136:                                         ; preds = %50
-  %51 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %21) #14
+  %51 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %21) #14
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = add nsw i32 %53, -102
@@ -2116,7 +2116,7 @@ sub_1137:                                         ; preds = %sub_0136
 sub_0140:                                         ; preds = %.thread, %.tail135
   %61 = tail call ptr @fmtId(ptr noundef nonnull %33) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.213, ptr noundef %61) #14
-  %62 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %10) #14
+  %62 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %10) #14
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = add nsw i32 %64, -116
@@ -2134,7 +2134,7 @@ sub_1141:                                         ; preds = %sub_0140
   %70 = icmp eq i32 %69, 0
   %.str.215..str.216 = select i1 %70, ptr @.str.215, ptr @.str.216
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.215..str.216) #14
-  %71 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %11) #14
+  %71 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %11) #14
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = add nsw i32 %73, -116
@@ -2152,7 +2152,7 @@ sub_1145:                                         ; preds = %.tail139
   %79 = icmp eq i32 %78, 0
   %.str.217..str.218 = select i1 %79, ptr @.str.217, ptr @.str.218
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.217..str.218) #14
-  %80 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %12) #14
+  %80 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %12) #14
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = add nsw i32 %82, -116
@@ -2170,7 +2170,7 @@ sub_1149:                                         ; preds = %.tail143
   %88 = icmp eq i32 %87, 0
   %.str.219..str.220 = select i1 %88, ptr @.str.219, ptr @.str.220
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.219..str.220) #14
-  %89 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %13) #14
+  %89 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %13) #14
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = add nsw i32 %91, -116
@@ -2188,7 +2188,7 @@ sub_1153:                                         ; preds = %.tail147
   %97 = icmp eq i32 %96, 0
   %.str.221..str.222 = select i1 %97, ptr @.str.221, ptr @.str.222
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.221..str.222) #14
-  %98 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %14) #14
+  %98 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %14) #14
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = add nsw i32 %100, -116
@@ -2206,7 +2206,7 @@ sub_1157:                                         ; preds = %.tail151
   %106 = icmp eq i32 %105, 0
   %.str.223..str.224 = select i1 %106, ptr @.str.223, ptr @.str.224
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.223..str.224) #14
-  %107 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %18) #14
+  %107 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %18) #14
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = add nsw i32 %109, -116
@@ -2224,7 +2224,7 @@ sub_1161:                                         ; preds = %.tail155
   %115 = icmp eq i32 %114, 0
   %.str.225..str.226 = select i1 %115, ptr @.str.225, ptr @.str.226
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.225..str.226) #14
-  %116 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %19) #14
+  %116 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %19) #14
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = add nsw i32 %118, -116
@@ -2242,7 +2242,7 @@ sub_1165:                                         ; preds = %.tail159
   %124 = icmp eq i32 %123, 0
   %.str.227..str.228 = select i1 %124, ptr @.str.227, ptr @.str.228
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.227..str.228) #14
-  %125 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %15) #14
+  %125 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %15) #14
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = add nsw i32 %127, -45
@@ -2269,12 +2269,12 @@ sub_2170:                                         ; preds = %sub_1169
   br i1 %.not129, label %139, label %137
 
 137:                                              ; preds = %.tail167
-  %138 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %15) #14
+  %138 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %15) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.230, ptr noundef %138) #14
   br label %139
 
 139:                                              ; preds = %137, %.tail167
-  %140 = tail call i32 @PQgetisnull(ptr noundef %7, i32 noundef %.0172, i32 noundef %16) #14
+  %140 = tail call i32 @PQgetisnull(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %16) #14
   %141 = icmp ne i32 %140, 0
   %142 = load i32, ptr @no_role_passwords, align 4
   %143 = icmp ne i32 %142, 0
@@ -2283,17 +2283,17 @@ sub_2170:                                         ; preds = %sub_1169
 
 144:                                              ; preds = %139
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.231) #14
-  %145 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %16) #14
+  %145 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %16) #14
   tail call void @appendStringLiteralConn(ptr noundef nonnull %2, ptr noundef %145, ptr noundef %0) #14
   br label %146
 
 146:                                              ; preds = %144, %139
-  %147 = tail call i32 @PQgetisnull(ptr noundef %7, i32 noundef %.0172, i32 noundef %17) #14
+  %147 = tail call i32 @PQgetisnull(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %17) #14
   %.not130 = icmp eq i32 %147, 0
   br i1 %.not130, label %148, label %150
 
 148:                                              ; preds = %146
-  %149 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %17) #14
+  %149 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %17) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.232, ptr noundef %149) #14
   br label %150
 
@@ -2304,14 +2304,14 @@ sub_2170:                                         ; preds = %sub_1169
   br i1 %.not131, label %152, label %157
 
 152:                                              ; preds = %150
-  %153 = tail call i32 @PQgetisnull(ptr noundef %7, i32 noundef %.0172, i32 noundef %20) #14
+  %153 = tail call i32 @PQgetisnull(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %20) #14
   %.not132 = icmp eq i32 %153, 0
   br i1 %.not132, label %154, label %157
 
 154:                                              ; preds = %152
   %155 = tail call ptr @fmtId(ptr noundef nonnull %33) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.234, ptr noundef %155) #14
-  %156 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.0172, i32 noundef %20) #14
+  %156 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %20) #14
   tail call void @appendStringLiteralConn(ptr noundef nonnull %2, ptr noundef %156, ptr noundef %0) #14
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.233) #14
   br label %157
@@ -2326,8 +2326,8 @@ sub_2170:                                         ; preds = %sub_1169
   tail call void @buildShSecLabelQuery(ptr noundef nonnull @.str.82, i32 noundef %32, ptr noundef %160) #14
   %161 = load ptr, ptr %160, align 8
   %162 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %161)
-  tail call void @emitShSecLabels(ptr noundef %0, ptr noundef %162, ptr noundef nonnull %2, ptr noundef nonnull @.str.235, ptr noundef nonnull %33) #14
-  tail call void @PQclear(ptr noundef %162) #14
+  tail call void @emitShSecLabels(ptr noundef %0, ptr noundef nonnull %162, ptr noundef nonnull %2, ptr noundef nonnull @.str.235, ptr noundef nonnull %33) #14
+  tail call void @PQclear(ptr noundef nonnull %162) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %160) #14
   br label %163
 
@@ -2339,12 +2339,12 @@ sub_2170:                                         ; preds = %sub_1169
 
 167:                                              ; preds = %163, %47
   %168 = add nuw nsw i32 %.0172, 1
-  %169 = tail call i32 @PQntuples(ptr noundef %7) #14
+  %169 = tail call i32 @PQntuples(ptr noundef nonnull %7) #14
   %170 = icmp slt i32 %168, %169
   br i1 %170, label %sub_0, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %167, %27
-  %171 = tail call i32 @PQntuples(ptr noundef %7) #14
+  %171 = tail call i32 @PQntuples(ptr noundef nonnull %7) #14
   %172 = icmp sgt i32 %171, 0
   br i1 %172, label %173, label %176
 
@@ -2354,20 +2354,20 @@ sub_2170:                                         ; preds = %sub_1169
   br label %176
 
 176:                                              ; preds = %173, %._crit_edge
-  %177 = tail call i32 @PQntuples(ptr noundef %7) #14
+  %177 = tail call i32 @PQntuples(ptr noundef nonnull %7) #14
   %178 = icmp sgt i32 %177, 0
   br i1 %178, label %.lr.ph, label %._crit_edge175
 
 .lr.ph:                                           ; preds = %176, %dumpUserConfig.exit
   %.1173 = phi i32 [ %198, %dumpUserConfig.exit ], [ 0, %176 ]
-  %179 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef %.1173, i32 noundef %9) #14
+  %179 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.1173, i32 noundef %9) #14
   %180 = tail call ptr @createPQExpBuffer() #14
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %180, ptr noundef nonnull @.str.237, ptr noundef nonnull @role_catalog) #14
   tail call void @appendStringLiteralConn(ptr noundef %180, ptr noundef %179, ptr noundef %0) #14
   tail call void @appendPQExpBufferChar(ptr noundef %180, i8 noundef signext 41) #14
   %181 = load ptr, ptr %180, align 8
   %182 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %181)
-  %183 = tail call i32 @PQntuples(ptr noundef %182) #14
+  %183 = tail call i32 @PQntuples(ptr noundef nonnull %182) #14
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %185, label %188
 
@@ -2377,33 +2377,33 @@ sub_2170:                                         ; preds = %sub_1169
   br label %188
 
 188:                                              ; preds = %185, %.lr.ph
-  %189 = tail call i32 @PQntuples(ptr noundef %182) #14
+  %189 = tail call i32 @PQntuples(ptr noundef nonnull %182) #14
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %.lr.ph.i, label %dumpUserConfig.exit
 
 .lr.ph.i:                                         ; preds = %188, %.lr.ph.i
   %.020.i = phi i32 [ %195, %.lr.ph.i ], [ 0, %188 ]
   tail call void @resetPQExpBuffer(ptr noundef nonnull %180) #14
-  %191 = tail call ptr @PQgetvalue(ptr noundef %182, i32 noundef %.020.i, i32 noundef 0) #14
+  %191 = tail call ptr @PQgetvalue(ptr noundef nonnull %182, i32 noundef %.020.i, i32 noundef 0) #14
   tail call void @makeAlterConfigCommand(ptr noundef %0, ptr noundef %191, ptr noundef nonnull @.str.235, ptr noundef %179, ptr noundef null, ptr noundef null, ptr noundef nonnull %180) #14
   %192 = load ptr, ptr @OPF, align 8
   %193 = load ptr, ptr %180, align 8
   %194 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %192, ptr noundef nonnull @.str.80, ptr noundef %193) #14
   %195 = add nuw nsw i32 %.020.i, 1
-  %196 = tail call i32 @PQntuples(ptr noundef %182) #14
+  %196 = tail call i32 @PQntuples(ptr noundef nonnull %182) #14
   %197 = icmp slt i32 %195, %196
   br i1 %197, label %.lr.ph.i, label %dumpUserConfig.exit, !llvm.loop !17
 
 dumpUserConfig.exit:                              ; preds = %.lr.ph.i, %188
-  tail call void @PQclear(ptr noundef %182) #14
+  tail call void @PQclear(ptr noundef nonnull %182) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %180) #14
   %198 = add nuw nsw i32 %.1173, 1
-  %199 = tail call i32 @PQntuples(ptr noundef %7) #14
+  %199 = tail call i32 @PQntuples(ptr noundef nonnull %7) #14
   %200 = icmp slt i32 %198, %199
   br i1 %200, label %.lr.ph, label %._crit_edge175, !llvm.loop !18
 
 ._crit_edge175:                                   ; preds = %dumpUserConfig.exit, %176
-  tail call void @PQclear(ptr noundef %7) #14
+  tail call void @PQclear(ptr noundef nonnull %7) #14
   %201 = load ptr, ptr @OPF, align 8
   %202 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %201, ptr noundef nonnull @.str.186) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %2) #14
@@ -2429,9 +2429,9 @@ define internal fastcc void @dumpRoleMembership(ptr noundef %0) unnamed_addr #3 
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %2, ptr noundef nonnull @.str.241, ptr noundef nonnull @role_catalog, ptr noundef nonnull @role_catalog, ptr noundef nonnull @role_catalog) #14
   %10 = load ptr, ptr %2, align 8
   %11 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %10)
-  %12 = tail call i32 @PQfnumber(ptr noundef %11, ptr noundef nonnull @.str.242) #14
-  %13 = tail call i32 @PQfnumber(ptr noundef %11, ptr noundef nonnull @.str.243) #14
-  %14 = tail call i32 @PQntuples(ptr noundef %11) #14
+  %12 = tail call i32 @PQfnumber(ptr noundef nonnull %11, ptr noundef nonnull @.str.242) #14
+  %13 = tail call i32 @PQfnumber(ptr noundef nonnull %11, ptr noundef nonnull @.str.243) #14
+  %14 = tail call i32 @PQntuples(ptr noundef nonnull %11) #14
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %19
 
@@ -2441,18 +2441,18 @@ define internal fastcc void @dumpRoleMembership(ptr noundef %0) unnamed_addr #3 
   br label %19
 
 19:                                               ; preds = %16, %9
-  %20 = tail call i32 @PQntuples(ptr noundef %11) #14
+  %20 = tail call i32 @PQntuples(ptr noundef nonnull %11) #14
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge181
 
 .lr.ph:                                           ; preds = %19, %._crit_edge
   %.0179 = phi i32 [ %.091.lcssa, %._crit_edge ], [ 0, %19 ]
-  %22 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.0179, i32 noundef 0) #14
+  %22 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.0179, i32 noundef 0) #14
   br label %23
 
 23:                                               ; preds = %.lr.ph, %26
   %.091148 = phi i32 [ %.0179, %.lr.ph ], [ %27, %26 ]
-  %24 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.091148, i32 noundef 0) #14
+  %24 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.091148, i32 noundef 0) #14
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #15
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %29
@@ -2464,7 +2464,7 @@ define internal fastcc void @dumpRoleMembership(ptr noundef %0) unnamed_addr #3 
 
 29:                                               ; preds = %23, %26
   %.091.lcssa = phi i32 [ %.091148, %23 ], [ %27, %26 ]
-  %30 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.0179, i32 noundef 0) #14
+  %30 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.0179, i32 noundef 0) #14
   %31 = sub i32 %.091.lcssa, %.0179
   %32 = sext i32 %31 to i64
   %33 = tail call ptr @pg_malloc0(i64 noundef %32) #14
@@ -2555,14 +2555,14 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   br i1 %78, label %rolename_lookup.exit.thread.us, label %79
 
 79:                                               ; preds = %.preheader.us
-  %80 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef 1) #14
-  %81 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef 2) #14
-  %82 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef 3) #14
-  %83 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef 4) #14
+  %80 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %73, i32 noundef 1) #14
+  %81 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %73, i32 noundef 2) #14
+  %82 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %73, i32 noundef 3) #14
+  %83 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %73, i32 noundef 4) #14
   br i1 %7, label %84, label %86
 
 84:                                               ; preds = %79
-  %85 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef %13) #14
+  %85 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %73, i32 noundef %13) #14
   br label %86
 
 86:                                               ; preds = %84, %79
@@ -2911,7 +2911,7 @@ rolename_insert.exit.us:                          ; preds = %192, %.sink.split.i
   br label %264
 
 264:                                              ; preds = %263, %260
-  %265 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef %12) #14
+  %265 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %73, i32 noundef %12) #14
   %266 = load i8, ptr %265, align 1
   %267 = icmp eq i8 %266, 116
   %268 = select i1 %267, ptr @.str.252, ptr @.str.253
@@ -3011,7 +3011,7 @@ rolename_lookup.exit.thread.us:                   ; preds = %108, %287, %90, %.p
   br i1 %293, label %.lr.ph, label %._crit_edge181, !llvm.loop !25
 
 ._crit_edge181:                                   ; preds = %._crit_edge, %19
-  tail call void @PQclear(ptr noundef %11) #14
+  tail call void @PQclear(ptr noundef nonnull %11) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %2) #14
   %294 = load ptr, ptr @OPF, align 8
   %295 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %294, ptr noundef nonnull @.str.186) #14
@@ -3021,7 +3021,7 @@ rolename_lookup.exit.thread.us:                   ; preds = %108, %287, %90, %.p
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.259)
-  %3 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %8
 
@@ -3031,17 +3031,17 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %9 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8, %21
   %.026 = phi i32 [ %25, %21 ], [ 0, %8 ]
   %11 = tail call ptr @createPQExpBuffer() #14
-  %12 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.026, i32 noundef 0) #14
-  %13 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.026, i32 noundef 1) #14
-  %14 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.026, i32 noundef 2) #14
-  %15 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.026, i32 noundef 3) #14
+  %12 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.026, i32 noundef 0) #14
+  %13 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.026, i32 noundef 1) #14
+  %14 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.026, i32 noundef 2) #14
+  %15 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.026, i32 noundef 3) #14
   %16 = tail call ptr @fmtId(ptr noundef %12) #14
   %17 = tail call ptr @pg_strdup(ptr noundef %16) #14
   %18 = load i32, ptr @server_version, align 4
@@ -3061,12 +3061,12 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
   tail call void @free(ptr noundef %17) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %11) #14
   %25 = add nuw nsw i32 %.026, 1
-  %26 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %26 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %27 = icmp slt i32 %25, %26
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %21, %8
-  tail call void @PQclear(ptr noundef %2) #14
+  tail call void @PQclear(ptr noundef nonnull %2) #14
   %28 = load ptr, ptr @OPF, align 8
   %29 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %28, ptr noundef nonnull @.str.186) #14
   ret void
@@ -3075,7 +3075,7 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.266)
-  %3 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %8
 
@@ -3085,23 +3085,23 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %9 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8, %51
   %.074 = phi i32 [ %55, %51 ], [ 0, %8 ]
   %11 = tail call ptr @createPQExpBuffer() #14
-  %12 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 0) #14
+  %12 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 0) #14
   %13 = tail call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #14
   %14 = trunc i64 %13 to i32
-  %15 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 1) #14
-  %16 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 2) #14
-  %17 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 3) #14
-  %18 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 4) #14
-  %19 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 5) #14
-  %20 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 6) #14
-  %21 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %.074, i32 noundef 7) #14
+  %15 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 1) #14
+  %16 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 2) #14
+  %17 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 3) #14
+  %18 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 4) #14
+  %19 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 5) #14
+  %20 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 6) #14
+  %21 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 7) #14
   %22 = tail call ptr @fmtId(ptr noundef %15) #14
   %23 = tail call ptr @pg_strdup(ptr noundef %22) #14
   %24 = load i32, ptr @binary_upgrade, align 4
@@ -3178,8 +3178,8 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
   tail call void @buildShSecLabelQuery(ptr noundef nonnull @.str.277, i32 noundef %14, ptr noundef %48) #14
   %49 = load ptr, ptr %48, align 8
   %50 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %49)
-  tail call void @emitShSecLabels(ptr noundef %0, ptr noundef %50, ptr noundef %11, ptr noundef nonnull @.str.274, ptr noundef %15) #14
-  tail call void @PQclear(ptr noundef %50) #14
+  tail call void @emitShSecLabels(ptr noundef %0, ptr noundef nonnull %50, ptr noundef %11, ptr noundef nonnull @.str.274, ptr noundef %15) #14
+  tail call void @PQclear(ptr noundef nonnull %50) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %48) #14
   br label %51
 
@@ -3190,12 +3190,12 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
   tail call void @free(ptr noundef %23) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %11) #14
   %55 = add nuw nsw i32 %.074, 1
-  %56 = tail call i32 @PQntuples(ptr noundef %2) #14
+  %56 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %57 = icmp slt i32 %55, %56
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %51, %8
-  tail call void @PQclear(ptr noundef %2) #14
+  tail call void @PQclear(ptr noundef nonnull %2) #14
   %58 = load ptr, ptr @OPF, align 8
   %59 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %58, ptr noundef nonnull @.str.186) #14
   ret void
@@ -3206,7 +3206,7 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.285)
-  %5 = tail call i32 @PQntuples(ptr noundef %4) #14
+  %5 = tail call i32 @PQntuples(ptr noundef nonnull %4) #14
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %10
 
@@ -3216,13 +3216,13 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
   br label %10
 
 10:                                               ; preds = %7, %1
-  %11 = tail call i32 @PQntuples(ptr noundef %4) #14
+  %11 = tail call i32 @PQntuples(ptr noundef nonnull %4) #14
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10, %53
   %.026 = phi i32 [ %54, %53 ], [ 0, %10 ]
-  %13 = call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.026, i32 noundef 0) #14
+  %13 = call ptr @PQgetvalue(ptr noundef nonnull %4, i32 noundef %.026, i32 noundef 0) #14
   %14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.280) #15
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %53, label %16
@@ -3321,12 +3321,12 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
 
 53:                                               ; preds = %47, %49, %.lr.ph, %18
   %54 = add nuw nsw i32 %.026, 1
-  %55 = call i32 @PQntuples(ptr noundef %4) #14
+  %55 = call i32 @PQntuples(ptr noundef nonnull %4) #14
   %56 = icmp slt i32 %54, %55
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %53, %10
-  call void @PQclear(ptr noundef %4) #14
+  call void @PQclear(ptr noundef nonnull %4) #14
   ret void
 }
 
@@ -3342,7 +3342,7 @@ declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 declare void @printfPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc nonnull ptr @executeQuery(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.187, ptr noundef %1) #14
   %3 = tail call ptr @PQexec(ptr noundef %0, ptr noundef %1) #14
   %.not = icmp eq ptr %3, null

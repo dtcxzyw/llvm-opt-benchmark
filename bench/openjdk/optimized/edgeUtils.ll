@@ -322,7 +322,7 @@ define hidden noundef nonnull ptr @_ZN9EdgeUtils4rootERK4Edge(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN9EdgeUtils8ancestorERK4Edgem(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN9EdgeUtils8ancestorERK4Edgem(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   br label %3
 
 3:                                                ; preds = %3, %2

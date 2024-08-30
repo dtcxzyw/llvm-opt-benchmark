@@ -1722,7 +1722,7 @@ define ptr @WasmEdge_ValueGetFuncRef(ptr nocapture noundef readonly byval(%struc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_ValueGetExternRef(ptr nocapture noundef readonly byval(%struct.WasmEdge_Value) align 16 %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @WasmEdge_ValueGetExternRef(ptr nocapture noundef readonly byval(%struct.WasmEdge_Value) align 16 %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = load i128, ptr %0, align 16
   %.sroa.24.0.extract.shift = lshr i128 %2, 64
   %.sroa.24.0.extract.trunc = trunc nuw i128 %.sroa.24.0.extract.shift to i64
@@ -5065,7 +5065,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit24:                  ; preds = %82, %77, %2, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @WasmEdge_CompilerCreate(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @WasmEdge_CompilerCreate(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.WasmEdge::Configure", align 8
   %3 = alloca %"class.WasmEdge::Configure", align 8
   %.not = icmp eq ptr %0, null

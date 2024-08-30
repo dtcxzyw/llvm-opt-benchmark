@@ -9491,7 +9491,7 @@ unreachable:                                      ; preds = %invoke.cont18
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN17ServerEnvironment10loadPlayerEP12RemotePlayerPbtb(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef %player, ptr nocapture noundef writeonly %new_player, i16 noundef zeroext %peer_id, i1 noundef zeroext %is_singleplayer) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN17ServerEnvironment10loadPlayerEP12RemotePlayerPbtb(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef %player, ptr nocapture noundef writeonly %new_player, i16 noundef zeroext %peer_id, i1 noundef zeroext %is_singleplayer) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.619", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #38, !noalias !393
