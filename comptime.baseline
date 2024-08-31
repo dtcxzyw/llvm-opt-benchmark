@@ -16158,7 +16158,7 @@ mitsuba3/appender.cpp.ll 434825904
 mitsuba3/archtraits.cpp.ll 51621119
 mitsuba3/area.cpp.ll 1051225542
 mitsuba3/argparser.cpp.ll 814594965
-mitsuba3/armformatter.cpp.ll 45914141
+mitsuba3/armformatter.cpp.ll 45960148
 mitsuba3/assembler.cpp.ll 195713783
 mitsuba3/batch.cpp.ll 1077862336
 mitsuba3/bitmap.cpp.ll 10478068421
