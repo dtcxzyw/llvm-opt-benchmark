@@ -6041,15 +6041,22 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2lt17hb73996d876155def
   %11 = sext i32 %10 to i64
   %12 = icmp eq i32 %10, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %12, i64 %9, i64 %11
+  %.0.i.i.i.i.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
   %13 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !alias.scope !361, !noalias !358
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !358, !noalias !361
-  %18 = icmp ult i64 %15, %17
-  %19 = icmp slt i64 %spec.store.select.i.i.i.i.i.i, 0
-  %20 = select i1 %13, i1 %18, i1 %19
-  ret i1 %20
+  br i1 %13, label %14, label %"_ZN74_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5ec8be4947f7cf6bE.exit"
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = load i64, ptr %15, align 8, !alias.scope !361, !noalias !358, !noundef !4
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load i64, ptr %17, align 8, !alias.scope !358, !noalias !361, !noundef !4
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %16, i64 %18)
+  br label %"_ZN74_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5ec8be4947f7cf6bE.exit"
+
+"_ZN74_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5ec8be4947f7cf6bE.exit": ; preds = %2, %14
+  %.0.i.i = phi i8 [ %.0.i.i.i.i, %14 ], [ %.0.i.i.i.i.i.i, %2 ]
+  %19 = icmp eq i8 %.0.i.i, -1
+  ret i1 %19
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

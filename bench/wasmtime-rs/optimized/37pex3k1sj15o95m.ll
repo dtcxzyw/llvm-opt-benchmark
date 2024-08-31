@@ -27917,18 +27917,25 @@ define hidden noundef i32 @"_ZN88_$LT$cranelift_codegen..egraph..cost..Cost$u20$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i8 -1, 2) i8 @"_ZN89_$LT$cranelift_codegen..egraph..elaborate..BestEntry$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf4903f47f1cf666fE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #4 {
-"_ZN82_$LT$cranelift_codegen..egraph..elaborate..BestEntry$u20$as$u20$core..cmp..Ord$GT$3cmp17h01c963de8d897121E.exit":
   %.val = load i32, ptr %0, align 4, !noundef !4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %.val1 = load i32, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %.val1 = load i32, ptr %3, align 4
   %.val2 = load i32, ptr %1, align 4, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
-  %.val3 = load i32, ptr %3, align 4
-  %4 = icmp ult i32 %.val, %.val2
-  %5 = icmp eq i32 %.val, %.val2
-  %6 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val3, i32 %.val1)
-  %spec.select = select i1 %5, i8 %6, i8 1
-  %.1.i = select i1 %4, i8 -1, i8 %spec.select
+  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %.val3 = load i32, ptr %4, align 4
+  %5 = icmp ult i32 %.val, %.val2
+  br i1 %5, label %"_ZN82_$LT$cranelift_codegen..egraph..elaborate..BestEntry$u20$as$u20$core..cmp..Ord$GT$3cmp17h01c963de8d897121E.exit", label %6
+
+6:                                                ; preds = %2
+  %7 = icmp eq i32 %.val, %.val2
+  br i1 %7, label %switch.lookup, label %"_ZN82_$LT$cranelift_codegen..egraph..elaborate..BestEntry$u20$as$u20$core..cmp..Ord$GT$3cmp17h01c963de8d897121E.exit"
+
+switch.lookup:                                    ; preds = %6
+  %8 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val3, i32 %.val1)
+  br label %"_ZN82_$LT$cranelift_codegen..egraph..elaborate..BestEntry$u20$as$u20$core..cmp..Ord$GT$3cmp17h01c963de8d897121E.exit"
+
+"_ZN82_$LT$cranelift_codegen..egraph..elaborate..BestEntry$u20$as$u20$core..cmp..Ord$GT$3cmp17h01c963de8d897121E.exit": ; preds = %switch.lookup, %2, %6
+  %.1.i = phi i8 [ 1, %6 ], [ -1, %2 ], [ %8, %switch.lookup ]
   ret i8 %.1.i
 }
 

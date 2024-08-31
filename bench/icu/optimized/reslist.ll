@@ -6073,12 +6073,14 @@ while.end18:                                      ; preds = %while.cond9
   %conv23.neg = trunc i64 %sub.ptr.sub22.neg to i32
   %sub24 = add i32 %conv19, %conv23.neg
   %cmp25.not = icmp eq i32 %sub24, 0
-  %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %0, i32 %1)
-  %spec.select = select i1 %cmp25.not, i32 %retval.0.i, i32 %sub24
+  br i1 %cmp25.not, label %if.end27, label %return
+
+if.end27:                                         ; preds = %while.end18
+  %retval.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %0, i32 %1)
   br label %return
 
-return:                                           ; preds = %while.body12, %while.end18
-  %retval.0 = phi i32 [ %spec.select, %while.end18 ], [ %sub, %while.body12 ]
+return:                                           ; preds = %while.body12, %while.end18, %if.end27
+  %retval.0 = phi i32 [ %retval.0.i, %if.end27 ], [ %sub24, %while.end18 ], [ %sub, %while.body12 ]
   ret i32 %retval.0
 }
 

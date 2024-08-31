@@ -904,8 +904,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h28a0b9b92b4cdd42E(ptr noal
   %.0.i.i.i.i.i = select i1 %51, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %53 = icmp eq i8 %.0.i.i.i.i.i, 0
   %.0.i8.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val28.i, i64 %.val30.i)
-  %spec.select.i.i.i.i = select i1 %53, i8 %.0.i8.i.i.i.i, i8 %.0.i.i.i.i.i
-  switch i8 %spec.select.i.i.i.i, label %54 [
+  %.0.i.i.i.i = select i1 %53, i8 %.0.i8.i.i.i.i, i8 %.0.i.i.i.i.i
+  switch i8 %.0.i.i.i.i, label %54 [
     i8 2, label %.invoke
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit.i"
@@ -951,8 +951,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h28a0b9b92b4cdd42E(ptr noal
   %.0.i.i.i.i41.i = select i1 %62, i8 %..i.i.i.i39.i, i8 %.1.i.i.i.i40.i
   %64 = icmp eq i8 %.0.i.i.i.i41.i, 0
   %.0.i8.i.i.i42.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val32.i, i64 %.val34.i)
-  %spec.select.i.i.i43.i = select i1 %64, i8 %.0.i8.i.i.i42.i, i8 %.0.i.i.i.i41.i
-  switch i8 %spec.select.i.i.i43.i, label %65 [
+  %.0.i.i.i43.i = select i1 %64, i8 %.0.i8.i.i.i42.i, i8 %.0.i.i.i.i41.i
+  switch i8 %.0.i.i.i43.i, label %65 [
     i8 2, label %.invoke
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit44.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit44.i"
@@ -982,8 +982,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h28a0b9b92b4cdd42E(ptr noal
   %.0.i.i.i.i47.i = select i1 %69, i8 %..i.i.i.i45.i, i8 %.1.i.i.i.i46.i
   %71 = icmp eq i8 %.0.i.i.i.i47.i, 0
   %.0.i8.i.i.i48.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val36.i, i64 %.val38.i)
-  %spec.select.i.i.i49.i = select i1 %71, i8 %.0.i8.i.i.i48.i, i8 %.0.i.i.i.i47.i
-  switch i8 %spec.select.i.i.i49.i, label %72 [
+  %.0.i.i.i49.i = select i1 %71, i8 %.0.i8.i.i.i48.i, i8 %.0.i.i.i.i47.i
+  switch i8 %.0.i.i.i49.i, label %72 [
     i8 2, label %.invoke
     i8 -1, label %.loopexit96
     i8 0, label %.loopexit96
@@ -1319,8 +1319,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hb50aa81ad3ae17d1E.exit: ; preds = %.
   %.0.i.i.i.i.i73 = select i1 %199, i8 %..i.i.i.i.i71, i8 %.1.i.i.i.i.i72
   %201 = icmp eq i8 %.0.i.i.i.i.i73, 0
   %.0.i8.i.i.i.i74 = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val35.i68, i64 %.val37.i70)
-  %spec.select.i.i.i.i75 = select i1 %201, i8 %.0.i8.i.i.i.i74, i8 %.0.i.i.i.i.i73
-  switch i8 %spec.select.i.i.i.i75, label %202 [
+  %.0.i.i.i.i75 = select i1 %201, i8 %.0.i8.i.i.i.i74, i8 %.0.i.i.i.i.i73
+  switch i8 %.0.i.i.i.i75, label %202 [
     i8 2, label %203
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit.i76"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit.i76"
@@ -1368,8 +1368,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hb50aa81ad3ae17d1E.exit: ; preds = %.
   %.0.i.i.i.i43.i = select i1 %213, i8 %..i.i.i.i41.i, i8 %.1.i.i.i.i42.i
   %215 = icmp eq i8 %.0.i.i.i.i43.i, 0
   %.0.i8.i.i.i44.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.028.val38.i, i64 %.val40.i)
-  %spec.select.i.i.i45.i = select i1 %215, i8 %.0.i8.i.i.i44.i, i8 %.0.i.i.i.i43.i
-  switch i8 %spec.select.i.i.i45.i, label %216 [
+  %.0.i.i.i45.i = select i1 %215, i8 %.0.i8.i.i.i44.i, i8 %.0.i.i.i.i43.i
+  switch i8 %.0.i.i.i45.i, label %216 [
     i8 2, label %217
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit47.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit47.i"
@@ -3227,8 +3227,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17heb
   %.0.i.i.i.i.i = select i1 %12, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %14 = icmp eq i8 %.0.i.i.i.i.i, 0
   %.0.i8.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val10.i, i64 %.val12.i)
-  %spec.select.i.i.i.i = select i1 %14, i8 %.0.i8.i.i.i.i, i8 %.0.i.i.i.i.i
-  switch i8 %spec.select.i.i.i.i, label %15 [
+  %.0.i.i.i.i = select i1 %14, i8 %.0.i8.i.i.i.i, i8 %.0.i.i.i.i.i
+  switch i8 %.0.i.i.i.i, label %15 [
     i8 2, label %16
     i8 -1, label %_ZN4core5slice4sort11insert_tail17h6777fceac051c486E.exit
     i8 0, label %_ZN4core5slice4sort11insert_tail17h6777fceac051c486E.exit
@@ -3270,8 +3270,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17heb
   %.0.i.i.i.i23.i = select i1 %22, i8 %..i.i.i.i21.i, i8 %.1.i.i.i.i22.i
   %24 = icmp eq i8 %.0.i.i.i.i23.i, 0
   %.0.i8.i.i.i24.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val10.i, i64 %.val16.i)
-  %spec.select.i.i.i25.i = select i1 %24, i8 %.0.i8.i.i.i24.i, i8 %.0.i.i.i.i23.i
-  switch i8 %spec.select.i.i.i25.i, label %25 [
+  %.0.i.i.i25.i = select i1 %24, i8 %.0.i8.i.i.i24.i, i8 %.0.i.i.i.i23.i
+  switch i8 %.0.i.i.i25.i, label %25 [
     i8 2, label %26
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit26.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9615c632b4a08949E.exit26.i"

@@ -7571,7 +7571,7 @@ define internal fastcc noundef ptr @_ZN5uu_mv6rename17h600fb01428cf9b2dE(ptr noa
 ._crit_edge:                                      ; preds = %75
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 52
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !range !1115
-  br label %109
+  br label %110
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %4, i64 52
@@ -7593,7 +7593,7 @@ define internal fastcc noundef ptr @_ZN5uu_mv6rename17h600fb01428cf9b2dE(ptr noa
   %86 = load ptr, ptr %85, align 8, !alias.scope !1710, !noalias !1714
   br i1 %84, label %88, label %87
 
-default.unreachable265:                           ; preds = %109
+default.unreachable270:                           ; preds = %110
   unreachable
 
 87:                                               ; preds = %.noexc155
@@ -7610,7 +7610,7 @@ default.unreachable265:                           ; preds = %109
 88:                                               ; preds = %.noexc155
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %21), !noalias !1706
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59)
-  br label %112
+  br label %.sink.split
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %59, i64 8
@@ -7618,7 +7618,7 @@ default.unreachable265:                           ; preds = %109
   %92 = icmp eq i32 %91, 1000000000
   %93 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59)
-  br i1 %92, label %112, label %94
+  br i1 %92, label %.sink.split, label %94
 
 94:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57)
@@ -7648,7 +7648,7 @@ default.unreachable265:                           ; preds = %109
 100:                                              ; preds = %.noexc157
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %20), !noalias !1716
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
-  br label %111
+  br label %112
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds i8, ptr %57, i64 8
@@ -7656,44 +7656,48 @@ default.unreachable265:                           ; preds = %109
   %104 = icmp eq i32 %103, 1000000000
   %105 = load ptr, ptr %57, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
-  br i1 %104, label %111, label %106
+  br i1 %104, label %112, label %106
 
 106:                                              ; preds = %101
   %107 = icmp slt ptr %93, %105
-  %108 = icmp eq ptr %93, %105
-  %switch.selectcmp263264 = icmp ule i32 %91, %103
-  %switch.selectcmp263 = and i1 %switch.selectcmp263264, %108
-  %switch.selectcmp = or i1 %107, %switch.selectcmp263
+  br i1 %107, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread", label %108
+
+108:                                              ; preds = %106
+  %109 = icmp ne ptr %93, %105
+  %switch.selectcmp.not = icmp ugt i32 %91, %103
+  %or.cond = or i1 %switch.selectcmp.not, %109
+  br i1 %or.cond, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread256", label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread"
+
+"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread256": ; preds = %108
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %58)
-  br i1 %switch.selectcmp, label %200, label %109
+  br label %110
 
-109:                                              ; preds = %106, %._crit_edge
-  %110 = phi i8 [ %.pre, %._crit_edge ], [ %80, %106 ]
-  switch i8 %110, label %default.unreachable265 [
+"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread": ; preds = %108, %106
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %56)
+  br label %.sink.split
+
+110:                                              ; preds = %._crit_edge, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread256"
+  %111 = phi i8 [ %.pre, %._crit_edge ], [ %80, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread256" ]
+  switch i8 %111, label %default.unreachable270 [
     i8 0, label %122
     i8 1, label %113
     i8 2, label %115
   ]
 
-111:                                              ; preds = %101, %100
+112:                                              ; preds = %101, %100
   %.2 = phi ptr [ %98, %100 ], [ %105, %101 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %56)
-  br label %112
+  br label %.sink.split
 
-112:                                              ; preds = %89, %111, %88
-  %.1 = phi ptr [ %86, %88 ], [ %.2, %111 ], [ %93, %89 ]
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %58)
-  br label %200
-
-113:                                              ; preds = %109
+113:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
   %114 = invoke { ptr, i64 } @_ZN6uucore9util_name17hcdedd272bee2ebc0E()
           to label %126 unwind label %64
 
-115:                                              ; preds = %155, %109
+115:                                              ; preds = %155, %110
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
   %116 = getelementptr inbounds i8, ptr %4, i64 54
   %117 = load i8, ptr %116, align 2, !range !135, !noundef !5
@@ -7704,7 +7708,7 @@ default.unreachable265:                           ; preds = %109
   invoke void @_ZN6uucore8features14backup_control15get_backup_path17hb209ce357ce9eb25E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %38, i8 noundef %117, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %119, i64 noundef %121)
           to label %177 unwind label %64
 
-122:                                              ; preds = %109
+122:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
   store i64 1, ptr %53, align 8
@@ -7952,8 +7956,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %122
   %199 = icmp eq ptr %197, null
   br i1 %199, label %72, label %200
 
-200:                                              ; preds = %106, %.invoke, %261, %_ZN3std2fs10remove_dir17h1030028052e5a54eE.exit, %198, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %112, %75, %78
-  %.0 = phi ptr [ null, %78 ], [ null, %75 ], [ %.1, %112 ], [ %125, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %197, %198 ], [ %259, %_ZN3std2fs10remove_dir17h1030028052e5a54eE.exit ], [ %219, %261 ], [ %257, %.invoke ], [ null, %106 ]
+.sink.split:                                      ; preds = %88, %112, %89, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread"
+  %.0.ph = phi ptr [ null, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread" ], [ %86, %88 ], [ %.2, %112 ], [ %93, %89 ]
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %58)
+  br label %200
+
+200:                                              ; preds = %.sink.split, %.invoke, %261, %_ZN3std2fs10remove_dir17h1030028052e5a54eE.exit, %198, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %75, %78
+  %.0 = phi ptr [ null, %78 ], [ null, %75 ], [ %125, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %197, %198 ], [ %259, %_ZN3std2fs10remove_dir17h1030028052e5a54eE.exit ], [ %219, %261 ], [ %257, %.invoke ], [ %.0.ph, %.sink.split ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1777)
   %201 = load i64, ptr %60, align 8, !range !15, !alias.scope !1777, !noundef !5
   %202 = icmp eq i64 %201, -9223372036854775808

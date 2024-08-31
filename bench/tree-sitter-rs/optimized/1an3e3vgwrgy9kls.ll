@@ -14245,14 +14245,14 @@ common.resume:                                    ; preds = %550, %116, %.thread
   %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val24.i.i, i64 %288)
   %297 = icmp eq i64 %.val24.i.i, %288
   %.0.i7.i.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val23.i.i, i64 %287)
-  %spec.select.i.i.i.i = select i1 %297, i8 %.0.i7.i.i.i.i, i8 %.0.i.i.i.i.i
-  %298 = icmp eq i8 %spec.select.i.i.i.i, 0
+  %.0.i.i.i.i = select i1 %297, i8 %.0.i7.i.i.i.i, i8 %.0.i.i.i.i.i
+  %298 = icmp eq i8 %.0.i.i.i.i, 0
   br i1 %298, label %407, label %299
 
 299:                                              ; preds = %.lr.ph.i.i
-  %300 = icmp eq i8 %spec.select.i.i.i.i, 1
+  %300 = icmp eq i8 %.0.i.i.i.i, 1
   %.021.i.i = select i1 %300, i64 %292, i64 %.02026.i.i
-  %301 = icmp eq i8 %spec.select.i.i.i.i, -1
+  %301 = icmp eq i8 %.0.i.i.i.i, -1
   %302 = add nuw i64 %292, 1
   %.022.i.i = select i1 %301, i64 %302, i64 %.01927.i.i
   %303 = sub i64 %.021.i.i, %.022.i.i

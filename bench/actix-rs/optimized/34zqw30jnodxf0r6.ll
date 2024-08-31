@@ -7417,22 +7417,22 @@ define noundef zeroext i1 @"_ZN72_$LT$actix_http..h1..timer..TimerState$u20$as$u
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = load i64, ptr %0, align 8, !range !108, !noundef !4
-  switch i64 %6, label %default.unreachable17 [
+  switch i64 %6, label %default.unreachable20 [
     i64 0, label %7
     i64 1, label %9
     i64 2, label %11
   ]
 
-default.unreachable17:                            ; preds = %2
+default.unreachable20:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.dd74362bd857f4caec9bddebb7ee75d1.117, i64 noundef 17)
-  br label %25
+  br label %24
 
 9:                                                ; preds = %2
   %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.dd74362bd857f4caec9bddebb7ee75d1.118, i64 noundef 17)
-  br label %25
+  br label %24
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7444,50 +7444,52 @@ default.unreachable17:                            ; preds = %2
   %18 = extractvalue { i64, i32 } %17, 0
   %19 = extractvalue { i64, i32 } %17, 1
   %20 = icmp slt i64 %14, %18
-  %21 = icmp eq i64 %14, %18
-  %22 = icmp ult i32 %16, %19
-  %23 = select i1 %21, i1 %22, i1 false
-  %24 = select i1 %20, i1 true, i1 %23
-  br i1 %24, label %41, label %26
+  br i1 %20, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread", label %21
 
-25:                                               ; preds = %26, %41, %9, %7
-  %.0.in = phi i1 [ %10, %9 ], [ %8, %7 ], [ %42, %41 ], [ %40, %26 ]
+21:                                               ; preds = %11
+  %22 = icmp eq i64 %14, %18
+  %23 = icmp ult i32 %16, %19
+  %or.cond = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread", label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread18"
+
+24:                                               ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread18", %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread", %9, %7
+  %.0.in = phi i1 [ %10, %9 ], [ %8, %7 ], [ %39, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread" ], [ %38, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread18" ]
   ret i1 %.0.in
 
-26:                                               ; preds = %11
+"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread18": ; preds = %21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %27 = tail call { i64, i32 } @"_ZN71_$LT$tokio..time..instant..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h69b39eab435c008eE"(i64 noundef %14, i32 noundef %16, i64 noundef %18, i32 noundef %19)
-  %28 = extractvalue { i64, i32 } %27, 0
-  %29 = extractvalue { i64, i32 } %27, 1
-  %30 = uitofp i64 %28 to float
-  %31 = uitofp i32 %29 to float
-  %32 = fdiv float %31, 1.000000e+09
-  %33 = fadd float %32, %30
-  %34 = fmul float %33, 1.000000e+03
-  store float %34, ptr %3, align 4
+  %25 = tail call { i64, i32 } @"_ZN71_$LT$tokio..time..instant..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h69b39eab435c008eE"(i64 noundef %14, i32 noundef %16, i64 noundef %18, i32 noundef %19)
+  %26 = extractvalue { i64, i32 } %25, 0
+  %27 = extractvalue { i64, i32 } %25, 1
+  %28 = uitofp i64 %26 to float
+  %29 = uitofp i32 %27 to float
+  %30 = fdiv float %29, 1.000000e+09
+  %31 = fadd float %30, %28
+  %32 = fmul float %31, 1.000000e+03
+  store float %32, ptr %3, align 4
   store ptr %3, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f32$GT$3fmt17he41aac8948e33422E", ptr %35, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f32$GT$3fmt17he41aac8948e33422E", ptr %33, align 8
   store ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.121, ptr %5, align 8, !alias.scope !964, !noalias !967
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 2, ptr %36, align 8, !alias.scope !964, !noalias !967
-  %37 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !964, !noalias !967
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %4, ptr %38, align 8, !alias.scope !964, !noalias !967
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !964, !noalias !967
-  %40 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 2, ptr %34, align 8, !alias.scope !964, !noalias !967
+  %35 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !964, !noalias !967
+  %36 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %4, ptr %36, align 8, !alias.scope !964, !noalias !967
+  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !964, !noalias !967
+  %38 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %25
+  br label %24
 
-41:                                               ; preds = %11
-  %42 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.dd74362bd857f4caec9bddebb7ee75d1.122, i64 noundef 40)
-  br label %25
+"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread": ; preds = %21, %11
+  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.dd74362bd857f4caec9bddebb7ee75d1.122, i64 noundef 40)
+  br label %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

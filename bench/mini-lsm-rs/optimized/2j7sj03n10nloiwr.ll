@@ -1583,8 +1583,8 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   %.fca.1.extract = extractvalue { i64, i64 } %45, 1
   %.not.i23 = icmp ne i64 %.fca.0.extract, 0
   %47 = icmp ult i64 %5, %.fca.1.extract
-  %.0.i24 = select i1 %.not.i23, i1 %47, i1 false
-  %spec.select10 = select i1 %.0.i24, i8 1, i8 %.05
+  %spec.select.i = select i1 %.not.i23, i1 %47, i1 false
+  %spec.select10 = select i1 %spec.select.i, i8 1, i8 %.05
   br label %29
 
 48:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h426760fd5007dd44E.llvm.18053240611608392576.exit.i", %41, %.critedge.i
@@ -2896,7 +2896,7 @@ define void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator11seek_to_key17h9bf
   %16 = load i64, ptr %15, align 8
   br label %25
 
-._crit_edge:                                      ; preds = %47
+._crit_edge:                                      ; preds = %46
   %.pre18 = load ptr, ptr %3, align 8, !alias.scope !673
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre18, i64 56
   %.pre19 = load i64, ptr %.phi.trans.insert, align 8, !noalias !673
@@ -2922,9 +2922,9 @@ define void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator11seek_to_key17h9bf
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !alias.scope !673
   br label %_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit
 
-25:                                               ; preds = %.lr.ph, %47
-  %.016 = phi i64 [ %6, %.lr.ph ], [ %.1, %47 ]
-  %.0715 = phi i64 [ 0, %.lr.ph ], [ %.18, %47 ]
+25:                                               ; preds = %.lr.ph, %46
+  %.016 = phi i64 [ %6, %.lr.ph ], [ %.1, %46 ]
+  %.0715 = phi i64 [ 0, %.lr.ph ], [ %.18, %46 ]
   %26 = sub nuw i64 %.016, %.0715
   %27 = lshr i64 %26, 1
   %28 = add i64 %27, %.0715
@@ -2950,46 +2950,46 @@ _ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llv
   store i64 %28, ptr %9, align 8, !alias.scope !684
   %.pre = load i64, ptr %7, align 8
   %.not = icmp eq i64 %.pre, 0
-  br i1 %.not, label %.loopexit, label %37
+  br i1 %.not, label %.loopexit, label %"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit"
 
-_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit: ; preds = %37, %._crit_edge.thread, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha605c97699f3c37fE.llvm.1550959576235908194.exit.i"
+_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit: ; preds = %"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit", %._crit_edge.thread, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha605c97699f3c37fE.llvm.1550959576235908194.exit.i"
   ret void
 
 .loopexit:                                        ; preds = %_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit11, %_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit11.thread
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.21ba830f692c8102c13f4b6a0597537d.84, i64 noundef 33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.21ba830f692c8102c13f4b6a0597537d.85) #39
   unreachable
 
-37:                                               ; preds = %_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit11
-  %38 = load ptr, ptr %10, align 8, !alias.scope !695, !noalias !700, !nonnull !4, !noundef !4
-  %39 = load i64, ptr %11, align 8, !alias.scope !695, !noalias !700, !noundef !4
-  %40 = sub i64 %.pre, %14
+"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit": ; preds = %_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit11
+  %37 = load ptr, ptr %10, align 8, !alias.scope !695, !noalias !700, !nonnull !4, !noundef !4
+  %38 = load i64, ptr %11, align 8, !alias.scope !695, !noalias !700, !noundef !4
+  %39 = sub i64 %.pre, %14
   %..i.i = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %14)
-  %41 = tail call i32 @memcmp(ptr nonnull readonly %38, ptr nonnull readonly %12, i64 %..i.i), !alias.scope !703, !noalias !707
-  %42 = sext i32 %41 to i64
-  %43 = icmp eq i32 %41, 0
-  %spec.store.select.i.i = select i1 %43, i64 %40, i64 %42
+  %40 = tail call i32 @memcmp(ptr nonnull readonly %37, ptr nonnull readonly %12, i64 %..i.i), !alias.scope !703, !noalias !707
+  %41 = sext i32 %40 to i64
+  %42 = icmp eq i32 %40, 0
+  %spec.store.select.i.i = select i1 %42, i64 %39, i64 %41
   %.0.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i, i64 0)
-  %44 = icmp eq i64 %spec.store.select.i.i, 0
-  %.0.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %16, i64 %39)
-  %.0.i = select i1 %44, i8 %.0.i.i.i, i8 %.0.i.i
+  %43 = icmp eq i64 %spec.store.select.i.i, 0
+  %.0.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %16, i64 %38)
+  %.0.i = select i1 %43, i8 %.0.i.i.i, i8 %.0.i.i
   switch i8 %.0.i, label %default.unreachable [
-    i8 -1, label %45
+    i8 -1, label %44
     i8 0, label %_ZN13mini_lsm_mvcc5block8iterator13BlockIterator7seek_to17h24539733fca4e4c5E.llvm.1550959576235908194.exit
-    i8 1, label %47
+    i8 1, label %46
   ]
 
-default.unreachable:                              ; preds = %37
+default.unreachable:                              ; preds = %"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit"
   unreachable
 
-45:                                               ; preds = %37
-  %46 = add nuw i64 %28, 1
-  br label %47
+44:                                               ; preds = %"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit"
+  %45 = add nuw i64 %28, 1
+  br label %46
 
-47:                                               ; preds = %37, %45
-  %.18 = phi i64 [ %46, %45 ], [ %.0715, %37 ]
-  %.1 = phi i64 [ %.016, %45 ], [ %28, %37 ]
-  %48 = icmp ult i64 %.18, %.1
-  br i1 %48, label %25, label %._crit_edge
+46:                                               ; preds = %"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit", %44
+  %.18 = phi i64 [ %45, %44 ], [ %.0715, %"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit" ]
+  %.1 = phi i64 [ %.016, %44 ], [ %28, %"_ZN67_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h227585261688f462E.exit" ]
+  %47 = icmp ult i64 %.18, %.1
+  br i1 %47, label %25, label %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable

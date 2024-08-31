@@ -396,13 +396,13 @@ define internal fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C
   switch i8 %20, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us.unreachabledefault" [
     i8 0, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
     i8 1, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
-    i8 2, label %.split32.us
+    i8 2, label %.split35.us
   ]
 
 "_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us.unreachabledefault": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
   unreachable
 
-default.unreachable:                              ; preds = %35, %16
+default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %16
   unreachable
 
 21:                                               ; preds = %16
@@ -419,50 +419,52 @@ default.unreachable:                              ; preds = %35, %16
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.17.llvm.6090777742988092048) #15
   unreachable
 
-"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread": ; preds = %35, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us", %16, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
-  %.016 = phi i1 [ %.04.i, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit" ], [ true, %16 ], [ true, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us" ], [ true, %35 ]
+"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread": ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us", %16, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
+  %.016 = phi i1 [ %.04.i, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit" ], [ true, %16 ], [ true, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us" ], [ true, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30" ]
   ret i1 %.016
 
-"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.preheader", %35
+"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.preheader", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30"
   %26 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
   %.fca.0.extract = extractvalue { i64, i32 } %26, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %26, 1
-  %27 = icmp sge i64 %.fca.0.extract, %1
-  %28 = icmp ne i64 %.fca.0.extract, %1
-  %switch2930 = icmp uge i32 %.fca.1.extract, %2
-  %switch29 = select i1 %28, i1 true, i1 %switch2930
-  %switch = select i1 %27, i1 %switch29, i1 false
-  br i1 %switch, label %.critedge, label %35
+  %27 = icmp slt i64 %.fca.0.extract, %1
+  br i1 %27, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", label %28
 
-.split32.us:                                      ; preds = %35, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
+28:                                               ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
+  %.fca.1.extract = extractvalue { i64, i32 } %26, 1
+  %29 = icmp ne i64 %.fca.0.extract, %1
+  %switch = icmp uge i32 %.fca.1.extract, %2
+  %or.cond = select i1 %29, i1 true, i1 %switch
+  br i1 %or.cond, label %.critedge, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30"
+
+.split35.us:                                      ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.16.llvm.6090777742988092048, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.2.llvm.6090777742988092048, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 0, ptr %32, align 8
+  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 1, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.2.llvm.6090777742988092048, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %8, i64 24
+  store i64 0, ptr %33, align 8
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.17.llvm.6090777742988092048) #15
   unreachable
 
-.critedge:                                        ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
+.critedge:                                        ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$6remove17h7699c1d76d7f3459E.llvm.6090777742988092048"(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i1 noundef zeroext false)
-  %33 = load i8, ptr %10, align 8, !range !8, !noundef !4
-  %34 = icmp eq i8 %33, 4
-  br i1 %34, label %38, label %39
+  %34 = load i8, ptr %10, align 8, !range !8, !noundef !4
+  %35 = icmp eq i8 %34, 4
+  br i1 %35, label %38, label %39
 
-35:                                               ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30": ; preds = %28, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
   %36 = tail call noundef zeroext i1 @_ZN7parking6Parker13park_deadline17hcc76ef234181dafeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef %1, i32 noundef %2)
   %37 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef %5), !range !34
   switch i8 %37, label %default.unreachable [
     i8 0, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
     i8 1, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
-    i8 2, label %.split32.us
+    i8 2, label %.split35.us
   ]
 
 38:                                               ; preds = %.critedge

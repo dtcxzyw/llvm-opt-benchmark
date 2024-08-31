@@ -3805,8 +3805,8 @@ define void @"_ZN75_$LT$std..process..Child$u20$as$u20$uucore..features..process
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN3std7process5Child8try_wait17h2e5f765d72bed950E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 4 dereferenceable(28) %1)
   %20 = load i32, ptr %5, align 8, !range !582, !noundef !9
-  %trunc27 = trunc nuw i32 %20 to i1
-  br i1 %trunc27, label %._crit_edge, label %.lr.ph
+  %trunc30 = trunc nuw i32 %20 to i1
+  br i1 %trunc30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$std..process..ChildStdin$GT$$GT$17h3d71a1c8e8017d87E.exit"
   %21 = getelementptr inbounds i8, ptr %5, i64 4
@@ -3844,53 +3844,55 @@ define void @"_ZN75_$LT$std..process..Child$u20$as$u20$uucore..features..process
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %53
 
-34:                                               ; preds = %.lr.ph, %51
+34:                                               ; preds = %.lr.ph, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread26"
   %35 = load i32, ptr %21, align 4, !range !582, !noundef !9
   %36 = load i32, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %43, label %40
 
-._crit_edge:                                      ; preds = %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$std..process..ChildStdin$GT$$GT$17h3d71a1c8e8017d87E.exit"
+._crit_edge:                                      ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread26", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$std..process..ChildStdin$GT$$GT$17h3d71a1c8e8017d87E.exit"
   %37 = getelementptr inbounds i8, ptr %5, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !9, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %38, ptr %39, align 8
-  br label %49
+  br label %50
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %36, ptr %42, align 8
-  br label %49
+  br label %50
 
 43:                                               ; preds = %34
   %44 = call { i64, i32 } @_ZN3std4time7Instant7elapsed17h0b89df48d3cf492fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
   %45 = extractvalue { i64, i32 } %44, 0
-  %46 = extractvalue { i64, i32 } %44, 1
-  %47 = icmp uge i64 %45, %2
-  %48 = icmp ne i64 %45, %2
-  %switch122425 = icmp uge i32 %46, %3
-  %switch1224 = select i1 %48, i1 true, i1 %switch122425
-  %switch12 = select i1 %47, i1 %switch1224, i1 false
-  br i1 %switch12, label %.critedge, label %51
+  %46 = icmp ult i64 %45, %2
+  br i1 %46, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread26", label %47
 
-49:                                               ; preds = %40, %._crit_edge
+47:                                               ; preds = %43
+  %48 = extractvalue { i64, i32 } %44, 1
+  %49 = icmp ne i64 %45, %2
+  %switch12 = icmp uge i32 %48, %3
+  %or.cond = select i1 %49, i1 true, i1 %switch12
+  br i1 %or.cond, label %.critedge, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread26"
+
+50:                                               ; preds = %40, %._crit_edge
   %storemerge = phi i32 [ 1, %._crit_edge ], [ 0, %40 ]
   store i32 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %53
 
-.critedge:                                        ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %50, align 4
+.critedge:                                        ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %51, align 4
   store i32 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %53
 
-51:                                               ; preds = %43
+"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread26": ; preds = %47, %43
   call void @_ZN3std6thread5sleep17h90b58d72416aaf6bE(i64 noundef 0, i32 noundef 100000000)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN3std7process5Child8try_wait17h2e5f765d72bed950E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 4 dereferenceable(28) %1)
@@ -3898,7 +3900,7 @@ define void @"_ZN75_$LT$std..process..Child$u20$as$u20$uucore..features..process
   %trunc = trunc nuw i32 %52 to i1
   br i1 %trunc, label %._crit_edge, label %34
 
-53:                                               ; preds = %.critedge, %49, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4dd460368bea4e30E.exit"
+53:                                               ; preds = %.critedge, %50, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4dd460368bea4e30E.exit"
   ret void
 }
 

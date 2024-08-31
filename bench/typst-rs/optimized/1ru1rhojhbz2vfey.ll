@@ -119971,60 +119971,62 @@ define hidden { i64, i64 } @_ZN5typst4text4font4book8FontBook17find_best_variant
 100:                                              ; preds = %97
   %.0.i.i.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sroa.017.098, i64 %.sroa.08.1)
   %101 = icmp eq i64 %.sroa.017.098, %.sroa.08.1
-  %.0.i.i.i.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sroa.513.sroa.5.1, i64 %.sroa.322.sroa.3.089)
-  %spec.select = select i1 %101, i8 %.0.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i
+  br i1 %101, label %102, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
+
+102:                                              ; preds = %100
+  %.0.i.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sroa.513.sroa.5.1, i64 %.sroa.322.sroa.3.089)
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
 
-"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i": ; preds = %100, %94, %91
-  %.0.i.i.i.i = phi i8 [ %..i.i.i.i, %91 ], [ %95, %94 ], [ %spec.select, %100 ]
-  %102 = icmp eq i8 %.0.i.i.i.i, 0
-  br i1 %102, label %103, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit"
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i": ; preds = %102, %100, %94, %91
+  %.0.i.i.i.i = phi i8 [ %..i.i.i.i, %91 ], [ %.0.i.i.i.i.i.i, %102 ], [ %95, %94 ], [ %.0.i.i.i.i.i.i.i, %100 ]
+  %103 = icmp eq i8 %.0.i.i.i.i, 0
+  br i1 %103, label %104, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit"
 
-103:                                              ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
-  %104 = icmp eq i16 %.0.i, %.sroa.322.sroa.5.091
-  br i1 %104, label %107, label %105
+104:                                              ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
+  %105 = icmp eq i16 %.0.i, %.sroa.322.sroa.5.091
+  br i1 %105, label %108, label %106
 
-105:                                              ; preds = %103
-  %106 = icmp ult i16 %.0.i, %.sroa.322.sroa.5.091
-  br i1 %106, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
+106:                                              ; preds = %104
+  %107 = icmp ult i16 %.0.i, %.sroa.322.sroa.5.091
+  br i1 %107, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
 
-107:                                              ; preds = %103
-  %108 = fcmp ugt double %84, %.sroa.322.sroa.4.090
-  %109 = fcmp ult double %84, %.sroa.322.sroa.4.090
-  br i1 %108, label %110, label %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i"
+108:                                              ; preds = %104
+  %109 = fcmp ugt double %84, %.sroa.322.sroa.4.090
+  %110 = fcmp ult double %84, %.sroa.322.sroa.4.090
+  br i1 %109, label %111, label %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i"
 
-110:                                              ; preds = %107
-  br i1 %109, label %111, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
+111:                                              ; preds = %108
+  br i1 %110, label %112, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
 
-111:                                              ; preds = %110
+112:                                              ; preds = %111
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23657
   unreachable
 
-"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i": ; preds = %107
-  %112 = icmp ult i16 %.0.i37, %.sroa.322.sroa.6.092
-  %or.cond = select i1 %109, i1 true, i1 %112
+"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i": ; preds = %108
+  %113 = icmp ult i16 %.0.i37, %.sroa.322.sroa.6.092
+  %or.cond = select i1 %110, i1 true, i1 %113
   br i1 %or.cond, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit": ; preds = %97, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
   %.0.i8.i.i.i = phi i8 [ %.0.i.i.i.i, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i" ], [ %98, %97 ]
-  %113 = icmp eq i8 %.0.i8.i.i.i, -1
-  br i1 %113, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
+  %114 = icmp eq i8 %.0.i8.i.i.i, -1
+  br i1 %114, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65": ; preds = %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %73, %91, %105, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit"
+"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65": ; preds = %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %73, %91, %106, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit"
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit", %105, %110, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65"
-  %.sroa.322.sroa.0.1 = phi i8 [ %.sroa.513.sroa.0.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.0.088, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.0.088, %110 ], [ %.sroa.322.sroa.0.088, %105 ], [ %.sroa.322.sroa.0.088, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.322.sroa.3.1 = phi i64 [ %.sroa.513.sroa.5.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.3.089, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.3.089, %110 ], [ %.sroa.322.sroa.3.089, %105 ], [ %.sroa.322.sroa.3.089, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.322.sroa.4.1 = phi double [ %84, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.4.090, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.4.090, %110 ], [ %.sroa.322.sroa.4.090, %105 ], [ %.sroa.322.sroa.4.090, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.322.sroa.5.1 = phi i16 [ %.0.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.5.091, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.5.091, %110 ], [ %.sroa.322.sroa.5.091, %105 ], [ %.sroa.322.sroa.5.091, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.322.sroa.6.1 = phi i16 [ %.0.i37, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.6.092, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.6.092, %110 ], [ %.sroa.322.sroa.6.092, %105 ], [ %.sroa.322.sroa.6.092, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.04.1 = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.04.095, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.04.095, %110 ], [ %.sroa.04.095, %105 ], [ %.sroa.04.095, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.35.1 = phi i64 [ %24, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.35.096, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.35.096, %110 ], [ %.sroa.35.096, %105 ], [ %.sroa.35.096, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.017.1 = phi i64 [ %.sroa.08.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.017.098, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.017.098, %110 ], [ %.sroa.017.098, %105 ], [ %.sroa.017.098, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %.sroa.219.1 = phi i8 [ %.sroa.410.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.219.099, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.219.099, %110 ], [ %.sroa.219.099, %105 ], [ %.sroa.219.099, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
-  %114 = icmp eq ptr %25, %.sroa.0.sroa.4.0.copyload
-  br i1 %114, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6825490959367f04E.exit.thread", label %.lr.ph.i.i.i.i.i
+"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread63": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit", %106, %111, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65"
+  %.sroa.322.sroa.0.1 = phi i8 [ %.sroa.513.sroa.0.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.0.088, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.0.088, %111 ], [ %.sroa.322.sroa.0.088, %106 ], [ %.sroa.322.sroa.0.088, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.322.sroa.3.1 = phi i64 [ %.sroa.513.sroa.5.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.3.089, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.3.089, %111 ], [ %.sroa.322.sroa.3.089, %106 ], [ %.sroa.322.sroa.3.089, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.322.sroa.4.1 = phi double [ %84, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.4.090, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.4.090, %111 ], [ %.sroa.322.sroa.4.090, %106 ], [ %.sroa.322.sroa.4.090, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.322.sroa.5.1 = phi i16 [ %.0.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.5.091, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.5.091, %111 ], [ %.sroa.322.sroa.5.091, %106 ], [ %.sroa.322.sroa.5.091, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.322.sroa.6.1 = phi i16 [ %.0.i37, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.322.sroa.6.092, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.6.092, %111 ], [ %.sroa.322.sroa.6.092, %106 ], [ %.sroa.322.sroa.6.092, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.04.1 = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.04.095, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.04.095, %111 ], [ %.sroa.04.095, %106 ], [ %.sroa.04.095, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.35.1 = phi i64 [ %24, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.35.096, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.35.096, %111 ], [ %.sroa.35.096, %106 ], [ %.sroa.35.096, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.017.1 = phi i64 [ %.sroa.08.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.017.098, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.017.098, %111 ], [ %.sroa.017.098, %106 ], [ %.sroa.017.098, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %.sroa.219.1 = phi i8 [ %.sroa.410.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit.thread65" ], [ %.sroa.219.099, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.219.099, %111 ], [ %.sroa.219.099, %106 ], [ %.sroa.219.099, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfda457e7f53262c5E.exit" ]
+  %115 = icmp eq ptr %25, %.sroa.0.sroa.4.0.copyload
+  br i1 %115, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6825490959367f04E.exit.thread", label %.lr.ph.i.i.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -120193,60 +120195,62 @@ define hidden { i64, i64 } @_ZN5typst4text4font4book8FontBook17find_best_variant
 79:                                               ; preds = %76
   %.0.i.i.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sroa.017.081, i64 %.sroa.08.1)
   %80 = icmp eq i64 %.sroa.017.081, %.sroa.08.1
-  %.0.i.i.i.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sroa.513.sroa.5.1, i64 %.sroa.322.sroa.3.073)
-  %spec.select = select i1 %80, i8 %.0.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i
+  br i1 %80, label %81, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
+
+81:                                               ; preds = %79
+  %.0.i.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sroa.513.sroa.5.1, i64 %.sroa.322.sroa.3.073)
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
 
-"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i": ; preds = %79, %73, %70
-  %.0.i.i.i.i = phi i8 [ %..i.i.i.i, %70 ], [ %74, %73 ], [ %spec.select, %79 ]
-  %81 = icmp eq i8 %.0.i.i.i.i, 0
-  br i1 %81, label %82, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit"
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i": ; preds = %81, %79, %73, %70
+  %.0.i.i.i.i = phi i8 [ %..i.i.i.i, %70 ], [ %.0.i.i.i.i.i.i, %81 ], [ %74, %73 ], [ %.0.i.i.i.i.i.i.i, %79 ]
+  %82 = icmp eq i8 %.0.i.i.i.i, 0
+  br i1 %82, label %83, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit"
 
-82:                                               ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
-  %83 = icmp eq i16 %.0.i, %.sroa.322.sroa.5.075
-  br i1 %83, label %86, label %84
+83:                                               ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
+  %84 = icmp eq i16 %.0.i, %.sroa.322.sroa.5.075
+  br i1 %84, label %87, label %85
 
-84:                                               ; preds = %82
-  %85 = icmp ult i16 %.0.i, %.sroa.322.sroa.5.075
-  br i1 %85, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
+85:                                               ; preds = %83
+  %86 = icmp ult i16 %.0.i, %.sroa.322.sroa.5.075
+  br i1 %86, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
 
-86:                                               ; preds = %82
-  %87 = fcmp ugt double %63, %.sroa.322.sroa.4.074
-  %88 = fcmp ult double %63, %.sroa.322.sroa.4.074
-  br i1 %87, label %89, label %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i"
+87:                                               ; preds = %83
+  %88 = fcmp ugt double %63, %.sroa.322.sroa.4.074
+  %89 = fcmp ult double %63, %.sroa.322.sroa.4.074
+  br i1 %88, label %90, label %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i"
 
-89:                                               ; preds = %86
-  br i1 %88, label %90, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
+90:                                               ; preds = %87
+  br i1 %89, label %91, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
 
-90:                                               ; preds = %89
+91:                                               ; preds = %90
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23689
   unreachable
 
-"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i": ; preds = %86
-  %91 = icmp ult i16 %.0.i36, %.sroa.322.sroa.6.076
-  %or.cond = select i1 %88, i1 true, i1 %91
+"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i": ; preds = %87
+  %92 = icmp ult i16 %.0.i36, %.sroa.322.sroa.6.076
+  %or.cond = select i1 %89, i1 true, i1 %92
   br i1 %or.cond, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit": ; preds = %76, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i"
   %.0.i8.i.i.i = phi i8 [ %.0.i.i.i.i, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17haed88b96688d9432E.exit.i.i.i" ], [ %77, %76 ]
-  %92 = icmp eq i8 %.0.i8.i.i.i, -1
-  br i1 %92, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
+  %93 = icmp eq i8 %.0.i8.i.i.i, -1
+  br i1 %93, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61": ; preds = %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %52, %70, %84, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit"
+"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61": ; preds = %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %52, %70, %85, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit"
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit", %84, %89, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61"
-  %.sroa.322.sroa.0.1 = phi i8 [ %.sroa.513.sroa.0.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.0.072, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.0.072, %89 ], [ %.sroa.322.sroa.0.072, %84 ], [ %.sroa.322.sroa.0.072, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.322.sroa.3.1 = phi i64 [ %.sroa.513.sroa.5.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.3.073, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.3.073, %89 ], [ %.sroa.322.sroa.3.073, %84 ], [ %.sroa.322.sroa.3.073, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.322.sroa.4.1 = phi double [ %63, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.4.074, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.4.074, %89 ], [ %.sroa.322.sroa.4.074, %84 ], [ %.sroa.322.sroa.4.074, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.322.sroa.5.1 = phi i16 [ %.0.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.5.075, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.5.075, %89 ], [ %.sroa.322.sroa.5.075, %84 ], [ %.sroa.322.sroa.5.075, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.322.sroa.6.1 = phi i16 [ %.0.i36, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.6.076, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.6.076, %89 ], [ %.sroa.322.sroa.6.076, %84 ], [ %.sroa.322.sroa.6.076, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.04.1 = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.04.078, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.04.078, %89 ], [ %.sroa.04.078, %84 ], [ %.sroa.04.078, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.35.1 = phi i64 [ %24, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.35.079, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.35.079, %89 ], [ %.sroa.35.079, %84 ], [ %.sroa.35.079, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.017.1 = phi i64 [ %.sroa.08.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.017.081, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.017.081, %89 ], [ %.sroa.017.081, %84 ], [ %.sroa.017.081, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %.sroa.219.1 = phi i8 [ %.sroa.410.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.219.082, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.219.082, %89 ], [ %.sroa.219.082, %84 ], [ %.sroa.219.082, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
-  %93 = icmp eq ptr %23, %4
-  br i1 %93, label %._crit_edge, label %22
+"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread59": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit", %85, %90, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61"
+  %.sroa.322.sroa.0.1 = phi i8 [ %.sroa.513.sroa.0.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.0.072, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.0.072, %90 ], [ %.sroa.322.sroa.0.072, %85 ], [ %.sroa.322.sroa.0.072, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.322.sroa.3.1 = phi i64 [ %.sroa.513.sroa.5.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.3.073, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.3.073, %90 ], [ %.sroa.322.sroa.3.073, %85 ], [ %.sroa.322.sroa.3.073, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.322.sroa.4.1 = phi double [ %63, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.4.074, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.4.074, %90 ], [ %.sroa.322.sroa.4.074, %85 ], [ %.sroa.322.sroa.4.074, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.322.sroa.5.1 = phi i16 [ %.0.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.5.075, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.5.075, %90 ], [ %.sroa.322.sroa.5.075, %85 ], [ %.sroa.322.sroa.5.075, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.322.sroa.6.1 = phi i16 [ %.0.i36, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.322.sroa.6.076, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.322.sroa.6.076, %90 ], [ %.sroa.322.sroa.6.076, %85 ], [ %.sroa.322.sroa.6.076, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.04.1 = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.04.078, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.04.078, %90 ], [ %.sroa.04.078, %85 ], [ %.sroa.04.078, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.35.1 = phi i64 [ %24, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.35.079, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.35.079, %90 ], [ %.sroa.35.079, %85 ], [ %.sroa.35.079, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.017.1 = phi i64 [ %.sroa.08.1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.017.081, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.017.081, %90 ], [ %.sroa.017.081, %85 ], [ %.sroa.017.081, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %.sroa.219.1 = phi i8 [ %.sroa.410.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit.thread61" ], [ %.sroa.219.082, %"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b05fb681664ddd1E.exit.i.i.i" ], [ %.sroa.219.082, %90 ], [ %.sroa.219.082, %85 ], [ %.sroa.219.082, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a1953b587210ec4E.exit" ]
+  %94 = icmp eq ptr %23, %4
+  br i1 %94, label %._crit_edge, label %22
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

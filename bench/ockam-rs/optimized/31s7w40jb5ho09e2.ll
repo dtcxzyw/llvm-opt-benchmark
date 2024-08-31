@@ -5954,22 +5954,24 @@ define hidden void @_ZN4core4task4wake5Waker11wake_by_ref17h27503e3f2e28a55aE.ll
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdebd98ccf1d499a7E.llvm.16910215836284360165"(i64 %0, i32 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 dereferenceable(56) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = icmp eq i32 %1, 1000000000
-  br i1 %5, label %14, label %6
+  br i1 %5, label %"_ZN9sqlx_core4pool5inner22is_beyond_max_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17hbb90a374b16e9c46E.exit", label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %3, i64 40
   %8 = tail call { i64, i32 } @_ZN3std4time7Instant7elapsed17h41dccf670f2803caE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
   %.fca.0.extract.i = extractvalue { i64, i32 } %8, 0
-  %.fca.1.extract.i = extractvalue { i64, i32 } %8, 1
-  %9 = icmp uge i64 %.fca.0.extract.i, %0
-  %10 = icmp ne i64 %.fca.0.extract.i, %0
-  %11 = icmp ugt i32 %.fca.1.extract.i, %1
-  %12 = select i1 %10, i1 true, i1 %11
-  %13 = select i1 %9, i1 %12, i1 false
-  br label %14
+  %9 = icmp ult i64 %.fca.0.extract.i, %0
+  br i1 %9, label %"_ZN9sqlx_core4pool5inner22is_beyond_max_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17hbb90a374b16e9c46E.exit", label %10
 
-14:                                               ; preds = %4, %6
-  %.0.in = phi i1 [ %13, %6 ], [ %2, %4 ]
+10:                                               ; preds = %6
+  %.fca.1.extract.i = extractvalue { i64, i32 } %8, 1
+  %11 = icmp ne i64 %.fca.0.extract.i, %0
+  %12 = icmp ugt i32 %.fca.1.extract.i, %1
+  %spec.select.i = select i1 %11, i1 true, i1 %12
+  br label %"_ZN9sqlx_core4pool5inner22is_beyond_max_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17hbb90a374b16e9c46E.exit"
+
+"_ZN9sqlx_core4pool5inner22is_beyond_max_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17hbb90a374b16e9c46E.exit": ; preds = %10, %6, %4
+  %.0.in = phi i1 [ %2, %4 ], [ false, %6 ], [ %spec.select.i, %10 ]
   ret i1 %.0.in
 }
 
@@ -9822,27 +9824,29 @@ define hidden noundef zeroext i1 @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN9sqlx_core4pool5inner22is_beyond_max_lifetime17h9f0da60e6d1f595fE(ptr noalias noundef readonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = load i32, ptr %3, align 8, !range !1469, !noundef !4
-  %5 = icmp eq i32 %4, 1000000000
-  br i1 %5, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdebd98ccf1d499a7E.llvm.16910215836284360165.exit", label %6
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = load i32, ptr %5, align 8, !range !1469, !noundef !4
+  %7 = icmp eq i32 %6, 1000000000
+  br i1 %7, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdebd98ccf1d499a7E.llvm.16910215836284360165.exit", label %8
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8
+8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = tail call { i64, i32 } @_ZN3std4time7Instant7elapsed17h41dccf670f2803caE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
   %.fca.0.extract.i.i = extractvalue { i64, i32 } %10, 0
+  %11 = icmp ult i64 %.fca.0.extract.i.i, %4
+  br i1 %11, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdebd98ccf1d499a7E.llvm.16910215836284360165.exit", label %12
+
+12:                                               ; preds = %8
   %.fca.1.extract.i.i = extractvalue { i64, i32 } %10, 1
-  %11 = icmp uge i64 %.fca.0.extract.i.i, %8
-  %12 = icmp ne i64 %.fca.0.extract.i.i, %8
-  %13 = icmp ugt i32 %.fca.1.extract.i.i, %4
-  %14 = select i1 %12, i1 true, i1 %13
-  %15 = select i1 %11, i1 %14, i1 false
+  %13 = icmp ne i64 %.fca.0.extract.i.i, %4
+  %14 = icmp ugt i32 %.fca.1.extract.i.i, %6
+  %spec.select.i.i = select i1 %13, i1 true, i1 %14
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdebd98ccf1d499a7E.llvm.16910215836284360165.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hdebd98ccf1d499a7E.llvm.16910215836284360165.exit": ; preds = %2, %6
-  %.0.in.i = phi i1 [ %15, %6 ], [ false, %2 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hdebd98ccf1d499a7E.llvm.16910215836284360165.exit": ; preds = %2, %8, %12
+  %.0.in.i = phi i1 [ false, %2 ], [ false, %8 ], [ %spec.select.i.i, %12 ]
   ret i1 %.0.in.i
 }
 

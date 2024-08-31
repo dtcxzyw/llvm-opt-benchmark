@@ -18801,14 +18801,14 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037
 
 "_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread65": ; preds = %67, %68, %70, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit"
   %.not.i.i30 = icmp eq i32 %4, 0
-  %.val21.pre100 = load ptr, ptr %0, align 8
-  br i1 %.not.i.i30, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72", label %90
+  %.val21.pre96 = load ptr, ptr %0, align 8
+  br i1 %.not.i.i30, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77", label %90
 
 90:                                               ; preds = %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread65"
   %91 = zext i32 %4 to i64
   %92 = add nsw i64 %91, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3423)
-  %93 = getelementptr inbounds i8, ptr %.val21.pre100, i64 16
+  %93 = getelementptr inbounds i8, ptr %.val21.pre96, i64 16
   %94 = load i64, ptr %93, align 8, !alias.scope !3423, !noalias !3426, !noundef !14
   %95 = icmp ult i64 %92, %94
   br i1 %95, label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit, label %96, !prof !204
@@ -18818,7 +18818,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037
   unreachable
 
 _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit: ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %.val21.pre100, i64 8
+  %97 = getelementptr inbounds i8, ptr %.val21.pre96, i64 8
   %98 = load ptr, ptr %97, align 8, !alias.scope !3423, !noalias !3426, !nonnull !14, !noundef !14
   %99 = getelementptr inbounds [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %98, i64 0, i64 %92, i32 4
   %100 = load i8, ptr %99, align 8, !range !1149, !noalias !3435, !noundef !14
@@ -18829,7 +18829,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
 
 _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread: ; preds = %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
   %.not = icmp eq i8 %100, 2
-  br i1 %.not, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72", label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit"
+  br i1 %.not, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77", label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit"
 
 101:                                              ; preds = %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
   %102 = load ptr, ptr %1, align 8, !alias.scope !3442, !nonnull !14, !align !82, !noundef !14
@@ -18864,393 +18864,396 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   %.not.i = icmp eq i8 %100, 2
   %.not10.i = icmp eq i8 %112, 2
   %or.cond.i = or i1 %.not.i, %.not10.i
-  %.0.i.i35 = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %100, i8 %112)
-  br i1 %or.cond.i, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72", label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit"
+  br i1 %or.cond.i, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77", label %120
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit": ; preds = %119, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit"
-  %.5 = phi i8 [ %.4, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit" ], [ %.0.i.i35, %119 ]
-  %120 = icmp eq i8 %.5, 0
-  br i1 %120, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72_crit_edge", label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit"
+120:                                              ; preds = %119
+  %.0.i.i35 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %100, i8 %112)
+  br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit"
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72_crit_edge": ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit"
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit": ; preds = %120, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit"
+  %.5 = phi i8 [ %.4, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit" ], [ %.0.i.i35, %120 ]
+  %121 = icmp eq i8 %.5, 0
+  br i1 %121, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77_crit_edge", label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit"
+
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77_crit_edge": ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit"
   %.val21.pre = load ptr, ptr %0, align 8
-  br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72"
+  br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77"
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72": ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72_crit_edge", %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread65", %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread, %119
-  %.val21 = phi ptr [ %.val21.pre, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72_crit_edge" ], [ %.val21.pre100, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread65" ], [ %.val21.pre100, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread ], [ %.val21.pre100, %119 ]
-  %121 = load ptr, ptr %1, align 8, !nonnull !14, !align !82, !noundef !14
-  %122 = getelementptr i8, ptr %121, i64 8
-  %.val23 = load ptr, ptr %122, align 8
-  %123 = getelementptr i8, ptr %121, i64 16
-  %.val24 = load i64, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %.val21, i64 8
-  %125 = load ptr, ptr %124, align 8, !nonnull !14, !noundef !14
-  %126 = getelementptr inbounds i8, ptr %.val21, i64 16
-  %127 = load i64, ptr %126, align 8, !noundef !14
-  %128 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %125, i64 %127
-  %129 = zext i32 %4 to i64
-  %130 = icmp ne ptr %.val23, null
-  br label %131
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77": ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77_crit_edge", %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread65", %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread, %119
+  %.val21 = phi ptr [ %.val21.pre, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit._ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77_crit_edge" ], [ %.val21.pre96, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread65" ], [ %.val21.pre96, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread ], [ %.val21.pre96, %119 ]
+  %122 = load ptr, ptr %1, align 8, !nonnull !14, !align !82, !noundef !14
+  %123 = getelementptr i8, ptr %122, i64 8
+  %.val23 = load ptr, ptr %123, align 8
+  %124 = getelementptr i8, ptr %122, i64 16
+  %.val24 = load i64, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %.val21, i64 8
+  %126 = load ptr, ptr %125, align 8, !nonnull !14, !noundef !14
+  %127 = getelementptr inbounds i8, ptr %.val21, i64 16
+  %128 = load i64, ptr %127, align 8, !noundef !14
+  %129 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %126, i64 %128
+  %130 = zext i32 %4 to i64
+  %131 = icmp ne ptr %.val23, null
+  br label %132
 
-131:                                              ; preds = %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72"
-  %.sroa.8.0.i = phi i64 [ 0, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72" ], [ %135, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i" ]
-  %.sroa.0.0.i = phi ptr [ %125, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread72" ], [ %134, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i" ]
-  %132 = icmp eq ptr %.sroa.0.0.i, %128
-  br i1 %132, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %133
+132:                                              ; preds = %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77"
+  %.sroa.8.0.i = phi i64 [ 0, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77" ], [ %136, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %126, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread77" ], [ %135, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i" ]
+  %133 = icmp eq ptr %.sroa.0.0.i, %129
+  br i1 %133, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %134
 
-133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 104
-  %135 = add nuw nsw i64 %.sroa.8.0.i, 1
-  %136 = icmp ult i64 %.sroa.8.0.i, %129
-  %137 = icmp ult i64 %.sroa.8.0.i, %.val24
-  br i1 %136, label %240, label %138
+134:                                              ; preds = %132
+  %135 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 104
+  %136 = add nuw nsw i64 %.sroa.8.0.i, 1
+  %137 = icmp ult i64 %.sroa.8.0.i, %130
+  %138 = icmp ult i64 %.sroa.8.0.i, %.val24
+  br i1 %137, label %241, label %139
 
-138:                                              ; preds = %133
-  br i1 %137, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i", label %139, !prof !204
+139:                                              ; preds = %134
+  br i1 %138, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i", label %140, !prof !204
 
-139:                                              ; preds = %138
+140:                                              ; preds = %139
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.sroa.8.0.i, i64 noundef %.val24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.207) #45, !noalias !3451
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i": ; preds = %138
-  tail call void @llvm.assume(i1 %130)
-  %140 = getelementptr inbounds [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %.val23, i64 0, i64 %.sroa.8.0.i
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i": ; preds = %139
+  tail call void @llvm.assume(i1 %131)
+  %141 = getelementptr inbounds [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %.val23, i64 0, i64 %.sroa.8.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3456)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3459)
-  %141 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 80
-  %142 = getelementptr inbounds i8, ptr %140, i64 80
-  %.val10.i.i = load i64, ptr %141, align 8, !alias.scope !3456, !noalias !3459
-  %143 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 88
-  %.val11.i.i = load i8, ptr %143, align 8, !range !415, !alias.scope !3456, !noalias !3459, !noundef !14
-  %.val12.i.i = load i64, ptr %142, align 8, !alias.scope !3459, !noalias !3456
-  %144 = getelementptr inbounds i8, ptr %140, i64 88
-  %.val13.i.i = load i8, ptr %144, align 8, !range !415, !alias.scope !3459, !noalias !3456, !noundef !14
-  %145 = icmp ult i8 %.val11.i.i, %.val13.i.i
-  br i1 %145, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %146
+  %142 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 80
+  %143 = getelementptr inbounds i8, ptr %141, i64 80
+  %.val10.i.i = load i64, ptr %142, align 8, !alias.scope !3456, !noalias !3459
+  %144 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 88
+  %.val11.i.i = load i8, ptr %144, align 8, !range !415, !alias.scope !3456, !noalias !3459, !noundef !14
+  %.val12.i.i = load i64, ptr %143, align 8, !alias.scope !3459, !noalias !3456
+  %145 = getelementptr inbounds i8, ptr %141, i64 88
+  %.val13.i.i = load i8, ptr %145, align 8, !range !415, !alias.scope !3459, !noalias !3456, !noundef !14
+  %146 = icmp ult i8 %.val11.i.i, %.val13.i.i
+  br i1 %146, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %147
 
-146:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i"
-  %147 = icmp eq i8 %.val11.i.i, %.val13.i.i
-  br i1 %147, label %148, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
+147:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i"
+  %148 = icmp eq i8 %.val11.i.i, %.val13.i.i
+  br i1 %148, label %149, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
 
-148:                                              ; preds = %146
-  %149 = icmp ult i64 %.val10.i.i, %.val12.i.i
-  br i1 %149, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i"
+149:                                              ; preds = %147
+  %150 = icmp ult i64 %.val10.i.i, %.val12.i.i
+  br i1 %150, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i"
 
-"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i": ; preds = %148
+"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i": ; preds = %149
   %.not.i.i37 = icmp eq i64 %.val10.i.i, %.val12.i.i
-  br i1 %.not.i.i37, label %150, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
+  br i1 %.not.i.i37, label %151, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
 
-150:                                              ; preds = %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i"
-  %151 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 56
-  %152 = getelementptr inbounds i8, ptr %140, i64 56
+151:                                              ; preds = %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i"
+  %152 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 56
+  %153 = getelementptr inbounds i8, ptr %141, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3461)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3464)
-  %153 = load i64, ptr %151, align 8, !range !1139, !alias.scope !3466, !noalias !3467, !noundef !14
-  %154 = xor i64 %153, -9223372036854775808
-  %155 = load i64, ptr %152, align 8, !range !1139, !alias.scope !3467, !noalias !3466, !noundef !14
-  %156 = xor i64 %155, -9223372036854775808
-  %157 = tail call i64 @llvm.umin.i64(i64 %156, i64 2)
-  %158 = icmp ult i64 %154, %157
-  br i1 %158, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %159
+  %154 = load i64, ptr %152, align 8, !range !1139, !alias.scope !3466, !noalias !3467, !noundef !14
+  %155 = xor i64 %154, -9223372036854775808
+  %156 = load i64, ptr %153, align 8, !range !1139, !alias.scope !3467, !noalias !3466, !noundef !14
+  %157 = xor i64 %156, -9223372036854775808
+  %158 = tail call i64 @llvm.umin.i64(i64 %157, i64 2)
+  %159 = icmp ult i64 %155, %158
+  br i1 %159, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %160
 
-159:                                              ; preds = %150
-  %160 = tail call i64 @llvm.umin.i64(i64 %154, i64 2)
-  %161 = icmp eq i64 %160, %157
-  br i1 %161, label %162, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
+160:                                              ; preds = %151
+  %161 = tail call i64 @llvm.umin.i64(i64 %155, i64 2)
+  %162 = icmp eq i64 %161, %158
+  br i1 %162, label %163, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
 
-162:                                              ; preds = %159
-  switch i64 %157, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i" [
-    i64 1, label %163
-    i64 2, label %165
+163:                                              ; preds = %160
+  switch i64 %158, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i" [
+    i64 1, label %164
+    i64 2, label %166
   ]
 
-163:                                              ; preds = %162
-  %164 = icmp eq i64 %155, -9223372036854775807
-  br i1 %164, label %167, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i"
+164:                                              ; preds = %163
+  %165 = icmp eq i64 %156, -9223372036854775807
+  br i1 %165, label %168, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i"
 
-165:                                              ; preds = %162
-  %166 = icmp sgt i64 %155, -9223372036854775807
-  br i1 %166, label %175, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i"
+166:                                              ; preds = %163
+  %167 = icmp sgt i64 %156, -9223372036854775807
+  br i1 %167, label %176, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i"
 
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 64
-  %169 = load i32, ptr %168, align 8, !alias.scope !3466, !noalias !3467, !noundef !14
-  %170 = getelementptr inbounds i8, ptr %140, i64 64
-  %171 = load i32, ptr %170, align 8, !alias.scope !3467, !noalias !3466, !noundef !14
-  %172 = icmp slt i32 %169, %171
-  br i1 %172, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %173
+168:                                              ; preds = %164
+  %169 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 64
+  %170 = load i32, ptr %169, align 8, !alias.scope !3466, !noalias !3467, !noundef !14
+  %171 = getelementptr inbounds i8, ptr %141, i64 64
+  %172 = load i32, ptr %171, align 8, !alias.scope !3467, !noalias !3466, !noundef !14
+  %173 = icmp slt i32 %170, %172
+  br i1 %173, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %174
 
-173:                                              ; preds = %167
-  %174 = icmp ne i32 %169, %171
-  %.11.i15.i.i = zext i1 %174 to i8
+174:                                              ; preds = %168
+  %175 = icmp ne i32 %170, %172
+  %.11.i15.i.i = zext i1 %175 to i8
   br label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i"
 
-175:                                              ; preds = %165
-  %176 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 64
-  %.val.i.i.i = load ptr, ptr %176, align 8, !alias.scope !3466, !noalias !3467, !nonnull !14, !noundef !14
-  %177 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 72
-  %.val12.i.i.i = load i64, ptr %177, align 8, !alias.scope !3466, !noalias !3467, !noundef !14
-  %178 = getelementptr inbounds i8, ptr %140, i64 64
-  %.val13.i.i.i = load ptr, ptr %178, align 8, !alias.scope !3467, !noalias !3466, !nonnull !14, !noundef !14
-  %179 = getelementptr inbounds i8, ptr %140, i64 72
-  %.val14.i.i.i = load i64, ptr %179, align 8, !alias.scope !3467, !noalias !3466, !noundef !14
-  %180 = sub i64 %.val12.i.i.i, %.val14.i.i.i
+176:                                              ; preds = %166
+  %177 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 64
+  %.val.i.i.i = load ptr, ptr %177, align 8, !alias.scope !3466, !noalias !3467, !nonnull !14, !noundef !14
+  %178 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 72
+  %.val12.i.i.i = load i64, ptr %178, align 8, !alias.scope !3466, !noalias !3467, !noundef !14
+  %179 = getelementptr inbounds i8, ptr %141, i64 64
+  %.val13.i.i.i = load ptr, ptr %179, align 8, !alias.scope !3467, !noalias !3466, !nonnull !14, !noundef !14
+  %180 = getelementptr inbounds i8, ptr %141, i64 72
+  %.val14.i.i.i = load i64, ptr %180, align 8, !alias.scope !3467, !noalias !3466, !noundef !14
+  %181 = sub i64 %.val12.i.i.i, %.val14.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val12.i.i.i, i64 %.val14.i.i.i)
-  %181 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val13.i.i.i, i64 %..i.i.i.i.i), !alias.scope !3468, !noalias !3472
-  %182 = sext i32 %181 to i64
-  %183 = icmp eq i32 %181, 0
-  %spec.store.select.i.i.i.i.i = select i1 %183, i64 %180, i64 %182
+  %182 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val13.i.i.i, i64 %..i.i.i.i.i), !alias.scope !3468, !noalias !3472
+  %183 = sext i32 %182 to i64
+  %184 = icmp eq i32 %182, 0
+  %spec.store.select.i.i.i.i.i = select i1 %184, i64 %181, i64 %183
   %.0.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i, i64 0)
   br label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i"
 
-"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i": ; preds = %175, %173
-  %.1.i14.i.i = phi i8 [ %.0.i.i.i.i.i, %175 ], [ %.11.i15.i.i, %173 ]
-  %184 = icmp eq i8 %.1.i14.i.i, 0
-  br i1 %184, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i", label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i"
+"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i": ; preds = %176, %174
+  %.1.i14.i.i = phi i8 [ %.0.i.i.i.i.i, %176 ], [ %.11.i15.i.i, %174 ]
+  %185 = icmp eq i8 %.1.i14.i.i, 0
+  br i1 %185, label %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i", label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i"
 
-"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i": ; preds = %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i", %165, %163, %162
-  %185 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 96
-  %186 = getelementptr inbounds i8, ptr %140, i64 96
-  %.val.i.i = load i8, ptr %185, align 1, !range !1149, !alias.scope !3456, !noalias !3459, !noundef !14
-  %.val9.i.i = load i8, ptr %186, align 1, !range !1149, !alias.scope !3459, !noalias !3456, !noundef !14
-  %187 = icmp ne i8 %.val.i.i, 2
-  %188 = icmp ne i8 %.val9.i.i, 2
-  %189 = xor i1 %187, true
-  %190 = and i1 %188, %189
-  br i1 %190, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %191
+"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i": ; preds = %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i", %166, %164, %163
+  %186 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 96
+  %187 = getelementptr inbounds i8, ptr %141, i64 96
+  %.val.i.i = load i8, ptr %186, align 1, !range !1149, !alias.scope !3456, !noalias !3459, !noundef !14
+  %.val9.i.i = load i8, ptr %187, align 1, !range !1149, !alias.scope !3459, !noalias !3456, !noundef !14
+  %188 = icmp ne i8 %.val.i.i, 2
+  %189 = icmp ne i8 %.val9.i.i, 2
+  %190 = xor i1 %188, true
+  %191 = and i1 %189, %190
+  br i1 %191, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %192
 
-191:                                              ; preds = %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i"
-  %192 = xor i1 %187, %188
-  br i1 %192, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %193
+192:                                              ; preds = %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i"
+  %193 = xor i1 %188, %189
+  br i1 %193, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %194
 
-193:                                              ; preds = %191
+194:                                              ; preds = %192
   %.not.i.i.i = icmp eq i8 %.val.i.i, 2
   %.not10.i.i.i = icmp eq i8 %.val9.i.i, 2
   %or.cond.i.i.i = or i1 %.not.i.i.i, %.not10.i.i.i
   %.0.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %.val.i.i, i8 %.val9.i.i)
-  %194 = icmp eq i8 %.val.i.i, %.val9.i.i
-  %or.cond.i.i = or i1 %194, %or.cond.i.i.i
+  %195 = icmp eq i8 %.val.i.i, %.val9.i.i
+  %or.cond.i.i = or i1 %195, %or.cond.i.i.i
   br i1 %or.cond.i.i, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i", label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i"
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i": ; preds = %193
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i": ; preds = %194
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3473)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3476)
-  %195 = load i64, ptr %.sroa.0.0.i, align 8, !range !215, !alias.scope !3478, !noalias !3479, !noundef !14
-  %196 = icmp ne i64 %195, -9223372036854775808
-  %197 = load i64, ptr %140, align 8, !range !215, !alias.scope !3479, !noalias !3478, !noundef !14
-  %198 = icmp ne i64 %197, -9223372036854775808
-  %199 = xor i1 %196, true
-  %200 = and i1 %198, %199
-  br i1 %200, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %201
+  %196 = load i64, ptr %.sroa.0.0.i, align 8, !range !215, !alias.scope !3478, !noalias !3479, !noundef !14
+  %197 = icmp ne i64 %196, -9223372036854775808
+  %198 = load i64, ptr %141, align 8, !range !215, !alias.scope !3479, !noalias !3478, !noundef !14
+  %199 = icmp ne i64 %198, -9223372036854775808
+  %200 = xor i1 %197, true
+  %201 = and i1 %199, %200
+  br i1 %201, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %202
 
-201:                                              ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i"
-  %202 = xor i1 %196, %198
-  br i1 %202, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %203
+202:                                              ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i"
+  %203 = xor i1 %197, %199
+  br i1 %203, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %204
 
-203:                                              ; preds = %201
-  %.not.i16.i.i = icmp eq i64 %195, -9223372036854775808
-  %.not10.i17.i.i = icmp eq i64 %197, -9223372036854775808
+204:                                              ; preds = %202
+  %.not.i16.i.i = icmp eq i64 %196, -9223372036854775808
+  %.not10.i17.i.i = icmp eq i64 %198, -9223372036854775808
   %or.cond.i18.i.i = or i1 %.not.i16.i.i, %.not10.i17.i.i
-  br i1 %or.cond.i18.i.i, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i", label %204
+  br i1 %or.cond.i18.i.i, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i", label %205
 
-204:                                              ; preds = %203
+205:                                              ; preds = %204
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3480)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3483)
-  %205 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
-  %.val.i.i.i.i = load ptr, ptr %205, align 8, !alias.scope !3485, !noalias !3486, !nonnull !14, !noundef !14
-  %206 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 16
-  %.val3.i.i.i.i = load i64, ptr %206, align 8, !alias.scope !3485, !noalias !3486, !noundef !14
-  %207 = getelementptr inbounds i8, ptr %140, i64 8
-  %.val4.i.i.i.i = load ptr, ptr %207, align 8, !alias.scope !3486, !noalias !3485, !nonnull !14, !noundef !14
-  %208 = getelementptr inbounds i8, ptr %140, i64 16
-  %.val5.i.i.i.i = load i64, ptr %208, align 8, !alias.scope !3486, !noalias !3485, !noundef !14
-  %209 = sub i64 %.val3.i.i.i.i, %.val5.i.i.i.i
+  %206 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
+  %.val.i.i.i.i = load ptr, ptr %206, align 8, !alias.scope !3485, !noalias !3486, !nonnull !14, !noundef !14
+  %207 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 16
+  %.val3.i.i.i.i = load i64, ptr %207, align 8, !alias.scope !3485, !noalias !3486, !noundef !14
+  %208 = getelementptr inbounds i8, ptr %141, i64 8
+  %.val4.i.i.i.i = load ptr, ptr %208, align 8, !alias.scope !3486, !noalias !3485, !nonnull !14, !noundef !14
+  %209 = getelementptr inbounds i8, ptr %141, i64 16
+  %.val5.i.i.i.i = load i64, ptr %209, align 8, !alias.scope !3486, !noalias !3485, !noundef !14
+  %210 = sub i64 %.val3.i.i.i.i, %.val5.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val3.i.i.i.i, i64 %.val5.i.i.i.i)
-  %210 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val4.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3487, !noalias !3491
-  %211 = sext i32 %210 to i64
-  %212 = icmp eq i32 %210, 0
-  %spec.store.select.i.i.i.i.i.i = select i1 %212, i64 %209, i64 %211
-  %213 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
-  br i1 %213, label %214, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i"
+  %211 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val4.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3487, !noalias !3491
+  %212 = sext i32 %211 to i64
+  %213 = icmp eq i32 %211, 0
+  %spec.store.select.i.i.i.i.i.i = select i1 %213, i64 %210, i64 %212
+  %214 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
+  br i1 %214, label %215, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i"
 
-214:                                              ; preds = %204
-  %215 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 24
-  %216 = load i8, ptr %215, align 8, !range !317, !alias.scope !3485, !noalias !3486, !noundef !14
-  %217 = getelementptr inbounds i8, ptr %140, i64 24
-  %218 = load i8, ptr %217, align 8, !range !317, !alias.scope !3486, !noalias !3485, !noundef !14
-  %219 = sub nsw i8 %216, %218
-  switch i8 %219, label %default.unreachable [
+215:                                              ; preds = %205
+  %216 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 24
+  %217 = load i8, ptr %216, align 8, !range !317, !alias.scope !3485, !noalias !3486, !noundef !14
+  %218 = getelementptr inbounds i8, ptr %141, i64 24
+  %219 = load i8, ptr %218, align 8, !range !317, !alias.scope !3486, !noalias !3485, !noundef !14
+  %220 = sub nsw i8 %217, %219
+  switch i8 %220, label %default.unreachable [
     i8 -1, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
     i8 0, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i"
     i8 1, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit"
   ]
 
-default.unreachable:                              ; preds = %262, %214
+default.unreachable:                              ; preds = %263, %215
   unreachable
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i": ; preds = %204
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i": ; preds = %205
   %.0.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
   br label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i"
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i": ; preds = %214, %203
-  %220 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 32
-  %221 = getelementptr inbounds i8, ptr %140, i64 32
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i": ; preds = %215, %204
+  %221 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 32
+  %222 = getelementptr inbounds i8, ptr %141, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3492)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3495)
-  %222 = load i64, ptr %220, align 8, !range !215, !alias.scope !3492, !noalias !3495, !noundef !14
-  %223 = icmp ne i64 %222, -9223372036854775808
-  %224 = load i64, ptr %221, align 8, !range !215, !alias.scope !3495, !noalias !3492, !noundef !14
-  %225 = icmp ne i64 %224, -9223372036854775808
-  %226 = xor i1 %223, true
-  %227 = and i1 %225, %226
-  br i1 %227, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %228
+  %223 = load i64, ptr %221, align 8, !range !215, !alias.scope !3492, !noalias !3495, !noundef !14
+  %224 = icmp ne i64 %223, -9223372036854775808
+  %225 = load i64, ptr %222, align 8, !range !215, !alias.scope !3495, !noalias !3492, !noundef !14
+  %226 = icmp ne i64 %225, -9223372036854775808
+  %227 = xor i1 %224, true
+  %228 = and i1 %226, %227
+  br i1 %228, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %229
 
-228:                                              ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i"
-  %229 = xor i1 %223, %225
-  br i1 %229, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %230
+229:                                              ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i"
+  %230 = xor i1 %224, %226
+  br i1 %230, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %231
 
-230:                                              ; preds = %228
-  %.not.i40 = icmp eq i64 %222, -9223372036854775808
-  %.not10.i41 = icmp eq i64 %224, -9223372036854775808
+231:                                              ; preds = %229
+  %.not.i40 = icmp eq i64 %223, -9223372036854775808
+  %.not10.i41 = icmp eq i64 %225, -9223372036854775808
   %or.cond.i42 = or i1 %.not.i40, %.not10.i41
-  br i1 %or.cond.i42, label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", label %231
+  br i1 %or.cond.i42, label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", label %232
 
-231:                                              ; preds = %230
-  %232 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 40
-  %.val.i43 = load ptr, ptr %232, align 8, !alias.scope !3492, !noalias !3495, !nonnull !14, !noundef !14
-  %233 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 48
-  %.val12.i44 = load i64, ptr %233, align 8, !alias.scope !3492, !noalias !3495, !noundef !14
-  %234 = getelementptr inbounds i8, ptr %140, i64 40
-  %.val13.i45 = load ptr, ptr %234, align 8, !alias.scope !3495, !noalias !3492, !nonnull !14, !noundef !14
-  %235 = getelementptr inbounds i8, ptr %140, i64 48
-  %.val14.i46 = load i64, ptr %235, align 8, !alias.scope !3495, !noalias !3492, !noundef !14
-  %236 = sub i64 %.val12.i44, %.val14.i46
+232:                                              ; preds = %231
+  %233 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 40
+  %.val.i43 = load ptr, ptr %233, align 8, !alias.scope !3492, !noalias !3495, !nonnull !14, !noundef !14
+  %234 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 48
+  %.val12.i44 = load i64, ptr %234, align 8, !alias.scope !3492, !noalias !3495, !noundef !14
+  %235 = getelementptr inbounds i8, ptr %141, i64 40
+  %.val13.i45 = load ptr, ptr %235, align 8, !alias.scope !3495, !noalias !3492, !nonnull !14, !noundef !14
+  %236 = getelementptr inbounds i8, ptr %141, i64 48
+  %.val14.i46 = load i64, ptr %236, align 8, !alias.scope !3495, !noalias !3492, !noundef !14
+  %237 = sub i64 %.val12.i44, %.val14.i46
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val12.i44, i64 %.val14.i46)
-  %237 = tail call i32 @memcmp(ptr nonnull readonly %.val.i43, ptr nonnull readonly %.val13.i45, i64 %..i.i.i.i), !alias.scope !3497, !noalias !3501
-  %238 = sext i32 %237 to i64
-  %239 = icmp eq i32 %237, 0
-  %spec.store.select.i.i.i.i = select i1 %239, i64 %236, i64 %238
+  %238 = tail call i32 @memcmp(ptr nonnull readonly %.val.i43, ptr nonnull readonly %.val13.i45, i64 %..i.i.i.i), !alias.scope !3497, !noalias !3501
+  %239 = sext i32 %238 to i64
+  %240 = icmp eq i32 %238, 0
+  %spec.store.select.i.i.i.i = select i1 %240, i64 %237, i64 %239
   %.0.i.i.i.i47 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i, i64 0)
   br label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i"
 
-240:                                              ; preds = %133
-  br i1 %137, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i", label %241, !prof !204
+241:                                              ; preds = %134
+  br i1 %138, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i", label %242, !prof !204
 
-241:                                              ; preds = %240
+242:                                              ; preds = %241
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.sroa.8.0.i, i64 noundef %.val24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.208) #45, !noalias !3502
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i": ; preds = %240
-  tail call void @llvm.assume(i1 %130)
-  %242 = getelementptr inbounds [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %.val23, i64 0, i64 %.sroa.8.0.i
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i": ; preds = %241
+  tail call void @llvm.assume(i1 %131)
+  %243 = getelementptr inbounds [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %.val23, i64 0, i64 %.sroa.8.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3510)
-  %243 = load i64, ptr %.sroa.0.0.i, align 8, !range !215, !alias.scope !3507, !noalias !3510, !noundef !14
-  %244 = icmp ne i64 %243, -9223372036854775808
-  %245 = load i64, ptr %242, align 8, !range !215, !alias.scope !3510, !noalias !3507, !noundef !14
-  %246 = icmp ne i64 %245, -9223372036854775808
-  %247 = xor i1 %244, true
-  %248 = and i1 %246, %247
-  br i1 %248, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %249
+  %244 = load i64, ptr %.sroa.0.0.i, align 8, !range !215, !alias.scope !3507, !noalias !3510, !noundef !14
+  %245 = icmp ne i64 %244, -9223372036854775808
+  %246 = load i64, ptr %243, align 8, !range !215, !alias.scope !3510, !noalias !3507, !noundef !14
+  %247 = icmp ne i64 %246, -9223372036854775808
+  %248 = xor i1 %245, true
+  %249 = and i1 %247, %248
+  br i1 %249, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %250
 
-249:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i"
-  %250 = xor i1 %244, %246
-  br i1 %250, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %251
+250:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i"
+  %251 = xor i1 %245, %247
+  br i1 %251, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %252
 
-251:                                              ; preds = %249
-  %.not.i24.i = icmp eq i64 %243, -9223372036854775808
-  %.not10.i.i = icmp eq i64 %245, -9223372036854775808
+252:                                              ; preds = %250
+  %.not.i24.i = icmp eq i64 %244, -9223372036854775808
+  %.not10.i.i = icmp eq i64 %246, -9223372036854775808
   %or.cond.i25.i = or i1 %.not.i24.i, %.not10.i.i
-  br i1 %or.cond.i25.i, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i", label %252
+  br i1 %or.cond.i25.i, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i", label %253
 
-252:                                              ; preds = %251
+253:                                              ; preds = %252
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3512)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3515)
-  %253 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
-  %.val.i.i26.i = load ptr, ptr %253, align 8, !alias.scope !3517, !noalias !3518, !nonnull !14, !noundef !14
-  %254 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 16
-  %.val3.i.i.i = load i64, ptr %254, align 8, !alias.scope !3517, !noalias !3518, !noundef !14
-  %255 = getelementptr inbounds i8, ptr %242, i64 8
-  %.val4.i.i.i = load ptr, ptr %255, align 8, !alias.scope !3518, !noalias !3517, !nonnull !14, !noundef !14
-  %256 = getelementptr inbounds i8, ptr %242, i64 16
-  %.val5.i.i.i = load i64, ptr %256, align 8, !alias.scope !3518, !noalias !3517, !noundef !14
-  %257 = sub i64 %.val3.i.i.i, %.val5.i.i.i
+  %254 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
+  %.val.i.i26.i = load ptr, ptr %254, align 8, !alias.scope !3517, !noalias !3518, !nonnull !14, !noundef !14
+  %255 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 16
+  %.val3.i.i.i = load i64, ptr %255, align 8, !alias.scope !3517, !noalias !3518, !noundef !14
+  %256 = getelementptr inbounds i8, ptr %243, i64 8
+  %.val4.i.i.i = load ptr, ptr %256, align 8, !alias.scope !3518, !noalias !3517, !nonnull !14, !noundef !14
+  %257 = getelementptr inbounds i8, ptr %243, i64 16
+  %.val5.i.i.i = load i64, ptr %257, align 8, !alias.scope !3518, !noalias !3517, !noundef !14
+  %258 = sub i64 %.val3.i.i.i, %.val5.i.i.i
   %..i.i.i.i27.i = tail call i64 @llvm.umin.i64(i64 %.val3.i.i.i, i64 %.val5.i.i.i)
-  %258 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i26.i, ptr nonnull readonly %.val4.i.i.i, i64 %..i.i.i.i27.i), !alias.scope !3519, !noalias !3523
-  %259 = sext i32 %258 to i64
-  %260 = icmp eq i32 %258, 0
-  %spec.store.select.i.i.i.i28.i = select i1 %260, i64 %257, i64 %259
-  %261 = icmp eq i64 %spec.store.select.i.i.i.i28.i, 0
-  br i1 %261, label %262, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i"
+  %259 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i26.i, ptr nonnull readonly %.val4.i.i.i, i64 %..i.i.i.i27.i), !alias.scope !3519, !noalias !3523
+  %260 = sext i32 %259 to i64
+  %261 = icmp eq i32 %259, 0
+  %spec.store.select.i.i.i.i28.i = select i1 %261, i64 %258, i64 %260
+  %262 = icmp eq i64 %spec.store.select.i.i.i.i28.i, 0
+  br i1 %262, label %263, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i"
 
-262:                                              ; preds = %252
-  %263 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 24
-  %264 = load i8, ptr %263, align 8, !range !317, !alias.scope !3517, !noalias !3518, !noundef !14
-  %265 = getelementptr inbounds i8, ptr %242, i64 24
-  %266 = load i8, ptr %265, align 8, !range !317, !alias.scope !3518, !noalias !3517, !noundef !14
-  %267 = sub nsw i8 %264, %266
-  switch i8 %267, label %default.unreachable [
+263:                                              ; preds = %253
+  %264 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 24
+  %265 = load i8, ptr %264, align 8, !range !317, !alias.scope !3517, !noalias !3518, !noundef !14
+  %266 = getelementptr inbounds i8, ptr %243, i64 24
+  %267 = load i8, ptr %266, align 8, !range !317, !alias.scope !3518, !noalias !3517, !noundef !14
+  %268 = sub nsw i8 %265, %267
+  switch i8 %268, label %default.unreachable [
     i8 -1, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
     i8 0, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i"
     i8 1, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit"
   ]
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i": ; preds = %252
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i": ; preds = %253
   %.0.i.i.i.i29.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i28.i, i64 0)
   br label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i"
 
-"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i": ; preds = %231, %230, %279, %278, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i", %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i", %193, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i"
-  %.0.i38 = phi i8 [ %.0.i.i.i.i29.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i" ], [ %.0.i.i.i.i.i.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i" ], [ %.1.i14.i.i, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i" ], [ %.0.i.i.i.i, %193 ], [ %.0.i.i.i.i41.i, %279 ], [ 0, %278 ], [ %.0.i.i.i.i47, %231 ], [ 0, %230 ]
+"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i": ; preds = %232, %231, %280, %279, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i", %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i", %194, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i"
+  %.0.i38 = phi i8 [ %.0.i.i.i.i29.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i" ], [ %.0.i.i.i.i.i.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.i.i" ], [ %.1.i14.i.i, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.i.i" ], [ %.0.i.i.i.i, %194 ], [ %.0.i.i.i.i41.i, %280 ], [ 0, %279 ], [ %.0.i.i.i.i47, %232 ], [ 0, %231 ]
   %.not.i39 = icmp eq i8 %.0.i38, 0
-  br i1 %.not.i39, label %131, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
+  br i1 %.not.i39, label %132, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit"
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i": ; preds = %262, %251
-  %268 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 32
-  %269 = getelementptr inbounds i8, ptr %242, i64 32
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i": ; preds = %263, %252
+  %269 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 32
+  %270 = getelementptr inbounds i8, ptr %243, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3524)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3527)
-  %270 = load i64, ptr %268, align 8, !range !215, !alias.scope !3524, !noalias !3527, !noundef !14
-  %271 = icmp ne i64 %270, -9223372036854775808
-  %272 = load i64, ptr %269, align 8, !range !215, !alias.scope !3527, !noalias !3524, !noundef !14
-  %273 = icmp ne i64 %272, -9223372036854775808
-  %274 = xor i1 %271, true
-  %275 = and i1 %273, %274
-  br i1 %275, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %276
+  %271 = load i64, ptr %269, align 8, !range !215, !alias.scope !3524, !noalias !3527, !noundef !14
+  %272 = icmp ne i64 %271, -9223372036854775808
+  %273 = load i64, ptr %270, align 8, !range !215, !alias.scope !3527, !noalias !3524, !noundef !14
+  %274 = icmp ne i64 %273, -9223372036854775808
+  %275 = xor i1 %272, true
+  %276 = and i1 %274, %275
+  br i1 %276, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %277
 
-276:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i"
-  %277 = xor i1 %271, %273
-  br i1 %277, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %278
+277:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i"
+  %278 = xor i1 %272, %274
+  br i1 %278, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %279
 
-278:                                              ; preds = %276
-  %.not.i33.i = icmp eq i64 %270, -9223372036854775808
-  %.not10.i34.i = icmp eq i64 %272, -9223372036854775808
+279:                                              ; preds = %277
+  %.not.i33.i = icmp eq i64 %271, -9223372036854775808
+  %.not10.i34.i = icmp eq i64 %273, -9223372036854775808
   %or.cond.i35.i = or i1 %.not.i33.i, %.not10.i34.i
-  br i1 %or.cond.i35.i, label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", label %279
+  br i1 %or.cond.i35.i, label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", label %280
 
-279:                                              ; preds = %278
-  %280 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 40
-  %.val.i36.i = load ptr, ptr %280, align 8, !alias.scope !3524, !noalias !3527, !nonnull !14, !noundef !14
-  %281 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 48
-  %.val12.i37.i = load i64, ptr %281, align 8, !alias.scope !3524, !noalias !3527, !noundef !14
-  %282 = getelementptr inbounds i8, ptr %242, i64 40
-  %.val13.i38.i = load ptr, ptr %282, align 8, !alias.scope !3527, !noalias !3524, !nonnull !14, !noundef !14
-  %283 = getelementptr inbounds i8, ptr %242, i64 48
-  %.val14.i.i = load i64, ptr %283, align 8, !alias.scope !3527, !noalias !3524, !noundef !14
-  %284 = sub i64 %.val12.i37.i, %.val14.i.i
+280:                                              ; preds = %279
+  %281 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 40
+  %.val.i36.i = load ptr, ptr %281, align 8, !alias.scope !3524, !noalias !3527, !nonnull !14, !noundef !14
+  %282 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 48
+  %.val12.i37.i = load i64, ptr %282, align 8, !alias.scope !3524, !noalias !3527, !noundef !14
+  %283 = getelementptr inbounds i8, ptr %243, i64 40
+  %.val13.i38.i = load ptr, ptr %283, align 8, !alias.scope !3527, !noalias !3524, !nonnull !14, !noundef !14
+  %284 = getelementptr inbounds i8, ptr %243, i64 48
+  %.val14.i.i = load i64, ptr %284, align 8, !alias.scope !3527, !noalias !3524, !noundef !14
+  %285 = sub i64 %.val12.i37.i, %.val14.i.i
   %..i.i.i.i39.i = tail call i64 @llvm.umin.i64(i64 %.val12.i37.i, i64 %.val14.i.i)
-  %285 = tail call i32 @memcmp(ptr nonnull readonly %.val.i36.i, ptr nonnull readonly %.val13.i38.i, i64 %..i.i.i.i39.i), !alias.scope !3529, !noalias !3533
-  %286 = sext i32 %285 to i64
-  %287 = icmp eq i32 %285, 0
-  %spec.store.select.i.i.i.i40.i = select i1 %287, i64 %284, i64 %286
+  %286 = tail call i32 @memcmp(ptr nonnull readonly %.val.i36.i, ptr nonnull readonly %.val13.i38.i, i64 %..i.i.i.i39.i), !alias.scope !3529, !noalias !3533
+  %287 = sext i32 %286 to i64
+  %288 = icmp eq i32 %286, 0
+  %spec.store.select.i.i.i.i40.i = select i1 %288, i64 %285, i64 %287
   %.0.i.i.i.i41.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i40.i, i64 0)
   br label %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i"
 
-"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit": ; preds = %131, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i", %146, %148, %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i", %150, %159, %167, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i", %191, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i", %201, %214, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i", %249, %262, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i", %276, %228, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i"
-  %.6.ph = phi i8 [ 1, %228 ], [ -1, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i" ], [ 0, %131 ], [ %.0.i38, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i" ], [ 1, %201 ], [ %219, %214 ], [ -1, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i" ], [ 1, %191 ], [ -1, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i" ], [ 1, %159 ], [ -1, %167 ], [ -1, %150 ], [ 1, %146 ], [ -1, %148 ], [ -1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i" ], [ 1, %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i" ], [ -1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i" ], [ %267, %262 ], [ 1, %249 ], [ -1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i" ], [ 1, %276 ]
+"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit": ; preds = %132, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i", %147, %149, %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i", %151, %160, %168, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i", %192, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i", %202, %215, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i", %250, %263, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i", %277, %229, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i"
+  %.6.ph = phi i8 [ 1, %229 ], [ -1, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hf90f59050820e23cE.exit.thread30.i.i" ], [ 0, %132 ], [ %.0.i38, %"_ZN86_$LT$tree_sitter_cli..generate..grammars..ProductionStep$u20$as$u20$core..cmp..Ord$GT$3cmp17hd3f960cc820c6ca3E.exit.i" ], [ 1, %202 ], [ %220, %215 ], [ -1, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit.thread26.i.i" ], [ 1, %192 ], [ -1, %"_ZN79_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..Ord$GT$3cmp17h96600c058a37517fE.exit.thread.i.i" ], [ 1, %160 ], [ -1, %168 ], [ -1, %151 ], [ 1, %147 ], [ -1, %149 ], [ -1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i" ], [ 1, %"_ZN75_$LT$tree_sitter_cli..generate..rules..Symbol$u20$as$u20$core..cmp..Ord$GT$3cmp17heefd963757b03debE.exit.i.i" ], [ -1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit23.i" ], [ %268, %263 ], [ 1, %250 ], [ -1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit32.i" ], [ 1, %277 ]
   br label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit"
 
-"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit": ; preds = %262, %214, %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", %8, %25, %.thread53, %16, %10, %2, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit29, %72, %64, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34, %117, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit"
-  %.6 = phi i8 [ %.5, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit" ], [ 1, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread ], [ -1, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34 ], [ 1, %117 ], [ -1, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit29 ], [ -1, %72 ], [ 1, %64 ], [ -1, %.thread53 ], [ 1, %25 ], [ -1, %10 ], [ 1, %16 ], [ -1, %2 ], [ 1, %8 ], [ %.6.ph, %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit" ], [ 1, %214 ], [ 1, %262 ]
+"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit": ; preds = %263, %215, %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", %8, %25, %.thread53, %16, %10, %2, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit29, %72, %64, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34, %117, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit"
+  %.6 = phi i8 [ %.5, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc815e09156272655E.exit" ], [ 1, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34.thread ], [ -1, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit34 ], [ 1, %117 ], [ -1, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit29 ], [ -1, %72 ], [ 1, %64 ], [ -1, %.thread53 ], [ 1, %25 ], [ -1, %10 ], [ 1, %16 ], [ -1, %2 ], [ 1, %8 ], [ %.6.ph, %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit" ], [ 1, %215 ], [ 1, %263 ]
   ret i8 %.6
 }
 

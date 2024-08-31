@@ -6063,89 +6063,98 @@ while.body.lr.ph.i.i17:                           ; preds = %find_ref_delta_chil
   %23 = load ptr, ptr @objects, align 8
   br label %while.body.i.i18
 
-while.body.i.i18:                                 ; preds = %if.end.i.i34, %while.body.lr.ph.i.i17
-  %first.014.i.i19 = phi i32 [ 0, %while.body.lr.ph.i.i17 ], [ %spec.select10.i.i38, %if.end.i.i34 ]
-  %last.013.i.i20 = phi i32 [ %21, %while.body.lr.ph.i.i17 ], [ %spec.select.i.i37, %if.end.i.i34 ]
+while.body.i.i18:                                 ; preds = %if.end.i.i35, %while.body.lr.ph.i.i17
+  %first.014.i.i19 = phi i32 [ 0, %while.body.lr.ph.i.i17 ], [ %spec.select10.i.i39, %if.end.i.i35 ]
+  %last.013.i.i20 = phi i32 [ %21, %while.body.lr.ph.i.i17 ], [ %spec.select.i.i38, %if.end.i.i35 ]
   %sub.i.i21 = sub nsw i32 %last.013.i.i20, %first.014.i.i19
   %div.i.i22 = sdiv i32 %sub.i.i21, 2
   %add.i.i23 = add nsw i32 %div.i.i22, %first.014.i.i19
   %idxprom.i.i24 = sext i32 %add.i.i23 to i64
   %arrayidx.i.i25 = getelementptr inbounds %struct.ofs_delta_entry, ptr %22, i64 %idxprom.i.i24
-  %24 = load i64, ptr %arrayidx.i.i25, align 8
   %obj_no.i.i26 = getelementptr inbounds i8, ptr %arrayidx.i.i25, i64 8
-  %25 = load i32, ptr %obj_no.i.i26, align 8
-  %idxprom3.i.i27 = sext i32 %25 to i64
+  %24 = load i32, ptr %obj_no.i.i26, align 8
+  %idxprom3.i.i27 = sext i32 %24 to i64
   %type.i.i28 = getelementptr inbounds %struct.object_entry, ptr %23, i64 %idxprom3.i.i27, i32 3
-  %26 = load i8, ptr %type.i.i28, align 1
-  %conv.i.i29 = sext i8 %26 to i32
-  %tobool.not.i.i.i30 = icmp eq i8 %26, 6
-  %sub.i.i.i31 = sub nsw i32 6, %conv.i.i29
-  %cond3.i.i.i = tail call i32 @llvm.scmp.i32.i64(i64 %20, i64 %24)
-  %retval.0.i.i.i32 = select i1 %tobool.not.i.i.i30, i32 %cond3.i.i.i, i32 %sub.i.i.i31
-  %tobool.not.i.i33 = icmp eq i32 %retval.0.i.i.i32, 0
-  br i1 %tobool.not.i.i33, label %find_ofs_delta.exit.i, label %if.end.i.i34
+  %25 = load i8, ptr %type.i.i28, align 1
+  %tobool.not.i.i.i29 = icmp eq i8 %25, 6
+  br i1 %tobool.not.i.i.i29, label %if.end.i.i.i59, label %if.then.i.i.i30
 
-if.end.i.i34:                                     ; preds = %while.body.i.i18
-  %cmp5.i.i35 = icmp slt i32 %retval.0.i.i.i32, 0
-  %add9.i.i36 = add nsw i32 %add.i.i23, 1
-  %spec.select.i.i37 = select i1 %cmp5.i.i35, i32 %add.i.i23, i32 %last.013.i.i20
-  %spec.select10.i.i38 = select i1 %cmp5.i.i35, i32 %first.014.i.i19, i32 %add9.i.i36
-  %cmp.i.i39 = icmp slt i32 %spec.select10.i.i38, %spec.select.i.i37
-  br i1 %cmp.i.i39, label %while.body.i.i18, label %while.end.loopexit.i.i40, !llvm.loop !40
+if.then.i.i.i30:                                  ; preds = %while.body.i.i18
+  %conv.i.i31 = sext i8 %25 to i32
+  %sub.i.i.i32 = sub nsw i32 6, %conv.i.i31
+  br label %compare_ofs_delta_bases.exit.i.i
 
-while.end.loopexit.i.i40:                         ; preds = %if.end.i.i34
-  %27 = xor i32 %spec.select10.i.i38, -1
+if.end.i.i.i59:                                   ; preds = %while.body.i.i18
+  %26 = load i64, ptr %arrayidx.i.i25, align 8
+  %cond3.i.i.i = tail call i32 @llvm.scmp.i32.i64(i64 %20, i64 %26)
+  br label %compare_ofs_delta_bases.exit.i.i
+
+compare_ofs_delta_bases.exit.i.i:                 ; preds = %if.end.i.i.i59, %if.then.i.i.i30
+  %retval.0.i.i.i33 = phi i32 [ %sub.i.i.i32, %if.then.i.i.i30 ], [ %cond3.i.i.i, %if.end.i.i.i59 ]
+  %tobool.not.i.i34 = icmp eq i32 %retval.0.i.i.i33, 0
+  br i1 %tobool.not.i.i34, label %find_ofs_delta.exit.i, label %if.end.i.i35
+
+if.end.i.i35:                                     ; preds = %compare_ofs_delta_bases.exit.i.i
+  %cmp5.i.i36 = icmp slt i32 %retval.0.i.i.i33, 0
+  %add9.i.i37 = add nsw i32 %add.i.i23, 1
+  %spec.select.i.i38 = select i1 %cmp5.i.i36, i32 %add.i.i23, i32 %last.013.i.i20
+  %spec.select10.i.i39 = select i1 %cmp5.i.i36, i32 %first.014.i.i19, i32 %add9.i.i37
+  %cmp.i.i40 = icmp slt i32 %spec.select10.i.i39, %spec.select.i.i38
+  br i1 %cmp.i.i40, label %while.body.i.i18, label %while.end.loopexit.i.i41, !llvm.loop !40
+
+while.end.loopexit.i.i41:                         ; preds = %if.end.i.i35
+  %27 = xor i32 %spec.select10.i.i39, -1
   br label %find_ofs_delta.exit.i
 
-find_ofs_delta.exit.i:                            ; preds = %while.body.i.i18, %while.end.loopexit.i.i40
-  %retval.0.i.i41 = phi i32 [ %27, %while.end.loopexit.i.i40 ], [ %add.i.i23, %while.body.i.i18 ]
-  %sub.i42 = add nsw i32 %21, -1
-  %cmp.i43 = icmp slt i32 %retval.0.i.i41, 0
-  br i1 %cmp.i43, label %find_ofs_delta_children.exit, label %while.cond.preheader.i44
+find_ofs_delta.exit.i:                            ; preds = %compare_ofs_delta_bases.exit.i.i, %while.end.loopexit.i.i41
+  %retval.0.i.i42 = phi i32 [ %27, %while.end.loopexit.i.i41 ], [ %add.i.i23, %compare_ofs_delta_bases.exit.i.i ]
+  %sub.i43 = add nsw i32 %21, -1
+  %cmp.i44 = icmp slt i32 %retval.0.i.i42, 0
+  br i1 %cmp.i44, label %find_ofs_delta_children.exit, label %while.cond.preheader.i45
 
-while.cond.preheader.i44:                         ; preds = %find_ofs_delta.exit.i
-  %cmp118.not.i = icmp eq i32 %retval.0.i.i41, 0
-  br i1 %cmp118.not.i, label %while.end.i47, label %land.rhs.lr.ph.i45
+while.cond.preheader.i45:                         ; preds = %find_ofs_delta.exit.i
+  %cmp118.not.i = icmp eq i32 %retval.0.i.i42, 0
+  br i1 %cmp118.not.i, label %while.end.i48, label %land.rhs.lr.ph.i46
 
-land.rhs.lr.ph.i45:                               ; preds = %while.cond.preheader.i44
+land.rhs.lr.ph.i46:                               ; preds = %while.cond.preheader.i45
   %invariant.gep.i = getelementptr i8, ptr %22, i64 -16
-  br label %land.rhs.i46
+  br label %land.rhs.i47
 
-land.rhs.i46:                                     ; preds = %while.body.i56, %land.rhs.lr.ph.i45
-  %first.019.i = phi i32 [ %retval.0.i.i41, %land.rhs.lr.ph.i45 ], [ %dec.i, %while.body.i56 ]
+land.rhs.i47:                                     ; preds = %while.body.i57, %land.rhs.lr.ph.i46
+  %first.019.i = phi i32 [ %retval.0.i.i42, %land.rhs.lr.ph.i46 ], [ %dec.i, %while.body.i57 ]
   %28 = zext nneg i32 %first.019.i to i64
   %gep.i = getelementptr %struct.ofs_delta_entry, ptr %invariant.gep.i, i64 %28
   %29 = load i64, ptr %gep.i, align 8
   %cmp4.i = icmp eq i64 %29, %20
-  br i1 %cmp4.i, label %while.body.i56, label %while.end.i47
+  br i1 %cmp4.i, label %while.body.i57, label %while.end.i48
 
-while.body.i56:                                   ; preds = %land.rhs.i46
+while.body.i57:                                   ; preds = %land.rhs.i47
   %dec.i = add nsw i32 %first.019.i, -1
-  %cmp1.i57 = icmp sgt i32 %first.019.i, 1
-  br i1 %cmp1.i57, label %land.rhs.i46, label %while.end.i47, !llvm.loop !41
+  %cmp1.i58 = icmp sgt i32 %first.019.i, 1
+  br i1 %cmp1.i58, label %land.rhs.i47, label %while.end.i48, !llvm.loop !41
 
-while.end.i47:                                    ; preds = %while.body.i56, %land.rhs.i46, %while.cond.preheader.i44
-  %first.0.lcssa.i48 = phi i32 [ 0, %while.cond.preheader.i44 ], [ %first.019.i, %land.rhs.i46 ], [ 0, %while.body.i56 ]
-  %30 = zext nneg i32 %retval.0.i.i41 to i64
-  %smax.i49 = tail call i32 @llvm.smax.i32(i32 %retval.0.i.i41, i32 %sub.i42)
-  br label %while.cond5.i50
+while.end.i48:                                    ; preds = %while.body.i57, %land.rhs.i47, %while.cond.preheader.i45
+  %first.0.lcssa.i49 = phi i32 [ 0, %while.cond.preheader.i45 ], [ %first.019.i, %land.rhs.i47 ], [ 0, %while.body.i57 ]
+  %30 = zext nneg i32 %retval.0.i.i42 to i64
+  %smax.i50 = tail call i32 @llvm.smax.i32(i32 %retval.0.i.i42, i32 %sub.i43)
+  br label %while.cond5.i51
 
-while.cond5.i50:                                  ; preds = %land.rhs7.i53, %while.end.i47
-  %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i54, %land.rhs7.i53 ], [ %30, %while.end.i47 ]
-  %31 = trunc nuw i64 %indvars.iv.i51 to i32
-  %cmp6.i52 = icmp sgt i32 %sub.i42, %31
-  br i1 %cmp6.i52, label %land.rhs7.i53, label %find_ofs_delta_children.exit
+while.cond5.i51:                                  ; preds = %land.rhs7.i54, %while.end.i48
+  %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i55, %land.rhs7.i54 ], [ %30, %while.end.i48 ]
+  %31 = trunc nuw i64 %indvars.iv.i52 to i32
+  %cmp6.i53 = icmp sgt i32 %sub.i43, %31
+  br i1 %cmp6.i53, label %land.rhs7.i54, label %find_ofs_delta_children.exit
 
-land.rhs7.i53:                                    ; preds = %while.cond5.i50
-  %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i51, 1
-  %arrayidx9.i55 = getelementptr inbounds %struct.ofs_delta_entry, ptr %22, i64 %indvars.iv.next.i54
-  %32 = load i64, ptr %arrayidx9.i55, align 8
+land.rhs7.i54:                                    ; preds = %while.cond5.i51
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i52, 1
+  %arrayidx9.i56 = getelementptr inbounds %struct.ofs_delta_entry, ptr %22, i64 %indvars.iv.next.i55
+  %32 = load i64, ptr %arrayidx9.i56, align 8
   %cmp11.i = icmp eq i64 %32, %20
-  br i1 %cmp11.i, label %while.cond5.i50, label %find_ofs_delta_children.exit, !llvm.loop !42
+  br i1 %cmp11.i, label %while.cond5.i51, label %find_ofs_delta_children.exit, !llvm.loop !42
 
-find_ofs_delta_children.exit:                     ; preds = %while.cond5.i50, %land.rhs7.i53, %find_ref_delta_children.exit, %find_ofs_delta.exit.i
-  %storemerge13.i15 = phi i32 [ 0, %find_ofs_delta.exit.i ], [ 0, %find_ref_delta_children.exit ], [ %first.0.lcssa.i48, %land.rhs7.i53 ], [ %first.0.lcssa.i48, %while.cond5.i50 ]
-  %storemerge.i16 = phi i32 [ -1, %find_ofs_delta.exit.i ], [ -1, %find_ref_delta_children.exit ], [ %smax.i49, %while.cond5.i50 ], [ %31, %land.rhs7.i53 ]
+find_ofs_delta_children.exit:                     ; preds = %while.cond5.i51, %land.rhs7.i54, %find_ref_delta_children.exit, %find_ofs_delta.exit.i
+  %storemerge13.i15 = phi i32 [ 0, %find_ofs_delta.exit.i ], [ 0, %find_ref_delta_children.exit ], [ %first.0.lcssa.i49, %land.rhs7.i54 ], [ %first.0.lcssa.i49, %while.cond5.i51 ]
+  %storemerge.i16 = phi i32 [ -1, %find_ofs_delta.exit.i ], [ -1, %find_ref_delta_children.exit ], [ %smax.i50, %while.cond5.i51 ], [ %31, %land.rhs7.i54 ]
   %ofs_last = getelementptr inbounds i8, ptr %call, i64 28
   %ofs_first = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %storemerge13.i15, ptr %ofs_first, align 4

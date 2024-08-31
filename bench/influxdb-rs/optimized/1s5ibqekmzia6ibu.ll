@@ -1282,66 +1282,57 @@ define internal fastcc void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h45
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load atomic i8, ptr %3 monotonic, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.preheader, label %10
+  br i1 %5, label %.preheader, label %7
 
 .preheader:                                       ; preds = %2
-  %6 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h71e165edce5aff4fE()
-  %.fca.0.extract49 = extractvalue { i64, i32 } %6, 0
-  %.fca.1.extract50 = extractvalue { i64, i32 } %6, 1
-  %.val1851 = load i64, ptr %1, align 8, !noundef !4
-  %7 = getelementptr i8, ptr %1, i64 8
-  %.val1952 = load i32, ptr %7, align 8
-  %8 = icmp sge i64 %.fca.0.extract49, %.val1851
-  %9 = icmp ne i64 %.fca.0.extract49, %.val1851
-  %switch474853 = icmp uge i32 %.fca.1.extract50, %.val1952
-  %switch4754 = select i1 %9, i1 true, i1 %switch474853
-  %switch55 = select i1 %8, i1 %switch4754, i1 false
-  br i1 %switch55, label %.critedge, label %.lr.ph
+  %6 = getelementptr i8, ptr %1, i64 8
+  br label %8
 
-10:                                               ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17h9585aeb1e5251637E(i64 undef, i32 noundef 1000000000)
   store i8 0, ptr %0, align 8
-  br label %19
+  br label %18
 
-.critedge:                                        ; preds = %.lr.ph, %.preheader
-  %11 = atomicrmw xchg ptr %3, i8 1 seq_cst, align 1
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %21, label %24
-
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.val1959 = phi i32 [ %.val19, %.lr.ph ], [ %.val1952, %.preheader ]
-  %.val1858 = phi i64 [ %.val18, %.lr.ph ], [ %.val1851, %.preheader ]
-  %.fca.1.extract57 = phi i32 [ %.fca.1.extract, %.lr.ph ], [ %.fca.1.extract50, %.preheader ]
-  %.fca.0.extract56 = phi i64 [ %.fca.0.extract, %.lr.ph ], [ %.fca.0.extract49, %.preheader ]
-  %13 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hcd1d4a08d20a56fdE"(i64 noundef %.val1858, i32 noundef %.val1959, i64 noundef %.fca.0.extract56, i32 noundef %.fca.1.extract57)
-  %14 = extractvalue { i64, i32 } %13, 0
-  %15 = extractvalue { i64, i32 } %13, 1
-  tail call void @_ZN3std6thread5sleep17h5d15014a9bbfd716E(i64 noundef %14, i32 noundef %15)
-  %16 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h71e165edce5aff4fE()
-  %.fca.0.extract = extractvalue { i64, i32 } %16, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %16, 1
+8:                                                ; preds = %.preheader, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread49"
+  %9 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h71e165edce5aff4fE()
+  %.fca.0.extract = extractvalue { i64, i32 } %9, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %9, 1
   %.val18 = load i64, ptr %1, align 8, !noundef !4
-  %.val19 = load i32, ptr %7, align 8
-  %17 = icmp sge i64 %.fca.0.extract, %.val18
-  %18 = icmp ne i64 %.fca.0.extract, %.val18
-  %switch4748 = icmp uge i32 %.fca.1.extract, %.val19
-  %switch47 = select i1 %18, i1 true, i1 %switch4748
-  %switch = select i1 %17, i1 %switch47, i1 false
-  br i1 %switch, label %.critedge, label %.lr.ph
+  %.val19 = load i32, ptr %6, align 8
+  %10 = icmp slt i64 %.fca.0.extract, %.val18
+  br i1 %10, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread49", label %11
 
-19:                                               ; preds = %21, %10
-  %.sink = phi i32 [ %23, %21 ], [ 1000000000, %10 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink, ptr %20, align 8
+11:                                               ; preds = %8
+  %12 = icmp ne i64 %.fca.0.extract, %.val18
+  %switch = icmp uge i32 %.fca.1.extract, %.val19
+  %or.cond = select i1 %12, i1 true, i1 %switch
+  br i1 %or.cond, label %.critedge, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread49"
+
+.critedge:                                        ; preds = %11
+  %13 = atomicrmw xchg ptr %3, i8 1 seq_cst, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %20, label %23
+
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread49": ; preds = %11, %8
+  %15 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hcd1d4a08d20a56fdE"(i64 noundef %.val18, i32 noundef %.val19, i64 noundef %.fca.0.extract, i32 noundef %.fca.1.extract)
+  %16 = extractvalue { i64, i32 } %15, 0
+  %17 = extractvalue { i64, i32 } %15, 1
+  tail call void @_ZN3std6thread5sleep17h5d15014a9bbfd716E(i64 noundef %16, i32 noundef %17)
+  br label %8
+
+18:                                               ; preds = %20, %7
+  %.sink = phi i32 [ %22, %20 ], [ 1000000000, %7 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sink, ptr %19, align 8
   ret void
 
-21:                                               ; preds = %.critedge
-  %22 = load i64, ptr %1, align 8, !noundef !4
-  %23 = load i32, ptr %7, align 8, !range !134, !noundef !4
-  store i64 %22, ptr %0, align 8
-  br label %19
+20:                                               ; preds = %.critedge
+  %21 = load i64, ptr %1, align 8, !noundef !4
+  %22 = load i32, ptr %6, align 8, !range !134, !noundef !4
+  store i64 %21, ptr %0, align 8
+  br label %18
 
-24:                                               ; preds = %.critedge
+23:                                               ; preds = %.critedge
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17h9585aeb1e5251637E(i64 undef, i32 noundef 1000000000)
   tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.1523a72b7a4346f2c9a097c3049a322f.10.llvm.2921359679148529085, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1523a72b7a4346f2c9a097c3049a322f.16) #33
   unreachable
@@ -1389,23 +1380,25 @@ _ZN4core3cmp6max_by17h900ac0b627267129E.exit:     ; preds = %6, %10, %_ZN4core3o
 
 21:                                               ; preds = %_ZN4core3cmp6max_by17h900ac0b627267129E.exit
   %22 = icmp slt i64 %.fca.0.extract2, %.fca.0.extract
-  %23 = icmp eq i64 %.fca.0.extract2, %.fca.0.extract
-  %24 = icmp ult i32 %.fca.1.extract4, %.fca.1.extract
-  %25 = select i1 %23, i1 %24, i1 false
-  %26 = select i1 %22, i1 true, i1 %25
-  br i1 %26, label %27, label %31
+  br i1 %22, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread", label %23
 
-27:                                               ; preds = %21
-  %28 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hcd1d4a08d20a56fdE"(i64 noundef %.fca.0.extract, i32 noundef %.fca.1.extract, i64 noundef %.fca.0.extract2, i32 noundef %.fca.1.extract4)
-  %29 = extractvalue { i64, i32 } %28, 0
-  %30 = extractvalue { i64, i32 } %28, 1
-  tail call void @_ZN3std6thread5sleep17h5d15014a9bbfd716E(i64 noundef %29, i32 noundef %30)
-  br label %31
+23:                                               ; preds = %21
+  %24 = icmp eq i64 %.fca.0.extract2, %.fca.0.extract
+  %25 = icmp ult i32 %.fca.1.extract4, %.fca.1.extract
+  %or.cond = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread", label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread31"
 
-31:                                               ; preds = %21, %27
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread": ; preds = %23, %21
+  %26 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hcd1d4a08d20a56fdE"(i64 noundef %.fca.0.extract, i32 noundef %.fca.1.extract, i64 noundef %.fca.0.extract2, i32 noundef %.fca.1.extract4)
+  %27 = extractvalue { i64, i32 } %26, 0
+  %28 = extractvalue { i64, i32 } %26, 1
+  tail call void @_ZN3std6thread5sleep17h5d15014a9bbfd716E(i64 noundef %27, i32 noundef %28)
+  br label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread31"
+
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread31": ; preds = %23, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread"
   store i64 %.fca.0.extract, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.fca.1.extract, ptr %32, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.fca.1.extract, ptr %29, align 8
   ret void
 }
 

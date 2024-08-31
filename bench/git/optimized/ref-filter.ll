@@ -2274,8 +2274,10 @@ cond.end49.i:                                     ; preds = %cond.true44.i, %con
   %cond62.i = call i64 @llvm.umin.i64(i64 %cond50.i, i64 %cond4129.i)
   %call63.i = call i32 %cond55.i(ptr noundef %21, ptr noundef %.pre2530.i, i64 noundef %cond62.i) #22, !callees !23
   %tobool64.not.i = icmp eq i32 %call63.i, 0
+  br i1 %tobool64.not.i, label %if.then65.i, label %cmp_ref_sorting.exit
+
+if.then65.i:                                      ; preds = %cond.end49.i
   %spec.select23.i = call i32 @llvm.ucmp.i32.i64(i64 %cond4129.i, i64 %cond50.i)
-  %spec.select.i = select i1 %tobool64.not.i, i32 %spec.select23.i, i32 %call63.i
   br label %cmp_ref_sorting.exit
 
 if.else75.i:                                      ; preds = %if.else21.i
@@ -2292,9 +2294,9 @@ if.else79.i:                                      ; preds = %if.else75.i
   %..i = zext i1 %cmp82.i to i32
   br label %cmp_ref_sorting.exit
 
-cmp_ref_sorting.exit:                             ; preds = %if.end.i.i, %if.else.i.i, %if.then17.i, %if.then28.i, %cond.end49.i, %if.else75.i, %if.else79.i
-  %tobool94.i = phi i1 [ false, %if.then17.i ], [ false, %if.then28.i ], [ false, %if.else75.i ], [ false, %if.else79.i ], [ true, %if.end.i.i ], [ true, %if.else.i.i ], [ false, %cond.end49.i ]
-  %cmp.0.i = phi i32 [ %call20.i, %if.then17.i ], [ %call34.i, %if.then28.i ], [ -1, %if.else75.i ], [ %..i, %if.else79.i ], [ -1, %if.end.i.i ], [ 1, %if.else.i.i ], [ %spec.select.i, %cond.end49.i ]
+cmp_ref_sorting.exit:                             ; preds = %if.end.i.i, %if.else.i.i, %if.then17.i, %if.then28.i, %cond.end49.i, %if.then65.i, %if.else75.i, %if.else79.i
+  %tobool94.i = phi i1 [ false, %if.then17.i ], [ false, %if.then28.i ], [ false, %cond.end49.i ], [ false, %if.else75.i ], [ false, %if.else79.i ], [ false, %if.then65.i ], [ true, %if.end.i.i ], [ true, %if.else.i.i ]
+  %cmp.0.i = phi i32 [ %call20.i, %if.then17.i ], [ %call34.i, %if.then28.i ], [ %call63.i, %cond.end49.i ], [ -1, %if.else75.i ], [ %..i, %if.else79.i ], [ %spec.select23.i, %if.then65.i ], [ -1, %if.end.i.i ], [ 1, %if.else.i.i ]
   %25 = load i32, ptr %sort_flags.i, align 4
   %and91.i = and i32 %25, 1
   %tobool92.i = icmp eq i32 %and91.i, 0

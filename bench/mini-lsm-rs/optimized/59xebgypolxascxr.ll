@@ -5740,8 +5740,8 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 52:                                               ; preds = %.noexc19
   %.not.i.i.i = icmp ne i64 %.fca.0.extract.i15, 0
   %53 = icmp ult i64 %.fca.1.extract.i.i, %.fca.1.extract.i16
-  %.0.i.i.i = select i1 %.not.i.i.i, i1 %53, i1 false
-  br i1 %.0.i.i.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17ha68f29fb7a595c85E.exit", label %54
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i1 %53, i1 false
+  br i1 %spec.select.i.i.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17ha68f29fb7a595c85E.exit", label %54
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !654
@@ -5783,8 +5783,8 @@ _ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i: 
 62:                                               ; preds = %.noexc22
   %.not.i.i15.i = icmp ne i64 %.fca.0.extract.i15, 0
   %63 = icmp ult i64 %.fca.1.extract.i13.i, %.fca.1.extract.i16
-  %.0.i.i16.i = select i1 %.not.i.i15.i, i1 %63, i1 false
-  br i1 %.0.i.i16.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17ha68f29fb7a595c85E.exit", label %64
+  %spec.select.i.i16.i = select i1 %.not.i.i15.i, i1 %63, i1 false
+  br i1 %spec.select.i.i16.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17ha68f29fb7a595c85E.exit", label %64
 
 64:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !654
@@ -6205,8 +6205,8 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 52:                                               ; preds = %.noexc19
   %.not.i.i.i = icmp ne i64 %.fca.0.extract.i15, 0
   %53 = icmp ult i64 %.fca.1.extract.i.i, %.fca.1.extract.i16
-  %.0.i.i.i = select i1 %.not.i.i.i, i1 %53, i1 false
-  br i1 %.0.i.i.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h2bbb2404df0ff573E.exit", label %54
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i1 %53, i1 false
+  br i1 %spec.select.i.i.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h2bbb2404df0ff573E.exit", label %54
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !698
@@ -6248,8 +6248,8 @@ _ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i: 
 62:                                               ; preds = %.noexc22
   %.not.i.i15.i = icmp ne i64 %.fca.0.extract.i15, 0
   %63 = icmp ult i64 %.fca.1.extract.i13.i, %.fca.1.extract.i16
-  %.0.i.i16.i = select i1 %.not.i.i15.i, i1 %63, i1 false
-  br i1 %.0.i.i16.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h2bbb2404df0ff573E.exit", label %64
+  %spec.select.i.i16.i = select i1 %.not.i.i15.i, i1 %63, i1 false
+  br i1 %spec.select.i.i16.i, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h2bbb2404df0ff573E.exit", label %64
 
 64:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !698
@@ -8809,8 +8809,8 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   %.fca.1.extract = extractvalue { i64, i64 } %45, 1
   %.not.i23 = icmp ne i64 %.fca.0.extract, 0
   %47 = icmp ult i64 %5, %.fca.1.extract
-  %.0.i24 = select i1 %.not.i23, i1 %47, i1 false
-  %spec.select10 = select i1 %.0.i24, i8 1, i8 %.05
+  %spec.select.i = select i1 %.not.i23, i1 %47, i1 false
+  %spec.select10 = select i1 %spec.select.i, i8 1, i8 %.05
   br label %29
 
 48:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7eda9844bac99617E.llvm.885679253126787145.exit.i", %41, %.critedge.i

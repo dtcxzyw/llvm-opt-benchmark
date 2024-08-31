@@ -213496,7 +213496,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %JS_ToFloat64Free.ex
   %.2 = phi i32 [ %46, %45 ], [ %61, %JS_ToFloat64Free.exit.thread ]
   %63 = icmp eq i32 %.2, 0
   %64 = call i32 @llvm.ucmp.i32.i32(i32 %11, i32 %12)
-  %spec.select = select i1 %63, i32 %64, i32 %.2
+  %.3 = select i1 %63, i32 %64, i32 %.2
   %65 = getelementptr inbounds i8, ptr %2, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 48
@@ -213512,12 +213512,12 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %JS_ToFloat64Free.ex
 
 .sink.split:                                      ; preds = %62, %JS_ToFloat64Free.exit, %10
   %.sink = phi i32 [ 1, %10 ], [ 1, %JS_ToFloat64Free.exit ], [ 2, %62 ]
-  %.1.ph = phi i32 [ 0, %10 ], [ 0, %JS_ToFloat64Free.exit ], [ %spec.select, %62 ]
+  %.1.ph = phi i32 [ 0, %10 ], [ 0, %JS_ToFloat64Free.exit ], [ %.3, %62 ]
   store i32 %.sink, ptr %8, align 8
   br label %71
 
 71:                                               ; preds = %.sink.split, %62
-  %.1 = phi i32 [ %spec.select, %62 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ %.3, %62 ], [ %.1.ph, %.sink.split ]
   %.sroa.01.0.copyload = load i64, ptr %5, align 16
   %.sroa.22.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8
   %72 = trunc i64 %.sroa.22.0.copyload to i32

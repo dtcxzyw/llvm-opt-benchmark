@@ -3214,8 +3214,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha9
   %.0.i.i.i.i.i = select i1 %12, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %14 = icmp eq i8 %.0.i.i.i.i.i, 0
   %.0.i8.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val10.i, i64 %.val12.i)
-  %spec.select.i.i.i.i = select i1 %14, i8 %.0.i8.i.i.i.i, i8 %.0.i.i.i.i.i
-  switch i8 %spec.select.i.i.i.i, label %15 [
+  %.0.i.i.i.i = select i1 %14, i8 %.0.i8.i.i.i.i, i8 %.0.i.i.i.i.i
+  switch i8 %.0.i.i.i.i, label %15 [
     i8 2, label %16
     i8 -1, label %_ZN4core5slice4sort11insert_tail17h22a98a372f45a995E.exit
     i8 0, label %_ZN4core5slice4sort11insert_tail17h22a98a372f45a995E.exit
@@ -3257,8 +3257,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha9
   %.0.i.i.i.i23.i = select i1 %22, i8 %..i.i.i.i21.i, i8 %.1.i.i.i.i22.i
   %24 = icmp eq i8 %.0.i.i.i.i23.i, 0
   %.0.i8.i.i.i24.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val10.i, i64 %.val16.i)
-  %spec.select.i.i.i25.i = select i1 %24, i8 %.0.i8.i.i.i24.i, i8 %.0.i.i.i.i23.i
-  switch i8 %spec.select.i.i.i25.i, label %25 [
+  %.0.i.i.i25.i = select i1 %24, i8 %.0.i8.i.i.i24.i, i8 %.0.i.i.i.i23.i
+  switch i8 %.0.i.i.i25.i, label %25 [
     i8 2, label %26
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit26.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit26.i"
@@ -6839,8 +6839,8 @@ define void @_ZN8mini_lsm7compact7leveled27LeveledCompactionController24generate
   %.0.i.i.i.i.i.i.i.i = select i1 %121, i8 %..i.i.i.i.i.i.i.i, i8 %.1.i.i.i.i.i.i.i.i
   %123 = icmp eq i8 %.0.i.i.i.i.i.i.i.i, 0
   %.0.i8.i.i.i.i.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val28.i.i.i.i, i64 %.val30.i.i.i.i)
-  %spec.select.i.i.i.i.i.i.i = select i1 %123, i8 %.0.i8.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i
-  switch i8 %spec.select.i.i.i.i.i.i.i, label %124 [
+  %.0.i.i.i.i.i.i.i = select i1 %123, i8 %.0.i8.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i
+  switch i8 %.0.i.i.i.i.i.i.i, label %124 [
     i8 2, label %.invoke.i.i.i
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit.i.i.i.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit.i.i.i.i"
@@ -6886,8 +6886,8 @@ define void @_ZN8mini_lsm7compact7leveled27LeveledCompactionController24generate
   %.0.i.i.i.i41.i.i.i.i = select i1 %132, i8 %..i.i.i.i39.i.i.i.i, i8 %.1.i.i.i.i40.i.i.i.i
   %134 = icmp eq i8 %.0.i.i.i.i41.i.i.i.i, 0
   %.0.i8.i.i.i42.i.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val32.i.i.i.i, i64 %.val34.i.i.i.i)
-  %spec.select.i.i.i43.i.i.i.i = select i1 %134, i8 %.0.i8.i.i.i42.i.i.i.i, i8 %.0.i.i.i.i41.i.i.i.i
-  switch i8 %spec.select.i.i.i43.i.i.i.i, label %135 [
+  %.0.i.i.i43.i.i.i.i = select i1 %134, i8 %.0.i8.i.i.i42.i.i.i.i, i8 %.0.i.i.i.i41.i.i.i.i
+  switch i8 %.0.i.i.i43.i.i.i.i, label %135 [
     i8 2, label %.invoke.i.i.i
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit44.i.i.i.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit44.i.i.i.i"
@@ -6917,8 +6917,8 @@ define void @_ZN8mini_lsm7compact7leveled27LeveledCompactionController24generate
   %.0.i.i.i.i47.i.i.i.i = select i1 %139, i8 %..i.i.i.i45.i.i.i.i, i8 %.1.i.i.i.i46.i.i.i.i
   %141 = icmp eq i8 %.0.i.i.i.i47.i.i.i.i, 0
   %.0.i8.i.i.i48.i.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val36.i.i.i.i, i64 %.val38.i.i.i.i)
-  %spec.select.i.i.i49.i.i.i.i = select i1 %141, i8 %.0.i8.i.i.i48.i.i.i.i, i8 %.0.i.i.i.i47.i.i.i.i
-  switch i8 %spec.select.i.i.i49.i.i.i.i, label %142 [
+  %.0.i.i.i49.i.i.i.i = select i1 %141, i8 %.0.i8.i.i.i48.i.i.i.i, i8 %.0.i.i.i.i47.i.i.i.i
+  switch i8 %.0.i.i.i49.i.i.i.i, label %142 [
     i8 2, label %.invoke.i.i.i
     i8 -1, label %.loopexit16.i.i.i
     i8 0, label %.loopexit16.i.i.i
@@ -7254,8 +7254,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
   %.0.i.i.i.i.i73.i.i.i = select i1 %269, i8 %..i.i.i.i.i71.i.i.i, i8 %.1.i.i.i.i.i72.i.i.i
   %271 = icmp eq i8 %.0.i.i.i.i.i73.i.i.i, 0
   %.0.i8.i.i.i.i74.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val35.i68.i.i.i, i64 %.val37.i70.i.i.i)
-  %spec.select.i.i.i.i75.i.i.i = select i1 %271, i8 %.0.i8.i.i.i.i74.i.i.i, i8 %.0.i.i.i.i.i73.i.i.i
-  switch i8 %spec.select.i.i.i.i75.i.i.i, label %272 [
+  %.0.i.i.i.i75.i.i.i = select i1 %271, i8 %.0.i8.i.i.i.i74.i.i.i, i8 %.0.i.i.i.i.i73.i.i.i
+  switch i8 %.0.i.i.i.i75.i.i.i, label %272 [
     i8 2, label %273
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit.i76.i.i.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit.i76.i.i.i"
@@ -7303,8 +7303,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
   %.0.i.i.i.i43.i.i.i.i = select i1 %283, i8 %..i.i.i.i41.i.i.i.i, i8 %.1.i.i.i.i42.i.i.i.i
   %285 = icmp eq i8 %.0.i.i.i.i43.i.i.i.i, 0
   %.0.i8.i.i.i44.i.i.i.i = call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.028.val38.i.i.i.i, i64 %.val40.i.i.i.i)
-  %spec.select.i.i.i45.i.i.i.i = select i1 %285, i8 %.0.i8.i.i.i44.i.i.i.i, i8 %.0.i.i.i.i43.i.i.i.i
-  switch i8 %spec.select.i.i.i45.i.i.i.i, label %286 [
+  %.0.i.i.i45.i.i.i.i = select i1 %285, i8 %.0.i8.i.i.i44.i.i.i.i, i8 %.0.i.i.i.i43.i.i.i.i
+  switch i8 %.0.i.i.i45.i.i.i.i, label %286 [
     i8 2, label %287
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit47.i.i.i.i"
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hcd1abf8b35e5aa75E.exit47.i.i.i.i"

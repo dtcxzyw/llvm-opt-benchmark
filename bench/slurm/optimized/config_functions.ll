@@ -494,10 +494,18 @@ define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_ave_time(ptr nocapture no
   %13 = ptrtoint ptr %4 to i64
   %14 = lshr i64 %13, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ult i64 %6, %8
+  br i1 %9, label %19, label %16
+
+16:                                               ; preds = %2
+  %17 = icmp ult i64 %6, %8
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %16
   %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %12, i32 %15)
-  %spec.select = select i1 %16, i32 1, i32 %.0.i
-  %.0 = select i1 %9, i32 -1, i32 %spec.select
+  br label %19
+
+19:                                               ; preds = %16, %2, %18
+  %.0 = phi i32 [ %.0.i, %18 ], [ -1, %2 ], [ 1, %16 ]
   ret i32 %.0
 }
 
@@ -516,10 +524,18 @@ define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_time(ptr nocapture nounde
   %13 = ptrtoint ptr %4 to i64
   %14 = lshr i64 %13, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ult i64 %6, %8
+  br i1 %9, label %19, label %16
+
+16:                                               ; preds = %2
+  %17 = icmp ult i64 %6, %8
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %16
   %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %12, i32 %15)
-  %spec.select = select i1 %16, i32 1, i32 %.0.i
-  %.0 = select i1 %9, i32 -1, i32 %spec.select
+  br label %19
+
+19:                                               ; preds = %16, %2, %18
+  %.0 = phi i32 [ %.0.i, %18 ], [ -1, %2 ], [ 1, %16 ]
   ret i32 %.0
 }
 
@@ -530,11 +546,11 @@ define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_cnt(ptr nocapture noundef
   %5 = load i32, ptr %3, align 8
   %6 = load i32, ptr %4, align 8
   %7 = icmp ugt i32 %5, %6
-  br i1 %7, label %23, label %8
+  br i1 %7, label %_sort_rpc_obj_by_time.exit, label %8
 
 8:                                                ; preds = %2
   %9 = icmp ult i32 %5, %6
-  br i1 %9, label %23, label %10
+  br i1 %9, label %_sort_rpc_obj_by_time.exit, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -548,14 +564,18 @@ define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_cnt(ptr nocapture noundef
   %19 = ptrtoint ptr %4 to i64
   %20 = lshr i64 %19, 32
   %21 = trunc nuw i64 %20 to i32
-  %22 = icmp ult i64 %12, %14
-  %.0.i.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %18, i32 %21)
-  %spec.select.i = select i1 %22, i32 1, i32 %.0.i.i
-  %.0.i = select i1 %15, i32 -1, i32 %spec.select.i
-  br label %23
+  br i1 %15, label %_sort_rpc_obj_by_time.exit, label %22
 
-23:                                               ; preds = %8, %2, %10
-  %.0 = phi i32 [ %.0.i, %10 ], [ -1, %2 ], [ 1, %8 ]
+22:                                               ; preds = %10
+  %23 = icmp ult i64 %12, %14
+  br i1 %23, label %_sort_rpc_obj_by_time.exit, label %24
+
+24:                                               ; preds = %22
+  %.0.i.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %18, i32 %21)
+  br label %_sort_rpc_obj_by_time.exit
+
+_sort_rpc_obj_by_time.exit:                       ; preds = %24, %22, %10, %8, %2
+  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ %.0.i.i, %24 ], [ -1, %10 ], [ 1, %22 ]
   ret i32 %.0
 }
 

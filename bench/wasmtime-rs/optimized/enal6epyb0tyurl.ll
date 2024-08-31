@@ -9935,17 +9935,17 @@ _ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit: ; preds = %6
   %.not.i.i = icmp ne i32 %0, 0
   %8 = icmp ugt i32 %1, %3
   %.fr = freeze i1 %8
-  %9 = and i1 %.not.i.i, %.fr
-  %spec.select = select i1 %9, i32 %1, i32 %3
-  %spec.select27 = select i1 %9, i32 %0, i32 %2
+  %spec.select = and i1 %.not.i.i, %.fr
+  %spec.select28 = select i1 %spec.select, i32 %1, i32 %3
+  %spec.select29 = select i1 %spec.select, i32 %0, i32 %2
   br label %.thread23
 
 .thread23:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit, %6, %4
-  %10 = phi i32 [ %3, %4 ], [ %1, %6 ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
-  %11 = phi i32 [ %2, %4 ], [ %0, %6 ], [ %spec.select27, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
-  %12 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %13 = insertvalue { i32, i32 } %12, i32 %10, 1
-  ret { i32, i32 } %13
+  %9 = phi i32 [ %3, %4 ], [ %1, %6 ], [ %spec.select28, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
+  %10 = phi i32 [ %2, %4 ], [ %0, %6 ], [ %spec.select29, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
+  %11 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %12 = insertvalue { i32, i32 } %11, i32 %9, 1
+  ret { i32, i32 } %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -9961,17 +9961,17 @@ _ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit: ; preds = %6
   %.not.i.i = icmp ne i64 %0, 0
   %8 = icmp ugt i64 %1, %3
   %.fr = freeze i1 %8
-  %9 = and i1 %.not.i.i, %.fr
-  %spec.select = select i1 %9, i64 %1, i64 %3
-  %spec.select27 = select i1 %9, i64 %0, i64 %2
+  %spec.select = and i1 %.not.i.i, %.fr
+  %spec.select28 = select i1 %spec.select, i64 %1, i64 %3
+  %spec.select29 = select i1 %spec.select, i64 %0, i64 %2
   br label %.thread23
 
 .thread23:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit, %6, %4
-  %10 = phi i64 [ %3, %4 ], [ %1, %6 ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
-  %11 = phi i64 [ %2, %4 ], [ %0, %6 ], [ %spec.select27, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
-  %12 = insertvalue { i64, i64 } poison, i64 %11, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %10, 1
-  ret { i64, i64 } %13
+  %9 = phi i64 [ %3, %4 ], [ %1, %6 ], [ %spec.select28, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
+  %10 = phi i64 [ %2, %4 ], [ %0, %6 ], [ %spec.select29, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
+  %11 = insertvalue { i64, i64 } poison, i64 %10, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %9, 1
+  ret { i64, i64 } %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -38695,51 +38695,51 @@ _ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i: ; preds = %15
   %.not.i.i.i = icmp ne i64 %8, 0
   %17 = icmp ugt i64 %10, %13
   %.fr.i = freeze i1 %17
-  %18 = and i1 %.not.i.i.i, %.fr.i
-  %spec.select = select i1 %18, i64 %10, i64 %13
-  %spec.select3 = select i1 %18, i64 1, i64 %8
+  %spec.select.i = and i1 %.not.i.i.i, %.fr.i
+  %spec.select = select i1 %spec.select.i, i64 %10, i64 %13
+  %spec.select4 = select i1 %spec.select.i, i64 1, i64 %8
   br label %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit
 
 _ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i, %2, %15
-  %19 = phi i64 [ %13, %2 ], [ %10, %15 ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
-  %20 = phi i64 [ 1, %2 ], [ %8, %15 ], [ %spec.select3, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
-  store i64 %20, ptr %0, align 8
-  store i64 %19, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
-  %22 = load i32, ptr %21, align 4, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
-  %24 = load i32, ptr %23, align 4, !noundef !4
-  %25 = add i32 %24, %22
-  store i32 %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load i32, ptr %26, align 8, !range !380, !noundef !4
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
-  %31 = load i32, ptr %30, align 8, !range !380, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp ult i32 %27, %31
-  br i1 %34, label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit, label %35
+  %18 = phi i64 [ %13, %2 ], [ %10, %15 ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
+  %19 = phi i64 [ 1, %2 ], [ %8, %15 ], [ %spec.select4, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
+  store i64 %19, ptr %0, align 8
+  store i64 %18, ptr %9, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 28
+  %21 = load i32, ptr %20, align 4, !noundef !4
+  %22 = getelementptr inbounds i8, ptr %0, i64 28
+  %23 = load i32, ptr %22, align 4, !noundef !4
+  %24 = add i32 %23, %21
+  store i32 %24, ptr %22, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load i32, ptr %25, align 8, !range !380, !noundef !4
+  %27 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = load i32, ptr %29, align 8, !range !380, !noundef !4
+  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp ult i32 %26, %30
+  br i1 %33, label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit, label %34
 
-35:                                               ; preds = %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit
-  %36 = icmp eq i32 %27, %31
-  br i1 %36, label %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i, label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit
+34:                                               ; preds = %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit
+  %35 = icmp eq i32 %26, %30
+  br i1 %35, label %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i, label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i: ; preds = %35
-  %.not.i.i.i1 = icmp ne i32 %27, 0
-  %37 = icmp ugt i32 %29, %33
-  %.fr.i2 = freeze i1 %37
-  %38 = and i1 %.not.i.i.i1, %.fr.i2
-  %spec.select4 = select i1 %38, i32 %29, i32 %33
-  %spec.select5 = select i1 %38, i32 1, i32 %27
+_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i: ; preds = %34
+  %.not.i.i.i1 = icmp ne i32 %26, 0
+  %36 = icmp ugt i32 %28, %32
+  %.fr.i2 = freeze i1 %36
+  %spec.select.i3 = and i1 %.not.i.i.i1, %.fr.i2
+  %spec.select5 = select i1 %spec.select.i3, i32 %28, i32 %32
+  %spec.select6 = select i1 %spec.select.i3, i32 1, i32 %26
   br label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit
 
-_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit, %35
-  %39 = phi i32 [ %33, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %29, %35 ], [ %spec.select4, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
-  %40 = phi i32 [ 1, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %27, %35 ], [ %spec.select5, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
-  store i32 %40, ptr %26, align 8
-  store i32 %39, ptr %28, align 4
+_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit, %34
+  %37 = phi i32 [ %32, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %28, %34 ], [ %spec.select5, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
+  %38 = phi i32 [ 1, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %26, %34 ], [ %spec.select6, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
+  store i32 %38, ptr %25, align 8
+  store i32 %37, ptr %27, align 4
   ret void
 }
 

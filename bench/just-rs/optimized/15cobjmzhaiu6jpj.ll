@@ -30066,8 +30066,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val.i.i, i64 %.val21.i.i)
   %17 = icmp eq i64 %.val.i.i, %.val21.i.i
   %.0.i7.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val20.i.i, i64 %.val22.i.i)
-  %spec.select.i.i.i = select i1 %17, i8 %.0.i7.i.i.i, i8 %.0.i.i.i.i
-  switch i8 %spec.select.i.i.i, label %13 [
+  %.0.i.i.i = select i1 %17, i8 %.0.i7.i.i.i, i8 %.0.i.i.i.i
+  switch i8 %.0.i.i.i, label %13 [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
     i8 1, label %11
@@ -30208,8 +30208,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val.i.i, i64 %.val21.i.i)
   %17 = icmp eq i64 %.val.i.i, %.val21.i.i
   %.0.i7.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val20.i.i, i64 %.val22.i.i)
-  %spec.select.i.i.i = select i1 %17, i8 %.0.i7.i.i.i, i8 %.0.i.i.i.i
-  switch i8 %spec.select.i.i.i, label %13 [
+  %.0.i.i.i = select i1 %17, i8 %.0.i7.i.i.i, i8 %.0.i.i.i.i
+  switch i8 %.0.i.i.i, label %13 [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
     i8 1, label %11
@@ -32765,8 +32765,8 @@ define hidden void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..c
   %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val.i, i64 %.val21.i)
   %16 = icmp eq i64 %.val.i, %.val21.i
   %.0.i7.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val20.i, i64 %.val22.i)
-  %spec.select.i.i = select i1 %16, i8 %.0.i7.i.i, i8 %.0.i.i.i
-  switch i8 %spec.select.i.i, label %12 [
+  %.0.i.i = select i1 %16, i8 %.0.i7.i.i, i8 %.0.i.i.i
+  switch i8 %.0.i.i, label %12 [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
     i8 1, label %10
@@ -33403,8 +33403,8 @@ define hidden void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..c
   %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val.i, i64 %.val21.i)
   %16 = icmp eq i64 %.val.i, %.val21.i
   %.0.i7.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val20.i, i64 %.val22.i)
-  %spec.select.i.i = select i1 %16, i8 %.0.i7.i.i, i8 %.0.i.i.i
-  switch i8 %spec.select.i.i, label %12 [
+  %.0.i.i = select i1 %16, i8 %.0.i7.i.i, i8 %.0.i.i.i
+  switch i8 %.0.i.i, label %12 [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
     i8 1, label %10
@@ -33778,8 +33778,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val, i64 %.val21)
   %17 = icmp eq i64 %.val, %.val21
   %.0.i7.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val20, i64 %.val22)
-  %spec.select.i = select i1 %17, i8 %.0.i7.i, i8 %.0.i.i
-  switch i8 %spec.select.i, label %13 [
+  %.0.i = select i1 %17, i8 %.0.i7.i, i8 %.0.i.i
+  switch i8 %.0.i, label %13 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
     i8 1, label %11
@@ -34218,8 +34218,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val, i64 %.val21)
   %17 = icmp eq i64 %.val, %.val21
   %.0.i7.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val20, i64 %.val22)
-  %spec.select.i = select i1 %17, i8 %.0.i7.i, i8 %.0.i.i
-  switch i8 %spec.select.i, label %13 [
+  %.0.i = select i1 %17, i8 %.0.i7.i, i8 %.0.i.i
+  switch i8 %.0.i, label %13 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
     i8 1, label %11

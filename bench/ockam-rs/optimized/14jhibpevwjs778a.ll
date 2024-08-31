@@ -293,13 +293,7 @@ define hidden noundef i64 @"_ZN113_$LT$tracing_subscriber..layer..layered..Layer
   %7 = getelementptr inbounds i8, ptr %0, i64 2345
   %8 = load i8, ptr %7, align 1, !range !18, !noundef !6
   %9 = trunc nuw i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %0, i64 2346
-  %11 = load i8, ptr %10, align 2, !range !18
-  %12 = trunc nuw i8 %11 to i1
-  %.not35.i = icmp eq i64 %2, 6
-  %or.cond36.i = and i1 %.not35.i, %12
-  %or.cond = select i1 %9, i1 true, i1 %or.cond36.i
-  %spec.select = select i1 %or.cond, i64 6, i64 %2
+  %spec.select = select i1 %9, i64 6, i64 %2
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h8e97ac2e5a0b499aE.llvm.17652871756462562911.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h8e97ac2e5a0b499aE.llvm.17652871756462562911.exit": ; preds = %6, %1
@@ -1299,56 +1293,68 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %9 = getelementptr inbounds i8, ptr %0, i64 557
   %10 = load i8, ptr %9, align 1, !range !18, !noundef !6
   %11 = trunc nuw i8 %10 to i1
-  %12 = getelementptr inbounds i8, ptr %0, i64 558
-  %13 = load i8, ptr %12, align 2, !range !18
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %11, label %16, label %.thread
+  br i1 %11, label %13, label %20
 
-15:                                               ; preds = %16
+12:                                               ; preds = %13
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %.critedge, label %.thread.thread
+  br i1 %.not, label %.critedge, label %.thread49
 
-16:                                               ; preds = %8
-  br i1 %14, label %17, label %15
+.thread49:                                        ; preds = %12
+  %.not3552 = icmp eq i64 %1, 6
+  br label %21
 
-17:                                               ; preds = %16
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %0, i64 558
+  %15 = load i8, ptr %14, align 2, !range !18, !noundef !6
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %12
+
+17:                                               ; preds = %13
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
-  %or.cond46 = or i1 %18, %19
-  br i1 %or.cond46, label %.critedge, label %30
+  %or.cond47 = or i1 %18, %19
+  br i1 %or.cond47, label %.critedge, label %32
 
-.thread:                                          ; preds = %8
+20:                                               ; preds = %8
+  %.not44 = icmp eq i64 %2, 6
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 558
+  %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !18
+  %.pre48 = trunc nuw i8 %.pre to i1
   %.not35 = icmp eq i64 %1, 6
-  %or.cond36 = and i1 %.not35, %14
-  br i1 %or.cond36, label %.critedge, label %.thread.thread
+  %or.cond36 = and i1 %.not35, %.pre48
+  br i1 %or.cond36, label %.critedge, label %21
 
-.thread.thread:                                   ; preds = %15, %.thread
+21:                                               ; preds = %.thread49, %20
+  %.not3555 = phi i1 [ %.not3552, %.thread49 ], [ %.not35, %20 ]
+  %.not4654 = phi i1 [ false, %.thread49 ], [ %.not44, %20 ]
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %.critedge, label %20
+  br i1 %or.cond39, label %.critedge, label %22
 
-.critedge:                                        ; preds = %27, %25, %20, %.thread.thread, %17, %30, %.thread, %15, %4
-  %.028 = phi i64 [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ 6, %17 ], [ %.0.sroa.speculated.i, %30 ], [ %1, %.thread.thread ], [ %1, %25 ], [ %2, %20 ], [ %29, %27 ]
+.critedge:                                        ; preds = %30, %29, %27, %22, %21, %17, %32, %20, %12, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
   ret i64 %.028
 
-20:                                               ; preds = %.thread.thread
-  %21 = icmp ne i64 %1, 6
-  %22 = icmp ne i64 %2, 6
-  %23 = xor i1 %21, true
-  %24 = and i1 %22, %23
-  br i1 %24, label %.critedge, label %25
-
-25:                                               ; preds = %20
-  %26 = xor i1 %21, %22
+22:                                               ; preds = %21
+  %23 = icmp ne i64 %1, 6
+  %24 = icmp ne i64 %2, 6
+  %25 = xor i1 %23, true
+  %26 = and i1 %24, %25
   br i1 %26, label %.critedge, label %27
 
-27:                                               ; preds = %25
-  %or.cond.i.i.not.i40 = and i1 %21, %22
-  %28 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
-  %29 = select i1 %or.cond.i.i.not.i40, i64 %28, i64 %2
+27:                                               ; preds = %22
+  %28 = xor i1 %23, %24
+  br i1 %28, label %.critedge, label %29
+
+29:                                               ; preds = %27
+  %or.cond.i.i.i41 = or i1 %.not3555, %.not4654
+  br i1 %or.cond.i.i.i41, label %.critedge, label %30
+
+30:                                               ; preds = %29
+  %31 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
   br label %.critedge
 
-30:                                               ; preds = %17
+32:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 %2, i64 %1)
   br label %.critedge
 }
@@ -1364,56 +1370,68 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %9 = getelementptr inbounds i8, ptr %0, i64 2345
   %10 = load i8, ptr %9, align 1, !range !18, !noundef !6
   %11 = trunc nuw i8 %10 to i1
-  %12 = getelementptr inbounds i8, ptr %0, i64 2346
-  %13 = load i8, ptr %12, align 2, !range !18
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %11, label %16, label %.thread
+  br i1 %11, label %13, label %20
 
-15:                                               ; preds = %16
+12:                                               ; preds = %13
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %.critedge, label %.thread.thread
+  br i1 %.not, label %.critedge, label %.thread49
 
-16:                                               ; preds = %8
-  br i1 %14, label %17, label %15
+.thread49:                                        ; preds = %12
+  %.not3552 = icmp eq i64 %1, 6
+  br label %21
 
-17:                                               ; preds = %16
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %0, i64 2346
+  %15 = load i8, ptr %14, align 2, !range !18, !noundef !6
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %12
+
+17:                                               ; preds = %13
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
-  %or.cond46 = or i1 %18, %19
-  br i1 %or.cond46, label %.critedge, label %30
+  %or.cond47 = or i1 %18, %19
+  br i1 %or.cond47, label %.critedge, label %32
 
-.thread:                                          ; preds = %8
+20:                                               ; preds = %8
+  %.not44 = icmp eq i64 %2, 6
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 2346
+  %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !18
+  %.pre48 = trunc nuw i8 %.pre to i1
   %.not35 = icmp eq i64 %1, 6
-  %or.cond36 = and i1 %.not35, %14
-  br i1 %or.cond36, label %.critedge, label %.thread.thread
+  %or.cond36 = and i1 %.not35, %.pre48
+  br i1 %or.cond36, label %.critedge, label %21
 
-.thread.thread:                                   ; preds = %15, %.thread
+21:                                               ; preds = %.thread49, %20
+  %.not3555 = phi i1 [ %.not3552, %.thread49 ], [ %.not35, %20 ]
+  %.not4654 = phi i1 [ false, %.thread49 ], [ %.not44, %20 ]
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %.critedge, label %20
+  br i1 %or.cond39, label %.critedge, label %22
 
-.critedge:                                        ; preds = %27, %25, %20, %.thread.thread, %17, %30, %.thread, %15, %4
-  %.028 = phi i64 [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ 6, %17 ], [ %.0.sroa.speculated.i, %30 ], [ %1, %.thread.thread ], [ %1, %25 ], [ %2, %20 ], [ %29, %27 ]
+.critedge:                                        ; preds = %30, %29, %27, %22, %21, %17, %32, %20, %12, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
   ret i64 %.028
 
-20:                                               ; preds = %.thread.thread
-  %21 = icmp ne i64 %1, 6
-  %22 = icmp ne i64 %2, 6
-  %23 = xor i1 %21, true
-  %24 = and i1 %22, %23
-  br i1 %24, label %.critedge, label %25
-
-25:                                               ; preds = %20
-  %26 = xor i1 %21, %22
+22:                                               ; preds = %21
+  %23 = icmp ne i64 %1, 6
+  %24 = icmp ne i64 %2, 6
+  %25 = xor i1 %23, true
+  %26 = and i1 %24, %25
   br i1 %26, label %.critedge, label %27
 
-27:                                               ; preds = %25
-  %or.cond.i.i.not.i40 = and i1 %21, %22
-  %28 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
-  %29 = select i1 %or.cond.i.i.not.i40, i64 %28, i64 %2
+27:                                               ; preds = %22
+  %28 = xor i1 %23, %24
+  br i1 %28, label %.critedge, label %29
+
+29:                                               ; preds = %27
+  %or.cond.i.i.i41 = or i1 %.not3555, %.not4654
+  br i1 %or.cond.i.i.i41, label %.critedge, label %30
+
+30:                                               ; preds = %29
+  %31 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
   br label %.critedge
 
-30:                                               ; preds = %17
+32:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 %2, i64 %1)
   br label %.critedge
 }

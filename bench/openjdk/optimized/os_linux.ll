@@ -10238,8 +10238,8 @@ define hidden noundef i32 @_ZN2os27compare_file_modified_timesEPKcS1_(ptr nounde
   %9 = call noundef i32 @llvm.scmp.i32.i64(i64 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.i4)
   %10 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i4
   %11 = call i32 @llvm.scmp.i32.i64(i64 %.sroa.2.0.copyload.i, i64 %.sroa.2.0.copyload.i6)
-  %spec.select = select i1 %10, i32 %11, i32 %9
-  ret i32 %spec.select
+  %.0 = select i1 %10, i32 %11, i32 %9
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
