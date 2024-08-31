@@ -102,28 +102,27 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 _ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit: ; preds = %for.body12, %init.check.i.i, %init.i.i
   %agg.tmp.sroa.0.0.copyload5.i.i = load <8 x i32>, ptr @_ZZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits, align 32
-  %9 = and <8 x i32> %6, <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>
-  %10 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %agg.tmp.sroa.0.0.copyload5.i.i, <8 x i32> %9)
+  %9 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %agg.tmp.sroa.0.0.copyload5.i.i, <8 x i32> %6)
   %retval.sroa.0.0.copyload.i.i6.i.i = load <8 x i32>, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 256), align 32
-  %11 = ashr <8 x i32> %6, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
-  %12 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %bits, <8 x i32> %11, <8 x i32> %retval.sroa.0.0.copyload.i.i6.i.i, i8 1)
-  %and.i.i.i.i27.i.i = and <8 x i32> %12, %10
+  %10 = ashr <8 x i32> %6, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %11 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %bits, <8 x i32> %10, <8 x i32> %retval.sroa.0.0.copyload.i.i6.i.i, i8 1)
+  %and.i.i.i.i27.i.i = and <8 x i32> %11, %9
   %cmp.i.i.i.i.i.i = icmp eq <8 x i32> %and.i.i.i.i27.i.i, zeroinitializer
-  %13 = bitcast <8 x i1> %cmp.i.i.i.i.i.i to i8
-  %14 = xor i8 %13, -1
+  %12 = bitcast <8 x i1> %cmp.i.i.i.i.i.i to i8
+  %13 = xor i8 %12, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %resultPtr.031, i64 1
-  store i8 %14, ptr %resultPtr.031, align 1
+  store i8 %13, ptr %resultPtr.031, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %cmp11 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 8
   br i1 %cmp11, label %for.body12, label %for.end24.loopexit, !llvm.loop !7
 
 for.end24.loopexit:                               ; preds = %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end24
 
 for.end24:                                        ; preds = %for.end24.loopexit, %for.cond9.preheader
-  %i8.0.lcssa = phi i32 [ 0, %for.cond9.preheader ], [ %15, %for.end24.loopexit ]
+  %i8.0.lcssa = phi i32 [ 0, %for.cond9.preheader ], [ %14, %for.end24.loopexit ]
   %resultPtr.0.lcssa = phi ptr [ %result, %for.cond9.preheader ], [ %incdec.ptr, %for.end24.loopexit ]
   %conv25 = zext nneg i32 %i8.0.lcssa to i64
   %cmp26.not = icmp eq i64 %sub.ptr.div.i, %conv25
@@ -131,16 +130,16 @@ for.end24:                                        ; preds = %for.end24.loopexit,
 
 if.then27:                                        ; preds = %for.end24
   %add.ptr30 = getelementptr inbounds i32, ptr %indexRange.coerce0, i64 %conv25
-  %16 = load <8 x i32>, ptr %add.ptr30, align 1
-  %17 = trunc i64 %sub.ptr.div.i to i32
-  %conv36 = sub i32 %17, %i8.0.lcssa
-  %18 = load atomic i8, ptr @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits acquire, align 8
-  %guard.uninitialized.i.i19 = icmp eq i8 %18, 0
+  %15 = load <8 x i32>, ptr %add.ptr30, align 1
+  %16 = trunc i64 %sub.ptr.div.i to i32
+  %conv36 = sub i32 %16, %i8.0.lcssa
+  %17 = load atomic i8, ptr @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits acquire, align 8
+  %guard.uninitialized.i.i19 = icmp eq i8 %17, 0
   br i1 %guard.uninitialized.i.i19, label %init.check.i.i24, label %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit27, !prof !6
 
 init.check.i.i24:                                 ; preds = %if.then27
-  %19 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits) #8
-  %tobool.not.i.i25 = icmp eq i32 %19, 0
+  %18 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits) #8
+  %tobool.not.i.i25 = icmp eq i32 %18, 0
   br i1 %tobool.not.i.i25, label %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit27, label %init.i.i26
 
 init.i.i26:                                       ; preds = %init.check.i.i24
@@ -150,18 +149,17 @@ init.i.i26:                                       ; preds = %init.check.i.i24
 
 _ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit27: ; preds = %if.then27, %init.check.i.i24, %init.i.i26
   %agg.tmp.sroa.0.0.copyload5.i.i20 = load <8 x i32>, ptr @_ZZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits, align 32
-  %20 = and <8 x i32> %16, <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>
-  %21 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %agg.tmp.sroa.0.0.copyload5.i.i20, <8 x i32> %20)
+  %19 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %agg.tmp.sroa.0.0.copyload5.i.i20, <8 x i32> %15)
   %conv.i.i.i = sext i32 %conv36 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
   %retval.sroa.0.0.copyload.i.i6.i.i21 = load <8 x i32>, ptr %arrayidx.i.i.i.i, align 32
-  %22 = ashr <8 x i32> %16, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
-  %23 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %bits, <8 x i32> %22, <8 x i32> %retval.sroa.0.0.copyload.i.i6.i.i21, i8 1)
-  %and.i.i.i.i27.i.i22 = and <8 x i32> %23, %21
+  %20 = ashr <8 x i32> %15, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %21 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %bits, <8 x i32> %20, <8 x i32> %retval.sroa.0.0.copyload.i.i6.i.i21, i8 1)
+  %and.i.i.i.i27.i.i22 = and <8 x i32> %21, %19
   %cmp.i.i.i.i.i.i23 = icmp eq <8 x i32> %and.i.i.i.i27.i.i22, zeroinitializer
-  %24 = bitcast <8 x i1> %cmp.i.i.i.i.i.i23 to i8
-  %25 = xor i8 %24, -1
-  store i8 %25, ptr %resultPtr.0.lcssa, align 1
+  %22 = bitcast <8 x i1> %cmp.i.i.i.i.i.i23 to i8
+  %23 = xor i8 %22, -1
+  store i8 %23, ptr %resultPtr.0.lcssa, align 1
   br label %if.end43
 
 if.end43:                                         ; preds = %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit27, %for.end24, %for.end
