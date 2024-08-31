@@ -2686,7 +2686,7 @@ ceres/single_linkage_clustering.cc.ll 516497652
 ceres/solver.cc.ll 1844071699
 ceres/sparse_cholesky.cc.ll 159394435
 ceres/sparse_normal_cholesky_solver.cc.ll 736124471
-ceres/stringprintf.cc.ll 45809008
+ceres/stringprintf.cc.ll 45854975
 ceres/subset_preconditioner.cc.ll 248255542
 ceres/thread_pool.cc.ll 472808326
 ceres/thread_token_provider.cc.ll 235378598
@@ -35129,7 +35129,7 @@ wireshark/packet-cimd.c.ll 146464740
 wireshark/packet-cip.c.ll 2492034636
 wireshark/packet-cipmotion.c.ll 578263422
 wireshark/packet-cipsafety.c.ll 555689675
-wireshark/packet-cisco-fp-mim.c.ll 89105046
+wireshark/packet-cisco-fp-mim.c.ll 89015934
 wireshark/packet-cisco-mcp.c.ll 96163165
 wireshark/packet-classicstun.c.ll 150210664
 wireshark/packet-clique-rm.c.ll 101996739
