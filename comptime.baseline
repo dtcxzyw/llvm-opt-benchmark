@@ -27273,7 +27273,7 @@ postgres/pg_depend.ll 210372316
 postgres/pg_dump.ll 5686286818
 postgres/pg_dump_sort.ll 674815509
 postgres/pg_dumpall.ll 692790654
-postgres/pg_enum.ll 198339462
+postgres/pg_enum.ll 198537817
 postgres/pg_inherits.ll 207525551
 postgres/pg_isready.ll 106374287
 postgres/pg_locale.ll 395221025
