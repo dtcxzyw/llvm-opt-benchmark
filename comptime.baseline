@@ -23287,7 +23287,7 @@ openmpi/libmpi_c_profile_la-type_create_struct.ll 79264451
 openmpi/libmpi_c_profile_la-type_create_subarray.ll 84447955
 openmpi/libmpi_c_profile_la-type_delete_attr.ll 43072930
 openmpi/libmpi_c_profile_la-type_dup.ll 91523490
-openmpi/libmpi_c_profile_la-type_extent.ll 46050402
+openmpi/libmpi_c_profile_la-type_extent.ll 46096480
 openmpi/libmpi_c_profile_la-type_f2c.ll 48598129
 openmpi/libmpi_c_profile_la-type_free.ll 45325641
 openmpi/libmpi_c_profile_la-type_free_keyval.ll 42070226
@@ -25439,7 +25439,7 @@ openssl/libcrypto-shlib-ts_rsp_utils.ll 101032252
 openssl/libcrypto-shlib-ts_rsp_verify.ll 175308536
 openssl/libcrypto-shlib-ts_verify_ctx.ll 68365734
 openssl/libcrypto-shlib-txt_db.ll 200914311
-openssl/libcrypto-shlib-ui_err.ll 35754771
+openssl/libcrypto-shlib-ui_err.ll 35790574
 openssl/libcrypto-shlib-ui_lib.ll 236501879
 openssl/libcrypto-shlib-ui_null.ll 33907125
 openssl/libcrypto-shlib-ui_openssl.ll 102028379
