@@ -8013,7 +8013,7 @@ graphviz/gvtool_tred.c.ll 58110468
 graphviz/gvusershape.c.ll 584567898
 graphviz/gxl2gv.c.ll 395275281
 graphviz/heap.c.ll 89385408
-graphviz/hedges.c.ll 130472266
+graphviz/hedges.c.ll 130341791
 graphviz/htmllex.c.ll 469206619
 graphviz/htmlparse.c.ll 302079322
 graphviz/htmltable.c.ll 1016292779
@@ -24201,7 +24201,7 @@ openssl/cipher_overhead_test-bin-cipher_overhead_test.ll 52311061
 openssl/cipherbytes_test-bin-cipherbytes_test.ll 72336590
 openssl/cipherlist_test-bin-cipherlist_test.ll 85182776
 openssl/ciphername_test-bin-ciphername_test.ll 84409883
-openssl/client-test-bin-client.ll 52153315
+openssl/client-test-bin-client.ll 52205540
 openssl/client-test-bin-fuzz_rand.ll 58759518
 openssl/clienthellotest-bin-clienthellotest.ll 156297622
 openssl/cmactest-bin-cmactest.ll 161643621
@@ -28595,7 +28595,7 @@ qemu/crypto_ivgen-plain.c.ll 40716961
 qemu/crypto_ivgen-plain64.c.ll 40547551
 qemu/crypto_pbkdf-gnutls.c.ll 41587178
 qemu/crypto_random-gnutls.c.ll 37230113
-qemu/crypto_rsakey.c.ll 81139568
+qemu/crypto_rsakey.c.ll 81220804
 qemu/crypto_secret_common.c.ll 107236529
 qemu/crypto_tls-cipher-suites.c.ll 82723527
 qemu/crypto_tlscreds.c.ll 91729193
