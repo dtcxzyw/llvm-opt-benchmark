@@ -24807,7 +24807,7 @@ openssl/libcrypto-lib-siphash.ll 175953569
 openssl/libcrypto-lib-siv128.ll 118529371
 openssl/libcrypto-lib-sleep.ll 35347751
 openssl/libcrypto-lib-sm2_crypt.ll 142929512
-openssl/libcrypto-lib-sm2_err.ll 35801043
+openssl/libcrypto-lib-sm2_err.ll 35836847
 openssl/libcrypto-lib-sm2_key.ll 41436770
 openssl/libcrypto-lib-sm2_sign.ll 139275989
 openssl/libcrypto-lib-sm3.ll 2544665691
